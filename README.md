@@ -1,5 +1,6 @@
 # kwen-mobile
 
+// Note: may need refactoring
 Repository cleaned.
 
 # Update 1 - 1576656015
