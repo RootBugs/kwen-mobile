@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
+
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { PostCard } from '@/components/feed/post-card';
 import { FeedSkeleton } from '@/components/feed/feed-skeleton';
@@ -86,6 +87,7 @@ export default function Feed() {
     if (!hasMore || loading) return;
     const nextPage = page + 1;
     setPage(nextPage);
+
     fetchPosts(nextPage);
   }, [hasMore, loading, page, fetchPosts]);
 
@@ -146,7 +148,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
-  },
+  },  // TODO: refactor
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
