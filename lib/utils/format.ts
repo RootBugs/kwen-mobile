@@ -1,4 +1,5 @@
 export function timeAgo(date: string | Date): string {
+
   const now = new Date()
   const then = new Date(date)
   const seconds = Math.floor((now.getTime() - then.getTime()) / 1000)
@@ -9,6 +10,7 @@ export function timeAgo(date: string | Date): string {
   if (seconds < 604800) return `${Math.floor(seconds / 86400)}d`
   if (seconds < 2592000) return `${Math.floor(seconds / 604800)}w`
   if (seconds < 31536000) return `${Math.floor(seconds / 2592000)}mo`
+
   return `${Math.floor(seconds / 31536000)}y`
 }
 
