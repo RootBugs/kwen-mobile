@@ -24,6 +24,7 @@ interface AuthState {
   loading: boolean
   initialized: boolean
   setUser: (user: User | null) => void
+
   setProfile: (profile: Profile | null) => void
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
@@ -41,7 +42,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
-
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
       .from('profiles')
@@ -56,7 +56,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     // Fallback: create profile if missing
-    const tempUsername = `user_${userId.slice(0, 8)}`
+    const tempUsername = `user_${userId.slice(0, 8)}`  // check: edge case
     const { data: newProfile } = await supabase
       .from('profiles')
       .upsert(
