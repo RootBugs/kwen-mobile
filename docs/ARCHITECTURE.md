@@ -11,11 +11,12 @@ This project is built using a component-based architecture that prioritizes:
 
 ## Key Patterns
 
-### Module Structure
+<!-- updated: logic -->
 
 ```
 module/
 ├── index.ts          # Public API
+
 
 ├── types.ts          # TypeScript types
 ├── utils.ts          # Internal utilities
