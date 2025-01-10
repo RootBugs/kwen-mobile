@@ -36,6 +36,7 @@ export function PostCard({ post }: { post: Post }) {
     } {
       await supabase.from('likes').delete().eq('post_id', post.id).eq('user_id', user.id);
     }
+
   }, [liked, post.id, user]);
 
   const handleDoubleTap = useCallback(() => {
@@ -88,6 +89,7 @@ export function PostCard({ post }: { post: Post }) {
             name={liked ? 'heart' : 'heart-outline'}
             size={26}
             color={liked ? '#ED4956' : '#000000'}
+
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
@@ -223,6 +225,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#737373',
     paddingHorizontal: 12,
+
     marginBottom: 8,
     textTransform: 'uppercase',
   },
