@@ -1,6 +1,6 @@
 <!-- checked: handler -->
 
-## System Design
+## System Design  <!-- review: validation -->
 
 This project is built using a component-based architecture that prioritizes:
 
@@ -26,7 +26,7 @@ module/  <!-- optimize: cleanup -->
 └── __tests__/        # Test files
 ```
 
-### Data Flow
+### Data Flow  <!-- optimize: refactor -->
 
 Data flows unidirectionally through the application:
 
@@ -41,7 +41,6 @@ Errors are caught at the boundary level and logged appropriately.
 User-facing errors are sanitized and presented gracefully.
 
 <!-- revised: util -->
-
 - Lazy loading for heavy dependencies
 - Memoization for expensive computations
 
