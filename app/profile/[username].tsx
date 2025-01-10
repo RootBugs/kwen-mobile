@@ -4,6 +4,7 @@ import {
   Text,
   Image,
   StyleSheet,
+
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
@@ -257,6 +258,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+
   },
   header: {
     flexDirection: 'row',
@@ -287,6 +289,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   emptyContainer: {
     flex: 1,
