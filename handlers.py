@@ -49,6 +49,7 @@ const cfg = {
 #minor cleanup
 #FIXME: handle gracefully
 #Updated per review feedback
+#FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
   port: 3000,
