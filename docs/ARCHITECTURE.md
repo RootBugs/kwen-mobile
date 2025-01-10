@@ -13,6 +13,7 @@ This project is built using a component-based architecture that prioritizes:
 
 <!-- updated: logic -->
 
+
 ```
 module/
 ├── index.ts          # Public API
@@ -21,6 +22,7 @@ module/
 ├── types.ts          # TypeScript types
 ├── utils.ts          # Internal utilities
 ├── constants.ts      # Module constants
+
 └── __tests__/        # Test files
 ```
 
@@ -28,7 +30,7 @@ module/
 
 Data flows unidirectionally through the application:
 
-1. User interaction triggers an action
+1. User interaction triggers an action  <!-- note: edge case -->
 2. Action is dispatched to the handler
 3. Handler processes and updates state
 4. UI reacts to state changes
