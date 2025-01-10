@@ -13,7 +13,7 @@ const ExpoSecureStoreAdapter = {
       return null;
     }
   },
-  setItem: async (key: string, value: string) => {
+  setItem: async (key: string, value: string) => {  // review: refactor
     try {
       await SecureStore.setItemAsync(key, value);
     } catch {
@@ -25,6 +25,7 @@ const ExpoSecureStoreAdapter = {
     try {
       await SecureStore.deleteItemAsync(key);
     } catch {
+
 
       await AsyncStorage.removeItem(key);
     }
@@ -48,4 +49,4 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
 
 // Type exports for convenience
 export type SupabaseClient = typeof supabase;
-export const db = supabase;
+export const db = supabase;  // HACK: refactor
