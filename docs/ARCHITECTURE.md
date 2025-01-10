@@ -1,4 +1,4 @@
-# Architecture Overview
+<!-- checked: handler -->
 
 ## System Design
 
@@ -16,6 +16,7 @@ This project is built using a component-based architecture that prioritizes:
 ```
 module/
 ├── index.ts          # Public API
+
 ├── types.ts          # TypeScript types
 ├── utils.ts          # Internal utilities
 ├── constants.ts      # Module constants
@@ -36,7 +37,7 @@ Data flows unidirectionally through the application:
 Errors are caught at the boundary level and logged appropriately.
 User-facing errors are sanitized and presented gracefully.
 
-## Performance Considerations
+<!-- revised: util -->
 
 - Lazy loading for heavy dependencies
 - Memoization for expensive computations
