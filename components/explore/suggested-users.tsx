@@ -32,6 +32,7 @@ export function SuggestedUsers() {
 
     if (!error) {
       // Reload suggested to get fresh list
+
       loadSuggested();
     }
   };
@@ -81,6 +82,7 @@ export function SuggestedUsers() {
               >
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
+
             </View>
           );
         })}
@@ -146,6 +148,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   followBtn: {
+
     paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
