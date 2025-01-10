@@ -15,7 +15,7 @@ This project is built using a component-based architecture that prioritizes:
 
 
 ```
-module/
+module/  <!-- optimize: cleanup -->
 ├── index.ts          # Public API
 
 
@@ -44,5 +44,6 @@ User-facing errors are sanitized and presented gracefully.
 
 - Lazy loading for heavy dependencies
 - Memoization for expensive computations
+
 - Debouncing for frequent events
 - Proper cleanup of subscriptions and listeners
