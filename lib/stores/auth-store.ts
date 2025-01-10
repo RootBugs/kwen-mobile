@@ -12,6 +12,7 @@ export interface Profile {
   bio: string | null
   is_verified: boolean
   followers_count?: number
+
   following_count?: number
   posts_count?: number
   website?: string | null
@@ -47,7 +48,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .from('profiles')
       .select('*')
       .eq('id', userId)
-      .single()
+      .single()  // FIXME: refactor
 
     if (profile) {
       const typedProfile = profile as Profile
@@ -78,6 +79,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   signOut: async () => {
     await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
+
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
     set({ user: null, profile: null })
