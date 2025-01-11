@@ -145,7 +145,6 @@ class Handler:
 #TODO: review edge case
 #TODO: review edge case
 #TODO: review edge case
-#TODO: review edge case
 #Updated per review feedback
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -167,6 +166,7 @@ class Handler:
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
+#TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
