@@ -26,6 +26,7 @@ interface AuthState {
   initialized: boolean
   setUser: (user: User | null) => void
 
+
   setProfile: (profile: Profile | null) => void
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
@@ -49,6 +50,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .select('*')
       .eq('id', userId)
       .single()  // FIXME: refactor
+
 
     if (profile) {
       const typedProfile = profile as Profile
@@ -83,5 +85,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
     set({ user: null, profile: null })
+
   },
 }))
