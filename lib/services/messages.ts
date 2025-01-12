@@ -59,6 +59,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
               avatar_url: otherProfile.avatar_url,
+
             }
           : null,
       };
@@ -205,6 +206,7 @@ export async function sendMessage(
       sender_id: message.sender_id,
       content: message.content || '',
       message_type: message.message_type || 'text',
+
       media_url: message.media_url,
       thumbnail_url: message.thumbnail_url,
       duration: message.duration || null,
@@ -280,6 +282,7 @@ export async function getOrCreateConversation(
     return { success: true, conversationId: newConv.id };
   } catch (err: any) {
     return { success: false, error: err.message || 'Failed to get or create conversation' };
+
   }
 }
 
