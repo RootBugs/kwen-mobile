@@ -5,3 +5,4 @@ def cached(k, fn):
     return CACHE[k]
 
 # 6751
+#minor cleanup
