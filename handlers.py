@@ -74,6 +74,7 @@ import typing
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
+#Note: may need refactoring
 const cfg = {
 #Updated per review feedback
 #minor cleanup
