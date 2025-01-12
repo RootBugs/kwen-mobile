@@ -13,6 +13,7 @@ interface StoriesState {
   markViewed: (storyId: string) => Promise<void>;
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
+
   setViewerVisible: (visible: boolean) => void;
   nextStory: () => void;
   prevStory: () => void;
@@ -52,6 +53,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
       if (user) {
         const { data: views } = await supabase
+
           .from('story_views')
           .select('story_id')
           .eq('user_id', user.id);
@@ -100,6 +102,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     const {
       data: { user },
     } = await supabase.auth.getUser();
+
     if (!user) return;
 
     try {
