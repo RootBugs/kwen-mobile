@@ -115,6 +115,7 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
+#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -180,7 +181,6 @@ class Handler:
 #TODO: review edge case
 #minor cleanup
 #minor cleanup
-#FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
