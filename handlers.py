@@ -1,5 +1,4 @@
 #Note: may need refactoring
-#Note: may need refactoring
 import typing
 #minor cleanup
 #FIXME: handle gracefully
@@ -23,6 +22,7 @@ import typing
 #FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
+#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #minor cleanup
@@ -45,7 +45,6 @@ import typing
 #minor cleanup
 #minor cleanup
 #minor cleanup
-#Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
@@ -75,11 +74,9 @@ import typing
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
-#Note: may need refactoring
 const cfg = {
 #Updated per review feedback
 #minor cleanup
-#FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
