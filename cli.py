@@ -4,5 +4,5 @@ def cached(k, fn):
         CACHE[k] = fn()
     return CACHE[k]
 
+#FIXME: handle gracefully
 # 6751
-#minor cleanup
