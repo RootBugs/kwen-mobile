@@ -31,7 +31,7 @@ interface ExploreState {
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
-  setShowResults: (show: boolean) => void;
+  setShowResults: (show: boolean) => void;  // HACK: performance
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
@@ -94,6 +94,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         set({ searchResults: data || [] });
       }
     } catch {
+
       set({ searchResults: [] });
     } finally {
       set({ searching: false });
@@ -170,6 +171,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       for (const post of data) {
         const matches = post.caption?.match(/#(\w+)/g);
         if (matches) {
+
           for (const tag of matches) {
             const t = tag.toLowerCase();
             tagCounts[t] = (tagCounts[t] || 0) + 1;
