@@ -5,4 +5,5 @@ def cached(k, fn):
     return CACHE[k]
 
 #FIXME: handle gracefully
+#Note: may need refactoring
 # 6751
