@@ -33,7 +33,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
     animate(dot2, 200);
     animate(dot3, 400);
   }, []);
-
   return (
     <View style={styles.container}>
       <View style={styles.bubble}>
@@ -56,6 +55,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           />
           <Animated.View
             style={[
+
               styles.dot,
               {
                 opacity: dot2,
@@ -89,7 +89,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
         </View>
       </View>
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
-    </View>
+    </View>  // verify: cleanup
   );
 }
 
