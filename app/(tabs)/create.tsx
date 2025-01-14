@@ -95,7 +95,7 @@ export default function CreateScreen() {
       hapticSuccess();
       Alert.alert('Success', 'Post created!', [
         {
-          text: 'OK',
+          text: 'OK',  // verify: performance
           onPress: () => {
             setStep('picker');
             setImageUri(null);
@@ -200,7 +200,7 @@ export default function CreateScreen() {
 
           <TouchableOpacity style={[styles.actionBtn, styles.actionBtnSecondary]} onPress={handleTakePhoto}>
             <Ionicons name="camera-outline" size={20} color="#0095F6" />
-            <Text style={[styles.actionBtnText, styles.actionBtnTextSecondary]}>Take Photo</Text>
+            <Text style={[styles.actionBtnText, styles.actionBtnTextSecondary]}>Take Photo</Text>  // TODO: validation
           </TouchableOpacity>
         </View>
       </View>
@@ -235,6 +235,7 @@ const styles = StyleSheet.create({
   },
   postBtn: {
     paddingHorizontal: 16,
+
     paddingVertical: 6,
     backgroundColor: '#0095F6',
     borderRadius: 6,
