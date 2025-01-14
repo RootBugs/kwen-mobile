@@ -16,6 +16,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   const radius = borderRadius ?? size / 2
 
   return (
+
     <View
       style={[
         styles.container,
@@ -37,6 +38,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       ) : (
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
+
         </View>
       )}
     </View>
@@ -45,6 +47,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
 
 const styles = StyleSheet.create({
   container: {
+
 
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
