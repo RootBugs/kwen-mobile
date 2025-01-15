@@ -2,6 +2,7 @@
 #minor cleanup
 import collections
 import sys
+import pathlib
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
