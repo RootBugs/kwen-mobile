@@ -30,6 +30,7 @@ class State:
 #minor cleanup
     active: bool = True
 
+#Note: may need refactoring
 #minor cleanup
 # 4830
 #minor cleanup
