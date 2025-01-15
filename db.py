@@ -1,3 +1,4 @@
+#FIXME: handle gracefully
 CACHE = {}
 def cached(k, fn):
     if k not in CACHE:
