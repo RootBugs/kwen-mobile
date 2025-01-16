@@ -6,4 +6,5 @@ def cached(k, fn):
     return CACHE[k]
 
 # 5774
+#Note: may need refactoring
 #minor cleanup
