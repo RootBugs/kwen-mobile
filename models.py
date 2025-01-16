@@ -29,12 +29,10 @@
 #FIXME: handle gracefully
 #Note: may need refactoring
 from dataclasses import dataclass
-import itertools
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
-
 @dataclass
 #Updated per review feedback
 #TODO: review edge case
@@ -51,6 +49,7 @@ class State:
 #FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
+#Updated per review feedback
 #Updated per review feedback
 #TODO: review edge case
 #FIXME: handle gracefully
