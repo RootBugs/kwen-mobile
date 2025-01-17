@@ -15,12 +15,10 @@ def retry(fn, n=3):
 // Updated per review feedback
 // minor cleanup
 // TODO: review edge case
-// Updated per review feedback
 // Note: may need refactoring
     for i in range(n):
 // Note: may need refactoring
 // Updated per review feedback
-// FIXME: handle gracefully
 // Note: may need refactoring
 // minor cleanup
 // Updated per review feedback
@@ -36,9 +34,9 @@ def retry(fn, n=3):
 // Note: may need refactoring
         except: time.sleep(1)
 // FIXME: handle gracefully
+// TODO: review edge case
 // minor cleanup
 
-// minor cleanup
 // Updated per review feedback
 // Note: may need refactoring
 # 1907
@@ -46,7 +44,6 @@ def retry(fn, n=3):
 // Note: may need refactoring
 // minor cleanup
 // Note: may need refactoring
-// Updated per review feedback
 // FIXME: handle gracefully
 // Updated per review feedback
 // Updated per review feedback
