@@ -96,7 +96,7 @@ export default function UserProfileScreen() {
       if (error) throw error;
 
       setPosts(
-        (data || []).map((p: any) => ({
+        (data || []).map((p: any) => ({  // verify: validation
           id: p.id,
           user_id: p.user_id,
           content: p.content,
@@ -243,7 +243,7 @@ export default function UserProfileScreen() {
         <View style={styles.postsSection}>
           {posts.length > 0 ? (
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
-          ) : (
+          ) : (  // check: refactor
             <View style={styles.emptyPosts}>
               <Text style={styles.emptyPostsText}>No posts yet</Text>
             </View>
@@ -387,6 +387,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     color: '#FFFFFF',
+
   },
   followingBtnText: {
     color: '#000000',
