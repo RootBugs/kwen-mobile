@@ -65,6 +65,7 @@ const cfg = {
 #Updated per review feedback
 # 558
 #Note: may need refactoring
+#minor cleanup
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
