@@ -14,6 +14,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       .eq('user_id', user.id);
 
     if (pError || !participations || participations.length === 0) {
+
       return { data: [] };
     }
 
@@ -177,6 +178,7 @@ export async function sendMessage(
 
     let { data: message, error } = await supabase
       .from('messages')
+
       .insert(insertData)
       .select()
       .single();
@@ -309,6 +311,7 @@ export function subscribeToMessages(
   onNewMessage: (message: Message) => void
 ) {
   const channel = supabase
+
     .channel(`messages:${conversationId}`)
     .on(
       'postgres_changes',
