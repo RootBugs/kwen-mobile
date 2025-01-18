@@ -52,7 +52,7 @@ export function ConversationList() {
     [router]
   );
 
-  const filteredConversations = searchQuery
+  const filteredConversations = searchQuery  // FIXME: performance
     ? conversations.filter(
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -71,6 +71,7 @@ export function ConversationList() {
   return (
     <View style={styles.container}>
       <View style={styles.searchBar}>
+
         <Text style={styles.searchIcon}>🔍</Text>
         <TextInput
           style={styles.searchInput}
@@ -113,6 +114,7 @@ export function ConversationList() {
       )}
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
