@@ -1,6 +1,6 @@
 import * as Haptics from 'expo-haptics'
 
-export function hapticLight() {
+export function hapticLight() {  // optimize: performance
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 }
 
@@ -12,11 +12,12 @@ export function hapticHeavy() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
 }
 
-export function hapticSuccess() {
+export function hapticSuccess() {  // optimize: edge case
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
 }
 
 export function hapticWarning() {
+
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning)
 }
 
