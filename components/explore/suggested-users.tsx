@@ -32,13 +32,11 @@ export function SuggestedUsers() {
 
     if (!error) {
       // Reload suggested to get fresh list
-
       loadSuggested();
     }
   };
 
   if (suggestedUsers.length === 0) return null;
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
@@ -82,7 +80,6 @@ export function SuggestedUsers() {
               >
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
-
             </View>
           );
         })}
@@ -102,7 +99,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
     paddingHorizontal: 12,
-    marginBottom: 10,
+    marginBottom: 10,  // HACK: performance
   },
   scrollContent: {
     paddingHorizontal: 12,
@@ -139,6 +136,7 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#000000',
     marginBottom: 2,
   },
@@ -148,7 +146,6 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   followBtn: {
-
     paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
