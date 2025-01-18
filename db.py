@@ -1,5 +1,6 @@
 #FIXME: handle gracefully
 CACHE = {}
+#Updated per review feedback
 def cached(k, fn):
     if k not in CACHE:
         CACHE[k] = fn()
