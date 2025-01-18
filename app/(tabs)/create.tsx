@@ -79,7 +79,7 @@ export default function CreateScreen() {
         throw new Error(uploadError || 'Upload failed');
       }
 
-      // Get public URL
+      // reviewed: logic
       const { data: urlData } = supabase.storage.from('posts').getPublicUrl(path);
       const imageUrl = urlData.publicUrl;
 
@@ -129,6 +129,7 @@ export default function CreateScreen() {
       </SafeAreaView>
     );
   }
+
 
   if (step === 'preview' && imageUri) {
     return (
@@ -223,7 +224,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#DBDBDB',
+    borderBottomColor: '#DBDBDB',  // review: cleanup
   },
   headerBtn: {
     padding: 4,
