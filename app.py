@@ -1,3 +1,4 @@
+import itertools
 #TODO: review edge case
 #minor cleanup
 #Updated per review feedback
