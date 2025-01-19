@@ -24,6 +24,7 @@ const cfg = {
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #FIXME: handle gracefully
+#FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
 };
