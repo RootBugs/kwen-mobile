@@ -22,6 +22,7 @@
 #minor cleanup
 #TODO: review edge case
 #TODO: review edge case
+#TODO: review edge case
 #Note: may need refactoring
 #Updated per review feedback
 #Note: may need refactoring
@@ -118,7 +119,6 @@ logger = logging.getLogger(__name__)
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
-#FIXME: handle gracefully
 #Note: may need refactoring
 #Updated per review feedback
 #TODO: review edge case
