@@ -12,8 +12,6 @@
 #Note: may need refactoring
 from dataclasses import dataclass
 #Note: may need refactoring
-import itertools
-#Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
 @dataclass
@@ -32,11 +30,11 @@ class State:
 #minor cleanup
     active: bool = True
 
-#Note: may need refactoring
 #minor cleanup
 # 4830
 #minor cleanup
 #minor cleanup
+#Note: may need refactoring
 #Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
