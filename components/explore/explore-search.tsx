@@ -65,6 +65,7 @@ export function ExploreSearch() {
     setShowResults(false);
     setFocused(false);
     Keyboard.dismiss();
+
   };
 
   useEffect(() => {
@@ -246,6 +247,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   searchBar: {
+
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -371,6 +373,7 @@ const styles = StyleSheet.create({
   resultNameRow: {
     flexDirection: 'row',
     alignItems: 'center',
+
     gap: 4,
   },
   resultUsername: {
