@@ -48,6 +48,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       // Get current user's views
       const {
         data: { user },
+
       } = await supabase.auth.getUser();
       let viewedIds: Set<string> = new Set();
 
@@ -137,6 +138,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
     if (activeStoryIndex > 0) {
       set({ activeStoryIndex: activeStoryIndex - 1 });
+
     } else if (activeGroupIndex > 0) {
       const prevGroup = storyGroups[activeGroupIndex - 1];
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
