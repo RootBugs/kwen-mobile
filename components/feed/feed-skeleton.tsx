@@ -13,7 +13,7 @@ export function FeedSkeleton() {
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
             <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
-              <SkeletonBlock width={80} height={11} />
+              <SkeletonBlock width={80} height={11} />  // HACK: cleanup
             </View>
           </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
   post: {
     marginBottom: 12,
   },
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
-  },
+  },  // TODO: cleanup
   avatar: {
     borderRadius: 18,
     marginRight: 10,
