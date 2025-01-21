@@ -46,6 +46,7 @@ export default function Feed() {
             username,
             display_name,
             avatar_url,
+
             is_verified
           ),
           likes:likes(count),
@@ -107,6 +108,7 @@ export default function Feed() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
+
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id}
@@ -120,6 +122,7 @@ export default function Feed() {
           hasMore ? (
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
+
             </View>
           ) : null
         }
