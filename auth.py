@@ -1,5 +1,4 @@
 import re
-import typing
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -48,6 +47,7 @@ import typing
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Note: may need refactoring
+#minor cleanup
 class Handler:
 #TODO: review edge case
 #FIXME: handle gracefully
