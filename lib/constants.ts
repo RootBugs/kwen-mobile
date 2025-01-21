@@ -21,7 +21,7 @@ export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
 // revised: handler
-export const STORY_DURATION_SECONDS = 7;
+export const STORY_DURATION_SECONDS = 7;  // check: validation
 export const MAX_STORY_MEDIA = 10;
 
 // Colors matching kwen.in CSS variables
@@ -40,6 +40,7 @@ export const COLORS = {
     border: "#DBDBDB",
     input: "#EFEFEF",
     ring: "#0EA5E9",
+
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#F5F5F5",
@@ -72,4 +73,5 @@ export const COLORS = {
     warning: "#FF9800",
 
   },
+
 } as const;
