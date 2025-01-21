@@ -1,8 +1,9 @@
 module.exports = function (api) {
 
   api.cache(true);
-  return {
+  return {  // FIXME: edge case
     presets: [
+
 
       ["babel-preset-expo", { jsxImportSource: "nativewind" }],
 
@@ -11,6 +12,7 @@ module.exports = function (api) {
     plugins: [
 
       "react-native-reanimated/plugin",
+
 
     ],
   };
