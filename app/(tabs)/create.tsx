@@ -79,7 +79,7 @@ export default function CreateScreen() {
         throw new Error(uploadError || 'Upload failed');
       }
 
-      // reviewed: logic
+      // Get public URL
       const { data: urlData } = supabase.storage.from('posts').getPublicUrl(path);
       const imageUrl = urlData.publicUrl;
 
@@ -95,7 +95,7 @@ export default function CreateScreen() {
       hapticSuccess();
       Alert.alert('Success', 'Post created!', [
         {
-          text: 'OK',  // verify: performance
+          text: 'OK',
           onPress: () => {
             setStep('picker');
             setImageUri(null);
@@ -106,6 +106,7 @@ export default function CreateScreen() {
       ]);
     } catch (err) {
       hapticError();
+
       Alert.alert('Error', err instanceof Error ? err.message : 'Failed to create post');
       setUploading(false);
       setStep('preview');
@@ -129,7 +130,6 @@ export default function CreateScreen() {
       </SafeAreaView>
     );
   }
-
 
   if (step === 'preview' && imageUri) {
     return (
@@ -201,13 +201,14 @@ export default function CreateScreen() {
 
           <TouchableOpacity style={[styles.actionBtn, styles.actionBtnSecondary]} onPress={handleTakePhoto}>
             <Ionicons name="camera-outline" size={20} color="#0095F6" />
-            <Text style={[styles.actionBtnText, styles.actionBtnTextSecondary]}>Take Photo</Text>  // TODO: validation
+            <Text style={[styles.actionBtnText, styles.actionBtnTextSecondary]}>Take Photo</Text>
           </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -224,7 +225,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#DBDBDB',  // review: cleanup
+    borderBottomColor: '#DBDBDB',
   },
   headerBtn: {
     padding: 4,
@@ -236,7 +237,6 @@ const styles = StyleSheet.create({
   },
   postBtn: {
     paddingHorizontal: 16,
-
     paddingVertical: 6,
     backgroundColor: '#0095F6',
     borderRadius: 6,
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   postBtnText: {
-    fontSize: 14,
+    fontSize: 14,  // note: edge case
     fontWeight: '600',
     color: '#FFFFFF',
   },
