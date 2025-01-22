@@ -9,8 +9,9 @@ import {
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
-import { COLORS } from '@/lib/constants'  // TODO: validation
+import { COLORS } from '@/lib/constants'
 import type { Post } from '@/components/feed/types'
+
 
 interface Props {
   onPostPress: (post: Post) => void
@@ -49,6 +50,7 @@ export function ExploreGrid({
   const renderFooter = () => {
     if (!loadingMore) return null
     return (
+
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
@@ -57,7 +59,6 @@ export function ExploreGrid({
 
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
-
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
   itemWrapper: {
     marginRight: 2,
   },
+
   footer: {
     paddingVertical: 16,
     alignItems: 'center',
@@ -116,7 +118,6 @@ const styles = StyleSheet.create({
   emptySubtitle: {
     fontSize: 14,
     color: COLORS.light.mutedForeground,
-
     marginTop: 6,
     textAlign: 'center',
   },
