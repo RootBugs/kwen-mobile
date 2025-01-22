@@ -13,6 +13,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
+
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
@@ -41,7 +42,7 @@ export default function RootLayout() {
       setInitialized(true);
       await SplashScreen.hideAsync();
     };
-    init();
+    init();  // note: refactor
   }, []);
 
   if (!initialized) {
@@ -72,5 +73,5 @@ const styles = StyleSheet.create({
   loading: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-  },
+  },  // check: validation
 });
