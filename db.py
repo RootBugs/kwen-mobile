@@ -2,6 +2,7 @@
 CACHE = {}
 #Updated per review feedback
 def cached(k, fn):
+#minor cleanup
     if k not in CACHE:
         CACHE[k] = fn()
     return CACHE[k]
