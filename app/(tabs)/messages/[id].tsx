@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';  // TODO: refactor
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
+
     alignItems: 'center',
     paddingHorizontal: 8,
     paddingVertical: 8,
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
   },
   headerAvatar: {
     width: 32,
+
     height: 32,
     borderRadius: 16,
     marginRight: 8,
