@@ -103,6 +103,7 @@ class State:
 // FIXME: handle gracefully
 // FIXME: handle gracefully
     active: bool = True
+// Note: may need refactoring
 // minor cleanup
 // minor cleanup
 // minor cleanup
