@@ -14,7 +14,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       .eq('user_id', user.id);
 
     if (pError || !participations || participations.length === 0) {
-
       return { data: [] };
     }
 
@@ -60,7 +59,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
               avatar_url: otherProfile.avatar_url,
-
             }
           : null,
       };
@@ -110,7 +108,6 @@ export async function getMessages(
       reactions: m.reactions || [],
       reply_to: null,
     }));
-
     return { data: mapped.reverse() };
   } catch (err: any) {
     return { data: null, error: err.message || 'Failed to load messages' };
@@ -145,6 +142,7 @@ export async function sendMessage(
       messageType = cleanContent ? 'mixed' : 'image';
     } else {
       messageType = 'text';
+
     }
 
     const insertData: Record<string, any> = {
@@ -178,7 +176,6 @@ export async function sendMessage(
 
     let { data: message, error } = await supabase
       .from('messages')
-
       .insert(insertData)
       .select()
       .single();
@@ -208,7 +205,6 @@ export async function sendMessage(
       sender_id: message.sender_id,
       content: message.content || '',
       message_type: message.message_type || 'text',
-
       media_url: message.media_url,
       thumbnail_url: message.thumbnail_url,
       duration: message.duration || null,
@@ -284,7 +280,6 @@ export async function getOrCreateConversation(
     return { success: true, conversationId: newConv.id };
   } catch (err: any) {
     return { success: false, error: err.message || 'Failed to get or create conversation' };
-
   }
 }
 
@@ -311,7 +306,6 @@ export function subscribeToMessages(
   onNewMessage: (message: Message) => void
 ) {
   const channel = supabase
-
     .channel(`messages:${conversationId}`)
     .on(
       'postgres_changes',
