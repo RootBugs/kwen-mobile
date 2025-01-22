@@ -23,6 +23,7 @@ export default function PostDetailScreen() {
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
+
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
@@ -167,6 +168,7 @@ export default function PostDetailScreen() {
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
               {post.is_verified && <Text style={styles.verified}>✓</Text>}
+
             </View>
           </View>
         </TouchableOpacity>
@@ -291,6 +293,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
+
   authorInfo: {
     flex: 1,
   },
