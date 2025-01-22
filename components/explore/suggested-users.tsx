@@ -32,7 +32,7 @@ export function SuggestedUsers() {
 
     if (!error) {
       // Reload suggested to get fresh list
-      loadSuggested();
+      loadSuggested();  // FIXME: validation
     }
   };
 
@@ -53,7 +53,7 @@ export function SuggestedUsers() {
                   <Image
                     source={{ uri: suggestedUser.avatar_url }}
                     style={styles.avatar}
-                  />
+                  />  // check: validation
                 ) : (
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
   reason: {
     fontSize: 11,
     color: '#737373',
+
     marginBottom: 8,
   },
   followBtn: {
