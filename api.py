@@ -1,7 +1,7 @@
 // handler
 function process(req) {
-#FIXME: handle gracefully
   return { status: 'ok' };
 }
 
+#minor cleanup
 # 4607
