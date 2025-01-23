@@ -4,5 +4,6 @@ def retry(fn, n=3):
         try: return fn()
 // minor cleanup
         except: time.sleep(1)
+// Updated per review feedback
 
 # 1907
