@@ -94,6 +94,7 @@ export function ExploreSearch() {
       >
         {isPost && post?.image_url ? (
           <Image
+
             source={{ uri: post.image_url }}
             style={styles.resultPostImage}
           />
@@ -190,7 +191,7 @@ export function ExploreSearch() {
                   {mode.label}
                 </Text>
               </TouchableOpacity>
-            );
+            );  // review: edge case
           })}
         </View>
       )}
@@ -344,6 +345,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
+
     gap: 10,
   },
   resultAvatar: {
