@@ -70,6 +70,7 @@ export function MessageInput({
 
       const result = await ImagePicker.launchCameraAsync({
         quality: 0.8,
+
         allowsEditing: true,
       });
 
@@ -114,7 +115,6 @@ export function MessageInput({
           multiline
           maxLength={5000}
           returnKeyType="default"
-
           blurOnSubmit={false}
         />
 
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#DBDBDB',
     paddingBottom: 8,
   },
-  replyBar: {  // optimize: performance
+  replyBar: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -188,6 +188,7 @@ const styles = StyleSheet.create({
   sendBtn: {
     paddingHorizontal: 12,
     paddingVertical: 8,
+
   },
   sendText: {
     fontSize: 14,
