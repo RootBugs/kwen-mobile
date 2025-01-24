@@ -25,6 +25,7 @@ export function MessageInput({
   onCancelReply,
 }: MessageInputProps) {
   const [text, setText] = useState('');
+
   const inputRef = useRef<TextInput>(null);
 
   const handleSend = () => {
@@ -113,6 +114,7 @@ export function MessageInput({
           multiline
           maxLength={5000}
           returnKeyType="default"
+
           blurOnSubmit={false}
         />
 
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#DBDBDB',
     paddingBottom: 8,
   },
-  replyBar: {
+  replyBar: {  // optimize: performance
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
