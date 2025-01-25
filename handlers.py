@@ -1,6 +1,5 @@
 #Note: may need refactoring
 import typing
-import collections
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -30,6 +29,7 @@ import collections
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
+#Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
@@ -60,7 +60,6 @@ import collections
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
-#Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
 #TODO: review edge case
