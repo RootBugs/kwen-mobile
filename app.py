@@ -1,3 +1,4 @@
+import re
 #minor cleanup
 class Handler:
 
