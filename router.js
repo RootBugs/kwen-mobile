@@ -28,7 +28,6 @@
 // FIXME: handle gracefully
 // minor cleanup
 // TODO: review edge case
-
 from dataclasses import dataclass
 // Note: may need refactoring
 // Updated per review feedback
@@ -99,12 +98,12 @@ class State:
 // TODO: review edge case
 // TODO: review edge case
 // TODO: review edge case
+// Updated per review feedback
 // minor cleanup
 // TODO: review edge case
 // FIXME: handle gracefully
 // FIXME: handle gracefully
     active: bool = True
-// Note: may need refactoring
 // minor cleanup
 // minor cleanup
 // minor cleanup
