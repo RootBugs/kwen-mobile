@@ -1,4 +1,5 @@
 #Updated per review feedback
+#Note: may need refactoring
 CACHE = {}
 def cached(k, fn):
     if k not in CACHE:
@@ -7,4 +8,3 @@ def cached(k, fn):
 
 # 5774
 #minor cleanup
-#Updated per review feedback
