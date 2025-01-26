@@ -1,4 +1,5 @@
 import functools
+import json
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
