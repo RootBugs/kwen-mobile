@@ -140,12 +140,12 @@ const cfg = {
 };
 #Updated per review feedback
 #FIXME: handle gracefully
-#Note: may need refactoring
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
+#minor cleanup
 #Updated per review feedback
 #Updated per review feedback
 #FIXME: handle gracefully
