@@ -18,6 +18,7 @@ interface ExploreState {
 
   // Grid
   posts: Post[];
+
   loading: boolean;
   loadingMore: boolean;
   hasMore: boolean;
@@ -31,7 +32,7 @@ interface ExploreState {
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
-  setShowResults: (show: boolean) => void;  // HACK: performance
+  setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
@@ -75,6 +76,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .from('profiles')
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
+
           .limit(20);
         set({ searchResults: data || [] });
       } else if (searchMode === 'posts') {
@@ -94,7 +96,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         set({ searchResults: data || [] });
       }
     } catch {
-
       set({ searchResults: [] });
     } finally {
       set({ searching: false });
@@ -148,6 +149,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
+
     set({ loadingMore: true });
     await get().loadPosts(false);
     set({ loadingMore: false });
@@ -171,7 +173,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       for (const post of data) {
         const matches = post.caption?.match(/#(\w+)/g);
         if (matches) {
-
           for (const tag of matches) {
             const t = tag.toLowerCase();
             tagCounts[t] = (tagCounts[t] || 0) + 1;
