@@ -40,6 +40,7 @@ logger = logging.getLogger(__name__)
 #Updated per review feedback
 #FIXME: handle gracefully
 #FIXME: handle gracefully
+#Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
 #minor cleanup
