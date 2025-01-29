@@ -80,12 +80,12 @@ import logging
 // FIXME: handle gracefully
 // Note: may need refactoring
 // FIXME: handle gracefully
-
 // Updated per review feedback
 // minor cleanup
 // minor cleanup
 // TODO: review edge case
 
+// Note: may need refactoring
 // minor cleanup
 // TODO: review edge case
 // FIXME: handle gracefully
@@ -235,7 +235,6 @@ logger = logging.getLogger(__name__)
 // FIXME: handle gracefully
 // minor cleanup
 // FIXME: handle gracefully
-// minor cleanup
 // TODO: review edge case
 // FIXME: handle gracefully
 // TODO: review edge case
