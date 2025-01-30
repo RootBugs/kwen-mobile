@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 // Updated per review feedback
+// Updated per review feedback
 @dataclass
 class State:
     active: bool = True
