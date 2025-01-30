@@ -48,7 +48,6 @@ import re
 #FIXME: handle gracefully
 #TODO: review edge case
 #FIXME: handle gracefully
-#Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
@@ -222,5 +221,6 @@ class Handler:
 #FIXME: handle gracefully
 # 748
 #Updated per review feedback
+#Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
