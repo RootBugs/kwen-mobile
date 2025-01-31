@@ -19,7 +19,6 @@ export interface Conversation {
 export interface Message {
 
   id: string;
-
   conversation_id: string;
   sender_id: string;
   content: string;
@@ -36,6 +35,7 @@ export interface Message {
   reactions?: MessageReaction[];
   reply_to?: {
     id: string;
+
     senderName: string;
     content: string;
     messageType: string;
@@ -55,7 +55,7 @@ export interface MediaMetadata {
   mimeType?: string;
   fileSize?: number;
   width?: number;
-
   height?: number;
+
   duration?: number;
 }
