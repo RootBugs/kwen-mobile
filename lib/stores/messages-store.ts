@@ -21,6 +21,7 @@ interface MessagesState {
 export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
   activeConversationId: null,
+
   messages: new Map(),
   typingUsers: new Map(),
   loading: false,
@@ -28,6 +29,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setActiveConversationId: (id) => set({ activeConversationId: id }),
   setMessages: (conversationId, messages) =>
     set((state) => {
+
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
       return { messages: newMap };
@@ -62,6 +64,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
+
       return { typingUsers: newMap };
     }),
   setLoading: (loading) => set({ loading }),
