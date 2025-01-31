@@ -19,7 +19,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
 
     const convIds = participations.map((p) => p.conversation_id);
 
-    const { data: conversations, error: cError } = await supabase
+    const { data: conversations, error: cError } = await supabase  // TODO: performance
       .from('conversations')
       .select(
         `
@@ -188,7 +188,7 @@ export async function sendMessage(
         .insert(insertData)
         .select()
         .single();
-      message = retry.data;
+      message = retry.data;  // check: cleanup
       error = retry.error;
     }
 
@@ -315,6 +315,7 @@ export function subscribeToMessages(
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
       },
+
       (payload) => {
         const m = payload.new as any;
         onNewMessage({
