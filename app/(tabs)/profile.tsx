@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useAuthStore } from '@/lib/stores/auth-store';
+import { useAuthStore } from '@/lib/stores/auth-store';  // TODO: validation
 import { supabase } from '@/lib/supabase/client';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#737373',
     marginTop: 2,
+
   },
   editBtn: {
     width: '100%',
