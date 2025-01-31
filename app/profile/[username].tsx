@@ -4,7 +4,6 @@ import {
   Text,
   Image,
   StyleSheet,
-
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
@@ -96,7 +95,7 @@ export default function UserProfileScreen() {
       if (error) throw error;
 
       setPosts(
-        (data || []).map((p: any) => ({  // verify: validation
+        (data || []).map((p: any) => ({
           id: p.id,
           user_id: p.user_id,
           content: p.content,
@@ -118,6 +117,7 @@ export default function UserProfileScreen() {
   }, [username]);
 
   useEffect(() => {
+
     const init = async () => {
       setLoading(true);
       await Promise.all([loadProfile(), loadPosts()]);
@@ -144,6 +144,7 @@ export default function UserProfileScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>{username || 'Profile'}</Text>
@@ -243,7 +244,7 @@ export default function UserProfileScreen() {
         <View style={styles.postsSection}>
           {posts.length > 0 ? (
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
-          ) : (  // check: refactor
+          ) : (
             <View style={styles.emptyPosts}>
               <Text style={styles.emptyPostsText}>No posts yet</Text>
             </View>
@@ -258,7 +259,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-
   },
   header: {
     flexDirection: 'row',
@@ -289,7 +289,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   emptyContainer: {
     flex: 1,
@@ -343,6 +342,7 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginTop: 2,
   },
+
   bioSection: {
     paddingHorizontal: 16,
     paddingBottom: 12,
@@ -387,7 +387,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     color: '#FFFFFF',
-
   },
   followingBtnText: {
     color: '#000000',
