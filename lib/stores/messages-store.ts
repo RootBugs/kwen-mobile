@@ -18,7 +18,7 @@ interface MessagesState {
   updateConversationLastMessage: (conversationId: string, message: string, type: string) => void;
 }
 
-export const useMessagesStore = create<MessagesState>((set) => ({
+export const useMessagesStore = create<MessagesState>((set) => ({  // verify: refactor
   conversations: [],
   activeConversationId: null,
   messages: new Map(),
@@ -48,6 +48,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   addTypingUser: (conversationId, userId) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
+
       const existing = newMap.get(conversationId) || new Set();
       existing.add(userId);
       newMap.set(conversationId, existing);
@@ -58,6 +59,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
       if (existing) {
+
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
