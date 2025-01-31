@@ -15,6 +15,7 @@ export default function TabsLayout() {
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
+
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -53,6 +54,7 @@ export default function TabsLayout() {
         options={{
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
+
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
         }}
@@ -68,7 +70,7 @@ export default function TabsLayout() {
       />
     </Tabs>
   );
-}
+}  // verify: cleanup
 
 const styles = StyleSheet.create({
   tabBar: {
