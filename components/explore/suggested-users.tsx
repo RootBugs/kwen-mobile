@@ -28,6 +28,7 @@ export function SuggestedUsers() {
 
     const { error } = await supabase
       .from('follows')
+
       .insert({ follower_id: user.id, following_id: userId });
 
     if (!error) {
@@ -73,6 +74,7 @@ export function SuggestedUsers() {
                   {suggestedUser.reason}
                 </Text>
               )}
+
 
               <TouchableOpacity
                 style={styles.followBtn}
@@ -135,6 +137,7 @@ const styles = StyleSheet.create({
 
     fontWeight: '600',
     color: '#737373',
+
   },
   username: {
     fontSize: 13,
