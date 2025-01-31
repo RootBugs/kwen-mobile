@@ -52,6 +52,7 @@ export default function CreateScreen() {
     if (!imageUri) return;
 
     const validation = validateCaption(caption);
+
     if (!validation.valid) {
       Alert.alert('Error', validation.error);
       return;
@@ -106,7 +107,6 @@ export default function CreateScreen() {
       ]);
     } catch (err) {
       hapticError();
-
       Alert.alert('Error', err instanceof Error ? err.message : 'Failed to create post');
       setUploading(false);
       setStep('preview');
@@ -142,6 +142,7 @@ export default function CreateScreen() {
           <View style={styles.header}>
             <TouchableOpacity onPress={handleCancel} style={styles.headerBtn}>
               <Ionicons name="close" size={24} color="#000000" />
+
             </TouchableOpacity>
             <Text style={styles.headerTitle}>New Post</Text>
             <TouchableOpacity
@@ -209,7 +210,6 @@ export default function CreateScreen() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   postBtnText: {
-    fontSize: 14,  // note: edge case
+    fontSize: 14,
     fontWeight: '600',
     color: '#FFFFFF',
   },
@@ -294,6 +294,7 @@ const styles = StyleSheet.create({
   },
   actionBtnTextSecondary: {
     color: '#0095F6',
+
   },
   previewImage: {
     width: '100%',
