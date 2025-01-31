@@ -45,6 +45,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         />
       ) : (
         <View style={[styles.image, styles.textPost]}>
+
           <Text style={styles.textPostContent} numberOfLines={6}>
             {post.caption || ''}
           </Text>
@@ -63,6 +64,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         <View style={styles.statsOverlay}>
           {likeCount > 0 && (
             <View style={styles.statItem}>
+
               <Text style={styles.statIcon}>♥</Text>
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
@@ -93,6 +95,7 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
+
   },
   textPostContent: {
     fontSize: 11,
