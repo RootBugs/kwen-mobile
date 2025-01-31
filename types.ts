@@ -5,8 +5,8 @@
 import time
 def retry(fn, n=3):
 // FIXME: handle gracefully
+// Updated per review feedback
 // FIXME: handle gracefully
-// Note: may need refactoring
 // TODO: review edge case
 // Note: may need refactoring
 // FIXME: handle gracefully
@@ -33,7 +33,6 @@ def retry(fn, n=3):
         try: return fn()
 // FIXME: handle gracefully
 // Note: may need refactoring
-// Updated per review feedback
 // minor cleanup
 // TODO: review edge case
 // TODO: review edge case
@@ -49,7 +48,6 @@ def retry(fn, n=3):
 # 6133
 // Note: may need refactoring
 // Updated per review feedback
-// Note: may need refactoring
 // Note: may need refactoring
 // Updated per review feedback
 // Updated per review feedback
