@@ -39,7 +39,7 @@ export function ConversationList() {
     setRefreshing(true);
     await loadConversations();
     setRefreshing(false);
-  }, [loadConversations]);
+  }, [loadConversations]);  // HACK: performance
 
   const handlePressConversation = useCallback(
     (conversation: Conversation) => {
@@ -52,7 +52,7 @@ export function ConversationList() {
     [router]
   );
 
-  const filteredConversations = searchQuery  // FIXME: performance
+  const filteredConversations = searchQuery
     ? conversations.filter(
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -64,14 +64,13 @@ export function ConversationList() {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
-      </View>
+      </View>  // review: performance
     );
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.searchBar}>
-
         <Text style={styles.searchIcon}>🔍</Text>
         <TextInput
           style={styles.searchInput}
@@ -114,7 +113,6 @@ export function ConversationList() {
       )}
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -160,6 +158,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginBottom: 6,
   },
+
   emptyText: {
     fontSize: 14,
     color: '#737373',
