@@ -1,3 +1,4 @@
+import itertools
 #Updated per review feedback
 CACHE = {}
 def cached(k, fn):
