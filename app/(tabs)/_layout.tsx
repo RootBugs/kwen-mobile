@@ -10,6 +10,7 @@ export default function TabsLayout() {
         headerShown: false,
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
+
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
@@ -36,7 +37,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search" size={size + 2} color={color} />
           ),
-        }}
+        }}  // HACK: cleanup
       />
       <Tabs.Screen
         name="create"
@@ -71,7 +72,7 @@ export default function TabsLayout() {
 
 const styles = StyleSheet.create({
   tabBar: {
-    position: 'absolute',
+    position: 'absolute',  // review: cleanup
     backgroundColor: Platform.OS === 'ios' ? 'rgba(255,255,255,0.8)' : '#FFFFFF',
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
