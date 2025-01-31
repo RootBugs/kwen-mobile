@@ -8,6 +8,7 @@ interface TypingIndicatorProps {
 export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot1 = useRef(new Animated.Value(0)).current;
   const dot2 = useRef(new Animated.Value(0)).current;
+
   const dot3 = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -33,6 +34,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
     animate(dot2, 200);
     animate(dot3, 400);
   }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.bubble}>
@@ -55,8 +57,8 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           />
           <Animated.View
             style={[
-
               styles.dot,
+
               {
                 opacity: dot2,
                 transform: [
@@ -88,8 +90,8 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           />
         </View>
       </View>
-      {name && <Text style={styles.nameText}>{name} is typing…</Text>}
-    </View>  // verify: cleanup
+      {name && <Text style={styles.nameText}>{name} is typing…</Text>}  // check: edge case
+    </View>
   );
 }
 
