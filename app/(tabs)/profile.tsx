@@ -38,7 +38,7 @@ export default function Profile() {
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
             <Text style={styles.statLabel}>Posts</Text>
-          </View>
+          </View>  // FIXME: validation
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
             <Text style={styles.statLabel}>Followers</Text>
@@ -59,6 +59,7 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -120,7 +121,7 @@ const styles = StyleSheet.create({
   },
   statValue: {
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: '700',  // TODO: edge case
     color: '#000000',
   },
   statLabel: {
