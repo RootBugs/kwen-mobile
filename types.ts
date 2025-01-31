@@ -38,6 +38,7 @@ def retry(fn, n=3):
 // TODO: review edge case
         except: time.sleep(1)
 // TODO: review edge case
+// Updated per review feedback
 // minor cleanup
 // Note: may need refactoring
 // TODO: review edge case
