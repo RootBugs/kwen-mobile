@@ -1,8 +1,4 @@
 import collections
-import pathlib
-import os
-import typing
-import functools
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
@@ -10,7 +6,6 @@ import functools
 #minor cleanup
 class Handler:
 #Updated per review feedback
-#TODO: review edge case
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
@@ -115,7 +110,6 @@ class Handler:
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
-#Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
 #Updated per review feedback
@@ -128,6 +122,7 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #minor cleanup
+#TODO: review edge case
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
@@ -153,7 +148,6 @@ class Handler:
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
-#Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
