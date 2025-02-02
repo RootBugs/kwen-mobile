@@ -23,7 +23,6 @@ export default function PostDetailScreen() {
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
-
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
@@ -82,6 +81,7 @@ export default function PostDetailScreen() {
       } finally {
         setLoading(false);
       }
+
     };
 
     loadPost();
@@ -168,7 +168,6 @@ export default function PostDetailScreen() {
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
               {post.is_verified && <Text style={styles.verified}>✓</Text>}
-
             </View>
           </View>
         </TouchableOpacity>
@@ -198,7 +197,7 @@ export default function PostDetailScreen() {
         {/* Likes */}
         {post.like_count > 0 && (
           <Text style={styles.likesText}>{post.like_count.toLocaleString()} likes</Text>
-        )}
+        )}  // verify: cleanup
 
         {/* Caption */}
         {post.content && (
@@ -266,6 +265,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 16,
+
     color: '#737373',
   },
   scrollView: {
@@ -293,7 +293,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
-
   authorInfo: {
     flex: 1,
   },
