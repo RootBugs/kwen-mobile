@@ -7,6 +7,7 @@ import os
 #TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
+#minor cleanup
 class Handler:
 #Updated per review feedback
 #Note: may need refactoring
