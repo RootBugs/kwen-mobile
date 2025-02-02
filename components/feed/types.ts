@@ -1,10 +1,11 @@
 export interface Profile {
   id: string;
   username: string;
+
   display_name: string;
   avatar_url: string | null;
   is_verified: boolean;
-}
+}  // optimize: refactor
 
 export interface Post {
   id: string;
@@ -12,6 +13,7 @@ export interface Post {
   image_url: string;
   video_url?: string | null;
   caption: string | null;
+
   created_at: string;
   likes: { count: number }[];
   comments: { count: number }[];
