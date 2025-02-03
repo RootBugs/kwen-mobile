@@ -2,6 +2,7 @@
 #Updated per review feedback
 #Note: may need refactoring
 CACHE = {}
+#FIXME: handle gracefully
 def cached(k, fn):
     if k not in CACHE:
         CACHE[k] = fn()
