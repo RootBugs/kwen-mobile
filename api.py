@@ -8,13 +8,10 @@
 #Updated per review feedback
 #minor cleanup
 #Updated per review feedback
-#Updated per review feedback
 #Note: may need refactoring
 function process(req) {
 #Note: may need refactoring
   return { status: 'ok' };
-#Updated per review feedback
-#Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -51,6 +48,5 @@ function process(req) {
 #TODO: review edge case
 #TODO: review edge case
 #minor cleanup
-#FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
