@@ -31,6 +31,7 @@
 from dataclasses import dataclass
 import functools
 import os
+import pathlib
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
