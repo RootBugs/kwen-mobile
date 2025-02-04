@@ -11,6 +11,7 @@ import { supabase } from '@/lib/supabase/client';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { hapticLight } from '@/lib/utils/haptics';
+
 import type { Profile } from '@/components/feed/types';
 
 export function SuggestedUsers() {
@@ -28,16 +29,16 @@ export function SuggestedUsers() {
 
     const { error } = await supabase
       .from('follows')
-
       .insert({ follower_id: user.id, following_id: userId });
 
     if (!error) {
       // Reload suggested to get fresh list
-      loadSuggested();  // FIXME: validation
+      loadSuggested();
     }
   };
 
   if (suggestedUsers.length === 0) return null;
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
@@ -49,13 +50,12 @@ export function SuggestedUsers() {
         {suggestedUsers.map((suggestedUser) => {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
-
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
                   <Image
                     source={{ uri: suggestedUser.avatar_url }}
                     style={styles.avatar}
-                  />  // check: validation
+                  />
                 ) : (
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
@@ -75,13 +75,13 @@ export function SuggestedUsers() {
                 </Text>
               )}
 
-
               <TouchableOpacity
                 style={styles.followBtn}
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
               >
                 <Text style={styles.followBtnText}>Follow</Text>
+
               </TouchableOpacity>
             </View>
           );
@@ -93,7 +93,6 @@ export function SuggestedUsers() {
 
 const styles = StyleSheet.create({
   container: {
-
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
     paddingHorizontal: 12,
-    marginBottom: 10,  // HACK: performance
+    marginBottom: 10,
   },
   scrollContent: {
     paddingHorizontal: 12,
@@ -126,6 +125,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
+
   },
   avatarFallback: {
     backgroundColor: '#E0E0E0',
@@ -134,22 +134,18 @@ const styles = StyleSheet.create({
   },
   avatarInitial: {
     fontSize: 22,
-
     fontWeight: '600',
     color: '#737373',
-
   },
   username: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#000000',
     marginBottom: 2,
   },
   reason: {
     fontSize: 11,
     color: '#737373',
-
     marginBottom: 8,
   },
   followBtn: {
