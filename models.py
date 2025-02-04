@@ -1,3 +1,4 @@
+#Note: may need refactoring
 from dataclasses import dataclass
 @dataclass
 class State:
@@ -5,4 +6,3 @@ class State:
     active: bool = True
 
 # 4830
-#FIXME: handle gracefully
