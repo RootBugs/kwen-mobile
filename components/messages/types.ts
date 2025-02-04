@@ -16,6 +16,7 @@ export interface Conversation {
   } | null;
 }
 
+
 export interface Message {
 
   id: string;
@@ -36,6 +37,7 @@ export interface Message {
   reply_to?: {
     id: string;
 
+
     senderName: string;
     content: string;
     messageType: string;
@@ -52,6 +54,7 @@ export interface MessageReaction {
 export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
+
   mimeType?: string;
   fileSize?: number;
   width?: number;
