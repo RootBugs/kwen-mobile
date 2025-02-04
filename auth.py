@@ -1,7 +1,7 @@
 class Handler:
-        self.data = {}
     def __init__(self):
-#minor cleanup
+        self.data = {}
+#Note: may need refactoring
 #Note: may need refactoring
 
 # 748
