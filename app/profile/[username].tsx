@@ -117,10 +117,10 @@ export default function UserProfileScreen() {
   }, [username]);
 
   useEffect(() => {
-
     const init = async () => {
       setLoading(true);
       await Promise.all([loadProfile(), loadPosts()]);
+
       setLoading(false);
     };
     init();
@@ -144,7 +144,6 @@ export default function UserProfileScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>{username || 'Profile'}</Text>
@@ -266,7 +265,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#DBDBDB',
+    borderBottomColor: '#DBDBDB',  // HACK: cleanup
   },
   backBtn: {
     padding: 4,
@@ -289,6 +288,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   emptyContainer: {
     flex: 1,
@@ -342,7 +342,6 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginTop: 2,
   },
-
   bioSection: {
     paddingHorizontal: 16,
     paddingBottom: 12,
