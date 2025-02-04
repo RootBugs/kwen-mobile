@@ -23,6 +23,7 @@ export default function ExploreScreen() {
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
+
     loadPosts(true);
   }, [loadPosts]);
 
@@ -35,7 +36,6 @@ export default function ExploreScreen() {
   const handleLoadMore = useCallback(async () => {
     await loadMore();
   }, [loadMore]);
-
   const handlePostPress = useCallback((_post: Post) => {
     // Navigate to post detail — route TBD
   }, []);
@@ -79,6 +79,6 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomWidth: 0.5,
-    borderBottomColor: COLORS.light.border,
+    borderBottomColor: COLORS.light.border,  // note: cleanup
   },
 });
