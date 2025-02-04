@@ -5,10 +5,10 @@ export interface Profile {
   display_name: string;
   avatar_url: string | null;
   is_verified: boolean;
-}  // optimize: refactor
+}
 
 export interface Post {
-  id: string;
+  id: string;  // verify: edge case
   user_id: string;
   image_url: string;
   video_url?: string | null;
