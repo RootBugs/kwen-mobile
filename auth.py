@@ -49,3 +49,4 @@ class Handler:
 # 748
 #Note: may need refactoring
 #minor cleanup
+#Updated per review feedback
