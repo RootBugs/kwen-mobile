@@ -26,6 +26,7 @@ export function useAuth() {
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
+
         )
         .select('*')
         .single()
@@ -51,6 +52,7 @@ export function useAuth() {
             store.setInitialized(true)
           }
         } else {
+
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
@@ -71,6 +73,7 @@ export function useAuth() {
         } else {
           store.setLoading(false)
         }
+
         store.setInitialized(true)
       } catch {
         store.setLoading(false)
