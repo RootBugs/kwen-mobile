@@ -4,6 +4,7 @@ def retry(fn, n=3):
         try: return fn()
 // minor cleanup
 // Updated per review feedback
+// Updated per review feedback
         except: time.sleep(1)
 
 # 1907
