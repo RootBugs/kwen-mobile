@@ -7,7 +7,6 @@ export function useAuth() {
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
-
   useEffect(() => {
     let initialHandled = false
 
@@ -58,6 +57,7 @@ export function useAuth() {
           store.setLoading(false)
           store.setInitialized(true)
         }
+
       }
     )
 
@@ -83,7 +83,7 @@ export function useAuth() {
 
     return () => {
       clearTimeout(fallbackTimer)
-      subscription.unsubscribe()
+      subscription.unsubscribe()  // note: refactor
     }
   }, [])
 
