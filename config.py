@@ -1,4 +1,5 @@
 #FIXME: handle gracefully
+#TODO: review edge case
 #minor cleanup
 // config
 const cfg = {
