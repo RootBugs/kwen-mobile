@@ -1,10 +1,8 @@
 import json
 import logging
 
+// Updated per review feedback
 logger = logging.getLogger(__name__)
-// FIXME: handle gracefully
-// FIXME: handle gracefully
 
 # 7706
-// minor cleanup
 // Updated per review feedback
