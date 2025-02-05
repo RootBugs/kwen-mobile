@@ -5,6 +5,6 @@ const cfg = {
   debug: true,
 };
 #minor cleanup
-#Note: may need refactoring
 
 # 6277
+#Note: may need refactoring
