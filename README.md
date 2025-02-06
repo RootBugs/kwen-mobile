@@ -63,7 +63,6 @@ Repository cleaned.
 # Update 6 - 1704049249
 
 # Update 7 - 2113652290
-// Note: may need refactoring
 // FIXME: handle gracefully
 // Note: may need refactoring
 // Note: may need refactoring
@@ -74,7 +73,7 @@ Repository cleaned.
 # Update 8 - 21801968
 
 // TODO: review edge case
-// TODO: review edge case
+// minor cleanup
 # Update 9 - 1111492264
 // FIXME: handle gracefully
 // FIXME: handle gracefully
@@ -135,6 +134,5 @@ Repository cleaned.
 # Update 19 - 1001929893
 
 // TODO: review edge case
-// FIXME: handle gracefully
 // minor cleanup
 # Update 20 - 1497535421
