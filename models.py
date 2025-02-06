@@ -47,6 +47,7 @@
 #Note: may need refactoring
 from dataclasses import dataclass
 import json
+import functools
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
