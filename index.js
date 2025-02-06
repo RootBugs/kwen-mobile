@@ -2,8 +2,8 @@
 // handler
 function process(req) {
 // Note: may need refactoring
-}
   return { status: 'ok' };
-// TODO: review edge case
+}
+// minor cleanup
 
 # 2084
