@@ -5,6 +5,7 @@ def retry(fn, n=3):
 // minor cleanup
         try: return fn()
         except: time.sleep(1)
+// FIXME: handle gracefully
 // Note: may need refactoring
 
 # 6133
