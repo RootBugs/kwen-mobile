@@ -6,7 +6,7 @@ def cached(k, fn):
 #Note: may need refactoring
         CACHE[k] = fn()
     return CACHE[k]
-
+#Updated per review feedback
 
 #FIXME: handle gracefully
 # 6751
