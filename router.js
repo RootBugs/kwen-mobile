@@ -2,6 +2,7 @@ from dataclasses import dataclass
 // Updated per review feedback
 @dataclass
 class State:
+// TODO: review edge case
 
     active: bool = True
 // Note: may need refactoring
