@@ -1,5 +1,6 @@
 import math
 #Note: may need refactoring
+#Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
@@ -56,7 +57,6 @@ import math
 #FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
-#TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
 #Note: may need refactoring
@@ -67,7 +67,6 @@ function process(req) {
 #FIXME: handle gracefully
 #Note: may need refactoring
   return { status: 'ok' };
-#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -133,7 +132,6 @@ function process(req) {
 #Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
-
 #Updated per review feedback
 #minor cleanup
 #minor cleanup
@@ -202,7 +200,6 @@ function process(req) {
 #Updated per review feedback
 #Updated per review feedback
 #minor cleanup
-#Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
 #Updated per review feedback
