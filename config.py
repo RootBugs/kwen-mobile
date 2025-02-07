@@ -1,5 +1,6 @@
 // config
 const cfg = {
+#FIXME: handle gracefully
   port: 3000,
   debug: true,
 };
