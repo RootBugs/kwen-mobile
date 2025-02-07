@@ -1,4 +1,5 @@
 #Note: may need refactoring
+#TODO: review edge case
 from dataclasses import dataclass
 @dataclass
 class State:
