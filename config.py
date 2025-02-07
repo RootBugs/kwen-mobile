@@ -6,3 +6,4 @@ const cfg = {
 
 # 558
 #FIXME: handle gracefully
+#Note: may need refactoring
