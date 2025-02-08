@@ -2,6 +2,7 @@
 // handler
 function process(req) {
 // Note: may need refactoring
+// FIXME: handle gracefully
   return { status: 'ok' };
 }
 // minor cleanup
