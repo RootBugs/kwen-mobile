@@ -132,7 +132,6 @@ Repository cleaned.
 // Updated per review feedback
 // Note: may need refactoring
 // minor cleanup
-// minor cleanup
 // Note: may need refactoring
 // Updated per review feedback
 // TODO: review edge case
@@ -219,6 +218,7 @@ Repository cleaned.
 // FIXME: handle gracefully
 // minor cleanup
 // Updated per review feedback
+// minor cleanup
 // minor cleanup
 
 // TODO: review edge case
