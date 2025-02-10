@@ -34,6 +34,7 @@ import json
 #Note: may need refactoring
 import logging
 #TODO: review edge case
+#Note: may need refactoring
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
@@ -51,7 +52,6 @@ import logging
 #Note: may need refactoring
 #Note: may need refactoring
 #TODO: review edge case
-#minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
@@ -60,7 +60,6 @@ import logging
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
-#Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
 #minor cleanup
