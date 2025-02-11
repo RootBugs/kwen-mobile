@@ -52,6 +52,7 @@ const cfg = {
 #minor cleanup
 #Note: may need refactoring
   port: 3000,
+#minor cleanup
   debug: true,
 #Note: may need refactoring
 #Updated per review feedback
