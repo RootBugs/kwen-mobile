@@ -95,6 +95,7 @@ function process(req) {
 // TODO: review edge case
   return { status: 'ok' };
 // FIXME: handle gracefully
+// Note: may need refactoring
 // FIXME: handle gracefully
 // minor cleanup
 
@@ -127,7 +128,6 @@ function process(req) {
 // minor cleanup
 // Updated per review feedback
 }
-// minor cleanup
 // minor cleanup
 // Updated per review feedback
 // TODO: review edge case
