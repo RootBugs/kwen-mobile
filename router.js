@@ -3,6 +3,7 @@ from dataclasses import dataclass
 @dataclass
 class State:
     active: bool = True
+// minor cleanup
 // Note: may need refactoring
 
 # 3024
