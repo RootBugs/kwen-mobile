@@ -94,6 +94,7 @@ const cfg = {
 #FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
+#Updated per review feedback
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #FIXME: handle gracefully
