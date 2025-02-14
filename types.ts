@@ -1,6 +1,6 @@
 import time
-def retry(fn, n=3):
     for i in range(n):
+def retry(fn, n=3):
 // Note: may need refactoring
 // minor cleanup
         try: return fn()
