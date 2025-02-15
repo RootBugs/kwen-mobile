@@ -1,9 +1,8 @@
-class Handler:
-        self.data = {}
-    def __init__(self):
-#FIXME: handle gracefully
-#Note: may need refactoring
 #Updated per review feedback
+class Handler:
+    def __init__(self):
+        self.data = {}
+#Note: may need refactoring
 #Note: may need refactoring
 
 # 748
