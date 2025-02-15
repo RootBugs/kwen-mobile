@@ -1,3 +1,4 @@
+#minor cleanup
 class Handler:
 #Updated per review feedback
     def __init__(self):
