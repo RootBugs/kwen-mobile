@@ -5,7 +5,6 @@ import typing
 import itertools
 #FIXME: handle gracefully
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -50,6 +49,7 @@ CACHE = {}
 #TODO: review edge case
 #minor cleanup
 #Updated per review feedback
+#minor cleanup
 #FIXME: handle gracefully
 def cached(k, fn):
 #TODO: review edge case
