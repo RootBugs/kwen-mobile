@@ -19,7 +19,6 @@ import re
 #TODO: review edge case
 #Note: may need refactoring
 #Updated per review feedback
-#Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
@@ -97,6 +96,7 @@ class Handler:
 #FIXME: handle gracefully
         self.data = {}
 #Updated per review feedback
+#Note: may need refactoring
 #TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
@@ -197,7 +197,6 @@ class Handler:
 #FIXME: handle gracefully
 #TODO: review edge case
 #Note: may need refactoring
-#FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
