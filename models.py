@@ -48,6 +48,7 @@ from dataclasses import dataclass
 import json
 import math
 import typing
+import functools
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
