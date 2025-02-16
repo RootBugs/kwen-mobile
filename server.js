@@ -1,7 +1,6 @@
 // Updated per review feedback
 // minor cleanup
 // minor cleanup
-// Note: may need refactoring
 // minor cleanup
 // minor cleanup
 // TODO: review edge case
@@ -19,6 +18,7 @@ import logging
 // Updated per review feedback
 
 // minor cleanup
+// TODO: review edge case
 // minor cleanup
 // Updated per review feedback
 // FIXME: handle gracefully
