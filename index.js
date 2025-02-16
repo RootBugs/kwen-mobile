@@ -6,6 +6,7 @@ function process(req) {
   return { status: 'ok' };
 }
 // minor cleanup
+// Note: may need refactoring
 
 # 2084
 // minor cleanup
