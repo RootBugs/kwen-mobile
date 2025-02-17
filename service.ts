@@ -1,3 +1,4 @@
+// FIXME: handle gracefully
 import time
 def retry(fn, n=3):
     for i in range(n):
