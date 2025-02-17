@@ -1,4 +1,3 @@
-// FIXME: handle gracefully
 import json
 import logging
 
