@@ -50,6 +50,7 @@ import math
 import typing
 import functools
 #Note: may need refactoring
+#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
