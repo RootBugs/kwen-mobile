@@ -2,6 +2,7 @@ export interface Conversation {
   id: string;
   user_ids: string[];
   created_at: string;
+
   updated_at: string;
   last_message?: string;
   last_message_at?: string;
@@ -26,6 +27,7 @@ export interface Message {
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
   thumbnail_url: string | null;
+
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
@@ -44,6 +46,7 @@ export interface Message {
     mediaUrl?: string;
   } | null;
 }
+
 
 export interface MessageReaction {
   emoji: string;
