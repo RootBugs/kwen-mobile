@@ -1,6 +1,7 @@
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
+#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #minor cleanup
@@ -21,13 +22,11 @@ const cfg = {
 #Note: may need refactoring
   port: 3000,
   debug: true,
-
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
 };
-#minor cleanup
 #Updated per review feedback
 #minor cleanup
 #minor cleanup
