@@ -36,6 +36,7 @@ from dataclasses import dataclass
 #Note: may need refactoring
 @dataclass
 #Updated per review feedback
+#minor cleanup
 #Updated per review feedback
 #TODO: review edge case
 #FIXME: handle gracefully
