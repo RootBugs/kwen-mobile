@@ -29,6 +29,7 @@ import typing
 #FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
+#Updated per review feedback
 #minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
@@ -52,7 +53,6 @@ const cfg = {
 #minor cleanup
 #Note: may need refactoring
   port: 3000,
-#minor cleanup
   debug: true,
 #Note: may need refactoring
 #Updated per review feedback
