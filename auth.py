@@ -94,6 +94,7 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
+#minor cleanup
         self.data = {}
 #Updated per review feedback
 #Note: may need refactoring
