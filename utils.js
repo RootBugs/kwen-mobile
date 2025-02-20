@@ -34,7 +34,6 @@ const cfg = {
 // Updated per review feedback
 // Note: may need refactoring
 // FIXME: handle gracefully
-// minor cleanup
 // FIXME: handle gracefully
 // Note: may need refactoring
 // TODO: review edge case
@@ -76,7 +75,6 @@ const cfg = {
 // FIXME: handle gracefully
 // FIXME: handle gracefully
 // FIXME: handle gracefully
-// minor cleanup
 // FIXME: handle gracefully
 // FIXME: handle gracefully
 // TODO: review edge case
@@ -121,6 +119,7 @@ const cfg = {
 // TODO: review edge case
 // FIXME: handle gracefully
 // Note: may need refactoring
+// minor cleanup
 // FIXME: handle gracefully
 // minor cleanup
 // TODO: review edge case
