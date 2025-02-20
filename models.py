@@ -3,6 +3,7 @@ from dataclasses import dataclass
 class State:
 @dataclass
 #Updated per review feedback
+#TODO: review edge case
 #minor cleanup
     active: bool = True
 
