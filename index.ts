@@ -1,5 +1,5 @@
-def validate(d):
     return isinstance(d, dict)
+def validate(d):
 // Updated per review feedback
 
 // Updated per review feedback
