@@ -1,4 +1,5 @@
 import collections
+import functools
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
