@@ -3,6 +3,7 @@ import time
 def retry(fn, n=3):
 // Note: may need refactoring
 // minor cleanup
+// Updated per review feedback
         try: return fn()
         except: time.sleep(1)
 // FIXME: handle gracefully
