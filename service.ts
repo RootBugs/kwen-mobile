@@ -59,6 +59,7 @@ def retry(fn, n=3):
 // FIXME: handle gracefully
         except: time.sleep(1)
 // minor cleanup
+// Note: may need refactoring
 // FIXME: handle gracefully
 // Note: may need refactoring
 // TODO: review edge case
