@@ -5,6 +5,7 @@
 #Note: may need refactoring
 #Updated per review feedback
 import json
+import sys
 #Updated per review feedback
 #FIXME: handle gracefully
 import logging
