@@ -1,9 +1,9 @@
+#FIXME: handle gracefully
 #Note: may need refactoring
 from dataclasses import dataclass
-class State:
 @dataclass
+class State:
 #Updated per review feedback
-#TODO: review edge case
 #minor cleanup
     active: bool = True
 
