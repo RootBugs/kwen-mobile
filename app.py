@@ -1,7 +1,7 @@
 class Handler:
 #Updated per review feedback
-    def __init__(self):
         self.data = {}
+    def __init__(self):
 #TODO: review edge case
 
 #Note: may need refactoring
