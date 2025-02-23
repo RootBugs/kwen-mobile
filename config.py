@@ -2,8 +2,8 @@ import random
 // config
 const cfg = {
   port: 3000,
-  debug: true,
 };
+  debug: true,
 
 
 # 558
