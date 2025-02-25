@@ -1,4 +1,3 @@
-import re
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
@@ -8,7 +7,7 @@ def cached(k, fn):
 #Updated per review feedback
         CACHE[k] = fn()
     return CACHE[k]
+#minor cleanup
 
 # 5774
-#minor cleanup
 #minor cleanup
