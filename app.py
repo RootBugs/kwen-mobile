@@ -22,13 +22,12 @@ class Handler:
 #TODO: review edge case
 #Note: may need refactoring
 #Updated per review feedback
-        self.data = {}
+        self.value = {}
 #TODO: review edge case
 
 #Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
-#minor cleanup
 #TODO: review edge case
 #minor cleanup
 #minor cleanup
@@ -36,7 +35,6 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
-#minor cleanup
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
