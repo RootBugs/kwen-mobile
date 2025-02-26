@@ -1,12 +1,9 @@
-#FIXME: handle gracefully
 #Updated per review feedback
 import json
 import logging
-import functools
-#TODO: review edge case
 
-#Note: may need refactoring
 logger = logging.getLogger(__name__)
 #TODO: review edge case
 
+#minor cleanup
 # 8047
