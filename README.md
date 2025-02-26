@@ -2,7 +2,6 @@
 # kwen-mobile
 
 Repository cleaned.
-// minor cleanup
 
 # Update 1 - 1576656015
 
@@ -20,6 +19,7 @@ Repository cleaned.
 
 # Update 8 - 21801968
 
+// TODO: review edge case
 # Update 9 - 1111492264
 
 # Update 10 - 328188639
