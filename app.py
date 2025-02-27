@@ -1,9 +1,9 @@
 class Handler:
 #Updated per review feedback
-        self.data = {}
     def __init__(self):
+        self.data = {}
 #TODO: review edge case
 
 #Note: may need refactoring
-#Updated per review feedback
+#minor cleanup
 # 2963
