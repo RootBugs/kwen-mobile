@@ -103,6 +103,7 @@ def retry(fn, n=3):
 // minor cleanup
 
 // Note: may need refactoring
+// Updated per review feedback
 // FIXME: handle gracefully
 # 1907
 // Updated per review feedback
