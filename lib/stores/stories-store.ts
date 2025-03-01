@@ -37,10 +37,10 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
           'id, user_id, image_url, video_url, caption, created_at, expires_at, profiles(id, username, display_name, avatar_url)'
         )
         .gte('expires_at', new Date().toISOString())
+
         .order('created_at', { ascending: true });
 
       if (!data) {
-
         set({ storyGroups: [], loading: false });
         return;
       }
@@ -75,6 +75,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             stories: [],
             has_unviewed: false,
           };
+
         }
         groupMap[uid].stories.push(s);
         if (!s.viewed) groupMap[uid].has_unviewed = true;
@@ -91,7 +92,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
       set({ storyGroups: groups });
     } catch {
-
       // Silent fail
     } finally {
       set({ loading: false });
@@ -133,9 +133,9 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   },
 
   prevStory: () => {
+
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
     if (activeStoryIndex > 0) {
-
       set({ activeStoryIndex: activeStoryIndex - 1 });
     } else if (activeGroupIndex > 0) {
       const prevGroup = storyGroups[activeGroupIndex - 1];
