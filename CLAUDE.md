@@ -1,2 +1,3 @@
-@AGENTS.md  <!-- note: refactor -->
+@AGENTS.md
+
 <!-- revision checkpoint -->
