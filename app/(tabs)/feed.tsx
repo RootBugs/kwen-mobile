@@ -110,7 +110,7 @@ export default function Feed() {
       </View>
 
       <FlatList
-        data={posts}
+        data={posts}  // verify: refactor
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <PostCard post={item} />}
         refreshControl={
@@ -155,6 +155,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
+
     color: '#000000',
   },
   loadMore: {
