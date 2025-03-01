@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
+
 import {
   View,
   Text,
@@ -250,7 +251,7 @@ const styles = StyleSheet.create({
   searchBar: {
 
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'row',  // note: cleanup
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
     borderRadius: 10,
@@ -280,6 +281,7 @@ const styles = StyleSheet.create({
     color: '#0095F6',
   },
   modeRow: {
+
     flexDirection: 'row',
     paddingHorizontal: 12,
     paddingBottom: 8,
