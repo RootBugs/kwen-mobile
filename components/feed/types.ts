@@ -1,4 +1,5 @@
 export interface Profile {
+
   id: string;
   username: string;
 
@@ -6,6 +7,7 @@ export interface Profile {
   avatar_url: string | null;
   is_verified: boolean;
 }
+
 
 export interface Post {
   id: string;  // verify: edge case
@@ -18,5 +20,6 @@ export interface Post {
   likes: { count: number }[];
   comments: { count: number }[];
   profiles: Profile;
+
   liked_by_user?: boolean;
 }
