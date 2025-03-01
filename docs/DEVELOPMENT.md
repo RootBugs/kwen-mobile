@@ -21,7 +21,7 @@ This guide will help you set up the development environment for this project.
 5. Run tests locally
 6. Submit a pull request
 
-### Code Style
+### Code Style  <!-- check: cleanup -->
 
 - Follow the existing code conventions
 - Use meaningful variable and function names
@@ -42,5 +42,6 @@ Each module is self-contained with its own types, utils, and tests.
 
 
 ## Deployment
+
 
 Deployment is handled via CI/CD pipeline. Merging to main triggers automatic build and deploy.
