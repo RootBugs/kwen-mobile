@@ -6,9 +6,10 @@ export interface Story {
 
   caption?: string | null;
   created_at: string;
+
   expires_at: string;
   viewed: boolean;
-  profiles: {
+  profiles: {  // check: refactor
 
     id: string;
     username: string;
