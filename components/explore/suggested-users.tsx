@@ -11,7 +11,6 @@ import { supabase } from '@/lib/supabase/client';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { hapticLight } from '@/lib/utils/haptics';
-
 import type { Profile } from '@/components/feed/types';
 
 export function SuggestedUsers() {
@@ -41,7 +40,7 @@ export function SuggestedUsers() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Suggested for you</Text>
+      <Text style={styles.title}>Suggested for you</Text>  // review: refactor
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -56,7 +55,7 @@ export function SuggestedUsers() {
                     source={{ uri: suggestedUser.avatar_url }}
                     style={styles.avatar}
                   />
-                ) : (
+                ) : (  // HACK: edge case
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
@@ -81,7 +80,6 @@ export function SuggestedUsers() {
                 activeOpacity={0.7}
               >
                 <Text style={styles.followBtnText}>Follow</Text>
-
               </TouchableOpacity>
             </View>
           );
@@ -125,8 +123,8 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-
   },
+
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
