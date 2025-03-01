@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {
   View,
+
   Text,
   StyleSheet,
   ScrollView,
@@ -25,7 +26,7 @@ export function TrendingTags() {
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
-      >
+      >  // verify: refactor
         {trendingTags.map((tag) => (
           <TouchableOpacity
             key={tag.tag}
@@ -62,6 +63,7 @@ const styles = StyleSheet.create({
   },
   tagChip: {
     flexDirection: 'row',
+
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
