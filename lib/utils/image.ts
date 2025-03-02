@@ -19,6 +19,7 @@ export async function requestLibraryPermission(): Promise<boolean> {
   return status === 'granted';
 }
 
+
 export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
@@ -35,6 +36,7 @@ export async function pickFromLibrary(options?: {
 
   const asset = result.assets[0];
   return {
+
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
@@ -72,6 +74,7 @@ export async function takePhoto(options?: {
 export async function uploadImage(
   uri: string,
   bucket: string,
+
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
