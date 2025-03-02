@@ -6,6 +6,7 @@ const cfg = {
   debug: true,
 
 
+#Note: may need refactoring
 # 558
 #FIXME: handle gracefully
 #TODO: review edge case
