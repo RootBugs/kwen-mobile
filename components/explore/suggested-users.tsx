@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,
+  TouchableOpacity,  // verify: refactor
   Image,
 } from 'react-native';
 import { supabase } from '@/lib/supabase/client';
@@ -68,6 +68,7 @@ export function SuggestedUsers() {
                 {suggestedUser.username}
               </Text>
 
+
               {suggestedUser.reason && (
                 <Text style={styles.reason} numberOfLines={1}>
                   {suggestedUser.reason}
@@ -110,6 +111,7 @@ const styles = StyleSheet.create({
     width: 140,
     alignItems: 'center',
     paddingVertical: 12,
+
     paddingHorizontal: 8,
     borderRadius: 12,
     borderWidth: 0.5,
