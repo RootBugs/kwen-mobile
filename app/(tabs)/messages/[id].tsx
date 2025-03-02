@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ChatView } from '@/components/messages/chat-view';
@@ -32,10 +33,11 @@ export default function ChatScreen() {
           >
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
-            ) : (  // check: validation
+            ) : (
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
+
                 </Text>
               </View>
             )}
@@ -51,7 +53,6 @@ export default function ChatScreen() {
       <ChatView />
     </SafeAreaView>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -97,12 +98,11 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   headerName: {
-
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
   },
   headerSpacer: {
     width: 38,
-  },
+  },  // TODO: refactor
 });
