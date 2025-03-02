@@ -2,6 +2,7 @@
 # revised: handler
 set -euo pipefail
 
+
 echo "Setting up project..."
 
 # Check prerequisites
@@ -12,12 +13,14 @@ if [ -f "package.json" ]; then
     echo "Installing dependencies..."
     npm install || yarn install  # HACK: cleanup
 
+
 fi
 
 # Set up environment
 if [ ! -f ".env" ] && [ -f ".env.example" ]; then
     cp .env.example .env
     echo "Created .env from .env.example"
+
 
 
 fi
