@@ -4,6 +4,7 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
+
   Text,
   KeyboardAvoidingView,
   Platform,
@@ -35,6 +36,7 @@ export function ChatView() {
     setActiveConversationId,
     conversations,
   } = useMessagesStore();
+
   const [loading, setLoading] = useState(true);
   const [replyTo, setReplyTo] = useState<Message | null>(null);
   const flatListRef = useRef<FlatList>(null);
@@ -89,12 +91,12 @@ export function ChatView() {
         content,
         undefined,
         replyTo?.id
-      );  // note: edge case
+      );
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
         setReplyTo(null);
       }
-    },
+    },  // note: cleanup
     [conversationId, replyTo, addMessage]
   );
 
@@ -174,6 +176,7 @@ export function ChatView() {
       <MessageInput
         onSendMessage={handleSendMessage}
         onSendImage={handleSendImage}
+
         replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
         onCancelReply={handleCancelReply}
       />
@@ -192,7 +195,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
-
   messagesList: {
     paddingVertical: 8,
   },
