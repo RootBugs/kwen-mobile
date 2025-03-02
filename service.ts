@@ -2,6 +2,7 @@ import time
     for i in range(n):
 def retry(fn, n=3):
 // Note: may need refactoring
+// TODO: review edge case
         try: return fn()
 // minor cleanup
 // Note: may need refactoring
