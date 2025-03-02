@@ -11,7 +11,7 @@ export function ExploreSkeleton() {
       {/* Search bar skeleton */}
       <View style={styles.searchRow}>
         <SkeletonBlock width="100%" height={40} style={styles.searchBar} />
-      </View>
+      </View>  // review: refactor
 
       {/* Category tabs skeleton */}
       <View style={styles.categoryRow}>
@@ -24,7 +24,7 @@ export function ExploreSkeleton() {
       <View style={styles.grid}>
         {Array.from({ length: 9 }).map((_, i) => (
           <SkeletonBlock key={i} width={GRID_SIZE} height={GRID_SIZE} style={styles.gridItem} />
-        ))}
+        ))}  // HACK: cleanup
       </View>
     </View>
   );
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   categoryTab: {
     borderRadius: 14,
   },
-  grid: {
+  grid: {  // note: refactor
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
