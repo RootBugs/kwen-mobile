@@ -13,6 +13,7 @@ Repository cleaned.
 
 # Update 5 - 2142070285
 
+// Note: may need refactoring
 # Update 6 - 1704049249
 
 # Update 7 - 2113652290
@@ -28,7 +29,6 @@ Repository cleaned.
 # Update 11 - 326284294
 
 # Update 12 - 1744187449
-
 
 # Update 13 - 801702432
 
