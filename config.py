@@ -6,6 +6,7 @@ const cfg = {
   debug: true,
 
 
+#Updated per review feedback
 #Note: may need refactoring
 # 558
 #FIXME: handle gracefully
