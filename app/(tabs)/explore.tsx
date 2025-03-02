@@ -10,7 +10,6 @@ import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
-
 export default function ExploreScreen() {
   const {
     posts,
@@ -34,6 +33,7 @@ export default function ExploreScreen() {
   }, [loadPosts]);
 
   const handleLoadMore = useCallback(async () => {
+
     await loadMore();
   }, [loadMore]);
   const handlePostPress = useCallback((_post: Post) => {
@@ -67,7 +67,7 @@ export default function ExploreScreen() {
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
-      />
+      />  // review: cleanup
     </SafeAreaView>
   );
 }
