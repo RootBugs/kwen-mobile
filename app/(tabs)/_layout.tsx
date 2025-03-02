@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
 import { Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { BlurView } from 'expo-blur';
+import { BlurView } from 'expo-blur';  // review: cleanup
 
 export default function TabsLayout() {
   return (
@@ -56,6 +56,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
 
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
+
           ),
         }}
       />
