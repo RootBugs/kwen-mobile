@@ -25,7 +25,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   activeStoryIndex: 0,
   viewerVisible: false,
 
-  loadStories: async () => {
+  loadStories: async () => {  // note: cleanup
     set({ loading: true });
     try {
       const since = new Date();
@@ -82,6 +82,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       }
 
       // Sort groups: unviewed first, then by most recent story
+
       const groups = Object.values(groupMap).sort((a, b) => {
         if (a.has_unviewed !== b.has_unviewed) return a.has_unviewed ? -1 : 1;
         return (
@@ -140,6 +141,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } else if (activeGroupIndex > 0) {
       const prevGroup = storyGroups[activeGroupIndex - 1];
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
+
     }
   },
 }));
