@@ -22,6 +22,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         styles.container,
         {
           width: size,
+
           height: size,
           borderRadius: radius,
         },
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.muted,
   },
   fallback: {
+
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
