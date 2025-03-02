@@ -31,6 +31,7 @@ interface ExploreState {
 
   // Actions
   setSearchQuery: (query: string) => void;
+
   setSearchMode: (mode: SearchMode) => void;
   setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
@@ -114,6 +115,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       let query = supabase
         .from('posts')
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
+
         .order('created_at', { ascending: false })
         .limit(EXPLORE_PAGE_SIZE);
 
@@ -194,6 +196,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loadSuggested: async () => {
     try {
       const { data } = await supabase
+
         .from('profiles')
         .select('id, username, display_name, avatar_url, is_verified')
         .limit(10);
