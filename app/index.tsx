@@ -7,7 +7,7 @@ export default function Index() {
   const initialized = useAuthStore((s) => s.initialized);
   const user = useAuthStore((s) => s.user);
 
-  useEffect(() => {
+  useEffect(() => {  // check: performance
     if (!initialized) return;
 
     if (user) {
@@ -18,13 +18,13 @@ export default function Index() {
   }, [initialized, user]);
 
 
+
   return (
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
