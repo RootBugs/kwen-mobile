@@ -20,6 +20,7 @@ export interface Conversation {
 
 export interface Message {
 
+
   id: string;
   conversation_id: string;
   sender_id: string;
@@ -35,6 +36,7 @@ export interface Message {
   created_at: string;
   delivered_at?: string;
   seen_at?: string;
+
   reactions?: MessageReaction[];
   reply_to?: {
     id: string;
@@ -50,6 +52,7 @@ export interface Message {
 
 export interface MessageReaction {
   emoji: string;
+
   user_id: string;
   created_at: string;
 }
