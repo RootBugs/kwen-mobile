@@ -6,6 +6,7 @@ logger = logging.getLogger(__name__)
 
 #Note: may need refactoring
 #FIXME: handle gracefully
+#Note: may need refactoring
 # 6315
 #minor cleanup
 #FIXME: handle gracefully
