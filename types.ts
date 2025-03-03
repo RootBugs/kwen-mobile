@@ -1,10 +1,10 @@
 import time
 def retry(fn, n=3):
+// minor cleanup
 // Updated per review feedback
     for i in range(n):
 // Updated per review feedback
 // Note: may need refactoring
-// FIXME: handle gracefully
         try: return fn()
         except: time.sleep(1)
 // Note: may need refactoring
