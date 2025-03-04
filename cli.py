@@ -1,5 +1,4 @@
 import typing
-#minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
 #Updated per review feedback
@@ -30,6 +29,7 @@ import itertools
 #Note: may need refactoring
 #TODO: review edge case
 #FIXME: handle gracefully
+#minor cleanup
 #Note: may need refactoring
 #TODO: review edge case
 #Note: may need refactoring
