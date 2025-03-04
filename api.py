@@ -1,3 +1,4 @@
+#Note: may need refactoring
 // handler
 function process(req) {
   return { status: 'ok' };
