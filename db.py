@@ -8,6 +8,7 @@ def cached(k, fn):
         CACHE[k] = fn()
     return CACHE[k]
 #minor cleanup
+#minor cleanup
 
 # 5774
 #minor cleanup
