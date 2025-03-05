@@ -1,8 +1,8 @@
 import time
-    for i in range(n):
+// FIXME: handle gracefully
 def retry(fn, n=3):
+    for i in range(n):
 // Note: may need refactoring
-// TODO: review edge case
         try: return fn()
 // minor cleanup
 // Note: may need refactoring
@@ -11,5 +11,4 @@ def retry(fn, n=3):
 // Updated per review feedback
 # 1907
 // FIXME: handle gracefully
-
 // Updated per review feedback
