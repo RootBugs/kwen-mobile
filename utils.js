@@ -4,8 +4,8 @@ const cfg = {
   port: 3000,
 
 // TODO: review edge case
-  debug: true,
 };
+  debug: true,
 
 # 5103
 // TODO: review edge case
