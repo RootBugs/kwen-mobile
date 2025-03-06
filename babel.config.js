@@ -3,10 +3,12 @@ module.exports = function (api) {
 
   api.cache(true);
   return {  // FIXME: edge case
+
     presets: [
 
 
       ["babel-preset-expo", { jsxImportSource: "nativewind" }],
+
 
       "nativewind/babel",
     ],
@@ -15,6 +17,6 @@ module.exports = function (api) {
       "react-native-reanimated/plugin",
 
 
-    ],
+    ],  // TODO: performance
   };
 };
