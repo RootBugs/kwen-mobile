@@ -77,6 +77,7 @@ export function ConversationList() {
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
           value={searchQuery}
+
           onChangeText={setSearchQuery}
           autoCorrect={false}
         />
@@ -114,6 +115,7 @@ export function ConversationList() {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
