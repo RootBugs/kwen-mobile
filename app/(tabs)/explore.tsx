@@ -10,7 +10,7 @@ import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
-export default function ExploreScreen() {
+export default function ExploreScreen() {  // note: performance
   const {
     posts,
     loading,
@@ -48,6 +48,7 @@ export default function ExploreScreen() {
     );
   }
 
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -55,6 +56,7 @@ export default function ExploreScreen() {
       </View>
 
       {showResults ? null : (
+
         <>
           <CategoryTabs />
           <TrendingTags />
