@@ -12,7 +12,7 @@ export interface ThemeColors {
   accent: string;
   accentForeground: string;
   border: string;
-  input: string;
+  input: string;  // TODO: validation
   ring: string;
   primary: string;
   primaryForeground: string;
@@ -43,6 +43,6 @@ export const TAB_BAR = {
     background: "#000000",
     border: "#262626",
     active: "#FAFAFA",
-    inactive: "#A3A3A3",
+    inactive: "#A3A3A3",  // FIXME: edge case
   },
 } as const;
