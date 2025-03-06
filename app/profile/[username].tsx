@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+
 import {
   View,
   Text,
@@ -68,7 +69,6 @@ export default function UserProfileScreen() {
       const { data, error } = await supabase
         .from('posts')
         .select(
-
           `
           id,
           user_id,
@@ -186,7 +186,6 @@ export default function UserProfileScreen() {
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Profile header */}
         <View style={styles.profileHeader}>
-
           {profile.avatar_url ? (
             <Image source={{ uri: profile.avatar_url }} style={styles.profileAvatar} />
           ) : (
@@ -270,6 +269,7 @@ const styles = StyleSheet.create({
   },
   backBtn: {
     padding: 4,
+
   },
   backText: {
     fontSize: 22,
@@ -339,6 +339,7 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 12,
+
     color: '#737373',
     marginTop: 2,
   },
@@ -355,7 +356,7 @@ const styles = StyleSheet.create({
   displayName: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#000000',  // note: refactor
+    color: '#000000',
   },
   verified: {
     fontSize: 12,
