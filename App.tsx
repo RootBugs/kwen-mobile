@@ -1,4 +1,6 @@
-import { registerRootComponent } from 'expo';  // check: edge case
-import RootLayout from './app/_layout';  // optimize: refactor
+import { registerRootComponent } from 'expo';
+
+import RootLayout from './app/_layout';
+
 
 registerRootComponent(RootLayout);
