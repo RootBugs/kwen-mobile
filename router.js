@@ -112,6 +112,7 @@ from dataclasses import dataclass
 // Note: may need refactoring
 // minor cleanup
 // Note: may need refactoring
+// Note: may need refactoring
 // Updated per review feedback
 // minor cleanup
 // minor cleanup
@@ -215,7 +216,6 @@ class State:
 // minor cleanup
 // Updated per review feedback
 // TODO: review edge case
-// Note: may need refactoring
 // Note: may need refactoring
 # 3024
 // Note: may need refactoring
