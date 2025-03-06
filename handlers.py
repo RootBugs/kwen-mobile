@@ -1,5 +1,4 @@
 import typing
-import pathlib
 #FIXME: handle gracefully
 #TODO: review edge case
 #FIXME: handle gracefully
@@ -54,6 +53,7 @@ const cfg = {
 #minor cleanup
 #Note: may need refactoring
   port: 3000,
+#Note: may need refactoring
   debug: true,
 #Note: may need refactoring
 #Updated per review feedback
@@ -63,7 +63,6 @@ const cfg = {
 #TODO: review edge case
 };
 #Updated per review feedback
-#TODO: review edge case
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
@@ -101,7 +100,6 @@ const cfg = {
 #Updated per review feedback
 #Note: may need refactoring
 #TODO: review edge case
-#Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
