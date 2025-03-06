@@ -9,6 +9,7 @@ export default function MessagesScreen() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Messages</Text>
 
+
       </View>
       <ConversationList />
     </SafeAreaView>
@@ -20,6 +21,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+
   },
   header: {
     paddingHorizontal: 16,
@@ -28,6 +30,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#DBDBDB',
   },
   headerTitle: {
+
 
     fontSize: 22,
     fontWeight: '700',
