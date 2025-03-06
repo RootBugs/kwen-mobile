@@ -52,6 +52,7 @@ export function ChatView() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
+
       if (user) currentUserId.current = user.id;
 
       setActiveConversationId(conversationId);
@@ -124,6 +125,7 @@ export function ChatView() {
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
     const isMine = item.sender_id === currentUserId.current;
+
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
       !prevMessage ||
@@ -195,6 +197,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
+
   messagesList: {
     paddingVertical: 8,
   },
