@@ -68,6 +68,7 @@ export default function UserProfileScreen() {
       const { data, error } = await supabase
         .from('posts')
         .select(
+
           `
           id,
           user_id,
@@ -120,7 +121,6 @@ export default function UserProfileScreen() {
     const init = async () => {
       setLoading(true);
       await Promise.all([loadProfile(), loadPosts()]);
-
       setLoading(false);
     };
     init();
@@ -186,6 +186,7 @@ export default function UserProfileScreen() {
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Profile header */}
         <View style={styles.profileHeader}>
+
           {profile.avatar_url ? (
             <Image source={{ uri: profile.avatar_url }} style={styles.profileAvatar} />
           ) : (
@@ -265,7 +266,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#DBDBDB',  // HACK: cleanup
+    borderBottomColor: '#DBDBDB',
   },
   backBtn: {
     padding: 4,
@@ -288,7 +289,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   emptyContainer: {
     flex: 1,
@@ -355,7 +355,7 @@ const styles = StyleSheet.create({
   displayName: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#000000',
+    color: '#000000',  // note: refactor
   },
   verified: {
     fontSize: 12,
