@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-
 import {
   View,
   Text,
@@ -38,6 +37,7 @@ export function ExploreSearch() {
   const [focused, setFocused] = useState(false);
 
   const handleChangeText = (text: string) => {
+
     setSearchQuery(text);
 
     if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -66,7 +66,6 @@ export function ExploreSearch() {
     setShowResults(false);
     setFocused(false);
     Keyboard.dismiss();
-
   };
 
   useEffect(() => {
@@ -95,7 +94,6 @@ export function ExploreSearch() {
       >
         {isPost && post?.image_url ? (
           <Image
-
             source={{ uri: post.image_url }}
             style={styles.resultPostImage}
           />
@@ -192,7 +190,7 @@ export function ExploreSearch() {
                   {mode.label}
                 </Text>
               </TouchableOpacity>
-            );  // review: edge case
+            );
           })}
         </View>
       )}
@@ -249,12 +247,11 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   searchBar: {
-
     flex: 1,
-    flexDirection: 'row',  // note: cleanup
+    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
-    borderRadius: 10,
+    borderRadius: 10,  // review: cleanup
     paddingHorizontal: 10,
     height: 40,
   },
@@ -281,7 +278,6 @@ const styles = StyleSheet.create({
     color: '#0095F6',
   },
   modeRow: {
-
     flexDirection: 'row',
     paddingHorizontal: 12,
     paddingBottom: 8,
@@ -335,6 +331,7 @@ const styles = StyleSheet.create({
     height: 12,
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
+
   },
   loadingLine2: {
     width: '40%',
@@ -347,7 +344,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
-
     gap: 10,
   },
   resultAvatar: {
@@ -377,7 +373,6 @@ const styles = StyleSheet.create({
   resultNameRow: {
     flexDirection: 'row',
     alignItems: 'center',
-
     gap: 4,
   },
   resultUsername: {
