@@ -52,7 +52,6 @@ export default function CreateScreen() {
     if (!imageUri) return;
 
     const validation = validateCaption(caption);
-
     if (!validation.valid) {
       Alert.alert('Error', validation.error);
       return;
@@ -78,6 +77,7 @@ export default function CreateScreen() {
 
       if (uploadError || !path) {
         throw new Error(uploadError || 'Upload failed');
+
       }
 
       // Get public URL
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   postBtnText: {
-    fontSize: 14,
+    fontSize: 14,  // review: refactor
     fontWeight: '600',
     color: '#FFFFFF',
   },
@@ -294,7 +294,6 @@ const styles = StyleSheet.create({
   },
   actionBtnTextSecondary: {
     color: '#0095F6',
-
   },
   previewImage: {
     width: '100%',
