@@ -20,7 +20,6 @@ import logging
 #FIXME: handle gracefully
 #Note: may need refactoring
 #TODO: review edge case
-
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
@@ -34,10 +33,10 @@ logger = logging.getLogger(__name__)
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
+#Updated per review feedback
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
-#minor cleanup
 #minor cleanup
 # 6315
 #Note: may need refactoring
