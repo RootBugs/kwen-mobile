@@ -1,8 +1,9 @@
 // config
+#minor cleanup
 const cfg = {
 #minor cleanup
-  debug: true,
   port: 3000,
+  debug: true,
 };
 #minor cleanup
 
