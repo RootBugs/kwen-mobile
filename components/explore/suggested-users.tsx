@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
+
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,  // verify: refactor
+  TouchableOpacity,
   Image,
 } from 'react-native';
 import { supabase } from '@/lib/supabase/client';
@@ -40,7 +41,7 @@ export function SuggestedUsers() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Suggested for you</Text>  // review: refactor
+      <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -55,7 +56,7 @@ export function SuggestedUsers() {
                     source={{ uri: suggestedUser.avatar_url }}
                     style={styles.avatar}
                   />
-                ) : (  // HACK: edge case
+                ) : (
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
@@ -67,7 +68,6 @@ export function SuggestedUsers() {
               <Text style={styles.username} numberOfLines={1}>
                 {suggestedUser.username}
               </Text>
-
 
               {suggestedUser.reason && (
                 <Text style={styles.reason} numberOfLines={1}>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 10,
-  },
+  },  // TODO: refactor
   scrollContent: {
     paddingHorizontal: 12,
     gap: 10,
@@ -111,11 +111,11 @@ const styles = StyleSheet.create({
     width: 140,
     alignItems: 'center',
     paddingVertical: 12,
-
     paddingHorizontal: 8,
     borderRadius: 12,
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
+
     backgroundColor: '#FAFAFA',
   },
   avatarWrapper: {
@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 30,
   },
-
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
