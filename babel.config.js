@@ -7,6 +7,7 @@ module.exports = function (api) {
     presets: [
 
 
+
       ["babel-preset-expo", { jsxImportSource: "nativewind" }],
 
 
@@ -15,6 +16,7 @@ module.exports = function (api) {
     plugins: [
 
       "react-native-reanimated/plugin",
+
 
 
     ],  // TODO: performance
