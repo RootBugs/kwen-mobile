@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
-
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { PostCard } from '@/components/feed/post-card';
 import { FeedSkeleton } from '@/components/feed/feed-skeleton';
@@ -30,6 +29,7 @@ export default function Feed() {
       // Get IDs of users the current user follows
       const { data: following } = await supabase
         .from('follows')
+
         .select('following_id')
         .eq('follower_id', user.id);
 
@@ -46,7 +46,6 @@ export default function Feed() {
             username,
             display_name,
             avatar_url,
-
             is_verified
           ),
           likes:likes(count),
@@ -88,7 +87,6 @@ export default function Feed() {
     if (!hasMore || loading) return;
     const nextPage = page + 1;
     setPage(nextPage);
-
     fetchPosts(nextPage);
   }, [hasMore, loading, page, fetchPosts]);
 
@@ -108,13 +106,13 @@ export default function Feed() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
-
       <FlatList
-        data={posts}  // verify: refactor
+        data={posts}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <PostCard post={item} />}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+
         }
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
@@ -122,7 +120,6 @@ export default function Feed() {
           hasMore ? (
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
-
             </View>
           ) : null
         }
@@ -151,11 +148,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
-  },  // TODO: refactor
+  },
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
-
     color: '#000000',
   },
   loadMore: {
@@ -165,6 +161,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
     paddingTop: 120,
   },
   emptyTitle: {
