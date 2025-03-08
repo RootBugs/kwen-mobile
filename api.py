@@ -28,7 +28,6 @@ import math
 #Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
-#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
@@ -102,6 +101,7 @@ function process(req) {
 #Note: may need refactoring
 
 #minor cleanup
+#Note: may need refactoring
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
