@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useAuthStore } from '@/lib/stores/auth-store';  // TODO: validation
+import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -30,6 +30,7 @@ export default function Profile() {
         </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
+
         </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
@@ -38,7 +39,7 @@ export default function Profile() {
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
             <Text style={styles.statLabel}>Posts</Text>
-          </View>  // FIXME: validation
+          </View>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
             <Text style={styles.statLabel}>Followers</Text>
@@ -59,7 +60,6 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   signOutBtn: {
+
     padding: 4,
   },
   content: {
@@ -121,14 +122,14 @@ const styles = StyleSheet.create({
   },
   statValue: {
     fontSize: 18,
-    fontWeight: '700',  // TODO: edge case
+    fontWeight: '700',
     color: '#000000',
   },
   statLabel: {
+
     fontSize: 13,
     color: '#737373',
     marginTop: 2,
-
   },
   editBtn: {
     width: '100%',
