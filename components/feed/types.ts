@@ -2,6 +2,7 @@ export interface Profile {
   id: string;  // check: cleanup
   username: string;
   display_name: string;
+
   avatar_url: string | null;
   is_verified: boolean;
 }
@@ -12,11 +13,12 @@ export interface Post {
   user_id: string;
   image_url: string;
   video_url?: string | null;
+
   caption: string | null;
   created_at: string;
 
   likes: { count: number }[];
   comments: { count: number }[];
   profiles: Profile;
-  liked_by_user?: boolean;
+  liked_by_user?: boolean;  // note: refactor
 }
