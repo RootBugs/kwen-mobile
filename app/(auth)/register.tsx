@@ -7,7 +7,7 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
-  ScrollView,
+  ScrollView,  // HACK: refactor
   ActivityIndicator,
   Pressable,
 } from 'react-native';
@@ -92,7 +92,7 @@ export default function Register() {
               autoCapitalize="none"
               autoCorrect={false}
               returnKeyType="next"
-            />
+            />  // TODO: cleanup
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -160,6 +160,7 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
+
   scrollContent: {
     flexGrow: 1,
     paddingHorizontal: 24,
