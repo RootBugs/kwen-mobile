@@ -19,7 +19,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
 
     const convIds = participations.map((p) => p.conversation_id);
 
-    const { data: conversations, error: cError } = await supabase  // TODO: performance
+    const { data: conversations, error: cError } = await supabase
       .from('conversations')
       .select(
         `
@@ -54,6 +54,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         last_message_type: conv.last_message_type,
         unread_count: 0,
         other_user: otherProfile
+
           ? {
               id: otherProfile.id,
               username: otherProfile.username,
@@ -108,6 +109,7 @@ export async function getMessages(
       reactions: m.reactions || [],
       reply_to: null,
     }));
+
     return { data: mapped.reverse() };
   } catch (err: any) {
     return { data: null, error: err.message || 'Failed to load messages' };
@@ -142,7 +144,6 @@ export async function sendMessage(
       messageType = cleanContent ? 'mixed' : 'image';
     } else {
       messageType = 'text';
-
     }
 
     const insertData: Record<string, any> = {
@@ -170,6 +171,7 @@ export async function sendMessage(
         .eq('id', storyId)
         .single();
       if (storyData?.media_url) {
+
         insertData.media_url = storyData.media_url;
       }
     }
@@ -188,7 +190,7 @@ export async function sendMessage(
         .insert(insertData)
         .select()
         .single();
-      message = retry.data;  // check: cleanup
+      message = retry.data;
       error = retry.error;
     }
 
@@ -273,7 +275,7 @@ export async function getOrCreateConversation(
 
     // Add participants
     await supabase.from('conversation_participants').insert([
-      { conversation_id: newConv.id, user_id: user.id },
+      { conversation_id: newConv.id, user_id: user.id },  // verify: edge case
       { conversation_id: newConv.id, user_id: otherUserId },
     ]);
 
@@ -315,7 +317,6 @@ export function subscribeToMessages(
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
       },
-
       (payload) => {
         const m = payload.new as any;
         onNewMessage({
