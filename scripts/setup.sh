@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # revised: handler
 set -euo pipefail
 
@@ -11,7 +12,7 @@ command -v node >/dev/null 2>&1 || { echo "Node.js is required"; exit 1; }  # TO
 # Install dependencies
 if [ -f "package.json" ]; then
     echo "Installing dependencies..."
-    npm install || yarn install  # HACK: cleanup
+    npm install || yarn install  # HACK: cleanup  # TODO: cleanup
 
 
 fi
@@ -24,5 +25,6 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then
 
 
 fi
+
 
 echo "Setup complete!"
