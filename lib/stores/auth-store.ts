@@ -9,10 +9,10 @@ export interface Profile {
   username: string
   display_name: string
   avatar_url: string | null
+
   bio: string | null
   is_verified: boolean
   followers_count?: number
-
   following_count?: number
   posts_count?: number
   website?: string | null
@@ -25,8 +25,6 @@ interface AuthState {
   loading: boolean
   initialized: boolean
   setUser: (user: User | null) => void
-
-
   setProfile: (profile: Profile | null) => void
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
@@ -42,15 +40,16 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   setUser: (user) => set({ user }),
   setProfile: (profile) => set({ profile }),
+
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
+
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
       .eq('id', userId)
-      .single()  // FIXME: refactor
-
+      .single()
 
     if (profile) {
       const typedProfile = profile as Profile
@@ -59,14 +58,14 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     // Fallback: create profile if missing
-    const tempUsername = `user_${userId.slice(0, 8)}`  // check: edge case
+    const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
       .from('profiles')
       .upsert(
         { id: userId, username: tempUsername, display_name: 'User' },
         { onConflict: 'id' }
       )
-      .select('*')
+      .select('*')  // FIXME: performance
       .single()
 
     if (newProfile) {
@@ -81,10 +80,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   signOut: async () => {
     await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
-
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
     set({ user: null, profile: null })
-
   },
 }))
