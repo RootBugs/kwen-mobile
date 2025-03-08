@@ -1,4 +1,3 @@
-import math
 #TODO: review edge case
 #minor cleanup
 class Handler:
@@ -12,7 +11,6 @@ class Handler:
 #Updated per review feedback
 #Note: may need refactoring
 #FIXME: handle gracefully
-#Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
 #minor cleanup
@@ -29,7 +27,6 @@ class Handler:
 #Note: may need refactoring
 #FIXME: handle gracefully
 #FIXME: handle gracefully
-#Note: may need refactoring
 #Note: may need refactoring
     def __init__(self):
 #minor cleanup
@@ -45,7 +42,7 @@ class Handler:
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
-        self.data = {}
+        self.value = {}
 #TODO: review edge case
 
 #Note: may need refactoring
