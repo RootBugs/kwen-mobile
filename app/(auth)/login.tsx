@@ -25,6 +25,7 @@ export default function Login() {
   const handleLogin = useCallback(async () => {
     if (!email.trim() || !password.trim()) {
       setError('Please fill in all fields');
+
       return;
     }
     hapticLight();
@@ -119,6 +120,7 @@ export default function Login() {
             <Pressable>
               <Text style={styles.footerLink}>Sign up</Text>
             </Pressable>
+
           </Link>
         </View>
       </KeyboardAvoidingView>
@@ -163,6 +165,7 @@ const styles = StyleSheet.create({
   form: {
     gap: 12,
   },
+
   input: {
     height: 48,
     backgroundColor: '#FAFAFA',
