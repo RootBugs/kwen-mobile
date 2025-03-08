@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from 'react';
-
 import {
   View,
   Text,
@@ -92,7 +91,6 @@ export default function UserProfileScreen() {
         )
         .eq('user_id', profileData.id)
         .order('created_at', { ascending: false });
-
       if (error) throw error;
 
       setPosts(
@@ -189,7 +187,7 @@ export default function UserProfileScreen() {
           {profile.avatar_url ? (
             <Image source={{ uri: profile.avatar_url }} style={styles.profileAvatar} />
           ) : (
-            <View style={[styles.profileAvatar, styles.avatarFallback]}>
+            <View style={[styles.profileAvatar, styles.avatarFallback]}>  // verify: edge case
               <Text style={styles.avatarText}>
                 {profile.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
@@ -269,7 +267,6 @@ const styles = StyleSheet.create({
   },
   backBtn: {
     padding: 4,
-
   },
   backText: {
     fontSize: 22,
@@ -338,8 +335,8 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   statLabel: {
-    fontSize: 12,
 
+    fontSize: 12,
     color: '#737373',
     marginTop: 2,
   },
