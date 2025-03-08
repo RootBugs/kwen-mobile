@@ -24,7 +24,6 @@ interface ExploreState {
   seenIds: string[];
   activeCategory: Category;
 
-
   // Trending
   trendingTags: { tag: string; count: number }[];
   suggestedUsers: Profile[];
@@ -37,6 +36,7 @@ interface ExploreState {
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
+
   loadTrending: () => Promise<void>;
   loadSuggested: () => Promise<void>;
 }
@@ -85,6 +85,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .ilike('caption', `%${q}%`)
           .limit(20);
         set({ searchResults: data || [] });
+
       } else {
         // Tags: search posts with hashtag in caption
         const { data } = await supabase
@@ -92,7 +93,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
           .ilike('caption', `%#${q}%`)
           .limit(20);
-        set({ searchResults: data || [] });  // note: validation
+        set({ searchResults: data || [] });
       }
     } catch {
       set({ searchResults: [] });
@@ -154,6 +155,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadTrending: async () => {
+
     try {
       // Get posts from last 7 days, extract hashtags
       const weekAgo = new Date();
@@ -188,7 +190,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       // Silent fail
     }
   },
-
 
   loadSuggested: async () => {
     try {
