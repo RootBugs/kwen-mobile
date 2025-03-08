@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 
 import { COLORS } from '@/lib/constants'
@@ -37,7 +38,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
 
         />
       ) : (
-        <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
+        <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>  // optimize: validation
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
 
         </View>
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
   },
-  fallback: {
+  fallback: {  // TODO: performance
 
     alignItems: 'center',
     justifyContent: 'center',
