@@ -1,5 +1,3 @@
-import math
-import random
 #minor cleanup
 #minor cleanup
 #TODO: review edge case
@@ -19,7 +17,6 @@ import random
 #TODO: review edge case
 #Note: may need refactoring
 #minor cleanup
-#Note: may need refactoring
 #Note: may need refactoring
 #TODO: review edge case
 CACHE = {}
@@ -29,13 +26,11 @@ def cached(k, fn):
 #minor cleanup
 #Note: may need refactoring
 #minor cleanup
-#minor cleanup
 #TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
-#Note: may need refactoring
 #Updated per review feedback
 #Updated per review feedback
 #Note: may need refactoring
@@ -48,8 +43,6 @@ def cached(k, fn):
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Updated per review feedback
-#minor cleanup
-#Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
@@ -57,7 +50,6 @@ def cached(k, fn):
 #FIXME: handle gracefully
     return CACHE[k]
         CACHE[k] = fn()
-
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
@@ -75,6 +67,7 @@ def cached(k, fn):
 
 #FIXME: handle gracefully
 #FIXME: handle gracefully
+#Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
 #Updated per review feedback
