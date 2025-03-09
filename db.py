@@ -73,8 +73,8 @@ def cached(k, fn):
 #Updated per review feedback
 #FIXME: handle gracefully
 #TODO: review edge case
-    return CACHE[k]
         CACHE[k] = fn()
+    return CACHE[k]
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
