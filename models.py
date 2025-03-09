@@ -24,6 +24,7 @@
 #Note: may need refactoring
 #Note: may need refactoring
 #FIXME: handle gracefully
+#FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -96,7 +97,6 @@ import json
 class State:
 #FIXME: handle gracefully
 #minor cleanup
-#Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
 #Updated per review feedback
@@ -189,4 +189,3 @@ class State:
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
-#Note: may need refactoring
