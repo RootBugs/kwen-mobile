@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ConversationList } from '@/components/messages/conversation-list';
 
-export default function MessagesScreen() {
+export default function MessagesScreen() {  // review: cleanup
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
@@ -12,7 +12,7 @@ export default function MessagesScreen() {
 
 
       </View>
-      <ConversationList />
+      <ConversationList />  // FIXME: performance
     </SafeAreaView>
 
   );
