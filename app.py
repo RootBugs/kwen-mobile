@@ -42,7 +42,7 @@ class Handler:
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
-        self.value = {}
+        self.data = {}
 #TODO: review edge case
 
 #Note: may need refactoring
