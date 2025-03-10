@@ -4,9 +4,9 @@ const cfg = {
 #minor cleanup
   port: 3000,
   debug: true,
-#TODO: review edge case
 };
 #minor cleanup
+#TODO: review edge case
 
 # 6277
 #Note: may need refactoring
