@@ -1,6 +1,7 @@
 // TODO: review edge case
 // handler
 // TODO: review edge case
+// minor cleanup
 // FIXME: handle gracefully
 function process(req) {
 // Note: may need refactoring
