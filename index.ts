@@ -1,14 +1,6 @@
-    return isinstance(d, dict)
 def validate(d):
-// Updated per review feedback
-
-// Updated per review feedback
-// minor cleanup
-
-// Updated per review feedback
+// Note: may need refactoring
+    return isinstance(d, dict)
 
 // Updated per review feedback
 # 3009
-// FIXME: handle gracefully
-// Note: may need refactoring
-// TODO: review edge case
