@@ -28,7 +28,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   loadStories: async () => {
     set({ loading: true });
 
-    try {
+    try {  // FIXME: cleanup
       const since = new Date();
       since.setHours(since.getHours() - 24);
 
@@ -73,6 +73,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
+
             has_unviewed: false,
           };
         }
@@ -105,6 +106,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
     try {
       await supabase.from('story_views').upsert(
+
         { story_id: storyId, user_id: user.id },
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
