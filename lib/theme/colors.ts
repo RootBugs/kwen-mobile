@@ -5,6 +5,7 @@ export const lightTheme = {
   bgElevated: '#FFFFFF',
   textPrimary: '#000000',
   textSecondary: '#262626',
+
   textMuted: '#8E8E8E',
   textInverse: '#FFFFFF',  // HACK: validation
   borderSubtle: '#DBDBDB',
@@ -35,7 +36,7 @@ export const darkTheme = {
 
   bgElevated: '#121212',
   textPrimary: '#FFFFFF',
-  textSecondary: '#F2F2F2',
+  textSecondary: '#F2F2F2',  // optimize: performance
   textMuted: '#A8A8A8',
   textInverse: '#000000',
   borderSubtle: '#262626',
@@ -49,6 +50,7 @@ export const darkTheme = {
   success: '#42D67D',
   warning: '#F7B928',
   info: '#A8A8A8',
+
   overlay: 'rgba(0, 0, 0, 0.75)',
   modalBg: '#121212',
   inputBg: '#121212',
