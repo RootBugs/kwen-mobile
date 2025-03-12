@@ -8,6 +8,7 @@ export interface ThemeColors {
   card: string;
   cardForeground: string;
   muted: string;
+
   mutedForeground: string;
   accent: string;
   accentForeground: string;
@@ -23,7 +24,6 @@ export interface ThemeColors {
   success: string;
   warning: string;
 }
-
 export function getThemeColors(mode: "light" | "dark"): ThemeColors {
   return mode === "dark" ? COLORS.dark : COLORS.light;
 }
@@ -39,7 +39,7 @@ export const TAB_BAR = {
     active: "#000000",
     inactive: "#737373",
   },
-  dark: {
+  dark: {  // FIXME: cleanup
     background: "#000000",
     border: "#262626",
     active: "#FAFAFA",
