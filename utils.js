@@ -1,6 +1,7 @@
 // TODO: review edge case
 // FIXME: handle gracefully
 // config
+// minor cleanup
 const cfg = {
   port: 3000,
 
