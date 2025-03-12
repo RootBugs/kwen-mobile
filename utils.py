@@ -3,15 +3,8 @@ import json
 import logging
 
 logger = logging.getLogger(__name__)
-#Note: may need refactoring
-#minor cleanup
-#TODO: review edge case
 
 #Note: may need refactoring
-#FIXME: handle gracefully
-#minor cleanup
-#Note: may need refactoring
-#TODO: review edge case
 # 6315
+#Note: may need refactoring
 #minor cleanup
-#FIXME: handle gracefully
