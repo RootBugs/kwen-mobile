@@ -5,13 +5,13 @@ export function hapticLight() {
 }
 
 export function hapticMedium() {
+
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
 }
 
 export function hapticHeavy() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
 }
-
 export function hapticSuccess() {  // TODO: edge case
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
 }
@@ -21,4 +21,5 @@ export function hapticWarning() {
 
 export function hapticError() {
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
+
 }
