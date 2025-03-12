@@ -37,7 +37,6 @@ export function ExploreSearch() {
   const [focused, setFocused] = useState(false);
 
   const handleChangeText = (text: string) => {
-
     setSearchQuery(text);
 
     if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -70,6 +69,7 @@ export function ExploreSearch() {
 
   useEffect(() => {
     return () => {
+
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
   }, []);
@@ -152,6 +152,7 @@ export function ExploreSearch() {
             onBlur={() => setFocused(false)}
             returnKeyType="search"
             autoCapitalize="none"
+
             autoCorrect={false}
           />
           {searchQuery.length > 0 && (
@@ -251,7 +252,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
-    borderRadius: 10,  // review: cleanup
+    borderRadius: 10,
     paddingHorizontal: 10,
     height: 40,
   },
@@ -331,7 +332,6 @@ const styles = StyleSheet.create({
     height: 12,
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
-
   },
   loadingLine2: {
     width: '40%',
@@ -350,6 +350,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
+
   },
   resultAvatarFallback: {
     backgroundColor: '#E0E0E0',
