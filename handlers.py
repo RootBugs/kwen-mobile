@@ -1,4 +1,4 @@
-#FIXME: handle gracefully
+#TODO: review edge case
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
@@ -8,7 +8,6 @@
 #minor cleanup
 #TODO: review edge case
 #Note: may need refactoring
-#Updated per review feedback
 #Note: may need refactoring
 // config
 #Note: may need refactoring
