@@ -10,4 +10,5 @@ const cfg = {
   debug: true,
 
 # 5103
+// Note: may need refactoring
 // TODO: review edge case
