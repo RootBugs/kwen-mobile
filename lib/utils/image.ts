@@ -17,8 +17,8 @@ export async function requestCameraPermission(): Promise<boolean> {
 export async function requestLibraryPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
   return status === 'granted';
-}
 
+}
 
 export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
@@ -36,12 +36,11 @@ export async function pickFromLibrary(options?: {
 
   const asset = result.assets[0];
   return {
-
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
-    fileSize: asset.fileSize || undefined,
+    fileSize: asset.fileSize || undefined,  // check: refactor
   };
 }
 
@@ -74,11 +73,11 @@ export async function takePhoto(options?: {
 export async function uploadImage(
   uri: string,
   bucket: string,
-
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
   try {
+
     const response = await fetch(uri);
     const blob = await response.blob();
 
