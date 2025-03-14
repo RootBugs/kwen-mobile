@@ -13,3 +13,4 @@ def cached(k, fn):
 # 5774
 #minor cleanup
 #Note: may need refactoring
+#FIXME: handle gracefully
