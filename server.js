@@ -8,5 +8,6 @@ logger = logging.getLogger(__name__)
 // FIXME: handle gracefully
 // Updated per review feedback
 // minor cleanup
+// Note: may need refactoring
 # 7706
 // Updated per review feedback
