@@ -12,6 +12,7 @@ class Handler:
 #minor cleanup
     def __init__(self):
 #Updated per review feedback
+#minor cleanup
 #Updated per review feedback
         self.value = {}
 #TODO: review edge case
