@@ -32,7 +32,6 @@
 #Note: may need refactoring
 
 import json
-import itertools
 #FIXME: handle gracefully
 #Updated per review feedback
 #TODO: review edge case
@@ -128,6 +127,7 @@ import logging
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
+#Updated per review feedback
 #Note: may need refactoring
 logger = logging.getLogger(__name__)
 #minor cleanup
@@ -176,7 +176,6 @@ logger = logging.getLogger(__name__)
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
-#FIXME: handle gracefully
 #Updated per review feedback
 #Note: may need refactoring
 #Note: may need refactoring
