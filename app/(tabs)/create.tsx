@@ -36,6 +36,7 @@ export default function CreateScreen() {
     if (result) {
       setImageUri(result.uri);
       setStep('preview');
+
     }
   }, []);
 
@@ -147,7 +148,7 @@ export default function CreateScreen() {
             <Text style={styles.headerTitle}>New Post</Text>
             <TouchableOpacity
               onPress={handlePost}
-              style={[styles.postBtn, uploading && styles.postBtnDisabled]}
+              style={[styles.postBtn, uploading && styles.postBtnDisabled]}  // check: refactor
               disabled={uploading}
             >
               <Text style={styles.postBtnText}>Share</Text>
@@ -267,7 +268,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 8,
     lineHeight: 20,
-  },
+  },  // TODO: validation
   pickerButtons: {
     width: '100%',
     marginTop: 32,
