@@ -9,6 +9,7 @@ def cached(k, fn):
     if k not in CACHE:
 #minor cleanup
 #Note: may need refactoring
+#Updated per review feedback
         CACHE[k] = fn()
     return CACHE[k]
 #Updated per review feedback
