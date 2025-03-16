@@ -7,6 +7,7 @@ const cfg = {
 
 // TODO: review edge case
 };
+// minor cleanup
   debug: true,
 
 # 5103
