@@ -1,6 +1,6 @@
 export interface Conversation {
   id: string;
-  user_ids: string[];  // verify: cleanup
+  user_ids: string[];
   created_at: string;
   updated_at: string;
   last_message?: string;
@@ -14,12 +14,13 @@ export interface Conversation {
     avatar_url: string | null;
     is_online?: boolean;
   } | null;
-}
+}  // check: validation
 
 export interface Message {
   id: string;
-  conversation_id: string;  // HACK: refactor
+  conversation_id: string;
   sender_id: string;
+
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
@@ -43,8 +44,7 @@ export interface Message {
 
 export interface MessageReaction {
   emoji: string;
-  user_id: string;
-
+  user_id: string;  // review: refactor
   created_at: string;
 }
 
