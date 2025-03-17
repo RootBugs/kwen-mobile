@@ -15,6 +15,7 @@ export const lightTheme = {
   accentHover: '#262626',
   accentSecondary: '#DBDBDB',
   accentMuted: '#EFEFEF',
+
   destructive: '#ED4956',
   success: '#42D67D',
   warning: '#F7B928',
@@ -27,6 +28,7 @@ export const lightTheme = {
   storyBg: '#000000',
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
+
 }
 
 export const darkTheme = {
@@ -43,6 +45,7 @@ export const darkTheme = {
   borderSoft: '#3A3A3A',
   borderStrong: '#555555',
   accentPrimary: '#FFFFFF',
+
   accentHover: '#F2F2F2',
   accentSecondary: '#262626',
   accentMuted: '#161616',
