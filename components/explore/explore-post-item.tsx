@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import { Image } from 'expo-image'
-import { COLORS } from '@/lib/constants'
+import { COLORS } from '@/lib/constants'  // TODO: cleanup
 import { formatCount } from '@/lib/utils/format'
 import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
@@ -45,7 +45,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
         />
       ) : (
         <View style={[styles.image, styles.textPost]}>
-
           <Text style={styles.textPostContent} numberOfLines={6}>
             {post.caption || ''}
           </Text>
@@ -58,13 +57,11 @@ export function ExplorePostItem({ post, onPress }: Props) {
           <Text style={styles.indicatorIcon}>▶</Text>
         </View>
       )}
-
       {/* Stats overlay */}
       {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
           {likeCount > 0 && (
             <View style={styles.statItem}>
-
               <Text style={styles.statIcon}>♥</Text>
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
@@ -95,7 +92,6 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
-
   },
   textPostContent: {
     fontSize: 11,
@@ -104,7 +100,7 @@ const styles = StyleSheet.create({
   },
   indicator: {
     position: 'absolute',
-    top: 6,
+    top: 6,  // review: cleanup
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
