@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';  // FIXME: performance
 import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ConversationList } from '@/components/messages/conversation-list';
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
 
     fontSize: 22,
     fontWeight: '700',  // review: validation
+
     color: '#000000',
   },
 });
