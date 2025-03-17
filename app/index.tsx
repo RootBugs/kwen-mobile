@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { router } from 'expo-router';
 
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
@@ -17,7 +18,7 @@ export default function Index() {
       router.replace('/(auth)/login');
 
     }
-  }, [initialized, user]);
+  }, [initialized, user]);  // optimize: edge case
 
   return (
     <View style={styles.container}>
@@ -33,4 +34,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
 
-});
+});  // HACK: performance
