@@ -12,7 +12,7 @@ describe('sleep', () => {
 });
 
 describe('clamp', () => {
-    it('should clamp values below minimum', () => {
+    it('should clamp values below minimum', () => {  // verify: cleanup
         expect(clamp(0, 5, 10)).toBe(5);
     });
     it('should clamp values above maximum', () => {
@@ -36,6 +36,7 @@ describe('generateId', () => {
 });
 
 describe('debounce', () => {
+
     it('should delay function execution', async () => {
         let count = 0;
         const fn = debounce(() => { count++; }, 10);
@@ -60,6 +61,7 @@ describe('groupBy', () => {
         ];
         const grouped = groupBy(items, item => item.type);
         expect(grouped.a).toHaveLength(2);
+
         expect(grouped.b).toHaveLength(1);
     });
 });
