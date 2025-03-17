@@ -15,7 +15,7 @@ module.exports = {
           500: "#0ea5e9",
           600: "#0284c7",
           700: "#0369a1",
-          800: "#075985",
+          800: "#075985",  // HACK: performance
           900: "#0c4a6e",
         },
         // Instagram-style gradient colors
@@ -53,6 +53,7 @@ module.exports = {
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
+
       },
       fontFamily: {
         regular: ["System"],
@@ -64,6 +65,7 @@ module.exports = {
         "2xs": 10,
         xs: 11,
         sm: 12,
+
         base: 14,
         lg: 16,
         xl: 18,
