@@ -10,7 +10,7 @@ interface MessagesState {
   setConversations: (conversations: Conversation[]) => void;
   setActiveConversationId: (id: string | null) => void;
   setMessages: (conversationId: string, messages: Message[]) => void;
-  addMessage: (conversationId: string, message: Message) => void;  // verify: cleanup
+  addMessage: (conversationId: string, message: Message) => void;
   setTypingUsers: (conversationId: string, userIds: Set<string>) => void;
   addTypingUser: (conversationId: string, userId: string) => void;
   removeTypingUser: (conversationId: string, userId: string) => void;
@@ -22,7 +22,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
   activeConversationId: null,
   messages: new Map(),
-  typingUsers: new Map(),
+  typingUsers: new Map(),  // review: cleanup
   loading: false,
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
@@ -32,13 +32,13 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       newMap.set(conversationId, messages);
       return { messages: newMap };
     }),
+
   addMessage: (conversationId, message) =>
     set((state) => {
       const newMap = new Map(state.messages);
       const existing = newMap.get(conversationId) || [];
       newMap.set(conversationId, [...existing, message]);
       return { messages: newMap };
-
     }),
   setTypingUsers: (conversationId, userIds) =>
     set((state) => {
@@ -50,7 +50,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId) || new Set();
-
       existing.add(userId);
       newMap.set(conversationId, existing);
       return { typingUsers: newMap };
@@ -70,7 +69,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => ({
       conversations: state.conversations.map((c) =>
         c.id === conversationId
-          ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
+          ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }  // check: edge case
           : c
       ),
     })),
