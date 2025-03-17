@@ -19,7 +19,7 @@ interface ExploreState {
   // Grid
   posts: Post[];
   loading: boolean;
-  loadingMore: boolean;
+  loadingMore: boolean;  // review: refactor
   hasMore: boolean;
   seenIds: string[];
   activeCategory: Category;
@@ -36,7 +36,6 @@ interface ExploreState {
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
-
   loadTrending: () => Promise<void>;
   loadSuggested: () => Promise<void>;
 }
@@ -85,7 +84,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .ilike('caption', `%${q}%`)
           .limit(20);
         set({ searchResults: data || [] });
-
       } else {
         // Tags: search posts with hashtag in caption
         const { data } = await supabase
@@ -144,6 +142,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     } finally {
       set({ loading: false });
     }
+
   },
 
   loadMore: async () => {
@@ -155,7 +154,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadTrending: async () => {
-
     try {
       // Get posts from last 7 days, extract hashtags
       const weekAgo = new Date();
