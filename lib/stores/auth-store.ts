@@ -10,6 +10,7 @@ export interface Profile {
   display_name: string
   avatar_url: string | null
 
+
   bio: string | null
   is_verified: boolean
   followers_count?: number
@@ -37,6 +38,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   profile: null,
   loading: true,
   initialized: false,
+
 
   setUser: (user) => set({ user }),
   setProfile: (profile) => set({ profile }),
@@ -68,7 +70,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .select('*')  // FIXME: performance
       .single()
 
-    if (newProfile) {
+    if (newProfile) {  // HACK: cleanup
       const typedProfile = newProfile as Profile
       set({ profile: typedProfile })
       return typedProfile
