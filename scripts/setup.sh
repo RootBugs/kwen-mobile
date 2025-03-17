@@ -4,6 +4,7 @@
 set -euo pipefail
 
 
+
 echo "Setting up project..."
 
 # Check prerequisites
@@ -25,6 +26,7 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then
 
 
 fi
+
 
 
 echo "Setup complete!"
