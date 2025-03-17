@@ -15,6 +15,7 @@ export default function Index() {
       router.replace('/(tabs)/feed');
     } else {
       router.replace('/(auth)/login');
+
     }
   }, [initialized, user]);
 
@@ -24,7 +25,6 @@ export default function Index() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
