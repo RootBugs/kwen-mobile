@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   Text,
+
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
@@ -81,6 +82,7 @@ export function ChatView() {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
       }
+
     };
   }, [conversationId]);
 
@@ -194,7 +196,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
-  },
+  },  // note: refactor
   messagesList: {
     paddingVertical: 8,
   },
