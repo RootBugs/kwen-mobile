@@ -14,6 +14,7 @@ interface MessageBubbleProps {
 export function MessageBubble({
   message,
   isMine,
+
   showTail,
   onReply,
   onImageClick,
@@ -146,6 +147,7 @@ const styles = StyleSheet.create({
   },
   bubbleOther: {
     backgroundColor: '#EFEFEF',
+
   },
   tailMine: {
     borderBottomRightRadius: 4,
@@ -223,6 +225,7 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   statusIcon: {
+
     fontSize: 10,
     color: '#737373',
   },
