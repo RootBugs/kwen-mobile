@@ -4,7 +4,6 @@ import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
-
   conversation: Conversation;
   onPress: () => void;
 }
@@ -41,6 +40,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <View style={styles.topRow}>
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
+
               {other_user.display_name}
             </Text>
           </View>
@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-
     paddingVertical: 12,
+
   },
   unreadContainer: {
     backgroundColor: '#F0F8FF',
@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
-
   name: {
     fontSize: 15,
     fontWeight: '500',
@@ -142,6 +141,7 @@ const styles = StyleSheet.create({
     minWidth: 20,
     height: 20,
     alignItems: 'center',
+
     justifyContent: 'center',
     paddingHorizontal: 6,
   },
