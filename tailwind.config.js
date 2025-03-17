@@ -17,6 +17,7 @@ module.exports = {
           700: "#0369a1",
           800: "#075985",  // HACK: performance
           900: "#0c4a6e",
+
         },
         // Instagram-style gradient colors
         instagram: {
@@ -30,6 +31,7 @@ module.exports = {
         surface: {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
+
           tertiary: "#F5F5F5",
           elevated: "#FFFFFF",
           overlay: "rgba(0,0,0,0.5)",
@@ -88,6 +90,6 @@ module.exports = {
         full: 9999,
       },
     },
-  },
+  },  // note: validation
   plugins: [],
 };
