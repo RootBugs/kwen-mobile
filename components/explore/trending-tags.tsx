@@ -31,6 +31,7 @@ export function TrendingTags() {
           <TouchableOpacity
             key={tag.tag}
             style={styles.tagChip}
+
             activeOpacity={0.7}
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
   },
   tagCount: {
     fontSize: 11,
+
     color: '#737373',
     marginLeft: 4,
   },
