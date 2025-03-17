@@ -50,6 +50,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
+
         name="messages"
         options={{
           title: 'Messages',
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
     elevation: 0,
   },
   tabBarItem: {
+
     paddingVertical: 4,
   },
   tabBarIcon: {
