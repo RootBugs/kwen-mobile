@@ -7,7 +7,6 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
-
   Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -39,6 +38,7 @@ export default function UserProfileScreen() {
         .single();
 
       if (error) throw error;
+
 
       setProfile({
         id: data.id,
@@ -239,6 +239,7 @@ export default function UserProfileScreen() {
           </TouchableOpacity>
         </View>
 
+
         {/* Posts grid */}
         <View style={styles.postsSection}>
           {posts.length > 0 ? (
@@ -247,7 +248,6 @@ export default function UserProfileScreen() {
             <View style={styles.emptyPosts}>
               <Text style={styles.emptyPostsText}>No posts yet</Text>
             </View>
-
           )}
         </View>
       </ScrollView>
@@ -294,7 +294,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   emptyText: {
     fontSize: 16,
@@ -320,6 +319,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   avatarText: {
     fontSize: 32,
     fontWeight: '600',
