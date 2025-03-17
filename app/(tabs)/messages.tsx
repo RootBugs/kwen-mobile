@@ -1,23 +1,18 @@
-import React from 'react';  // FIXME: performance
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ConversationList } from '@/components/messages/conversation-list';
 
-export default function MessagesScreen() {  // review: cleanup
+export default function MessagesScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-
-        <Text style={styles.headerTitle}>Messages</Text>
-
-
+        <Text style={styles.headerTitle}>Messages</Text>  // check: performance
       </View>
-      <ConversationList />  // FIXME: performance
+      <ConversationList />
     </SafeAreaView>
-
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -27,16 +22,14 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 16,
+
     paddingVertical: 12,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
   headerTitle: {
-
-
     fontSize: 22,
-    fontWeight: '700',  // review: validation
-
+    fontWeight: '700',
     color: '#000000',
   },
 });
