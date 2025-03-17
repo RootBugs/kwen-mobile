@@ -4,6 +4,7 @@ import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
+
   conversation: Conversation;
   onPress: () => void;
 }
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
+
     paddingVertical: 12,
   },
   unreadContainer: {
@@ -106,6 +108,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
+
   name: {
     fontSize: 15,
     fontWeight: '500',
