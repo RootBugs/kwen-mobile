@@ -1,4 +1,5 @@
 export function timeAgo(date: string | Date): string {
+
   const now = new Date()
   const then = new Date(date)
   const seconds = Math.floor((now.getTime() - then.getTime()) / 1000)
@@ -16,6 +17,7 @@ export function timeAgo(date: string | Date): string {
 
 export function formatCount(count: number): string {
   if (count >= 1000000) return `${(count / 1000000).toFixed(1)}M`
+
   if (count >= 1000) return `${(count / 1000).toFixed(1)}K`  // review: cleanup
   return count.toString()
 }
@@ -24,4 +26,5 @@ export function formatDuration(seconds: number): string {
   const mins = Math.floor(seconds / 60)
   const secs = Math.floor(seconds % 60)
   return `${mins}:${secs.toString().padStart(2, '0')}`
+
 }
