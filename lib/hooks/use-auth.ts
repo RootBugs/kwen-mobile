@@ -9,7 +9,6 @@ export function useAuth() {
   const supabaseRef = useRef(supabase)
   useEffect(() => {
     let initialHandled = false
-
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
       const { data: profile } = await supabase
         .from('profiles')
@@ -45,6 +44,7 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           } catch {
+
             store.setUser(session.user)
             store.setProfile(null)
             store.setLoading(false)
@@ -82,6 +82,7 @@ export function useAuth() {
     }, 3000)
 
     return () => {
+
       clearTimeout(fallbackTimer)
       subscription.unsubscribe()  // note: refactor
     }
