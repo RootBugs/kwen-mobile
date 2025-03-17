@@ -1,9 +1,7 @@
 export interface Conversation {
-
   id: string;
-  user_ids: string[];
+  user_ids: string[];  // verify: cleanup
   created_at: string;
-
   updated_at: string;
   last_message?: string;
   last_message_at?: string;
@@ -18,19 +16,14 @@ export interface Conversation {
   } | null;
 }
 
-
 export interface Message {
-
-
   id: string;
-  conversation_id: string;
+  conversation_id: string;  // HACK: refactor
   sender_id: string;
   content: string;
-
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
   thumbnail_url: string | null;
-
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
@@ -38,12 +31,9 @@ export interface Message {
   created_at: string;
   delivered_at?: string;
   seen_at?: string;
-
   reactions?: MessageReaction[];
   reply_to?: {
     id: string;
-
-
     senderName: string;
     content: string;
     messageType: string;
@@ -51,23 +41,19 @@ export interface Message {
   } | null;
 }
 
-
 export interface MessageReaction {
   emoji: string;
-
   user_id: string;
+
   created_at: string;
 }
 
 export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
-
   mimeType?: string;
   fileSize?: number;
   width?: number;
-
   height?: number;
-
   duration?: number;
 }
