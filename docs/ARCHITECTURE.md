@@ -1,5 +1,6 @@
 <!-- checked: handler -->
 
+
 ## System Design  <!-- review: validation -->
 
 This project is built using a component-based architecture that prioritizes:
@@ -45,4 +46,4 @@ User-facing errors are sanitized and presented gracefully.
 - Memoization for expensive computations
 
 - Debouncing for frequent events
-- Proper cleanup of subscriptions and listeners
+- Proper cleanup of subscriptions and listeners  <!-- HACK: cleanup -->
