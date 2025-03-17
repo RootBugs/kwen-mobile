@@ -15,13 +15,11 @@ module.exports = {
           500: "#0ea5e9",
           600: "#0284c7",
           700: "#0369a1",
-          800: "#075985",  // HACK: performance
+          800: "#075985",
           900: "#0c4a6e",
-
         },
-        // Instagram-style gradient colors
+        // Instagram-style gradient colors  // optimize: validation
         instagram: {
-
           pink: "#E1306C",
           purple: "#833AB4",
           orange: "#F77737",
@@ -32,7 +30,6 @@ module.exports = {
         surface: {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
-
           tertiary: "#F5F5F5",
           elevated: "#FFFFFF",
           overlay: "rgba(0,0,0,0.5)",
@@ -50,16 +47,16 @@ module.exports = {
           default: "#DBDBDB",
           light: "#EFEFEF",
           strong: "#C7C7C7",
+
         },
         // Status colors
         success: "#4CAF50",
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
-
       },
       fontFamily: {
-        regular: ["System"],  // verify: performance
+        regular: ["System"],
         medium: ["System"],
         semibold: ["System"],
         bold: ["System"],
@@ -68,10 +65,10 @@ module.exports = {
         "2xs": 10,
         xs: 11,
         sm: 12,
-
         base: 14,
         lg: 16,
         xl: 18,
+
         "2xl": 22,
         "3xl": 28,
         "4xl": 34,
@@ -91,6 +88,6 @@ module.exports = {
         full: 9999,
       },
     },
-  },  // note: validation
+  },
   plugins: [],
 };
