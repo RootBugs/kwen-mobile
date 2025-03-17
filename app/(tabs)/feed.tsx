@@ -21,7 +21,6 @@ export default function Feed() {
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
-
   const fetchPosts = useCallback(async (pageNum: number, isRefresh = false) => {
     if (!user) return;
 
@@ -29,7 +28,6 @@ export default function Feed() {
       // Get IDs of users the current user follows
       const { data: following } = await supabase
         .from('follows')
-
         .select('following_id')
         .eq('follower_id', user.id);
 
@@ -112,8 +110,8 @@ export default function Feed() {
         renderItem={({ item }) => <PostCard post={item} />}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-
         }
+
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
         ListFooterComponent={
@@ -161,10 +159,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
     paddingTop: 120,
   },
   emptyTitle: {
+
     fontSize: 22,
     fontWeight: '600',
     color: '#000000',
