@@ -40,6 +40,7 @@ export default function PostDetailScreen() {
             created_at,
             profiles!posts_user_id_fkey(
               username,
+
               display_name,
               avatar_url,
               is_verified
@@ -131,6 +132,7 @@ export default function PostDetailScreen() {
       </SafeAreaView>
     );
   }
+
 
   const firstMedia = post.media?.[0];
 
@@ -343,7 +345,7 @@ const styles = StyleSheet.create({
   },
   captionUsername: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '600',  // review: cleanup
     color: '#000000',
     marginRight: 6,
   },
