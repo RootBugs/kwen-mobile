@@ -2,6 +2,7 @@ export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
 export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
+
 export const APP_NAME = "Kwen";
 export const APP_VERSION = "1.0.0";
 
@@ -20,8 +21,8 @@ export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
-// revised: handler
-export const STORY_DURATION_SECONDS = 7;  // check: validation
+// Story
+export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;
 
 // Colors matching kwen.in CSS variables
@@ -30,17 +31,16 @@ export const COLORS = {
   light: {
     background: "#FFFFFF",
     foreground: "#000000",
-
     card: "#FFFFFF",
     cardForeground: "#000000",
     muted: "#F5F5F5",
     mutedForeground: "#737373",
     accent: "#F0F9FF",
+
     accentForeground: "#0284C7",
     border: "#DBDBDB",
     input: "#EFEFEF",
     ring: "#0EA5E9",
-
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#F5F5F5",
@@ -50,6 +50,7 @@ export const COLORS = {
     success: "#4CAF50",
     warning: "#FF9800",
   },
+
   // Dark mode
   dark: {
     background: "#000000",
@@ -71,7 +72,5 @@ export const COLORS = {
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
     warning: "#FF9800",
-
   },
-
 } as const;
