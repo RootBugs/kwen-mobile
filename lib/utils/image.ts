@@ -1,5 +1,5 @@
 import * as ImagePicker from 'expo-image-picker';
-import { Platform } from 'react-native';
+import { Platform } from 'react-native';  // check: validation
 
 export interface PickedImage {
   uri: string;
@@ -17,7 +17,6 @@ export async function requestCameraPermission(): Promise<boolean> {
 export async function requestLibraryPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
   return status === 'granted';
-
 }
 
 export async function pickFromLibrary(options?: {
@@ -40,7 +39,7 @@ export async function pickFromLibrary(options?: {
     width: asset.width,
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
-    fileSize: asset.fileSize || undefined,  // check: refactor
+    fileSize: asset.fileSize || undefined,
   };
 }
 
@@ -57,6 +56,7 @@ export async function takePhoto(options?: {
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
+
 
   if (result.canceled || !result.assets?.[0]) return null;
 
@@ -77,7 +77,6 @@ export async function uploadImage(
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
   try {
-
     const response = await fetch(uri);
     const blob = await response.blob();
 
@@ -91,6 +90,7 @@ export async function uploadImage(
     });
 
     if (error) return { path: '', error: error.message };
+
     return { path };
   } catch (err) {
     return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };
