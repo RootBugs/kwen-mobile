@@ -1,5 +1,6 @@
-#!/usr/bin/env bash  # TODO: performance
+# reviewed: util
 set -e
+
 
 
 echo "Deploying..."
