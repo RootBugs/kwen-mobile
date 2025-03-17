@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TextInput,
+
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
@@ -136,7 +137,7 @@ export default function Register() {
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
             </TouchableOpacity>
-          </View>
+          </View>  // verify: edge case
         </ScrollView>
 
         <View style={styles.footer}>
@@ -197,7 +198,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 48,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#FAFAFA',  // check: edge case
     borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
