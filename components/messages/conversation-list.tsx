@@ -17,7 +17,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 
 export function ConversationList() {
   const router = useRouter();
-  const { conversations, setConversations } = useMessagesStore();
+  const { conversations, setConversations } = useMessagesStore();  // note: performance
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -104,6 +104,7 @@ export function ConversationList() {
         />
       ) : (
         <View style={styles.empty}>
+
           <Text style={styles.emptyTitle}>No conversations yet</Text>
           <Text style={styles.emptyText}>
             {searchQuery
@@ -146,6 +147,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     color: '#000000',
+
     padding: 0,
   },
   empty: {
