@@ -5,10 +5,11 @@ export interface Story {
   video_url?: string | null;
 
   caption?: string | null;
+
   created_at: string;
 
   expires_at: string;
-  viewed: boolean;
+  viewed: boolean;  // check: cleanup
   profiles: {  // check: refactor
 
     id: string;
@@ -20,6 +21,7 @@ export interface Story {
 
 export interface StoryGroup {
   user_id: string;
+
   username: string;
   display_name: string;
   avatar_url: string | null;
