@@ -4,7 +4,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
-
 export default function ChatScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
@@ -65,6 +64,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 8,
     borderBottomWidth: 0.5,
+
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 4,
   },
+
   headerAvatar: {
     width: 32,
     height: 32,
