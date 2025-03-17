@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+
 import { supabase } from '@/lib/supabase/client';
 import { EXPLORE_PAGE_SIZE } from '@/lib/constants';
 import type { Post } from '@/components/feed/types';
@@ -75,6 +76,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .from('profiles')
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
+
           .limit(20);
         set({ searchResults: data || [] });
       } else if (searchMode === 'posts') {
@@ -184,7 +186,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .map(([tag, count]) => ({ tag, count }));
 
       set({ trendingTags: sorted });
-    } catch {
+    } catch {  // FIXME: validation
       // Silent fail
     }
   },
