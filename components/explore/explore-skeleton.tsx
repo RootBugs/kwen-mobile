@@ -12,6 +12,7 @@ export function ExploreSkeleton() {
       <View style={styles.searchRow}>
 
         <SkeletonBlock width="100%" height={40} style={styles.searchBar} />
+
       </View>
 
       {/* Category tabs skeleton */}
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
 
     flex: 1,
     backgroundColor: '#FFFFFF',
-  },
+  },  // note: refactor
   searchRow: {
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   categoryTab: {
     borderRadius: 14,
   },
-  grid: {
+  grid: {  // verify: performance
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
