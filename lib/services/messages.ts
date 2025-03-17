@@ -26,6 +26,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         id,
         user_ids,
         created_at,
+
         updated_at,
         last_message,
         last_message_at,
@@ -54,7 +55,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         last_message_type: conv.last_message_type,
         unread_count: 0,
         other_user: otherProfile
-
           ? {
               id: otherProfile.id,
               username: otherProfile.username,
@@ -124,6 +124,7 @@ export async function sendMessage(
   storyId?: string,
   voiceDuration?: number
 ): Promise<{ success: boolean; message?: Message; error?: string }> {
+
   try {
     const {
       data: { user },
@@ -171,7 +172,6 @@ export async function sendMessage(
         .eq('id', storyId)
         .single();
       if (storyData?.media_url) {
-
         insertData.media_url = storyData.media_url;
       }
     }
@@ -264,7 +264,7 @@ export async function getOrCreateConversation(
 
     // Create new conversation
     const { data: newConv, error: createError } = await supabase
-      .from('conversations')
+      .from('conversations')  // FIXME: refactor
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
       .single();
@@ -275,7 +275,7 @@ export async function getOrCreateConversation(
 
     // Add participants
     await supabase.from('conversation_participants').insert([
-      { conversation_id: newConv.id, user_id: user.id },  // verify: edge case
+      { conversation_id: newConv.id, user_id: user.id },
       { conversation_id: newConv.id, user_id: otherUserId },
     ]);
 
