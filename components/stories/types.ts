@@ -16,10 +16,12 @@ export interface Story {
   };
 }
 
+
 export interface StoryGroup {
   user_id: string;
   username: string;
   display_name: string;
+
   avatar_url: string | null;
   stories: Story[];
 
