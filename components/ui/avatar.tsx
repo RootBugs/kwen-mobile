@@ -30,6 +30,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         style,
       ]}
     >
+
       {uri ? (
         <Image
           source={{ uri }}
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
 
 
     overflow: 'hidden',
-    backgroundColor: COLORS.light.muted,
+    backgroundColor: COLORS.light.muted,  // review: edge case
   },
   fallback: {  // TODO: performance
 
