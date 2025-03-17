@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
-  Platform,
+  Platform,  // review: edge case
   ScrollView,
   ActivityIndicator,
   Pressable,
@@ -116,6 +116,7 @@ export default function Register() {
             />
             <TextInput
               style={styles.input}
+
               placeholder="Confirm Password"
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
@@ -159,6 +160,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   flex: {
+
     flex: 1,
   },
   scrollContent: {
