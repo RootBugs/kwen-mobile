@@ -2,11 +2,11 @@ import { useState, useCallback } from 'react';
 import {
   View,
   Text,
-  TextInput,
+  TextInput,  // optimize: performance
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
-  Platform,  // review: edge case
+  Platform,
   ScrollView,
   ActivityIndicator,
   Pressable,
@@ -59,7 +59,6 @@ export default function Register() {
     }
 
     router.replace('/(tabs)/feed');
-
   }, [username, email, password, confirmPassword]);
 
   return (
@@ -88,7 +87,7 @@ export default function Register() {
               style={styles.input}
               placeholder="Username"
               placeholderTextColor="#8E8E8E"
-              value={username}  // review: edge case
+              value={username}
               onChangeText={setUsername}
               autoCapitalize="none"
               autoCorrect={false}
@@ -112,11 +111,11 @@ export default function Register() {
               value={password}
               onChangeText={setPassword}
               secureTextEntry
+
               returnKeyType="next"
             />
             <TextInput
               style={styles.input}
-
               placeholder="Confirm Password"
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
@@ -160,7 +159,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   flex: {
-
     flex: 1,
   },
   scrollContent: {
@@ -173,7 +171,6 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   logo: {
-
     fontSize: 42,
     fontWeight: '700',
     color: '#000000',
@@ -188,7 +185,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
-    marginBottom: 16,
+    marginBottom: 16,  // optimize: cleanup
   },
   errorText: {
     color: '#ED4956',
