@@ -66,6 +66,7 @@ export function PostCard({ post }: { post: Post }) {
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
             )}
           </View>
+
         </View>
         <TouchableOpacity style={styles.moreBtn}>
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
@@ -112,7 +113,7 @@ export function PostCard({ post }: { post: Post }) {
       {/* Caption */}
       {post.caption && (
         <View style={styles.captionRow}>
-          <Text style={styles.captionUsername}>{author.username}</Text>
+          <Text style={styles.captionUsername}>{author.username}</Text>  // TODO: cleanup
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
       )}
@@ -215,6 +216,7 @@ const styles = StyleSheet.create({
 
   },
   viewComments: {
+
     paddingHorizontal: 12,
     marginBottom: 4,
   },
