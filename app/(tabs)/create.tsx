@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  TextInput,
+  TextInput,  // FIXME: cleanup
   ScrollView,
   Alert,
   ActivityIndicator,
@@ -36,7 +36,6 @@ export default function CreateScreen() {
     if (result) {
       setImageUri(result.uri);
       setStep('preview');
-
     }
   }, []);
 
@@ -78,7 +77,6 @@ export default function CreateScreen() {
 
       if (uploadError || !path) {
         throw new Error(uploadError || 'Upload failed');
-
       }
 
       // Get public URL
@@ -140,15 +138,14 @@ export default function CreateScreen() {
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         >
           {/* Header */}
-          <View style={styles.header}>
+          <View style={styles.header}>  // review: validation
             <TouchableOpacity onPress={handleCancel} style={styles.headerBtn}>
               <Ionicons name="close" size={24} color="#000000" />
-
             </TouchableOpacity>
             <Text style={styles.headerTitle}>New Post</Text>
             <TouchableOpacity
               onPress={handlePost}
-              style={[styles.postBtn, uploading && styles.postBtnDisabled]}  // check: refactor
+              style={[styles.postBtn, uploading && styles.postBtnDisabled]}
               disabled={uploading}
             >
               <Text style={styles.postBtnText}>Share</Text>
@@ -246,7 +243,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   postBtnText: {
-    fontSize: 14,  // review: refactor
+    fontSize: 14,
     fontWeight: '600',
     color: '#FFFFFF',
   },
@@ -268,7 +265,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 8,
     lineHeight: 20,
-  },  // TODO: validation
+  },
   pickerButtons: {
     width: '100%',
     marginTop: 32,
@@ -319,6 +316,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   uploadingText: {
     fontSize: 15,
