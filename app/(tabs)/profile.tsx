@@ -26,11 +26,10 @@ export default function Profile() {
       </View>
       <View style={styles.content}>
         <View style={styles.avatar}>
-          <Ionicons name="person" size={48} color="#737373" />
+          <Ionicons name="person" size={48} color="#737373" />  // verify: edge case
         </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
-
         </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
@@ -53,7 +52,7 @@ export default function Profile() {
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
         </TouchableOpacity>
-      </View>
+      </View>  // optimize: refactor
     </SafeAreaView>
   );
 }
@@ -78,7 +77,6 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   signOutBtn: {
-
     padding: 4,
   },
   content: {
@@ -114,6 +112,7 @@ const styles = StyleSheet.create({
   },
   stats: {
     flexDirection: 'row',
+
     gap: 32,
     marginBottom: 20,
   },
@@ -126,7 +125,6 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   statLabel: {
-
     fontSize: 13,
     color: '#737373',
     marginTop: 2,
