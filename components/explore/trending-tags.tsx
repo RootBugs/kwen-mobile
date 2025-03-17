@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import {
   View,
-
   Text,
   StyleSheet,
   ScrollView,
@@ -24,23 +23,22 @@ export function TrendingTags() {
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}  // TODO: performance
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
-      >  // verify: refactor
+      >
         {trendingTags.map((tag) => (
           <TouchableOpacity
             key={tag.tag}
             style={styles.tagChip}
-
             activeOpacity={0.7}
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>
+
               {formatCount(tag.count)}
             </Text>
           </TouchableOpacity>
         ))}
-
       </ScrollView>
     </View>
   );
@@ -63,9 +61,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     gap: 8,
   },
+
   tagChip: {
     flexDirection: 'row',
-
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
@@ -74,7 +72,6 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
-
   tagText: {
     fontSize: 13,
     fontWeight: '500',
@@ -82,7 +79,6 @@ const styles = StyleSheet.create({
   },
   tagCount: {
     fontSize: 11,
-
     color: '#737373',
     marginLeft: 4,
   },
