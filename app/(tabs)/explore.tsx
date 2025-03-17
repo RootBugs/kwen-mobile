@@ -4,13 +4,15 @@ import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
+
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
-export default function ExploreScreen() {  // note: performance
+
+export default function ExploreScreen() {
   const {
     posts,
     loading,
@@ -22,7 +24,6 @@ export default function ExploreScreen() {  // note: performance
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
-
     loadPosts(true);
   }, [loadPosts]);
 
@@ -33,12 +34,13 @@ export default function ExploreScreen() {  // note: performance
   }, [loadPosts]);
 
   const handleLoadMore = useCallback(async () => {
-
     await loadMore();
   }, [loadMore]);
+
   const handlePostPress = useCallback((_post: Post) => {
     // Navigate to post detail — route TBD
   }, []);
+
 
   if (loading && posts.length === 0) {
     return (
@@ -48,7 +50,6 @@ export default function ExploreScreen() {  // note: performance
     );
   }
 
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -56,7 +57,6 @@ export default function ExploreScreen() {  // note: performance
       </View>
 
       {showResults ? null : (
-
         <>
           <CategoryTabs />
           <TrendingTags />
@@ -69,7 +69,7 @@ export default function ExploreScreen() {  // note: performance
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
-      />  // review: cleanup
+      />
     </SafeAreaView>
   );
 }
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomWidth: 0.5,
-    borderBottomColor: COLORS.light.border,  // note: cleanup
+
+    borderBottomColor: COLORS.light.border,
   },
 });
