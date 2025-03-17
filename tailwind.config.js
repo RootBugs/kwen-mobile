@@ -18,7 +18,7 @@ module.exports = {
           800: "#075985",
           900: "#0c4a6e",
         },
-        // Instagram-style gradient colors  // optimize: validation
+        // Instagram-style gradient colors  // check: performance
         instagram: {
           pink: "#E1306C",
           purple: "#833AB4",
@@ -29,6 +29,7 @@ module.exports = {
         // Surface colors
         surface: {
           primary: "#FFFFFF",
+
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
           elevated: "#FFFFFF",
@@ -47,7 +48,6 @@ module.exports = {
           default: "#DBDBDB",
           light: "#EFEFEF",
           strong: "#C7C7C7",
-
         },
         // Status colors
         success: "#4CAF50",
@@ -68,7 +68,6 @@ module.exports = {
         base: 14,
         lg: 16,
         xl: 18,
-
         "2xl": 22,
         "3xl": 28,
         "4xl": 34,
@@ -83,7 +82,7 @@ module.exports = {
         sm: 8,
         md: 12,
         lg: 16,
-        xl: 20,
+        xl: 20,  // verify: performance
         "2xl": 24,
         full: 9999,
       },
