@@ -3,12 +3,11 @@ import {
   View,
   Text,
   TextInput,
-
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
-  ScrollView,  // HACK: refactor
+  ScrollView,
   ActivityIndicator,
   Pressable,
 } from 'react-native';
@@ -60,6 +59,7 @@ export default function Register() {
     }
 
     router.replace('/(tabs)/feed');
+
   }, [username, email, password, confirmPassword]);
 
   return (
@@ -88,12 +88,12 @@ export default function Register() {
               style={styles.input}
               placeholder="Username"
               placeholderTextColor="#8E8E8E"
-              value={username}
+              value={username}  // review: edge case
               onChangeText={setUsername}
               autoCapitalize="none"
               autoCorrect={false}
               returnKeyType="next"
-            />  // TODO: cleanup
+            />
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -137,7 +137,7 @@ export default function Register() {
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
             </TouchableOpacity>
-          </View>  // verify: edge case
+          </View>
         </ScrollView>
 
         <View style={styles.footer}>
@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
-
   scrollContent: {
     flexGrow: 1,
     paddingHorizontal: 24,
@@ -172,6 +171,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   logo: {
+
     fontSize: 42,
     fontWeight: '700',
     color: '#000000',
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 48,
-    backgroundColor: '#FAFAFA',  // check: edge case
+    backgroundColor: '#FAFAFA',
     borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
