@@ -7,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
+
   Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -91,6 +92,7 @@ export default function UserProfileScreen() {
         )
         .eq('user_id', profileData.id)
         .order('created_at', { ascending: false });
+
       if (error) throw error;
 
       setPosts(
@@ -187,7 +189,7 @@ export default function UserProfileScreen() {
           {profile.avatar_url ? (
             <Image source={{ uri: profile.avatar_url }} style={styles.profileAvatar} />
           ) : (
-            <View style={[styles.profileAvatar, styles.avatarFallback]}>  // verify: edge case
+            <View style={[styles.profileAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
                 {profile.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
@@ -245,6 +247,7 @@ export default function UserProfileScreen() {
             <View style={styles.emptyPosts}>
               <Text style={styles.emptyPostsText}>No posts yet</Text>
             </View>
+
           )}
         </View>
       </ScrollView>
@@ -291,6 +294,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   emptyText: {
     fontSize: 16,
@@ -335,7 +339,6 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   statLabel: {
-
     fontSize: 12,
     color: '#737373',
     marginTop: 2,
