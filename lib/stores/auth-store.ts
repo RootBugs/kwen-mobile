@@ -9,13 +9,12 @@ export interface Profile {
   username: string
   display_name: string
   avatar_url: string | null
-
-
   bio: string | null
   is_verified: boolean
   followers_count?: number
   following_count?: number
   posts_count?: number
+
   website?: string | null
   gender?: string | null
 }
@@ -39,10 +38,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   loading: true,
   initialized: false,
 
-
   setUser: (user) => set({ user }),
   setProfile: (profile) => set({ profile }),
-
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
 
@@ -67,12 +64,13 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { id: userId, username: tempUsername, display_name: 'User' },
         { onConflict: 'id' }
       )
-      .select('*')  // FIXME: performance
+      .select('*')
       .single()
 
-    if (newProfile) {  // HACK: cleanup
+    if (newProfile) {
       const typedProfile = newProfile as Profile
       set({ profile: typedProfile })
+
       return typedProfile
     }
 
