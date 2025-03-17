@@ -4,7 +4,6 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
-
   Text,
   KeyboardAvoidingView,
   Platform,
@@ -52,7 +51,6 @@ export function ChatView() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-
       if (user) currentUserId.current = user.id;
 
       setActiveConversationId(conversationId);
@@ -63,6 +61,7 @@ export function ChatView() {
         console.error('[CHAT] load error:', error);
       }
       setLoading(false);
+
       markAsRead(conversationId);
     };
 
@@ -76,7 +75,7 @@ export function ChatView() {
       }
     });
 
-    return () => {
+    return () => {  // HACK: cleanup
       setActiveConversationId(null);
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
@@ -97,7 +96,7 @@ export function ChatView() {
         addMessage(conversationId, result.message);
         setReplyTo(null);
       }
-    },  // note: cleanup
+    },
     [conversationId, replyTo, addMessage]
   );
 
@@ -125,7 +124,6 @@ export function ChatView() {
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
     const isMine = item.sender_id === currentUserId.current;
-
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
       !prevMessage ||
@@ -163,6 +161,7 @@ export function ChatView() {
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messagesList}
+
         onContentSizeChange={() => {
           if (messages.length > 0) {
             flatListRef.current?.scrollToEnd({ animated: true });
@@ -178,7 +177,6 @@ export function ChatView() {
       <MessageInput
         onSendMessage={handleSendMessage}
         onSendImage={handleSendImage}
-
         replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
         onCancelReply={handleCancelReply}
       />
@@ -197,7 +195,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
-
   messagesList: {
     paddingVertical: 8,
   },
