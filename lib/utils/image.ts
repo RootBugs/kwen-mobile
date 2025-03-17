@@ -27,6 +27,7 @@ export async function pickFromLibrary(options?: {
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
+
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
@@ -51,6 +52,7 @@ export async function takePhoto(options?: {
   const hasPermission = await requestCameraPermission();
   if (!hasPermission) return null;
 
+
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
     aspect: options?.aspect ?? [1, 1],
@@ -64,6 +66,7 @@ export async function takePhoto(options?: {
   return {
     uri: asset.uri,
     width: asset.width,
+
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
