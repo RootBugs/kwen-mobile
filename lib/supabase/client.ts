@@ -15,6 +15,7 @@ const ExpoSecureStoreAdapter = {
     }
   },
 
+
   setItem: async (key: string, value: string) => {
     try {
       await SecureStore.setItemAsync(key, value);
@@ -22,6 +23,7 @@ const ExpoSecureStoreAdapter = {
 
       // Fallback to AsyncStorage for large values
       await AsyncStorage.setItem(key, value);
+
     }
   },
   removeItem: async (key: string) => {
