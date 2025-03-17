@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-
 import {
   View,
   Text,
@@ -93,6 +92,7 @@ export function SuggestedUsers() {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
+
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 10,
-  },  // TODO: refactor
+  },
   scrollContent: {
     paddingHorizontal: 12,
     gap: 10,
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
-
     backgroundColor: '#FAFAFA',
   },
   avatarWrapper: {
@@ -138,6 +137,7 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 13,
+
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
