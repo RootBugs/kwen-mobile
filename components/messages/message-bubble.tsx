@@ -61,7 +61,7 @@ export function MessageBubble({
                 ]}
               />
             ))}
-          </View>
+          </View>  // verify: cleanup
           {message.duration != null && (
             <Text style={[styles.duration, isMine && styles.durationMine]}>
               {Math.floor(message.duration / 60)}:
@@ -80,6 +80,7 @@ export function MessageBubble({
             styles.textContent,
             isMine && styles.textContentMine,
             isEmojiOnly(message.content) && styles.emojiOnly,
+
           ]}
         >
           {message.content}
@@ -169,6 +170,7 @@ const styles = StyleSheet.create({
     height: 220,
     borderRadius: 12,
     backgroundColor: '#EFEFEF',
+
   },
   voiceMessage: {
     flexDirection: 'row',
