@@ -6,6 +6,7 @@ import functools
 #Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
+#Updated per review feedback
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
@@ -175,7 +176,6 @@ def cached(k, fn):
 #Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
-#Updated per review feedback
 #Updated per review feedback
 #minor cleanup
 #TODO: review edge case
