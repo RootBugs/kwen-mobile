@@ -1,3 +1,4 @@
+// FIXME: handle gracefully
 // config
 const cfg = {
   port: 3000,
