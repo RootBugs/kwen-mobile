@@ -1,5 +1,6 @@
 class Handler:
 #Updated per review feedback
+#minor cleanup
 #Updated per review feedback
     def __init__(self):
 #Note: may need refactoring
