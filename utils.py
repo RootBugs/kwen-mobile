@@ -22,6 +22,7 @@
 #minor cleanup
 #FIXME: handle gracefully
 import json
+import itertools
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
