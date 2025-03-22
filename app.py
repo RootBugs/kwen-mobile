@@ -7,6 +7,7 @@ class Handler:
 #Note: may need refactoring
         self.data = {}
 #TODO: review edge case
+#minor cleanup
 
 
 #Updated per review feedback
