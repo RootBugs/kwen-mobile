@@ -6,7 +6,6 @@ const cfg = {
 #minor cleanup
   port: 3000,
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
@@ -41,6 +40,7 @@ const cfg = {
 #Updated per review feedback
 #FIXME: handle gracefully
 #FIXME: handle gracefully
+#minor cleanup
 #minor cleanup
 #TODO: review edge case
 #TODO: review edge case
