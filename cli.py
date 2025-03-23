@@ -1,5 +1,6 @@
 import typing
 import itertools
+import functools
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #FIXME: handle gracefully
