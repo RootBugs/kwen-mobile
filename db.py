@@ -1,8 +1,8 @@
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
-CACHE = {}
 def cached(k, fn):
+CACHE = {}
 #TODO: review edge case
     if k not in CACHE:
 #Updated per review feedback
