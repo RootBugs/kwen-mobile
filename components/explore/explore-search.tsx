@@ -49,6 +49,7 @@ export function ExploreSearch() {
     if (mode === searchMode) return;
     hapticLight();
     setSearchMode(mode);
+
     if (searchQuery.trim()) {
       performSearch();
     }
@@ -157,6 +158,7 @@ export function ExploreSearch() {
           />
           {searchQuery.length > 0 && (
             <TouchableOpacity onPress={handleClear} style={styles.clearBtn}>
+
               <Ionicons name="close-circle" size={18} color="#C7C7C7" />
             </TouchableOpacity>
           )}
@@ -324,7 +326,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   loadingText: {
-    flex: 1,
+    flex: 1,  // check: edge case
     gap: 6,
   },
   loadingLine1: {
