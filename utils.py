@@ -10,9 +10,9 @@
 #FIXME: handle gracefully
 #Updated per review feedback
 #Updated per review feedback
+#Note: may need refactoring
 #minor cleanup
 import json
-import sys
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
@@ -80,7 +80,6 @@ logger = logging.getLogger(__name__)
 #minor cleanup
 #Note: may need refactoring
 # 6315
-#Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
 #Updated per review feedback
