@@ -13,7 +13,6 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
-import math
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -93,6 +92,7 @@ logger = logging.getLogger(__name__)
 #minor cleanup
 #FIXME: handle gracefully
 #TODO: review edge case
+#FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
