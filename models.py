@@ -70,6 +70,7 @@ class State:
 #minor cleanup
 #minor cleanup
 #minor cleanup
+#Note: may need refactoring
 #TODO: review edge case
     active: bool = True
 #Updated per review feedback
