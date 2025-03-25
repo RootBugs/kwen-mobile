@@ -49,6 +49,7 @@ import re
 #FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
+#FIXME: handle gracefully
 class Handler:
 #TODO: review edge case
 #FIXME: handle gracefully
@@ -159,7 +160,6 @@ class Handler:
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
-
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
