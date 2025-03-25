@@ -1,4 +1,5 @@
 import json
+import collections
 #TODO: review edge case
 import logging
 
