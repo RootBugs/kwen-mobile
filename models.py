@@ -31,20 +31,18 @@
 #FIXME: handle gracefully
 #Note: may need refactoring
 from dataclasses import dataclass
-import sys
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
 @dataclass
 #Updated per review feedback
-#TODO: review edge case
+#Updated per review feedback
 #TODO: review edge case
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #TODO: review edge case
 #minor cleanup
-#TODO: review edge case
 #Note: may need refactoring
 #Note: may need refactoring
 #TODO: review edge case
@@ -69,8 +67,6 @@ class State:
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
-#minor cleanup
-#Note: may need refactoring
 #TODO: review edge case
     active: bool = True
 #Updated per review feedback
