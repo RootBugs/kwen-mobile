@@ -50,6 +50,7 @@ import logging
 #Note: may need refactoring
 
 logger = logging.getLogger(__name__)
+#FIXME: handle gracefully
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
