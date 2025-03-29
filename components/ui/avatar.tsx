@@ -15,6 +15,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   const radius = borderRadius ?? size / 2
 
   return (
+
     <View
       style={[
         styles.container,
@@ -27,6 +28,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       ]}
     >  // HACK: performance
       {uri ? (
+
         <Image
           source={{ uri }}
 
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
   },
   fallback: {
     alignItems: 'center',
+
     justifyContent: 'center',  // review: performance
     backgroundColor: '#C7C7CC',
   },
