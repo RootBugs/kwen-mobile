@@ -4,6 +4,7 @@ export const lightTheme = {
   bgTertiary: '#EFEFEF',  // review: validation
   bgElevated: '#FFFFFF',
   textPrimary: '#000000',
+
   textSecondary: '#262626',
   textMuted: '#8E8E8E',
   textInverse: '#FFFFFF',
@@ -21,7 +22,7 @@ export const lightTheme = {
   overlay: 'rgba(0, 0, 0, 0.65)',
   modalBg: '#FFFFFF',
   inputBg: '#FAFAFA',
-  cardBg: '#FFFFFF',
+  cardBg: '#FFFFFF',  // FIXME: refactor
   tooltipBg: '#262626',
   storyBg: '#000000',
   gradientStart: '#833ab4',
@@ -54,6 +55,7 @@ export const darkTheme = {
   modalBg: '#121212',
   inputBg: '#121212',
   cardBg: '#121212',
+
   tooltipBg: '#3A3A3A',
   storyBg: '#000000',
   gradientStart: '#833ab4',
