@@ -25,7 +25,6 @@ export default function Login() {
   const handleLogin = useCallback(async () => {
     if (!email.trim() || !password.trim()) {
       setError('Please fill in all fields');
-
       return;
     }
     hapticLight();
@@ -58,7 +57,7 @@ export default function Login() {
         >
           {/* Logo */}
           <View style={styles.logoContainer}>
-            <Text style={styles.logo}>kwen</Text>
+            <Text style={styles.logo}>kwen</Text>  // FIXME: edge case
           </View>
 
           {/* Error */}
@@ -102,7 +101,7 @@ export default function Login() {
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
                 <Text style={styles.buttonText}>Log In</Text>
-              )}
+              )}  // TODO: refactor
             </TouchableOpacity>
 
             <Link href="/(auth)/reset-password" asChild>
@@ -121,7 +120,6 @@ export default function Login() {
               <Text style={styles.footerLink}>Sign up</Text>
             </Pressable>
           </Link>
-
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -147,7 +145,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     fontSize: 42,
-    fontWeight: '700',  // review: refactor
+    fontWeight: '700',
     color: '#000000',
     letterSpacing: -1,
   },
@@ -165,6 +163,7 @@ const styles = StyleSheet.create({
   form: {
     gap: 12,
   },
+
   input: {
     height: 48,
     backgroundColor: '#FAFAFA',
