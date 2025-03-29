@@ -5,17 +5,16 @@ import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
 export interface Profile {
+
   id: string
   username: string
   display_name: string
   avatar_url: string | null
   bio: string | null
   is_verified: boolean
-
   followers_count?: number
   following_count?: number
   posts_count?: number
-
   website?: string | null
   gender?: string | null
 }
@@ -44,9 +43,9 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
 
-
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
+
       .from('profiles')
       .select('*')
       .eq('id', userId)
@@ -61,6 +60,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     // Fallback: create profile if missing
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
+
       .from('profiles')
       .upsert(
         { id: userId, username: tempUsername, display_name: 'User' },
@@ -72,7 +72,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (newProfile) {
       const typedProfile = newProfile as Profile
       set({ profile: typedProfile })
-
       return typedProfile
     }
 
