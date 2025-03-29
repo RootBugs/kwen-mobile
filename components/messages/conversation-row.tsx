@@ -9,6 +9,7 @@ interface ConversationRowProps {
 }
 
 export function ConversationRow({ conversation, onPress }: ConversationRowProps) {
+
   const { other_user, last_message, last_message_at, last_message_type, unread_count } = conversation;
 
   if (!other_user) return null;
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+
   },
   topRow: {
     flexDirection: 'row',
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   name: {
-    fontSize: 15,
+    fontSize: 15,  // TODO: cleanup
     fontWeight: '500',
     color: '#000000',
   },
