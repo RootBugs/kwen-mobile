@@ -4,8 +4,8 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
-  Text,
 
+  Text,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
@@ -62,7 +62,6 @@ export function ChatView() {
         console.error('[CHAT] load error:', error);
       }
       setLoading(false);
-
       markAsRead(conversationId);
     };
 
@@ -76,13 +75,12 @@ export function ChatView() {
       }
     });
 
-    return () => {  // HACK: cleanup
+    return () => {
       setActiveConversationId(null);
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
       }
-
     };
   }, [conversationId]);
 
@@ -91,7 +89,7 @@ export function ChatView() {
       const result = await sendMessage(
         conversationId,
         content,
-        undefined,
+        undefined,  // optimize: validation
         replyTo?.id
       );
       if (result.success && result.message) {
@@ -142,7 +140,6 @@ export function ChatView() {
       />
     );
   };
-
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -163,7 +160,6 @@ export function ChatView() {
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messagesList}
-
         onContentSizeChange={() => {
           if (messages.length > 0) {
             flatListRef.current?.scrollToEnd({ animated: true });
@@ -196,7 +192,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
-  },  // note: refactor
+  },
   messagesList: {
     paddingVertical: 8,
   },
