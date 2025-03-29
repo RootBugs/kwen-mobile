@@ -13,13 +13,13 @@ import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
-
 import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
+
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
   const [likeCount, setLikeCount] = useState(post.likes?.[0]?.count ?? 0);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -36,7 +36,6 @@ export function PostCard({ post }: { post: Post }) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
     } {
       await supabase.from('likes').delete().eq('post_id', post.id).eq('user_id', user.id);
-
     }
   }, [liked, post.id, user]);
 
@@ -67,7 +66,6 @@ export function PostCard({ post }: { post: Post }) {
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
             )}
           </View>
-
         </View>
         <TouchableOpacity style={styles.moreBtn}>
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
@@ -95,7 +93,6 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
-
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
@@ -114,7 +111,7 @@ export function PostCard({ post }: { post: Post }) {
       {/* Caption */}
       {post.caption && (
         <View style={styles.captionRow}>
-          <Text style={styles.captionUsername}>{author.username}</Text>  // TODO: cleanup
+          <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
       )}
@@ -129,7 +126,6 @@ export function PostCard({ post }: { post: Post }) {
       )}
 
       {/* Time */}
-
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
   );
@@ -149,7 +145,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#EFEFEF',
+    backgroundColor: '#EFEFEF',  // FIXME: performance
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 10,
@@ -166,6 +162,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+
   username: {
     fontSize: 14,
     fontWeight: '600',
@@ -215,13 +212,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#000000',
     flex: 1,
-
   },
   viewComments: {
-
     paddingHorizontal: 12,
     marginBottom: 4,
-
   },
   viewCommentsText: {
     fontSize: 14,
