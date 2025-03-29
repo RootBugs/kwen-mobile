@@ -1,4 +1,5 @@
 import { Tabs } from 'expo-router';
+
 import { Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
@@ -54,6 +55,7 @@ export default function TabsLayout() {
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
+
           ),
         }}
       />
@@ -81,6 +83,7 @@ const styles = StyleSheet.create({
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
     elevation: 0,
+
   },
   tabBarItem: {
     paddingVertical: 4,
