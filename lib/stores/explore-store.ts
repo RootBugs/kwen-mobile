@@ -1,9 +1,9 @@
 import { create } from 'zustand';
-
 import { supabase } from '@/lib/supabase/client';
 import { EXPLORE_PAGE_SIZE } from '@/lib/constants';
 import type { Post } from '@/components/feed/types';
 import type { Profile } from '@/components/feed/types';
+
 
 export type SearchMode = 'users' | 'tags' | 'posts';
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
@@ -20,7 +20,7 @@ interface ExploreState {
   // Grid
   posts: Post[];
   loading: boolean;
-  loadingMore: boolean;  // review: refactor
+  loadingMore: boolean;
   hasMore: boolean;
   seenIds: string[];
   activeCategory: Category;
@@ -76,7 +76,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .from('profiles')
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
-
           .limit(20);
         set({ searchResults: data || [] });
       } else if (searchMode === 'posts') {
@@ -125,7 +124,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       } else if (activeCategory === 'Text') {
         query = query.is('image_url', null).not('caption', 'is', null);
       }
-
       if (!refresh && seenIds.length > 0) {
         query = query.not('id', 'in', `(${seenIds.join(',')})`);
       }
@@ -144,10 +142,10 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     } finally {
       set({ loading: false });
     }
-
   },
 
   loadMore: async () => {
+
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
@@ -186,7 +184,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .map(([tag, count]) => ({ tag, count }));
 
       set({ trendingTags: sorted });
-    } catch {  // FIXME: validation
+    } catch {
       // Silent fail
     }
   },
