@@ -21,6 +21,7 @@ export default function Feed() {
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
+
   const fetchPosts = useCallback(async (pageNum: number, isRefresh = false) => {
     if (!user) return;
 
@@ -47,8 +48,8 @@ export default function Feed() {
             is_verified
           ),
           likes:likes(count),
-          comments:comments(count)
 
+          comments:comments(count)
         `
         )
         .in('user_id', userIds)
@@ -58,6 +59,7 @@ export default function Feed() {
       if (error) throw error;
 
       const newPosts = (data || []) as Post[];
+
       if (isRefresh) {
         setPosts(newPosts);
       } else {
@@ -112,8 +114,6 @@ export default function Feed() {
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
-
-
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
         ListFooterComponent={
@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 24,
+
     fontWeight: '700',
     color: '#000000',
   },
@@ -164,11 +165,9 @@ const styles = StyleSheet.create({
     paddingTop: 120,
   },
   emptyTitle: {
-
     fontSize: 22,
     fontWeight: '600',
     color: '#000000',
-
     marginBottom: 8,
   },
   emptyText: {
