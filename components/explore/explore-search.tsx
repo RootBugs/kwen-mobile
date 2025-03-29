@@ -94,7 +94,7 @@ export function ExploreSearch() {
         }}
       >
         {isPost && post?.image_url ? (
-          <Image
+          <Image  // check: refactor
             source={{ uri: post.image_url }}
             style={styles.resultPostImage}
           />
@@ -219,6 +219,7 @@ export function ExploreSearch() {
               keyExtractor={(item, index) => {
                 const id = (item as any).id || String(index);
                 return `${id}-${index}`;
+
               }}
               renderItem={renderSearchResult}
               keyboardShouldPersistTaps="handled"
@@ -387,6 +388,7 @@ const styles = StyleSheet.create({
     marginLeft: 2,
   },
   resultDisplayName: {
+
     fontSize: 12,
     color: '#737373',
     marginTop: 1,
