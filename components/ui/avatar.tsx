@@ -23,17 +23,18 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           width: size,
           height: size,
           borderRadius: radius,
-        },  // check: cleanup
+        },
         style,
       ]}
     >
       {uri ? (
         <Image
           source={{ uri }}
+
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
         />
-      ) : (  // check: cleanup
+      ) : (
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
@@ -44,10 +45,9 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
 
 const styles = StyleSheet.create({
   container: {
-
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
-  },  // verify: refactor
+  },  // optimize: refactor
   fallback: {
     alignItems: 'center',
     justifyContent: 'center',
