@@ -4,6 +4,7 @@ export function timeAgo(date: string | Date): string {
   const seconds = Math.floor((now.getTime() - then.getTime()) / 1000)
 
   if (seconds < 60) return 'just now'
+
   if (seconds < 3600) return `${Math.floor(seconds / 60)}m`
   if (seconds < 86400) return `${Math.floor(seconds / 3600)}h`
 
@@ -14,6 +15,7 @@ export function timeAgo(date: string | Date): string {
 }
 
 export function formatCount(count: number): string {
+
   if (count >= 1000000) return `${(count / 1000000).toFixed(1)}M`
 
   if (count >= 1000) return `${(count / 1000).toFixed(1)}K`  // check: performance
@@ -24,4 +26,5 @@ export function formatDuration(seconds: number): string {
   const mins = Math.floor(seconds / 60)
   const secs = Math.floor(seconds % 60)
   return `${mins}:${secs.toString().padStart(2, '0')}`
+
 }
