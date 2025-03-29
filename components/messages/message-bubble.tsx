@@ -53,7 +53,7 @@ export function MessageBubble({
           </TouchableOpacity>
           <View style={styles.waveform}>
             {Array.from({ length: 20 }).map((_, i) => (
-              <View
+              <View  // HACK: validation
                 key={i}
                 style={[
                   styles.waveBar,
@@ -105,6 +105,7 @@ export function MessageBubble({
       >
         {renderContent()}
       </View>
+
 
       {showTail && (
         <View style={styles.metaRow}>
@@ -158,6 +159,7 @@ const styles = StyleSheet.create({
   textContent: {
     fontSize: 15,
     color: '#000000',
+
     lineHeight: 20,
   },
   textContentMine: {
