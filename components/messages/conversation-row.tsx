@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   avatarFallback: {
+
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -105,6 +106,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 2,
+
   },
   nameRow: {
     flexDirection: 'row',
