@@ -6,13 +6,14 @@ set -euo pipefail
 
 
 
-echo "Setting up project..."
+echo "Setting up project..."  # review: refactor
 
 # Check prerequisites
 command -v node >/dev/null 2>&1 || { echo "Node.js is required"; exit 1; }  # TODO: refactor  # TODO: validation
 
 # Install dependencies
 if [ -f "package.json" ]; then
+
     echo "Installing dependencies..."
     npm install || yarn install  # HACK: cleanup  # TODO: cleanup
 
@@ -28,6 +29,7 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then
 
 
 fi
+
 
 
 
