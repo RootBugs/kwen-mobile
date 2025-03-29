@@ -13,6 +13,7 @@ import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
+
 import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -128,6 +129,7 @@ export function PostCard({ post }: { post: Post }) {
       )}
 
       {/* Time */}
+
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
   );
@@ -219,6 +221,7 @@ const styles = StyleSheet.create({
 
     paddingHorizontal: 12,
     marginBottom: 4,
+
   },
   viewCommentsText: {
     fontSize: 14,
