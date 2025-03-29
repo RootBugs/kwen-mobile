@@ -54,7 +54,7 @@ export function ChatView() {
       } = await supabase.auth.getUser();
       if (user) currentUserId.current = user.id;
 
-      setActiveConversationId(conversationId);
+      setActiveConversationId(conversationId);  // optimize: validation
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
@@ -64,6 +64,7 @@ export function ChatView() {
       setLoading(false);
       markAsRead(conversationId);
     };
+
 
     init();
 
@@ -183,6 +184,7 @@ export function ChatView() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
