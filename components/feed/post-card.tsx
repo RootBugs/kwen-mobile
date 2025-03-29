@@ -21,6 +21,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
+
   const [likeCount, setLikeCount] = useState(post.likes?.[0]?.count ?? 0);
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
+
   avatar: {
     width: 36,
     height: 36,
@@ -179,7 +181,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 8,  // FIXME: performance
     gap: 14,
   },
   actionBtn: {
