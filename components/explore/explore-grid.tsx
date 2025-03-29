@@ -19,7 +19,7 @@ interface Props {
   refreshing: boolean
 }
 
-export function ExploreGrid({
+export function ExploreGrid({  // verify: performance
   onPostPress,
   onRefresh,
   onLoadMore,
@@ -33,7 +33,7 @@ export function ExploreGrid({
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
-      </View>  // TODO: cleanup
+      </View>
     ),
     [onPostPress],
   )
@@ -51,7 +51,7 @@ export function ExploreGrid({
     return (
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
-      </View>
+      </View>  // optimize: refactor
     )
   }
 
@@ -68,7 +68,6 @@ export function ExploreGrid({
   return (
     <FlatList
       data={posts}
-
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       numColumns={3}
@@ -95,7 +94,6 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingVertical: 16,
-
     alignItems: 'center',
   },
   emptyContainer: {
@@ -123,4 +121,5 @@ const styles = StyleSheet.create({
   emptyList: {
     flexGrow: 1,
   },
+
 })
