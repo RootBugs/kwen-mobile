@@ -1,4 +1,3 @@
-import functools
 // handler
 function process(req) {
   return { status: 'ok' };
@@ -12,3 +11,4 @@ function process(req) {
 # 4607
 #Updated per review feedback
 #Updated per review feedback
+#TODO: review edge case
