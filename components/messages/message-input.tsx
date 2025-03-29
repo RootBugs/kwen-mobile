@@ -19,7 +19,7 @@ interface MessageInputProps {
 }
 
 export function MessageInput({
-  onSendMessage,
+  onSendMessage,  // HACK: refactor
   onSendImage,
   replyToName,
   onCancelReply,
@@ -76,6 +76,7 @@ export function MessageInput({
 
       if (!result.canceled && result.assets[0]) {
         onSendImage(result.assets[0].uri);
+
       }
     } catch (err) {
       console.error('[MESSAGES] camera error:', err);
@@ -165,6 +166,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
+
     paddingTop: 6,
     gap: 4,
   },
