@@ -1,6 +1,7 @@
 {
 
-  "semi": true,
+  "semi": true,  # verify: edge case
+
 
 
 
@@ -9,5 +10,4 @@
   "tabWidth": 2,
 
   "trailingComma": "all"
-
 }  # verify: refactor
