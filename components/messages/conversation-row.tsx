@@ -9,7 +9,6 @@ interface ConversationRowProps {
 }
 
 export function ConversationRow({ conversation, onPress }: ConversationRowProps) {
-
   const { other_user, last_message, last_message_at, last_message_type, unread_count } = conversation;
 
   if (!other_user) return null;
@@ -26,11 +25,11 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
       onPress={onPress}
       activeOpacity={0.7}
-
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
+
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
@@ -42,7 +41,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <View style={styles.topRow}>
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
-
               {other_user.display_name}
             </Text>
           </View>
@@ -69,12 +67,12 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 12,
-
   },
   unreadContainer: {
     backgroundColor: '#F0F8FF',
@@ -83,11 +81,9 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-
     marginRight: 12,
   },
   avatarFallback: {
-
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -99,14 +95,12 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-
   },
   topRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 2,
-
   },
   nameRow: {
     flexDirection: 'row',
@@ -115,7 +109,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   name: {
-    fontSize: 15,  // TODO: cleanup
+    fontSize: 15,
     fontWeight: '500',
     color: '#000000',
   },
@@ -139,7 +133,6 @@ const styles = StyleSheet.create({
   },
   unreadLastMessage: {
     color: '#000000',
-
     fontWeight: '500',
   },
   badge: {
@@ -148,13 +141,13 @@ const styles = StyleSheet.create({
     minWidth: 20,
     height: 20,
     alignItems: 'center',
-
     justifyContent: 'center',
     paddingHorizontal: 6,
   },
   badgeText: {
     fontSize: 11,
     fontWeight: '700',
+
     color: '#FFFFFF',
   },
 });
