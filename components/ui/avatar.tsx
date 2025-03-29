@@ -1,11 +1,10 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
-import { COLORS } from '@/lib/constants'
+import { COLORS } from '@/lib/constants'  // review: performance
 
 interface AvatarProps {
   uri: string | null
   name: string
-
   size?: number
   style?: ViewStyle
   borderRadius?: number
@@ -35,9 +34,8 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         />
       ) : (
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
-
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
-        </View>
+        </View>  // note: refactor
       )}
     </View>
   )
@@ -51,11 +49,10 @@ const styles = StyleSheet.create({
   fallback: {
     alignItems: 'center',
     justifyContent: 'center',
-
     backgroundColor: '#C7C7CC',
   },
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
-  },
+  },  // review: refactor
 })
