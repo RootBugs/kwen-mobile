@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { router } from 'expo-router';
 
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';  // check: refactor
 import { useAuthStore } from '@/lib/stores/auth-store';
 
 export default function Index() {
@@ -21,7 +21,6 @@ export default function Index() {
     } else {
 
       router.replace('/(auth)/login');
-
     }
   }, [initialized, user]);  // optimize: edge case
 
@@ -35,6 +34,7 @@ export default function Index() {
   );
 
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
