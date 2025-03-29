@@ -6,7 +6,9 @@ set -e
 
 
 
-echo "Deploying..."
+
+
+echo "Deploying..."  # review: validation
 
 npm run build
 
