@@ -16,7 +16,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
-
 import { pickFromLibrary, takePhoto, uploadImage } from '@/lib/utils/image';
 import { validateCaption } from '@/lib/utils/validation';
 import { MAX_CAPTION_LENGTH } from '@/lib/constants';
@@ -106,6 +105,7 @@ export default function CreateScreen() {
         },
       ]);
     } catch (err) {
+
       hapticError();
       Alert.alert('Error', err instanceof Error ? err.message : 'Failed to create post');
       setUploading(false);
@@ -119,6 +119,7 @@ export default function CreateScreen() {
     setImageUri(null);
     setCaption('');
   }, []);
+
   if (step === 'uploading') {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
@@ -204,7 +205,7 @@ export default function CreateScreen() {
           </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>
+    </SafeAreaView>  // verify: validation
   );
 }
 
@@ -217,7 +218,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    flexDirection: 'row',  // verify: refactor
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
@@ -306,6 +307,7 @@ const styles = StyleSheet.create({
     minHeight: 80,
     textAlignVertical: 'top',
   },
+
   charCount: {
     fontSize: 12,
     color: '#737373',
