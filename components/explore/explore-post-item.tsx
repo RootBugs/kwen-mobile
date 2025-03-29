@@ -7,6 +7,7 @@ import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
 
 const GAP = 2
+
 const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
@@ -55,6 +56,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       {isVideo && (
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
+
         </View>
       )}
       {/* Stats overlay */}
@@ -112,6 +114,7 @@ const styles = StyleSheet.create({
   indicatorIcon: {
     fontSize: 10,
     color: '#FFFFFF',
+
   },
   statsOverlay: {
     position: 'absolute',
