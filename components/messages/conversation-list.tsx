@@ -35,6 +35,7 @@ export function ConversationList() {
     loadConversations().finally(() => setLoading(false));
   }, [loadConversations]);
 
+
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadConversations();
@@ -80,6 +81,7 @@ export function ConversationList() {
 
           onChangeText={setSearchQuery}
           autoCorrect={false}
+
         />
       </View>
 
@@ -168,4 +170,5 @@ const styles = StyleSheet.create({
     color: '#737373',
     textAlign: 'center',
   },
+
 });
