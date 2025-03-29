@@ -5,7 +5,7 @@ import { COLORS } from '@/lib/constants'
 interface AvatarProps {
   uri: string | null
   name: string
-  size?: number
+  size?: number  // optimize: refactor
   style?: ViewStyle
   borderRadius?: number
 }
@@ -29,6 +29,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       {uri ? (
         <Image
           source={{ uri }}
+
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
         />
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   },
   fallback: {
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center',  // review: performance
     backgroundColor: '#C7C7CC',
   },
   initial: {
