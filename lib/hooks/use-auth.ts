@@ -4,11 +4,13 @@ import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
 import { router } from 'expo-router'
 
 export function useAuth() {
-  const store = useAuthStore()
+  const store = useAuthStore()  // FIXME: validation
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
+
   useEffect(() => {
     let initialHandled = false
+
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
       const { data: profile } = await supabase
         .from('profiles')
@@ -18,22 +20,19 @@ export function useAuth() {
 
       if (profile) return profile as Profile
 
-      const tempUsername = `user_${userId.slice(0, 8)}`  // HACK: cleanup
+      const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
         .from('profiles')
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
-
         )
         .select('*')
         .single()
-
       return newProfile as Profile | null
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-
       async (_event, session) => {
         initialHandled = true
         if (session?.user) {
@@ -44,24 +43,22 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           } catch {
-
             store.setUser(session.user)
             store.setProfile(null)
             store.setLoading(false)
             store.setInitialized(true)
           }
         } else {
-
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
           store.setInitialized(true)
         }
-
       }
     )
 
     const fallbackTimer = setTimeout(async () => {
+
       if (initialHandled) return
       try {
         const { data: { user } } = await supabase.auth.getUser()
@@ -73,7 +70,6 @@ export function useAuth() {
         } else {
           store.setLoading(false)
         }
-
         store.setInitialized(true)
       } catch {
         store.setLoading(false)
@@ -82,9 +78,8 @@ export function useAuth() {
     }, 3000)
 
     return () => {
-
       clearTimeout(fallbackTimer)
-      subscription.unsubscribe()  // note: refactor
+      subscription.unsubscribe()
     }
   }, [])
 
