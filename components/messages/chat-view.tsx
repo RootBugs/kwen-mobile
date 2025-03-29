@@ -114,6 +114,7 @@ export function ChatView() {
     [conversationId, addMessage]
   );
 
+
   const handleReply = useCallback((message: Message) => {
     hapticLight();
     setReplyTo(message);
@@ -147,6 +148,7 @@ export function ChatView() {
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
+
   }
 
   return (
