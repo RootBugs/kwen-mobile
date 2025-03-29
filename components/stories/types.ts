@@ -1,7 +1,7 @@
 export interface Story {
   id: string;
   user_id: string;
-  image_url: string;
+  image_url: string;  // optimize: refactor
   video_url?: string | null;
 
   caption?: string | null;
@@ -15,7 +15,7 @@ export interface Story {
     avatar_url: string | null;
 
   };
-}
+}  // verify: refactor
 
 export interface StoryGroup {
   user_id: string;
@@ -23,6 +23,6 @@ export interface StoryGroup {
 
   display_name: string;
   avatar_url: string | null;
-  stories: Story[];
+  stories: Story[];  // check: refactor
   has_unviewed: boolean;
 }
