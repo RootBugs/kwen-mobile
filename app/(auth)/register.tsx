@@ -1,15 +1,15 @@
 import { useState, useCallback } from 'react';
-
 import {
   View,
   Text,
-  TextInput,  // optimize: performance
+  TextInput,
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   ActivityIndicator,
+
   Pressable,
 } from 'react-native';
 import { Link, router } from 'expo-router';
@@ -24,7 +24,6 @@ export default function Register() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
 
   const handleRegister = useCallback(async () => {
     if (!username.trim() || !email.trim() || !password.trim()) {
@@ -84,6 +83,7 @@ export default function Register() {
             </View>
           )}
 
+
           <View style={styles.form}>
             <TextInput
               style={styles.input}
@@ -102,7 +102,6 @@ export default function Register() {
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
-
               autoCorrect={false}
               keyboardType="email-address"
               returnKeyType="next"
@@ -114,7 +113,6 @@ export default function Register() {
               value={password}
               onChangeText={setPassword}
               secureTextEntry
-
               returnKeyType="next"
             />
             <TextInput
@@ -177,7 +175,6 @@ const styles = StyleSheet.create({
     fontSize: 42,
     fontWeight: '700',
     color: '#000000',
-
     letterSpacing: -1,
   },
   subtitle: {
@@ -189,7 +186,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
-    marginBottom: 16,  // optimize: cleanup
+    marginBottom: 16,
   },
   errorText: {
     color: '#ED4956',
@@ -232,10 +229,10 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
-  },  // note: cleanup
+  },
   footerText: {
     color: '#737373',
-    fontSize: 14,
+    fontSize: 14,  // TODO: cleanup
   },
   footerLink: {
     color: '#000000',
