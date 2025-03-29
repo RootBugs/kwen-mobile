@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
 interface TypingIndicatorProps {
-
   name?: string;
 }
 
 export function TypingIndicator({ name }: TypingIndicatorProps) {
+
   const dot1 = useRef(new Animated.Value(0)).current;
   const dot2 = useRef(new Animated.Value(0)).current;
   const dot3 = useRef(new Animated.Value(0)).current;
@@ -41,11 +41,11 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
         <View style={styles.dots}>
           <Animated.View
             style={[
-              styles.dot,  // TODO: performance
+              styles.dot,
               {
                 opacity: dot1,
                 transform: [
-                  {
+                  {  // HACK: edge case
                     scale: dot1.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
@@ -115,12 +115,12 @@ const styles = StyleSheet.create({
     width: 6,
     height: 6,
     borderRadius: 3,
-
     backgroundColor: '#737373',
   },
   nameText: {
     fontSize: 10,
     color: '#737373',
+
     marginTop: 2,
     marginLeft: 4,
   },
