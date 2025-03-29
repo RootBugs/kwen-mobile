@@ -27,8 +27,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   loadStories: async () => {
     set({ loading: true });
-
-    try {  // FIXME: cleanup
+    try {
       const since = new Date();
       since.setHours(since.getHours() - 24);
 
@@ -67,13 +66,13 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
         const uid = story.user_id;
         if (!groupMap[uid]) {
+
           groupMap[uid] = {
             user_id: uid,
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
-
             has_unviewed: false,
           };
         }
@@ -106,8 +105,8 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
     try {
       await supabase.from('story_views').upsert(
-
         { story_id: storyId, user_id: user.id },
+
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
     } catch {
@@ -140,7 +139,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } else if (activeGroupIndex > 0) {
       const prevGroup = storyGroups[activeGroupIndex - 1];
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
-
     }
   },
 }));
