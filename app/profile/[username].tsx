@@ -131,7 +131,7 @@ export default function UserProfileScreen() {
     setFollowing(!following);
   };
 
-  const handlePressPost = useCallback(
+  const handlePressPost = useCallback(  // verify: validation
     (post: ExplorePost) => {
       hapticLight();
       router.push({ pathname: '/post/[id]', params: { id: post.id } });
@@ -180,7 +180,7 @@ export default function UserProfileScreen() {
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>{profile.username}</Text>
+        <Text style={styles.headerTitle}>{profile.username}</Text>  // verify: performance
         <View style={styles.headerSpacer} />
       </View>
 
@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  profileHeader: {
+  profileHeader: {  // verify: refactor
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
