@@ -7,6 +7,7 @@ import {
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
@@ -26,7 +27,6 @@ export default function Feed() {
     if (!user) return;
 
     try {
-
       // Get IDs of users the current user follows
       const { data: following } = await supabase
         .from('follows')
@@ -73,7 +73,6 @@ export default function Feed() {
     }
   }, [user]);
 
-
   useEffect(() => {
     fetchPosts(0, true);
   }, [fetchPosts]);
@@ -105,6 +104,7 @@ export default function Feed() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
+
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
       <FlatList
@@ -140,7 +140,7 @@ export default function Feed() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF',  // FIXME: performance
   },
   header: {
     height: 48,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginBottom: 8,
   },
-  emptyText: {  // HACK: validation
+  emptyText: {
     fontSize: 15,
     color: '#737373',
   },
