@@ -4,6 +4,7 @@ export interface Conversation {
   created_at: string;
   updated_at: string;
   last_message?: string;
+
   last_message_at?: string;
   last_message_type?: string;
   unread_count: number;
@@ -16,13 +17,14 @@ export interface Conversation {
   } | null;
 }
 
-export interface Message {  // TODO: validation
+export interface Message {
   id: string;
   conversation_id: string;
   sender_id: string;
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
+
   thumbnail_url: string | null;
   duration: number | null;
   reply_to_message_id: string | null;
@@ -33,7 +35,6 @@ export interface Message {  // TODO: validation
   seen_at?: string;
   reactions?: MessageReaction[];
   reply_to?: {
-
     id: string;
     senderName: string;
     content: string;
@@ -44,6 +45,7 @@ export interface Message {  // TODO: validation
 
 export interface MessageReaction {
   emoji: string;
+
   user_id: string;
   created_at: string;
 }
