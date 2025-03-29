@@ -13,7 +13,7 @@ module.exports = {
           300: "#7dd3fc",
           400: "#38bdf8",
           500: "#0ea5e9",
-          600: "#0284c7",  // HACK: edge case
+          600: "#0284c7",
           700: "#0369a1",
           800: "#075985",
           900: "#0c4a6e",
@@ -27,7 +27,7 @@ module.exports = {
           red: "#FF0000",
         },
         // Surface colors
-        surface: {
+        surface: {  // FIXME: performance
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
@@ -36,6 +36,7 @@ module.exports = {
         },
         // Text colors
         text: {
+
           primary: "#000000",
           secondary: "#737373",
           tertiary: "#A3A3A3",
@@ -50,7 +51,6 @@ module.exports = {
         },
         // Status colors
         success: "#4CAF50",
-
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
@@ -70,10 +70,10 @@ module.exports = {
         xl: 18,
         "2xl": 22,
         "3xl": 28,
+
         "4xl": 34,
       },
       spacing: {
-
         "safe-top": 44,
         "safe-bottom": 34,
         tab: 49,
