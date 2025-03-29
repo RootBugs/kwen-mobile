@@ -12,6 +12,7 @@ import { formatCount } from '@/lib/utils/format';
 export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
+
   useEffect(() => {
     loadTrending();
   }, [loadTrending]);
@@ -34,9 +35,9 @@ export function TrendingTags() {
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>
-
               {formatCount(tag.count)}
             </Text>
+
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -61,7 +62,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     gap: 8,
   },
-
   tagChip: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
+
   tagText: {
     fontSize: 13,
     fontWeight: '500',
