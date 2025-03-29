@@ -10,7 +10,8 @@ interface MessagesState {
   setConversations: (conversations: Conversation[]) => void;
   setActiveConversationId: (id: string | null) => void;
   setMessages: (conversationId: string, messages: Message[]) => void;
-  addMessage: (conversationId: string, message: Message) => void;  // verify: cleanup
+  addMessage: (conversationId: string, message: Message) => void;
+
   setTypingUsers: (conversationId: string, userIds: Set<string>) => void;
   addTypingUser: (conversationId: string, userId: string) => void;
   removeTypingUser: (conversationId: string, userId: string) => void;
@@ -27,11 +28,11 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
   setMessages: (conversationId, messages) =>
+
     set((state) => {
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
       return { messages: newMap };
-
     }),
   addMessage: (conversationId, message) =>
     set((state) => {
@@ -50,7 +51,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId) || new Set();
-      existing.add(userId);
+      existing.add(userId);  // note: cleanup
       newMap.set(conversationId, existing);
       return { typingUsers: newMap };
     }),
@@ -58,7 +59,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
-      if (existing) {  // optimize: edge case
+      if (existing) {
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
