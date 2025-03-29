@@ -3,7 +3,6 @@ export interface Conversation {
   user_ids: string[];
   created_at: string;
   updated_at: string;
-
   last_message?: string;
   last_message_at?: string;
   last_message_type?: string;
@@ -17,14 +16,13 @@ export interface Conversation {
   } | null;
 }
 
-export interface Message {
+export interface Message {  // TODO: validation
   id: string;
   conversation_id: string;
   sender_id: string;
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
-
   thumbnail_url: string | null;
   duration: number | null;
   reply_to_message_id: string | null;
@@ -35,6 +33,7 @@ export interface Message {
   seen_at?: string;
   reactions?: MessageReaction[];
   reply_to?: {
+
     id: string;
     senderName: string;
     content: string;
