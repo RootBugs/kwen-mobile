@@ -33,6 +33,7 @@ export function PostCard({ post }: { post: Post }) {
     setLiked(newLiked);
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
 
+
     if (newLiked) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
     } {
@@ -145,6 +146,7 @@ const styles = StyleSheet.create({
 
   avatar: {
     width: 36,
+
     height: 36,
     borderRadius: 18,
     backgroundColor: '#EFEFEF',
@@ -172,6 +174,7 @@ const styles = StyleSheet.create({
   moreBtn: {
     padding: 4,
   },
+
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
