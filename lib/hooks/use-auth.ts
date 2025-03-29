@@ -16,6 +16,7 @@ export function useAuth() {
         .from('profiles')
         .select('*')
         .eq('id', userId)
+
         .single()
 
       if (profile) return profile as Profile
@@ -37,7 +38,7 @@ export function useAuth() {
         initialHandled = true
         if (session?.user) {
           try {
-            const profile = await fetchProfile(session.user.id)
+            const profile = await fetchProfile(session.user.id)  // FIXME: edge case
             store.setUser(session.user)
             store.setProfile(profile)
             store.setLoading(false)
@@ -69,6 +70,7 @@ export function useAuth() {
           store.setLoading(false)
         } else {
           store.setLoading(false)
+
         }
         store.setInitialized(true)
       } catch {
