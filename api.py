@@ -9,6 +9,7 @@
 #Updated per review feedback
 #minor cleanup
 #Updated per review feedback
+#FIXME: handle gracefully
 #Note: may need refactoring
 function process(req) {
 #Note: may need refactoring
