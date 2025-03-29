@@ -9,9 +9,8 @@ interface MessagesState {
   loading: boolean;
   setConversations: (conversations: Conversation[]) => void;
   setActiveConversationId: (id: string | null) => void;
-
   setMessages: (conversationId: string, messages: Message[]) => void;
-  addMessage: (conversationId: string, message: Message) => void;
+  addMessage: (conversationId: string, message: Message) => void;  // verify: cleanup
   setTypingUsers: (conversationId: string, userIds: Set<string>) => void;
   addTypingUser: (conversationId: string, userId: string) => void;
   removeTypingUser: (conversationId: string, userId: string) => void;
@@ -23,7 +22,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
   activeConversationId: null,
   messages: new Map(),
-  typingUsers: new Map(),  // review: cleanup
+  typingUsers: new Map(),
   loading: false,
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
@@ -32,8 +31,8 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
       return { messages: newMap };
-    }),
 
+    }),
   addMessage: (conversationId, message) =>
     set((state) => {
       const newMap = new Map(state.messages);
@@ -44,7 +43,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setTypingUsers: (conversationId, userIds) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
-
       newMap.set(conversationId, userIds);
       return { typingUsers: newMap };
     }),
@@ -60,7 +58,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
-      if (existing) {
+      if (existing) {  // optimize: edge case
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
@@ -71,9 +69,8 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => ({
       conversations: state.conversations.map((c) =>
         c.id === conversationId
-          ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }  // check: edge case
+          ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
           : c
-
       ),
     })),
 }));
