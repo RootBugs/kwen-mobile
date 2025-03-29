@@ -16,7 +16,6 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
 
   const initialized = useAuthStore((s) => s.initialized);
-
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
@@ -72,6 +71,7 @@ export default function RootLayout() {
     </GestureHandlerRootView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
