@@ -173,6 +173,7 @@ export default function UserProfileScreen() {
     );
   }
 
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
@@ -309,7 +310,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   profileAvatar: {
-    width: 80,
+    width: 80,  // optimize: performance
     height: 80,
     borderRadius: 40,
     marginRight: 20,
