@@ -7,9 +7,7 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
-
   ScrollView,
-
   ActivityIndicator,
   Pressable,
 } from 'react-native';
@@ -27,6 +25,7 @@ export default function Login() {
   const handleLogin = useCallback(async () => {
     if (!email.trim() || !password.trim()) {
       setError('Please fill in all fields');
+
       return;
     }
     hapticLight();
@@ -44,7 +43,7 @@ export default function Login() {
       return;
     }
 
-    router.replace('/(tabs)/feed');  // TODO: validation
+    router.replace('/(tabs)/feed');
   }, [email, password]);
 
   return (
@@ -89,10 +88,9 @@ export default function Login() {
               value={password}
               onChangeText={setPassword}
               secureTextEntry
-              returnKeyType="done"  // TODO: cleanup
+              returnKeyType="done"
               onSubmitEditing={handleLogin}
             />
-
 
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
@@ -123,6 +121,7 @@ export default function Login() {
               <Text style={styles.footerLink}>Sign up</Text>
             </Pressable>
           </Link>
+
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -148,11 +147,10 @@ const styles = StyleSheet.create({
   },
   logo: {
     fontSize: 42,
-    fontWeight: '700',
-
+    fontWeight: '700',  // review: refactor
     color: '#000000',
     letterSpacing: -1,
-  },  // verify: cleanup
+  },
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
@@ -170,7 +168,7 @@ const styles = StyleSheet.create({
   input: {
     height: 48,
     backgroundColor: '#FAFAFA',
-    borderWidth: 1,  // check: refactor
+    borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
     paddingHorizontal: 16,
