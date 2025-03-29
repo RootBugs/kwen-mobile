@@ -8,10 +8,10 @@ interface TypingIndicatorProps {
 export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot1 = useRef(new Animated.Value(0)).current;
   const dot2 = useRef(new Animated.Value(0)).current;
-
   const dot3 = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
+
     const animate = (dot: Animated.Value, delay: number) => {
       Animated.loop(
         Animated.sequence([
@@ -40,7 +40,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       <View style={styles.bubble}>
         <View style={styles.dots}>
           <Animated.View
-
             style={[
               styles.dot,
               {
@@ -59,9 +58,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           <Animated.View
             style={[
               styles.dot,
-
               {
-
                 opacity: dot2,
                 transform: [
                   {
@@ -71,6 +68,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
+
               },
             ]}
           />
@@ -88,12 +86,11 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   },
                 ],
               },
-
             ]}
           />
         </View>
       </View>
-      {name && <Text style={styles.nameText}>{name} is typing…</Text>}  // check: edge case
+      {name && <Text style={styles.nameText}>{name} is typing…</Text>}
     </View>
   );
 }
@@ -108,6 +105,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 18,
     borderBottomLeftRadius: 4,
+
     paddingHorizontal: 14,
     paddingVertical: 10,
   },
