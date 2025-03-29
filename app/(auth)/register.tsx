@@ -25,6 +25,7 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+
   const handleRegister = useCallback(async () => {
     if (!username.trim() || !email.trim() || !password.trim()) {
       setError('Please fill in all fields');
@@ -101,6 +102,7 @@ export default function Register() {
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
+
               autoCorrect={false}
               keyboardType="email-address"
               returnKeyType="next"
@@ -175,6 +177,7 @@ const styles = StyleSheet.create({
     fontSize: 42,
     fontWeight: '700',
     color: '#000000',
+
     letterSpacing: -1,
   },
   subtitle: {
