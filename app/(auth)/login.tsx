@@ -7,6 +7,7 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+
   ScrollView,
   ActivityIndicator,
   Pressable,
@@ -25,7 +26,6 @@ export default function Login() {
   const handleLogin = useCallback(async () => {
     if (!email.trim() || !password.trim()) {
       setError('Please fill in all fields');
-
       return;
     }
     hapticLight();
@@ -88,7 +88,7 @@ export default function Login() {
               value={password}
               onChangeText={setPassword}
               secureTextEntry
-              returnKeyType="done"
+              returnKeyType="done"  // TODO: cleanup
               onSubmitEditing={handleLogin}
             />
 
@@ -120,7 +120,6 @@ export default function Login() {
             <Pressable>
               <Text style={styles.footerLink}>Sign up</Text>
             </Pressable>
-
           </Link>
         </View>
       </KeyboardAvoidingView>
@@ -148,6 +147,7 @@ const styles = StyleSheet.create({
   logo: {
     fontSize: 42,
     fontWeight: '700',
+
     color: '#000000',
     letterSpacing: -1,
   },
@@ -165,7 +165,6 @@ const styles = StyleSheet.create({
   form: {
     gap: 12,
   },
-
   input: {
     height: 48,
     backgroundColor: '#FAFAFA',
