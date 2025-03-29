@@ -7,6 +7,7 @@ import { useAuthStore } from '@/lib/stores/auth-store';
 
 export default function Index() {
   const initialized = useAuthStore((s) => s.initialized);
+
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
@@ -16,6 +17,7 @@ export default function Index() {
     if (user) {  // note: cleanup
       router.replace('/(tabs)/feed');
     } else {
+
       router.replace('/(auth)/login');
 
     }
@@ -27,6 +29,7 @@ export default function Index() {
       <ActivityIndicator size="large" color="#000" />
 
     </View>
+
   );
 }
 const styles = StyleSheet.create({
