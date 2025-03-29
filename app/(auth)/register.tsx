@@ -9,7 +9,6 @@ import {
   Platform,
   ScrollView,
   ActivityIndicator,
-
   Pressable,
 } from 'react-native';
 import { Link, router } from 'expo-router';
@@ -55,6 +54,7 @@ export default function Register() {
 
     if (authError) {
       setError(authError.message);
+
       setLoading(false);
       return;
     }
@@ -82,7 +82,6 @@ export default function Register() {
               <Text style={styles.errorText}>{error}</Text>
             </View>
           )}
-
 
           <View style={styles.form}>
             <TextInput
@@ -146,6 +145,7 @@ export default function Register() {
           <Link href="/(auth)/login" asChild>
             <Pressable>
               <Text style={styles.footerLink}>Log in</Text>
+
             </Pressable>
           </Link>
         </View>
@@ -185,6 +185,7 @@ const styles = StyleSheet.create({
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
+
     borderRadius: 8,
     marginBottom: 16,
   },
@@ -232,7 +233,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     color: '#737373',
-    fontSize: 14,  // TODO: cleanup
+    fontSize: 14,
   },
   footerLink: {
     color: '#000000',
