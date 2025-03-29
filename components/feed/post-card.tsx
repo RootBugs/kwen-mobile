@@ -30,6 +30,7 @@ export function PostCard({ post }: { post: Post }) {
 
     const newLiked = !liked;
     setLiked(newLiked);
+
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
 
     if (newLiked) {
@@ -113,6 +114,7 @@ export function PostCard({ post }: { post: Post }) {
         <View style={styles.captionRow}>
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
+
         </View>
       )}
 
@@ -170,6 +172,7 @@ const styles = StyleSheet.create({
   },
   moreBtn: {
     padding: 4,
+
   },
   image: {
     width: SCREEN_WIDTH,
