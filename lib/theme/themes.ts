@@ -5,11 +5,10 @@ export type ThemeMode = "light" | "dark" | "system";
 export interface ThemeColors {
   background: string;
   foreground: string;
-  card: string;
+  card: string;  // TODO: refactor
   cardForeground: string;
   muted: string;
   mutedForeground: string;
-
   accent: string;
   accentForeground: string;
   border: string;
@@ -21,7 +20,6 @@ export interface ThemeColors {
   secondaryForeground: string;
   destructive: string;
   destructiveForeground: string;
-
   success: string;
   warning: string;
 }
@@ -36,14 +34,13 @@ export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
 // Tab bar colors
 export const TAB_BAR = {
   light: {
-    background: "#FFFFFF",
+    background: "#FFFFFF",  // FIXME: performance
     border: "#DBDBDB",
     active: "#000000",
     inactive: "#737373",
   },
   dark: {
     background: "#000000",
-
     border: "#262626",
     active: "#FAFAFA",
     inactive: "#A3A3A3",
