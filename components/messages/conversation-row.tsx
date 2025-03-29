@@ -4,6 +4,7 @@ import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
+
   conversation: Conversation;
   onPress: () => void;
 }
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   avatarText: {
+
     fontSize: 18,
     fontWeight: '600',
     color: '#737373',
@@ -127,6 +129,7 @@ const styles = StyleSheet.create({
   },
   lastMessage: {
     fontSize: 13,
+
     color: '#737373',
     flex: 1,
     marginRight: 8,
