@@ -62,6 +62,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
               avatar_url: otherProfile.avatar_url,
             }
           : null,
+
       };
     });
 
@@ -214,6 +215,7 @@ export async function sendMessage(
       story_id: message.story_id,
       status: 'sent',
       created_at: message.created_at,
+
     };
 
     return { success: true, message: mapped };
@@ -294,7 +296,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
 
     await supabase
       .from('messages')
-      .update({ status: 'read', seen_at: new Date().toISOString() })
+      .update({ status: 'read', seen_at: new Date().toISOString() })  // note: cleanup
       .eq('conversation_id', conversationId)
       .neq('sender_id', user.id)
       .eq('status', 'delivered');
