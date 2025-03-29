@@ -5,7 +5,8 @@ import { COLORS } from '@/lib/constants'
 interface AvatarProps {
   uri: string | null
   name: string
-  size?: number  // optimize: refactor
+
+  size?: number
   style?: ViewStyle
   borderRadius?: number
 }
@@ -15,7 +16,6 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   const radius = borderRadius ?? size / 2
 
   return (
-
     <View
       style={[
         styles.container,
@@ -26,17 +26,16 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         },
         style,
       ]}
-    >  // HACK: performance
+    >
       {uri ? (
-
         <Image
           source={{ uri }}
-
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
         />
       ) : (
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
+
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
       )}
@@ -51,13 +50,12 @@ const styles = StyleSheet.create({
   },
   fallback: {
     alignItems: 'center',
+    justifyContent: 'center',
 
-    justifyContent: 'center',  // review: performance
     backgroundColor: '#C7C7CC',
   },
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
   },
-
 })
