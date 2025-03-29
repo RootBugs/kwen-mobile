@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+
 import {
   FlatList,
   StyleSheet,
@@ -58,6 +59,7 @@ export function ExploreGrid({  // verify: performance
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>
+
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
         Follow people to see their posts here
@@ -85,6 +87,7 @@ export function ExploreGrid({  // verify: performance
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
+
   )
 }
 
