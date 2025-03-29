@@ -2,6 +2,7 @@
 
 ## Endpoints
 
+
 ### GET /api/status
 
 
