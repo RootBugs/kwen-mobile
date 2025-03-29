@@ -14,6 +14,7 @@ SplashScreen.preventAutoHideAsync();
 
 
 export default function RootLayout() {
+
   const initialized = useAuthStore((s) => s.initialized);
 
   const setInitialized = useAuthStore((s) => s.setInitialized);
@@ -27,7 +28,6 @@ export default function RootLayout() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-
 
       if (session?.user) {
         const { data: profile } = await supabase
@@ -62,6 +62,7 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={styles.container}>
       <SafeAreaProvider>
+
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(auth)" />
