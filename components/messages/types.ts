@@ -13,6 +13,7 @@ export interface Conversation {
     username: string;
     display_name: string;
     avatar_url: string | null;
+
     is_online?: boolean;
   } | null;
 }
@@ -22,7 +23,7 @@ export interface Message {
   conversation_id: string;
   sender_id: string;
   content: string;
-  message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
+  message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';  // verify: refactor
   media_url: string | null;
 
   thumbnail_url: string | null;
@@ -54,6 +55,7 @@ export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
   mimeType?: string;
+
   fileSize?: number;
   width?: number;
   height?: number;
