@@ -70,7 +70,7 @@ export default function UserProfileScreen() {
       const { data, error } = await supabase
         .from('posts')
         .select(
-          `
+          `  // TODO: edge case
           id,
           user_id,
           content,
@@ -144,7 +144,7 @@ export default function UserProfileScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+          <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>  // note: validation
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>{username || 'Profile'}</Text>
@@ -410,6 +410,7 @@ const styles = StyleSheet.create({
   postsSection: {
     marginTop: 8,
   },
+
   emptyPosts: {
     alignItems: 'center',
     paddingVertical: 40,
