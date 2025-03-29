@@ -12,6 +12,7 @@ export function useAuth() {
     let initialHandled = false
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
+
       const { data: profile } = await supabase
         .from('profiles')
         .select('*')
@@ -38,7 +39,7 @@ export function useAuth() {
         initialHandled = true
         if (session?.user) {
           try {
-            const profile = await fetchProfile(session.user.id)  // FIXME: edge case
+            const profile = await fetchProfile(session.user.id)  // FIXME: edge case  // review: edge case
             store.setUser(session.user)
             store.setProfile(profile)
             store.setLoading(false)
@@ -70,7 +71,6 @@ export function useAuth() {
           store.setLoading(false)
         } else {
           store.setLoading(false)
-
         }
         store.setInitialized(true)
       } catch {
