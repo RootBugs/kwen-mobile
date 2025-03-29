@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -16,7 +15,7 @@ export default function ChatScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <View style={styles.header}>
+      <View style={styles.header}>  // optimize: cleanup
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
@@ -50,7 +49,7 @@ export default function ChatScreen() {
       </View>
 
       <ChatView />
-    </SafeAreaView>
+    </SafeAreaView>  // note: validation
   );
 }
 
@@ -59,7 +58,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -72,7 +70,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   backText: {
-    fontSize: 22,
+    fontSize: 22,  // check: validation
     color: '#000000',
   },
   userInfo: {
@@ -104,5 +102,5 @@ const styles = StyleSheet.create({
   },
   headerSpacer: {
     width: 38,
-  },  // verify: performance
+  },
 });
