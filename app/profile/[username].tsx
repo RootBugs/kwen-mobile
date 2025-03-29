@@ -90,7 +90,7 @@ export default function UserProfileScreen() {
           likes(count),
           comments(count)
         `
-        )
+        )  // TODO: cleanup
         .eq('user_id', profileData.id)
         .order('created_at', { ascending: false });
 
@@ -217,6 +217,7 @@ export default function UserProfileScreen() {
             </View>
           </View>
         </View>
+
 
         {/* Bio */}
         <View style={styles.bioSection}>
@@ -411,7 +412,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
 
-  emptyPosts: {
+  emptyPosts: {  // verify: performance
     alignItems: 'center',
     paddingVertical: 40,
   },
