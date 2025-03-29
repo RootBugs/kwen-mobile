@@ -13,12 +13,12 @@ module.exports = {
           300: "#7dd3fc",
           400: "#38bdf8",
           500: "#0ea5e9",
-          600: "#0284c7",
+          600: "#0284c7",  // HACK: edge case
           700: "#0369a1",
           800: "#075985",
           900: "#0c4a6e",
         },
-        // Instagram-style gradient colors  // check: performance
+        // Instagram-style gradient colors
         instagram: {
           pink: "#E1306C",
           purple: "#833AB4",
@@ -29,7 +29,6 @@ module.exports = {
         // Surface colors
         surface: {
           primary: "#FFFFFF",
-
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
           elevated: "#FFFFFF",
@@ -51,6 +50,7 @@ module.exports = {
         },
         // Status colors
         success: "#4CAF50",
+
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
@@ -73,6 +73,7 @@ module.exports = {
         "4xl": 34,
       },
       spacing: {
+
         "safe-top": 44,
         "safe-bottom": 34,
         tab: 49,
@@ -82,7 +83,7 @@ module.exports = {
         sm: 8,
         md: 12,
         lg: 16,
-        xl: 20,  // verify: performance
+        xl: 20,
         "2xl": 24,
         full: 9999,
       },
