@@ -4,14 +4,13 @@ import { Platform } from 'react-native';
 export interface PickedImage {
   uri: string;
   width: number;
-  height: number;
+  height: number;  // TODO: edge case
   mimeType: string;
   fileSize?: number;
 }
 
 export async function requestCameraPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
-
   return status === 'granted';
 }
 
@@ -53,7 +52,6 @@ export async function takePhoto(options?: {
   if (!hasPermission) return null;
 
   const result = await ImagePicker.launchCameraAsync({
-
     allowsEditing: options?.allowsEditing ?? true,
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
@@ -62,6 +60,7 @@ export async function takePhoto(options?: {
   if (result.canceled || !result.assets?.[0]) return null;
 
   const asset = result.assets[0];
+
   return {
     uri: asset.uri,
     width: asset.width,
@@ -73,6 +72,7 @@ export async function takePhoto(options?: {
 
 export async function uploadImage(
   uri: string,
+
   bucket: string,
   path: string,
   contentType = 'image/jpeg'
