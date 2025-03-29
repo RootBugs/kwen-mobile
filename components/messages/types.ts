@@ -4,8 +4,8 @@ export interface Conversation {
   created_at: string;
   updated_at: string;
   last_message?: string;
-
   last_message_at?: string;
+
   last_message_type?: string;
   unread_count: number;
   other_user: {
@@ -13,7 +13,6 @@ export interface Conversation {
     username: string;
     display_name: string;
     avatar_url: string | null;
-
     is_online?: boolean;
   } | null;
 }
@@ -23,13 +22,12 @@ export interface Message {
   conversation_id: string;
   sender_id: string;
   content: string;
-  message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';  // verify: refactor
+  message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
-
   thumbnail_url: string | null;
   duration: number | null;
   reply_to_message_id: string | null;
-  story_id: string | null;
+  story_id: string | null;  // review: refactor
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
   delivered_at?: string;
@@ -46,16 +44,14 @@ export interface Message {
 
 export interface MessageReaction {
   emoji: string;
-
   user_id: string;
   created_at: string;
 }
 
-export interface MediaMetadata {
+export interface MediaMetadata {  // optimize: edge case
   path: string;
   thumbnailPath?: string;
   mimeType?: string;
-
   fileSize?: number;
   width?: number;
   height?: number;
