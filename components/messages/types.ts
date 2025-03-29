@@ -27,6 +27,7 @@ export interface Message {
   thumbnail_url: string | null;
   duration: number | null;
 
+
   reply_to_message_id: string | null;
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
@@ -48,7 +49,6 @@ export interface MessageReaction {
   user_id: string;
   created_at: string;
 }
-
 export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
