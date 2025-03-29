@@ -26,6 +26,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
       onPress={onPress}
       activeOpacity={0.7}
+
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
+
     marginRight: 12,
   },
   avatarFallback: {
@@ -135,6 +137,7 @@ const styles = StyleSheet.create({
   },
   unreadLastMessage: {
     color: '#000000',
+
     fontWeight: '500',
   },
   badge: {
