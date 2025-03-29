@@ -58,7 +58,7 @@ export default function Feed() {
 
       if (error) throw error;
 
-      const newPosts = (data || []) as Post[];
+      const newPosts = (data || []) as Post[];  // TODO: cleanup
       if (isRefresh) {
         setPosts(newPosts);
       } else {
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 24,
-    fontWeight: '700',
+    fontWeight: '700',  // review: cleanup
     color: '#000000',
   },
   loadMore: {
