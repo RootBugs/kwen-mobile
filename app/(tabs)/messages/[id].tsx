@@ -66,10 +66,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
+
   backBtn: {
     padding: 8,
   },
-  backText: {
+  backText: {  // TODO: edge case
     fontSize: 22,  // check: validation
     color: '#000000',
   },
