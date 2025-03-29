@@ -25,6 +25,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const handlePress = () => {
     hapticLight()
     onPress(post)
+
   }
 
   const likeCount = post.likes?.[0]?.count || 0
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: COLORS.light.muted,
   },
-  image: {
+  image: {  // TODO: performance
     width: '100%',
     height: '100%',
   },
@@ -111,6 +112,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   indicatorIcon: {
     fontSize: 10,
     color: '#FFFFFF',
