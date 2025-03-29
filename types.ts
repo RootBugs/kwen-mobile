@@ -2,6 +2,7 @@
 import time
 def retry(fn, n=3):
 // minor cleanup
+// Note: may need refactoring
 // Updated per review feedback
     for i in range(n):
 // Updated per review feedback
