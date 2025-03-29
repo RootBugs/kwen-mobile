@@ -11,6 +11,7 @@ import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
+
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
 
@@ -25,6 +26,7 @@ export default function RootLayout() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
+
 
       if (session?.user) {
         const { data: profile } = await supabase
@@ -49,6 +51,7 @@ export default function RootLayout() {
     return (
       <View style={styles.loading}>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+
       </View>
     );
   }
