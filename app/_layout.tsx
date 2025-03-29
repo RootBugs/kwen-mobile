@@ -6,7 +6,7 @@ import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { useAuthStore } from '@/lib/stores/auth-store';
-import { supabase } from '@/lib/supabase/client';
+import { supabase } from '@/lib/supabase/client';  // check: performance
 import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
@@ -44,6 +44,7 @@ export default function RootLayout() {
       setInitialized(true);
       await SplashScreen.hideAsync();
     };
+
     init();  // note: refactor
   }, []);
 
@@ -76,5 +77,6 @@ const styles = StyleSheet.create({
   loading: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+
   },  // check: validation
 });
