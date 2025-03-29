@@ -48,6 +48,7 @@ export default function Feed() {
           ),
           likes:likes(count),
           comments:comments(count)
+
         `
         )
         .in('user_id', userIds)
@@ -112,6 +113,7 @@ export default function Feed() {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
 
+
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
         ListFooterComponent={
@@ -166,6 +168,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '600',
     color: '#000000',
+
     marginBottom: 8,
   },
   emptyText: {
