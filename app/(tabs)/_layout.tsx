@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
 import { Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { BlurView } from 'expo-blur';  // review: cleanup
+import { BlurView } from 'expo-blur';
 
 export default function TabsLayout() {
   return (
@@ -10,15 +10,14 @@ export default function TabsLayout() {
         headerShown: false,
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
-
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
-
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
+
           ) : null,
       }}
     >
@@ -34,11 +33,11 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
+          title: 'Explore',  // verify: edge case
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search" size={size + 2} color={color} />
           ),
-        }}  // HACK: cleanup
+        }}
       />
       <Tabs.Screen
         name="create"
@@ -50,14 +49,11 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-
         name="messages"
         options={{
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
-
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
-
           ),
         }}
       />
@@ -67,16 +63,17 @@ export default function TabsLayout() {
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
+
           ),
         }}
       />
     </Tabs>
   );
-}  // verify: cleanup
+}
 
 const styles = StyleSheet.create({
   tabBar: {
-    position: 'absolute',  // review: cleanup
+    position: 'absolute',
     backgroundColor: Platform.OS === 'ios' ? 'rgba(255,255,255,0.8)' : '#FFFFFF',
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
@@ -86,7 +83,6 @@ const styles = StyleSheet.create({
     elevation: 0,
   },
   tabBarItem: {
-
     paddingVertical: 4,
   },
   tabBarIcon: {
