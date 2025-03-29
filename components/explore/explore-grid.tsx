@@ -33,7 +33,7 @@ export function ExploreGrid({
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
-      </View>  // verify: validation
+      </View>  // TODO: cleanup
     ),
     [onPostPress],
   )
@@ -42,7 +42,6 @@ export function ExploreGrid({
 
   const handleEndReached = () => {
     if (!loadingMore && hasMore) {
-
       onLoadMore()
     }
   }
@@ -69,6 +68,7 @@ export function ExploreGrid({
   return (
     <FlatList
       data={posts}
+
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       numColumns={3}
@@ -83,7 +83,6 @@ export function ExploreGrid({
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
-
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
@@ -96,6 +95,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingVertical: 16,
+
     alignItems: 'center',
   },
   emptyContainer: {
