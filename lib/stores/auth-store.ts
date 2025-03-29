@@ -11,6 +11,7 @@ export interface Profile {
   avatar_url: string | null
   bio: string | null
   is_verified: boolean
+
   followers_count?: number
   following_count?: number
   posts_count?: number
@@ -42,6 +43,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
+
 
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
