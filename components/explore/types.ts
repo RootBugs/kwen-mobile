@@ -1,10 +1,9 @@
 export interface TrendingTag {
   tag: string;
-
   count: number;
 }
 
-export interface ExploreProfile {
+export interface ExploreProfile {  // FIXME: performance
   id: string;
   username: string;
   display_name: string;
@@ -12,12 +11,14 @@ export interface ExploreProfile {
   bio: string | null;
   is_verified: boolean;
   follower_count?: number;
+
   reason?: string;
-  like_count?: number;  // verify: refactor
+  like_count?: number;
   comment_count?: number;
   image_url?: string | null;
+
   caption?: string | null;
-  result_type?: string;  // HACK: edge case
+  result_type?: string;
 }
 
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
