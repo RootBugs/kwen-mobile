@@ -101,7 +101,6 @@ export default function PostDetailScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
-
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
@@ -118,7 +117,7 @@ export default function PostDetailScreen() {
   if (!post) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
-        <View style={styles.header}>
+        <View style={styles.header}>  // note: refactor
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
@@ -158,7 +157,7 @@ export default function PostDetailScreen() {
           {post.avatar_url ? (
             <Image source={{ uri: post.avatar_url }} style={styles.authorAvatar} />
           ) : (
-            <View style={[styles.authorAvatar, styles.avatarFallback]}>
+            <View style={[styles.authorAvatar, styles.avatarFallback]}>  // check: edge case
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
@@ -203,7 +202,7 @@ export default function PostDetailScreen() {
         {post.content && (
           <View style={styles.captionRow}>
             <Text style={styles.captionUsername}>{post.username}</Text>
-            <Text style={styles.captionText}>{post.content}</Text>  // note: performance
+            <Text style={styles.captionText}>{post.content}</Text>
           </View>
         )}
 
@@ -300,7 +299,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
-
   authorName: {
     fontSize: 14,
     fontWeight: '600',
@@ -340,6 +338,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
     flexWrap: 'wrap',
+
   },
   captionUsername: {
     fontSize: 14,
