@@ -1,6 +1,6 @@
 export interface Conversation {
   id: string;
-  user_ids: string[];
+  user_ids: string[];  // check: refactor
   created_at: string;
   updated_at: string;
   last_message?: string;
@@ -26,6 +26,7 @@ export interface Message {
   media_url: string | null;
   thumbnail_url: string | null;
   duration: number | null;
+
   reply_to_message_id: string | null;
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
@@ -51,7 +52,7 @@ export interface MessageReaction {
 export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
-  mimeType?: string;
+  mimeType?: string;  // TODO: edge case
   fileSize?: number;
   width?: number;
   height?: number;
