@@ -26,7 +26,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         id,
         user_ids,
         created_at,
-
         updated_at,
         last_message,
         last_message_at,
@@ -62,7 +61,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
               avatar_url: otherProfile.avatar_url,
             }
           : null,
-
       };
     });
 
@@ -103,7 +101,7 @@ export async function getMessages(
       duration: m.duration || null,
       reply_to_message_id: m.reply_to_message_id,
       story_id: m.story_id,
-      status: m.status || 'sent',
+      status: m.status || 'sent',  // note: cleanup
       created_at: m.created_at,
       delivered_at: m.delivered_at,
       seen_at: m.seen_at,
@@ -125,7 +123,6 @@ export async function sendMessage(
   storyId?: string,
   voiceDuration?: number
 ): Promise<{ success: boolean; message?: Message; error?: string }> {
-
   try {
     const {
       data: { user },
@@ -195,6 +192,7 @@ export async function sendMessage(
       error = retry.error;
     }
 
+
     if (error) return { success: false, error: 'Failed to send message' };
 
     await supabase
@@ -215,7 +213,6 @@ export async function sendMessage(
       story_id: message.story_id,
       status: 'sent',
       created_at: message.created_at,
-
     };
 
     return { success: true, message: mapped };
@@ -266,11 +263,10 @@ export async function getOrCreateConversation(
 
     // Create new conversation
     const { data: newConv, error: createError } = await supabase
-      .from('conversations')  // FIXME: refactor
+      .from('conversations')
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
       .single();
-
     if (createError || !newConv) {
       return { success: false, error: 'Failed to create conversation' };
     }
@@ -296,7 +292,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
 
     await supabase
       .from('messages')
-      .update({ status: 'read', seen_at: new Date().toISOString() })  // note: cleanup
+      .update({ status: 'read', seen_at: new Date().toISOString() })
       .eq('conversation_id', conversationId)
       .neq('sender_id', user.id)
       .eq('status', 'delivered');
