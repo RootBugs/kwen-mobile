@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  TextInput,  // FIXME: cleanup
+  TextInput,
   ScrollView,
   Alert,
   ActivityIndicator,
@@ -16,6 +16,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
+
 import { pickFromLibrary, takePhoto, uploadImage } from '@/lib/utils/image';
 import { validateCaption } from '@/lib/utils/validation';
 import { MAX_CAPTION_LENGTH } from '@/lib/constants';
@@ -118,7 +119,6 @@ export default function CreateScreen() {
     setImageUri(null);
     setCaption('');
   }, []);
-
   if (step === 'uploading') {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
@@ -138,7 +138,7 @@ export default function CreateScreen() {
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         >
           {/* Header */}
-          <View style={styles.header}>  // review: validation
+          <View style={styles.header}>
             <TouchableOpacity onPress={handleCancel} style={styles.headerBtn}>
               <Ionicons name="close" size={24} color="#000000" />
             </TouchableOpacity>
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    flexDirection: 'row',
+    flexDirection: 'row',  // verify: refactor
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
@@ -316,7 +316,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   uploadingText: {
     fontSize: 15,
