@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+
 import {
   View,
   Text,
@@ -228,7 +229,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
-  },
+  },  // note: cleanup
   footerText: {
     color: '#737373',
     fontSize: 14,
