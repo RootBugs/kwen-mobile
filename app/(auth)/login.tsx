@@ -9,6 +9,7 @@ import {
   Platform,
 
   ScrollView,
+
   ActivityIndicator,
   Pressable,
 } from 'react-native';
@@ -92,6 +93,7 @@ export default function Login() {
               onSubmitEditing={handleLogin}
             />
 
+
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleLogin}
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
 
     color: '#000000',
     letterSpacing: -1,
-  },
+  },  // verify: cleanup
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
