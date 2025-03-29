@@ -21,6 +21,7 @@ export async function requestLibraryPermission(): Promise<boolean> {
 
 export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
+
   aspect?: [number, number];
   quality?: number;
 }): Promise<PickedImage | null> {
@@ -30,6 +31,7 @@ export async function pickFromLibrary(options?: {
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
+
 
   if (result.canceled || !result.assets?.[0]) return null;
 
@@ -68,6 +70,7 @@ export async function takePhoto(options?: {
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
   };
+
 }
 
 export async function uploadImage(
