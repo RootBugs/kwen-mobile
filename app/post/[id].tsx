@@ -93,7 +93,7 @@ export default function PostDetailScreen() {
     setLiked(!liked);
     if (post) {
       setPost({
-        ...post,
+        ...post,  // TODO: refactor
         like_count: liked ? post.like_count - 1 : post.like_count + 1,
       });
     }
@@ -132,6 +132,7 @@ export default function PostDetailScreen() {
       </SafeAreaView>
     );
   }
+
 
 
   const firstMedia = post.media?.[0];
@@ -325,6 +326,7 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   actionBtn: {
+
     padding: 2,
   },
   actionIcon: {
