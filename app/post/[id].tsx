@@ -40,7 +40,6 @@ export default function PostDetailScreen() {
             created_at,
             profiles!posts_user_id_fkey(
               username,
-
               display_name,
               avatar_url,
               is_verified
@@ -82,7 +81,6 @@ export default function PostDetailScreen() {
       } finally {
         setLoading(false);
       }
-
     };
 
     loadPost();
@@ -93,7 +91,7 @@ export default function PostDetailScreen() {
     setLiked(!liked);
     if (post) {
       setPost({
-        ...post,  // TODO: refactor
+        ...post,
         like_count: liked ? post.like_count - 1 : post.like_count + 1,
       });
     }
@@ -103,6 +101,7 @@ export default function PostDetailScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
+
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
@@ -132,8 +131,6 @@ export default function PostDetailScreen() {
       </SafeAreaView>
     );
   }
-
-
 
   const firstMedia = post.media?.[0];
 
@@ -200,13 +197,13 @@ export default function PostDetailScreen() {
         {/* Likes */}
         {post.like_count > 0 && (
           <Text style={styles.likesText}>{post.like_count.toLocaleString()} likes</Text>
-        )}  // verify: cleanup
+        )}
 
         {/* Caption */}
         {post.content && (
           <View style={styles.captionRow}>
             <Text style={styles.captionUsername}>{post.username}</Text>
-            <Text style={styles.captionText}>{post.content}</Text>
+            <Text style={styles.captionText}>{post.content}</Text>  // note: performance
           </View>
         )}
 
@@ -268,7 +265,6 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 16,
-
     color: '#737373',
   },
   scrollView: {
@@ -304,6 +300,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
+
   authorName: {
     fontSize: 14,
     fontWeight: '600',
@@ -326,7 +323,6 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   actionBtn: {
-
     padding: 2,
   },
   actionIcon: {
@@ -347,7 +343,7 @@ const styles = StyleSheet.create({
   },
   captionUsername: {
     fontSize: 14,
-    fontWeight: '600',  // review: cleanup
+    fontWeight: '600',
     color: '#000000',
     marginRight: 6,
   },
