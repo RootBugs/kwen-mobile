@@ -6,6 +6,7 @@ const cfg = {
 // TODO: review edge case
 };
   debug: true,
+// Note: may need refactoring
 
 # 5103
 
