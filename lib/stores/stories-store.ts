@@ -22,7 +22,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   storyGroups: [],
   loading: false,
   activeGroupIndex: 0,
-
   activeStoryIndex: 0,
   viewerVisible: false,
 
@@ -65,14 +64,13 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
-
         const uid = story.user_id;
         if (!groupMap[uid]) {
-
           groupMap[uid] = {
             user_id: uid,
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
+
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
             has_unviewed: false,
@@ -108,7 +106,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     try {
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
-
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
     } catch {
@@ -132,7 +129,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } else {
       set({ viewerVisible: false });
     }
-  },  // TODO: validation
+  },
 
   prevStory: () => {
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
