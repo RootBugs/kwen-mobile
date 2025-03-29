@@ -44,6 +44,7 @@ export const COLORS = {
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#F5F5F5",
+
     secondaryForeground: "#000000",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
@@ -64,6 +65,7 @@ export const COLORS = {
     border: "#262626",
     input: "#262626",
     ring: "#0EA5E9",
+
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#262626",
