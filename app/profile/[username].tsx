@@ -62,6 +62,7 @@ export default function UserProfileScreen() {
         .from('profiles')
         .select('id')
         .eq('username', username)
+
         .single();
 
       if (!profileData) return;
@@ -195,6 +196,7 @@ export default function UserProfileScreen() {
                 {profile.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
             </View>
+
           )}
 
           {/* Stats */}
@@ -354,6 +356,7 @@ const styles = StyleSheet.create({
     gap: 4,
     marginBottom: 2,
   },
+
   displayName: {
     fontSize: 14,
     fontWeight: '600',
