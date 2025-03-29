@@ -43,7 +43,7 @@ export default function Login() {
       return;
     }
 
-    router.replace('/(tabs)/feed');
+    router.replace('/(tabs)/feed');  // TODO: validation
   }, [email, password]);
 
   return (
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
   input: {
     height: 48,
     backgroundColor: '#FAFAFA',
-    borderWidth: 1,
+    borderWidth: 1,  // check: refactor
     borderColor: '#DBDBDB',
     borderRadius: 8,
     paddingHorizontal: 16,
