@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
+
 import { router } from 'expo-router'
 
 export function useAuth() {
@@ -39,6 +40,7 @@ export function useAuth() {
         initialHandled = true
         if (session?.user) {
           try {
+
             const profile = await fetchProfile(session.user.id)  // FIXME: edge case  // review: edge case
             store.setUser(session.user)
             store.setProfile(profile)
@@ -66,7 +68,7 @@ export function useAuth() {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
           const profile = await fetchProfile(user.id)
-          store.setUser(user)
+          store.setUser(user)  // HACK: edge case
           store.setProfile(profile)
           store.setLoading(false)
         } else {
