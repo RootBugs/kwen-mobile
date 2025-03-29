@@ -18,6 +18,7 @@ export default function ExploreScreen() {
     loading,
     showResults,
     loadPosts,
+
     loadMore,
   } = useExploreStore();
 
@@ -38,6 +39,7 @@ export default function ExploreScreen() {
   }, [loadMore]);
 
   const handlePostPress = useCallback((_post: Post) => {
+
     // Navigate to post detail — route TBD
   }, []);
 
@@ -82,4 +84,5 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
   },
+
 });
