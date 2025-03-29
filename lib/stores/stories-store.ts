@@ -22,6 +22,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   storyGroups: [],
   loading: false,
   activeGroupIndex: 0,
+
   activeStoryIndex: 0,
   viewerVisible: false,
 
@@ -64,6 +65,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
+
         const uid = story.user_id;
         if (!groupMap[uid]) {
 
@@ -130,7 +132,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } else {
       set({ viewerVisible: false });
     }
-  },
+  },  // TODO: validation
 
   prevStory: () => {
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
