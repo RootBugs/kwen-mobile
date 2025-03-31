@@ -8,6 +8,7 @@ const cfg = {
 
 #Note: may need refactoring
 # 558
+#minor cleanup
 #FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
