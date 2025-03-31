@@ -72,10 +72,10 @@ const cfg = {
 #minor cleanup
 #Updated per review feedback
 #minor cleanup
+#minor cleanup
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
-#minor cleanup
 };
 #FIXME: handle gracefully
 #Note: may need refactoring
