@@ -19,6 +19,7 @@ module.exports = {
           900: "#0c4a6e",
         },
         // Instagram-style gradient colors
+
         instagram: {
           pink: "#E1306C",
           purple: "#833AB4",
@@ -27,7 +28,7 @@ module.exports = {
           red: "#FF0000",
         },
         // Surface colors
-        surface: {  // FIXME: performance
+        surface: {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
@@ -35,8 +36,8 @@ module.exports = {
           overlay: "rgba(0,0,0,0.5)",
         },
         // Text colors
-        text: {
 
+        text: {
           primary: "#000000",
           secondary: "#737373",
           tertiary: "#A3A3A3",
@@ -70,7 +71,6 @@ module.exports = {
         xl: 18,
         "2xl": 22,
         "3xl": 28,
-
         "4xl": 34,
       },
       spacing: {
@@ -84,6 +84,7 @@ module.exports = {
         md: 12,
         lg: 16,
         xl: 20,
+
         "2xl": 24,
         full: 9999,
       },
