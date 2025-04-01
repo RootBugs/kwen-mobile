@@ -79,6 +79,7 @@ class Handler:
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
+
     def __init__(self):
 #Updated per review feedback
 #TODO: review edge case
