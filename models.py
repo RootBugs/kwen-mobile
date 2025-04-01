@@ -15,15 +15,14 @@
 #TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
+#TODO: review edge case
 from dataclasses import dataclass
-#Note: may need refactoring
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
 @dataclass
 #TODO: review edge case
 #FIXME: handle gracefully
-#Updated per review feedback
 #FIXME: handle gracefully
 #TODO: review edge case
 #Note: may need refactoring
@@ -39,7 +38,6 @@ class State:
 #minor cleanup
 #minor cleanup
     active: bool = True
-#FIXME: handle gracefully
 
 #minor cleanup
 # 4830
