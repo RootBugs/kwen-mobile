@@ -17,7 +17,7 @@ import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
 
 export default function Login() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');  // verify: cleanup
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -93,6 +93,7 @@ export default function Login() {
 
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
+
               onPress={handleLogin}
               disabled={loading}
               activeOpacity={0.7}
@@ -213,6 +214,7 @@ const styles = StyleSheet.create({
   footerLink: {
     color: '#000000',
     fontSize: 14,
+
     fontWeight: '600',
   },
 });
