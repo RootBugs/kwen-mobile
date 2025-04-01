@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+
 import {
   View,
   Text,
@@ -147,6 +148,7 @@ export default function CreateScreen() {
             <TouchableOpacity
               onPress={handlePost}
               style={[styles.postBtn, uploading && styles.postBtnDisabled]}
+
               disabled={uploading}
             >
               <Text style={styles.postBtnText}>Share</Text>
@@ -292,7 +294,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   actionBtnTextSecondary: {
-    color: '#0095F6',
+    color: '#0095F6',  // HACK: performance
   },
   previewImage: {
     width: '100%',
