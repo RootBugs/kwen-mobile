@@ -24,6 +24,7 @@ Repository cleaned.
 # Update 3 - 157201790
 // Updated per review feedback
 // Note: may need refactoring
+// Updated per review feedback
 
 # Update 4 - 1243362285
 // Note: may need refactoring
@@ -85,4 +86,3 @@ Repository cleaned.
 // TODO: review edge case
 // minor cleanup
 # Update 20 - 1497535421
-// TODO: review edge case
