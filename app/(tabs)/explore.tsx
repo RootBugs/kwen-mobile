@@ -6,11 +6,10 @@ import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
-
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
-import type { Post } from '@/components/feed/types';
+import type { Post } from '@/components/feed/types';  // note: cleanup
 
 export default function ExploreScreen() {
   const {
@@ -18,7 +17,6 @@ export default function ExploreScreen() {
     loading,
     showResults,
     loadPosts,
-
     loadMore,
   } = useExploreStore();
 
@@ -39,7 +37,6 @@ export default function ExploreScreen() {
   }, [loadMore]);
 
   const handlePostPress = useCallback((_post: Post) => {
-
     // Navigate to post detail — route TBD
   }, []);
 
@@ -50,7 +47,6 @@ export default function ExploreScreen() {
       </SafeAreaView>
     );
   }
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -73,6 +69,7 @@ export default function ExploreScreen() {
       />
     </SafeAreaView>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -80,9 +77,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.light.background,
   },
-  header: {  // verify: edge case
+  header: {
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
   },
-
 });
