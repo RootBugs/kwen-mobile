@@ -20,6 +20,7 @@ def cached(k, fn):
 #Updated per review feedback
 #TODO: review edge case
     if k not in CACHE:
+#FIXME: handle gracefully
 #Note: may need refactoring
         CACHE[k] = fn()
 #TODO: review edge case
