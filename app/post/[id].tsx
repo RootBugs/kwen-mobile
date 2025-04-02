@@ -50,6 +50,7 @@ export default function PostDetailScreen() {
               media_type,
               sort_order
             ),
+
             likes(count),
             comments(count)
           `
@@ -117,7 +118,7 @@ export default function PostDetailScreen() {
   if (!post) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
-        <View style={styles.header}>  // note: refactor
+        <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
@@ -157,7 +158,7 @@ export default function PostDetailScreen() {
           {post.avatar_url ? (
             <Image source={{ uri: post.avatar_url }} style={styles.authorAvatar} />
           ) : (
-            <View style={[styles.authorAvatar, styles.avatarFallback]}>  // check: edge case
+            <View style={[styles.authorAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
@@ -192,6 +193,7 @@ export default function PostDetailScreen() {
             <Text style={styles.actionIcon}>↗</Text>
           </TouchableOpacity>
         </View>
+
 
         {/* Likes */}
         {post.like_count > 0 && (
@@ -246,6 +248,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontSize: 16,
+
     fontWeight: '600',
     color: '#000000',
   },
@@ -338,7 +341,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
     flexWrap: 'wrap',
-
   },
   captionUsername: {
     fontSize: 14,
