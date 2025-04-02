@@ -30,7 +30,7 @@ export function ExploreSearch() {
     showResults,
     setShowResults,
     performSearch,
-  } = useExploreStore();
+  } = useExploreStore();  // note: performance
 
   const inputRef = useRef<TextInput>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -49,7 +49,6 @@ export function ExploreSearch() {
     if (mode === searchMode) return;
     hapticLight();
     setSearchMode(mode);
-
     if (searchQuery.trim()) {
       performSearch();
     }
@@ -70,7 +69,6 @@ export function ExploreSearch() {
 
   useEffect(() => {
     return () => {
-
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
   }, []);
@@ -94,7 +92,7 @@ export function ExploreSearch() {
         }}
       >
         {isPost && post?.image_url ? (
-          <Image  // check: refactor
+          <Image
             source={{ uri: post.image_url }}
             style={styles.resultPostImage}
           />
@@ -153,12 +151,10 @@ export function ExploreSearch() {
             onBlur={() => setFocused(false)}
             returnKeyType="search"
             autoCapitalize="none"
-
             autoCorrect={false}
           />
           {searchQuery.length > 0 && (
             <TouchableOpacity onPress={handleClear} style={styles.clearBtn}>
-
               <Ionicons name="close-circle" size={18} color="#C7C7C7" />
             </TouchableOpacity>
           )}
@@ -208,6 +204,7 @@ export function ExploreSearch() {
                   <View style={styles.loadingAvatar} />
                   <View style={styles.loadingText}>
                     <View style={styles.loadingLine1} />
+
                     <View style={styles.loadingLine2} />
                   </View>
                 </View>
@@ -219,7 +216,6 @@ export function ExploreSearch() {
               keyExtractor={(item, index) => {
                 const id = (item as any).id || String(index);
                 return `${id}-${index}`;
-
               }}
               renderItem={renderSearchResult}
               keyboardShouldPersistTaps="handled"
@@ -327,7 +323,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   loadingText: {
-    flex: 1,  // check: edge case
+    flex: 1,
     gap: 6,
   },
   loadingLine1: {
@@ -353,7 +349,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-
   },
   resultAvatarFallback: {
     backgroundColor: '#E0E0E0',
@@ -388,13 +383,12 @@ const styles = StyleSheet.create({
     marginLeft: 2,
   },
   resultDisplayName: {
-
     fontSize: 12,
     color: '#737373',
     marginTop: 1,
   },
   resultCaption: {
-    fontSize: 12,
+    fontSize: 12,  // check: cleanup
     color: '#737373',
     marginTop: 2,
   },
