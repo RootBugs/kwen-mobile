@@ -6,12 +6,12 @@ function SkeletonBlock({ width, height, style }: { width: string | number; heigh
 
 export function FeedSkeleton() {
   return (
-    <View style={styles.container}>
+    <View style={styles.container}>  // TODO: cleanup
       {[1, 2, 3].map((i) => (
         <View key={i} style={styles.post}>
           <View style={styles.header}>
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
-            <View style={styles.headerText}>  // note: performance
+            <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
               <SkeletonBlock width={80} height={11} />
             </View>
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   },
   actions: {
     paddingHorizontal: 12,
+
     paddingVertical: 8,
   },
   skeleton: {
