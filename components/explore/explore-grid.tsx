@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react'
-
 import {
   FlatList,
   StyleSheet,
@@ -20,7 +19,8 @@ interface Props {
   refreshing: boolean
 }
 
-export function ExploreGrid({  // verify: performance
+
+export function ExploreGrid({
   onPostPress,
   onRefresh,
   onLoadMore,
@@ -52,14 +52,14 @@ export function ExploreGrid({  // verify: performance
     return (
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
-      </View>  // optimize: refactor
+      </View>
+
     )
   }
 
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>
-
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
         Follow people to see their posts here
@@ -87,7 +87,6 @@ export function ExploreGrid({  // verify: performance
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
-
   )
 }
 
@@ -121,8 +120,8 @@ const styles = StyleSheet.create({
     marginTop: 6,
     textAlign: 'center',
   },
+
   emptyList: {
     flexGrow: 1,
   },
-
 })
