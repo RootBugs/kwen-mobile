@@ -7,14 +7,12 @@ import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { useAuthStore } from '@/lib/stores/auth-store';
-import { supabase } from '@/lib/supabase/client';  // check: performance
+import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
-
 export default function RootLayout() {
-
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
@@ -36,7 +34,6 @@ export default function RootLayout() {
           .single();
         setUser(session.user);
         setProfile(profile);
-
       } else {
         setUser(null);
         setProfile(null);
@@ -45,23 +42,21 @@ export default function RootLayout() {
       setInitialized(true);
       await SplashScreen.hideAsync();
     };
+    init();
 
-    init();  // note: refactor
   }, []);
 
   if (!initialized) {
     return (
       <View style={styles.loading}>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
-
       </View>
-    );  // review: edge case
+    );
   }
 
   return (
     <GestureHandlerRootView style={styles.container}>
       <SafeAreaProvider>
-
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(auth)" />
@@ -72,14 +67,13 @@ export default function RootLayout() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
   loading: {
+
     flex: 1,
     backgroundColor: '#FFFFFF',
-
-  },  // check: validation
+  },
 });
