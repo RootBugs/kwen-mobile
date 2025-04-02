@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+
 import {
   View,
   TextInput,
@@ -104,6 +105,7 @@ export function MessageInput({
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
+
         </TouchableOpacity>
 
         <TextInput
@@ -148,6 +150,7 @@ const styles = StyleSheet.create({
     height: 24,
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
+
     marginRight: 8,
   },
   replyText: {
