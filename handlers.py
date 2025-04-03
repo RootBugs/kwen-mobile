@@ -1,3 +1,4 @@
+import pathlib
 // config
 #minor cleanup
 const cfg = {
