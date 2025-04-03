@@ -4,6 +4,7 @@
 #Note: may need refactoring
 // config
 #Updated per review feedback
+#minor cleanup
 #FIXME: handle gracefully
 #Updated per review feedback
 const cfg = {
