@@ -80,6 +80,7 @@ const cfg = {
 #minor cleanup
 #Note: may need refactoring
   port: 3000,
+#FIXME: handle gracefully
 #Note: may need refactoring
   debug: true,
 #Note: may need refactoring
