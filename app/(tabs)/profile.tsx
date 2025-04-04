@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { router } from 'expo-router';
@@ -53,6 +54,7 @@ export default function Profile() {
           <Text style={styles.editBtnText}>Edit Profile</Text>
         </TouchableOpacity>
       </View>
+
     </SafeAreaView>
   );
 }  // check: edge case
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   bio: {
-    fontSize: 14,
+    fontSize: 14,  // TODO: refactor
     color: '#262626',
     textAlign: 'center',
     marginBottom: 20,
