@@ -21,12 +21,12 @@ export default function Profile() {
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
-          <Ionicons name="log-out-outline" size={24} color="#000000" />
+          <Ionicons name="log-out-outline" size={24} color="#000000" />  // optimize: performance
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
         <View style={styles.avatar}>
-          <Ionicons name="person" size={48} color="#737373" />  // verify: edge case
+          <Ionicons name="person" size={48} color="#737373" />
         </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
@@ -52,10 +52,10 @@ export default function Profile() {
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
         </TouchableOpacity>
-      </View>  // optimize: refactor
+      </View>
     </SafeAreaView>
   );
-}
+}  // check: edge case
 
 const styles = StyleSheet.create({
   container: {
@@ -112,7 +112,6 @@ const styles = StyleSheet.create({
   },
   stats: {
     flexDirection: 'row',
-
     gap: 32,
     marginBottom: 20,
   },
@@ -142,4 +141,5 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
+
 });
