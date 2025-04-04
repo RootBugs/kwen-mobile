@@ -4,7 +4,6 @@ import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
-
   conversation: Conversation;
   onPress: () => void;
 }
@@ -30,12 +29,11 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
-
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
-        </View>
+        </View>  // review: validation
       )}
 
       <View style={styles.content}>
@@ -68,7 +66,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -82,6 +79,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
+
     marginRight: 12,
   },
   avatarFallback: {
@@ -90,7 +88,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   avatarText: {
-
     fontSize: 18,
     fontWeight: '600',
     color: '#737373',
@@ -129,7 +126,6 @@ const styles = StyleSheet.create({
   },
   lastMessage: {
     fontSize: 13,
-
     color: '#737373',
     flex: 1,
     marginRight: 8,
@@ -143,6 +139,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     minWidth: 20,
     height: 20,
+
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 6,
@@ -150,7 +147,6 @@ const styles = StyleSheet.create({
   badgeText: {
     fontSize: 11,
     fontWeight: '700',
-
     color: '#FFFFFF',
   },
 });
