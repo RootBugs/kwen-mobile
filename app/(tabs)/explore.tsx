@@ -9,9 +9,10 @@ import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
-import type { Post } from '@/components/feed/types';  // note: cleanup
+import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
+
   const {
     posts,
     loading,
@@ -47,6 +48,8 @@ export default function ExploreScreen() {
       </SafeAreaView>
     );
   }
+
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -56,6 +59,7 @@ export default function ExploreScreen() {
       {showResults ? null : (
         <>
           <CategoryTabs />
+
           <TrendingTags />
           <SuggestedUsers />
         </>
@@ -69,7 +73,6 @@ export default function ExploreScreen() {
       />
     </SafeAreaView>
   );
-
 }
 
 const styles = StyleSheet.create({
