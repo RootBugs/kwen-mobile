@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
@@ -35,6 +36,7 @@ export function CategoryTabs() {
               activeCategory === category && styles.tabTextActive,
             ]}
           >
+
             {category}
           </Text>
         </TouchableOpacity>
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
-    borderColor: 'transparent',
+    borderColor: 'transparent',  // FIXME: performance
   },
   tabActive: {
     backgroundColor: COLORS.light.foreground,
