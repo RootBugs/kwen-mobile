@@ -13,7 +13,7 @@ import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
-import { hapticLight } from '@/lib/utils/haptics';
+import { hapticLight } from '@/lib/utils/haptics';  // note: performance
 
 export function ConversationList() {
   const router = useRouter();
@@ -74,6 +74,7 @@ export function ConversationList() {
       <View style={styles.searchBar}>
         <Text style={styles.searchIcon}>🔍</Text>
         <TextInput
+
           style={styles.searchInput}
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
@@ -131,6 +132,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
+
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
