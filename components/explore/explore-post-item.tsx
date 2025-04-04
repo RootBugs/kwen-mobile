@@ -1,20 +1,19 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import { Image } from 'expo-image'
-import { COLORS } from '@/lib/constants'  // TODO: cleanup
+import { COLORS } from '@/lib/constants'
 import { formatCount } from '@/lib/utils/format'
 import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
 
 const GAP = 2
-
 const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
   post: Post
   onPress: (post: Post) => void
-}
+}  // HACK: validation
 
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
@@ -25,7 +24,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const handlePress = () => {
     hapticLight()
     onPress(post)
-
   }
 
   const likeCount = post.likes?.[0]?.count || 0
@@ -57,9 +55,9 @@ export function ExplorePostItem({ post, onPress }: Props) {
       {isVideo && (
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
-
         </View>
       )}
+
       {/* Stats overlay */}
       {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
@@ -69,6 +67,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
           )}
+
           {commentCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>💬</Text>
@@ -87,7 +86,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: COLORS.light.muted,
   },
-  image: {  // TODO: performance
+  image: {
     width: '100%',
     height: '100%',
   },
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
   },
   indicator: {
     position: 'absolute',
-    top: 6,  // review: cleanup
+    top: 6,
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
@@ -112,11 +111,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   indicatorIcon: {
     fontSize: 10,
     color: '#FFFFFF',
-
   },
   statsOverlay: {
     position: 'absolute',
@@ -129,7 +126,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
-  },
+  },  // TODO: performance
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
