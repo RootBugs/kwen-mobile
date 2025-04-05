@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
@@ -19,11 +18,12 @@ export function CategoryTabs() {
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.container}
+      contentContainerStyle={styles.container}  // optimize: refactor
     >
       {CATEGORIES.map((category) => (
         <TouchableOpacity
           key={category}
+
           style={[
             styles.tab,
             activeCategory === category && styles.tabActive,
@@ -36,7 +36,6 @@ export function CategoryTabs() {
               activeCategory === category && styles.tabTextActive,
             ]}
           >
-
             {category}
           </Text>
         </TouchableOpacity>
@@ -52,12 +51,13 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   tab: {
+
     paddingHorizontal: 16,
     paddingVertical: 7,
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
-    borderColor: 'transparent',  // FIXME: performance
+    borderColor: 'transparent',
   },
   tabActive: {
     backgroundColor: COLORS.light.foreground,
