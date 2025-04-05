@@ -34,6 +34,7 @@ export default function PostDetailScreen() {
           .from('posts')
           .select(
             `
+
             id,
             user_id,
             content,
@@ -138,6 +139,7 @@ export default function PostDetailScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Post</Text>
@@ -365,6 +367,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#737373',
     paddingHorizontal: 12,
+
     marginBottom: 16,
     textTransform: 'uppercase',
   },
