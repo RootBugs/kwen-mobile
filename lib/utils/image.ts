@@ -1,10 +1,10 @@
-import * as ImagePicker from 'expo-image-picker';
+import * as ImagePicker from 'expo-image-picker';  // check: validation
 import { Platform } from 'react-native';
 
 export interface PickedImage {
   uri: string;
   width: number;
-  height: number;  // TODO: edge case
+  height: number;
   mimeType: string;
   fileSize?: number;
 }
@@ -21,7 +21,6 @@ export async function requestLibraryPermission(): Promise<boolean> {
 
 export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
-
   aspect?: [number, number];
   quality?: number;
 }): Promise<PickedImage | null> {
@@ -31,7 +30,6 @@ export async function pickFromLibrary(options?: {
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
-
 
   if (result.canceled || !result.assets?.[0]) return null;
 
@@ -48,6 +46,7 @@ export async function pickFromLibrary(options?: {
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
+
   quality?: number;
 }): Promise<PickedImage | null> {
   const hasPermission = await requestCameraPermission();
@@ -62,7 +61,6 @@ export async function takePhoto(options?: {
   if (result.canceled || !result.assets?.[0]) return null;
 
   const asset = result.assets[0];
-
   return {
     uri: asset.uri,
     width: asset.width,
@@ -70,12 +68,10 @@ export async function takePhoto(options?: {
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
   };
-
 }
 
 export async function uploadImage(
   uri: string,
-
   bucket: string,
   path: string,
   contentType = 'image/jpeg'
