@@ -13,7 +13,7 @@ const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUM
 interface Props {
   post: Post
   onPress: (post: Post) => void
-}  // HACK: validation
+}
 
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
@@ -32,12 +32,12 @@ export function ExplorePostItem({ post, onPress }: Props) {
   return (
     <TouchableOpacity
       style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
+
       onPress={handlePress}
       activeOpacity={0.8}
     >
       {hasImage ? (
         <Image
-
           source={{ uri: post.image_url! }}
           style={styles.image}
           contentFit="cover"
@@ -68,13 +68,12 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
           )}
-
           {commentCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>💬</Text>
+
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
-
           )}
         </View>
       )}
@@ -96,6 +95,7 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
+
   },
   textPostContent: {
     fontSize: 11,
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
-  },  // TODO: performance
+  },
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -137,7 +137,6 @@ const styles = StyleSheet.create({
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
-
   },
   statText: {
     fontSize: 11,
