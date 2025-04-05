@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 import { supabase } from '@/lib/supabase/client';
+
 import { EXPLORE_PAGE_SIZE } from '@/lib/constants';
 import type { Post } from '@/components/feed/types';
 import type { Profile } from '@/components/feed/types';
-
 
 export type SearchMode = 'users' | 'tags' | 'posts';
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
@@ -119,11 +119,13 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       if (activeCategory === 'Photos') {
         query = query.not('image_url', 'is', null);
+
       } else if (activeCategory === 'Videos') {
         query = query.not('video_url', 'is', null);
       } else if (activeCategory === 'Text') {
         query = query.is('image_url', null).not('caption', 'is', null);
       }
+
       if (!refresh && seenIds.length > 0) {
         query = query.not('id', 'in', `(${seenIds.join(',')})`);
       }
@@ -145,7 +147,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadMore: async () => {
-
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
@@ -200,4 +201,5 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       // Silent fail
     }
   },
+
 }));
