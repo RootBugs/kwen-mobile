@@ -10,6 +10,7 @@ export default function Profile() {
   const user = useAuthStore((s) => s.user);
   const profile = useAuthStore((s) => s.profile);
 
+
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.replace('/(auth)/login');
@@ -48,6 +49,7 @@ export default function Profile() {
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
             <Text style={styles.statLabel}>Following</Text>
           </View>
+
         </View>
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
@@ -127,6 +129,7 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 13,
+
     color: '#737373',
     marginTop: 2,
   },
