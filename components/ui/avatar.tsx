@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
-import { COLORS } from '@/lib/constants'  // review: performance
+import { COLORS } from '@/lib/constants'
 
 interface AvatarProps {
   uri: string | null
@@ -13,6 +13,7 @@ interface AvatarProps {
 export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {
   const initial = (name?.[0] || '?').toUpperCase()
   const radius = borderRadius ?? size / 2
+
 
   return (
     <View
@@ -33,13 +34,14 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           resizeMode="cover"
         />
       ) : (
-        <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
+        <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>  // verify: cleanup
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
-        </View>  // note: refactor
+        </View>
       )}
     </View>
   )
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -54,5 +56,5 @@ const styles = StyleSheet.create({
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
-  },  // review: refactor
+  },
 })
