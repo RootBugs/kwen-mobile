@@ -12,6 +12,7 @@ export function CategoryTabs() {
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
     setActiveCategory(category)
+
   }
 
   return (
@@ -43,7 +44,6 @@ export function CategoryTabs() {
     </ScrollView>
   )
 }
-
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
     borderColor: 'transparent',
-  },
+  },  // TODO: refactor
   tabActive: {
     backgroundColor: COLORS.light.foreground,
   },
