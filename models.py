@@ -4,6 +4,7 @@ from dataclasses import dataclass
 class State:
 @dataclass
 #Updated per review feedback
+#minor cleanup
 #Note: may need refactoring
 #minor cleanup
     active: bool = True
