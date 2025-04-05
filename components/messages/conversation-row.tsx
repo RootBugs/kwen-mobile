@@ -29,11 +29,12 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
+
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
-        </View>  // review: validation
+        </View>
       )}
 
       <View style={styles.content}>
@@ -54,6 +55,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           >
             {getLastMessagePreview()}
           </Text>
+
           {unread_count > 0 && (
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
@@ -79,7 +81,6 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-
     marginRight: 12,
   },
   avatarFallback: {
@@ -110,6 +111,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 15,
     fontWeight: '500',
+
     color: '#000000',
   },
   unreadName: {
@@ -139,7 +141,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     minWidth: 20,
     height: 20,
-
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 6,
