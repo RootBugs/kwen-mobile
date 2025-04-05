@@ -44,6 +44,7 @@ export function ChatView() {
   const unsubscribeRef = useRef<(() => void) | null>(null);
 
   const messages = allMessages.get(conversationId) || [];
+
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
 
@@ -69,6 +70,7 @@ export function ChatView() {
     init();
 
     // Subscribe to realtime messages
+
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
       addMessage(conversationId, newMessage);
       if (newMessage.sender_id !== currentUserId.current) {
@@ -135,6 +137,7 @@ export function ChatView() {
 
     return (
       <MessageBubble
+
         message={item}
         isMine={isMine}
         showTail={showTail}
