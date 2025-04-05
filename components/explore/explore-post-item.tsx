@@ -37,6 +37,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
     >
       {hasImage ? (
         <Image
+
           source={{ uri: post.image_url! }}
           style={styles.image}
           contentFit="cover"
@@ -73,6 +74,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
+
           )}
         </View>
       )}
@@ -135,6 +137,7 @@ const styles = StyleSheet.create({
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
+
   },
   statText: {
     fontSize: 11,
