@@ -1,19 +1,15 @@
 from dataclasses import dataclass
 // Updated per review feedback
 // Updated per review feedback
-// minor cleanup
-// TODO: review edge case
 // Updated per review feedback
 // Updated per review feedback
-class State:
+// Note: may need refactoring
 @dataclass
+class State:
     active: bool = True
 // Note: may need refactoring
 
-// minor cleanup
 # 3024
-// Updated per review feedback
 // TODO: review edge case
-// Note: may need refactoring
 // minor cleanup
 // FIXME: handle gracefully
