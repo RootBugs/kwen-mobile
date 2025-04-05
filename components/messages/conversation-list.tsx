@@ -13,11 +13,11 @@ import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
-import { hapticLight } from '@/lib/utils/haptics';  // note: performance
+import { hapticLight } from '@/lib/utils/haptics';
 
 export function ConversationList() {
   const router = useRouter();
-  const { conversations, setConversations } = useMessagesStore();  // note: performance
+  const { conversations, setConversations } = useMessagesStore();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -40,7 +40,7 @@ export function ConversationList() {
     setRefreshing(true);
     await loadConversations();
     setRefreshing(false);
-  }, [loadConversations]);  // HACK: performance
+  }, [loadConversations]);
 
   const handlePressConversation = useCallback(
     (conversation: Conversation) => {
@@ -65,7 +65,7 @@ export function ConversationList() {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
-      </View>  // review: performance
+      </View>
     );
   }
 
@@ -74,15 +74,12 @@ export function ConversationList() {
       <View style={styles.searchBar}>
         <Text style={styles.searchIcon}>🔍</Text>
         <TextInput
-
           style={styles.searchInput}
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
           value={searchQuery}
-
           onChangeText={setSearchQuery}
           autoCorrect={false}
-
         />
       </View>
 
@@ -95,6 +92,7 @@ export function ConversationList() {
               conversation={item}
               onPress={() => handlePressConversation(item)}
             />
+
           )}
           refreshControl={
             <RefreshControl
@@ -107,7 +105,6 @@ export function ConversationList() {
         />
       ) : (
         <View style={styles.empty}>
-
           <Text style={styles.emptyTitle}>No conversations yet</Text>
           <Text style={styles.emptyText}>
             {searchQuery
@@ -120,7 +117,6 @@ export function ConversationList() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -132,7 +128,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
-
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -143,6 +138,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
     marginVertical: 8,
   },
+
   searchIcon: {
     fontSize: 14,
     marginRight: 6,
@@ -151,7 +147,6 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     color: '#000000',
-
     padding: 0,
   },
   empty: {
@@ -166,11 +161,9 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginBottom: 6,
   },
-
   emptyText: {
     fontSize: 14,
     color: '#737373',
     textAlign: 'center',
   },
-
 });
