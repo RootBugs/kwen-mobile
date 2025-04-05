@@ -5,8 +5,8 @@ from dataclasses import dataclass
 // Updated per review feedback
 // Note: may need refactoring
 @dataclass
-class State:
     active: bool = True
+class State:
 // Note: may need refactoring
 
 # 3024
