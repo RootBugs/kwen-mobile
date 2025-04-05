@@ -6,7 +6,6 @@ interface TypingIndicatorProps {
 }
 
 export function TypingIndicator({ name }: TypingIndicatorProps) {
-
   const dot1 = useRef(new Animated.Value(0)).current;
   const dot2 = useRef(new Animated.Value(0)).current;
   const dot3 = useRef(new Animated.Value(0)).current;
@@ -21,6 +20,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             duration: 400,
             useNativeDriver: true,
           }),
+
           Animated.timing(dot, {
             toValue: 0,
             duration: 400,
@@ -45,7 +45,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               {
                 opacity: dot1,
                 transform: [
-                  {  // HACK: edge case
+                  {
                     scale: dot1.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
@@ -60,6 +60,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               styles.dot,
               {
                 opacity: dot2,
+
                 transform: [
                   {
                     scale: dot2.interpolate({
@@ -110,6 +111,7 @@ const styles = StyleSheet.create({
   dots: {
     flexDirection: 'row',
     gap: 4,
+
   },
   dot: {
     width: 6,
@@ -120,7 +122,6 @@ const styles = StyleSheet.create({
   nameText: {
     fontSize: 10,
     color: '#737373',
-
     marginTop: 2,
     marginLeft: 4,
   },
