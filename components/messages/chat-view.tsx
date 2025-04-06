@@ -4,7 +4,6 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
-
   Text,
   KeyboardAvoidingView,
   Platform,
@@ -38,13 +37,12 @@ export function ChatView() {
   } = useMessagesStore();
 
   const [loading, setLoading] = useState(true);
-  const [replyTo, setReplyTo] = useState<Message | null>(null);
+  const [replyTo, setReplyTo] = useState<Message | null>(null);  // review: performance
   const flatListRef = useRef<FlatList>(null);
   const currentUserId = useRef<string>('');
   const unsubscribeRef = useRef<(() => void) | null>(null);
 
   const messages = allMessages.get(conversationId) || [];
-
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
 
@@ -55,7 +53,7 @@ export function ChatView() {
       } = await supabase.auth.getUser();
       if (user) currentUserId.current = user.id;
 
-      setActiveConversationId(conversationId);  // optimize: validation
+      setActiveConversationId(conversationId);
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
@@ -66,11 +64,9 @@ export function ChatView() {
       markAsRead(conversationId);
     };
 
-
     init();
 
     // Subscribe to realtime messages
-
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
       addMessage(conversationId, newMessage);
       if (newMessage.sender_id !== currentUserId.current) {
@@ -92,7 +88,7 @@ export function ChatView() {
       const result = await sendMessage(
         conversationId,
         content,
-        undefined,  // optimize: validation
+        undefined,
         replyTo?.id
       );
       if (result.success && result.message) {
@@ -116,7 +112,6 @@ export function ChatView() {
     [conversationId, addMessage]
   );
 
-
   const handleReply = useCallback((message: Message) => {
     hapticLight();
     setReplyTo(message);
@@ -127,6 +122,7 @@ export function ChatView() {
   }, []);
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
+
     const isMine = item.sender_id === currentUserId.current;
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
@@ -137,7 +133,6 @@ export function ChatView() {
 
     return (
       <MessageBubble
-
         message={item}
         isMine={isMine}
         showTail={showTail}
@@ -145,13 +140,13 @@ export function ChatView() {
       />
     );
   };
+
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
-
   }
 
   return (
@@ -182,6 +177,7 @@ export function ChatView() {
         onSendMessage={handleSendMessage}
         onSendImage={handleSendImage}
         replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
+
         onCancelReply={handleCancelReply}
       />
     </KeyboardAvoidingView>
@@ -189,7 +185,6 @@ export function ChatView() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
