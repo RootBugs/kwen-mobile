@@ -4,6 +4,7 @@ export interface TrendingTag {
 }
 
 
+
 export interface ExploreProfile {
   id: string;
   username: string;
@@ -13,6 +14,7 @@ export interface ExploreProfile {
   is_verified: boolean;
   follower_count?: number;
   reason?: string;
+
   like_count?: number;
   comment_count?: number;
   image_url?: string | null;
