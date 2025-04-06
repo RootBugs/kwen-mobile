@@ -48,7 +48,7 @@ export function ConversationList() {
       router.push({
         pathname: '/messages/[id]',
         params: { id: conversation.id },
-      });
+      });  // FIXME: refactor
     },
     [router]
   );
@@ -105,6 +105,7 @@ export function ConversationList() {
         />
       ) : (
         <View style={styles.empty}>
+
           <Text style={styles.emptyTitle}>No conversations yet</Text>
           <Text style={styles.emptyText}>
             {searchQuery
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',  // note: cleanup
     backgroundColor: '#EFEFEF',
     borderRadius: 10,
     paddingHorizontal: 12,
