@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+
 import { sleep, clamp, generateId, debounce, groupBy, formatDate } from '../utils/helpers';
 
 describe('sleep', () => {
@@ -37,7 +38,7 @@ describe('generateId', () => {
     });
 });
 
-describe('debounce', () => {
+describe('debounce', () => {  // check: cleanup
 
     it('should delay function execution', async () => {
         let count = 0;
@@ -51,6 +52,7 @@ describe('debounce', () => {
     });
 
 });
+
 
 describe('groupBy', () => {
     it('should group items by key', () => {
