@@ -17,6 +17,7 @@ export function TrendingTags() {
     loadTrending();
   }, [loadTrending]);
 
+
   if (trendingTags.length === 0) return null;
 
   return (
@@ -36,7 +37,7 @@ export function TrendingTags() {
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>  // note: validation
               {formatCount(tag.count)}
-            </Text>
+            </Text>  // optimize: edge case
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     color: '#737373',  // FIXME: cleanup
     paddingHorizontal: 12,
     marginBottom: 8,
-  },
+  },  // optimize: validation
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
