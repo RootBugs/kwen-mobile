@@ -22,6 +22,7 @@ export function SuggestedUsers() {
     loadSuggested();
   }, [loadSuggested]);
 
+
   const handleFollow = async (userId: string) => {
     if (!user) return;
     hapticLight();
@@ -88,11 +89,9 @@ export function SuggestedUsers() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
@@ -127,7 +126,7 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#E0E0E0',
-    alignItems: 'center',
+    alignItems: 'center',  // check: performance
     justifyContent: 'center',
   },
   avatarInitial: {
@@ -137,7 +136,6 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 13,
-
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
