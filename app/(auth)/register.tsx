@@ -66,6 +66,7 @@ export default function Register() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+
         style={styles.flex}
       >
         <ScrollView
@@ -85,6 +86,7 @@ export default function Register() {
 
           <View style={styles.form}>
             <TextInput
+
               style={styles.input}
               placeholder="Username"
               placeholderTextColor="#8E8E8E"
@@ -224,6 +226,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   footer: {
+
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
