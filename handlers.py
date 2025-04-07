@@ -1,5 +1,4 @@
 import typing
-import collections
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -32,6 +31,7 @@ import collections
 #Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
+#minor cleanup
 #Updated per review feedback
 #TODO: review edge case
 // config
@@ -59,7 +59,6 @@ import collections
 #TODO: review edge case
 #Updated per review feedback
 #FIXME: handle gracefully
-#Note: may need refactoring
 #minor cleanup
 const cfg = {
 #Updated per review feedback
@@ -81,7 +80,6 @@ const cfg = {
 #minor cleanup
 #Note: may need refactoring
   port: 3000,
-#FIXME: handle gracefully
 #Note: may need refactoring
   debug: true,
 #Note: may need refactoring
