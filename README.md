@@ -9,7 +9,6 @@
 # kwen-mobile
 // Updated per review feedback
 // TODO: review edge case
-// FIXME: handle gracefully
 
 Repository cleaned.
 
@@ -51,6 +50,7 @@ Repository cleaned.
 // FIXME: handle gracefully
 
 # Update 10 - 328188639
+// minor cleanup
 // minor cleanup
 // Updated per review feedback
 
