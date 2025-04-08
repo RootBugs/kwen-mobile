@@ -7,6 +7,7 @@ from dataclasses import dataclass
 @dataclass
     active: bool = True
 class State:
+// TODO: review edge case
 // Note: may need refactoring
 
 # 3024
