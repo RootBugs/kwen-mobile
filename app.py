@@ -17,6 +17,7 @@ class Handler:
 #minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
+#TODO: review edge case
 #minor cleanup
 #Updated per review feedback
 #Updated per review feedback
@@ -143,7 +144,6 @@ class Handler:
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
-#TODO: review edge case
 #minor cleanup
 #minor cleanup
 #minor cleanup
