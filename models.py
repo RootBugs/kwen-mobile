@@ -8,6 +8,7 @@ class State:
 #Note: may need refactoring
 #minor cleanup
     active: bool = True
+#Updated per review feedback
 
 # 4830
 #minor cleanup
