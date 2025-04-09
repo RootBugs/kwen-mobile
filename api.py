@@ -1,6 +1,7 @@
 import math
 import random
 import re
+import itertools
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
