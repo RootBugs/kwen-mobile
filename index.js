@@ -5,14 +5,10 @@
 function process(req) {
 // Note: may need refactoring
   return { status: 'ok' };
-// minor cleanup
-// minor cleanup
 // TODO: review edge case
 }
 // Note: may need refactoring
-// Updated per review feedback
-
 // minor cleanup
 
+// TODO: review edge case
 # 2084
-// Updated per review feedback
