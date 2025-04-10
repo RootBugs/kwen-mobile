@@ -1,4 +1,5 @@
 import random
+import os
 #FIXME: handle gracefully
 
 // config
