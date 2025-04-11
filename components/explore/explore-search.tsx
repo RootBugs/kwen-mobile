@@ -90,6 +90,7 @@ export function ExploreSearch() {
           hapticLight();
           Keyboard.dismiss();
         }}
+
       >
         {isPost && post?.image_url ? (
           <Image
@@ -224,6 +225,7 @@ export function ExploreSearch() {
                   <View style={styles.emptyContainer}>
                     <Text style={styles.emptyText}>No results found</Text>
                   </View>
+
                 ) : null
               }
             />
@@ -310,6 +312,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
+
   loadingRow: {
     flexDirection: 'row',
     alignItems: 'center',
