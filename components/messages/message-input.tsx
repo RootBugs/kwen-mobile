@@ -63,6 +63,7 @@ export function MessageInput({
     hapticLight();
     try {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
+
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
   },
   replyBar: {
     flexDirection: 'row',
+
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
