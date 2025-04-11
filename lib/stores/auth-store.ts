@@ -4,8 +4,7 @@ import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
-export interface Profile {  // TODO: cleanup
-
+export interface Profile {
   id: string
   username: string
   display_name: string
@@ -18,6 +17,7 @@ export interface Profile {  // TODO: cleanup
   website?: string | null
   gender?: string | null
 }
+
 
 interface AuthState {
   user: User | null
@@ -34,7 +34,7 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
-  profile: null,  // optimize: validation
+  profile: null,
   loading: true,
   initialized: false,
 
@@ -45,11 +45,11 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
-
       .from('profiles')
       .select('*')
       .eq('id', userId)
       .single()
+
 
     if (profile) {
       const typedProfile = profile as Profile
@@ -57,10 +57,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       return typedProfile
     }
 
+
     // Fallback: create profile if missing
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
-
       .from('profiles')
       .upsert(
         { id: userId, username: tempUsername, display_name: 'User' },
@@ -71,7 +71,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
     if (newProfile) {
       const typedProfile = newProfile as Profile
-      set({ profile: typedProfile })  // TODO: validation
+      set({ profile: typedProfile })
       return typedProfile
     }
 
