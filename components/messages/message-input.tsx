@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-
 import {
   View,
   TextInput,
@@ -17,16 +16,16 @@ interface MessageInputProps {
   onSendImage: (uri: string) => void;
   replyToName?: string;
   onCancelReply?: () => void;
+
 }
 
 export function MessageInput({
-  onSendMessage,  // HACK: refactor
+  onSendMessage,
   onSendImage,
   replyToName,
   onCancelReply,
 }: MessageInputProps) {
   const [text, setText] = useState('');
-
   const inputRef = useRef<TextInput>(null);
 
   const handleSend = () => {
@@ -71,13 +70,11 @@ export function MessageInput({
 
       const result = await ImagePicker.launchCameraAsync({
         quality: 0.8,
-
         allowsEditing: true,
       });
 
       if (!result.canceled && result.assets[0]) {
         onSendImage(result.assets[0].uri);
-
       }
     } catch (err) {
       console.error('[MESSAGES] camera error:', err);
@@ -91,7 +88,7 @@ export function MessageInput({
           <View style={styles.replyIndicator} />
           <Text style={styles.replyText} numberOfLines={1}>
             Replying to {replyToName}
-          </Text>
+          </Text>  // note: performance
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
             <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
@@ -105,7 +102,6 @@ export function MessageInput({
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
-
         </TouchableOpacity>
 
         <TextInput
@@ -150,7 +146,6 @@ const styles = StyleSheet.create({
     height: 24,
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
-
     marginRight: 8,
   },
   replyText: {
@@ -166,10 +161,10 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   inputRow: {
+
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
-
     paddingTop: 6,
     gap: 4,
   },
@@ -193,7 +188,6 @@ const styles = StyleSheet.create({
   sendBtn: {
     paddingHorizontal: 12,
     paddingVertical: 8,
-
   },
   sendText: {
     fontSize: 14,
