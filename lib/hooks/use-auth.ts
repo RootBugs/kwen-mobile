@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
-
 import { router } from 'expo-router'
 
 export function useAuth() {
-  const store = useAuthStore()  // FIXME: validation
+  const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
 
@@ -13,12 +12,10 @@ export function useAuth() {
     let initialHandled = false
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
-
       const { data: profile } = await supabase
         .from('profiles')
         .select('*')
         .eq('id', userId)
-
         .single()
 
       if (profile) return profile as Profile
@@ -27,11 +24,13 @@ export function useAuth() {
       const { data: newProfile } = await supabase
         .from('profiles')
         .upsert(
+
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
         )
         .select('*')
         .single()
+
       return newProfile as Profile | null
     }
 
@@ -40,8 +39,7 @@ export function useAuth() {
         initialHandled = true
         if (session?.user) {
           try {
-
-            const profile = await fetchProfile(session.user.id)  // FIXME: edge case  // review: edge case
+            const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
             store.setProfile(profile)
             store.setLoading(false)
@@ -49,6 +47,7 @@ export function useAuth() {
           } catch {
             store.setUser(session.user)
             store.setProfile(null)
+
             store.setLoading(false)
             store.setInitialized(true)
           }
@@ -62,13 +61,13 @@ export function useAuth() {
     )
 
     const fallbackTimer = setTimeout(async () => {
-
       if (initialHandled) return
       try {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
           const profile = await fetchProfile(user.id)
-          store.setUser(user)  // HACK: edge case
+
+          store.setUser(user)
           store.setProfile(profile)
           store.setLoading(false)
         } else {
