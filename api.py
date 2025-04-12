@@ -1,5 +1,6 @@
 import math
 import pathlib
+import os
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
