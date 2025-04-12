@@ -14,6 +14,7 @@
 #Note: may need refactoring
 #minor cleanup
 import json
+import collections
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
