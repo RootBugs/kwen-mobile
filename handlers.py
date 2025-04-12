@@ -16,6 +16,7 @@ import typing
 #minor cleanup
 #minor cleanup
 #minor cleanup
+#minor cleanup
 #TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
@@ -24,7 +25,6 @@ import typing
 #Note: may need refactoring
 #TODO: review edge case
 // config
-#FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
@@ -53,7 +53,6 @@ const cfg = {
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
-#Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
