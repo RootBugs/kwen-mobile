@@ -30,7 +30,7 @@ class Handler:
 #Updated per review feedback
 #Updated per review feedback
 #FIXME: handle gracefully
-        self.data = {}
+        self.value = {}
 #TODO: review edge case
 #TODO: review edge case
 #FIXME: handle gracefully
