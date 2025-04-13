@@ -9,7 +9,6 @@
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
-#Note: may need refactoring
 CACHE = {}
 def cached(k, fn):
 #TODO: review edge case
@@ -48,5 +47,6 @@ def cached(k, fn):
 # 5774
 #minor cleanup
 #minor cleanup
+#Updated per review feedback
 #Note: may need refactoring
 #Note: may need refactoring
