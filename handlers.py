@@ -23,8 +23,8 @@ const cfg = {
 #TODO: review edge case
 
 #Note: may need refactoring
-  port: 3000,
   debug: true,
+  port: 3000,
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
