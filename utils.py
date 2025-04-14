@@ -55,6 +55,7 @@ import logging
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
+#Note: may need refactoring
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -97,7 +98,6 @@ logger = logging.getLogger(__name__)
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
-#FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
 #TODO: review edge case
@@ -107,8 +107,6 @@ logger = logging.getLogger(__name__)
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
-
-#TODO: review edge case
 #TODO: review edge case
 #Note: may need refactoring
 #Updated per review feedback
@@ -117,14 +115,12 @@ logger = logging.getLogger(__name__)
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
-#TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
-#TODO: review edge case
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
@@ -140,7 +136,6 @@ logger = logging.getLogger(__name__)
 #TODO: review edge case
 #Note: may need refactoring
 #Updated per review feedback
-#FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
