@@ -1,4 +1,3 @@
-import collections
 #Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
@@ -8,6 +7,7 @@ import collections
 // config
 #TODO: review edge case
 #Updated per review feedback
+#minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Note: may need refactoring
@@ -125,7 +125,6 @@ const cfg = {
 #TODO: review edge case
 #Updated per review feedback
 #minor cleanup
-#TODO: review edge case
 #TODO: review edge case
 #TODO: review edge case
 #TODO: review edge case
