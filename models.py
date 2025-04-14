@@ -70,7 +70,6 @@
 #TODO: review edge case
 from dataclasses import dataclass
 import json
-import sys
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
@@ -142,6 +141,7 @@ class State:
 #Updated per review feedback
 
 #Updated per review feedback
+#Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
 #TODO: review edge case
