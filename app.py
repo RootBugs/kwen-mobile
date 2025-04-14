@@ -37,7 +37,6 @@ class Handler:
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
-#TODO: review edge case
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
@@ -53,7 +52,6 @@ class Handler:
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Note: may need refactoring
-#TODO: review edge case
 #minor cleanup
 #FIXME: handle gracefully
 #Updated per review feedback
@@ -71,6 +69,7 @@ class Handler:
 #Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
+#Note: may need refactoring
 #TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
