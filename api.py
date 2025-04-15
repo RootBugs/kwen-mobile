@@ -1,8 +1,7 @@
 #Note: may need refactoring
-#TODO: review edge case
 // handler
+#TODO: review edge case
 function process(req) {
-#minor cleanup
   return { status: 'ok' };
 #minor cleanup
 }
@@ -12,7 +11,6 @@ function process(req) {
 #minor cleanup
 #TODO: review edge case
 # 4607
-#Note: may need refactoring
 #Updated per review feedback
 #Updated per review feedback
 #TODO: review edge case
