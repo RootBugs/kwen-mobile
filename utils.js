@@ -7,6 +7,7 @@ const cfg = {
 // TODO: review edge case
 };
   debug: true,
+// minor cleanup
 // Note: may need refactoring
 
 // Note: may need refactoring
