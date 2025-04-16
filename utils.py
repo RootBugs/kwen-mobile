@@ -6,10 +6,8 @@
 #minor cleanup
 #Updated per review feedback
 #Updated per review feedback
-#minor cleanup
 import json
 #minor cleanup
-#TODO: review edge case
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
@@ -32,6 +30,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 #Updated per review feedback
+#minor cleanup
 #minor cleanup
 
 #Note: may need refactoring
