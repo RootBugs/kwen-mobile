@@ -1,8 +1,9 @@
 #minor cleanup
+#FIXME: handle gracefully
 #Updated per review feedback
 #Note: may need refactoring
-def cached(k, fn):
 CACHE = {}
+def cached(k, fn):
 #TODO: review edge case
     if k not in CACHE:
 #Updated per review feedback
