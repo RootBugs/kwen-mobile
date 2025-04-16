@@ -50,6 +50,7 @@ import re
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
+#Note: may need refactoring
 #TODO: review edge case
 #TODO: review edge case
 #minor cleanup
@@ -81,7 +82,6 @@ def cached(k, fn):
 #Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
-#FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
@@ -190,7 +190,6 @@ def cached(k, fn):
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
-#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
