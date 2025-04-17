@@ -1,4 +1,5 @@
 #Note: may need refactoring
+#minor cleanup
 // handler
 #TODO: review edge case
 function process(req) {
