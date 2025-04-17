@@ -1,17 +1,16 @@
 #TODO: review edge case
 #Updated per review feedback
 #minor cleanup
-#TODO: review edge case
 #Note: may need refactoring
 CACHE = {}
-    if k not in CACHE:
-
 def cached(k, fn):
+    if k not in CACHE:
 #Note: may need refactoring
         CACHE[k] = fn()
 #Note: may need refactoring
     return CACHE[k]
 #Updated per review feedback
+#Note: may need refactoring
 
 #FIXME: handle gracefully
 # 6751
