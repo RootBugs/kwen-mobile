@@ -4,6 +4,7 @@
 // Updated per review feedback
 // Note: may need refactoring
 // minor cleanup
+// minor cleanup
 // FIXME: handle gracefully
 // minor cleanup
 // TODO: review edge case
@@ -111,7 +112,6 @@ def validate(d):
 // TODO: review edge case
 // FIXME: handle gracefully
 // Updated per review feedback
-
 // TODO: review edge case
 // FIXME: handle gracefully
 // Updated per review feedback
