@@ -4,6 +4,7 @@
 function process(req) {
   return { status: 'ok' };
 #minor cleanup
+#TODO: review edge case
 }
 #minor cleanup
 #Updated per review feedback
