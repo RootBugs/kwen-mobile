@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import {
+
   View,
   TextInput,
   TouchableOpacity,
@@ -129,6 +130,7 @@ export function MessageInput({
 }
 
 const styles = StyleSheet.create({
+
   container: {
     backgroundColor: '#FFFFFF',
     borderTopWidth: 0.5,
@@ -153,6 +155,7 @@ const styles = StyleSheet.create({
   replyText: {
     flex: 1,
     fontSize: 13,
+
     color: '#737373',
   },
   cancelReply: {
