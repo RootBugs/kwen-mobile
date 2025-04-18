@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-
 import {
   View,
   Text,
@@ -93,6 +92,7 @@ export default function CreateScreen() {
 
       if (insertError) throw insertError;
 
+
       hapticSuccess();
       Alert.alert('Success', 'Post created!', [
         {
@@ -106,7 +106,6 @@ export default function CreateScreen() {
         },
       ]);
     } catch (err) {
-
       hapticError();
       Alert.alert('Error', err instanceof Error ? err.message : 'Failed to create post');
       setUploading(false);
@@ -148,7 +147,6 @@ export default function CreateScreen() {
             <TouchableOpacity
               onPress={handlePost}
               style={[styles.postBtn, uploading && styles.postBtnDisabled]}
-
               disabled={uploading}
             >
               <Text style={styles.postBtnText}>Share</Text>
@@ -207,7 +205,7 @@ export default function CreateScreen() {
           </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>  // verify: validation
+    </SafeAreaView>
   );
 }
 
@@ -286,6 +284,7 @@ const styles = StyleSheet.create({
   actionBtnSecondary: {
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
+
     borderColor: '#0095F6',
   },
   actionBtnText: {
@@ -294,7 +293,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   actionBtnTextSecondary: {
-    color: '#0095F6',  // HACK: performance
+    color: '#0095F6',
   },
   previewImage: {
     width: '100%',
@@ -309,7 +308,6 @@ const styles = StyleSheet.create({
     minHeight: 80,
     textAlignVertical: 'top',
   },
-
   charCount: {
     fontSize: 12,
     color: '#737373',
