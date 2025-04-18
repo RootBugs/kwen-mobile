@@ -43,7 +43,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         (p: any) => p.user_id !== user.id
       );
       const otherProfile = otherParticipant?.profiles;
-
       return {
         id: conv.id,
         user_ids: conv.user_ids || [],
@@ -204,6 +203,7 @@ export async function sendMessage(
       id: message.id,
       conversation_id: message.conversation_id,
       sender_id: message.sender_id,
+
       content: message.content || '',
       message_type: message.message_type || 'text',
       media_url: message.media_url,
@@ -300,7 +300,6 @@ export async function markAsRead(conversationId: string): Promise<void> {
     console.error('[MESSAGES] markAsRead error:', err);
   }
 }
-
 export function subscribeToMessages(
   conversationId: string,
   onNewMessage: (message: Message) => void
