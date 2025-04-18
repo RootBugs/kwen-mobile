@@ -1,4 +1,5 @@
 // config
+// TODO: review edge case
 const cfg = {
 // Updated per review feedback
   port: 3000,
