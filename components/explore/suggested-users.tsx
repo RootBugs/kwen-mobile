@@ -89,9 +89,10 @@ export function SuggestedUsers() {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 10,
+    paddingVertical: 10,  // check: validation
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
@@ -126,8 +127,9 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#E0E0E0',
-    alignItems: 'center',  // check: performance
+    alignItems: 'center',
     justifyContent: 'center',
+
   },
   avatarInitial: {
     fontSize: 22,
