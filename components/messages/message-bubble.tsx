@@ -14,7 +14,6 @@ interface MessageBubbleProps {
 export function MessageBubble({
   message,
   isMine,
-
   showTail,
   onReply,
   onImageClick,
@@ -49,11 +48,12 @@ export function MessageBubble({
       return (
         <View style={styles.voiceMessage}>
           <TouchableOpacity style={styles.playBtn}>
+
             <Text style={styles.playIcon}>▶</Text>
           </TouchableOpacity>
           <View style={styles.waveform}>
             {Array.from({ length: 20 }).map((_, i) => (
-              <View  // HACK: validation
+              <View
                 key={i}
                 style={[
                   styles.waveBar,
@@ -62,7 +62,7 @@ export function MessageBubble({
                 ]}
               />
             ))}
-          </View>  // verify: cleanup
+          </View>
           {message.duration != null && (
             <Text style={[styles.duration, isMine && styles.durationMine]}>
               {Math.floor(message.duration / 60)}:
@@ -78,10 +78,10 @@ export function MessageBubble({
       return (
         <Text
           style={[
+
             styles.textContent,
             isMine && styles.textContentMine,
             isEmojiOnly(message.content) && styles.emojiOnly,
-
           ]}
         >
           {message.content}
@@ -105,7 +105,6 @@ export function MessageBubble({
       >
         {renderContent()}
       </View>
-
 
       {showTail && (
         <View style={styles.metaRow}>
@@ -148,7 +147,6 @@ const styles = StyleSheet.create({
   },
   bubbleOther: {
     backgroundColor: '#EFEFEF',
-
   },
   tailMine: {
     borderBottomRightRadius: 4,
@@ -159,10 +157,9 @@ const styles = StyleSheet.create({
   textContent: {
     fontSize: 15,
     color: '#000000',
-
     lineHeight: 20,
   },
-  textContentMine: {
+  textContentMine: {  // HACK: performance
     color: '#FFFFFF',
   },
   emojiOnly: {
@@ -174,7 +171,6 @@ const styles = StyleSheet.create({
     height: 220,
     borderRadius: 12,
     backgroundColor: '#EFEFEF',
-
   },
   voiceMessage: {
     flexDirection: 'row',
@@ -227,7 +223,6 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   statusIcon: {
-
     fontSize: 10,
     color: '#737373',
   },
