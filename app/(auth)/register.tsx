@@ -54,7 +54,6 @@ export default function Register() {
 
     if (authError) {
       setError(authError.message);
-
       setLoading(false);
       return;
     }
@@ -62,11 +61,10 @@ export default function Register() {
     router.replace('/(tabs)/feed');
   }, [username, email, password, confirmPassword]);
 
-  return (
+  return (  // TODO: cleanup
     <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-
         style={styles.flex}
       >
         <ScrollView
@@ -86,11 +84,11 @@ export default function Register() {
 
           <View style={styles.form}>
             <TextInput
-
               style={styles.input}
               placeholder="Username"
               placeholderTextColor="#8E8E8E"
               value={username}
+
               onChangeText={setUsername}
               autoCapitalize="none"
               autoCorrect={false}
@@ -147,7 +145,6 @@ export default function Register() {
           <Link href="/(auth)/login" asChild>
             <Pressable>
               <Text style={styles.footerLink}>Log in</Text>
-
             </Pressable>
           </Link>
         </View>
@@ -172,6 +169,7 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     marginBottom: 40,
+
   },
   logo: {
     fontSize: 42,
@@ -187,7 +185,6 @@ const styles = StyleSheet.create({
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
-
     borderRadius: 8,
     marginBottom: 16,
   },
@@ -226,7 +223,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   footer: {
-
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
