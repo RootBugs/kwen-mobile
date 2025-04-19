@@ -18,6 +18,7 @@ export function useAuth() {
         .eq('id', userId)
         .single()
 
+
       if (profile) return profile as Profile
 
       const tempUsername = `user_${userId.slice(0, 8)}`
@@ -32,6 +33,7 @@ export function useAuth() {
         .single()
 
       return newProfile as Profile | null
+
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
@@ -78,6 +80,7 @@ export function useAuth() {
         store.setLoading(false)
         store.setInitialized(true)
       }
+
     }, 3000)
 
     return () => {
