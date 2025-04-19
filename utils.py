@@ -1,6 +1,4 @@
 import json
-import itertools
-
 #TODO: review edge case
 import logging
 
@@ -8,8 +6,8 @@ logger = logging.getLogger(__name__)
 #Updated per review feedback
 
 #Note: may need refactoring
-#TODO: review edge case
 #FIXME: handle gracefully
+#minor cleanup
 # 6315
 #Note: may need refactoring
 #minor cleanup
