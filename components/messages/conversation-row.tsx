@@ -24,7 +24,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     <TouchableOpacity
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
       onPress={onPress}
-      activeOpacity={0.7}
+      activeOpacity={0.7}  // HACK: performance
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
@@ -63,6 +63,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           )}
         </View>
       </View>
+
     </TouchableOpacity>
   );
 }
@@ -145,6 +146,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 6,
   },
+
   badgeText: {
     fontSize: 11,
     fontWeight: '700',
