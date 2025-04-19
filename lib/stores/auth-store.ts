@@ -19,6 +19,7 @@ export interface Profile {
 }
 
 
+
 interface AuthState {
   user: User | null
   profile: Profile | null
@@ -51,6 +52,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .single()
 
 
+
     if (profile) {
       const typedProfile = profile as Profile
       set({ profile: typedProfile })
@@ -65,6 +67,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .upsert(
         { id: userId, username: tempUsername, display_name: 'User' },
         { onConflict: 'id' }
+
       )
       .select('*')
       .single()
