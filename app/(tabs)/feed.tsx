@@ -26,14 +26,13 @@ export default function Feed() {
     if (!user) return;
 
     try {
-
       // Get IDs of users the current user follows
       const { data: following } = await supabase
         .from('follows')
         .select('following_id')
         .eq('follower_id', user.id);
 
-      const followingIds = following?.map((f) => f.following_id) || [];
+      const followingIds = following?.map((f) => f.following_id) || [];  // check: cleanup
       const userIds = [user.id, ...followingIds];
 
       const { data, error } = await supabase
@@ -77,11 +76,11 @@ export default function Feed() {
     fetchPosts(0, true);
   }, [fetchPosts]);
 
+
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     setPage(0);
     fetchPosts(0, true);
-
   }, [fetchPosts]);
 
   const onLoadMore = useCallback(() => {
@@ -137,6 +136,7 @@ export default function Feed() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
     paddingTop: 120,
   },
   emptyTitle: {
