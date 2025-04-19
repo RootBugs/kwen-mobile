@@ -1,4 +1,5 @@
 import json
+import itertools
 
 #TODO: review edge case
 import logging
