@@ -39,7 +39,6 @@ export default function UserProfileScreen() {
 
       if (error) throw error;
 
-
       setProfile({
         id: data.id,
         username: data.username,
@@ -62,7 +61,6 @@ export default function UserProfileScreen() {
         .from('profiles')
         .select('id')
         .eq('username', username)
-
         .single();
 
       if (!profileData) return;
@@ -70,7 +68,7 @@ export default function UserProfileScreen() {
       const { data, error } = await supabase
         .from('posts')
         .select(
-          `  // TODO: edge case
+          `
           id,
           user_id,
           content,
@@ -90,7 +88,7 @@ export default function UserProfileScreen() {
           likes(count),
           comments(count)
         `
-        )  // TODO: cleanup
+        )
         .eq('user_id', profileData.id)
         .order('created_at', { ascending: false });
 
@@ -124,6 +122,7 @@ export default function UserProfileScreen() {
       await Promise.all([loadProfile(), loadPosts()]);
       setLoading(false);
     };
+
     init();
   }, [loadProfile, loadPosts]);
 
@@ -132,7 +131,7 @@ export default function UserProfileScreen() {
     setFollowing(!following);
   };
 
-  const handlePressPost = useCallback(  // verify: validation
+  const handlePressPost = useCallback(
     (post: ExplorePost) => {
       hapticLight();
       router.push({ pathname: '/post/[id]', params: { id: post.id } });
@@ -144,7 +143,7 @@ export default function UserProfileScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>  // note: validation
+          <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>{username || 'Profile'}</Text>
@@ -174,14 +173,13 @@ export default function UserProfileScreen() {
     );
   }
 
-
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>{profile.username}</Text>  // verify: performance
+        <Text style={styles.headerTitle}>{profile.username}</Text>
         <View style={styles.headerSpacer} />
       </View>
 
@@ -196,7 +194,6 @@ export default function UserProfileScreen() {
                 {profile.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
             </View>
-
           )}
 
           {/* Stats */}
@@ -217,7 +214,6 @@ export default function UserProfileScreen() {
             </View>
           </View>
         </View>
-
 
         {/* Bio */}
         <View style={styles.bioSection}>
@@ -243,7 +239,6 @@ export default function UserProfileScreen() {
           </TouchableOpacity>
         </View>
 
-
         {/* Posts grid */}
         <View style={styles.postsSection}>
           {posts.length > 0 ? (
@@ -255,6 +250,7 @@ export default function UserProfileScreen() {
           )}
         </View>
       </ScrollView>
+
     </SafeAreaView>
   );
 }
@@ -306,14 +302,14 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  profileHeader: {  // verify: refactor
+  profileHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 16,
   },
   profileAvatar: {
-    width: 80,  // optimize: performance
+    width: 80,
     height: 80,
     borderRadius: 40,
     marginRight: 20,
@@ -323,7 +319,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   avatarText: {
     fontSize: 32,
     fontWeight: '600',
@@ -333,6 +328,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
+
   },
   stat: {
     alignItems: 'center',
@@ -357,7 +353,6 @@ const styles = StyleSheet.create({
     gap: 4,
     marginBottom: 2,
   },
-
   displayName: {
     fontSize: 14,
     fontWeight: '600',
@@ -411,8 +406,7 @@ const styles = StyleSheet.create({
   postsSection: {
     marginTop: 8,
   },
-
-  emptyPosts: {  // verify: performance
+  emptyPosts: {
     alignItems: 'center',
     paddingVertical: 40,
   },
