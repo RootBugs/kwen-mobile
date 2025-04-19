@@ -2,6 +2,7 @@ import collections
 #Updated per review feedback
 class Handler:
 #minor cleanup
+#minor cleanup
     def __init__(self):
 #Updated per review feedback
         self.data = {}
