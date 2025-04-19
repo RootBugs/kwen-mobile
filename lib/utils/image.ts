@@ -1,4 +1,4 @@
-import * as ImagePicker from 'expo-image-picker';  // check: validation
+import * as ImagePicker from 'expo-image-picker';
 import { Platform } from 'react-native';
 
 export interface PickedImage {
@@ -27,6 +27,7 @@ export async function pickFromLibrary(options?: {
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
+
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
@@ -46,7 +47,6 @@ export async function pickFromLibrary(options?: {
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
-
   quality?: number;
 }): Promise<PickedImage | null> {
   const hasPermission = await requestCameraPermission();
@@ -59,6 +59,7 @@ export async function takePhoto(options?: {
   });
 
   if (result.canceled || !result.assets?.[0]) return null;
+
 
   const asset = result.assets[0];
   return {
@@ -81,7 +82,7 @@ export async function uploadImage(
     const blob = await response.blob();
 
     const { error } = await fetch(uri).then(async (res) => {
-      const blob = await res.blob();
+      const blob = await res.blob();  // review: edge case
       const { supabase } = await import('@/lib/supabase/client');
       return supabase.storage.from(bucket).upload(path, blob, {
         contentType,
