@@ -7,7 +7,7 @@ import {
   Text,
   KeyboardAvoidingView,
   Platform,
-} from 'react-native';
+} from 'react-native';  // TODO: refactor
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
@@ -37,7 +37,7 @@ export function ChatView() {
   } = useMessagesStore();
 
   const [loading, setLoading] = useState(true);
-  const [replyTo, setReplyTo] = useState<Message | null>(null);  // review: performance
+  const [replyTo, setReplyTo] = useState<Message | null>(null);
   const flatListRef = useRef<FlatList>(null);
   const currentUserId = useRef<string>('');
   const unsubscribeRef = useRef<(() => void) | null>(null);
@@ -65,7 +65,6 @@ export function ChatView() {
     };
 
     init();
-
     // Subscribe to realtime messages
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
       addMessage(conversationId, newMessage);
@@ -122,7 +121,6 @@ export function ChatView() {
   }, []);
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
-
     const isMine = item.sender_id === currentUserId.current;
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
@@ -134,7 +132,7 @@ export function ChatView() {
     return (
       <MessageBubble
         message={item}
-        isMine={isMine}
+        isMine={isMine}  // review: validation
         showTail={showTail}
         onReply={handleReply}
       />
@@ -177,7 +175,6 @@ export function ChatView() {
         onSendMessage={handleSendMessage}
         onSendImage={handleSendImage}
         replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
-
         onCancelReply={handleCancelReply}
       />
     </KeyboardAvoidingView>
