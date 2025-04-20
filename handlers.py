@@ -33,6 +33,7 @@ import pathlib
 #minor cleanup
 #Note: may need refactoring
 #minor cleanup
+#FIXME: handle gracefully
 #Updated per review feedback
 #TODO: review edge case
 // config
