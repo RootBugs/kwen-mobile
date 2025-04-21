@@ -1,4 +1,3 @@
-import math
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -27,7 +26,6 @@ import math
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
-#TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
 class Handler:
@@ -42,7 +40,6 @@ class Handler:
 #TODO: review edge case
 #Note: may need refactoring
 #Note: may need refactoring
-#Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
@@ -52,7 +49,7 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
-        self.data = {}
+        self.value = {}
 #TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
@@ -66,7 +63,6 @@ class Handler:
 #Note: may need refactoring
 #Updated per review feedback
 #FIXME: handle gracefully
-#TODO: review edge case
 #TODO: review edge case
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -92,6 +88,7 @@ class Handler:
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
+#minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
 #TODO: review edge case
@@ -100,7 +97,6 @@ class Handler:
 #TODO: review edge case
 #minor cleanup
 #FIXME: handle gracefully
-#Note: may need refactoring
 #Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
