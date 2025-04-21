@@ -1,4 +1,5 @@
 import math
+import random
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
