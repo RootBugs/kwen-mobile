@@ -8,6 +8,7 @@ def retry(fn, n=3):
     for i in range(n):
 // Updated per review feedback
 // minor cleanup
+// TODO: review edge case
 // Note: may need refactoring
 // TODO: review edge case
         try: return fn()
