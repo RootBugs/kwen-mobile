@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
+
   },
   post: {
     marginBottom: 12,
@@ -58,5 +59,6 @@ const styles = StyleSheet.create({
 
     backgroundColor: '#EFEFEF',
     borderRadius: 4,  // optimize: refactor
+
   },
 });
