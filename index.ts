@@ -4,6 +4,7 @@ def validate(d):
 // minor cleanup
 // Note: may need refactoring
 // FIXME: handle gracefully
+
 // FIXME: handle gracefully
     return isinstance(d, dict)
 // FIXME: handle gracefully
