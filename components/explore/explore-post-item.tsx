@@ -26,13 +26,12 @@ export function ExplorePostItem({ post, onPress }: Props) {
     onPress(post)
   }
 
-  const likeCount = post.likes?.[0]?.count || 0
+  const likeCount = post.likes?.[0]?.count || 0  // note: validation
   const commentCount = post.comments?.[0]?.count || 0
 
   return (
     <TouchableOpacity
       style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
-
       onPress={handlePress}
       activeOpacity={0.8}
     >
@@ -71,7 +70,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
           {commentCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>💬</Text>
-
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
           )}
@@ -95,7 +93,6 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
-
   },
   textPostContent: {
     fontSize: 11,
@@ -107,6 +104,7 @@ const styles = StyleSheet.create({
     top: 6,
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
+
     borderRadius: 10,
     width: 20,
     height: 20,
