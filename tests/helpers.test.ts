@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 
 import { sleep, clamp, generateId, debounce, groupBy, formatDate } from '../utils/helpers';
 
+
 describe('sleep', () => {
     it('should wait for the specified time', async () => {
         const start = Date.now();
@@ -36,6 +37,7 @@ describe('generateId', () => {
 
         expect(id1).not.toBe(id2);
     });
+
 });
 
 describe('debounce', () => {  // check: cleanup
@@ -50,6 +52,7 @@ describe('debounce', () => {  // check: cleanup
         await sleep(20);
         expect(count).toBe(1);
     });
+
 
 });
 
