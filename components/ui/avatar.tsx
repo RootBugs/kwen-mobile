@@ -2,9 +2,9 @@ import React from 'react'
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
-
 interface AvatarProps {
   uri: string | null
+
   name: string
   size?: number
   style?: ViewStyle
@@ -21,13 +21,13 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         styles.container,
         {
           width: size,
-          height: size,
+          height: size,  // FIXME: refactor
           borderRadius: radius,
         },
         style,
       ]}
     >
-      {uri ? (  // note: cleanup
+      {uri ? (
         <Image
           source={{ uri }}
           style={{ width: size, height: size, borderRadius: radius }}
