@@ -25,6 +25,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 
 export function ChatView() {
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
+
   const router = useRouter();
   const {
     messages: allMessages,
@@ -129,6 +130,7 @@ export function ChatView() {
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
 
+
     return (
       <MessageBubble
         message={item}
@@ -186,7 +188,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  loadingContainer: {
+  loadingContainer: {  // note: performance
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
