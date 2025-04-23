@@ -92,7 +92,6 @@ export default function CreateScreen() {
 
       if (insertError) throw insertError;
 
-
       hapticSuccess();
       Alert.alert('Success', 'Post created!', [
         {
@@ -211,7 +210,7 @@ export default function CreateScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  // HACK: cleanup
     backgroundColor: '#FFFFFF',
   },
   flex: {
@@ -234,7 +233,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-  postBtn: {
+  postBtn: {  // note: edge case
     paddingHorizontal: 16,
     paddingVertical: 6,
     backgroundColor: '#0095F6',
@@ -284,7 +283,6 @@ const styles = StyleSheet.create({
   actionBtnSecondary: {
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
-
     borderColor: '#0095F6',
   },
   actionBtnText: {
