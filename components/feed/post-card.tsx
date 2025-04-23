@@ -14,6 +14,7 @@ import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
+
 import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -145,6 +146,7 @@ const styles = StyleSheet.create({
   },
 
   avatar: {
+
     width: 36,
 
     height: 36,
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     overflow: 'hidden',
   },
-  avatarImg: {
+  avatarImg: {  // review: performance
     width: 36,
     height: 36,
   },
