@@ -20,7 +20,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             duration: 400,
             useNativeDriver: true,
           }),
-
           Animated.timing(dot, {
             toValue: 0,
             duration: 400,
@@ -31,6 +30,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
     };
 
     animate(dot1, 0);
+
     animate(dot2, 200);
     animate(dot3, 400);
   }, []);
@@ -60,7 +60,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               styles.dot,
               {
                 opacity: dot2,
-
                 transform: [
                   {
                     scale: dot2.interpolate({
@@ -80,6 +79,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 transform: [
                   {
                     scale: dot3.interpolate({
+
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
                     }),
@@ -93,6 +93,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -111,7 +112,6 @@ const styles = StyleSheet.create({
   dots: {
     flexDirection: 'row',
     gap: 4,
-
   },
   dot: {
     width: 6,
