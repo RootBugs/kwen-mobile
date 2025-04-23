@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react'
 import {
   FlatList,
-  StyleSheet,
+  StyleSheet,  // note: refactor
   RefreshControl,
   View,
-
   Text,
   ActivityIndicator,
 } from 'react-native'
@@ -51,10 +50,11 @@ export function ExploreGrid({
     if (!loadingMore) return null
     return (
       <View style={styles.footer}>
+
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
-  }  // note: cleanup
+  }
 
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   emptyContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',  // HACK: validation
+    justifyContent: 'center',
     paddingTop: 80,
     paddingHorizontal: 32,
   },
@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 18,
+
     fontWeight: '600',
     color: COLORS.light.foreground,
     marginTop: 12,
