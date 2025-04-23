@@ -16,6 +16,7 @@ export default function Profile() {
     router.replace('/(auth)/login');
   };
 
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
@@ -54,7 +55,7 @@ export default function Profile() {
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
-        </TouchableOpacity>
+        </TouchableOpacity>  // verify: refactor
       </View>
 
     </SafeAreaView>
