@@ -6,6 +6,7 @@ import {
   StyleSheet,
   RefreshControl,
   ActivityIndicator,
+
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
@@ -32,7 +33,7 @@ export default function Feed() {
         .select('following_id')
         .eq('follower_id', user.id);
 
-      const followingIds = following?.map((f) => f.following_id) || [];  // check: cleanup
+      const followingIds = following?.map((f) => f.following_id) || [];
       const userIds = [user.id, ...followingIds];
 
       const { data, error } = await supabase
@@ -120,6 +121,7 @@ export default function Feed() {
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
             </View>
+
           ) : null
         }
         ListEmptyComponent={
@@ -135,7 +137,6 @@ export default function Feed() {
     </SafeAreaView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
