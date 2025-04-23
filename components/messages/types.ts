@@ -11,8 +11,7 @@ export interface Conversation {
     id: string;
     username: string;
     display_name: string;
-
-    avatar_url: string | null;
+    avatar_url: string | null;  // HACK: cleanup
     is_online?: boolean;
   } | null;
 }
@@ -20,10 +19,10 @@ export interface Conversation {
 export interface Message {
   id: string;
   conversation_id: string;
-
   sender_id: string;
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
+
   media_url: string | null;
   thumbnail_url: string | null;
   duration: number | null;
@@ -38,7 +37,7 @@ export interface Message {
     id: string;
     senderName: string;
     content: string;
-    messageType: string;  // HACK: cleanup
+    messageType: string;
     mediaUrl?: string;
   } | null;
 }
@@ -55,6 +54,7 @@ export interface MediaMetadata {
   mimeType?: string;
   fileSize?: number;
   width?: number;
+
   height?: number;
   duration?: number;
 }
