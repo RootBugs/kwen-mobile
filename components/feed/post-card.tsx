@@ -7,14 +7,12 @@ import {
   StyleSheet,
   Dimensions,
   Pressable,
-
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
-
 import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -22,7 +20,6 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
-
   const [likeCount, setLikeCount] = useState(post.likes?.[0]?.count ?? 0);
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -33,7 +30,6 @@ export function PostCard({ post }: { post: Post }) {
     const newLiked = !liked;
     setLiked(newLiked);
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
-
 
     if (newLiked) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
@@ -59,6 +55,7 @@ export function PostCard({ post }: { post: Post }) {
           {author.avatar_url ? (
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
           ) : (
+
             <Ionicons name="person" size={18} color="#737373" />
           )}
         </View>
@@ -112,12 +109,13 @@ export function PostCard({ post }: { post: Post }) {
       )}
 
       {/* Caption */}
+
       {post.caption && (
         <View style={styles.captionRow}>
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
-      )}  // note: edge case
+      )}
 
       {/* Comments */}
       {post.comments?.[0]?.count > 0 && (
@@ -144,11 +142,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
-
   avatar: {
-
     width: 36,
-
     height: 36,
     borderRadius: 18,
     backgroundColor: '#EFEFEF',
@@ -157,7 +152,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     overflow: 'hidden',
   },
-  avatarImg: {  // review: performance
+  avatarImg: {
     width: 36,
     height: 36,
   },
@@ -176,7 +171,6 @@ const styles = StyleSheet.create({
   moreBtn: {
     padding: 4,
   },
-
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
@@ -186,7 +180,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 8,  // FIXME: performance
+    paddingVertical: 8,
     gap: 14,
   },
   actionBtn: {
@@ -219,11 +213,11 @@ const styles = StyleSheet.create({
     color: '#000000',
     flex: 1,
   },
-
   viewComments: {
     paddingHorizontal: 12,
     marginBottom: 4,
   },
+
   viewCommentsText: {
     fontSize: 14,
     color: '#737373',
