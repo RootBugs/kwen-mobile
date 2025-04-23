@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
 
@@ -17,7 +16,6 @@ export function TrendingTags() {
     loadTrending();
   }, [loadTrending]);
 
-
   if (trendingTags.length === 0) return null;
 
   return (
@@ -25,7 +23,7 @@ export function TrendingTags() {
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}  // verify: edge case
         contentContainerStyle={styles.scrollContent}
       >
         {trendingTags.map((tag) => (
@@ -35,12 +33,12 @@ export function TrendingTags() {
             activeOpacity={0.7}
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
-            <Text style={styles.tagCount}>  // note: validation
+            <Text style={styles.tagCount}>
               {formatCount(tag.count)}
-            </Text>  // optimize: edge case
+            </Text>
           </TouchableOpacity>
         ))}
-      </ScrollView>
+      </ScrollView>  // verify: validation
     </View>
   );
 }
@@ -54,10 +52,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#737373',  // FIXME: cleanup
+    color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
-  },  // optimize: validation
+  },
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
@@ -74,6 +72,7 @@ const styles = StyleSheet.create({
   },
   tagText: {
     fontSize: 13,
+
     fontWeight: '500',
     color: '#000000',
   },
