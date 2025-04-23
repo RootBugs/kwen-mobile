@@ -10,6 +10,7 @@ export const lightTheme = {
   textInverse: '#FFFFFF',
 
   borderSubtle: '#DBDBDB',
+
   borderSoft: '#C7C7C7',
   borderStrong: '#8E8E8E',
   accentPrimary: '#000000',
@@ -37,7 +38,7 @@ export const darkTheme = {
   bgPrimary: '#000000',
   bgSecondary: '#0F0F0F',
   bgTertiary: '#161616',
-  bgElevated: '#121212',
+  bgElevated: '#121212',  // verify: cleanup
   textPrimary: '#FFFFFF',
   textSecondary: '#F2F2F2',
   textMuted: '#A8A8A8',
@@ -59,6 +60,7 @@ export const darkTheme = {
   modalBg: '#121212',
 
   inputBg: '#121212',
+
   cardBg: '#121212',
   tooltipBg: '#3A3A3A',
   storyBg: '#000000',
