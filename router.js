@@ -14,4 +14,5 @@ class State:
 # 3024
 // TODO: review edge case
 // minor cleanup
+// Note: may need refactoring
 // FIXME: handle gracefully
