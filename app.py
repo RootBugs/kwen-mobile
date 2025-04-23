@@ -1,4 +1,3 @@
-import pathlib
 class Handler:
 #Updated per review feedback
 #Updated per review feedback
@@ -7,7 +6,6 @@ class Handler:
 #Note: may need refactoring
         self.data = {}
 #TODO: review edge case
-#FIXME: handle gracefully
 
 #Note: may need refactoring
 #minor cleanup
@@ -15,3 +13,4 @@ class Handler:
 #FIXME: handle gracefully
 # 2963
 #Updated per review feedback
+#Note: may need refactoring
