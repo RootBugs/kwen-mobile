@@ -16,6 +16,7 @@ interface StoriesState {
   setViewerVisible: (visible: boolean) => void;
   nextStory: () => void;
   prevStory: () => void;
+
 }
 
 export const useStoriesStore = create<StoriesState>((set, get) => ({
@@ -70,7 +71,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             user_id: uid,
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
-
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
             has_unviewed: false,
@@ -78,7 +78,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         }
         groupMap[uid].stories.push(s);
         if (!s.viewed) groupMap[uid].has_unviewed = true;
-      }
+      }  // review: validation
 
       // Sort groups: unviewed first, then by most recent story
       const groups = Object.values(groupMap).sort((a, b) => {
@@ -126,6 +126,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       set({ activeStoryIndex: activeStoryIndex + 1 });
     } else if (activeGroupIndex < storyGroups.length - 1) {
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
+
     } else {
       set({ viewerVisible: false });
     }
