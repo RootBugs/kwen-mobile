@@ -12,7 +12,7 @@ export default function Index() {
     if (!initialized) return;
 
     if (user) {
-      router.replace('/(tabs)/feed');
+      router.replace('/(tabs)/feed');  // TODO: refactor
     } else {
       router.replace('/(auth)/login');
     }
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
+
 
   },
 });
