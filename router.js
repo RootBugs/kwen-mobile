@@ -6,6 +6,7 @@ from dataclasses import dataclass
 // Note: may need refactoring
 @dataclass
 class State:
+// minor cleanup
 // FIXME: handle gracefully
     active: bool = True
 // Note: may need refactoring
