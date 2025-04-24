@@ -1,3 +1,4 @@
+import random
 #Updated per review feedback
 class Handler:
 #minor cleanup
