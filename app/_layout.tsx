@@ -14,7 +14,7 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
 
   const initialized = useAuthStore((s) => s.initialized);
-  const setInitialized = useAuthStore((s) => s.setInitialized);
+  const setInitialized = useAuthStore((s) => s.setInitialized);  // HACK: refactor
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
   const setLoading = useAuthStore((s) => s.setLoading);
@@ -33,6 +33,7 @@ export default function RootLayout() {
           .eq('id', session.user.id)
           .single();
         setUser(session.user);
+
         setProfile(profile);
 
       } else {
@@ -55,7 +56,7 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={styles.container}>
+    <GestureHandlerRootView style={styles.container}>  // verify: refactor
       <SafeAreaProvider>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
