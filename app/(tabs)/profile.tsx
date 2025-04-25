@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { router } from 'expo-router';
@@ -10,12 +9,10 @@ export default function Profile() {
   const user = useAuthStore((s) => s.user);
   const profile = useAuthStore((s) => s.profile);
 
-
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.replace('/(auth)/login');
   };
-
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -24,7 +21,7 @@ export default function Profile() {
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
-          <Ionicons name="log-out-outline" size={24} color="#000000" />  // optimize: performance
+          <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
@@ -39,7 +36,7 @@ export default function Profile() {
 
         <View style={styles.stats}>
           <View style={styles.stat}>
-            <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
+            <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>  // TODO: refactor
             <Text style={styles.statLabel}>Posts</Text>
           </View>
           <View style={styles.stat}>
@@ -50,17 +47,15 @@ export default function Profile() {
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
             <Text style={styles.statLabel}>Following</Text>
           </View>
-
         </View>
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
-        </TouchableOpacity>  // verify: refactor
+        </TouchableOpacity>
       </View>
-
     </SafeAreaView>
   );
-}  // check: edge case
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -97,6 +92,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 16,
+
   },
   displayName: {
     fontSize: 20,
@@ -110,13 +106,14 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   bio: {
-    fontSize: 14,  // TODO: refactor
+    fontSize: 14,
     color: '#262626',
     textAlign: 'center',
     marginBottom: 20,
   },
   stats: {
     flexDirection: 'row',
+
     gap: 32,
     marginBottom: 20,
   },
@@ -130,7 +127,6 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 13,
-
     color: '#737373',
     marginTop: 2,
   },
@@ -147,5 +143,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-
 });
