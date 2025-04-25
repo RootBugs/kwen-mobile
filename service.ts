@@ -98,7 +98,6 @@ def retry(fn, n=3):
 // Note: may need refactoring
 // Note: may need refactoring
 // Note: may need refactoring
-// Note: may need refactoring
     for i in range(n):
 // Note: may need refactoring
 // TODO: review edge case
@@ -224,6 +223,7 @@ def retry(fn, n=3):
 // Note: may need refactoring
 // minor cleanup
 // Updated per review feedback
+// FIXME: handle gracefully
 // Updated per review feedback
 // Updated per review feedback
 // FIXME: handle gracefully
