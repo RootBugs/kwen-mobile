@@ -6,6 +6,7 @@ class Handler:
 #Updated per review feedback
         self.data = {}
 #Note: may need refactoring
+#minor cleanup
 #Note: may need refactoring
 
 #Note: may need refactoring
