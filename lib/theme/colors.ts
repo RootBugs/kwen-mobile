@@ -11,6 +11,7 @@ export const lightTheme = {
 
   borderSubtle: '#DBDBDB',
 
+
   borderSoft: '#C7C7C7',
   borderStrong: '#8E8E8E',
   accentPrimary: '#000000',
@@ -22,6 +23,7 @@ export const lightTheme = {
   success: '#42D67D',
   warning: '#F7B928',
   info: '#000000',
+
   overlay: 'rgba(0, 0, 0, 0.65)',
 
   modalBg: '#FFFFFF',
@@ -46,6 +48,7 @@ export const darkTheme = {
   borderSubtle: '#262626',
 
   borderSoft: '#3A3A3A',
+
   borderStrong: '#555555',
   accentPrimary: '#FFFFFF',
 
