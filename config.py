@@ -1,17 +1,14 @@
-import json
+#FIXME: handle gracefully
 // config
-  port: 3000,
 const cfg = {
+  port: 3000,
   debug: true,
 #FIXME: handle gracefully
 };
 
 #Note: may need refactoring
-#TODO: review edge case
 # 558
 #FIXME: handle gracefully
 #TODO: review edge case
-#Updated per review feedback
-#minor cleanup
 #Updated per review feedback
 #TODO: review edge case
