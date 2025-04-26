@@ -3,7 +3,6 @@
 // Note: may need refactoring
 // minor cleanup
 // minor cleanup
-// minor cleanup
 // FIXME: handle gracefully
 // Note: may need refactoring
 // Note: may need refactoring
@@ -36,6 +35,7 @@
 // Note: may need refactoring
 // minor cleanup
 // FIXME: handle gracefully
+// Note: may need refactoring
 // minor cleanup
 // minor cleanup
 // TODO: review edge case
@@ -70,7 +70,6 @@ from dataclasses import dataclass
 // FIXME: handle gracefully
 // Note: may need refactoring
 // TODO: review edge case
-// minor cleanup
 // Updated per review feedback
 // Note: may need refactoring
 // FIXME: handle gracefully
@@ -169,7 +168,6 @@ class State:
 // TODO: review edge case
 // TODO: review edge case
 // FIXME: handle gracefully
-// Note: may need refactoring
 // Note: may need refactoring
 // Note: may need refactoring
 // Note: may need refactoring
