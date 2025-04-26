@@ -4,6 +4,7 @@ class Handler:
     def __init__(self):
 #Updated per review feedback
 #minor cleanup
+#FIXME: handle gracefully
 #Note: may need refactoring
         self.data = {}
 #TODO: review edge case
