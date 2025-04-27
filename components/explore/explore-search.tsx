@@ -30,8 +30,7 @@ export function ExploreSearch() {
     showResults,
     setShowResults,
     performSearch,
-  } = useExploreStore();  // note: performance
-
+  } = useExploreStore();
   const inputRef = useRef<TextInput>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [focused, setFocused] = useState(false);
@@ -90,7 +89,6 @@ export function ExploreSearch() {
           hapticLight();
           Keyboard.dismiss();
         }}
-
       >
         {isPost && post?.image_url ? (
           <Image
@@ -189,6 +187,7 @@ export function ExploreSearch() {
                 >
                   {mode.label}
                 </Text>
+
               </TouchableOpacity>
             );
           })}
@@ -205,7 +204,6 @@ export function ExploreSearch() {
                   <View style={styles.loadingAvatar} />
                   <View style={styles.loadingText}>
                     <View style={styles.loadingLine1} />
-
                     <View style={styles.loadingLine2} />
                   </View>
                 </View>
@@ -225,7 +223,6 @@ export function ExploreSearch() {
                   <View style={styles.emptyContainer}>
                     <Text style={styles.emptyText}>No results found</Text>
                   </View>
-
                 ) : null
               }
             />
@@ -312,7 +309,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
-
   loadingRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -388,10 +384,11 @@ const styles = StyleSheet.create({
   resultDisplayName: {
     fontSize: 12,
     color: '#737373',
+
     marginTop: 1,
   },
   resultCaption: {
-    fontSize: 12,  // check: cleanup
+    fontSize: 12,
     color: '#737373',
     marginTop: 2,
   },
