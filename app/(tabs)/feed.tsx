@@ -11,6 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
+
 import { PostCard } from '@/components/feed/post-card';
 import { FeedSkeleton } from '@/components/feed/feed-skeleton';
 import type { Post } from '@/components/feed/types';
@@ -79,6 +80,7 @@ export default function Feed() {
 
 
   const onRefresh = useCallback(() => {
+
     setRefreshing(true);
     setPage(0);
     fetchPosts(0, true);
@@ -137,6 +139,7 @@ export default function Feed() {
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
