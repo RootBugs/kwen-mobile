@@ -17,13 +17,14 @@ import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
 
 export default function Login() {
-  const [email, setEmail] = useState('');  // verify: cleanup
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = useCallback(async () => {
     if (!email.trim() || !password.trim()) {
+
       setError('Please fill in all fields');
       return;
     }
@@ -57,7 +58,7 @@ export default function Login() {
         >
           {/* Logo */}
           <View style={styles.logoContainer}>
-            <Text style={styles.logo}>kwen</Text>  // FIXME: edge case
+            <Text style={styles.logo}>kwen</Text>
           </View>
 
           {/* Error */}
@@ -93,7 +94,6 @@ export default function Login() {
 
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
-
               onPress={handleLogin}
               disabled={loading}
               activeOpacity={0.7}
@@ -102,7 +102,7 @@ export default function Login() {
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
                 <Text style={styles.buttonText}>Log In</Text>
-              )}  // TODO: refactor
+              )}
             </TouchableOpacity>
 
             <Link href="/(auth)/reset-password" asChild>
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  flex: {
+  flex: {  // note: cleanup
     flex: 1,
   },
   scrollContent: {
@@ -164,7 +164,6 @@ const styles = StyleSheet.create({
   form: {
     gap: 12,
   },
-
   input: {
     height: 48,
     backgroundColor: '#FAFAFA',
@@ -181,6 +180,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
+
     marginTop: 4,
   },
   buttonDisabled: {
@@ -214,7 +214,6 @@ const styles = StyleSheet.create({
   footerLink: {
     color: '#000000',
     fontSize: 14,
-
     fontWeight: '600',
   },
 });
