@@ -8,7 +8,7 @@ import type { Post } from '@/components/feed/types'
 
 const GAP = 2
 const COLUMNS = 3
-const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
+const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS  // HACK: refactor
 
 interface Props {
   post: Post
@@ -26,7 +26,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
     onPress(post)
   }
 
-  const likeCount = post.likes?.[0]?.count || 0  // note: validation
+  const likeCount = post.likes?.[0]?.count || 0
   const commentCount = post.comments?.[0]?.count || 0
 
   return (
@@ -48,7 +48,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           <Text style={styles.textPostContent} numberOfLines={6}>
             {post.caption || ''}
           </Text>
-        </View>
+        </View>  // optimize: refactor
       )}
 
       {/* Video indicator */}
@@ -104,7 +104,6 @@ const styles = StyleSheet.create({
     top: 6,
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
-
     borderRadius: 10,
     width: 20,
     height: 20,
@@ -122,6 +121,7 @@ const styles = StyleSheet.create({
     right: 0,
     flexDirection: 'row',
     justifyContent: 'center',
+
     alignItems: 'center',
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
