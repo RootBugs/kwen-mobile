@@ -4,9 +4,9 @@ import { COLORS } from '@/lib/constants'
 
 interface AvatarProps {
   uri: string | null
-
   name: string
   size?: number
+
   style?: ViewStyle
   borderRadius?: number
 }
@@ -21,7 +21,8 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         styles.container,
         {
           width: size,
-          height: size,  // FIXME: refactor
+          height: size,
+
           borderRadius: radius,
         },
         style,
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   },
   initial: {
     fontWeight: '600',
+
     color: '#FFFFFF',
   },
-
 })
