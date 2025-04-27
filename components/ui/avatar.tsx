@@ -20,9 +20,9 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       style={[
         styles.container,
         {
+
           width: size,
           height: size,
-
           borderRadius: radius,
         },
         style,
@@ -41,6 +41,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       )}
     </View>
   )
+
 }
 
 const styles = StyleSheet.create({
@@ -55,7 +56,6 @@ const styles = StyleSheet.create({
   },
   initial: {
     fontWeight: '600',
-
     color: '#FFFFFF',
   },
 })
