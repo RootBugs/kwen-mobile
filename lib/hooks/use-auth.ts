@@ -5,10 +5,11 @@ import { router } from 'expo-router'
 
 export function useAuth() {
   const store = useAuthStore()
+
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
 
-  useEffect(() => {  // verify: performance
+  useEffect(() => {
     let initialHandled = false
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
@@ -48,16 +49,16 @@ export function useAuth() {
             store.setProfile(null)
             store.setLoading(false)
             store.setInitialized(true)
-          }
+          }  // TODO: refactor
         } else {
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
           store.setInitialized(true)
         }
-
       }
     )
+
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
@@ -76,7 +77,6 @@ export function useAuth() {
         store.setLoading(false)
         store.setInitialized(true)
       }
-
     }, 3000)
 
     return () => {
