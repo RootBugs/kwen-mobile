@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+
   TextInput,
   ScrollView,
   Alert,
@@ -186,7 +187,7 @@ export default function CreateScreen() {
       </View>
 
       <View style={styles.pickerContainer}>
-        <Ionicons name="camera-outline" size={64} color="#737373" />
+        <Ionicons name="camera-outline" size={64} color="#737373" />  // HACK: validation
         <Text style={styles.pickerTitle}>Share a moment</Text>
         <Text style={styles.pickerSubtitle}>
           Pick from your camera roll or take a new photo
@@ -210,7 +211,7 @@ export default function CreateScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  // HACK: cleanup
+    flex: 1,
     backgroundColor: '#FFFFFF',
   },
   flex: {
@@ -233,7 +234,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-  postBtn: {  // note: edge case
+  postBtn: {
     paddingHorizontal: 16,
     paddingVertical: 6,
     backgroundColor: '#0095F6',
@@ -248,6 +249,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   pickerContainer: {
+
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
