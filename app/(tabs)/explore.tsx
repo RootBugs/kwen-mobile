@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useState } from 'react';
+
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -44,6 +45,7 @@ export default function ExploreScreen() {
   if (loading && posts.length === 0) {
     return (
       <SafeAreaView style={styles.container}>
+
         <ExploreSkeleton />
       </SafeAreaView>
     );
@@ -78,6 +80,7 @@ export default function ExploreScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: COLORS.light.background,
   },
   header: {
