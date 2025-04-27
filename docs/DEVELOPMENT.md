@@ -1,5 +1,4 @@
 # Development Guide
-
 ## Getting Started
 
 This guide will help you set up the development environment for this project.
@@ -30,11 +29,13 @@ This guide will help you set up the development environment for this project.
 - Use TypeScript for type safety where possible
 
 
+
 ### Testing
 
 - Write unit tests for new functionality
 - Ensure existing tests pass before submitting
 - Run the full test suite: `npm test`
+
 
 ## Architecture
 
