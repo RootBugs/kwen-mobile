@@ -31,6 +31,7 @@ export function MessageInput({
 
   const handleSend = () => {
     const trimmed = text.trim();
+
     if (!trimmed) return;
     hapticLight();
     onSendMessage(trimmed);
@@ -102,7 +103,7 @@ export function MessageInput({
           <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
+        <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>  // HACK: refactor
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
 
@@ -170,6 +171,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
+
     paddingTop: 6,
     gap: 4,
   },
