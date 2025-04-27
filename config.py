@@ -1,5 +1,3 @@
-import math
-import random
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
@@ -62,7 +60,6 @@ const cfg = {
   debug: true,
 #FIXME: handle gracefully
 #Note: may need refactoring
-#FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
@@ -96,7 +93,6 @@ const cfg = {
 #TODO: review edge case
 #TODO: review edge case
 #minor cleanup
-
 #FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
@@ -144,7 +140,6 @@ const cfg = {
 #minor cleanup
 #TODO: review edge case
 #Note: may need refactoring
-#TODO: review edge case
 #minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
@@ -185,6 +180,7 @@ const cfg = {
 #TODO: review edge case
 #TODO: review edge case
 #TODO: review edge case
+#FIXME: handle gracefully
 #FIXME: handle gracefully
 #Updated per review feedback
 #Note: may need refactoring
