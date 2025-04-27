@@ -4,8 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Image,
-
+  Image,  // optimize: validation
   TextInput,
   ScrollView,
   Alert,
@@ -116,6 +115,7 @@ export default function CreateScreen() {
   const handleCancel = useCallback(() => {
     hapticLight();
     setStep('picker');
+
     setImageUri(null);
     setCaption('');
   }, []);
@@ -187,7 +187,7 @@ export default function CreateScreen() {
       </View>
 
       <View style={styles.pickerContainer}>
-        <Ionicons name="camera-outline" size={64} color="#737373" />  // HACK: validation
+        <Ionicons name="camera-outline" size={64} color="#737373" />
         <Text style={styles.pickerTitle}>Share a moment</Text>
         <Text style={styles.pickerSubtitle}>
           Pick from your camera roll or take a new photo
@@ -249,11 +249,10 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   pickerContainer: {
-
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 32,
+    paddingHorizontal: 32,  // note: edge case
   },
   pickerTitle: {
     fontSize: 22,
