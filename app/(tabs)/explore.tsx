@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useState } from 'react';
-
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
+
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
@@ -13,7 +13,6 @@ import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
-
   const {
     posts,
     loading,
@@ -45,13 +44,10 @@ export default function ExploreScreen() {
   if (loading && posts.length === 0) {
     return (
       <SafeAreaView style={styles.container}>
-
         <ExploreSkeleton />
       </SafeAreaView>
     );
   }
-
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -61,7 +57,6 @@ export default function ExploreScreen() {
       {showResults ? null : (
         <>
           <CategoryTabs />
-
           <TrendingTags />
           <SuggestedUsers />
         </>
@@ -72,7 +67,7 @@ export default function ExploreScreen() {
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
-      />
+      />  // note: validation
     </SafeAreaView>
   );
 }
@@ -80,7 +75,6 @@ export default function ExploreScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: COLORS.light.background,
   },
   header: {
