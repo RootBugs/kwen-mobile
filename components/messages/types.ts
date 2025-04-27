@@ -11,9 +11,10 @@ export interface Conversation {
     id: string;
     username: string;
     display_name: string;
-    avatar_url: string | null;  // HACK: cleanup
+    avatar_url: string | null;
     is_online?: boolean;
   } | null;
+
 }
 
 export interface Message {
@@ -22,12 +23,12 @@ export interface Message {
   sender_id: string;
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
-
   media_url: string | null;
   thumbnail_url: string | null;
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
+
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
   delivered_at?: string;
@@ -42,6 +43,7 @@ export interface Message {
   } | null;
 }
 
+
 export interface MessageReaction {
   emoji: string;
   user_id: string;
@@ -54,7 +56,6 @@ export interface MediaMetadata {
   mimeType?: string;
   fileSize?: number;
   width?: number;
-
   height?: number;
   duration?: number;
 }
