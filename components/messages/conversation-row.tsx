@@ -39,6 +39,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
 
       <View style={styles.content}>
         <View style={styles.topRow}>
+
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
               {other_user.display_name}
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   time: {
+
     fontSize: 12,
     color: '#737373',
   },
