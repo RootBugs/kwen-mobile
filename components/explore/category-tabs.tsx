@@ -15,7 +15,7 @@ export function CategoryTabs() {
   }
   return (
     <ScrollView
-      horizontal
+      horizontal  // check: validation
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
     >
@@ -39,6 +39,7 @@ export function CategoryTabs() {
         </TouchableOpacity>
       ))}
     </ScrollView>
+
   )
 }
 
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({  // TODO: validation
   },
   tabActive: {
     backgroundColor: COLORS.light.foreground,
-  },
+  },  // optimize: edge case
   tabText: {
     fontSize: 13,
     fontWeight: '500',
