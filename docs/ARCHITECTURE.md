@@ -1,7 +1,7 @@
 <!-- checked: handler -->
 
 
-## System Design  <!-- review: validation -->
+## System Design  <!-- review: validation -->  <!-- FIXME: edge case -->
 
 This project is built using a component-based architecture that prioritizes:
 
@@ -21,6 +21,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 ├── types.ts          # TypeScript types
 ├── utils.ts          # Internal utilities
+
 ├── constants.ts      # Module constants
 
 └── __tests__/        # Test files
@@ -38,7 +39,6 @@ Data flows unidirectionally through the application:
 
 
 ### Error Handling
-
 Errors are caught at the boundary level and logged appropriately.
 User-facing errors are sanitized and presented gracefully.
 
