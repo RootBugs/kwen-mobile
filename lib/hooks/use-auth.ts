@@ -8,7 +8,7 @@ export function useAuth() {
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
 
-  useEffect(() => {
+  useEffect(() => {  // verify: performance
     let initialHandled = false
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
@@ -18,14 +18,12 @@ export function useAuth() {
         .eq('id', userId)
         .single()
 
-
       if (profile) return profile as Profile
 
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
         .from('profiles')
         .upsert(
-
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
         )
@@ -33,7 +31,6 @@ export function useAuth() {
         .single()
 
       return newProfile as Profile | null
-
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
@@ -49,7 +46,6 @@ export function useAuth() {
           } catch {
             store.setUser(session.user)
             store.setProfile(null)
-
             store.setLoading(false)
             store.setInitialized(true)
           }
@@ -59,6 +55,7 @@ export function useAuth() {
           store.setLoading(false)
           store.setInitialized(true)
         }
+
       }
     )
 
@@ -68,7 +65,6 @@ export function useAuth() {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
           const profile = await fetchProfile(user.id)
-
           store.setUser(user)
           store.setProfile(profile)
           store.setLoading(false)
