@@ -26,6 +26,7 @@ export function MessageBubble({
   const renderContent = () => {
     // Image message
     if (
+
       (message.message_type === 'image' || message.message_type === 'mixed') &&
       message.media_url
     ) {
@@ -48,7 +49,6 @@ export function MessageBubble({
       return (
         <View style={styles.voiceMessage}>
           <TouchableOpacity style={styles.playBtn}>
-
             <Text style={styles.playIcon}>▶</Text>
           </TouchableOpacity>
           <View style={styles.waveform}>
@@ -78,9 +78,9 @@ export function MessageBubble({
       return (
         <Text
           style={[
-
             styles.textContent,
             isMine && styles.textContentMine,
+
             isEmojiOnly(message.content) && styles.emojiOnly,
           ]}
         >
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     lineHeight: 20,
   },
-  textContentMine: {  // HACK: performance
+  textContentMine: {
     color: '#FFFFFF',
   },
   emojiOnly: {
@@ -191,6 +191,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   waveform: {
+
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
