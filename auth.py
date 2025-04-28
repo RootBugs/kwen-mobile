@@ -10,9 +10,9 @@
 #Note: may need refactoring
 #Updated per review feedback
 #Updated per review feedback
-#Updated per review feedback
 #FIXME: handle gracefully
 #FIXME: handle gracefully
+#Note: may need refactoring
 #TODO: review edge case
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -38,7 +38,6 @@ class Handler:
 #TODO: review edge case
 #FIXME: handle gracefully
 #FIXME: handle gracefully
-#Updated per review feedback
 #Note: may need refactoring
 #Updated per review feedback
 #Note: may need refactoring
