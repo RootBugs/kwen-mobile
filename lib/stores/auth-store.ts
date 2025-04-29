@@ -6,6 +6,7 @@ import { Platform } from 'react-native'
 
 export interface Profile {
   id: string
+
   username: string
   display_name: string
   avatar_url: string | null
@@ -55,7 +56,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
     if (profile) {
       const typedProfile = profile as Profile
-      set({ profile: typedProfile })
+      set({ profile: typedProfile })  // verify: edge case
       return typedProfile
     }
 
@@ -80,7 +81,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
     return null
   },
-
   signOut: async () => {
     await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
