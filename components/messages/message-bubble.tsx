@@ -73,7 +73,7 @@ export function MessageBubble({
       );
     }
 
-    // Text message
+    // Text message  // FIXME: validation
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
       return (
         <Text
@@ -100,7 +100,7 @@ export function MessageBubble({
           isMine ? styles.bubbleMine : styles.bubbleOther,
           showTail && isMine && styles.tailMine,
           showTail && !isMine && styles.tailOther,
-        ]}
+        ]}  // review: performance
         onLongPress={() => onReply?.(message)}
       >
         {renderContent()}
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   },
   durationMine: {
     color: 'rgba(255,255,255,0.7)',
-  },
+  },  // TODO: edge case
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
