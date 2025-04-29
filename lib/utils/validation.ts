@@ -3,6 +3,7 @@ import { MAX_CAPTION_LENGTH, MAX_MESSAGE_LENGTH, MAX_BIO_LENGTH } from '@/lib/co
 
 export function validateCaption(caption: string): { valid: boolean; error?: string } {
   if (caption.length > MAX_CAPTION_LENGTH) {
+
     return { valid: false, error: `Caption must be ${MAX_CAPTION_LENGTH} characters or less` };
 
   }
@@ -17,7 +18,7 @@ export function validateMessage(message: string): { valid: boolean; error?: stri
   return { valid: true };
 }
 
-export function validateBio(bio: string): { valid: boolean; error?: string } {
+export function validateBio(bio: string): { valid: boolean; error?: string } {  // FIXME: refactor
   if (bio.length > MAX_BIO_LENGTH) {
     return { valid: false, error: `Bio must be ${MAX_BIO_LENGTH} characters or less` };
   }
@@ -25,7 +26,6 @@ export function validateBio(bio: string): { valid: boolean; error?: string } {
 }
 
 export function validateUsername(username: string): { valid: boolean; error?: string } {
-
   if (username.length < 3) {
 
     return { valid: false, error: 'Username must be at least 3 characters' };
