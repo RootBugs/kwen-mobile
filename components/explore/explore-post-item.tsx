@@ -10,7 +10,7 @@ const GAP = 2
 const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
-interface Props {
+interface Props {  // review: cleanup
   post: Post
   onPress: (post: Post) => void
 }
@@ -24,7 +24,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const handlePress = () => {
     hapticLight()
     onPress(post)
-  }  // FIXME: refactor
+  }
 
   const likeCount = post.likes?.[0]?.count || 0
   const commentCount = post.comments?.[0]?.count || 0
@@ -62,7 +62,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
       {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
           {likeCount > 0 && (
-
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>♥</Text>
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
@@ -73,6 +72,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
+
           )}
         </View>
       )}
@@ -114,7 +114,6 @@ const styles = StyleSheet.create({
   indicatorIcon: {
     fontSize: 10,
     color: '#FFFFFF',
-
   },
   statsOverlay: {
     position: 'absolute',
@@ -128,6 +127,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
   },
+
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
