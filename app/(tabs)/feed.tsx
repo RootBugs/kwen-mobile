@@ -1,17 +1,16 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
   View,
+
   Text,
   FlatList,
   StyleSheet,
   RefreshControl,
   ActivityIndicator,
-
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
-
 import { PostCard } from '@/components/feed/post-card';
 import { FeedSkeleton } from '@/components/feed/feed-skeleton';
 import type { Post } from '@/components/feed/types';
@@ -78,7 +77,6 @@ export default function Feed() {
     fetchPosts(0, true);
   }, [fetchPosts]);
 
-
   const onRefresh = useCallback(() => {
 
     setRefreshing(true);
@@ -123,7 +121,6 @@ export default function Feed() {
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
             </View>
-
           ) : null
         }
         ListEmptyComponent={
@@ -140,7 +137,6 @@ export default function Feed() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -148,7 +144,7 @@ const styles = StyleSheet.create({
   },
   header: {
     height: 48,
-    justifyContent: 'center',
+    justifyContent: 'center',  // FIXME: refactor
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
