@@ -18,6 +18,7 @@ export function ExploreSkeleton() {
         {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
 
           <SkeletonBlock key={i} width={60} height={28} style={styles.categoryTab} />
+
         ))}
       </View>
 
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
   container: {
 
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF',  // verify: refactor
   },
   searchRow: {
     paddingHorizontal: 12,
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   gridItem: {
+
     margin: 1,
   },
 });
