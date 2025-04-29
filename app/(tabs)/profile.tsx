@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
+
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -48,7 +49,6 @@ export default function Profile() {
             <Text style={styles.statLabel}>Following</Text>
           </View>
         </View>
-
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
         </TouchableOpacity>
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
+
   stats: {
     flexDirection: 'row',
 
