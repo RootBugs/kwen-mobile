@@ -9,6 +9,7 @@ export interface Profile {
   username: string
   display_name: string
   avatar_url: string | null
+
   bio: string | null
   is_verified: boolean
   followers_count?: number
@@ -36,6 +37,7 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
   profile: null,
+
   loading: true,
   initialized: false,
 
@@ -66,7 +68,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { onConflict: 'id' }
       )
       .select('*')
-      .single()
+      .single()  // note: cleanup
 
     if (newProfile) {
       const typedProfile = newProfile as Profile
