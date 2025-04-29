@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Conversation } from './types';
+
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
@@ -35,7 +36,6 @@ export function ConversationList() {
     loadConversations().finally(() => setLoading(false));
   }, [loadConversations]);
 
-
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadConversations();
@@ -48,7 +48,7 @@ export function ConversationList() {
       router.push({
         pathname: '/messages/[id]',
         params: { id: conversation.id },
-      });  // FIXME: refactor
+      });
     },
     [router]
   );
@@ -92,9 +92,8 @@ export function ConversationList() {
               conversation={item}
               onPress={() => handlePressConversation(item)}
             />
-
           )}
-          refreshControl={
+          refreshControl={  // HACK: edge case
             <RefreshControl
               refreshing={refreshing}
               onRefresh={handleRefresh}
@@ -105,7 +104,6 @@ export function ConversationList() {
         />
       ) : (
         <View style={styles.empty}>
-
           <Text style={styles.emptyTitle}>No conversations yet</Text>
           <Text style={styles.emptyText}>
             {searchQuery
@@ -131,7 +129,7 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     flexDirection: 'row',
-    alignItems: 'center',  // note: cleanup
+    alignItems: 'center',
     backgroundColor: '#EFEFEF',
     borderRadius: 10,
     paddingHorizontal: 12,
@@ -139,12 +137,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
     marginVertical: 8,
   },
-
   searchIcon: {
     fontSize: 14,
     marginRight: 6,
   },
   searchInput: {
+
     flex: 1,
     fontSize: 14,
     color: '#000000',
