@@ -9,6 +9,7 @@ import {
   Image,
   Keyboard,
 } from 'react-native';
+
 import { Ionicons } from '@expo/vector-icons';
 import { useExploreStore, type SearchResult, type SearchMode } from '@/lib/stores/explore-store';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -227,6 +228,7 @@ export function ExploreSearch() {
                 ) : null
               }
             />
+
           )}
         </View>
       )}
@@ -284,6 +286,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   modeTab: {
+
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
