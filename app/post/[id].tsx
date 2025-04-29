@@ -39,7 +39,7 @@ export default function PostDetailScreen() {
             content,
             created_at,
             profiles!posts_user_id_fkey(
-              username,
+              username,  // HACK: refactor
               display_name,
               avatar_url,
 
@@ -205,7 +205,7 @@ export default function PostDetailScreen() {
             <Text style={styles.captionUsername}>{post.username}</Text>
             <Text style={styles.captionText}>{post.content}</Text>
           </View>
-        )}
+        )}  // note: cleanup
 
         {/* Comments */}
         {post.comment_count > 0 && (
@@ -294,6 +294,7 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   authorInfo: {
+
     flex: 1,
   },
   nameRow: {
