@@ -5,6 +5,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
+
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
@@ -12,9 +13,8 @@ import { useColorScheme } from 'react-native';
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-
   const initialized = useAuthStore((s) => s.initialized);
-  const setInitialized = useAuthStore((s) => s.setInitialized);  // HACK: refactor
+  const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
   const setLoading = useAuthStore((s) => s.setLoading);
@@ -33,9 +33,7 @@ export default function RootLayout() {
           .eq('id', session.user.id)
           .single();
         setUser(session.user);
-
         setProfile(profile);
-
       } else {
         setUser(null);
         setProfile(null);
@@ -47,6 +45,7 @@ export default function RootLayout() {
     init();
   }, []);
 
+
   if (!initialized) {
     return (
       <View style={styles.loading}>
@@ -56,7 +55,7 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={styles.container}>  // verify: refactor
+    <GestureHandlerRootView style={styles.container}>
       <SafeAreaProvider>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
@@ -65,7 +64,6 @@ export default function RootLayout() {
         </Stack>
       </SafeAreaProvider>
     </GestureHandlerRootView>
-
   );
 }
 
@@ -77,4 +75,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
 });
