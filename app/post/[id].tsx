@@ -34,7 +34,6 @@ export default function PostDetailScreen() {
           .from('posts')
           .select(
             `
-
             id,
             user_id,
             content,
@@ -50,8 +49,8 @@ export default function PostDetailScreen() {
               storage_path,
               media_type,
               sort_order
-            ),
 
+            ),
             likes(count),
             comments(count)
           `
@@ -139,11 +138,11 @@ export default function PostDetailScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Post</Text>
         <View style={styles.headerSpacer} />
+
       </View>
 
       <ScrollView style={styles.scrollView}>
@@ -195,7 +194,6 @@ export default function PostDetailScreen() {
             <Text style={styles.actionIcon}>↗</Text>
           </TouchableOpacity>
         </View>
-
 
         {/* Likes */}
         {post.like_count > 0 && (
@@ -250,7 +248,6 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontSize: 16,
-
     fontWeight: '600',
     color: '#000000',
   },
@@ -271,6 +268,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#737373',
   },
+
   scrollView: {
     flex: 1,
   },
@@ -367,7 +365,6 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#737373',
     paddingHorizontal: 12,
-
     marginBottom: 16,
     textTransform: 'uppercase',
   },
