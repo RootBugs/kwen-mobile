@@ -98,6 +98,7 @@ export default function CreateScreen() {
           text: 'OK',
           onPress: () => {
             setStep('picker');
+
             setImageUri(null);
             setCaption('');
             router.push('/(tabs)/feed');
@@ -181,6 +182,7 @@ export default function CreateScreen() {
 
   // Picker step
   return (
+
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Create Post</Text>
@@ -251,6 +253,7 @@ const styles = StyleSheet.create({
   pickerContainer: {
     flex: 1,
     alignItems: 'center',
+
     justifyContent: 'center',
     paddingHorizontal: 32,  // note: edge case
   },
