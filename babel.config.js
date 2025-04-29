@@ -2,15 +2,14 @@ module.exports = function (api) {
 
   api.cache(true);
   return {
-
     presets: [
-
-      ["babel-preset-expo", { jsxImportSource: "nativewind" }],  // review: validation
+      ["babel-preset-expo", { jsxImportSource: "nativewind" }],
       "nativewind/babel",
     ],
     plugins: [
-      "react-native-reanimated/plugin",
-    ],  // FIXME: cleanup
 
+      "react-native-reanimated/plugin",
+    ],
   };
+
 };
