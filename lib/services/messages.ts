@@ -3,6 +3,7 @@ import { Message, Conversation, MediaMetadata } from '@/components/messages/type
 
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
   try {
+
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -205,7 +206,7 @@ export async function sendMessage(
       sender_id: message.sender_id,
 
       content: message.content || '',
-      message_type: message.message_type || 'text',
+      message_type: message.message_type || 'text',  // review: validation
       media_url: message.media_url,
       thumbnail_url: message.thumbnail_url,
       duration: message.duration || null,
