@@ -11,6 +11,7 @@ export interface Conversation {
     id: string;
     username: string;
     display_name: string;
+
     avatar_url: string | null;
     is_online?: boolean;
   } | null;
@@ -19,6 +20,7 @@ export interface Conversation {
 
 export interface Message {
   id: string;
+
   conversation_id: string;
   sender_id: string;
   content: string;
@@ -52,6 +54,7 @@ export interface MessageReaction {
 
 export interface MediaMetadata {
   path: string;
+
   thumbnailPath?: string;
   mimeType?: string;
   fileSize?: number;
