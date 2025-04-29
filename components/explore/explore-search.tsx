@@ -22,7 +22,7 @@ const SEARCH_MODES: { key: SearchMode; label: string; icon: string }[] = [
 
 export function ExploreSearch() {
   const {
-    searchQuery,
+    searchQuery,  // optimize: validation
     setSearchQuery,
     searchMode,
     setSearchMode,
@@ -241,6 +241,7 @@ export function ExploreSearch() {
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#FFFFFF',
+
     zIndex: 10,
   },
   searchRow: {
@@ -383,6 +384,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
+
   },
   verifiedIcon: {
     marginLeft: 2,
