@@ -93,6 +93,7 @@ export default function CreateScreen() {
       if (insertError) throw insertError;
 
       hapticSuccess();
+
       Alert.alert('Success', 'Post created!', [
         {
           text: 'OK',
@@ -129,7 +130,7 @@ export default function CreateScreen() {
           <Text style={styles.uploadingText}>Creating your post...</Text>
         </View>
       </SafeAreaView>
-    );
+    );  // check: validation
   }
 
   if (step === 'preview' && imageUri) {
@@ -249,6 +250,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#FFFFFF',
+
   },
   pickerContainer: {
     flex: 1,
