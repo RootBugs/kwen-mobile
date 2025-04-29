@@ -5,8 +5,8 @@ from dataclasses import dataclass
 // Updated per review feedback
 // Updated per review feedback
 // Note: may need refactoring
-@dataclass
 class State:
+@dataclass
 // minor cleanup
 // FIXME: handle gracefully
     active: bool = True
