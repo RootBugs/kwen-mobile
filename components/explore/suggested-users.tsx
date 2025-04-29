@@ -22,7 +22,6 @@ export function SuggestedUsers() {
     loadSuggested();
   }, [loadSuggested]);
 
-
   const handleFollow = async (userId: string) => {
     if (!user) return;
     hapticLight();
@@ -43,6 +42,7 @@ export function SuggestedUsers() {
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
+
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
@@ -92,7 +92,7 @@ export function SuggestedUsers() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 10,  // check: validation
+    paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   scrollContent: {
+
     paddingHorizontal: 12,
     gap: 10,
   },
@@ -113,6 +114,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 8,
     borderRadius: 12,
+
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
@@ -129,7 +131,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   avatarInitial: {
     fontSize: 22,
