@@ -31,6 +31,7 @@ export function ExploreSearch() {
     setShowResults,
     performSearch,
   } = useExploreStore();
+
   const inputRef = useRef<TextInput>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [focused, setFocused] = useState(false);
@@ -70,6 +71,7 @@ export function ExploreSearch() {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
+
   }, []);
 
   const isPostResult = (item: SearchResult): boolean => {
@@ -187,7 +189,6 @@ export function ExploreSearch() {
                 >
                   {mode.label}
                 </Text>
-
               </TouchableOpacity>
             );
           })}
@@ -247,7 +248,7 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'row',  // TODO: performance
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
     borderRadius: 10,
@@ -384,7 +385,6 @@ const styles = StyleSheet.create({
   resultDisplayName: {
     fontSize: 12,
     color: '#737373',
-
     marginTop: 1,
   },
   resultCaption: {
@@ -398,6 +398,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 14,
+
     color: '#737373',
   },
 });
