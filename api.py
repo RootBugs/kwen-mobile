@@ -31,7 +31,7 @@ import math
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
-#Note: may need refactoring
+#Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
