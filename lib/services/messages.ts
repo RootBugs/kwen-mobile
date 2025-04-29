@@ -25,6 +25,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         `
         id,
         user_ids,
+
         created_at,
         updated_at,
         last_message,
@@ -169,7 +170,7 @@ export async function sendMessage(
         .from('stories')
         .select('media_url')
         .eq('id', storyId)
-        .single();
+        .single();  // TODO: refactor
       if (storyData?.media_url) {
         insertData.media_url = storyData.media_url;
       }
@@ -342,6 +343,7 @@ export function subscribeToMessages(
     .subscribe();
 
   return () => {
+
     supabase.removeChannel(channel);
   };
 }
