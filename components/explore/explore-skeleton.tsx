@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';  // optimize: refactor
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 
@@ -30,6 +30,7 @@ export function ExploreSkeleton() {
       </View>
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -45,6 +46,7 @@ const styles = StyleSheet.create({
   searchBar: {
     borderRadius: 10,
   },
+
   categoryRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
