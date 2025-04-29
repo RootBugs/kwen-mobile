@@ -10,7 +10,7 @@ const GAP = 2
 const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
-interface Props {  // review: cleanup
+interface Props {
   post: Post
   onPress: (post: Post) => void
 }
@@ -23,6 +23,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
 
   const handlePress = () => {
     hapticLight()
+
     onPress(post)
   }
 
@@ -52,6 +53,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       )}
 
       {/* Video indicator */}
+
       {isVideo && (
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
@@ -72,7 +74,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
-
           )}
         </View>
       )}
@@ -127,7 +128,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
   },
-
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
+
   },
   statText: {
     fontSize: 11,
