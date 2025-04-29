@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { supabase } from '@/lib/supabase/client';
-
 import { EXPLORE_PAGE_SIZE } from '@/lib/constants';
 import type { Post } from '@/components/feed/types';
 import type { Profile } from '@/components/feed/types';
@@ -36,6 +35,7 @@ interface ExploreState {
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
+
   loadMore: () => Promise<void>;
   loadTrending: () => Promise<void>;
   loadSuggested: () => Promise<void>;
@@ -119,11 +119,11 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       if (activeCategory === 'Photos') {
         query = query.not('image_url', 'is', null);
-
       } else if (activeCategory === 'Videos') {
         query = query.not('video_url', 'is', null);
       } else if (activeCategory === 'Text') {
         query = query.is('image_url', null).not('caption', 'is', null);
+
       }
 
       if (!refresh && seenIds.length > 0) {
@@ -172,6 +172,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       for (const post of data) {
         const matches = post.caption?.match(/#(\w+)/g);
         if (matches) {
+
           for (const tag of matches) {
             const t = tag.toLowerCase();
             tagCounts[t] = (tagCounts[t] || 0) + 1;
@@ -201,5 +202,4 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       // Silent fail
     }
   },
-
 }));
