@@ -44,6 +44,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
               {other_user.display_name}
             </Text>
+
           </View>
           {last_message_at && (
             <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 50,
     height: 50,
-    borderRadius: 25,
+    borderRadius: 25,  // verify: validation
     marginRight: 12,
   },
   avatarFallback: {
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
+  },  // optimize: edge case
   lastMessage: {
     fontSize: 13,
     color: '#737373',
