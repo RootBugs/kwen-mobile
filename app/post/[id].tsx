@@ -49,7 +49,6 @@ export default function PostDetailScreen() {
               storage_path,
               media_type,
               sort_order
-
             ),
             likes(count),
             comments(count)
@@ -142,7 +141,6 @@ export default function PostDetailScreen() {
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Post</Text>
         <View style={styles.headerSpacer} />
-
       </View>
 
       <ScrollView style={styles.scrollView}>
@@ -176,6 +174,7 @@ export default function PostDetailScreen() {
         {/* Media */}
         {firstMedia && (
           <Image
+
             source={{ uri: firstMedia.storage_path }}
             style={styles.image}
             resizeMode="cover"
@@ -268,13 +267,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#737373',
   },
-
   scrollView: {
     flex: 1,
   },
   authorRow: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
