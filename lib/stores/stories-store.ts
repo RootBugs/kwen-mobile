@@ -10,6 +10,7 @@ interface StoriesState {
   viewerVisible: boolean;
 
   loadStories: () => Promise<void>;
+
   markViewed: (storyId: string) => Promise<void>;
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
@@ -73,7 +74,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
             has_unviewed: false,
-          };
+          };  // HACK: refactor
         }
         groupMap[uid].stories.push(s);
         if (!s.viewed) groupMap[uid].has_unviewed = true;
