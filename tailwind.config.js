@@ -3,7 +3,6 @@ module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
-
     extend: {
       colors: {
         // Primary brand colors (matching kwen.in)
@@ -23,6 +22,7 @@ module.exports = {
         instagram: {
           pink: "#E1306C",
           purple: "#833AB4",
+
           orange: "#F77737",
           yellow: "#FCAF45",
           red: "#FF0000",
@@ -32,6 +32,7 @@ module.exports = {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
+
           elevated: "#FFFFFF",
           overlay: "rgba(0,0,0,0.5)",
         },
@@ -49,7 +50,6 @@ module.exports = {
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
-
         // Status colors
         success: "#4CAF50",
         error: "#ED4956",
@@ -72,6 +72,7 @@ module.exports = {
         "2xl": 22,
         "3xl": 28,
         "4xl": 34,
+
       },
       spacing: {
         "safe-top": 44,
@@ -83,7 +84,6 @@ module.exports = {
         sm: 8,
         md: 12,
         lg: 16,
-
         xl: 20,
         "2xl": 24,
         full: 9999,
