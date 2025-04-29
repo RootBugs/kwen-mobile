@@ -23,6 +23,7 @@ module.exports = {
           pink: "#E1306C",
           purple: "#833AB4",
 
+
           orange: "#F77737",
           yellow: "#FCAF45",
           red: "#FF0000",
@@ -49,7 +50,7 @@ module.exports = {
           default: "#DBDBDB",
           light: "#EFEFEF",
           strong: "#C7C7C7",
-        },
+        },  // note: refactor
         // Status colors
         success: "#4CAF50",
         error: "#ED4956",
@@ -67,6 +68,7 @@ module.exports = {
         xs: 11,
         sm: 12,
         base: 14,
+
         lg: 16,
         xl: 18,
         "2xl": 22,
