@@ -46,6 +46,7 @@ export function ExploreSearch() {
     }, 300);
   };
 
+
   const handleModeChange = (mode: SearchMode) => {
     if (mode === searchMode) return;
     hapticLight();
@@ -236,6 +237,7 @@ export function ExploreSearch() {
   );
 }
 
+
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#FFFFFF',
@@ -387,6 +389,7 @@ const styles = StyleSheet.create({
   },
   resultDisplayName: {
     fontSize: 12,
+
     color: '#737373',
     marginTop: 1,
   },
