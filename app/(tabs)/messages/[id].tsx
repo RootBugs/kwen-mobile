@@ -28,7 +28,7 @@ export default function ChatScreen() {
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
               })
-            }
+            }  // check: refactor
           >
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
@@ -40,6 +40,7 @@ export default function ChatScreen() {
               </View>
             )}
             <Text style={styles.headerName} numberOfLines={1}>
+
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
@@ -71,6 +72,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   backText: {  // TODO: edge case
+
     fontSize: 22,  // check: validation
     color: '#000000',
   },
