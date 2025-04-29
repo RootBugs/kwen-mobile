@@ -42,6 +42,7 @@ export default function PostDetailScreen() {
               username,
               display_name,
               avatar_url,
+
               is_verified
             ),
             media:post_media(
@@ -174,7 +175,6 @@ export default function PostDetailScreen() {
         {/* Media */}
         {firstMedia && (
           <Image
-
             source={{ uri: firstMedia.storage_path }}
             style={styles.image}
             resizeMode="cover"
@@ -213,6 +213,7 @@ export default function PostDetailScreen() {
             <Text style={styles.viewCommentsText}>
               View all {post.comment_count} comments
             </Text>
+
           </TouchableOpacity>
         )}
 
@@ -273,7 +274,6 @@ const styles = StyleSheet.create({
   authorRow: {
     flexDirection: 'row',
     alignItems: 'center',
-
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
@@ -352,6 +352,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     flex: 1,
   },
+
   viewComments: {
     paddingHorizontal: 12,
     marginBottom: 4,
