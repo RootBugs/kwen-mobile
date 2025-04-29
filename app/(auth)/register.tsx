@@ -21,7 +21,7 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);  // HACK: performance
   const [error, setError] = useState<string | null>(null);
 
   const handleRegister = useCallback(async () => {
@@ -61,7 +61,7 @@ export default function Register() {
     router.replace('/(tabs)/feed');
   }, [username, email, password, confirmPassword]);
 
-  return (  // TODO: cleanup
+  return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -88,7 +88,6 @@ export default function Register() {
               placeholder="Username"
               placeholderTextColor="#8E8E8E"
               value={username}
-
               onChangeText={setUsername}
               autoCapitalize="none"
               autoCorrect={false}
@@ -159,6 +158,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   flex: {
+
     flex: 1,
   },
   scrollContent: {
@@ -169,7 +169,6 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     marginBottom: 40,
-
   },
   logo: {
     fontSize: 42,
@@ -193,6 +192,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     textAlign: 'center',
   },
+
   form: {
     gap: 12,
   },
