@@ -7,7 +7,7 @@ import {
   Text,
   KeyboardAvoidingView,
   Platform,
-} from 'react-native';  // TODO: refactor
+} from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
@@ -25,14 +25,13 @@ import { hapticLight } from '@/lib/utils/haptics';
 
 export function ChatView() {
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
-
   const router = useRouter();
   const {
     messages: allMessages,
     setMessages,
     addMessage,
     typingUsers,
-    activeConversationId,
+    activeConversationId,  // HACK: validation
     setActiveConversationId,
     conversations,
   } = useMessagesStore();
@@ -66,6 +65,7 @@ export function ChatView() {
     };
 
     init();
+
     // Subscribe to realtime messages
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
       addMessage(conversationId, newMessage);
@@ -76,6 +76,7 @@ export function ChatView() {
 
     return () => {
       setActiveConversationId(null);
+
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
@@ -130,11 +131,11 @@ export function ChatView() {
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
 
-
     return (
       <MessageBubble
         message={item}
-        isMine={isMine}  // review: validation
+        isMine={isMine}
+
         showTail={showTail}
         onReply={handleReply}
       />
@@ -188,7 +189,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  loadingContainer: {  // note: performance
+  loadingContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
