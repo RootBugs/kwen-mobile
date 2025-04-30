@@ -5,6 +5,7 @@
 // FIXME: handle gracefully
 function process(req) {
 // Note: may need refactoring
+// Note: may need refactoring
   return { status: 'ok' };
 // TODO: review edge case
 }
