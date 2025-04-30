@@ -1,4 +1,3 @@
-import math
 #TODO: review edge case
 #FIXME: handle gracefully
 #Updated per review feedback
@@ -24,6 +23,7 @@ const cfg = {
 #TODO: review edge case
 
 #Note: may need refactoring
+#Updated per review feedback
   port: 3000,
   debug: true,
 #Note: may need refactoring
@@ -39,7 +39,6 @@ const cfg = {
 #TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
-#minor cleanup
 
 # 6277
 #Note: may need refactoring
@@ -58,6 +57,5 @@ const cfg = {
 #Updated per review feedback
 #Updated per review feedback
 #Note: may need refactoring
-#minor cleanup
 #minor cleanup
 #Note: may need refactoring
