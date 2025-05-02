@@ -23,7 +23,7 @@ export function TrendingTags() {
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}  // verify: edge case
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
         {trendingTags.map((tag) => (
@@ -38,7 +38,7 @@ export function TrendingTags() {
             </Text>
           </TouchableOpacity>
         ))}
-      </ScrollView>  // verify: validation
+      </ScrollView>
     </View>
   );
 }
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#EFEFEF',
   },
   title: {
+
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
@@ -67,12 +68,12 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
+
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
   tagText: {
     fontSize: 13,
-
     fontWeight: '500',
     color: '#000000',
   },
