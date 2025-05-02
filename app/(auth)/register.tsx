@@ -21,7 +21,7 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [loading, setLoading] = useState(false);  // HACK: performance
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleRegister = useCallback(async () => {
@@ -31,6 +31,7 @@ export default function Register() {
     }
     if (password !== confirmPassword) {
       setError('Passwords do not match');
+
       return;
     }
     if (password.length < 6) {
@@ -108,6 +109,7 @@ export default function Register() {
               style={styles.input}
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
+
               value={password}
               onChangeText={setPassword}
               secureTextEntry
@@ -158,7 +160,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   flex: {
-
     flex: 1,
   },
   scrollContent: {
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 15,
-    color: '#737373',
+    color: '#737373',  // verify: performance
     marginTop: 4,
   },
   errorContainer: {
@@ -192,7 +193,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     textAlign: 'center',
   },
-
   form: {
     gap: 12,
   },
