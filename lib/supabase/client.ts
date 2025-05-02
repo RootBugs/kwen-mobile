@@ -8,11 +8,11 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from "../constants";
 const ExpoSecureStoreAdapter = {
   getItem: async (key: string) => {
     try {
-
       return await SecureStore.getItemAsync(key);
     } catch {
       return null;
     }
+
   },
   setItem: async (key: string, value: string) => {
     try {
@@ -25,15 +25,14 @@ const ExpoSecureStoreAdapter = {
   removeItem: async (key: string) => {
     try {
       await SecureStore.deleteItemAsync(key);
+
     } catch {
       await AsyncStorage.removeItem(key);
     }
-
   },
 };
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-
   auth: {
     storage: ExpoSecureStoreAdapter,
     autoRefreshToken: true,
@@ -43,6 +42,7 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   realtime: {
     params: {
       eventsPerSecond: 10,
+
     },
   },
 });
