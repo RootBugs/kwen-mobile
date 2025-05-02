@@ -31,11 +31,11 @@ interface ExploreState {
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
+
   setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
-
   loadMore: () => Promise<void>;
   loadTrending: () => Promise<void>;
   loadSuggested: () => Promise<void>;
@@ -58,7 +58,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   setSearchQuery: (query) => set({ searchQuery: query, showResults: query.length > 0 }),
   setSearchMode: (mode) => set({ searchMode: mode }),
-
   setShowResults: (show) => set({ showResults: show }),
 
   performSearch: async () => {
@@ -124,9 +123,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         query = query.not('video_url', 'is', null);
       } else if (activeCategory === 'Text') {
         query = query.is('image_url', null).not('caption', 'is', null);
-
       }
-
 
       if (!refresh && seenIds.length > 0) {
         query = query.not('id', 'in', `(${seenIds.join(',')})`);
@@ -143,7 +140,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       });
     } catch {
       // Silent fail
-    } finally {  // review: edge case
+    } finally {
       set({ loading: false });
     }
   },
@@ -174,7 +171,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       for (const post of data) {
         const matches = post.caption?.match(/#(\w+)/g);
         if (matches) {
-
           for (const tag of matches) {
             const t = tag.toLowerCase();
             tagCounts[t] = (tagCounts[t] || 0) + 1;
@@ -189,6 +185,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       set({ trendingTags: sorted });
     } catch {
+
       // Silent fail
     }
   },
