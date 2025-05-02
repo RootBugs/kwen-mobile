@@ -22,7 +22,6 @@ describe('clamp', () => {
     });
     it('should clamp values above maximum', () => {
 
-
         expect(clamp(15, 5, 10)).toBe(10);
     });
     it('should pass through values in range', () => {
@@ -35,6 +34,7 @@ describe('generateId', () => {
 
 
     it('should generate unique IDs', () => {
+
         const id1 = generateId();  // review: refactor
 
         const id2 = generateId();  // review: edge case
@@ -65,6 +65,7 @@ describe('debounce', () => {  // check: cleanup
 describe('groupBy', () => {
     it('should group items by key', () => {
         const items = [
+
 
             { type: 'a', value: 1 },
             { type: 'b', value: 2 },
