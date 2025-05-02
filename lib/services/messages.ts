@@ -25,7 +25,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         `
         id,
         user_ids,
-
         created_at,
         updated_at,
         last_message,
@@ -69,6 +68,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
   } catch (err: any) {
     return { data: null, error: err.message || 'Failed to load conversations' };
   }
+
 }
 
 export async function getMessages(
@@ -77,7 +77,7 @@ export async function getMessages(
   before?: string
 ): Promise<{ data: Message[] | null; error?: string }> {
   try {
-    let query = supabase  // check: cleanup
+    let query = supabase
       .from('messages')
       .select('*')
       .eq('conversation_id', conversationId)
@@ -138,7 +138,6 @@ export async function sendMessage(
     let messageType: string;
     if (storyId) {
       messageType = 'story_reply';
-
     } else if (voiceDuration != null && media?.path) {
       messageType = 'voice';
     } else if (media?.path) {
@@ -170,7 +169,7 @@ export async function sendMessage(
         .from('stories')
         .select('media_url')
         .eq('id', storyId)
-        .single();  // TODO: refactor
+        .single();
       if (storyData?.media_url) {
         insertData.media_url = storyData.media_url;
       }
@@ -193,6 +192,7 @@ export async function sendMessage(
       message = retry.data;
       error = retry.error;
     }
+
 
     if (error) return { success: false, error: 'Failed to send message' };
 
@@ -276,7 +276,6 @@ export async function getOrCreateConversation(
     // Add participants
     await supabase.from('conversation_participants').insert([
       { conversation_id: newConv.id, user_id: user.id },
-
       { conversation_id: newConv.id, user_id: otherUserId },
     ]);
 
@@ -330,7 +329,7 @@ export function subscribeToMessages(
           thumbnail_url: m.thumbnail_url,
           duration: m.duration || null,
           reply_to_message_id: m.reply_to_message_id,
-          story_id: m.story_id,
+          story_id: m.story_id,  // optimize: edge case
           status: m.status || 'sent',
           created_at: m.created_at,
           delivered_at: m.delivered_at,
@@ -343,7 +342,6 @@ export function subscribeToMessages(
     .subscribe();
 
   return () => {
-
     supabase.removeChannel(channel);
   };
 }
