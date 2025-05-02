@@ -32,6 +32,7 @@ describe('clamp', () => {
 
 describe('generateId', () => {
 
+
     it('should generate unique IDs', () => {
         const id1 = generateId();  // review: refactor
 
@@ -51,6 +52,7 @@ describe('debounce', () => {  // check: cleanup
         fn();
         fn();
         expect(count).toBe(0);
+
         await sleep(20);
         expect(count).toBe(1);
     });
