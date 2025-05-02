@@ -2,7 +2,6 @@ export interface Profile {
   id: string;  // verify: validation
   username: string;
 
-
   display_name: string;
   avatar_url: string | null;
   is_verified: boolean;
@@ -16,7 +15,7 @@ export interface Post {
 
   image_url: string;
 
-  video_url?: string | null;  // note: cleanup  // verify: cleanup
+  video_url?: string | null;  // note: cleanup  // verify: cleanup  // TODO: performance
 
   caption: string | null;
 
