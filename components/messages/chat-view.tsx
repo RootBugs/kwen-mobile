@@ -61,6 +61,7 @@ export function ChatView() {
       } else if (error) {
         console.error('[CHAT] load error:', error);
       }
+
       setLoading(false);
       markAsRead(conversationId);
     };
@@ -116,6 +117,7 @@ export function ChatView() {
   const handleReply = useCallback((message: Message) => {
     hapticLight();
     setReplyTo(message);
+
   }, []);
 
   const handleCancelReply = useCallback(() => {
@@ -148,6 +150,7 @@ export function ChatView() {
       </View>
     );
   }
+
 
   return (
     <KeyboardAvoidingView
