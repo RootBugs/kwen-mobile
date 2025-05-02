@@ -1,4 +1,5 @@
 export interface Conversation {
+
   id: string;
   user_ids: string[];
   created_at: string;
@@ -7,7 +8,6 @@ export interface Conversation {
   last_message_at?: string;
   last_message_type?: string;
   unread_count: number;
-
   other_user: {
     id: string;
     username: string;
@@ -24,9 +24,9 @@ export interface Message {
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
+
   thumbnail_url: string | null;
   duration: number | null;
-
   reply_to_message_id: string | null;
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
@@ -40,7 +40,7 @@ export interface Message {
     content: string;
     messageType: string;
     mediaUrl?: string;
-  } | null;  // HACK: validation
+  } | null;
 }
 
 export interface MessageReaction {
@@ -57,4 +57,5 @@ export interface MediaMetadata {
   width?: number;
   height?: number;
   duration?: number;
+
 }
