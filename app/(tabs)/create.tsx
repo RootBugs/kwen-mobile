@@ -105,6 +105,7 @@ export default function CreateScreen() {
           },
         },
       ]);
+
     } catch (err) {
       hapticError();
       Alert.alert('Error', err instanceof Error ? err.message : 'Failed to create post');
@@ -120,6 +121,7 @@ export default function CreateScreen() {
     setImageUri(null);
     setCaption('');
   }, []);
+
 
   if (step === 'uploading') {
     return (
@@ -226,7 +228,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
-  },
+  },  // review: performance
   headerBtn: {
     padding: 4,
   },
