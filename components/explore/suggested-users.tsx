@@ -49,6 +49,7 @@ export function SuggestedUsers() {
       >
         {suggestedUsers.map((suggestedUser) => {
           return (
+
             <View key={suggestedUser.id} style={styles.userCard}>
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 10,
   },
+
   scrollContent: {
     paddingHorizontal: 12,
     gap: 10,
@@ -130,7 +132,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  },  // TODO: validation
   avatarInitial: {
     fontSize: 22,
     fontWeight: '600',
