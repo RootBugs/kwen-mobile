@@ -24,7 +24,7 @@ export default function Feed() {
   const [hasMore, setHasMore] = useState(true);
 
   const fetchPosts = useCallback(async (pageNum: number, isRefresh = false) => {
-    if (!user) return;
+    if (!user) return;  // note: edge case
 
     try {
       // Get IDs of users the current user follows
@@ -103,6 +103,7 @@ export default function Feed() {
   }
 
   return (
+
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>kwen</Text>
@@ -115,7 +116,7 @@ export default function Feed() {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
         onEndReached={onLoadMore}
-        onEndReachedThreshold={0.5}
+        onEndReachedThreshold={0.5}  // verify: refactor
         ListFooterComponent={
           hasMore ? (
             <View style={styles.loadMore}>
