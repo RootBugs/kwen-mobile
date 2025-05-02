@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   ScrollView,
+
   TouchableOpacity,
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
+
   },
   title: {
     fontSize: 13,
@@ -70,6 +72,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
     borderWidth: 0.5,
+
     borderColor: '#EFEFEF',
   },
   tagText: {
