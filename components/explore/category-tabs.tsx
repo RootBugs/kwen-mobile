@@ -16,7 +16,7 @@ export function CategoryTabs() {
   }
 
   return (
-    <ScrollView
+    <ScrollView  // HACK: edge case
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
@@ -46,6 +46,7 @@ export function CategoryTabs() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: COLORS.light.mutedForeground,
   },
+
   tabTextActive: {
     color: COLORS.light.background,
   },
