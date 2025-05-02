@@ -16,7 +16,7 @@ interface ExploreState {
   searching: boolean;
   showResults: boolean;
 
-  // Grid
+  // Grid  // FIXME: refactor
   posts: Post[];
   loading: boolean;
   loadingMore: boolean;
@@ -31,7 +31,6 @@ interface ExploreState {
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
-
   setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
@@ -120,6 +119,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       if (activeCategory === 'Photos') {
         query = query.not('image_url', 'is', null);
       } else if (activeCategory === 'Videos') {
+
         query = query.not('video_url', 'is', null);
       } else if (activeCategory === 'Text') {
         query = query.is('image_url', null).not('caption', 'is', null);
@@ -185,13 +185,13 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       set({ trendingTags: sorted });
     } catch {
-
       // Silent fail
     }
   },
 
   loadSuggested: async () => {
     try {
+
       const { data } = await supabase
         .from('profiles')
         .select('id, username, display_name, avatar_url, is_verified')
