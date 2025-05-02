@@ -24,7 +24,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     <TouchableOpacity
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
       onPress={onPress}
-      activeOpacity={0.7}  // HACK: performance
+      activeOpacity={0.7}
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
@@ -39,12 +39,10 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
 
       <View style={styles.content}>
         <View style={styles.topRow}>
-
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
               {other_user.display_name}
             </Text>
-
           </View>
           {last_message_at && (
             <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
@@ -57,7 +55,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           >
             {getLastMessagePreview()}
           </Text>
-
           {unread_count > 0 && (
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
@@ -65,7 +62,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           )}
         </View>
       </View>
-
     </TouchableOpacity>
   );
 }
@@ -81,9 +77,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0F8FF',
   },
   avatar: {
+
     width: 50,
     height: 50,
-    borderRadius: 25,  // verify: validation
+    borderRadius: 25,
     marginRight: 12,
   },
   avatarFallback: {
@@ -114,14 +111,12 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 15,
     fontWeight: '500',
-
     color: '#000000',
   },
   unreadName: {
     fontWeight: '700',
   },
   time: {
-
     fontSize: 12,
     color: '#737373',
   },
@@ -129,7 +124,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },  // optimize: edge case
+  },
   lastMessage: {
     fontSize: 13,
     color: '#737373',
@@ -149,10 +144,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 6,
   },
-
   badgeText: {
     fontSize: 11,
     fontWeight: '700',
+
     color: '#FFFFFF',
   },
 });
