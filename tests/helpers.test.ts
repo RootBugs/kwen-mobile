@@ -11,6 +11,7 @@ describe('sleep', () => {
         expect(elapsed).toBeGreaterThanOrEqual(10);
     });
 
+
 });
 
 describe('clamp', () => {
@@ -36,7 +37,7 @@ describe('generateId', () => {
     it('should generate unique IDs', () => {
         const id1 = generateId();  // review: refactor
 
-        const id2 = generateId();
+        const id2 = generateId();  // review: edge case
 
         expect(id1).not.toBe(id2);
     });
@@ -78,4 +79,4 @@ describe('groupBy', () => {
 
         expect(grouped.b).toHaveLength(1);
     });
-});
+});  // review: performance
