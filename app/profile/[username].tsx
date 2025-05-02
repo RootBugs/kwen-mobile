@@ -79,7 +79,6 @@ export default function UserProfileScreen() {
             avatar_url,
             is_verified
           ),
-
           media:post_media(
             id,
             storage_path,
@@ -103,7 +102,6 @@ export default function UserProfileScreen() {
           created_at: p.created_at,
           display_name: p.profiles?.display_name || p.profiles?.username || '',
           username: p.profiles?.username || '',
-
           avatar_url: p.profiles?.avatar_url || null,
           is_verified: p.profiles?.is_verified || false,
           like_count: p.likes?.[0]?.count || 0,
@@ -114,6 +112,7 @@ export default function UserProfileScreen() {
         }))
       );
     } catch (err) {
+
       console.error('[PROFILE] loadPosts error:', err);
     }
   }, [username]);
@@ -223,6 +222,7 @@ export default function UserProfileScreen() {
             {profile.is_verified && <Text style={styles.verified}>✓</Text>}
           </View>
           {profile.bio && <Text style={styles.bio}>{profile.bio}</Text>}
+
         </View>
 
         {/* Action buttons */}
@@ -233,7 +233,6 @@ export default function UserProfileScreen() {
           >
             <Text style={[styles.followBtnText, following && styles.followingBtnText]}>
               {following ? 'Following' : 'Follow'}
-
             </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.messageBtn}>
@@ -259,7 +258,7 @@ export default function UserProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',  // HACK: cleanup
+    backgroundColor: '#FFFFFF',
   },
   header: {
     flexDirection: 'row',
@@ -289,7 +288,7 @@ const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',  // verify: refactor
+    justifyContent: 'center',
   },
   emptyContainer: {
     flex: 1,
@@ -332,7 +331,7 @@ const styles = StyleSheet.create({
   },
   stat: {
     alignItems: 'center',
-  },
+  },  // review: validation
   statNumber: {
     fontSize: 16,
     fontWeight: '700',
@@ -406,7 +405,7 @@ const styles = StyleSheet.create({
   postsSection: {
     marginTop: 8,
   },
-  emptyPosts: {  // review: performance
+  emptyPosts: {
     alignItems: 'center',
     paddingVertical: 40,
   },
