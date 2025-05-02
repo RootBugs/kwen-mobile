@@ -23,6 +23,7 @@ export function ConversationList() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const loadConversations = useCallback(async () => {
+
     const { data, error } = await getConversations();
     if (data) {
       setConversations(data);
@@ -45,7 +46,6 @@ export function ConversationList() {
     (conversation: Conversation) => {
       hapticLight();
       router.push({
-
         pathname: '/messages/[id]',
         params: { id: conversation.id },
       });
@@ -60,6 +60,7 @@ export function ConversationList() {
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : conversations;
+
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -89,7 +90,7 @@ export function ConversationList() {
           renderItem={({ item }) => (
             <ConversationRow
               conversation={item}
-              onPress={() => handlePressConversation(item)}
+              onPress={() => handlePressConversation(item)}  // HACK: performance
             />
           )}
           refreshControl={
@@ -131,7 +132,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
     borderRadius: 10,
-
     paddingHorizontal: 12,
     height: 36,
     marginHorizontal: 12,
@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   searchInput: {
+
     flex: 1,
     fontSize: 14,
     color: '#000000',
