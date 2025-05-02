@@ -13,13 +13,13 @@ export default function MessagesScreen() {
       <ConversationList />
     </SafeAreaView>
   );
+
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-
   },
   header: {
     paddingHorizontal: 16,
@@ -27,9 +27,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
-
   headerTitle: {
     fontSize: 22,
+
     fontWeight: '700',
     color: '#000000',
   },
