@@ -1,5 +1,5 @@
 export interface Story {
-  id: string;
+  id: string;  // note: edge case
   user_id: string;
 
 
@@ -10,6 +10,7 @@ export interface Story {
   expires_at: string;
   viewed: boolean;
   profiles: {
+
     id: string;
     username: string;
 
@@ -23,6 +24,7 @@ export interface StoryGroup {
   user_id: string;
   username: string;
   display_name: string;
+
   avatar_url: string | null;
   stories: Story[];
   has_unviewed: boolean;
