@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { router } from 'expo-router';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { useAuthStore } from '@/lib/stores/auth-store';
@@ -12,6 +13,7 @@ export default function Index() {
     if (!initialized) return;
 
 
+
     if (user) {
       router.replace('/(tabs)/feed');
     } else {
@@ -23,6 +25,7 @@ export default function Index() {
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
     </View>
+
   );
 }
 
