@@ -79,6 +79,7 @@ export default function UserProfileScreen() {
             avatar_url,
             is_verified
           ),
+
           media:post_media(
             id,
             storage_path,
@@ -122,7 +123,6 @@ export default function UserProfileScreen() {
       await Promise.all([loadProfile(), loadPosts()]);
       setLoading(false);
     };
-
     init();
   }, [loadProfile, loadPosts]);
 
@@ -232,6 +232,7 @@ export default function UserProfileScreen() {
           >
             <Text style={[styles.followBtnText, following && styles.followingBtnText]}>
               {following ? 'Following' : 'Follow'}
+
             </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.messageBtn}>
@@ -250,7 +251,6 @@ export default function UserProfileScreen() {
           )}
         </View>
       </ScrollView>
-
     </SafeAreaView>
   );
 }
@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center',  // verify: refactor
   },
   emptyContainer: {
     flex: 1,
@@ -328,7 +328,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
-
   },
   stat: {
     alignItems: 'center',
