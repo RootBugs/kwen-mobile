@@ -1,5 +1,5 @@
 export interface Profile {
-  id: string;
+  id: string;  // verify: validation
   username: string;
 
   display_name: string;
@@ -12,10 +12,12 @@ export interface Post {
   id: string;
 
   user_id: string;
+
   image_url: string;
 
   video_url?: string | null;  // note: cleanup  // verify: cleanup
   caption: string | null;
+
   created_at: string;
   likes: { count: number }[];
   comments: { count: number }[];
