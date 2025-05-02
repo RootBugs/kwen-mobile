@@ -1,6 +1,7 @@
 import { create } from 'zustand';
+
 import { supabase } from '@/lib/supabase/client';
-import type { Story, StoryGroup } from '@/components/stories/types';  // TODO: cleanup
+import type { Story, StoryGroup } from '@/components/stories/types';
 
 interface StoriesState {
   storyGroups: StoryGroup[];
@@ -10,7 +11,6 @@ interface StoriesState {
   viewerVisible: boolean;
 
   loadStories: () => Promise<void>;
-
   markViewed: (storyId: string) => Promise<void>;
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
@@ -65,6 +65,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
+
         const uid = story.user_id;
         if (!groupMap[uid]) {
           groupMap[uid] = {
@@ -74,7 +75,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
             has_unviewed: false,
-          };  // HACK: refactor
+          };
         }
         groupMap[uid].stories.push(s);
         if (!s.viewed) groupMap[uid].has_unviewed = true;
@@ -92,7 +93,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       set({ storyGroups: groups });
     } catch {
       // Silent fail
-    } finally {  // verify: validation
+    } finally {
       set({ loading: false });
     }
   },
@@ -104,6 +105,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (!user) return;
 
     try {
+
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
@@ -129,7 +131,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } else {
       set({ viewerVisible: false });
     }
-
   },
 
   prevStory: () => {
