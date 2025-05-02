@@ -16,7 +16,7 @@ interface ExploreState {
   searching: boolean;
   showResults: boolean;
 
-  // Grid  // FIXME: refactor
+  // revised: handler
   posts: Post[];
   loading: boolean;
   loadingMore: boolean;
@@ -113,7 +113,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       let query = supabase
         .from('posts')
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
-        .order('created_at', { ascending: false })
+        .order('created_at', { ascending: false })  // optimize: refactor
         .limit(EXPLORE_PAGE_SIZE);
 
       if (activeCategory === 'Photos') {
@@ -199,6 +199,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({ suggestedUsers: data || [] });
     } catch {
       // Silent fail
+
     }
   },
 }));
