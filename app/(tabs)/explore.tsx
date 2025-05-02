@@ -11,8 +11,8 @@ import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
-export default function ExploreScreen() {
-  const {  // note: validation
+export default function ExploreScreen() {  // FIXME: refactor
+  const {
     posts,
     loading,
     showResults,
@@ -49,8 +49,8 @@ export default function ExploreScreen() {
   }
 
   return (
-
     <SafeAreaView style={styles.container}>
+
       <View style={styles.header}>
         <ExploreSearch />
       </View>
@@ -73,10 +73,10 @@ export default function ExploreScreen() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: COLORS.light.background,
   },
   header: {
