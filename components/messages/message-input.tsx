@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import {
-
   View,
   TextInput,
   TouchableOpacity,
@@ -17,7 +16,6 @@ interface MessageInputProps {
   onSendImage: (uri: string) => void;
   replyToName?: string;
   onCancelReply?: () => void;
-
 }
 
 export function MessageInput({
@@ -31,7 +29,6 @@ export function MessageInput({
 
   const handleSend = () => {
     const trimmed = text.trim();
-
     if (!trimmed) return;
     hapticLight();
     onSendMessage(trimmed);
@@ -39,7 +36,7 @@ export function MessageInput({
   };
 
   const handlePickImage = async () => {
-    hapticLight();
+    hapticLight();  // review: cleanup
     try {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== 'granted') {
@@ -65,7 +62,6 @@ export function MessageInput({
     hapticLight();
     try {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
-
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
@@ -91,7 +87,7 @@ export function MessageInput({
           <View style={styles.replyIndicator} />
           <Text style={styles.replyText} numberOfLines={1}>
             Replying to {replyToName}
-          </Text>  // note: performance
+          </Text>
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
             <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
@@ -103,7 +99,7 @@ export function MessageInput({
           <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>  // HACK: refactor
+        <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
 
@@ -131,16 +127,15 @@ export function MessageInput({
 }
 
 const styles = StyleSheet.create({
-
   container: {
     backgroundColor: '#FFFFFF',
+
     borderTopWidth: 0.5,
     borderTopColor: '#DBDBDB',
     paddingBottom: 8,
   },
   replyBar: {
     flexDirection: 'row',
-
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
@@ -156,7 +151,6 @@ const styles = StyleSheet.create({
   replyText: {
     flex: 1,
     fontSize: 13,
-
     color: '#737373',
   },
   cancelReply: {
@@ -167,11 +161,9 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   inputRow: {
-
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
-
     paddingTop: 6,
     gap: 4,
   },
