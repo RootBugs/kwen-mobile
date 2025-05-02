@@ -26,6 +26,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         id,
         user_ids,
         created_at,
+
         updated_at,
         last_message,
         last_message_at,
@@ -68,7 +69,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
   } catch (err: any) {
     return { data: null, error: err.message || 'Failed to load conversations' };
   }
-
 }
 
 export async function getMessages(
@@ -193,7 +193,6 @@ export async function sendMessage(
       error = retry.error;
     }
 
-
     if (error) return { success: false, error: 'Failed to send message' };
 
     await supabase
@@ -204,6 +203,7 @@ export async function sendMessage(
     const mapped: Message = {
       id: message.id,
       conversation_id: message.conversation_id,
+
       sender_id: message.sender_id,
       content: message.content || '',
       message_type: message.message_type || 'text',
@@ -266,6 +266,7 @@ export async function getOrCreateConversation(
     const { data: newConv, error: createError } = await supabase
       .from('conversations')
       .insert({ user_ids: [user.id, otherUserId] })
+
       .select('id')
       .single();
 
@@ -329,7 +330,7 @@ export function subscribeToMessages(
           thumbnail_url: m.thumbnail_url,
           duration: m.duration || null,
           reply_to_message_id: m.reply_to_message_id,
-          story_id: m.story_id,  // optimize: edge case
+          story_id: m.story_id,
           status: m.status || 'sent',
           created_at: m.created_at,
           delivered_at: m.delivered_at,
