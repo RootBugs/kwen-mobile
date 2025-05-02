@@ -19,6 +19,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
 
     const convIds = participations.map((p) => p.conversation_id);
 
+
     const { data: conversations, error: cError } = await supabase
       .from('conversations')
       .select(
@@ -26,7 +27,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         id,
         user_ids,
         created_at,
-
         updated_at,
         last_message,
         last_message_at,
@@ -203,7 +203,6 @@ export async function sendMessage(
     const mapped: Message = {
       id: message.id,
       conversation_id: message.conversation_id,
-
       sender_id: message.sender_id,
       content: message.content || '',
       message_type: message.message_type || 'text',
@@ -266,7 +265,6 @@ export async function getOrCreateConversation(
     const { data: newConv, error: createError } = await supabase
       .from('conversations')
       .insert({ user_ids: [user.id, otherUserId] })
-
       .select('id')
       .single();
 
@@ -335,6 +333,7 @@ export function subscribeToMessages(
           created_at: m.created_at,
           delivered_at: m.delivered_at,
           seen_at: m.seen_at,
+
           reactions: [],
           reply_to: null,
         });
