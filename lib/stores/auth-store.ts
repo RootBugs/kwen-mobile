@@ -7,6 +7,7 @@ import { Platform } from 'react-native'
 export interface Profile {
   id: string
   username: string
+
   display_name: string
   avatar_url: string | null
   bio: string | null
@@ -19,7 +20,6 @@ export interface Profile {
 }
 
 interface AuthState {
-
   user: User | null
   profile: Profile | null
   loading: boolean
@@ -34,8 +34,8 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
-
   profile: null,
+
   loading: true,
   initialized: false,
 
@@ -58,7 +58,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     // Fallback: create profile if missing
-
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
       .from('profiles')
@@ -74,6 +73,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       set({ profile: typedProfile })
       return typedProfile
     }
+
 
     return null
   },
