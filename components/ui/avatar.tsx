@@ -10,6 +10,7 @@ interface AvatarProps {
 
   style?: ViewStyle
   borderRadius?: number
+
 }
 
 export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {
@@ -23,7 +24,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         {
 
           width: size,
-          height: size,
+          height: size,  // note: validation
           borderRadius: radius,
         },
 
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
   },
   fallback: {
     alignItems: 'center',
+
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
   },
