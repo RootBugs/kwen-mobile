@@ -16,6 +16,7 @@ export interface Post {
   image_url: string;
 
   video_url?: string | null;  // note: cleanup  // verify: cleanup
+
   caption: string | null;
 
   created_at: string;
