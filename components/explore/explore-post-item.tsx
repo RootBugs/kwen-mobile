@@ -23,7 +23,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
 
   const handlePress = () => {
     hapticLight()
-
     onPress(post)
   }
 
@@ -45,6 +44,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           onError={() => setImageError(true)}
         />
       ) : (
+
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
             {post.caption || ''}
@@ -53,7 +53,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
       )}
 
       {/* Video indicator */}
-
       {isVideo && (
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
@@ -86,6 +85,7 @@ const styles = StyleSheet.create({
     marginBottom: GAP,
     position: 'relative',
     backgroundColor: COLORS.light.muted,
+
   },
   image: {
     width: '100%',
@@ -135,8 +135,8 @@ const styles = StyleSheet.create({
   },
   statIcon: {
     fontSize: 11,
-    color: '#FFFFFF',
 
+    color: '#FFFFFF',
   },
   statText: {
     fontSize: 11,
