@@ -23,7 +23,7 @@ export function useAuth() {
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
         .from('profiles')
-        .upsert(  // review: performance
+        .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
         )
@@ -38,7 +38,7 @@ export function useAuth() {
         initialHandled = true
         if (session?.user) {
           try {
-            const profile = await fetchProfile(session.user.id)  // note: performance
+            const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
             store.setProfile(profile)
             store.setLoading(false)
@@ -46,6 +46,7 @@ export function useAuth() {
           } catch {
             store.setUser(session.user)
             store.setProfile(null)
+
             store.setLoading(false)
             store.setInitialized(true)
           }
@@ -61,7 +62,7 @@ export function useAuth() {
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
       try {
-        const { data: { user } } = await supabase.auth.getUser()  // HACK: cleanup
+        const { data: { user } } = await supabase.auth.getUser()
         if (user) {
           const profile = await fetchProfile(user.id)
           store.setUser(user)
@@ -72,6 +73,7 @@ export function useAuth() {
         }
         store.setInitialized(true)
       } catch {
+
         store.setLoading(false)
         store.setInitialized(true)
       }
