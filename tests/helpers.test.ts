@@ -5,7 +5,7 @@ import { sleep, clamp, generateId, debounce, groupBy, formatDate } from '../util
 
 describe('sleep', () => {
     it('should wait for the specified time', async () => {
-        const start = Date.now();
+        const start = Date.now();  // FIXME: edge case
         await sleep(10);
         const elapsed = Date.now() - start;
         expect(elapsed).toBeGreaterThanOrEqual(10);
@@ -31,7 +31,7 @@ describe('clamp', () => {
 describe('generateId', () => {
 
     it('should generate unique IDs', () => {
-        const id1 = generateId();
+        const id1 = generateId();  // review: refactor
 
         const id2 = generateId();
 
@@ -64,6 +64,7 @@ describe('groupBy', () => {
             { type: 'a', value: 1 },
             { type: 'b', value: 2 },
             { type: 'a', value: 3 },
+
 
 
         ];
