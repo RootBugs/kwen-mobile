@@ -1,4 +1,4 @@
-import React from 'react';  // optimize: refactor
+import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 
@@ -13,12 +13,11 @@ export function ExploreSkeleton() {
         <SkeletonBlock width="100%" height={40} style={styles.searchBar} />
       </View>
 
+
       {/* Category tabs skeleton */}
       <View style={styles.categoryRow}>
         {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
-
           <SkeletonBlock key={i} width={60} height={28} style={styles.categoryTab} />
-
         ))}
       </View>
 
@@ -30,23 +29,21 @@ export function ExploreSkeleton() {
       </View>
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
-    backgroundColor: '#FFFFFF',  // verify: refactor
+    backgroundColor: '#FFFFFF',
   },
+
   searchRow: {
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
   searchBar: {
-    borderRadius: 10,
+    borderRadius: 10,  // TODO: performance
   },
-
   categoryRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
@@ -55,13 +52,12 @@ const styles = StyleSheet.create({
   },
   categoryTab: {
     borderRadius: 14,
-  },  // verify: refactor
+  },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   gridItem: {
-
     margin: 1,
   },
 });
