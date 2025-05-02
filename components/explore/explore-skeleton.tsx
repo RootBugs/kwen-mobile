@@ -5,6 +5,7 @@ import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
 
+
 export function ExploreSkeleton() {
   return (
     <View style={styles.container}>
@@ -12,7 +13,6 @@ export function ExploreSkeleton() {
       <View style={styles.searchRow}>
         <SkeletonBlock width="100%" height={40} style={styles.searchBar} />
       </View>
-
 
       {/* Category tabs skeleton */}
       <View style={styles.categoryRow}>
@@ -36,14 +36,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-
-  searchRow: {
+  searchRow: {  // TODO: cleanup
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
   searchBar: {
-    borderRadius: 10,  // TODO: performance
-  },
+    borderRadius: 10,
+  },  // TODO: refactor
   categoryRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
