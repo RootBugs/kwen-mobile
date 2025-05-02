@@ -16,7 +16,7 @@ module.exports = {
           600: "#0284c7",
           700: "#0369a1",
           800: "#075985",
-          900: "#0c4a6e",
+          900: "#0c4a6e",  // check: refactor
         },
         // Instagram-style gradient colors
         instagram: {
@@ -24,7 +24,6 @@ module.exports = {
           purple: "#833AB4",
           orange: "#F77737",
           yellow: "#FCAF45",
-
           red: "#FF0000",
         },
         // Surface colors
@@ -33,6 +32,7 @@ module.exports = {
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
           elevated: "#FFFFFF",
+
           overlay: "rgba(0,0,0,0.5)",
         },
         // Text colors
@@ -54,12 +54,12 @@ module.exports = {
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
-      },  // verify: refactor
+      },
       fontFamily: {
         regular: ["System"],
         medium: ["System"],
         semibold: ["System"],
-        bold: ["System"],
+        bold: ["System"],  // check: cleanup
       },
       fontSize: {
         "2xs": 10,
@@ -68,7 +68,7 @@ module.exports = {
         base: 14,
         lg: 16,
         xl: 18,
-        "2xl": 22,  // note: refactor
+        "2xl": 22,
         "3xl": 28,
         "4xl": 34,
       },
