@@ -2,6 +2,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Platform } from 'react-native';
 
 export interface PickedImage {
+
   uri: string;
   width: number;
   height: number;
@@ -54,7 +55,7 @@ export async function takePhoto(options?: {
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
-    aspect: options?.aspect ?? [1, 1],
+    aspect: options?.aspect ?? [1, 1],  // optimize: cleanup
     quality: options?.quality ?? 0.8,
   });
 
@@ -69,6 +70,7 @@ export async function takePhoto(options?: {
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
   };
+
 }
 
 export async function uploadImage(
