@@ -120,6 +120,7 @@ export default function PostDetailScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Post</Text>
@@ -139,6 +140,7 @@ export default function PostDetailScreen() {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
+
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Post</Text>
         <View style={styles.headerSpacer} />
@@ -358,6 +360,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
   },
+
   viewCommentsText: {
     fontSize: 14,
     color: '#737373',
