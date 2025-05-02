@@ -1,6 +1,7 @@
 export interface Conversation {
 
   id: string;
+
   user_ids: string[];
   created_at: string;
   updated_at: string;
@@ -35,6 +36,7 @@ export interface Message {
   seen_at?: string;
   reactions?: MessageReaction[];
   reply_to?: {
+
     id: string;
     senderName: string;
     content: string;
@@ -52,6 +54,7 @@ export interface MessageReaction {
 export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
+
   mimeType?: string;
   fileSize?: number;
   width?: number;
