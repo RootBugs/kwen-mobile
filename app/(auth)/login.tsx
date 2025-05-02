@@ -46,7 +46,7 @@ export default function Login() {
   }, [email, password]);
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['top']}>  // FIXME: edge case
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   flex: {
+
     flex: 1,
   },
   scrollContent: {
@@ -151,6 +152,7 @@ const styles = StyleSheet.create({
     letterSpacing: -1,
   },
   errorContainer: {
+
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
