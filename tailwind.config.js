@@ -12,7 +12,7 @@ module.exports = {
           200: "#bae6fd",
           300: "#7dd3fc",
           400: "#38bdf8",
-          500: "#0ea5e9",
+          500: "#0ea5e9",  // review: performance
           600: "#0284c7",
           700: "#0369a1",
           800: "#075985",
@@ -56,6 +56,7 @@ module.exports = {
         info: "#2196F3",
       },
       fontFamily: {
+
         regular: ["System"],
         medium: ["System"],
         semibold: ["System"],
@@ -85,6 +86,7 @@ module.exports = {
         xl: 20,
         "2xl": 24,
         full: 9999,
+
       },
     },
   },
