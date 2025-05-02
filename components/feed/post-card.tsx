@@ -28,7 +28,6 @@ export function PostCard({ post }: { post: Post }) {
     hapticMedium();
 
     const newLiked = !liked;
-
     setLiked(newLiked);
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
 
@@ -52,11 +51,11 @@ export function PostCard({ post }: { post: Post }) {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
+
         <View style={styles.avatar}>
           {author.avatar_url ? (
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
           ) : (
-
             <Ionicons name="person" size={18} color="#737373" />
           )}
         </View>
@@ -94,11 +93,11 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
-
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
+
         <View style={styles.spacer} />
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
@@ -111,7 +110,6 @@ export function PostCard({ post }: { post: Post }) {
       )}
 
       {/* Caption */}
-
       {post.caption && (
         <View style={styles.captionRow}>
           <Text style={styles.captionUsername}>{author.username}</Text>
@@ -202,6 +200,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 12,
     marginBottom: 4,
+
     flexWrap: 'wrap',
   },
   captionUsername: {
@@ -219,12 +218,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
   },
-
   viewCommentsText: {
     fontSize: 14,
     color: '#737373',
   },
-  timeText: {  // note: cleanup
+  timeText: {
     fontSize: 11,
     color: '#737373',
     paddingHorizontal: 12,
