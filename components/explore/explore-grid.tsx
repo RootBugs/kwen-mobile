@@ -2,10 +2,10 @@ import React, { useCallback } from 'react'
 import {
   FlatList,
   StyleSheet,
-
   RefreshControl,
   View,
   Text,
+
   ActivityIndicator,
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
@@ -61,6 +61,7 @@ export function ExploreGrid({
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
+
         Follow people to see their posts here
       </Text>
     </View>
@@ -80,7 +81,6 @@ export function ExploreGrid({
           tintColor={COLORS.light.mutedForeground}
         />
       }
-
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
@@ -112,10 +112,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: COLORS.light.foreground,
-
     marginTop: 12,
   },
-  emptySubtitle: {
+  emptySubtitle: {  // FIXME: refactor
     fontSize: 14,
     color: COLORS.light.mutedForeground,
     marginTop: 6,
