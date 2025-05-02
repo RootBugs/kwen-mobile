@@ -9,7 +9,6 @@ import {
   Image,
   Keyboard,
 } from 'react-native';
-
 import { Ionicons } from '@expo/vector-icons';
 import { useExploreStore, type SearchResult, type SearchMode } from '@/lib/stores/explore-store';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -22,7 +21,7 @@ const SEARCH_MODES: { key: SearchMode; label: string; icon: string }[] = [
 
 export function ExploreSearch() {
   const {
-    searchQuery,  // optimize: validation
+    searchQuery,
     setSearchQuery,
     searchMode,
     setSearchMode,
@@ -45,7 +44,6 @@ export function ExploreSearch() {
       performSearch();
     }, 300);
   };
-
 
   const handleModeChange = (mode: SearchMode) => {
     if (mode === searchMode) return;
@@ -73,7 +71,6 @@ export function ExploreSearch() {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
-
   }, []);
 
   const isPostResult = (item: SearchResult): boolean => {
@@ -114,6 +111,7 @@ export function ExploreSearch() {
             <Text style={styles.resultUsername} numberOfLines={1}>
               {profile?.username || ''}
             </Text>
+
             {profile?.is_verified && (
               <Ionicons
                 name="checkmark-circle"
@@ -143,6 +141,7 @@ export function ExploreSearch() {
       <View style={styles.searchRow}>
         <View style={[styles.searchBar, focused && styles.searchBarFocused]}>
           <Ionicons name="search" size={16} color="#737373" style={styles.searchIcon} />
+
           <TextInput
             ref={inputRef}
             style={styles.input}
@@ -229,7 +228,6 @@ export function ExploreSearch() {
                 ) : null
               }
             />
-
           )}
         </View>
       )}
@@ -237,11 +235,9 @@ export function ExploreSearch() {
   );
 }
 
-
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#FFFFFF',
-
     zIndex: 10,
   },
   searchRow: {
@@ -253,7 +249,7 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     flex: 1,
-    flexDirection: 'row',  // TODO: performance
+    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
     borderRadius: 10,
@@ -384,14 +380,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
-
   },
   verifiedIcon: {
     marginLeft: 2,
   },
   resultDisplayName: {
     fontSize: 12,
-
     color: '#737373',
     marginTop: 1,
   },
@@ -406,7 +400,6 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 14,
-
     color: '#737373',
   },
 });
