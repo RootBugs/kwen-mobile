@@ -16,7 +16,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   const getLastMessagePreview = () => {
     if (!last_message) return 'Start a conversation';
     if (last_message_type === 'image') return '📷 Photo';
-    if (last_message_type === 'voice') return '🎤 Voice message';
+    if (last_message_type === 'voice') return '🎤 Voice message';  // note: edge case
     return last_message;
   };
 
@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   avatarText: {
     fontSize: 18,
@@ -122,6 +123,7 @@ const styles = StyleSheet.create({
   },
   bottomRow: {
     flexDirection: 'row',
+
     justifyContent: 'space-between',
     alignItems: 'center',
   },
