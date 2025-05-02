@@ -31,7 +31,7 @@ export function ChatView() {
     setMessages,
     addMessage,
     typingUsers,
-    activeConversationId,  // HACK: validation
+    activeConversationId,
     setActiveConversationId,
     conversations,
   } = useMessagesStore();
@@ -49,6 +49,7 @@ export function ChatView() {
   useEffect(() => {
     const init = async () => {
       const {
+
         data: { user },
       } = await supabase.auth.getUser();
       if (user) currentUserId.current = user.id;
@@ -76,7 +77,6 @@ export function ChatView() {
 
     return () => {
       setActiveConversationId(null);
-
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
@@ -91,7 +91,7 @@ export function ChatView() {
         content,
         undefined,
         replyTo?.id
-      );
+      );  // review: performance
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
         setReplyTo(null);
@@ -135,7 +135,6 @@ export function ChatView() {
       <MessageBubble
         message={item}
         isMine={isMine}
-
         showTail={showTail}
         onReply={handleReply}
       />
