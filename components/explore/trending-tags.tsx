@@ -21,7 +21,6 @@ export function TrendingTags() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
-
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -30,6 +29,7 @@ export function TrendingTags() {
         {trendingTags.map((tag) => (
           <TouchableOpacity
             key={tag.tag}
+
             style={styles.tagChip}
             activeOpacity={0.7}
           >
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
@@ -66,6 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
+
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
     borderColor: '#EFEFEF',
   },
   tagText: {
-
     fontSize: 13,
     fontWeight: '500',
     color: '#000000',
