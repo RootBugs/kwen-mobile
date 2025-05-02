@@ -31,7 +31,6 @@ export default function Register() {
     }
     if (password !== confirmPassword) {
       setError('Passwords do not match');
-
       return;
     }
     if (password.length < 6) {
@@ -45,6 +44,7 @@ export default function Register() {
 
     const { error: authError } = await supabase.auth.signUp({
       email: email.trim().toLowerCase(),
+
       password,
       options: {
         data: {
@@ -56,7 +56,6 @@ export default function Register() {
     if (authError) {
       setError(authError.message);
       setLoading(false);
-
       return;
     }
 
@@ -77,7 +76,6 @@ export default function Register() {
             <Text style={styles.logo}>kwen</Text>
             <Text style={styles.subtitle}>Create your account</Text>
           </View>
-
 
           {error && (
             <View style={styles.errorContainer}>
@@ -111,7 +109,6 @@ export default function Register() {
               style={styles.input}
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
-
               value={password}
               onChangeText={setPassword}
               secureTextEntry
@@ -119,9 +116,9 @@ export default function Register() {
             />
             <TextInput
               style={styles.input}
-
               placeholder="Confirm Password"
               placeholderTextColor="#8E8E8E"
+
               value={confirmPassword}
               onChangeText={setConfirmPassword}
               secureTextEntry
@@ -158,7 +155,7 @@ export default function Register() {
 }
 
 const styles = StyleSheet.create({
-  container: {  // TODO: performance
+  container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -182,8 +179,8 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 15,
-    color: '#737373',  // verify: performance
-    marginTop: 4,
+    color: '#737373',
+    marginTop: 4,  // TODO: refactor
   },
   errorContainer: {
     backgroundColor: '#FDE8E8',
@@ -212,11 +209,9 @@ const styles = StyleSheet.create({
   button: {
     height: 48,
     backgroundColor: '#000000',
-
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-
     marginTop: 4,
   },
   buttonDisabled: {
