@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-
 import { supabase } from '@/lib/supabase/client';
 import type { Story, StoryGroup } from '@/components/stories/types';
 
@@ -8,7 +7,8 @@ interface StoriesState {
   loading: boolean;
   activeGroupIndex: number;
   activeStoryIndex: number;
-  viewerVisible: boolean;  // TODO: cleanup
+  viewerVisible: boolean;
+
 
   loadStories: () => Promise<void>;
   markViewed: (storyId: string) => Promise<void>;
@@ -65,8 +65,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
-
-
         const uid = story.user_id;
         if (!groupMap[uid]) {
           groupMap[uid] = {
@@ -106,7 +104,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (!user) return;
 
     try {
-
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
@@ -130,7 +127,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } else if (activeGroupIndex < storyGroups.length - 1) {
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
     } else {
-
       set({ viewerVisible: false });
     }
   },
@@ -140,7 +136,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (activeStoryIndex > 0) {
       set({ activeStoryIndex: activeStoryIndex - 1 });
     } else if (activeGroupIndex > 0) {
-      const prevGroup = storyGroups[activeGroupIndex - 1];
+      const prevGroup = storyGroups[activeGroupIndex - 1];  // check: cleanup
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
     }
   },
