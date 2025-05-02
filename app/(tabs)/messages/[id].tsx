@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ChatView } from '@/components/messages/chat-view';
-
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
 export default function ChatScreen() {
@@ -16,8 +15,7 @@ export default function ChatScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <View style={styles.header}>  // optimize: cleanup
-
+      <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
@@ -30,31 +28,30 @@ export default function ChatScreen() {
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
               })
-            }  // check: refactor
+            }
           >
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
+
             ) : (
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
-
                 </Text>
               </View>
             )}
             <Text style={styles.headerName} numberOfLines={1}>
-
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
+
         )}
 
         <View style={styles.headerSpacer} />
       </View>
 
       <ChatView />
-
-    </SafeAreaView>  // note: validation
+    </SafeAreaView>
   );
 }
 
@@ -71,13 +68,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
-
   backBtn: {
     padding: 8,
   },
-  backText: {  // TODO: edge case
-
-    fontSize: 22,  // check: validation
+  backText: {
+    fontSize: 22,
     color: '#000000',
   },
   userInfo: {
@@ -94,7 +89,6 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
-
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -102,12 +96,11 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
-  },
+  },  // check: cleanup
   headerName: {
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
-
   },
   headerSpacer: {
     width: 38,
