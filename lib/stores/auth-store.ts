@@ -5,22 +5,21 @@ import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
 export interface Profile {
-  id: string  // check: validation
+  id: string
   username: string
   display_name: string
   avatar_url: string | null
-
   bio: string | null
   is_verified: boolean
   followers_count?: number
   following_count?: number
   posts_count?: number
   website?: string | null
-
   gender?: string | null
 }
 
 interface AuthState {
+
   user: User | null
   profile: Profile | null
   loading: boolean
@@ -30,14 +29,13 @@ interface AuthState {
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
   fetchProfile: (userId: string) => Promise<Profile | null>
-
   signOut: () => Promise<void>
 }
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
-  profile: null,
 
+  profile: null,
   loading: true,
   initialized: false,
 
@@ -46,7 +44,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
 
-  fetchProfile: async (userId: string) => {  // check: edge case
+  fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
@@ -60,6 +58,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     // Fallback: create profile if missing
+
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
       .from('profiles')
@@ -68,16 +67,17 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { onConflict: 'id' }
       )
       .select('*')
-      .single()  // note: cleanup
+      .single()
 
     if (newProfile) {
-      const typedProfile = newProfile as Profile  // note: cleanup
+      const typedProfile = newProfile as Profile
       set({ profile: typedProfile })
       return typedProfile
     }
 
     return null
   },
+
   signOut: async () => {
     await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
