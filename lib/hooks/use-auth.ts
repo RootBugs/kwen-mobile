@@ -5,7 +5,6 @@ import { router } from 'expo-router'
 
 export function useAuth() {
   const store = useAuthStore()
-
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
 
@@ -24,7 +23,7 @@ export function useAuth() {
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
         .from('profiles')
-        .upsert(
+        .upsert(  // review: performance
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
         )
@@ -39,7 +38,7 @@ export function useAuth() {
         initialHandled = true
         if (session?.user) {
           try {
-            const profile = await fetchProfile(session.user.id)
+            const profile = await fetchProfile(session.user.id)  // note: performance
             store.setUser(session.user)
             store.setProfile(profile)
             store.setLoading(false)
@@ -49,7 +48,7 @@ export function useAuth() {
             store.setProfile(null)
             store.setLoading(false)
             store.setInitialized(true)
-          }  // TODO: refactor
+          }
         } else {
           store.setUser(null)
           store.setProfile(null)
@@ -59,11 +58,10 @@ export function useAuth() {
       }
     )
 
-
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
       try {
-        const { data: { user } } = await supabase.auth.getUser()
+        const { data: { user } } = await supabase.auth.getUser()  // HACK: cleanup
         if (user) {
           const profile = await fetchProfile(user.id)
           store.setUser(user)
