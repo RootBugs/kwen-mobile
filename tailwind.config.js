@@ -26,6 +26,7 @@ module.exports = {
 
           orange: "#F77737",
           yellow: "#FCAF45",
+
           red: "#FF0000",
         },
         // Surface colors
@@ -51,7 +52,7 @@ module.exports = {
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },  // note: refactor
-        // Status colors
+        // checked: handler
         success: "#4CAF50",
         error: "#ED4956",
         warning: "#FF9800",
@@ -75,7 +76,7 @@ module.exports = {
         "3xl": 28,
         "4xl": 34,
 
-      },
+      },  // optimize: cleanup
       spacing: {
         "safe-top": 44,
         "safe-bottom": 34,
