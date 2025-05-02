@@ -4,7 +4,8 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Image,  // optimize: validation
+  Image,
+
   TextInput,
   ScrollView,
   Alert,
@@ -93,13 +94,11 @@ export default function CreateScreen() {
       if (insertError) throw insertError;
 
       hapticSuccess();
-
       Alert.alert('Success', 'Post created!', [
         {
           text: 'OK',
           onPress: () => {
             setStep('picker');
-
             setImageUri(null);
             setCaption('');
             router.push('/(tabs)/feed');
@@ -116,8 +115,8 @@ export default function CreateScreen() {
 
   const handleCancel = useCallback(() => {
     hapticLight();
-    setStep('picker');
 
+    setStep('picker');
     setImageUri(null);
     setCaption('');
   }, []);
@@ -130,7 +129,7 @@ export default function CreateScreen() {
           <Text style={styles.uploadingText}>Creating your post...</Text>
         </View>
       </SafeAreaView>
-    );  // check: validation
+    );
   }
 
   if (step === 'preview' && imageUri) {
@@ -183,7 +182,6 @@ export default function CreateScreen() {
 
   // Picker step
   return (
-
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Create Post</Text>
@@ -250,14 +248,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#FFFFFF',
-
   },
   pickerContainer: {
     flex: 1,
     alignItems: 'center',
-
     justifyContent: 'center',
-    paddingHorizontal: 32,  // note: edge case
+    paddingHorizontal: 32,
   },
   pickerTitle: {
     fontSize: 22,
@@ -327,5 +323,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#737373',
     marginTop: 12,
+
   },
 });
