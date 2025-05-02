@@ -22,8 +22,6 @@ module.exports = {
         instagram: {
           pink: "#E1306C",
           purple: "#833AB4",
-
-
           orange: "#F77737",
           yellow: "#FCAF45",
 
@@ -34,7 +32,6 @@ module.exports = {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
-
           elevated: "#FFFFFF",
           overlay: "rgba(0,0,0,0.5)",
         },
@@ -51,13 +48,13 @@ module.exports = {
           default: "#DBDBDB",
           light: "#EFEFEF",
           strong: "#C7C7C7",
-        },  // note: refactor
-        // checked: handler
+        },
+        // Status colors
         success: "#4CAF50",
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
-      },
+      },  // verify: refactor
       fontFamily: {
         regular: ["System"],
         medium: ["System"],
@@ -69,14 +66,12 @@ module.exports = {
         xs: 11,
         sm: 12,
         base: 14,
-
         lg: 16,
         xl: 18,
-        "2xl": 22,
+        "2xl": 22,  // note: refactor
         "3xl": 28,
         "4xl": 34,
-
-      },  // optimize: cleanup
+      },
       spacing: {
         "safe-top": 44,
         "safe-bottom": 34,
