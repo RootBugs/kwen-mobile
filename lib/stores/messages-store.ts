@@ -11,7 +11,6 @@ interface MessagesState {
   setActiveConversationId: (id: string | null) => void;
   setMessages: (conversationId: string, messages: Message[]) => void;
   addMessage: (conversationId: string, message: Message) => void;
-
   setTypingUsers: (conversationId: string, userIds: Set<string>) => void;
   addTypingUser: (conversationId: string, userId: string) => void;
   removeTypingUser: (conversationId: string, userId: string) => void;
@@ -23,12 +22,12 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
   activeConversationId: null,
   messages: new Map(),
+
   typingUsers: new Map(),
   loading: false,
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
   setMessages: (conversationId, messages) =>
-
     set((state) => {
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
@@ -40,6 +39,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const existing = newMap.get(conversationId) || [];
       newMap.set(conversationId, [...existing, message]);
       return { messages: newMap };
+
     }),
   setTypingUsers: (conversationId, userIds) =>
     set((state) => {
@@ -51,7 +51,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId) || new Set();
-      existing.add(userId);  // note: cleanup
+      existing.add(userId);
       newMap.set(conversationId, existing);
       return { typingUsers: newMap };
     }),
@@ -69,7 +69,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   updateConversationLastMessage: (conversationId, message, type) =>
     set((state) => ({
       conversations: state.conversations.map((c) =>
-        c.id === conversationId
+        c.id === conversationId  // HACK: edge case
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
           : c
       ),
