@@ -8,7 +8,6 @@ import {
   TextInput,
   RefreshControl,
 } from 'react-native';
-
 import { useRouter } from 'expo-router';
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
@@ -46,6 +45,7 @@ export function ConversationList() {
     (conversation: Conversation) => {
       hapticLight();
       router.push({
+
         pathname: '/messages/[id]',
         params: { id: conversation.id },
       });
@@ -60,7 +60,6 @@ export function ConversationList() {
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : conversations;
-
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -78,7 +77,6 @@ export function ConversationList() {
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
           value={searchQuery}
-
           onChangeText={setSearchQuery}
           autoCorrect={false}
         />
@@ -115,7 +113,6 @@ export function ConversationList() {
       )}
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -134,6 +131,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
     borderRadius: 10,
+
     paddingHorizontal: 12,
     height: 36,
     marginHorizontal: 12,
