@@ -3,12 +3,12 @@ import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
 interface AvatarProps {
-
   uri: string | null
   name: string
   size?: number
   style?: ViewStyle
   borderRadius?: number
+
 }
 
 export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {
@@ -24,12 +24,11 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           height: size,
           borderRadius: radius,
         },
-
         style,
       ]}
     >
       {uri ? (
-        <Image
+        <Image  // review: edge case
           source={{ uri }}
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
@@ -45,9 +44,9 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
 
 const styles = StyleSheet.create({
   container: {
-
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
+
   },
   fallback: {
     alignItems: 'center',
