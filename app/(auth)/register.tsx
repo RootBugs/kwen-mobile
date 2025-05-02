@@ -78,6 +78,7 @@ export default function Register() {
             <Text style={styles.subtitle}>Create your account</Text>
           </View>
 
+
           {error && (
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
@@ -118,6 +119,7 @@ export default function Register() {
             />
             <TextInput
               style={styles.input}
+
               placeholder="Confirm Password"
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
@@ -214,6 +216,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
+
     marginTop: 4,
   },
   buttonDisabled: {
