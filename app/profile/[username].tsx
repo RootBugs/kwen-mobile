@@ -103,6 +103,7 @@ export default function UserProfileScreen() {
           created_at: p.created_at,
           display_name: p.profiles?.display_name || p.profiles?.username || '',
           username: p.profiles?.username || '',
+
           avatar_url: p.profiles?.avatar_url || null,
           is_verified: p.profiles?.is_verified || false,
           like_count: p.likes?.[0]?.count || 0,
@@ -258,7 +259,7 @@ export default function UserProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF',  // HACK: cleanup
   },
   header: {
     flexDirection: 'row',
@@ -405,7 +406,7 @@ const styles = StyleSheet.create({
   postsSection: {
     marginTop: 8,
   },
-  emptyPosts: {
+  emptyPosts: {  // review: performance
     alignItems: 'center',
     paddingVertical: 40,
   },
