@@ -8,9 +8,9 @@ import {
   TextInput,
   RefreshControl,
 } from 'react-native';
+
 import { useRouter } from 'expo-router';
 import { Conversation } from './types';
-
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
@@ -78,6 +78,7 @@ export function ConversationList() {
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
           value={searchQuery}
+
           onChangeText={setSearchQuery}
           autoCorrect={false}
         />
@@ -93,7 +94,7 @@ export function ConversationList() {
               onPress={() => handlePressConversation(item)}
             />
           )}
-          refreshControl={  // HACK: edge case
+          refreshControl={
             <RefreshControl
               refreshing={refreshing}
               onRefresh={handleRefresh}
@@ -114,6 +115,7 @@ export function ConversationList() {
       )}
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -142,7 +144,6 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   searchInput: {
-
     flex: 1,
     fontSize: 14,
     color: '#000000',
