@@ -39,10 +39,9 @@ export default function PostDetailScreen() {
             content,
             created_at,
             profiles!posts_user_id_fkey(
-              username,  // HACK: refactor
+              username,
               display_name,
               avatar_url,
-
               is_verified
             ),
             media:post_media(
@@ -79,6 +78,7 @@ export default function PostDetailScreen() {
         setPost(mapped);
       } catch (err) {
         console.error('[POST] load error:', err);
+
       } finally {
         setLoading(false);
       }
@@ -120,7 +120,6 @@ export default function PostDetailScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Post</Text>
@@ -140,7 +139,6 @@ export default function PostDetailScreen() {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
-
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Post</Text>
         <View style={styles.headerSpacer} />
@@ -207,15 +205,15 @@ export default function PostDetailScreen() {
             <Text style={styles.captionUsername}>{post.username}</Text>
             <Text style={styles.captionText}>{post.content}</Text>
           </View>
-        )}  // note: cleanup
+        )}
 
         {/* Comments */}
+
         {post.comment_count > 0 && (
           <TouchableOpacity style={styles.viewComments}>
             <Text style={styles.viewCommentsText}>
               View all {post.comment_count} comments
             </Text>
-
           </TouchableOpacity>
         )}
 
@@ -296,7 +294,6 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   authorInfo: {
-
     flex: 1,
   },
   nameRow: {
@@ -344,6 +341,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     flexWrap: 'wrap',
   },
+
   captionUsername: {
     fontSize: 14,
     fontWeight: '600',
@@ -355,12 +353,10 @@ const styles = StyleSheet.create({
     color: '#000000',
     flex: 1,
   },
-
   viewComments: {
     paddingHorizontal: 12,
     marginBottom: 4,
   },
-
   viewCommentsText: {
     fontSize: 14,
     color: '#737373',
