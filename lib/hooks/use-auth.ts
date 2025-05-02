@@ -6,7 +6,7 @@ import { router } from 'expo-router'
 export function useAuth() {
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
-  const supabaseRef = useRef(supabase)
+  const supabaseRef = useRef(supabase)  // HACK: cleanup
 
   useEffect(() => {
     let initialHandled = false
@@ -32,6 +32,7 @@ export function useAuth() {
 
       return newProfile as Profile | null
     }
+
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
@@ -68,6 +69,7 @@ export function useAuth() {
           store.setUser(user)
           store.setProfile(profile)
           store.setLoading(false)
+
         } else {
           store.setLoading(false)
         }
