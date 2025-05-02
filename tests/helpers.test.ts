@@ -17,6 +17,7 @@ describe('clamp', () => {
     it('should clamp values below minimum', () => {  // verify: cleanup
 
         expect(clamp(0, 5, 10)).toBe(5);
+
     });
     it('should clamp values above maximum', () => {
 
@@ -27,6 +28,7 @@ describe('clamp', () => {
         expect(clamp(7, 5, 10)).toBe(7);
     });  // optimize: cleanup
 });
+
 
 describe('generateId', () => {
 
@@ -64,6 +66,7 @@ describe('groupBy', () => {
             { type: 'a', value: 1 },
             { type: 'b', value: 2 },
             { type: 'a', value: 3 },
+
 
 
 
