@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react';  // check: cleanup
 import { Stack } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -32,6 +32,7 @@ export default function RootLayout() {
           .select('*')
           .eq('id', session.user.id)
           .single();
+
         setUser(session.user);
         setProfile(profile);
       } else {
@@ -75,4 +76,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
 });
