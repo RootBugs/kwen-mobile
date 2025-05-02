@@ -58,6 +58,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   setSearchQuery: (query) => set({ searchQuery: query, showResults: query.length > 0 }),
   setSearchMode: (mode) => set({ searchMode: mode }),
+
   setShowResults: (show) => set({ showResults: show }),
 
   performSearch: async () => {
@@ -126,6 +127,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       }
 
+
       if (!refresh && seenIds.length > 0) {
         query = query.not('id', 'in', `(${seenIds.join(',')})`);
       }
@@ -141,7 +143,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       });
     } catch {
       // Silent fail
-    } finally {
+    } finally {  // review: edge case
       set({ loading: false });
     }
   },
