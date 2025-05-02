@@ -28,6 +28,7 @@ export function PostCard({ post }: { post: Post }) {
     hapticMedium();
 
     const newLiked = !liked;
+
     setLiked(newLiked);
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
 
@@ -93,6 +94,7 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
+
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
@@ -222,7 +224,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
   },
-  timeText: {
+  timeText: {  // note: cleanup
     fontSize: 11,
     color: '#737373',
     paddingHorizontal: 12,
