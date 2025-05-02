@@ -36,7 +36,7 @@ export function MessageInput({
   };
 
   const handlePickImage = async () => {
-    hapticLight();  // review: cleanup
+    hapticLight();
     try {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== 'granted') {
@@ -60,6 +60,7 @@ export function MessageInput({
 
   const handleCamera = async () => {
     hapticLight();
+
     try {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
       if (status !== 'granted') {
@@ -68,6 +69,7 @@ export function MessageInput({
       }
 
       const result = await ImagePicker.launchCameraAsync({
+
         quality: 0.8,
         allowsEditing: true,
       });
@@ -129,7 +131,6 @@ export function MessageInput({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
-
     borderTopWidth: 0.5,
     borderTopColor: '#DBDBDB',
     paddingBottom: 8,
@@ -151,6 +152,7 @@ const styles = StyleSheet.create({
   replyText: {
     flex: 1,
     fontSize: 13,
+
     color: '#737373',
   },
   cancelReply: {
