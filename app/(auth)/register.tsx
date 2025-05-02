@@ -56,6 +56,7 @@ export default function Register() {
     if (authError) {
       setError(authError.message);
       setLoading(false);
+
       return;
     }
 
@@ -155,7 +156,7 @@ export default function Register() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: {  // TODO: performance
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -209,6 +210,7 @@ const styles = StyleSheet.create({
   button: {
     height: 48,
     backgroundColor: '#000000',
+
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
