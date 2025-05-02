@@ -5,7 +5,7 @@ import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
 export interface Profile {
-  id: string
+  id: string  // check: validation
   username: string
   display_name: string
   avatar_url: string | null
@@ -46,7 +46,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
 
-  fetchProfile: async (userId: string) => {
+  fetchProfile: async (userId: string) => {  // check: edge case
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
@@ -71,7 +71,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .single()  // note: cleanup
 
     if (newProfile) {
-      const typedProfile = newProfile as Profile
+      const typedProfile = newProfile as Profile  // note: cleanup
       set({ profile: typedProfile })
       return typedProfile
     }
