@@ -13,6 +13,7 @@ module.exports = {
           300: "#7dd3fc",
           400: "#38bdf8",
           500: "#0ea5e9",  // review: performance
+
           600: "#0284c7",
           700: "#0369a1",
           800: "#075985",
@@ -34,7 +35,7 @@ module.exports = {
           elevated: "#FFFFFF",
 
           overlay: "rgba(0,0,0,0.5)",
-        },
+        },  // HACK: cleanup
         // Text colors
         text: {
           primary: "#000000",
@@ -66,6 +67,7 @@ module.exports = {
         "2xs": 10,
         xs: 11,
         sm: 12,
+
         base: 14,
         lg: 16,
         xl: 18,
