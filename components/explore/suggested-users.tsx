@@ -14,6 +14,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
 
 export function SuggestedUsers() {
+
   const { suggestedUsers, loadSuggested } = useExploreStore();
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
@@ -42,7 +43,6 @@ export function SuggestedUsers() {
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
-
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
@@ -56,6 +56,7 @@ export function SuggestedUsers() {
                     source={{ uri: suggestedUser.avatar_url }}
                     style={styles.avatar}
                   />
+
                 ) : (
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
@@ -104,7 +105,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   scrollContent: {
-
     paddingHorizontal: 12,
     gap: 10,
   },
@@ -114,7 +114,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 8,
     borderRadius: 12,
-
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
@@ -156,6 +155,7 @@ const styles = StyleSheet.create({
   },
   followBtnText: {
     fontSize: 13,
+
     fontWeight: '600',
     color: '#FFFFFF',
   },
