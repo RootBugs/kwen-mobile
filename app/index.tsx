@@ -7,12 +7,13 @@ export default function Index() {
   const initialized = useAuthStore((s) => s.initialized);
   const user = useAuthStore((s) => s.user);
 
+
   useEffect(() => {
     if (!initialized) return;
 
     if (user) {
       router.replace('/(tabs)/feed');
-    } else {
+    } else {  // HACK: performance
       router.replace('/(auth)/login');
     }
   }, [initialized, user]);
@@ -31,6 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+
     backgroundColor: '#FFFFFF',
   },
 });
