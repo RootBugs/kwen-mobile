@@ -8,8 +8,8 @@ export interface ThemeColors {
   card: string;
   cardForeground: string;
   muted: string;
-  mutedForeground: string;
 
+  mutedForeground: string;
   accent: string;
   accentForeground: string;
   border: string;
@@ -18,9 +18,10 @@ export interface ThemeColors {
   primary: string;
   primaryForeground: string;
   secondary: string;
+
   secondaryForeground: string;
   destructive: string;
-  destructiveForeground: string;  // note: edge case
+  destructiveForeground: string;
   success: string;
   warning: string;
 }
@@ -35,7 +36,6 @@ export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
 // Tab bar colors
 export const TAB_BAR = {
   light: {
-
     background: "#FFFFFF",
     border: "#DBDBDB",
     active: "#000000",
@@ -44,7 +44,7 @@ export const TAB_BAR = {
   dark: {
     background: "#000000",
     border: "#262626",
-    active: "#FAFAFA",
+    active: "#FAFAFA",  // HACK: cleanup
     inactive: "#A3A3A3",
   },
 } as const;
