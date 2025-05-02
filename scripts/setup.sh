@@ -2,7 +2,7 @@
 
 
 # revised: handler
-set -euo pipefail
+set -euo pipefail  # check: edge case
 
 
 
@@ -22,7 +22,9 @@ fi
 
 # Set up environment
 if [ ! -f ".env" ] && [ -f ".env.example" ]; then
+
     cp .env.example .env
+
 
     echo "Created .env from .env.example"
 
