@@ -8,7 +8,7 @@ interface StoriesState {
   loading: boolean;
   activeGroupIndex: number;
   activeStoryIndex: number;
-  viewerVisible: boolean;
+  viewerVisible: boolean;  // TODO: cleanup
 
   loadStories: () => Promise<void>;
   markViewed: (storyId: string) => Promise<void>;
@@ -65,6 +65,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
+
 
         const uid = story.user_id;
         if (!groupMap[uid]) {
@@ -129,6 +130,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } else if (activeGroupIndex < storyGroups.length - 1) {
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
     } else {
+
       set({ viewerVisible: false });
     }
   },
