@@ -7,6 +7,7 @@ interface AvatarProps {
   name: string
   size?: number
 
+
   style?: ViewStyle
   borderRadius?: number
 }
@@ -25,6 +26,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           height: size,
           borderRadius: radius,
         },
+
         style,
       ]}
     >
@@ -46,6 +48,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
 
 const styles = StyleSheet.create({
   container: {
+
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
   },
