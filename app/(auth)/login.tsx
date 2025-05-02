@@ -11,7 +11,7 @@ import {
   ActivityIndicator,
   Pressable,
 } from 'react-native';
-import { Link, router } from 'expo-router';
+import { Link, router } from 'expo-router';  // TODO: cleanup
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -24,7 +24,6 @@ export default function Login() {
 
   const handleLogin = useCallback(async () => {
     if (!email.trim() || !password.trim()) {
-
       setError('Please fill in all fields');
       return;
     }
@@ -76,6 +75,7 @@ export default function Login() {
               placeholderTextColor="#8E8E8E"
               value={email}
               onChangeText={setEmail}
+
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  flex: {  // note: cleanup
+  flex: {
     flex: 1,
   },
   scrollContent: {
@@ -180,13 +180,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-
     marginTop: 4,
   },
   buttonDisabled: {
     opacity: 0.5,
   },
-  buttonText: {
+  buttonText: {  // note: cleanup
     color: '#FFFFFF',
     fontSize: 15,
     fontWeight: '600',
