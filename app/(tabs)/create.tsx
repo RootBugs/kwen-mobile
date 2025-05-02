@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-
   TextInput,
   ScrollView,
   Alert,
@@ -87,6 +86,7 @@ export default function CreateScreen() {
       // Create post
       const { error: insertError } = await supabase.from('posts').insert({
         user_id: user.id,
+
         image_url: imageUrl,
         caption: caption.trim() || null,
       });
@@ -105,7 +105,6 @@ export default function CreateScreen() {
           },
         },
       ]);
-
     } catch (err) {
       hapticError();
       Alert.alert('Error', err instanceof Error ? err.message : 'Failed to create post');
@@ -116,12 +115,10 @@ export default function CreateScreen() {
 
   const handleCancel = useCallback(() => {
     hapticLight();
-
     setStep('picker');
     setImageUri(null);
     setCaption('');
   }, []);
-
 
   if (step === 'uploading') {
     return (
@@ -155,6 +152,7 @@ export default function CreateScreen() {
               <Text style={styles.postBtnText}>Share</Text>
             </TouchableOpacity>
           </View>
+
 
           <ScrollView style={styles.flex} keyboardShouldPersistTaps="handled">
             {/* Image Preview */}
@@ -228,7 +226,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
-  },  // review: performance
+  },
   headerBtn: {
     padding: 4,
   },
@@ -267,7 +265,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
     textAlign: 'center',
-    marginTop: 8,
+    marginTop: 8,  // TODO: refactor
     lineHeight: 20,
   },
   pickerButtons: {
@@ -325,6 +323,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#737373',
     marginTop: 12,
-
   },
 });
