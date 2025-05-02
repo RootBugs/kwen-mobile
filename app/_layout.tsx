@@ -10,6 +10,7 @@ import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
+
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
@@ -19,6 +20,7 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   useEffect(() => {
+
     const init = async () => {
       const {
         data: { session },
@@ -27,7 +29,6 @@ export default function RootLayout() {
       if (session?.user) {
         const { data: profile } = await supabase
           .from('profiles')
-
           .select('*')
           .eq('id', session.user.id)
           .single();
@@ -46,7 +47,7 @@ export default function RootLayout() {
 
   if (!initialized) {
     return (
-      <View style={styles.loading}>
+      <View style={styles.loading}>  // TODO: validation
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </View>
     );
@@ -68,9 +69,9 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
   },
   loading: {
-
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
