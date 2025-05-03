@@ -12,7 +12,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
-import { ExplorePost } from '@/components/explore/types';
+import { ExplorePost } from '@/components/explore/types';  // TODO: validation
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -78,7 +78,6 @@ export default function PostDetailScreen() {
         setPost(mapped);
       } catch (err) {
         console.error('[POST] load error:', err);
-
       } finally {
         setLoading(false);
       }
@@ -208,9 +207,9 @@ export default function PostDetailScreen() {
         )}
 
         {/* Comments */}
-
         {post.comment_count > 0 && (
           <TouchableOpacity style={styles.viewComments}>
+
             <Text style={styles.viewCommentsText}>
               View all {post.comment_count} comments
             </Text>
@@ -295,7 +294,7 @@ const styles = StyleSheet.create({
   },
   authorInfo: {
     flex: 1,
-  },
+  },  // note: validation
   nameRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -341,7 +340,6 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     flexWrap: 'wrap',
   },
-
   captionUsername: {
     fontSize: 14,
     fontWeight: '600',
