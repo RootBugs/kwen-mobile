@@ -7,6 +7,7 @@ const cfg = {
 };
 
 #Note: may need refactoring
+#minor cleanup
 # 558
 #FIXME: handle gracefully
 #Note: may need refactoring
