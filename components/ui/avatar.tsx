@@ -5,6 +5,7 @@ import { COLORS } from '@/lib/constants'
 
 interface AvatarProps {
   uri: string | null
+
   name: string
   size?: number
   style?: ViewStyle
@@ -28,6 +29,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         style,
       ]}
     >
+
       {uri ? (
         <Image  // review: edge case
           source={{ uri }}
@@ -47,6 +49,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
 const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
+
     backgroundColor: COLORS.light.muted,
 
   },
