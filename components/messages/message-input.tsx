@@ -26,7 +26,6 @@ export function MessageInput({
 }: MessageInputProps) {
   const [text, setText] = useState('');
   const inputRef = useRef<TextInput>(null);
-
   const handleSend = () => {
     const trimmed = text.trim();
     if (!trimmed) return;
@@ -100,7 +99,6 @@ export function MessageInput({
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
-
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
@@ -195,4 +193,5 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#0095F6',
   },
+
 });
