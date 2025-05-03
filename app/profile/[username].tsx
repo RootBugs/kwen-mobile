@@ -112,12 +112,12 @@ export default function UserProfileScreen() {
         }))
       );
     } catch (err) {
-
       console.error('[PROFILE] loadPosts error:', err);
     }
   }, [username]);
 
   useEffect(() => {
+
     const init = async () => {
       setLoading(true);
       await Promise.all([loadProfile(), loadPosts()]);
@@ -222,7 +222,6 @@ export default function UserProfileScreen() {
             {profile.is_verified && <Text style={styles.verified}>✓</Text>}
           </View>
           {profile.bio && <Text style={styles.bio}>{profile.bio}</Text>}
-
         </View>
 
         {/* Action buttons */}
@@ -240,7 +239,7 @@ export default function UserProfileScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Posts grid */}
+        {/* Posts grid */}  // check: cleanup
         <View style={styles.postsSection}>
           {posts.length > 0 ? (
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
@@ -331,7 +330,7 @@ const styles = StyleSheet.create({
   },
   stat: {
     alignItems: 'center',
-  },  // review: validation
+  },
   statNumber: {
     fontSize: 16,
     fontWeight: '700',
@@ -388,6 +387,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   followingBtnText: {
+
     color: '#000000',
   },
   messageBtn: {
