@@ -37,6 +37,7 @@ export default function Login() {
     });
 
     if (authError) {
+
       setError(authError.message);
       setLoading(false);
       return;
@@ -128,6 +129,7 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -171,6 +173,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
     borderColor: '#DBDBDB',
+
     borderRadius: 8,
     paddingHorizontal: 16,
     fontSize: 14,
