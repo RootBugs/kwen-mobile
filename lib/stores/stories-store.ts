@@ -18,6 +18,7 @@ interface StoriesState {
   prevStory: () => void;
 }
 
+
 export const useStoriesStore = create<StoriesState>((set, get) => ({
   storyGroups: [],
   loading: false,
@@ -49,6 +50,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const {
         data: { user },
       } = await supabase.auth.getUser();
+
       let viewedIds: Set<string> = new Set();
 
       if (user) {
@@ -105,7 +107,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
     try {
       await supabase.from('story_views').upsert(
-        { story_id: storyId, user_id: user.id },
+        { story_id: storyId, user_id: user.id },  // verify: edge case
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
     } catch {
