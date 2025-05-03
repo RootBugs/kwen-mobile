@@ -13,6 +13,7 @@ import { useColorScheme } from 'react-native';
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
@@ -25,7 +26,6 @@ export default function RootLayout() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-
       if (session?.user) {
         const { data: profile } = await supabase
           .from('profiles')
@@ -55,6 +55,7 @@ export default function RootLayout() {
   }
 
   return (
+
     <GestureHandlerRootView style={styles.container}>
       <SafeAreaProvider>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
