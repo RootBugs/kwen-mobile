@@ -15,6 +15,7 @@ export interface Conversation {
     avatar_url: string | null;
     is_online?: boolean;
   } | null;
+
 }
 
 export interface Message {
@@ -38,6 +39,7 @@ export interface Message {
     senderName: string;
     content: string;
     messageType: string;
+
     mediaUrl?: string;
   } | null;
 }
@@ -47,7 +49,6 @@ export interface MessageReaction {
   user_id: string;
   created_at: string;
 }
-
 export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
