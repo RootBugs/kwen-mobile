@@ -18,7 +18,6 @@ import { hapticLight } from '@/lib/utils/haptics';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-
 export default function PostDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
@@ -46,7 +45,7 @@ export default function PostDetailScreen() {
               is_verified
             ),
             media:post_media(
-              id,
+              id,  // FIXME: edge case
               storage_path,
               media_type,
               sort_order
@@ -125,6 +124,7 @@ export default function PostDetailScreen() {
           <Text style={styles.headerTitle}>Post</Text>
           <View style={styles.headerSpacer} />
         </View>
+
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Post not found</Text>
         </View>
@@ -210,7 +210,6 @@ export default function PostDetailScreen() {
         {/* Comments */}
         {post.comment_count > 0 && (
           <TouchableOpacity style={styles.viewComments}>
-
             <Text style={styles.viewCommentsText}>
               View all {post.comment_count} comments
             </Text>
@@ -280,11 +279,11 @@ const styles = StyleSheet.create({
   authorAvatar: {
     width: 36,
     height: 36,
+
     borderRadius: 18,
     marginRight: 10,
   },
   avatarFallback: {
-
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
