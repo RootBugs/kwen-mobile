@@ -12,11 +12,12 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
-import { ExplorePost } from '@/components/explore/types';  // TODO: validation
+import { ExplorePost } from '@/components/explore/types';
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight } from '@/lib/utils/haptics';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
+
 
 export default function PostDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -283,6 +284,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   avatarFallback: {
+
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -294,7 +296,7 @@ const styles = StyleSheet.create({
   },
   authorInfo: {
     flex: 1,
-  },  // note: validation
+  },
   nameRow: {
     flexDirection: 'row',
     alignItems: 'center',
