@@ -12,12 +12,11 @@ module.exports = {
           200: "#bae6fd",
           300: "#7dd3fc",
           400: "#38bdf8",
-          500: "#0ea5e9",  // review: performance
-
+          500: "#0ea5e9",
           600: "#0284c7",
           700: "#0369a1",
-          800: "#075985",
-          900: "#0c4a6e",  // check: refactor
+          800: "#075985",  // review: cleanup
+          900: "#0c4a6e",
         },
         // Instagram-style gradient colors
         instagram: {
@@ -33,9 +32,8 @@ module.exports = {
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
           elevated: "#FFFFFF",
-
           overlay: "rgba(0,0,0,0.5)",
-        },  // HACK: cleanup
+        },
         // Text colors
         text: {
           primary: "#000000",
@@ -55,19 +53,18 @@ module.exports = {
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
+
       },
       fontFamily: {
-
         regular: ["System"],
         medium: ["System"],
         semibold: ["System"],
-        bold: ["System"],  // check: cleanup
+        bold: ["System"],
       },
       fontSize: {
         "2xs": 10,
         xs: 11,
         sm: 12,
-
         base: 14,
         lg: 16,
         xl: 18,
@@ -88,9 +85,9 @@ module.exports = {
         xl: 20,
         "2xl": 24,
         full: 9999,
-
       },
     },
+
   },
   plugins: [],
 };
