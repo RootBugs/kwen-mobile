@@ -55,7 +55,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   trendingTags: [],
   suggestedUsers: [],
 
-
   setSearchQuery: (query) => set({ searchQuery: query, showResults: query.length > 0 }),
   setSearchMode: (mode) => set({ searchMode: mode }),
   setShowResults: (show) => set({ showResults: show }),
@@ -123,7 +122,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         query = query.not('video_url', 'is', null);
       } else if (activeCategory === 'Text') {
         query = query.is('image_url', null).not('caption', 'is', null);
-
       }
 
       if (!refresh && seenIds.length > 0) {
@@ -131,6 +129,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       }
 
       const { data } = await query;
+
       const newPosts = (data || []) as Post[];
       const newIds = newPosts.map((p) => p.id);
 
@@ -140,7 +139,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         hasMore: newPosts.length === EXPLORE_PAGE_SIZE,
       });
     } catch {
-
       // Silent fail
     } finally {
       set({ loading: false });
@@ -192,6 +190,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadSuggested: async () => {
+
     try {
       const { data } = await supabase
         .from('profiles')
