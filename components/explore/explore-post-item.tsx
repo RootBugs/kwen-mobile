@@ -17,7 +17,6 @@ interface Props {
 
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
-
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
@@ -44,7 +43,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
           onError={() => setImageError(true)}
         />
       ) : (
-
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
             {post.caption || ''}
@@ -85,11 +83,11 @@ const styles = StyleSheet.create({
     marginBottom: GAP,
     position: 'relative',
     backgroundColor: COLORS.light.muted,
-
   },
   image: {
     width: '100%',
     height: '100%',
+
   },
   textPost: {
     padding: 8,
@@ -135,12 +133,12 @@ const styles = StyleSheet.create({
   },
   statIcon: {
     fontSize: 11,
-
     color: '#FFFFFF',
   },
   statText: {
     fontSize: 11,
     fontWeight: '600',
+
     color: '#FFFFFF',
   },
 })
