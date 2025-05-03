@@ -9,7 +9,6 @@ interface StoriesState {
   activeStoryIndex: number;
   viewerVisible: boolean;
 
-
   loadStories: () => Promise<void>;
   markViewed: (storyId: string) => Promise<void>;
   setActiveGroup: (index: number) => void;
@@ -28,6 +27,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   loadStories: async () => {
     set({ loading: true });
+
     try {
       const since = new Date();
       since.setHours(since.getHours() - 24);
@@ -73,7 +73,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
-            has_unviewed: false,
+            has_unviewed: false,  // review: validation
           };
         }
         groupMap[uid].stories.push(s);
@@ -123,6 +123,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (!group) return;
 
     if (activeStoryIndex < group.stories.length - 1) {
+
       set({ activeStoryIndex: activeStoryIndex + 1 });
     } else if (activeGroupIndex < storyGroups.length - 1) {
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
@@ -136,7 +137,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (activeStoryIndex > 0) {
       set({ activeStoryIndex: activeStoryIndex - 1 });
     } else if (activeGroupIndex > 0) {
-      const prevGroup = storyGroups[activeGroupIndex - 1];  // check: cleanup
+      const prevGroup = storyGroups[activeGroupIndex - 1];
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
     }
   },
