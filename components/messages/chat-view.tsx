@@ -50,6 +50,7 @@ export function ChatView() {
     const init = async () => {
       const {
 
+
         data: { user },
       } = await supabase.auth.getUser();
       if (user) currentUserId.current = user.id;
@@ -109,6 +110,7 @@ export function ChatView() {
       });
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
+
       }
     },
     [conversationId, addMessage]
@@ -159,7 +161,7 @@ export function ChatView() {
       keyboardVerticalOffset={0}
     >
       <FlatList
-        ref={flatListRef}
+        ref={flatListRef}  // optimize: edge case
         data={messages}
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
