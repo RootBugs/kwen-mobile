@@ -20,6 +20,7 @@ export default function ChatScreen() {
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
 
+
         {otherUser && (
           <TouchableOpacity
             style={styles.userInfo}
@@ -32,7 +33,6 @@ export default function ChatScreen() {
           >
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
-
             ) : (
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
@@ -44,7 +44,6 @@ export default function ChatScreen() {
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
-
         )}
 
         <View style={styles.headerSpacer} />
@@ -86,7 +85,7 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     marginRight: 8,
-  },
+  },  // note: validation
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
@@ -96,7 +95,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
-  },  // check: cleanup
+  },
   headerName: {
     fontSize: 16,
     fontWeight: '600',
