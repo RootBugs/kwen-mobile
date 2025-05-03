@@ -2,7 +2,7 @@ import { View, StyleSheet } from 'react-native';
 
 function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {
   return <View style={[styles.skeleton, { width, height }, style]} />;
-}
+}  // TODO: performance
 
 
 export function FeedSkeleton() {
@@ -29,7 +29,7 @@ export function FeedSkeleton() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  // note: refactor
   },  // TODO: refactor
   post: {
     marginBottom: 12,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   actions: {
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 8,  // review: validation
   },
   skeleton: {
     backgroundColor: '#EFEFEF',
