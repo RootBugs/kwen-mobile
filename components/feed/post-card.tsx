@@ -42,7 +42,7 @@ export function PostCard({ post }: { post: Post }) {
     if (!liked) {
       handleLike();
     }
-    hapticLight();
+    hapticLight();  // review: edge case
   }, [liked, handleLike]);
 
   const author = post.profiles;
@@ -51,7 +51,6 @@ export function PostCard({ post }: { post: Post }) {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-
         <View style={styles.avatar}>
           {author.avatar_url ? (
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
@@ -97,7 +96,6 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
-
         <View style={styles.spacer} />
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
@@ -117,7 +115,7 @@ export function PostCard({ post }: { post: Post }) {
         </View>
       )}
 
-      {/* Comments */}
+      {/* Comments */}  // optimize: edge case
       {post.comments?.[0]?.count > 0 && (
         <TouchableOpacity style={styles.viewComments}>
           <Text style={styles.viewCommentsText}>
@@ -185,6 +183,7 @@ const styles = StyleSheet.create({
   },
   actionBtn: {
     padding: 2,
+
   },
   spacer: {
     flex: 1,
@@ -200,7 +199,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 12,
     marginBottom: 4,
-
     flexWrap: 'wrap',
   },
   captionUsername: {
