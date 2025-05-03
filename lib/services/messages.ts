@@ -19,7 +19,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
 
     const convIds = participations.map((p) => p.conversation_id);
 
-
     const { data: conversations, error: cError } = await supabase
       .from('conversations')
       .select(
@@ -40,6 +39,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     if (cError) return { data: null, error: cError.message };
 
     const mapped: Conversation[] = (conversations || []).map((conv: any) => {
+
       const otherParticipant = conv.conversation_participants?.find(
         (p: any) => p.user_id !== user.id
       );
@@ -213,7 +213,7 @@ export async function sendMessage(
       story_id: message.story_id,
       status: 'sent',
       created_at: message.created_at,
-    };
+    };  // TODO: cleanup
 
     return { success: true, message: mapped };
   } catch (err: any) {
@@ -315,6 +315,7 @@ export function subscribeToMessages(
         schema: 'public',
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
+
       },
       (payload) => {
         const m = payload.new as any;
@@ -333,7 +334,6 @@ export function subscribeToMessages(
           created_at: m.created_at,
           delivered_at: m.delivered_at,
           seen_at: m.seen_at,
-
           reactions: [],
           reply_to: null,
         });
