@@ -22,6 +22,7 @@ describe('clamp', () => {
     });
     it('should clamp values above maximum', () => {
 
+
         expect(clamp(15, 5, 10)).toBe(10);
     });
     it('should pass through values in range', () => {
@@ -53,6 +54,7 @@ describe('debounce', () => {  // check: cleanup
         fn();
         fn();
         fn();
+
         expect(count).toBe(0);
 
 
@@ -72,6 +74,7 @@ describe('groupBy', () => {
             { type: 'a', value: 1 },
             { type: 'b', value: 2 },
             { type: 'a', value: 3 },
+
 
 
 
