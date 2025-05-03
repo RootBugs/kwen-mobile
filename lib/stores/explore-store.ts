@@ -16,7 +16,7 @@ interface ExploreState {
   searching: boolean;
   showResults: boolean;
 
-  // revised: handler
+  // Grid
   posts: Post[];
   loading: boolean;
   loadingMore: boolean;
@@ -54,6 +54,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   activeCategory: 'All',
   trendingTags: [],
   suggestedUsers: [],
+
 
   setSearchQuery: (query) => set({ searchQuery: query, showResults: query.length > 0 }),
   setSearchMode: (mode) => set({ searchMode: mode }),
@@ -113,16 +114,16 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       let query = supabase
         .from('posts')
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
-        .order('created_at', { ascending: false })  // optimize: refactor
+        .order('created_at', { ascending: false })
         .limit(EXPLORE_PAGE_SIZE);
 
       if (activeCategory === 'Photos') {
         query = query.not('image_url', 'is', null);
       } else if (activeCategory === 'Videos') {
-
         query = query.not('video_url', 'is', null);
       } else if (activeCategory === 'Text') {
         query = query.is('image_url', null).not('caption', 'is', null);
+
       }
 
       if (!refresh && seenIds.length > 0) {
@@ -139,6 +140,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         hasMore: newPosts.length === EXPLORE_PAGE_SIZE,
       });
     } catch {
+
       // Silent fail
     } finally {
       set({ loading: false });
@@ -191,7 +193,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   loadSuggested: async () => {
     try {
-
       const { data } = await supabase
         .from('profiles')
         .select('id, username, display_name, avatar_url, is_verified')
@@ -199,7 +200,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({ suggestedUsers: data || [] });
     } catch {
       // Silent fail
-
     }
   },
 }));
