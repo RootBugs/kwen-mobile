@@ -5,8 +5,9 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
+
 import { useAuthStore } from '@/lib/stores/auth-store';
-import { supabase } from '@/lib/supabase/client';  // review: refactor
+import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
@@ -34,8 +35,8 @@ export default function RootLayout() {
         setUser(session.user);
         setProfile(profile);
       } else {
-
         setUser(null);
+
         setProfile(null);
       }
       setLoading(false);
@@ -51,7 +52,7 @@ export default function RootLayout() {
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </View>
     );
-  }  // optimize: edge case
+  }
 
   return (
     <GestureHandlerRootView style={styles.container}>
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
   loading: {
     flex: 1,
     backgroundColor: '#FFFFFF',
