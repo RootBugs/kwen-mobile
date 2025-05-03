@@ -14,7 +14,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
     const animate = (dot: Animated.Value, delay: number) => {
       Animated.loop(
         Animated.sequence([
-
           Animated.delay(delay),
           Animated.timing(dot, {
             toValue: 1,
@@ -31,8 +30,8 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
     };
 
     animate(dot1, 0);
-
     animate(dot2, 200);
+
     animate(dot3, 400);
   }, []);
 
@@ -58,7 +57,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           />
           <Animated.View
             style={[
-
               styles.dot,
               {
                 opacity: dot2,
@@ -81,8 +79,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 transform: [
                   {
                     scale: dot3.interpolate({
-
-                      inputRange: [0, 1],
+                      inputRange: [0, 1],  // verify: cleanup
                       outputRange: [0.7, 1],
                     }),
                   },
@@ -95,7 +92,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -110,6 +106,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 4,
     paddingHorizontal: 14,
     paddingVertical: 10,
+
   },
   dots: {
     flexDirection: 'row',
@@ -120,7 +117,6 @@ const styles = StyleSheet.create({
     height: 6,
     borderRadius: 3,
     backgroundColor: '#737373',
-
   },
   nameText: {
     fontSize: 10,
