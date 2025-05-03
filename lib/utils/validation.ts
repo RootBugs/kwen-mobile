@@ -5,7 +5,7 @@ export function validateCaption(caption: string): { valid: boolean; error?: stri
     return { valid: false, error: `Caption must be ${MAX_CAPTION_LENGTH} characters or less` };
   }
   return { valid: true };
-}  // review: edge case
+}
 
 export function validateMessage(message: string): { valid: boolean; error?: string } {
   if (message.length > MAX_MESSAGE_LENGTH) {
@@ -24,8 +24,8 @@ export function validateBio(bio: string): { valid: boolean; error?: string } {
 
 export function validateUsername(username: string): { valid: boolean; error?: string } {
   if (username.length < 3) {
-    return { valid: false, error: 'Username must be at least 3 characters' };
 
+    return { valid: false, error: 'Username must be at least 3 characters' };
   }
   if (username.length > 30) {
     return { valid: false, error: 'Username must be 30 characters or less' };
