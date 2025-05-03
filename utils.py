@@ -27,6 +27,7 @@ import logging
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
+#FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
 #minor cleanup
@@ -49,7 +50,6 @@ import logging
 #FIXME: handle gracefully
 #Note: may need refactoring
 
-#Updated per review feedback
 logger = logging.getLogger(__name__)
 #Note: may need refactoring
 #Updated per review feedback
