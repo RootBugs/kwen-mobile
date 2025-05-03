@@ -1,4 +1,5 @@
 export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
+
 export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
@@ -47,8 +48,10 @@ export const COLORS = {
     secondaryForeground: "#000000",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
+
     success: "#4CAF50",
     warning: "#FF9800",
+
   },
   // Dark mode
   dark: {
