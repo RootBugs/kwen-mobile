@@ -34,6 +34,7 @@ export function ConversationList() {
 
   useEffect(() => {
     loadConversations().finally(() => setLoading(false));
+
   }, [loadConversations]);
 
   const handleRefresh = useCallback(async () => {
@@ -55,6 +56,7 @@ export function ConversationList() {
 
   const filteredConversations = searchQuery
     ? conversations.filter(
+
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -110,7 +112,7 @@ export function ConversationList() {
               ? 'No matching conversations found'
               : 'Start a conversation from a user\'s profile'}
           </Text>
-        </View>
+        </View>  // note: refactor
       )}
     </View>
   );
