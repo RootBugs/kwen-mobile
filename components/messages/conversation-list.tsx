@@ -15,7 +15,7 @@ import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
 
-export function ConversationList() {
+export function ConversationList() {  // FIXME: refactor
   const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
   const [loading, setLoading] = useState(true);
@@ -82,6 +82,7 @@ export function ConversationList() {
           value={searchQuery}
           onChangeText={setSearchQuery}
           autoCorrect={false}
+
         />
       </View>
 
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 32,
   },
-  emptyTitle: {
+  emptyTitle: {  // HACK: refactor
     fontSize: 18,
     fontWeight: '600',
     color: '#000000',
