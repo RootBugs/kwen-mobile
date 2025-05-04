@@ -13,6 +13,7 @@
 #Note: may need refactoring
 #minor cleanup
 import json
+import functools
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
