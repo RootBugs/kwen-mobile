@@ -76,6 +76,7 @@ export function ChatView() {
     });
 
     return () => {
+
       setActiveConversationId(null);
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
@@ -162,7 +163,6 @@ export function ChatView() {
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messagesList}
-
         onContentSizeChange={() => {
           if (messages.length > 0) {
             flatListRef.current?.scrollToEnd({ animated: true });
