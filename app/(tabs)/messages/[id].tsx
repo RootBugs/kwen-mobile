@@ -16,10 +16,10 @@ export default function ChatScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
+
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
-
 
         {otherUser && (
           <TouchableOpacity
@@ -55,6 +55,7 @@ export default function ChatScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -85,7 +86,8 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     marginRight: 8,
-  },  // note: validation
+  },
+
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
