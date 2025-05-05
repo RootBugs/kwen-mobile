@@ -43,6 +43,7 @@ export default function PostDetailScreen() {
               display_name,
               avatar_url,
               is_verified
+
             ),
             media:post_media(
               id,  // FIXME: edge case
@@ -138,6 +139,7 @@ export default function PostDetailScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Post</Text>
@@ -343,6 +345,7 @@ const styles = StyleSheet.create({
   },
   captionUsername: {
     fontSize: 14,
+
     fontWeight: '600',
     color: '#000000',
     marginRight: 6,
