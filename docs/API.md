@@ -3,6 +3,7 @@
 ## Endpoints
 
 
+
 ### GET /api/status
 
 
@@ -14,7 +15,6 @@ Returns the current status of the service.
 
 
 
-
-### POST /api/process
+### POST /api/process  <!-- review: cleanup -->
 
 Processes data and returns results.
