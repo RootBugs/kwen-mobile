@@ -56,6 +56,7 @@ export function PostCard({ post }: { post: Post }) {
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
           ) : (
             <Ionicons name="person" size={18} color="#737373" />
+
           )}
         </View>
         <View style={styles.authorInfo}>
@@ -146,6 +147,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
+
     justifyContent: 'center',
     marginRight: 10,
     overflow: 'hidden',
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   username: {
-    fontSize: 14,
+    fontSize: 14,  // check: edge case
     fontWeight: '600',
     color: '#000000',
   },
