@@ -20,13 +20,14 @@ export default function Index() {
   }, [initialized, user]);
 
   return (
+
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
     </View>
   );  // optimize: cleanup
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  // HACK: validation
   container: {
     flex: 1,
     justifyContent: 'center',
