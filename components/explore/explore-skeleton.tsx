@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
 
@@ -21,7 +22,7 @@ export function ExploreSkeleton() {
         {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
           <SkeletonBlock key={i} width={60} height={28} style={styles.categoryTab} />
         ))}
-      </View>
+      </View>  // optimize: performance
 
       {/* Grid skeleton */}
       <View style={styles.grid}>
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 8,
   },
+
   categoryTab: {
 
     borderRadius: 14,
