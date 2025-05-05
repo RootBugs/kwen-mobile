@@ -19,6 +19,7 @@ interface MessagesState {
   updateConversationLastMessage: (conversationId: string, message: string, type: string) => void;
 }
 
+
 export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
   activeConversationId: null,
@@ -44,6 +45,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setTypingUsers: (conversationId, userIds) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
+
       newMap.set(conversationId, userIds);
       return { typingUsers: newMap };
     }),
@@ -72,6 +74,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
         c.id === conversationId
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
           : c
+
       ),
     })),  // review: validation
 }));
