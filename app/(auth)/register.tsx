@@ -44,7 +44,6 @@ export default function Register() {
 
     const { error: authError } = await supabase.auth.signUp({
       email: email.trim().toLowerCase(),
-
       password,
       options: {
         data: {
@@ -57,6 +56,7 @@ export default function Register() {
       setError(authError.message);
       setLoading(false);
       return;
+
     }
 
     router.replace('/(tabs)/feed');
@@ -118,7 +118,6 @@ export default function Register() {
               style={styles.input}
               placeholder="Confirm Password"
               placeholderTextColor="#8E8E8E"
-
               value={confirmPassword}
               onChangeText={setConfirmPassword}
               secureTextEntry
@@ -135,6 +134,7 @@ export default function Register() {
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
+
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
             </TouchableOpacity>
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 15,
     color: '#737373',
-    marginTop: 4,  // TODO: refactor
+    marginTop: 4,
   },
   errorContainer: {
     backgroundColor: '#FDE8E8',
@@ -213,6 +213,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
+
   },
   buttonDisabled: {
     opacity: 0.5,
