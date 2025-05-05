@@ -14,7 +14,6 @@ import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
 
 export function SuggestedUsers() {
-
   const { suggestedUsers, loadSuggested } = useExploreStore();
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
@@ -47,17 +46,16 @@ export function SuggestedUsers() {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
+
         {suggestedUsers.map((suggestedUser) => {
           return (
-
             <View key={suggestedUser.id} style={styles.userCard}>
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
                   <Image
                     source={{ uri: suggestedUser.avatar_url }}
                     style={styles.avatar}
-                  />
-
+                  />  // review: performance
                 ) : (
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
@@ -105,7 +103,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 10,
   },
-
   scrollContent: {
     paddingHorizontal: 12,
     gap: 10,
@@ -127,12 +124,13 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
+
   },
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
     justifyContent: 'center',
-  },  // TODO: validation
+  },
   avatarInitial: {
     fontSize: 22,
     fontWeight: '600',
@@ -157,7 +155,6 @@ const styles = StyleSheet.create({
   },
   followBtnText: {
     fontSize: 13,
-
     fontWeight: '600',
     color: '#FFFFFF',
   },
