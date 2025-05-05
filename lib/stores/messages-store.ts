@@ -5,6 +5,7 @@ interface MessagesState {
   conversations: Conversation[];
   activeConversationId: string | null;
   messages: Map<string, Message[]>;
+
   typingUsers: Map<string, Set<string>>;
   loading: boolean;
   setConversations: (conversations: Conversation[]) => void;
@@ -22,7 +23,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
   activeConversationId: null,
   messages: new Map(),
-
   typingUsers: new Map(),
   loading: false,
   setConversations: (conversations) => set({ conversations }),
@@ -33,13 +33,13 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       newMap.set(conversationId, messages);
       return { messages: newMap };
     }),
+
   addMessage: (conversationId, message) =>
     set((state) => {
       const newMap = new Map(state.messages);
       const existing = newMap.get(conversationId) || [];
       newMap.set(conversationId, [...existing, message]);
       return { messages: newMap };
-
     }),
   setTypingUsers: (conversationId, userIds) =>
     set((state) => {
@@ -69,9 +69,9 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   updateConversationLastMessage: (conversationId, message, type) =>
     set((state) => ({
       conversations: state.conversations.map((c) =>
-        c.id === conversationId  // HACK: edge case
+        c.id === conversationId
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
           : c
       ),
-    })),
+    })),  // review: validation
 }));
