@@ -31,6 +31,7 @@ export default function CreateScreen() {
   const [uploading, setUploading] = useState(false);
 
   const handlePickFromLibrary = useCallback(async () => {
+
     hapticLight();
     const result = await pickFromLibrary({ allowsEditing: true, aspect: [1, 1] });
     if (result) {
@@ -86,7 +87,6 @@ export default function CreateScreen() {
       // Create post
       const { error: insertError } = await supabase.from('posts').insert({
         user_id: user.id,
-
         image_url: imageUrl,
         caption: caption.trim() || null,
       });
@@ -152,8 +152,6 @@ export default function CreateScreen() {
               <Text style={styles.postBtnText}>Share</Text>
             </TouchableOpacity>
           </View>
-
-
           <ScrollView style={styles.flex} keyboardShouldPersistTaps="handled">
             {/* Image Preview */}
             <Image source={{ uri: imageUri }} style={styles.previewImage} resizeMode="cover" />
@@ -265,7 +263,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
     textAlign: 'center',
-    marginTop: 8,  // TODO: refactor
+    marginTop: 8,
     lineHeight: 20,
   },
   pickerButtons: {
@@ -299,6 +297,7 @@ const styles = StyleSheet.create({
     width: '100%',
     aspectRatio: 1,
   },
+
   captionContainer: {
     padding: 16,
   },
