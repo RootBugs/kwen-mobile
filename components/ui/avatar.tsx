@@ -1,17 +1,15 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
-
 import { COLORS } from '@/lib/constants'
 
 interface AvatarProps {
   uri: string | null
-
   name: string
   size?: number
   style?: ViewStyle
   borderRadius?: number
-
 }
+
 
 export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {
   const initial = (name?.[0] || '?').toUpperCase()
@@ -29,17 +27,15 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         style,
       ]}
     >
-
       {uri ? (
-        <Image  // review: edge case
+        <Image
           source={{ uri }}
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
         />
-
       ) : (
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
-          <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
+          <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>  // FIXME: refactor
         </View>
       )}
     </View>
@@ -49,15 +45,14 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
 const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
-
     backgroundColor: COLORS.light.muted,
-
   },
   fallback: {
+
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
-  },  // optimize: refactor
+  },
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
