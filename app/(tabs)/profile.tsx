@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
-
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -37,7 +36,8 @@ export default function Profile() {
 
         <View style={styles.stats}>
           <View style={styles.stat}>
-            <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>  // TODO: refactor
+            <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
+
             <Text style={styles.statLabel}>Posts</Text>
           </View>
           <View style={styles.stat}>
@@ -49,6 +49,7 @@ export default function Profile() {
             <Text style={styles.statLabel}>Following</Text>
           </View>
         </View>
+
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
         </TouchableOpacity>
@@ -56,6 +57,7 @@ export default function Profile() {
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -92,7 +94,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 16,
-
   },
   displayName: {
     fontSize: 20,
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
     marginBottom: 8,
+
   },
   bio: {
     fontSize: 14,
@@ -111,10 +113,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
-
   stats: {
     flexDirection: 'row',
-
     gap: 32,
     marginBottom: 20,
   },
