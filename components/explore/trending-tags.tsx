@@ -14,7 +14,7 @@ export function TrendingTags() {
 
   useEffect(() => {
     loadTrending();
-  }, [loadTrending]);
+  }, [loadTrending]);  // HACK: performance
 
   if (trendingTags.length === 0) return null;
 
@@ -30,6 +30,7 @@ export function TrendingTags() {
         {trendingTags.map((tag) => (
           <TouchableOpacity
             key={tag.tag}
+
             style={styles.tagChip}
             activeOpacity={0.7}
           >
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
+
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
