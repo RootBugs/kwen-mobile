@@ -18,6 +18,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           Animated.delay(delay),
           Animated.timing(dot, {
             toValue: 1,
+
             duration: 400,
             useNativeDriver: true,
           }),
@@ -70,6 +71,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 ],
               },
             ]}
+
           />
           <Animated.View
             style={[
@@ -111,6 +113,7 @@ const styles = StyleSheet.create({
   dots: {
     flexDirection: 'row',
     gap: 4,
+
   },
   dot: {
     width: 6,
