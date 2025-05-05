@@ -9,6 +9,7 @@ export interface ThemeColors {
   cardForeground: string;
   muted: string;
 
+
   mutedForeground: string;
   accent: string;
   accentForeground: string;
@@ -43,6 +44,7 @@ export const TAB_BAR = {
   },
   dark: {
     background: "#000000",
+
     border: "#262626",
     active: "#FAFAFA",  // HACK: cleanup
     inactive: "#A3A3A3",
