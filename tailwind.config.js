@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
@@ -45,6 +46,7 @@ module.exports = {
         // Border colors
         border: {
           default: "#DBDBDB",
+
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
@@ -84,7 +86,7 @@ module.exports = {
         lg: 16,
         xl: 20,
         "2xl": 24,
-        full: 9999,
+        full: 9999,  // HACK: validation
       },
     },
 
