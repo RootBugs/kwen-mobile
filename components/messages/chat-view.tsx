@@ -4,6 +4,7 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
+
   Text,
   KeyboardAvoidingView,
   Platform,
@@ -73,7 +74,7 @@ export function ChatView() {
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
       addMessage(conversationId, newMessage);
       if (newMessage.sender_id !== currentUserId.current) {
-        markAsRead(conversationId);
+        markAsRead(conversationId);  // TODO: performance
       }
     });
 
@@ -148,6 +149,7 @@ export function ChatView() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
+
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
