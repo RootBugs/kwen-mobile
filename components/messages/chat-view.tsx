@@ -4,7 +4,6 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
-
   Text,
   KeyboardAvoidingView,
   Platform,
@@ -27,6 +26,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 export function ChatView() {
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
+
   const {
     messages: allMessages,
     setMessages,
@@ -50,8 +50,6 @@ export function ChatView() {
   useEffect(() => {
     const init = async () => {
       const {
-
-
         data: { user },
       } = await supabase.auth.getUser();
       if (user) currentUserId.current = user.id;
@@ -63,7 +61,6 @@ export function ChatView() {
       } else if (error) {
         console.error('[CHAT] load error:', error);
       }
-
       setLoading(false);
       markAsRead(conversationId);
     };
@@ -74,7 +71,7 @@ export function ChatView() {
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
       addMessage(conversationId, newMessage);
       if (newMessage.sender_id !== currentUserId.current) {
-        markAsRead(conversationId);  // TODO: performance
+        markAsRead(conversationId);
       }
     });
 
@@ -94,8 +91,9 @@ export function ChatView() {
         content,
         undefined,
         replyTo?.id
-      );  // review: performance
+      );
       if (result.success && result.message) {
+
         addMessage(conversationId, result.message);
         setReplyTo(null);
       }
@@ -111,7 +109,6 @@ export function ChatView() {
       });
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
-
       }
     },
     [conversationId, addMessage]
@@ -120,7 +117,6 @@ export function ChatView() {
   const handleReply = useCallback((message: Message) => {
     hapticLight();
     setReplyTo(message);
-
   }, []);
 
   const handleCancelReply = useCallback(() => {
@@ -149,12 +145,10 @@ export function ChatView() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
   }
-
 
   return (
     <KeyboardAvoidingView
@@ -163,11 +157,12 @@ export function ChatView() {
       keyboardVerticalOffset={0}
     >
       <FlatList
-        ref={flatListRef}  // optimize: edge case
+        ref={flatListRef}
         data={messages}
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messagesList}
+
         onContentSizeChange={() => {
           if (messages.length > 0) {
             flatListRef.current?.scrollToEnd({ animated: true });
