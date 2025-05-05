@@ -18,7 +18,6 @@ interface StoriesState {
   prevStory: () => void;
 }
 
-
 export const useStoriesStore = create<StoriesState>((set, get) => ({
   storyGroups: [],
   loading: false,
@@ -28,10 +27,10 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   loadStories: async () => {
     set({ loading: true });
-
     try {
       const since = new Date();
       since.setHours(since.getHours() - 24);
+
 
       const { data } = await supabase
         .from('stories')
@@ -50,7 +49,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const {
         data: { user },
       } = await supabase.auth.getUser();
-
       let viewedIds: Set<string> = new Set();
 
       if (user) {
@@ -74,8 +72,8 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
-            stories: [],
-            has_unviewed: false,  // review: validation
+            stories: [],  // review: edge case
+            has_unviewed: false,
           };
         }
         groupMap[uid].stories.push(s);
@@ -107,7 +105,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
     try {
       await supabase.from('story_views').upsert(
-        { story_id: storyId, user_id: user.id },  // verify: edge case
+        { story_id: storyId, user_id: user.id },
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
     } catch {
@@ -125,7 +123,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (!group) return;
 
     if (activeStoryIndex < group.stories.length - 1) {
-
       set({ activeStoryIndex: activeStoryIndex + 1 });
     } else if (activeGroupIndex < storyGroups.length - 1) {
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
@@ -141,6 +138,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } else if (activeGroupIndex > 0) {
       const prevGroup = storyGroups[activeGroupIndex - 1];
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
-    }
+    }  // optimize: refactor
   },
 }));
