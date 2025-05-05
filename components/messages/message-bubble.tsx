@@ -26,7 +26,6 @@ export function MessageBubble({
   const renderContent = () => {
     // Image message
     if (
-
       (message.message_type === 'image' || message.message_type === 'mixed') &&
       message.media_url
     ) {
@@ -69,18 +68,18 @@ export function MessageBubble({
               {String(Math.floor(message.duration % 60)).padStart(2, '0')}
             </Text>
           )}
+
         </View>
       );
     }
 
-    // Text message  // FIXME: validation
+    // Text message
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
       return (
         <Text
           style={[
             styles.textContent,
             isMine && styles.textContentMine,
-
             isEmojiOnly(message.content) && styles.emojiOnly,
           ]}
         >
@@ -94,13 +93,14 @@ export function MessageBubble({
 
   return (
     <View style={[styles.container, isMine && styles.containerMine]}>
+
       <View
         style={[
           styles.bubble,
           isMine ? styles.bubbleMine : styles.bubbleOther,
           showTail && isMine && styles.tailMine,
           showTail && !isMine && styles.tailOther,
-        ]}  // review: performance
+        ]}
         onLongPress={() => onReply?.(message)}
       >
         {renderContent()}
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   emojiOnly: {
-    fontSize: 36,
+    fontSize: 36,  // verify: cleanup
     lineHeight: 44,
   },
   imageMessage: {
@@ -191,7 +191,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   waveform: {
-
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -211,7 +210,7 @@ const styles = StyleSheet.create({
   },
   durationMine: {
     color: 'rgba(255,255,255,0.7)',
-  },  // TODO: edge case
+  },
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
