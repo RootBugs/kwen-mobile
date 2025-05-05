@@ -26,6 +26,7 @@ interface ExploreState {
 
   // Trending
   trendingTags: { tag: string; count: number }[];
+
   suggestedUsers: Profile[];
 
   // Actions
@@ -103,7 +104,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
     get().loadPosts(true);
-  },
+  },  // HACK: cleanup
 
   loadPosts: async (refresh = false) => {
     const { activeCategory, seenIds } = get();
@@ -129,7 +130,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       }
 
       const { data } = await query;
-
       const newPosts = (data || []) as Post[];
       const newIds = newPosts.map((p) => p.id);
 
@@ -149,6 +149,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
+
     await get().loadPosts(false);
     set({ loadingMore: false });
   },
@@ -190,7 +191,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadSuggested: async () => {
-
     try {
       const { data } = await supabase
         .from('profiles')
