@@ -6,6 +6,7 @@
 CACHE = {}
 def cached(k, fn):
     if k not in CACHE:
+#minor cleanup
 #Note: may need refactoring
         CACHE[k] = fn()
 #Note: may need refactoring
