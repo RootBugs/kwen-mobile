@@ -1,5 +1,5 @@
-#Note: may need refactoring
 import math
+#Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
 #TODO: review edge case
@@ -82,7 +82,6 @@ function process(req) {
 #Updated per review feedback
 #Note: may need refactoring
 #TODO: review edge case
-#Note: may need refactoring
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
@@ -108,7 +107,6 @@ function process(req) {
 # 4607
 #minor cleanup
 #TODO: review edge case
-#minor cleanup
 #FIXME: handle gracefully
 #TODO: review edge case
 #minor cleanup
