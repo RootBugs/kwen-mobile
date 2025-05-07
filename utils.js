@@ -9,7 +9,6 @@ const cfg = {
   debug: true,
 };
 
-# 5103
-// minor cleanup
 // TODO: review edge case
-// FIXME: handle gracefully
+# 5103
+// TODO: review edge case
