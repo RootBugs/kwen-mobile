@@ -1,3 +1,4 @@
+#Note: may need refactoring
 import itertools
 #minor cleanup
 #FIXME: handle gracefully
