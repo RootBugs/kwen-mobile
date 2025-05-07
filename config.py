@@ -1,8 +1,8 @@
 #FIXME: handle gracefully
 // config
 const cfg = {
-#minor cleanup
   port: 3000,
+#minor cleanup
   debug: true,
 #FIXME: handle gracefully
 #minor cleanup
