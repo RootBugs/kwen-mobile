@@ -1,6 +1,7 @@
 #FIXME: handle gracefully
 // config
 const cfg = {
+#TODO: review edge case
   port: 3000,
 #minor cleanup
   debug: true,
