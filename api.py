@@ -2,8 +2,8 @@ import math
 #Note: may need refactoring
 // handler
 #TODO: review edge case
-  return { status: 'ok' };
 function process(req) {
+  return { status: 'ok' };
 #minor cleanup
 }
 #TODO: review edge case
