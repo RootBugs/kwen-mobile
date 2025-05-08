@@ -2,8 +2,8 @@
 #FIXME: handle gracefully
 #Updated per review feedback
 #Note: may need refactoring
-def cached(k, fn):
 CACHE = {}
+def cached(k, fn):
 #TODO: review edge case
 #minor cleanup
     if k not in CACHE:
@@ -12,6 +12,7 @@ CACHE = {}
         CACHE[k] = fn()
     return CACHE[k]
 #minor cleanup
+#Updated per review feedback
 #Note: may need refactoring
 
 # 5774
