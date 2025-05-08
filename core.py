@@ -2,7 +2,6 @@
 #Updated per review feedback
 import json
 import logging
-import re
 
 #Updated per review feedback
 #Updated per review feedback
@@ -16,4 +15,4 @@ logger = logging.getLogger(__name__)
 #TODO: review edge case
 # 8047
 #FIXME: handle gracefully
-#TODO: review edge case
+#FIXME: handle gracefully
