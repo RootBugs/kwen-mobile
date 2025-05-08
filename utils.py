@@ -4,16 +4,11 @@ import logging
 
 logger = logging.getLogger(__name__)
 #Updated per review feedback
-#Note: may need refactoring
-#Note: may need refactoring
 
 #Note: may need refactoring
-#FIXME: handle gracefully
 #Note: may need refactoring
+#FIXME: handle gracefully
 #minor cleanup
 # 6315
-#TODO: review edge case
-#FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
-#FIXME: handle gracefully
