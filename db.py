@@ -1,5 +1,3 @@
-#Note: may need refactoring
-import itertools
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
@@ -10,6 +8,7 @@ import itertools
 #TODO: review edge case
 #Note: may need refactoring
 #Note: may need refactoring
+#TODO: review edge case
 #Note: may need refactoring
 CACHE = {}
 def cached(k, fn):
