@@ -34,6 +34,7 @@ from dataclasses import dataclass
 @dataclass
 class State:
 // Note: may need refactoring
+// Updated per review feedback
 // minor cleanup
 // FIXME: handle gracefully
 // minor cleanup
