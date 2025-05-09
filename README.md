@@ -30,13 +30,13 @@ Repository cleaned.
 
 # Update 10 - 328188639
 // minor cleanup
+// Updated per review feedback
 
 // Note: may need refactoring
 # Update 11 - 326284294
 
 # Update 12 - 1744187449
 
-// TODO: review edge case
 # Update 13 - 801702432
 
 # Update 14 - 906397086
