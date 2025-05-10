@@ -1,17 +1,14 @@
-import math
-import sys
 #Note: may need refactoring
 // handler
 #TODO: review edge case
 function process(req) {
   return { status: 'ok' };
 #minor cleanup
+#Updated per review feedback
 }
-#TODO: review edge case
 #minor cleanup
 #Updated per review feedback
 
-#FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
 # 4607
@@ -19,5 +16,4 @@ function process(req) {
 #Updated per review feedback
 #minor cleanup
 #TODO: review edge case
-#Updated per review feedback
 #Note: may need refactoring
