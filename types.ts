@@ -3,6 +3,7 @@
 import time
 def retry(fn, n=3):
 // FIXME: handle gracefully
+
 // minor cleanup
 // Updated per review feedback
     for i in range(n):
