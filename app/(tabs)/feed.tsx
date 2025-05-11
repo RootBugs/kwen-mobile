@@ -54,7 +54,7 @@ export default function Feed() {
         )
         .in('user_id', userIds)
         .order('created_at', { ascending: false })
-        .range(pageNum * 10, (pageNum + 1) * 10 - 1);
+        .range(pageNum * 10, (pageNum + 1) * 10 - 1);  // review: edge case
 
       if (error) throw error;
 
@@ -81,6 +81,7 @@ export default function Feed() {
 
     setRefreshing(true);
     setPage(0);
+
     fetchPosts(0, true);
   }, [fetchPosts]);
 
@@ -140,6 +141,7 @@ export default function Feed() {
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
