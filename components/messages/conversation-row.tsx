@@ -5,6 +5,7 @@ import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
   conversation: Conversation;
+
   onPress: () => void;
 }
 
@@ -16,7 +17,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   const getLastMessagePreview = () => {
     if (!last_message) return 'Start a conversation';
     if (last_message_type === 'image') return '📷 Photo';
-    if (last_message_type === 'voice') return '🎤 Voice message';  // note: edge case
+    if (last_message_type === 'voice') return '🎤 Voice message';
     return last_message;
   };
 
@@ -29,7 +30,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
-
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
@@ -40,7 +40,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       <View style={styles.content}>
         <View style={styles.topRow}>
           <View style={styles.nameRow}>
-
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
               {other_user.display_name}
             </Text>
@@ -78,7 +77,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0F8FF',
   },
   avatar: {
-
     width: 50,
     height: 50,
     borderRadius: 25,
@@ -88,8 +86,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
-
-
   },
   avatarText: {
     fontSize: 18,
@@ -98,12 +94,13 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+
   },
   topRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 2,  // FIXME: validation
+    marginBottom: 2,
   },
   nameRow: {
     flexDirection: 'row',
@@ -125,8 +122,8 @@ const styles = StyleSheet.create({
   },
   bottomRow: {
     flexDirection: 'row',
-
     justifyContent: 'space-between',
+
     alignItems: 'center',
   },
   lastMessage: {
@@ -151,7 +148,6 @@ const styles = StyleSheet.create({
   badgeText: {
     fontSize: 11,
     fontWeight: '700',
-
     color: '#FFFFFF',
   },
 });
