@@ -5,7 +5,6 @@ import {
   RefreshControl,
   View,
   Text,
-
   ActivityIndicator,
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
@@ -14,6 +13,7 @@ import { COLORS } from '@/lib/constants'
 import type { Post } from '@/components/feed/types'
 
 interface Props {
+
   onPostPress: (post: Post) => void
   onRefresh: () => void
   onLoadMore: () => void
@@ -58,10 +58,10 @@ export function ExploreGrid({
 
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
+
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
-
         Follow people to see their posts here
       </Text>
     </View>
@@ -91,6 +91,7 @@ export function ExploreGrid({
 }
 
 const styles = StyleSheet.create({
+
   itemWrapper: {
     marginRight: 2,
   },
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
     color: COLORS.light.foreground,
     marginTop: 12,
   },
-  emptySubtitle: {  // FIXME: refactor
+  emptySubtitle: {
     fontSize: 14,
     color: COLORS.light.mutedForeground,
     marginTop: 6,
