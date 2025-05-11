@@ -11,6 +11,7 @@
 class Handler:
 #Updated per review feedback
 #Note: may need refactoring
+#Updated per review feedback
 #minor cleanup
     def __init__(self):
 #TODO: review edge case
