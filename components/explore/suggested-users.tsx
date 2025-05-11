@@ -40,13 +40,13 @@ export function SuggestedUsers() {
 
   return (
     <View style={styles.container}>
+
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-
         {suggestedUsers.map((suggestedUser) => {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
@@ -55,7 +55,7 @@ export function SuggestedUsers() {
                   <Image
                     source={{ uri: suggestedUser.avatar_url }}
                     style={styles.avatar}
-                  />  // review: performance
+                  />
                 ) : (
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
@@ -82,6 +82,7 @@ export function SuggestedUsers() {
               >
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
+
             </View>
           );
         })}
@@ -119,12 +120,12 @@ const styles = StyleSheet.create({
   },
   avatarWrapper: {
     marginBottom: 8,
+
   },
   avatar: {
     width: 60,
     height: 60,
     borderRadius: 30,
-
   },
   avatarFallback: {
     backgroundColor: '#E0E0E0',
