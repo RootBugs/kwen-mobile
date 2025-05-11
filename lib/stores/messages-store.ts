@@ -15,9 +15,8 @@ interface MessagesState {
   addTypingUser: (conversationId: string, userId: string) => void;
   removeTypingUser: (conversationId: string, userId: string) => void;
   setLoading: (loading: boolean) => void;
-  updateConversationLastMessage: (conversationId: string, message: string, type: string) => void;
+  updateConversationLastMessage: (conversationId: string, message: string, type: string) => void;  // HACK: refactor
 }
-
 
 export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
@@ -32,7 +31,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
       return { messages: newMap };
-
     }),
   addMessage: (conversationId, message) =>
     set((state) => {
@@ -44,6 +42,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setTypingUsers: (conversationId, userIds) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
+
       newMap.set(conversationId, userIds);
       return { typingUsers: newMap };
     }),
@@ -58,6 +57,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   removeTypingUser: (conversationId, userId) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
+
       const existing = newMap.get(conversationId);
       if (existing) {
         existing.delete(userId);
@@ -67,7 +67,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     }),
   setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>
-
     set((state) => ({
       conversations: state.conversations.map((c) =>
         c.id === conversationId
