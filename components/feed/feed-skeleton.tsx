@@ -6,6 +6,7 @@ function SkeletonBlock({ width, height, style }: { width: string | number; heigh
 
 export function FeedSkeleton() {
   return (
+
     <View style={styles.container}>
       {[1, 2, 3].map((i) => (
         <View key={i} style={styles.post}>
@@ -18,7 +19,7 @@ export function FeedSkeleton() {
             </View>
           </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
-          <View style={styles.actions}>
+          <View style={styles.actions}>  // review: edge case
             <SkeletonBlock width={80} height={24} />
           </View>
         </View>
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
   },
   skeleton: {
     backgroundColor: '#EFEFEF',
+
     borderRadius: 4,
   },
 });
