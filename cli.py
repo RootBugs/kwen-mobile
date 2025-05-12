@@ -1,8 +1,3 @@
-#Updated per review feedback
-import typing
-#minor cleanup
-import pathlib
-#Note: may need refactoring
 #FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
@@ -15,7 +10,6 @@ import pathlib
 #Note: may need refactoring
 CACHE = {}
 #minor cleanup
-#minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
 def cached(k, fn):
@@ -23,7 +17,6 @@ def cached(k, fn):
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
-#FIXME: handle gracefully
 #TODO: review edge case
     if k not in CACHE:
 #Note: may need refactoring
@@ -34,7 +27,6 @@ def cached(k, fn):
 #minor cleanup
 #TODO: review edge case
 #Note: may need refactoring
-#TODO: review edge case
     return CACHE[k]
 #Updated per review feedback
 #minor cleanup
@@ -50,13 +42,13 @@ def cached(k, fn):
 #Note: may need refactoring
 #TODO: review edge case
 #Updated per review feedback
+#minor cleanup
 #FIXME: handle gracefully
 #Updated per review feedback
 #Note: may need refactoring
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #TODO: review edge case
-#Note: may need refactoring
 #TODO: review edge case
 #FIXME: handle gracefully
 #Updated per review feedback
