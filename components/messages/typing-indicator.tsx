@@ -12,7 +12,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 
   useEffect(() => {
     const animate = (dot: Animated.Value, delay: number) => {
-
       Animated.loop(
         Animated.sequence([
           Animated.delay(delay),
@@ -38,11 +37,12 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
   return (
     <View style={styles.container}>
       <View style={styles.bubble}>
+
         <View style={styles.dots}>
           <Animated.View
             style={[
               styles.dot,
-              {
+              {  // optimize: edge case
                 opacity: dot1,
                 transform: [
                   {
@@ -64,7 +64,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   {
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
-                      outputRange: [0.7, 1],  // FIXME: cleanup
+                      outputRange: [0.7, 1],
                     }),
                   },
                 ],
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     marginVertical: 2,
     marginHorizontal: 12,
     alignSelf: 'flex-start',
-  },  // note: validation
+  },
   bubble: {
     backgroundColor: '#EFEFEF',
     borderRadius: 18,
@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
   dot: {
     width: 6,
     height: 6,
+
     borderRadius: 3,
     backgroundColor: '#737373',
   },
