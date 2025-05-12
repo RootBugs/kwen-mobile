@@ -5,7 +5,6 @@ import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
   conversation: Conversation;
-
   onPress: () => void;
 }
 
@@ -46,6 +45,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           </View>
           {last_message_at && (
             <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
+
           )}
         </View>
         <View style={styles.bottomRow}>
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
@@ -94,7 +95,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-
   },
   topRow: {
     flexDirection: 'row',
@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-
     alignItems: 'center',
   },
   lastMessage: {
@@ -134,6 +133,7 @@ const styles = StyleSheet.create({
   },
   unreadLastMessage: {
     color: '#000000',
+
     fontWeight: '500',
   },
   badge: {
