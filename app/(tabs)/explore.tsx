@@ -11,7 +11,7 @@ import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
-export default function ExploreScreen() {  // FIXME: refactor
+export default function ExploreScreen() {
   const {
     posts,
     loading,
@@ -22,7 +22,7 @@ export default function ExploreScreen() {  // FIXME: refactor
 
   const [refreshing, setRefreshing] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => {  // FIXME: refactor
     loadPosts(true);
   }, [loadPosts]);
 
@@ -33,6 +33,7 @@ export default function ExploreScreen() {  // FIXME: refactor
   }, [loadPosts]);
 
   const handleLoadMore = useCallback(async () => {
+
     await loadMore();
   }, [loadMore]);
 
@@ -50,7 +51,6 @@ export default function ExploreScreen() {  // FIXME: refactor
 
   return (
     <SafeAreaView style={styles.container}>
-
       <View style={styles.header}>
         <ExploreSearch />
       </View>
@@ -73,7 +73,6 @@ export default function ExploreScreen() {  // FIXME: refactor
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -81,6 +80,7 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomWidth: 0.5,
+
     borderBottomColor: COLORS.light.border,
   },
 });
