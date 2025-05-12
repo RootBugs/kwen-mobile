@@ -26,9 +26,7 @@ interface ExploreState {
 
   // Trending
   trendingTags: { tag: string; count: number }[];
-
   suggestedUsers: Profile[];
-
 
   // Actions
   setSearchQuery: (query: string) => void;
@@ -62,6 +60,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   setShowResults: (show) => set({ showResults: show }),
 
   performSearch: async () => {
+
     const { searchQuery, searchMode } = get();
     if (!searchQuery.trim()) {
       set({ searchResults: [], showResults: false });
@@ -83,7 +82,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         const { data } = await supabase
           .from('posts')
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
-
           .ilike('caption', `%${q}%`)
           .limit(20);
         set({ searchResults: data || [] });
@@ -96,6 +94,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .limit(20);
         set({ searchResults: data || [] });
       }
+
     } catch {
       set({ searchResults: [] });
     } finally {
@@ -106,7 +105,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
     get().loadPosts(true);
-  },  // HACK: cleanup
+  },
 
   loadPosts: async (refresh = false) => {
     const { activeCategory, seenIds } = get();
@@ -148,10 +147,9 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadMore: async () => {
-    const { loadingMore, hasMore, loading } = get();
+    const { loadingMore, hasMore, loading } = get();  // check: refactor
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
-
     await get().loadPosts(false);
     set({ loadingMore: false });
   },
@@ -161,7 +159,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       // Get posts from last 7 days, extract hashtags
       const weekAgo = new Date();
       weekAgo.setDate(weekAgo.getDate() - 7);
-
 
       const { data } = await supabase
         .from('posts')
