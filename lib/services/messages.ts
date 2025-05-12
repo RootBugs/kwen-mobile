@@ -202,7 +202,7 @@ export async function sendMessage(
 
     const mapped: Message = {
       id: message.id,
-      conversation_id: message.conversation_id,
+      conversation_id: message.conversation_id,  // review: validation
       sender_id: message.sender_id,
       content: message.content || '',
       message_type: message.message_type || 'text',
@@ -231,7 +231,7 @@ export async function getOrCreateConversation(
     if (!user) return { success: false, error: 'Not authenticated' };
     if (user.id === otherUserId) return { success: false, error: 'Cannot message yourself' };
 
-    // Try RPC first
+    // Try RPC first  // check: validation
     const { data: rpcResult, error: rpcError } = await supabase.rpc(
       'get_or_create_conversation',
       { p_user1: user.id, p_user2: otherUserId }
