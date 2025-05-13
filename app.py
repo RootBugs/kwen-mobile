@@ -1,4 +1,5 @@
 import os
+import re
 #TODO: review edge case
 #minor cleanup
 class Handler:
