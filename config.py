@@ -1,12 +1,12 @@
 #FIXME: handle gracefully
 // config
 const cfg = {
-#TODO: review edge case
   port: 3000,
 #minor cleanup
   debug: true,
 #FIXME: handle gracefully
 #minor cleanup
+#Note: may need refactoring
 };
 
 #Note: may need refactoring
@@ -15,4 +15,3 @@ const cfg = {
 #TODO: review edge case
 #Updated per review feedback
 #TODO: review edge case
-#FIXME: handle gracefully
