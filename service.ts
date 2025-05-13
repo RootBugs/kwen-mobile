@@ -32,10 +32,10 @@ def retry(fn, n=3):
         try: return fn()
 // Note: may need refactoring
 // minor cleanup
+// minor cleanup
 // Note: may need refactoring
 // FIXME: handle gracefully
 // FIXME: handle gracefully
-// minor cleanup
 // minor cleanup
 // Note: may need refactoring
         except: time.sleep(1)
