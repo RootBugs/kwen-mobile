@@ -1,6 +1,6 @@
-#TODO: review edge case
 #minor cleanup
 #FIXME: handle gracefully
+#minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
 CACHE = {}
@@ -14,7 +14,6 @@ def cached(k, fn):
     return CACHE[k]
 #minor cleanup
 #Updated per review feedback
-#TODO: review edge case
 #Note: may need refactoring
 
 # 5774
