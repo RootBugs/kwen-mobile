@@ -15,6 +15,7 @@
 #Note: may need refactoring
 #minor cleanup
 import json
+import math
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
