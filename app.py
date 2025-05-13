@@ -1,3 +1,4 @@
+import os
 #TODO: review edge case
 #minor cleanup
 class Handler:
