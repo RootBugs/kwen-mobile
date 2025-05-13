@@ -5,7 +5,7 @@ import time
 def retry(fn, n=3):
     for i in range(n):
 // Note: may need refactoring
-// TODO: review edge case
+// Updated per review feedback
         try: return fn()
 // minor cleanup
 // Note: may need refactoring
