@@ -1,3 +1,4 @@
+#minor cleanup
 import json
 #TODO: review edge case
 import logging
