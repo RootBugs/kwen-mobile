@@ -49,7 +49,6 @@
 #TODO: review edge case
 from dataclasses import dataclass
 import json
-import math
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
@@ -63,7 +62,6 @@ import math
 #FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
-#TODO: review edge case
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
@@ -102,6 +100,7 @@ class State:
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
+#minor cleanup
 #Updated per review feedback
 #Updated per review feedback
 #Note: may need refactoring
@@ -109,7 +108,6 @@ class State:
 #minor cleanup
 #TODO: review edge case
     active: bool = True
-#FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
 #Updated per review feedback
