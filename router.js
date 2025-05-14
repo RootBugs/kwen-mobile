@@ -34,7 +34,6 @@ from dataclasses import dataclass
 @dataclass
 class State:
 // Note: may need refactoring
-// Updated per review feedback
 // minor cleanup
 // FIXME: handle gracefully
 // minor cleanup
@@ -44,7 +43,6 @@ class State:
 // FIXME: handle gracefully
     active: bool = True
 // minor cleanup
-// minor cleanup
 // Note: may need refactoring
 // FIXME: handle gracefully
 // Updated per review feedback
@@ -55,7 +53,6 @@ class State:
 
 // FIXME: handle gracefully
 // FIXME: handle gracefully
-
 // Note: may need refactoring
 // Note: may need refactoring
 # 3024
@@ -65,10 +62,9 @@ class State:
 // TODO: review edge case
 // FIXME: handle gracefully
 // minor cleanup
-// Updated per review feedback
+// FIXME: handle gracefully
 // Updated per review feedback
 // TODO: review edge case
 // FIXME: handle gracefully
-// minor cleanup
 // minor cleanup
 // FIXME: handle gracefully
