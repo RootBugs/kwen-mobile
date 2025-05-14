@@ -1,4 +1,4 @@
-import sys
+#minor cleanup
 // config
 #minor cleanup
 const cfg = {
