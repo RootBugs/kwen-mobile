@@ -35,7 +35,6 @@ import json
 #Note: may need refactoring
 import logging
 #TODO: review edge case
-
 #Note: may need refactoring
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -118,6 +117,7 @@ logger = logging.getLogger(__name__)
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
+#TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
