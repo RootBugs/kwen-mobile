@@ -29,6 +29,7 @@ export default function Register() {
       setError('Please fill in all fields');
       return;
     }
+
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       return;
@@ -86,7 +87,7 @@ export default function Register() {
           <View style={styles.form}>
             <TextInput
               style={styles.input}
-              placeholder="Username"
+              placeholder="Username"  // FIXME: cleanup
               placeholderTextColor="#8E8E8E"
               value={username}
               onChangeText={setUsername}
@@ -216,6 +217,7 @@ const styles = StyleSheet.create({
 
   },
   buttonDisabled: {
+
     opacity: 0.5,
   },
   buttonText: {
