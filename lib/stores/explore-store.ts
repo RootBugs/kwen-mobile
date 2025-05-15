@@ -20,6 +20,7 @@ interface ExploreState {
   posts: Post[];
   loading: boolean;
   loadingMore: boolean;
+
   hasMore: boolean;
   seenIds: string[];
   activeCategory: Category;
@@ -60,7 +61,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   setShowResults: (show) => set({ showResults: show }),
 
   performSearch: async () => {
-
     const { searchQuery, searchMode } = get();
     if (!searchQuery.trim()) {
       set({ searchResults: [], showResults: false });
@@ -94,7 +94,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .limit(20);
         set({ searchResults: data || [] });
       }
-
     } catch {
       set({ searchResults: [] });
     } finally {
@@ -134,6 +133,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       const newPosts = (data || []) as Post[];
       const newIds = newPosts.map((p) => p.id);
 
+
       set({
         posts: refresh ? newPosts : [...get().posts, ...newPosts],
         seenIds: refresh ? newIds : [...seenIds, ...newIds],
@@ -147,7 +147,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadMore: async () => {
-    const { loadingMore, hasMore, loading } = get();  // check: refactor
+    const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
     await get().loadPosts(false);
@@ -196,6 +196,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .from('profiles')
         .select('id, username, display_name, avatar_url, is_verified')
         .limit(10);
+
       set({ suggestedUsers: data || [] });
     } catch {
       // Silent fail
