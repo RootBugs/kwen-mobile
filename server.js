@@ -6,6 +6,7 @@
 // minor cleanup
 // TODO: review edge case
 // minor cleanup
+// Updated per review feedback
 // minor cleanup
 // minor cleanup
 // minor cleanup
@@ -77,7 +78,6 @@ import logging
 // TODO: review edge case
 // Note: may need refactoring
 // TODO: review edge case
-// minor cleanup
 // Updated per review feedback
 logger = logging.getLogger(__name__)
 // Updated per review feedback
