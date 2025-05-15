@@ -11,7 +11,7 @@ import {
   ActivityIndicator,
   Pressable,
 } from 'react-native';
-import { Link, router } from 'expo-router';  // TODO: cleanup
+import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -37,7 +37,6 @@ export default function Login() {
     });
 
     if (authError) {
-
       setError(authError.message);
       setLoading(false);
       return;
@@ -47,9 +46,10 @@ export default function Login() {
   }, [email, password]);
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>  // FIXME: edge case
+    <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+
         style={styles.flex}
       >
         <ScrollView
@@ -76,12 +76,12 @@ export default function Login() {
               placeholderTextColor="#8E8E8E"
               value={email}
               onChangeText={setEmail}
-
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
               returnKeyType="next"
             />
+
             <TextInput
               style={styles.input}
               placeholder="Password"
@@ -129,13 +129,11 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
   flex: {
-
     flex: 1,
   },
   scrollContent: {
@@ -154,7 +152,6 @@ const styles = StyleSheet.create({
     letterSpacing: -1,
   },
   errorContainer: {
-
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
@@ -173,7 +170,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
     borderColor: '#DBDBDB',
-
     borderRadius: 8,
     paddingHorizontal: 16,
     fontSize: 14,
@@ -190,7 +186,7 @@ const styles = StyleSheet.create({
   buttonDisabled: {
     opacity: 0.5,
   },
-  buttonText: {  // note: cleanup
+  buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
     fontWeight: '600',
@@ -203,7 +199,7 @@ const styles = StyleSheet.create({
     color: '#00376B',
     fontSize: 13,
   },
-  footer: {
+  footer: {  // note: validation
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
