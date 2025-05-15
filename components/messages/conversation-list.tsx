@@ -13,7 +13,7 @@ import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
-import { hapticLight } from '@/lib/utils/haptics';
+import { hapticLight } from '@/lib/utils/haptics';  // check: performance
 
 export function ConversationList() {  // FIXME: refactor
   const router = useRouter();
@@ -66,6 +66,7 @@ export function ConversationList() {  // FIXME: refactor
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
+
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
@@ -145,7 +146,6 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   searchInput: {
-
     flex: 1,
     fontSize: 14,
     color: '#000000',
