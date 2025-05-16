@@ -175,6 +175,7 @@ function process(req) {
 #minor cleanup
 #Updated per review feedback
 # 4607
+#Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
 #TODO: review edge case
