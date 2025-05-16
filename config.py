@@ -10,6 +10,7 @@ const cfg = {
 };
 
 #Note: may need refactoring
+#Updated per review feedback
 # 558
 #FIXME: handle gracefully
 #TODO: review edge case
