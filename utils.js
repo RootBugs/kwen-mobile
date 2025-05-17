@@ -8,8 +8,8 @@ const cfg = {
 // TODO: review edge case
 // FIXME: handle gracefully
 // TODO: review edge case
-  debug: true,
 };
+  debug: true,
 
 // TODO: review edge case
 # 5103
