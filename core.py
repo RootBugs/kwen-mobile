@@ -13,6 +13,7 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
+import functools
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
