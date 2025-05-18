@@ -1,5 +1,4 @@
 import math
-import re
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
@@ -20,7 +19,6 @@ import re
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
-#Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
@@ -50,6 +48,7 @@ function process(req) {
 #FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
+#Updated per review feedback
 #Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
