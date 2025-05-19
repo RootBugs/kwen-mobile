@@ -8,12 +8,11 @@ function process(req) {
 #Updated per review feedback
 }
 #minor cleanup
+#Note: may need refactoring
 #Updated per review feedback
 
 #minor cleanup
-#minor cleanup
 #TODO: review edge case
-#minor cleanup
 # 4607
 #Updated per review feedback
 #Updated per review feedback
