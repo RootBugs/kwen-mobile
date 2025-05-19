@@ -212,6 +212,7 @@ logger = logging.getLogger(__name__)
 #TODO: review edge case
 #FIXME: handle gracefully
 # 8047
+#Note: may need refactoring
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
