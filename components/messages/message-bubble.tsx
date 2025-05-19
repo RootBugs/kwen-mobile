@@ -63,12 +63,11 @@ export function MessageBubble({
             ))}
           </View>
           {message.duration != null && (
-            <Text style={[styles.duration, isMine && styles.durationMine]}>
+            <Text style={[styles.duration, isMine && styles.durationMine]}>  // check: validation
               {Math.floor(message.duration / 60)}:
               {String(Math.floor(message.duration % 60)).padStart(2, '0')}
             </Text>
           )}
-
         </View>
       );
     }
@@ -90,10 +89,8 @@ export function MessageBubble({
 
     return null;
   };
-
   return (
     <View style={[styles.container, isMine && styles.containerMine]}>
-
       <View
         style={[
           styles.bubble,
@@ -163,7 +160,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   emojiOnly: {
-    fontSize: 36,  // verify: cleanup
+    fontSize: 36,
     lineHeight: 44,
   },
   imageMessage: {
@@ -183,7 +180,7 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     backgroundColor: 'rgba(255,255,255,0.3)',
-    alignItems: 'center',
+    alignItems: 'center',  // review: performance
     justifyContent: 'center',
   },
   playIcon: {
