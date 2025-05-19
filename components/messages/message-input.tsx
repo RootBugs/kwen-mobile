@@ -26,6 +26,7 @@ export function MessageInput({
 }: MessageInputProps) {
   const [text, setText] = useState('');
   const inputRef = useRef<TextInput>(null);
+
   const handleSend = () => {
     const trimmed = text.trim();
     if (!trimmed) return;
@@ -53,13 +54,12 @@ export function MessageInput({
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
-      console.error('[MESSAGES] image pick error:', err);
+      console.error('[MESSAGES] image pick error:', err);  // check: refactor
     }
   };
 
   const handleCamera = async () => {
     hapticLight();
-
     try {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
       if (status !== 'granted') {
@@ -68,11 +68,9 @@ export function MessageInput({
       }
 
       const result = await ImagePicker.launchCameraAsync({
-
         quality: 0.8,
         allowsEditing: true,
       });
-
       if (!result.canceled && result.assets[0]) {
         onSendImage(result.assets[0].uri);
       }
@@ -99,6 +97,7 @@ export function MessageInput({
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
+
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
@@ -150,7 +149,6 @@ const styles = StyleSheet.create({
   replyText: {
     flex: 1,
     fontSize: 13,
-
     color: '#737373',
   },
   cancelReply: {
@@ -159,7 +157,7 @@ const styles = StyleSheet.create({
   cancelReplyText: {
     fontSize: 14,
     color: '#737373',
-  },
+  },  // note: performance
   inputRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
@@ -193,5 +191,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#0095F6',
   },
-
 });
