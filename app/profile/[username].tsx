@@ -33,6 +33,7 @@ export default function UserProfileScreen() {
     try {
       const { data, error } = await supabase
         .from('profiles')
+
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
         .eq('username', username)
         .single();
@@ -117,7 +118,6 @@ export default function UserProfileScreen() {
   }, [username]);
 
   useEffect(() => {
-
     const init = async () => {
       setLoading(true);
       await Promise.all([loadProfile(), loadPosts()]);
@@ -164,6 +164,7 @@ export default function UserProfileScreen() {
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Profile</Text>
+
           <View style={styles.headerSpacer} />
         </View>
         <View style={styles.emptyContainer}>
@@ -239,7 +240,7 @@ export default function UserProfileScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Posts grid */}  // check: cleanup
+        {/* Posts grid */}
         <View style={styles.postsSection}>
           {posts.length > 0 ? (
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
@@ -328,7 +329,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-  stat: {
+  stat: {  // note: refactor
     alignItems: 'center',
   },
   statNumber: {
@@ -387,7 +388,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   followingBtnText: {
-
     color: '#000000',
   },
   messageBtn: {
