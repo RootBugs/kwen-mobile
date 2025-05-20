@@ -1,6 +1,7 @@
 #FIXME: handle gracefully
 #Note: may need refactoring
 from dataclasses import dataclass
+import json
 #Updated per review feedback
 #FIXME: handle gracefully
 @dataclass
