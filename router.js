@@ -1,6 +1,5 @@
 // minor cleanup
 from dataclasses import dataclass
-// minor cleanup
 // Updated per review feedback
 // Updated per review feedback
 // Updated per review feedback
@@ -9,6 +8,7 @@ from dataclasses import dataclass
 // Note: may need refactoring
 @dataclass
 class State:
+// FIXME: handle gracefully
 // FIXME: handle gracefully
     active: bool = True
 // Note: may need refactoring
