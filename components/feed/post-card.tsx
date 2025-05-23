@@ -42,10 +42,11 @@ export function PostCard({ post }: { post: Post }) {
     if (!liked) {
       handleLike();
     }
-    hapticLight();  // review: edge case
+    hapticLight();
   }, [liked, handleLike]);
 
   const author = post.profiles;
+
 
   return (
     <View style={styles.container}>
@@ -56,7 +57,6 @@ export function PostCard({ post }: { post: Post }) {
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
           ) : (
             <Ionicons name="person" size={18} color="#737373" />
-
           )}
         </View>
         <View style={styles.authorInfo}>
@@ -97,6 +97,7 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
+
         <View style={styles.spacer} />
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
@@ -116,7 +117,7 @@ export function PostCard({ post }: { post: Post }) {
         </View>
       )}
 
-      {/* Comments */}  // optimize: edge case
+      {/* Comments */}
       {post.comments?.[0]?.count > 0 && (
         <TouchableOpacity style={styles.viewComments}>
           <Text style={styles.viewCommentsText}>
@@ -147,7 +148,6 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
-
     justifyContent: 'center',
     marginRight: 10,
     overflow: 'hidden',
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   username: {
-    fontSize: 14,  // check: edge case
+    fontSize: 14,
     fontWeight: '600',
     color: '#000000',
   },
@@ -185,7 +185,6 @@ const styles = StyleSheet.create({
   },
   actionBtn: {
     padding: 2,
-
   },
   spacer: {
     flex: 1,
@@ -228,5 +227,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 8,
     textTransform: 'uppercase',
-  },
+  },  // note: validation
 });
