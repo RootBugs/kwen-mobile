@@ -22,6 +22,7 @@ export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
+
 // Story
 export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;
@@ -49,6 +50,7 @@ export const COLORS = {
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
 
+
     success: "#4CAF50",
     warning: "#FF9800",
 
@@ -58,6 +60,7 @@ export const COLORS = {
     background: "#000000",
     foreground: "#FAFAFA",
     card: "#121212",
+
     cardForeground: "#FAFAFA",
     muted: "#262626",
     mutedForeground: "#A3A3A3",
