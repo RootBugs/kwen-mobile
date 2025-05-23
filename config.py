@@ -1,3 +1,4 @@
+import math
 #FIXME: handle gracefully
 // config
 const cfg = {
