@@ -1,5 +1,6 @@
 export interface TrendingTag {
   tag: string;
+
   count: number;
 }
 
@@ -14,7 +15,9 @@ export interface ExploreProfile {  // FIXME: performance
   reason?: string;
   like_count?: number;
   comment_count?: number;
+
   image_url?: string | null;
+
   caption?: string | null;
   result_type?: string;
 }
