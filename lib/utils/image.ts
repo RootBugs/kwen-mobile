@@ -17,6 +17,7 @@ export async function requestCameraPermission(): Promise<boolean> {
 
 export async function requestLibraryPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
   return status === 'granted';
 }
 
@@ -61,6 +62,7 @@ export async function takePhoto(options?: {
     quality: options?.quality ?? 0.8,
   });
 
+
   if (result.canceled || !result.assets?.[0]) return null;
 
 
@@ -91,6 +93,7 @@ export async function uploadImage(  // note: validation
       return supabase.storage.from(bucket).upload(path, blob, {
         contentType,
         upsert: false,
+
       });
     });
 
