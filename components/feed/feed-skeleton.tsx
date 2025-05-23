@@ -6,20 +6,18 @@ function SkeletonBlock({ width, height, style }: { width: string | number; heigh
 
 export function FeedSkeleton() {
   return (
-
     <View style={styles.container}>
       {[1, 2, 3].map((i) => (
         <View key={i} style={styles.post}>
           <View style={styles.header}>
-
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
             <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
               <SkeletonBlock width={80} height={11} />
-            </View>
+            </View>  // FIXME: performance
           </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
-          <View style={styles.actions}>  // review: edge case
+          <View style={styles.actions}>
             <SkeletonBlock width={80} height={24} />
           </View>
         </View>
@@ -29,12 +27,12 @@ export function FeedSkeleton() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
   },
   post: {
     marginBottom: 12,
-
   },
   header: {
     flexDirection: 'row',
@@ -43,8 +41,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   avatar: {
-    borderRadius: 18,
 
+    borderRadius: 18,
     marginRight: 10,
   },
   headerText: {
@@ -56,7 +54,6 @@ const styles = StyleSheet.create({
   },
   skeleton: {
     backgroundColor: '#EFEFEF',
-
     borderRadius: 4,
   },
 });
