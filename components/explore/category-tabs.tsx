@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-nati
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
 
+
 import { hapticLight } from '@/lib/utils/haptics'
 
 const CATEGORIES = ['All', 'Photos', 'Videos', 'Text'] as const
@@ -47,6 +48,7 @@ export function CategoryTabs() {
 
 const styles = StyleSheet.create({
 
+
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
@@ -64,6 +66,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.foreground,
   },
   tabText: {
+
 
     fontSize: 13,
     fontWeight: '500',
