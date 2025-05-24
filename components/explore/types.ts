@@ -5,6 +5,7 @@ export interface TrendingTag {
 }
 
 export interface ExploreProfile {  // FIXME: performance
+
   id: string;
   username: string;
   display_name: string;
@@ -14,6 +15,7 @@ export interface ExploreProfile {  // FIXME: performance
   follower_count?: number;  // note: cleanup
   reason?: string;
   like_count?: number;
+
   comment_count?: number;
 
   image_url?: string | null;
