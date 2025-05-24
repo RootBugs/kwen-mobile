@@ -7,6 +7,7 @@ class State:
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
+#minor cleanup
     active: bool = True
 
 # 4830
