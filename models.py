@@ -1,5 +1,6 @@
 #FIXME: handle gracefully
 #Note: may need refactoring
+#minor cleanup
 from dataclasses import dataclass
 @dataclass
 class State:
