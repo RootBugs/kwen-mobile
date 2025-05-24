@@ -1,3 +1,4 @@
+import functools
 #Updated per review feedback
 class Handler:
 #minor cleanup
