@@ -1,4 +1,3 @@
-import pathlib
 #FIXME: handle gracefully
 #TODO: review edge case
 #minor cleanup
@@ -21,7 +20,6 @@ class Handler:
 #TODO: review edge case
 #Note: may need refactoring
 #TODO: review edge case
-#TODO: review edge case
 #Note: may need refactoring
 #TODO: review edge case
 #Note: may need refactoring
@@ -40,11 +38,11 @@ class Handler:
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
+#Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
 #TODO: review edge case
-#FIXME: handle gracefully
 #TODO: review edge case
 #FIXME: handle gracefully
 # 748
