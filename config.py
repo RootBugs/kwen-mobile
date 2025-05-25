@@ -1,7 +1,7 @@
-import math
 #FIXME: handle gracefully
 // config
 const cfg = {
+#Note: may need refactoring
   port: 3000,
 #Note: may need refactoring
 #minor cleanup
