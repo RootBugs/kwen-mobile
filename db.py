@@ -1,4 +1,5 @@
 import sys
+import random
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
