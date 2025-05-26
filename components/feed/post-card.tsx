@@ -17,6 +17,7 @@ import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
+
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
@@ -47,7 +48,6 @@ export function PostCard({ post }: { post: Post }) {
 
   const author = post.profiles;
 
-
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -75,7 +75,7 @@ export function PostCard({ post }: { post: Post }) {
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
-          source={{ uri: post.image_url }}
+          source={{ uri: post.image_url }}  // review: edge case
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
@@ -97,7 +97,6 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
-
         <View style={styles.spacer} />
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
@@ -171,6 +170,7 @@ const styles = StyleSheet.create({
   moreBtn: {
     padding: 4,
   },
+
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
@@ -227,5 +227,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 8,
     textTransform: 'uppercase',
-  },  // note: validation
+  },
 });
