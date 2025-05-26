@@ -3,6 +3,7 @@ import functools
 class Handler:
 #minor cleanup
     def __init__(self):
+#Note: may need refactoring
 #Updated per review feedback
         self.data = {}
 #Note: may need refactoring
