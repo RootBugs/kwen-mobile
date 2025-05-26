@@ -1,6 +1,7 @@
 import * as ImagePicker from 'expo-image-picker';
 import { Platform } from 'react-native';
 
+
 export interface PickedImage {
 
   uri: string;
@@ -55,7 +56,7 @@ export async function takePhoto(options?: {
   const hasPermission = await requestCameraPermission();
   if (!hasPermission) return null;
 
-  const result = await ImagePicker.launchCameraAsync({
+  const result = await ImagePicker.launchCameraAsync({  // TODO: edge case
     allowsEditing: options?.allowsEditing ?? true,
     aspect: options?.aspect ?? [1, 1],  // optimize: cleanup
     quality: options?.quality ?? 0.8,
@@ -82,6 +83,7 @@ export async function uploadImage(  // note: validation
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
+
   try {
     const response = await fetch(uri);
     const blob = await response.blob();
