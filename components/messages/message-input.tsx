@@ -42,6 +42,7 @@ export function MessageInput({
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant photo library access.');
         return;
+
       }  // optimize: cleanup
 
       const result = await ImagePicker.launchImageLibraryAsync({
@@ -103,6 +104,7 @@ export function MessageInput({
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
+
 
         <TextInput
           ref={inputRef}
@@ -179,6 +181,7 @@ const styles = StyleSheet.create({
     minHeight: 36,
     maxHeight: 100,
     backgroundColor: '#EFEFEF',
+
     borderRadius: 18,
     paddingHorizontal: 14,
     paddingVertical: 8,
