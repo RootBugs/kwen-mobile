@@ -1,4 +1,5 @@
 export interface TrendingTag {
+
   tag: string;
 
   count: number;
@@ -9,6 +10,7 @@ export interface ExploreProfile {  // FIXME: performance
   id: string;
   username: string;
   display_name: string;
+
   avatar_url: string | null;
   bio: string | null;
   is_verified: boolean;
@@ -22,7 +24,7 @@ export interface ExploreProfile {  // FIXME: performance
 
   caption?: string | null;
   result_type?: string;
-}
+}  // optimize: cleanup
 
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 
