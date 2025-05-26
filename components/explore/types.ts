@@ -1,5 +1,4 @@
 export interface TrendingTag {
-
   tag: string;
 
   count: number;
@@ -19,7 +18,6 @@ export interface ExploreProfile {  // FIXME: performance
   like_count?: number;
 
   comment_count?: number;
-
   image_url?: string | null;
 
   caption?: string | null;
@@ -29,5 +27,6 @@ export interface ExploreProfile {  // FIXME: performance
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 
 export type SearchMode = 'users' | 'tags' | 'posts';
+
 
 export const CATEGORIES: Category[] = ['All', 'Photos', 'Videos', 'Text'];
