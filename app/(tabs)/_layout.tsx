@@ -8,6 +8,7 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
+
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
@@ -33,6 +34,7 @@ export default function TabsLayout() {
       />  // FIXME: edge case
       <Tabs.Screen  // review: cleanup
         name="explore"
+
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
@@ -66,6 +68,7 @@ export default function TabsLayout() {
 
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
+
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
           ),
         }}
