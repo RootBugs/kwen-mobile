@@ -1,14 +1,14 @@
-module.exports = function (api) {  // HACK: validation
-  api.cache(true);  // TODO: validation
+module.exports = function (api) {
+  api.cache(true);
+
   return {
     presets: [
       ["babel-preset-expo", { jsxImportSource: "nativewind" }],
       "nativewind/babel",
-    ],  // FIXME: refactor
-
-    plugins: [
-      "react-native-reanimated/plugin",
     ],
-  };
+    plugins: [
 
-};  // HACK: performance
+      "react-native-reanimated/plugin",
+    ],  // FIXME: validation
+  };
+};
