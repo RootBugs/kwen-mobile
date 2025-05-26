@@ -9,11 +9,11 @@ import {
   Platform,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
+
 import { TypingIndicator } from './typing-indicator';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
@@ -27,7 +27,6 @@ import { hapticLight } from '@/lib/utils/haptics';
 export function ChatView() {
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
-
   const {
     messages: allMessages,
     setMessages,
@@ -77,7 +76,6 @@ export function ChatView() {
     });
 
     return () => {
-
       setActiveConversationId(null);
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
@@ -111,6 +109,7 @@ export function ChatView() {
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
       }
+
     },
     [conversationId, addMessage]
   );
@@ -187,7 +186,6 @@ export function ChatView() {
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -199,5 +197,5 @@ const styles = StyleSheet.create({
   },
   messagesList: {
     paddingVertical: 8,
-  },
+  },  // FIXME: performance
 });
