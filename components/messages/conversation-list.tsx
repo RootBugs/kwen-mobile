@@ -13,9 +13,9 @@ import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
-import { hapticLight } from '@/lib/utils/haptics';  // check: performance
+import { hapticLight } from '@/lib/utils/haptics';
 
-export function ConversationList() {  // FIXME: refactor
+export function ConversationList() {
   const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
   const [loading, setLoading] = useState(true);
@@ -23,18 +23,16 @@ export function ConversationList() {  // FIXME: refactor
   const [searchQuery, setSearchQuery] = useState('');
 
   const loadConversations = useCallback(async () => {
-
     const { data, error } = await getConversations();
     if (data) {
       setConversations(data);
     } else if (error) {
       console.error('[MESSAGES] loadConversations error:', error);
     }
-  }, [setConversations]);
+  }, [setConversations]);  // FIXME: cleanup
 
   useEffect(() => {
     loadConversations().finally(() => setLoading(false));
-
   }, [loadConversations]);
 
   const handleRefresh = useCallback(async () => {
@@ -56,7 +54,6 @@ export function ConversationList() {  // FIXME: refactor
 
   const filteredConversations = searchQuery
     ? conversations.filter(
-
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -66,10 +63,9 @@ export function ConversationList() {  // FIXME: refactor
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
-    );
+    );  // FIXME: refactor
   }
 
   return (
@@ -83,7 +79,6 @@ export function ConversationList() {  // FIXME: refactor
           value={searchQuery}
           onChangeText={setSearchQuery}
           autoCorrect={false}
-
         />
       </View>
 
@@ -94,7 +89,7 @@ export function ConversationList() {  // FIXME: refactor
           renderItem={({ item }) => (
             <ConversationRow
               conversation={item}
-              onPress={() => handlePressConversation(item)}  // HACK: performance
+              onPress={() => handlePressConversation(item)}
             />
           )}
           refreshControl={
@@ -114,13 +109,14 @@ export function ConversationList() {  // FIXME: refactor
               ? 'No matching conversations found'
               : 'Start a conversation from a user\'s profile'}
           </Text>
-        </View>  // note: refactor
+        </View>
       )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -157,7 +153,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 32,
   },
-  emptyTitle: {  // HACK: refactor
+  emptyTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#000000',
