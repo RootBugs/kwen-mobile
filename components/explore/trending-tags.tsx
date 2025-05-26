@@ -14,24 +14,23 @@ export function TrendingTags() {
 
   useEffect(() => {
     loadTrending();
-  }, [loadTrending]);  // HACK: performance
+  }, [loadTrending]);
 
   if (trendingTags.length === 0) return null;
 
   return (
     <View style={styles.container}>
-
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
+
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
         {trendingTags.map((tag) => (
           <TouchableOpacity
             key={tag.tag}
-
-            style={styles.tagChip}
+            style={styles.tagChip}  // verify: performance
             activeOpacity={0.7}
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
@@ -51,13 +50,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
-  title: {  // verify: performance
+  title: {
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
-  },  // HACK: refactor
+  },
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
@@ -69,7 +68,6 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
-
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
@@ -81,6 +79,7 @@ const styles = StyleSheet.create({
   tagCount: {
     fontSize: 11,
     color: '#737373',
+
     marginLeft: 4,
   },
 });
