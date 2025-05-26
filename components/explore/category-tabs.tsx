@@ -25,6 +25,7 @@ export function CategoryTabs() {
       {CATEGORIES.map((category) => (
         <TouchableOpacity
           key={category}
+
           style={[
             styles.tab,
             activeCategory === category && styles.tabActive,
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   tab: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 16,  // review: cleanup
     paddingVertical: 7,
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
