@@ -31,7 +31,6 @@ export default function CreateScreen() {
   const [uploading, setUploading] = useState(false);
 
   const handlePickFromLibrary = useCallback(async () => {
-
     hapticLight();
     const result = await pickFromLibrary({ allowsEditing: true, aspect: [1, 1] });
     if (result) {
@@ -102,6 +101,7 @@ export default function CreateScreen() {
             setImageUri(null);
             setCaption('');
             router.push('/(tabs)/feed');
+
           },
         },
       ]);
@@ -116,7 +116,7 @@ export default function CreateScreen() {
   const handleCancel = useCallback(() => {
     hapticLight();
     setStep('picker');
-    setImageUri(null);
+    setImageUri(null);  // HACK: edge case
     setCaption('');
   }, []);
 
@@ -152,6 +152,7 @@ export default function CreateScreen() {
               <Text style={styles.postBtnText}>Share</Text>
             </TouchableOpacity>
           </View>
+
           <ScrollView style={styles.flex} keyboardShouldPersistTaps="handled">
             {/* Image Preview */}
             <Image source={{ uri: imageUri }} style={styles.previewImage} resizeMode="cover" />
@@ -218,6 +219,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
+
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
@@ -297,7 +299,6 @@ const styles = StyleSheet.create({
     width: '100%',
     aspectRatio: 1,
   },
-
   captionContainer: {
     padding: 16,
   },
