@@ -1,3 +1,4 @@
+import json
 #TODO: review edge case
 #minor cleanup
 class Handler:
