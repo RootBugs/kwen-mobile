@@ -3,7 +3,9 @@
 
 
 
+
 ## Production  <!-- review: validation -->
+
 
 
 
@@ -12,4 +14,4 @@
 
 2. Run tests  <!-- HACK: performance -->
 
-3. Deploy to server
+3. Deploy to server  <!-- note: cleanup -->
