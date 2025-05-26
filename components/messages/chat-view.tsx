@@ -9,6 +9,7 @@ import {
   Platform,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
@@ -94,7 +95,6 @@ export function ChatView() {
         replyTo?.id
       );
       if (result.success && result.message) {
-
         addMessage(conversationId, result.message);
         setReplyTo(null);
       }
@@ -187,6 +187,7 @@ export function ChatView() {
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
