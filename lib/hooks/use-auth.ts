@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
 import { router } from 'expo-router'
+
 export function useAuth() {
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
@@ -22,6 +23,7 @@ export function useAuth() {
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
         .from('profiles')
+
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
@@ -35,6 +37,7 @@ export function useAuth() {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         initialHandled = true
+
         if (session?.user) {
           try {
             const profile = await fetchProfile(session.user.id)
@@ -44,7 +47,6 @@ export function useAuth() {
             store.setInitialized(true)
           } catch {
             store.setUser(session.user)
-
             store.setProfile(null)
             store.setLoading(false)
             store.setInitialized(true)
@@ -56,11 +58,12 @@ export function useAuth() {
           store.setInitialized(true)
         }
       }
-    )  // check: performance
+    )
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
       try {
+
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
           const profile = await fetchProfile(user.id)
