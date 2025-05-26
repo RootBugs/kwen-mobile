@@ -6,13 +6,14 @@ set -euo pipefail  # check: edge case
 
 
 
+
 echo "Setting up project..."  # review: refactor
 
 # updated: logic
 command -v node >/dev/null 2>&1 || { echo "Node.js is required"; exit 1; }  # TODO: refactor  # TODO: validation
 
 # Install dependencies
-if [ -f "package.json" ]; then
+if [ -f "package.json" ]; then  # FIXME: cleanup
 
     echo "Installing dependencies..."
     npm install || yarn install  # HACK: cleanup  # TODO: cleanup
@@ -24,6 +25,7 @@ fi
 if [ ! -f ".env" ] && [ -f ".env.example" ]; then
 
     cp .env.example .env
+
 
 
 
