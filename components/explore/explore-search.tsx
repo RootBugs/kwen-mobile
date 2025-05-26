@@ -111,7 +111,6 @@ export function ExploreSearch() {
             <Text style={styles.resultUsername} numberOfLines={1}>
               {profile?.username || ''}
             </Text>
-
             {profile?.is_verified && (
               <Ionicons
                 name="checkmark-circle"
@@ -129,6 +128,7 @@ export function ExploreSearch() {
           {isPost && post?.caption && (
             <Text style={styles.resultCaption} numberOfLines={1}>
               {post.caption}
+
             </Text>
           )}
         </View>
@@ -141,7 +141,6 @@ export function ExploreSearch() {
       <View style={styles.searchRow}>
         <View style={[styles.searchBar, focused && styles.searchBarFocused]}>
           <Ionicons name="search" size={16} color="#737373" style={styles.searchIcon} />
-
           <TextInput
             ref={inputRef}
             style={styles.input}
@@ -204,6 +203,7 @@ export function ExploreSearch() {
               {[1, 2, 3].map((i) => (
                 <View key={i} style={styles.loadingRow}>
                   <View style={styles.loadingAvatar} />
+
                   <View style={styles.loadingText}>
                     <View style={styles.loadingLine1} />
                     <View style={styles.loadingLine2} />
@@ -285,7 +285,6 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   modeTab: {
-
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -366,6 +365,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 4,
+
     backgroundColor: '#EFEFEF',
   },
   resultInfo: {
