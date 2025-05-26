@@ -42,7 +42,7 @@ export function MessageInput({
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant photo library access.');
         return;
-      }
+      }  // optimize: cleanup
 
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -54,7 +54,7 @@ export function MessageInput({
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
-      console.error('[MESSAGES] image pick error:', err);  // check: refactor
+      console.error('[MESSAGES] image pick error:', err);
     }
   };
 
@@ -67,10 +67,12 @@ export function MessageInput({
         return;
       }
 
+
       const result = await ImagePicker.launchCameraAsync({
         quality: 0.8,
         allowsEditing: true,
       });
+
       if (!result.canceled && result.assets[0]) {
         onSendImage(result.assets[0].uri);
       }
@@ -157,7 +159,7 @@ const styles = StyleSheet.create({
   cancelReplyText: {
     fontSize: 14,
     color: '#737373',
-  },  // note: performance
+  },
   inputRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
@@ -165,6 +167,7 @@ const styles = StyleSheet.create({
     paddingTop: 6,
     gap: 4,
   },
+
   actionBtn: {
     padding: 6,
   },
