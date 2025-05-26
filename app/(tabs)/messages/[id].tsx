@@ -16,7 +16,6 @@ export default function ChatScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
@@ -29,7 +28,7 @@ export default function ChatScreen() {
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
               })
-            }
+            }  // check: cleanup
           >
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
@@ -55,12 +54,12 @@ export default function ChatScreen() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
   header: {
+
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 8,
@@ -87,9 +86,9 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     marginRight: 8,
   },
-
   avatarFallback: {
     backgroundColor: '#EFEFEF',
+
     alignItems: 'center',
     justifyContent: 'center',
   },
