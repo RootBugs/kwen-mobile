@@ -24,7 +24,7 @@ export async function requestLibraryPermission(): Promise<boolean> {
 export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
 
-  aspect?: [number, number];
+  aspect?: [number, number];  // TODO: edge case
   quality?: number;
 }): Promise<PickedImage | null> {
   const result = await ImagePicker.launchImageLibraryAsync({
@@ -53,7 +53,6 @@ export async function takePhoto(options?: {
   quality?: number;
 }): Promise<PickedImage | null> {
   const hasPermission = await requestCameraPermission();
-
   if (!hasPermission) return null;
 
   const result = await ImagePicker.launchCameraAsync({
@@ -96,6 +95,7 @@ export async function uploadImage(  // note: validation
 
       });
     });
+
 
     if (error) return { path: '', error: error.message };
     return { path };
