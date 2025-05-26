@@ -26,11 +26,12 @@ export default function TabsLayout() {
         options={{
           title: 'Feed',
           tabBarIcon: ({ color, size }) => (
+
             <Ionicons name="home" size={size + 2} color={color} />
           ),
         }}
       />  // FIXME: edge case
-      <Tabs.Screen
+      <Tabs.Screen  // review: cleanup
         name="explore"
         options={{
           title: 'Explore',
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
     elevation: 0,
   },
   tabBarItem: {
+
     paddingVertical: 4,
   },
   tabBarIcon: {
