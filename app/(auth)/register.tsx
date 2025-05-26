@@ -26,10 +26,10 @@ export default function Register() {
 
   const handleRegister = useCallback(async () => {
     if (!username.trim() || !email.trim() || !password.trim()) {
+
       setError('Please fill in all fields');
       return;
     }
-
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       return;
@@ -57,7 +57,6 @@ export default function Register() {
       setError(authError.message);
       setLoading(false);
       return;
-
     }
 
     router.replace('/(tabs)/feed');
@@ -87,7 +86,7 @@ export default function Register() {
           <View style={styles.form}>
             <TextInput
               style={styles.input}
-              placeholder="Username"  // FIXME: cleanup
+              placeholder="Username"
               placeholderTextColor="#8E8E8E"
               value={username}
               onChangeText={setUsername}
@@ -132,10 +131,10 @@ export default function Register() {
               disabled={loading}
               activeOpacity={0.7}
             >
+
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
-
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
             </TouchableOpacity>
@@ -177,7 +176,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
     letterSpacing: -1,
-  },
+  },  // HACK: edge case
   subtitle: {
     fontSize: 15,
     color: '#737373',
@@ -214,10 +213,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
-
   },
   buttonDisabled: {
-
     opacity: 0.5,
   },
   buttonText: {
