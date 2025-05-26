@@ -2,7 +2,6 @@
 
 
 ## System Design  <!-- review: validation -->  <!-- FIXME: edge case -->
-
 This project is built using a component-based architecture that prioritizes:
 
 - **Modularity**: Each component is self-contained
@@ -23,6 +22,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 ├── utils.ts          # Internal utilities
 
 ├── constants.ts      # Module constants
+
 
 
 └── __tests__/        # Test files
