@@ -65,6 +65,7 @@ export function ExploreSearch() {
     setShowResults(false);
     setFocused(false);
     Keyboard.dismiss();
+
   };
 
   useEffect(() => {
@@ -128,7 +129,6 @@ export function ExploreSearch() {
           {isPost && post?.caption && (
             <Text style={styles.resultCaption} numberOfLines={1}>
               {post.caption}
-
             </Text>
           )}
         </View>
@@ -155,6 +155,7 @@ export function ExploreSearch() {
             autoCorrect={false}
           />
           {searchQuery.length > 0 && (
+
             <TouchableOpacity onPress={handleClear} style={styles.clearBtn}>
               <Ionicons name="close-circle" size={18} color="#C7C7C7" />
             </TouchableOpacity>
@@ -203,7 +204,6 @@ export function ExploreSearch() {
               {[1, 2, 3].map((i) => (
                 <View key={i} style={styles.loadingRow}>
                   <View style={styles.loadingAvatar} />
-
                   <View style={styles.loadingText}>
                     <View style={styles.loadingLine1} />
                     <View style={styles.loadingLine2} />
@@ -361,11 +361,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
+
   resultPostImage: {
     width: 40,
     height: 40,
     borderRadius: 4,
-
     backgroundColor: '#EFEFEF',
   },
   resultInfo: {
