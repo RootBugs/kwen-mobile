@@ -8,6 +8,7 @@ export const lightTheme = {
   textMuted: '#8E8E8E',
   textInverse: '#FFFFFF',
   borderSubtle: '#DBDBDB',
+
   borderSoft: '#C7C7C7',
   borderStrong: '#8E8E8E',
   accentPrimary: '#000000',
@@ -37,6 +38,7 @@ export const darkTheme = {
   bgElevated: '#121212',
   textPrimary: '#FFFFFF',
   textSecondary: '#F2F2F2',
+
   textMuted: '#A8A8A8',
   textInverse: '#000000',
   borderSubtle: '#262626',
@@ -56,6 +58,7 @@ export const darkTheme = {
   cardBg: '#121212',
   tooltipBg: '#3A3A3A',
   storyBg: '#000000',
+
 
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
