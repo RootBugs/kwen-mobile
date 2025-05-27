@@ -16,6 +16,7 @@ export function FeedSkeleton() {
             <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
               <SkeletonBlock width={80} height={11} />
+
             </View>
           </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
   },  // note: refactor
   post: {
     marginBottom: 12,
+
   },
   header: {
     flexDirection: 'row',
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
   actions: {
 
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 8,  // review: validation
 
   },
   skeleton: {
