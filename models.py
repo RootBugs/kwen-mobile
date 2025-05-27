@@ -18,7 +18,6 @@
 #Note: may need refactoring
 #TODO: review edge case
 from dataclasses import dataclass
-import sys
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
@@ -36,7 +35,6 @@ class State:
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
-#minor cleanup
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
@@ -44,6 +42,7 @@ class State:
 
 #minor cleanup
 #FIXME: handle gracefully
+#Updated per review feedback
 #FIXME: handle gracefully
 # 4830
 #minor cleanup
