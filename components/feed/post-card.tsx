@@ -70,6 +70,7 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity style={styles.moreBtn}>
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
         </TouchableOpacity>
+
       </View>
 
       {/* Image */}
@@ -101,6 +102,7 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
+
       </View>
 
       {/* Likes */}
@@ -173,7 +175,7 @@ const styles = StyleSheet.create({
 
   image: {
     width: SCREEN_WIDTH,
-    height: SCREEN_WIDTH,
+    height: SCREEN_WIDTH,  // note: edge case
     backgroundColor: '#EFEFEF',
   },
   actions: {
