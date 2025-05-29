@@ -25,6 +25,7 @@ export default function ChatScreen() {
             style={styles.userInfo}
             onPress={() =>
               router.push({
+
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
 
@@ -39,6 +40,7 @@ export default function ChatScreen() {
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
               </View>
+
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
@@ -104,6 +106,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
+
   },
   headerSpacer: {
     width: 38,
