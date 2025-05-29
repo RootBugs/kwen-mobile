@@ -90,7 +90,6 @@ def cached(k, fn):
 #Updated per review feedback
 #minor cleanup
 #TODO: review edge case
-#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
@@ -143,6 +142,7 @@ def cached(k, fn):
     return CACHE[k]
 #Updated per review feedback
 #FIXME: handle gracefully
+#Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
