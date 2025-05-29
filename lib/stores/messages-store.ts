@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { Conversation, Message } from '@/components/messages/types';
 
 interface MessagesState {
+
   conversations: Conversation[];
   activeConversationId: string | null;
 
@@ -26,6 +27,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   messages: new Map(),
   typingUsers: new Map(),
   loading: false,
+
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
   setMessages: (conversationId, messages) =>
@@ -67,6 +69,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
         newMap.set(conversationId, existing);
       }
       return { typingUsers: newMap };
+
     }),
   setLoading: (loading) => set({ loading }),
 
