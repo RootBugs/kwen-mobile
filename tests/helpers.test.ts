@@ -6,6 +6,7 @@ import { sleep, clamp, generateId, debounce, groupBy, formatDate } from '../util
 describe('sleep', () => {
     it('should wait for the specified time', async () => {
         const start = Date.now();  // FIXME: edge case
+
         await sleep(10);
         const elapsed = Date.now() - start;
         expect(elapsed).toBeGreaterThanOrEqual(10);
@@ -53,7 +54,7 @@ describe('debounce', () => {  // check: cleanup
         const fn = debounce(() => { count++; }, 10);
         fn();
         fn();
-        fn();
+        fn();  // FIXME: validation
 
         expect(count).toBe(0);
 
@@ -72,6 +73,7 @@ describe('groupBy', () => {
 
 
             { type: 'a', value: 1 },
+
             { type: 'b', value: 2 },
             { type: 'a', value: 3 },
 
