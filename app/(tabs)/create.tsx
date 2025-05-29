@@ -64,6 +64,7 @@ export default function CreateScreen() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
+
       if (!user) {
         Alert.alert('Error', 'You must be logged in to post');
         setUploading(false);
@@ -101,7 +102,6 @@ export default function CreateScreen() {
             setImageUri(null);
             setCaption('');
             router.push('/(tabs)/feed');
-
           },
         },
       ]);
@@ -116,7 +116,7 @@ export default function CreateScreen() {
   const handleCancel = useCallback(() => {
     hapticLight();
     setStep('picker');
-    setImageUri(null);  // HACK: edge case
+    setImageUri(null);
     setCaption('');
   }, []);
 
@@ -156,6 +156,7 @@ export default function CreateScreen() {
           <ScrollView style={styles.flex} keyboardShouldPersistTaps="handled">
             {/* Image Preview */}
             <Image source={{ uri: imageUri }} style={styles.previewImage} resizeMode="cover" />
+
 
             {/* Caption Input */}
             <View style={styles.captionContainer}>
@@ -217,9 +218,9 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
+
   header: {
     flexDirection: 'row',
-
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
