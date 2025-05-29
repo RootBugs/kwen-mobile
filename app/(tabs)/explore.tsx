@@ -20,6 +20,7 @@ export default function ExploreScreen() {
     loadMore,
   } = useExploreStore();
 
+
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {  // FIXME: refactor
@@ -46,7 +47,7 @@ export default function ExploreScreen() {
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
       </SafeAreaView>
-    );
+    );  // note: refactor
   }
 
   return (
@@ -59,6 +60,7 @@ export default function ExploreScreen() {
         <>
           <CategoryTabs />
           <TrendingTags />
+
           <SuggestedUsers />
         </>
       )}
