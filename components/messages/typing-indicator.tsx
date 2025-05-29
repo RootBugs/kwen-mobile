@@ -11,6 +11,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot2 = useRef(new Animated.Value(0)).current;
   const dot3 = useRef(new Animated.Value(0)).current;
 
+
   useEffect(() => {
     const animate = (dot: Animated.Value, delay: number) => {
       Animated.loop(
@@ -66,6 +67,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   {
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
+
                       outputRange: [0.7, 1],
                     }),
                   },
@@ -115,6 +117,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   dot: {
+
     width: 6,
     height: 6,
 
