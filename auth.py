@@ -1,4 +1,5 @@
 import functools
+import math
 #Updated per review feedback
 class Handler:
 #minor cleanup
