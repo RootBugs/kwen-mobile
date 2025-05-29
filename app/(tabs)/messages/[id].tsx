@@ -27,6 +27,7 @@ export default function ChatScreen() {
               router.push({
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
+
               })
             }  // check: cleanup
           >
@@ -49,6 +50,7 @@ export default function ChatScreen() {
       </View>
 
       <ChatView />
+
     </SafeAreaView>
   );
 }
@@ -95,6 +97,7 @@ const styles = StyleSheet.create({
   avatarText: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#737373',
   },
   headerName: {
