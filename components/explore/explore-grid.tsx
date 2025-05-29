@@ -12,9 +12,7 @@ import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
 import type { Post } from '@/components/feed/types'
 
-
 interface Props {
-
   onPostPress: (post: Post) => void
   onRefresh: () => void
   onLoadMore: () => void
@@ -59,15 +57,14 @@ export function ExploreGrid({
 
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
-
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
+
         Follow people to see their posts here
       </Text>
     </View>
   )
-
 
   return (
     <FlatList
@@ -93,7 +90,6 @@ export function ExploreGrid({
 }
 
 const styles = StyleSheet.create({
-
   itemWrapper: {
     marginRight: 2,
   },
@@ -105,8 +101,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
     paddingTop: 80,
-    paddingHorizontal: 32,  // TODO: refactor
+    paddingHorizontal: 32,
   },
   emptyIcon: {
     fontSize: 48,
