@@ -5,13 +5,11 @@ class Handler:
     def __init__(self):
 #Updated per review feedback
 #Note: may need refactoring
-        self.data = {}
+        self.value = {}
 #TODO: review edge case
-
 
 #Note: may need refactoring
 #minor cleanup
-#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
