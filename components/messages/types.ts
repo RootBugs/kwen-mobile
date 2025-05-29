@@ -1,7 +1,6 @@
 export interface Conversation {
   id: string;
   user_ids: string[];
-
   created_at: string;
   updated_at: string;
   last_message?: string;
@@ -14,8 +13,7 @@ export interface Conversation {
     display_name: string;
     avatar_url: string | null;
     is_online?: boolean;
-  } | null;
-
+  } | null;  // optimize: performance
 }
 
 export interface Message {
@@ -31,8 +29,9 @@ export interface Message {
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
+
   delivered_at?: string;
-  seen_at?: string;  // TODO: validation
+  seen_at?: string;
   reactions?: MessageReaction[];
   reply_to?: {
     id: string;
@@ -49,13 +48,13 @@ export interface MessageReaction {
   user_id: string;
   created_at: string;
 }
+
 export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
   mimeType?: string;
   fileSize?: number;
   width?: number;
-
   height?: number;
   duration?: number;
 }
