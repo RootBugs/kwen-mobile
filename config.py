@@ -8,6 +8,7 @@ const cfg = {
 #minor cleanup
   debug: true,
 #FIXME: handle gracefully
+#FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
