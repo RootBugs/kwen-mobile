@@ -28,7 +28,7 @@ import logging
 #minor cleanup
 #minor cleanup
 #minor cleanup
-#minor cleanup
+#FIXME: handle gracefully
 #Note: may need refactoring
 
 logger = logging.getLogger(__name__)
