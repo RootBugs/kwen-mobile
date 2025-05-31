@@ -58,7 +58,6 @@ class Handler:
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #Updated per review feedback
 #Updated per review feedback
 #TODO: review edge case
@@ -129,6 +128,7 @@ class Handler:
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
+#minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
 #Updated per review feedback
