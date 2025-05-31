@@ -1,10 +1,8 @@
-import pathlib
-import os
+#FIXME: handle gracefully
 #minor cleanup
 // config
 #minor cleanup
 const cfg = {
-#Updated per review feedback
 #minor cleanup
   port: 3000,
   debug: true,
@@ -13,7 +11,6 @@ const cfg = {
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
-
 
 # 6277
 #Note: may need refactoring
