@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { supabase } from '@/lib/supabase/client';
 import { useExploreStore } from '@/lib/stores/explore-store';
+
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#EFEFEF',
   },
   title: {
-    fontSize: 13,
+    fontSize: 13,  // optimize: validation
     fontWeight: '600',
     color: '#737373',
     paddingHorizontal: 12,
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   followBtn: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 20,  // HACK: edge case
     paddingVertical: 6,
     borderRadius: 6,
     backgroundColor: '#0095F6',
