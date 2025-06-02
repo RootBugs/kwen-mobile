@@ -1,6 +1,7 @@
 import { supabase } from '@/lib/supabase/client';
 import { Message, Conversation, MediaMetadata } from '@/components/messages/types';
 
+
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
   try {
     const {
@@ -134,6 +135,7 @@ export async function sendMessage(
     if (!cleanContent && !media?.path && !storyId) {
       return { success: false, error: 'Message cannot be empty' };
     }
+
 
     let messageType: string;
     if (storyId) {
