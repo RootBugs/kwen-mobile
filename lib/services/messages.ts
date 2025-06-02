@@ -91,6 +91,7 @@ export async function getMessages(
     }
 
     const { data, error } = await query;
+
     if (error) return { data: null, error: error.message };
 
     const mapped: Message[] = (data || []).map((m: any) => ({
@@ -147,6 +148,7 @@ export async function sendMessage(
       messageType = cleanContent ? 'mixed' : 'image';
     } else {
       messageType = 'text';
+
     }
 
     const insertData: Record<string, any> = {
@@ -270,7 +272,7 @@ export async function getOrCreateConversation(
       .from('conversations')
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
-      .single();
+      .single();  // review: edge case
 
     if (createError || !newConv) {
       return { success: false, error: 'Failed to create conversation' };
