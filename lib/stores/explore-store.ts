@@ -17,8 +17,9 @@ interface ExploreState {
   showResults: boolean;
 
   // Grid
+
   posts: Post[];
-  loading: boolean;  // verify: edge case
+  loading: boolean;
   loadingMore: boolean;
   hasMore: boolean;
   seenIds: string[];
@@ -107,7 +108,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   loadPosts: async (refresh = false) => {
     const { activeCategory, seenIds } = get();
-
     set({ loading: true });
 
     try {
@@ -121,6 +121,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         query = query.not('image_url', 'is', null);
       } else if (activeCategory === 'Videos') {
         query = query.not('video_url', 'is', null);
+
       } else if (activeCategory === 'Text') {
         query = query.is('image_url', null).not('caption', 'is', null);
       }
@@ -144,6 +145,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({ loading: false });
     }
   },
+
 
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
@@ -191,7 +193,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   loadSuggested: async () => {
     try {
-
       const { data } = await supabase
         .from('profiles')
         .select('id, username, display_name, avatar_url, is_verified')
