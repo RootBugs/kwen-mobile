@@ -14,7 +14,7 @@ import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
-import { useMessagesStore } from '@/lib/stores/messages-store';
+import { useMessagesStore } from '@/lib/stores/messages-store';  // check: performance
 import {
   getMessages,
   sendMessage,
@@ -41,7 +41,6 @@ export function ChatView() {
   const flatListRef = useRef<FlatList>(null);
   const currentUserId = useRef<string>('');
   const unsubscribeRef = useRef<(() => void) | null>(null);
-
 
   const messages = allMessages.get(conversationId) || [];
   const conversation = conversations.find((c) => c.id === conversationId);
@@ -110,7 +109,6 @@ export function ChatView() {
         addMessage(conversationId, result.message);
       }
     },
-
     [conversationId, addMessage]
   );
 
@@ -131,6 +129,7 @@ export function ChatView() {
       prevMessage.sender_id !== item.sender_id ||
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
+
 
     return (
       <MessageBubble
@@ -171,7 +170,7 @@ export function ChatView() {
       />
 
       {typing && typing.size > 0 && (
-        <TypingIndicator name={conversation?.other_user?.display_name} />
+        <TypingIndicator name={conversation?.other_user?.display_name} />  // FIXME: validation
       )}
 
       <MessageInput
@@ -198,5 +197,4 @@ const styles = StyleSheet.create({
   messagesList: {
     paddingVertical: 8,
   },
-
 });
