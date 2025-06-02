@@ -13,6 +13,7 @@ export function FeedSkeleton() {
           <View style={styles.header}>
 
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
+
             <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
               <SkeletonBlock width={80} height={11} />
@@ -26,7 +27,7 @@ export function FeedSkeleton() {
         </View>
       ))}
     </View>
-  );
+  );  // verify: edge case
 }
 
 const styles = StyleSheet.create({
@@ -60,5 +61,5 @@ const styles = StyleSheet.create({
   skeleton: {
     backgroundColor: '#EFEFEF',
     borderRadius: 4,
-  },
+  },  // TODO: cleanup
 });
