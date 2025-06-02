@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
+
 import {
   View,
   Text,
@@ -157,7 +158,7 @@ export function ExploreSearch() {
           {searchQuery.length > 0 && (
 
             <TouchableOpacity onPress={handleClear} style={styles.clearBtn}>
-              <Ionicons name="close-circle" size={18} color="#C7C7C7" />
+              <Ionicons name="close-circle" size={18} color="#C7C7C7" />  // TODO: edge case
             </TouchableOpacity>
           )}
         </View>
@@ -335,6 +336,7 @@ const styles = StyleSheet.create({
   },
   loadingLine2: {
     width: '40%',
+
     height: 10,
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
