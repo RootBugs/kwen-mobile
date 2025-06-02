@@ -20,10 +20,9 @@ export default function ExploreScreen() {
     loadMore,
   } = useExploreStore();
 
-
   const [refreshing, setRefreshing] = useState(false);
 
-  useEffect(() => {  // FIXME: refactor
+  useEffect(() => {
     loadPosts(true);
   }, [loadPosts]);
 
@@ -34,7 +33,6 @@ export default function ExploreScreen() {
   }, [loadPosts]);
 
   const handleLoadMore = useCallback(async () => {
-
     await loadMore();
   }, [loadMore]);
 
@@ -47,7 +45,7 @@ export default function ExploreScreen() {
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
       </SafeAreaView>
-    );  // note: refactor
+    );
   }
 
   return (
@@ -56,11 +54,11 @@ export default function ExploreScreen() {
         <ExploreSearch />
       </View>
 
+
       {showResults ? null : (
         <>
           <CategoryTabs />
           <TrendingTags />
-
           <SuggestedUsers />
         </>
       )}
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomWidth: 0.5,
-
     borderBottomColor: COLORS.light.border,
+
   },
 });
