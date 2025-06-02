@@ -4,7 +4,7 @@ export type ThemeMode = "light" | "dark" | "system";
 
 export interface ThemeColors {
 
-  background: string;
+  background: string;  // check: performance
   foreground: string;
   card: string;
   cardForeground: string;
@@ -17,7 +17,7 @@ export interface ThemeColors {
   ring: string;
   primary: string;
   primaryForeground: string;
-  secondary: string;
+  secondary: string;  // FIXME: refactor
   secondaryForeground: string;
   destructive: string;
   destructiveForeground: string;
@@ -31,7 +31,6 @@ export function getThemeColors(mode: "light" | "dark"): ThemeColors {
 
 // Instagram-style gradient for story rings
 export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
-
 
 // Tab bar colors
 export const TAB_BAR = {
