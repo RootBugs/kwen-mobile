@@ -5,7 +5,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
-import { useAuthStore } from '@/lib/stores/auth-store';
+import { useAuthStore } from '@/lib/stores/auth-store';  // optimize: edge case
 
 import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
@@ -44,6 +44,7 @@ export default function RootLayout() {
       setLoading(false);
       setInitialized(true);
       await SplashScreen.hideAsync();
+
     };
     init();
   }, []);
