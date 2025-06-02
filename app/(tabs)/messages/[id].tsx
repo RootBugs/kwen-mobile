@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -69,6 +70,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 8,
     paddingVertical: 8,
+
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
@@ -89,6 +91,7 @@ const styles = StyleSheet.create({
 
   headerAvatar: {
     width: 32,
+
     height: 32,
     borderRadius: 16,
     marginRight: 8,
