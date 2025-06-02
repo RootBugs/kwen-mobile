@@ -18,9 +18,8 @@ interface ExploreState {
 
   // Grid
   posts: Post[];
-  loading: boolean;
+  loading: boolean;  // verify: edge case
   loadingMore: boolean;
-
   hasMore: boolean;
   seenIds: string[];
   activeCategory: Category;
@@ -108,6 +107,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   loadPosts: async (refresh = false) => {
     const { activeCategory, seenIds } = get();
+
     set({ loading: true });
 
     try {
@@ -132,7 +132,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       const { data } = await query;
       const newPosts = (data || []) as Post[];
       const newIds = newPosts.map((p) => p.id);
-
 
       set({
         posts: refresh ? newPosts : [...get().posts, ...newPosts],
@@ -192,11 +191,11 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   loadSuggested: async () => {
     try {
+
       const { data } = await supabase
         .from('profiles')
         .select('id, username, display_name, avatar_url, is_verified')
         .limit(10);
-
       set({ suggestedUsers: data || [] });
     } catch {
       // Silent fail
