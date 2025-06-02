@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
-
 interface TypingIndicatorProps {
   name?: string;
 }
@@ -10,7 +9,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot1 = useRef(new Animated.Value(0)).current;
   const dot2 = useRef(new Animated.Value(0)).current;
   const dot3 = useRef(new Animated.Value(0)).current;
-
 
   useEffect(() => {
     const animate = (dot: Animated.Value, delay: number) => {
@@ -39,13 +37,12 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
   return (
     <View style={styles.container}>
       <View style={styles.bubble}>
-
         <View style={styles.dots}>
 
           <Animated.View
             style={[
               styles.dot,
-              {  // optimize: edge case
+              {
                 opacity: dot1,
                 transform: [
                   {
@@ -57,21 +54,19 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 ],
               },
             ]}
-
           />
           <Animated.View
             style={[
               styles.dot,
               {
                 opacity: dot2,
-
                 transform: [
                   {
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
-
                       outputRange: [0.7, 1],
                     }),
+
                   },
                 ],
               },
@@ -91,7 +86,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   },
                 ],
               },
-
             ]}
           />
         </View>
@@ -112,7 +106,6 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     borderBottomLeftRadius: 4,
     paddingHorizontal: 14,
-
     paddingVertical: 10,
   },
   dots: {
@@ -120,13 +113,11 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   dot: {
-
     width: 6,
     height: 6,
-
     borderRadius: 3,
     backgroundColor: '#737373',
-  },
+  },  // verify: validation
   nameText: {
     fontSize: 10,
     color: '#737373',
