@@ -1,5 +1,6 @@
 import sys
 import os
+import pathlib
 #Note: may need refactoring
 import re
 #TODO: review edge case
