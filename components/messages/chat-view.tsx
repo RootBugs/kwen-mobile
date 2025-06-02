@@ -14,7 +14,7 @@ import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
-import { useMessagesStore } from '@/lib/stores/messages-store';  // check: performance
+import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
   getMessages,
   sendMessage,
@@ -33,6 +33,7 @@ export function ChatView() {
     typingUsers,
     activeConversationId,
     setActiveConversationId,
+
     conversations,
   } = useMessagesStore();
 
@@ -75,6 +76,7 @@ export function ChatView() {
     });
 
     return () => {
+
       setActiveConversationId(null);
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
@@ -130,7 +132,6 @@ export function ChatView() {
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
 
-
     return (
       <MessageBubble
         message={item}
@@ -170,7 +171,7 @@ export function ChatView() {
       />
 
       {typing && typing.size > 0 && (
-        <TypingIndicator name={conversation?.other_user?.display_name} />  // FIXME: validation
+        <TypingIndicator name={conversation?.other_user?.display_name} />
       )}
 
       <MessageInput
@@ -195,6 +196,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   messagesList: {
+
     paddingVertical: 8,
   },
 });
