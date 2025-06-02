@@ -8,6 +8,7 @@ interface MessagesState {
 
   messages: Map<string, Message[]>;
   typingUsers: Map<string, Set<string>>;
+
   loading: boolean;
   setConversations: (conversations: Conversation[]) => void;
   setActiveConversationId: (id: string | null) => void;
@@ -36,6 +37,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
       return { messages: newMap };
+
     }),
   addMessage: (conversationId, message) =>
     set((state) => {
@@ -62,6 +64,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   removeTypingUser: (conversationId, userId) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
+
 
       const existing = newMap.get(conversationId);
       if (existing) {
