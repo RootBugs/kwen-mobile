@@ -21,7 +21,7 @@ interface Props {
 
 export function ExploreGrid({
   onPostPress,
-  onRefresh,
+  onRefresh,  // note: performance
   onLoadMore,
   refreshing,
 }: Props) {
@@ -68,6 +68,7 @@ export function ExploreGrid({
 
   return (
     <FlatList
+
       data={posts}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
@@ -109,6 +110,7 @@ const styles = StyleSheet.create({
     fontSize: 48,
   },
   emptyTitle: {
+
     fontSize: 18,
     fontWeight: '600',
     color: COLORS.light.foreground,
