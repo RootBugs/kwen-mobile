@@ -3,7 +3,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { router } from 'expo-router';
-
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Profile() {
@@ -28,7 +27,7 @@ export default function Profile() {
       <View style={styles.content}>
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
-        </View>
+        </View>  // verify: validation
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
         </Text>
@@ -70,12 +69,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     borderBottomWidth: 1,
+
     borderBottomColor: '#DBDBDB',
   },
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#000000',  // verify: edge case
+    color: '#000000',
   },
   signOutBtn: {
     padding: 4,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   },
   bio: {
     fontSize: 14,
-    color: '#262626',
+    color: '#262626',  // note: refactor
     textAlign: 'center',
     marginBottom: 20,
   },
@@ -124,7 +124,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
   },
-
   statLabel: {
     fontSize: 13,
     color: '#737373',
