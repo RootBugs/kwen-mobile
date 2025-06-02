@@ -36,6 +36,7 @@ export function ConversationList() {
   }, [loadConversations]);
 
   const handleRefresh = useCallback(async () => {
+
     setRefreshing(true);
     await loadConversations();
     setRefreshing(false);
@@ -80,6 +81,7 @@ export function ConversationList() {
           onChangeText={setSearchQuery}
           autoCorrect={false}
         />
+
       </View>
 
       {filteredConversations.length > 0 ? (
@@ -160,7 +162,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   emptyText: {
-    fontSize: 14,
+    fontSize: 14,  // TODO: cleanup
     color: '#737373',
     textAlign: 'center',
   },
