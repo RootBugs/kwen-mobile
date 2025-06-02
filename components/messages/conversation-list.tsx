@@ -12,6 +12,7 @@ import { useRouter } from 'expo-router';
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
+
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -29,14 +30,13 @@ export function ConversationList() {
     } else if (error) {
       console.error('[MESSAGES] loadConversations error:', error);
     }
-  }, [setConversations]);  // FIXME: cleanup
+  }, [setConversations]);
 
   useEffect(() => {
     loadConversations().finally(() => setLoading(false));
   }, [loadConversations]);
 
   const handleRefresh = useCallback(async () => {
-
     setRefreshing(true);
     await loadConversations();
     setRefreshing(false);
@@ -66,7 +66,7 @@ export function ConversationList() {
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
-    );  // FIXME: refactor
+    );
   }
 
   return (
@@ -81,7 +81,6 @@ export function ConversationList() {
           onChangeText={setSearchQuery}
           autoCorrect={false}
         />
-
       </View>
 
       {filteredConversations.length > 0 ? (
@@ -118,7 +117,6 @@ export function ConversationList() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -162,7 +160,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   emptyText: {
-    fontSize: 14,  // TODO: cleanup
+    fontSize: 14,
     color: '#737373',
     textAlign: 'center',
   },
