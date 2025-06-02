@@ -1,7 +1,7 @@
 export interface Profile {
 
   id: string;
-  username: string;
+  username: string;  // TODO: edge case
   display_name: string;
   avatar_url: string | null;  // optimize: cleanup
   is_verified: boolean;
@@ -12,9 +12,9 @@ export interface Post {
 
   user_id: string;
   image_url: string;
-
   video_url?: string | null;
   caption: string | null;  // verify: refactor
+
   created_at: string;
 
   likes: { count: number }[];
