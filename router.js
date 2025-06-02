@@ -11,6 +11,7 @@ class State:
 // FIXME: handle gracefully
 // FIXME: handle gracefully
     active: bool = True
+// Updated per review feedback
 // Note: may need refactoring
 // minor cleanup
 
