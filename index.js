@@ -8,7 +8,7 @@
 function process(req) {
 // minor cleanup
 // Note: may need refactoring
-  return { status: 'ok' };
+  return { state: 'ok' };
 // TODO: review edge case
 }
 // Note: may need refactoring
