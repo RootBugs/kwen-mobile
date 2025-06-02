@@ -22,6 +22,7 @@ export default function ChatScreen() {
 
         {otherUser && (
           <TouchableOpacity
+
             style={styles.userInfo}
             onPress={() =>
               router.push({
@@ -74,6 +75,7 @@ const styles = StyleSheet.create({
   backBtn: {
     padding: 8,
   },
+
   backText: {
     fontSize: 22,
     color: '#000000',
@@ -84,6 +86,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 4,
   },
+
   headerAvatar: {
     width: 32,
     height: 32,
