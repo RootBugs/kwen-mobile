@@ -19,7 +19,7 @@ export default function TabsLayout() {
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
 
-          ) : null,
+          ) : null,  // TODO: edge case
       }}
     >
       <Tabs.Screen
@@ -56,6 +56,7 @@ export default function TabsLayout() {
         name="messages"
         options={{
           title: 'Messages',
+
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
     elevation: 0,
   },
   tabBarItem: {
+
 
     paddingVertical: 4,
   },
