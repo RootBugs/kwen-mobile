@@ -17,9 +17,11 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   return (
     <View
       style={[
+
         styles.container,
         {
           width: size,
+
           height: size,
           borderRadius: radius,
         },
