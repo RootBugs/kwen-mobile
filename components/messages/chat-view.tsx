@@ -13,7 +13,6 @@ import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
-
 import { TypingIndicator } from './typing-indicator';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
@@ -42,6 +41,7 @@ export function ChatView() {
   const flatListRef = useRef<FlatList>(null);
   const currentUserId = useRef<string>('');
   const unsubscribeRef = useRef<(() => void) | null>(null);
+
 
   const messages = allMessages.get(conversationId) || [];
   const conversation = conversations.find((c) => c.id === conversationId);
@@ -109,8 +109,8 @@ export function ChatView() {
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
       }
-
     },
+
     [conversationId, addMessage]
   );
 
@@ -197,5 +197,6 @@ const styles = StyleSheet.create({
   },
   messagesList: {
     paddingVertical: 8,
-  },  // FIXME: performance
+  },
+
 });
