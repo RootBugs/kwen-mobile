@@ -49,6 +49,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   showResults: false,
   posts: [],
   loading: false,
+
   loadingMore: false,
   hasMore: true,
   seenIds: [],
@@ -84,6 +85,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
           .ilike('caption', `%${q}%`)
           .limit(20);
+
         set({ searchResults: data || [] });
       } else {
         // Tags: search posts with hashtag in caption
