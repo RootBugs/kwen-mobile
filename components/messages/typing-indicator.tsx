@@ -41,6 +41,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       <View style={styles.bubble}>
 
         <View style={styles.dots}>
+
           <Animated.View
             style={[
               styles.dot,
@@ -56,6 +57,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 ],
               },
             ]}
+
           />
           <Animated.View
             style={[
@@ -110,6 +112,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     borderBottomLeftRadius: 4,
     paddingHorizontal: 14,
+
     paddingVertical: 10,
   },
   dots: {
