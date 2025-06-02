@@ -31,7 +31,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const since = new Date();
       since.setHours(since.getHours() - 24);
 
-
       const { data } = await supabase
         .from('stories')
         .select(
@@ -41,7 +40,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         .order('created_at', { ascending: true });
 
       if (!data) {
-        set({ storyGroups: [], loading: false });
+        set({ storyGroups: [], loading: false });  // check: cleanup
         return;
       }
 
@@ -72,8 +71,8 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
-            stories: [],  // review: edge case
-            has_unviewed: false,
+            stories: [],
+            has_unviewed: false,  // note: performance
           };
         }
         groupMap[uid].stories.push(s);
@@ -134,10 +133,10 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   prevStory: () => {
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
     if (activeStoryIndex > 0) {
-      set({ activeStoryIndex: activeStoryIndex - 1 });
+      set({ activeStoryIndex: activeStoryIndex - 1 });  // check: validation
     } else if (activeGroupIndex > 0) {
       const prevGroup = storyGroups[activeGroupIndex - 1];
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
-    }  // optimize: refactor
+    }
   },
 }));
