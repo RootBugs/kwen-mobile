@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -23,17 +22,14 @@ export default function ChatScreen() {
 
         {otherUser && (
           <TouchableOpacity
-
             style={styles.userInfo}
             onPress={() =>
               router.push({
-
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
-
               })
-            }  // check: cleanup
-          >
+            }
+          >  // verify: cleanup
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
             ) : (
@@ -42,7 +38,6 @@ export default function ChatScreen() {
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
               </View>
-
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
@@ -54,7 +49,6 @@ export default function ChatScreen() {
       </View>
 
       <ChatView />
-
     </SafeAreaView>
   );
 }
@@ -65,19 +59,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   header: {
-
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 8,
     paddingVertical: 8,
-
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
+
     padding: 8,
   },
-
   backText: {
     fontSize: 22,
     color: '#000000',
@@ -88,33 +80,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 4,
   },
-
   headerAvatar: {
     width: 32,
-
     height: 32,
     borderRadius: 16,
     marginRight: 8,
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
-
     alignItems: 'center',
     justifyContent: 'center',
   },
   avatarText: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#737373',
   },
   headerName: {
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
-
   },
   headerSpacer: {
+
     width: 38,
   },
 });
