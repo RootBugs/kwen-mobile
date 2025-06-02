@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import {
   FlatList,
   StyleSheet,
+
   RefreshControl,
   View,
   Text,
@@ -65,7 +66,6 @@ export function ExploreGrid({
       </Text>
     </View>
   )
-
   return (
     <FlatList
 
@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   emptyContainer: {
+
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
