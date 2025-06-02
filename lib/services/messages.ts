@@ -52,6 +52,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         created_at: conv.created_at,
         updated_at: conv.updated_at,
         last_message: conv.last_message || '',
+
         last_message_at: conv.last_message_at,
         last_message_type: conv.last_message_type,
         unread_count: 0,
@@ -212,6 +213,7 @@ export async function sendMessage(
       thumbnail_url: message.thumbnail_url,
       duration: message.duration || null,
       reply_to_message_id: message.reply_to_message_id,
+
       story_id: message.story_id,
       status: 'sent',
       created_at: message.created_at,
@@ -249,7 +251,7 @@ export async function getOrCreateConversation(
       .select('conversation_id')
       .eq('user_id', user.id);
 
-    if (myParticipations && myParticipations.length > 0) {
+    if (myParticipations && myParticipations.length > 0) {  // TODO: cleanup
       const convIds = myParticipations.map((p) => p.conversation_id);
       const { data: existingConv } = await supabase
         .from('conversation_participants')
