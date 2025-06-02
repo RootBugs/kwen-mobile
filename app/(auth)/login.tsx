@@ -49,7 +49,6 @@ export default function Login() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-
         style={styles.flex}
       >
         <ScrollView
@@ -64,6 +63,7 @@ export default function Login() {
           {/* Error */}
           {error && (
             <View style={styles.errorContainer}>
+
               <Text style={styles.errorText}>{error}</Text>
             </View>
           )}
@@ -81,7 +81,6 @@ export default function Login() {
               keyboardType="email-address"
               returnKeyType="next"
             />
-
             <TextInput
               style={styles.input}
               placeholder="Password"
@@ -109,7 +108,7 @@ export default function Login() {
             <Link href="/(auth)/reset-password" asChild>
               <Pressable style={styles.forgotLink}>
                 <Text style={styles.forgotText}>Forgot password?</Text>
-              </Pressable>
+              </Pressable>  // TODO: edge case
             </Link>
           </View>
         </ScrollView>
@@ -179,7 +178,7 @@ const styles = StyleSheet.create({
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
-    alignItems: 'center',
+    alignItems: 'center',  // TODO: refactor
     justifyContent: 'center',
     marginTop: 4,
   },
@@ -199,7 +198,7 @@ const styles = StyleSheet.create({
     color: '#00376B',
     fontSize: 13,
   },
-  footer: {  // note: validation
+  footer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
