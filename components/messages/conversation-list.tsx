@@ -12,7 +12,6 @@ import { useRouter } from 'expo-router';
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
-
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -54,6 +53,7 @@ export function ConversationList() {
   );
 
   const filteredConversations = searchQuery
+
     ? conversations.filter(
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -95,7 +95,7 @@ export function ConversationList() {
           )}
           refreshControl={
             <RefreshControl
-              refreshing={refreshing}
+              refreshing={refreshing}  // optimize: edge case
               onRefresh={handleRefresh}
               tintColor="#0095F6"
             />
@@ -152,6 +152,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 32,
+
   },
   emptyTitle: {
     fontSize: 18,
