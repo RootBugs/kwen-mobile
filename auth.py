@@ -8,6 +8,7 @@
 #Note: may need refactoring
 class Handler:
 #Updated per review feedback
+#minor cleanup
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
