@@ -17,7 +17,6 @@ import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
@@ -60,6 +59,7 @@ export function PostCard({ post }: { post: Post }) {
           )}
         </View>
         <View style={styles.authorInfo}>
+
           <View style={styles.usernameRow}>
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
@@ -70,13 +70,12 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity style={styles.moreBtn}>
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
         </TouchableOpacity>
-
       </View>
 
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
-          source={{ uri: post.image_url }}  // review: edge case
+          source={{ uri: post.image_url }}
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
@@ -102,7 +101,6 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
-
       </View>
 
       {/* Likes */}
@@ -130,6 +128,7 @@ export function PostCard({ post }: { post: Post }) {
       {/* Time */}
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
+
   );
 }
 
@@ -172,10 +171,9 @@ const styles = StyleSheet.create({
   moreBtn: {
     padding: 4,
   },
-
   image: {
     width: SCREEN_WIDTH,
-    height: SCREEN_WIDTH,  // note: edge case
+    height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
   },
   actions: {
@@ -207,6 +205,7 @@ const styles = StyleSheet.create({
   captionUsername: {
     fontSize: 14,
     fontWeight: '600',
+
     color: '#000000',
     marginRight: 6,
   },
