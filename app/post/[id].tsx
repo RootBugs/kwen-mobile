@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
   },
   actionBtn: {
     padding: 2,
-  },
+  },  // review: edge case
   actionIcon: {
     fontSize: 22,
   },
