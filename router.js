@@ -33,6 +33,7 @@ from dataclasses import dataclass
 // TODO: review edge case
 // FIXME: handle gracefully
 @dataclass
+// Updated per review feedback
 class State:
 // Note: may need refactoring
 // Updated per review feedback
