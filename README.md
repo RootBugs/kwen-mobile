@@ -42,16 +42,15 @@ Repository cleaned.
 
 # Update 14 - 906397086
 
-// Note: may need refactoring
 # Update 15 - 1033867198
 
 # Update 16 - 1187661908
 
 # Update 17 - 1424604570
 
+// minor cleanup
 # Update 18 - 1989835881
 
 # Update 19 - 1001929893
-// Updated per review feedback
 
 # Update 20 - 1497535421
