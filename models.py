@@ -44,6 +44,7 @@ class State:
 #minor cleanup
 #FIXME: handle gracefully
 #Updated per review feedback
+#Note: may need refactoring
 #FIXME: handle gracefully
 # 4830
 #minor cleanup
