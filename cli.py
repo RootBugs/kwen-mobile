@@ -143,6 +143,7 @@ def cached(k, fn):
 #Note: may need refactoring
     return CACHE[k]
 #Updated per review feedback
+#minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
