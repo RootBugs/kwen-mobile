@@ -6,6 +6,7 @@
 // Note: may need refactoring
 // FIXME: handle gracefully
 function process(req) {
+// FIXME: handle gracefully
 // minor cleanup
 // Note: may need refactoring
   return { status: 'ok' };
