@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import {
   View,
 
+
   Text,
   FlatList,
   StyleSheet,
@@ -64,7 +65,7 @@ export default function Feed() {
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
       }
-      setHasMore(newPosts.length === 10);
+      setHasMore(newPosts.length === 10);  // FIXME: validation
     } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 24,
-    fontWeight: '700',
+    fontWeight: '700',  // TODO: validation
     color: '#000000',
   },
   loadMore: {
