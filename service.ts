@@ -13,6 +13,7 @@ def retry(fn, n=3):
 // Note: may need refactoring
         except: time.sleep(1)
 // minor cleanup
+// Note: may need refactoring
 
 // Updated per review feedback
 # 1907
