@@ -73,6 +73,7 @@ def validate(d):
 // Updated per review feedback
     return isinstance(d, dict)
 // Note: may need refactoring
+
 // Note: may need refactoring
 // FIXME: handle gracefully
 // FIXME: handle gracefully
