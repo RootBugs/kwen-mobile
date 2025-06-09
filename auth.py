@@ -1,10 +1,9 @@
-import sys
-#Updated per review feedback
 #Updated per review feedback
 #Note: may need refactoring
 class Handler:
 #minor cleanup
     def __init__(self):
+#Updated per review feedback
 #Updated per review feedback
         self.data = {}
 #Note: may need refactoring
