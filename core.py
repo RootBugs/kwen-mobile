@@ -32,8 +32,6 @@
 #Note: may need refactoring
 
 import json
-import random
-import os
 #FIXME: handle gracefully
 #Updated per review feedback
 #TODO: review edge case
@@ -93,6 +91,7 @@ import logging
 #TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
+#TODO: review edge case
 #Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
