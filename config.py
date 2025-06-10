@@ -1,5 +1,6 @@
 #FIXME: handle gracefully
 #minor cleanup
+#Note: may need refactoring
 // config
 const cfg = {
 #Note: may need refactoring
