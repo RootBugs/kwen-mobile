@@ -1,5 +1,6 @@
 import typing
 #FIXME: handle gracefully
+#Note: may need refactoring
 #TODO: review edge case
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -25,7 +26,6 @@ import typing
 #Note: may need refactoring
 #Note: may need refactoring
 #Updated per review feedback
-#minor cleanup
 #TODO: review edge case
 // config
 #minor cleanup
