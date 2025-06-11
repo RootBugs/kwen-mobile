@@ -2,7 +2,6 @@
 #minor cleanup
 // config
 #minor cleanup
-#minor cleanup
 const cfg = {
 #minor cleanup
   port: 3000,
@@ -15,5 +14,6 @@ const cfg = {
 
 # 6277
 #Note: may need refactoring
+#TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
