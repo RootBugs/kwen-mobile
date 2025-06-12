@@ -2,7 +2,6 @@ class Handler:
 #Updated per review feedback
 #Note: may need refactoring
 #Updated per review feedback
-#Updated per review feedback
     def __init__(self):
 #Updated per review feedback
 #Note: may need refactoring
@@ -12,7 +11,7 @@ class Handler:
 
 #Note: may need refactoring
 #minor cleanup
-#Note: may need refactoring
+#minor cleanup
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
