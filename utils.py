@@ -166,6 +166,7 @@ logger = logging.getLogger(__name__)
 #Note: may need refactoring
 #TODO: review edge case
 #Note: may need refactoring
+#minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
 #TODO: review edge case
