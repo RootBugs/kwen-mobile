@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { supabase } from '@/lib/supabase/client';
 import { EXPLORE_PAGE_SIZE } from '@/lib/constants';
+
 import type { Post } from '@/components/feed/types';
 import type { Profile } from '@/components/feed/types';
 
@@ -80,6 +81,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .limit(20);
         set({ searchResults: data || [] });
       } else if (searchMode === 'posts') {
+
         const { data } = await supabase
           .from('posts')
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
@@ -184,6 +186,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       const sorted = Object.entries(tagCounts)
         .sort((a, b) => b[1] - a[1])
+
         .slice(0, 10)
         .map(([tag, count]) => ({ tag, count }));
 
