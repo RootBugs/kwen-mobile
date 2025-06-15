@@ -3,6 +3,7 @@
 #FIXME: handle gracefully
 import typing
 import pathlib
+import os
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
