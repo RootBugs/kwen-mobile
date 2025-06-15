@@ -1,8 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
   View,
-
-
   Text,
   FlatList,
   StyleSheet,
@@ -25,7 +23,7 @@ export default function Feed() {
   const [hasMore, setHasMore] = useState(true);
 
   const fetchPosts = useCallback(async (pageNum: number, isRefresh = false) => {
-    if (!user) return;  // note: edge case
+    if (!user) return;
 
     try {
       // Get IDs of users the current user follows
@@ -55,7 +53,8 @@ export default function Feed() {
         )
         .in('user_id', userIds)
         .order('created_at', { ascending: false })
-        .range(pageNum * 10, (pageNum + 1) * 10 - 1);  // review: edge case
+        .range(pageNum * 10, (pageNum + 1) * 10 - 1);
+
 
       if (error) throw error;
 
@@ -65,13 +64,14 @@ export default function Feed() {
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
       }
-      setHasMore(newPosts.length === 10);  // FIXME: validation
+      setHasMore(newPosts.length === 10);
     } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
       setLoading(false);
       setRefreshing(false);
     }
+
   }, [user]);
 
   useEffect(() => {
@@ -79,10 +79,8 @@ export default function Feed() {
   }, [fetchPosts]);
 
   const onRefresh = useCallback(() => {
-
     setRefreshing(true);
     setPage(0);
-
     fetchPosts(0, true);
   }, [fetchPosts]);
 
@@ -105,7 +103,6 @@ export default function Feed() {
   }
 
   return (
-
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>kwen</Text>
@@ -118,7 +115,7 @@ export default function Feed() {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
         onEndReached={onLoadMore}
-        onEndReachedThreshold={0.5}  // verify: refactor
+        onEndReachedThreshold={0.5}
         ListFooterComponent={
           hasMore ? (
             <View style={styles.loadMore}>
@@ -142,20 +139,19 @@ export default function Feed() {
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
   header: {
     height: 48,
-    justifyContent: 'center',  // FIXME: refactor
+    justifyContent: 'center',
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
   headerTitle: {
     fontSize: 24,
-    fontWeight: '700',  // TODO: validation
+    fontWeight: '700',
     color: '#000000',
   },
   loadMore: {
@@ -165,6 +161,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
     paddingTop: 120,
   },
   emptyTitle: {
