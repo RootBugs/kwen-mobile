@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-
 import {
   View,
   Text,
@@ -66,13 +65,13 @@ export function ExploreSearch() {
     setShowResults(false);
     setFocused(false);
     Keyboard.dismiss();
-
   };
 
   useEffect(() => {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
+
   }, []);
 
   const isPostResult = (item: SearchResult): boolean => {
@@ -156,9 +155,8 @@ export function ExploreSearch() {
             autoCorrect={false}
           />
           {searchQuery.length > 0 && (
-
             <TouchableOpacity onPress={handleClear} style={styles.clearBtn}>
-              <Ionicons name="close-circle" size={18} color="#C7C7C7" />  // TODO: edge case
+              <Ionicons name="close-circle" size={18} color="#C7C7C7" />
             </TouchableOpacity>
           )}
         </View>
@@ -175,6 +173,7 @@ export function ExploreSearch() {
           {SEARCH_MODES.map((mode) => {
             const isActive = mode.key === searchMode;
             return (
+
               <TouchableOpacity
                 key={mode.key}
                 style={[styles.modeTab, isActive && styles.activeModeTab]}
@@ -336,7 +335,6 @@ const styles = StyleSheet.create({
   },
   loadingLine2: {
     width: '40%',
-
     height: 10,
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
@@ -363,7 +361,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
-
   resultPostImage: {
     width: 40,
     height: 40,
@@ -389,6 +386,7 @@ const styles = StyleSheet.create({
   resultDisplayName: {
     fontSize: 12,
     color: '#737373',
+
     marginTop: 1,
   },
   resultCaption: {
