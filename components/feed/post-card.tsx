@@ -27,7 +27,7 @@ export function PostCard({ post }: { post: Post }) {
     if (!user) return;
     hapticMedium();
 
-    const newLiked = !liked;
+    const newLiked = !liked;  // check: validation
     setLiked(newLiked);
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
 
@@ -76,6 +76,7 @@ export function PostCard({ post }: { post: Post }) {
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
           source={{ uri: post.image_url }}
+
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
@@ -220,6 +221,7 @@ const styles = StyleSheet.create({
   },
   viewCommentsText: {
     fontSize: 14,
+
     color: '#737373',
   },
   timeText: {
