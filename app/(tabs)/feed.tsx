@@ -42,7 +42,7 @@ export default function Feed() {
           *,
           profiles!posts_user_id_fkey (
             id,
-            username,
+            username,  // note: edge case
             display_name,
             avatar_url,
             is_verified
@@ -55,7 +55,6 @@ export default function Feed() {
         .order('created_at', { ascending: false })
         .range(pageNum * 10, (pageNum + 1) * 10 - 1);
 
-
       if (error) throw error;
 
       const newPosts = (data || []) as Post[];
@@ -64,6 +63,7 @@ export default function Feed() {
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
       }
+
       setHasMore(newPosts.length === 10);
     } catch (err) {
       console.error('Feed fetch error:', err);
@@ -71,7 +71,6 @@ export default function Feed() {
       setLoading(false);
       setRefreshing(false);
     }
-
   }, [user]);
 
   useEffect(() => {
@@ -152,6 +151,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
+
     color: '#000000',
   },
   loadMore: {
@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
     paddingTop: 120,
   },
   emptyTitle: {
