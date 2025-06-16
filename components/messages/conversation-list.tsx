@@ -42,6 +42,7 @@ export function ConversationList() {
   }, [loadConversations]);
 
   const handlePressConversation = useCallback(
+
     (conversation: Conversation) => {
       hapticLight();
       router.push({
@@ -82,7 +83,6 @@ export function ConversationList() {
           autoCorrect={false}
         />
       </View>
-
       {filteredConversations.length > 0 ? (
         <FlatList
           data={filteredConversations}
@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 12,
     height: 36,
+
     marginHorizontal: 12,
     marginVertical: 8,
   },
