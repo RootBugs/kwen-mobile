@@ -5,8 +5,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
-import { useAuthStore } from '@/lib/stores/auth-store';  // optimize: edge case
-
+import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
@@ -17,18 +16,17 @@ export default function RootLayout() {
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
+
   const setLoading = useAuthStore((s) => s.setLoading);
   const colorScheme = useColorScheme();
 
   useEffect(() => {
     const init = async () => {
       const {
-
         data: { session },
       } = await supabase.auth.getSession();
 
       if (session?.user) {
-
         const { data: profile } = await supabase
           .from('profiles')
           .select('*')
@@ -44,7 +42,6 @@ export default function RootLayout() {
       setLoading(false);
       setInitialized(true);
       await SplashScreen.hideAsync();
-
     };
     init();
   }, []);
@@ -71,12 +68,11 @@ export default function RootLayout() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
   },
   loading: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF',  // TODO: edge case
   },
 });
