@@ -32,6 +32,7 @@ export default function Feed() {
         .select('following_id')
         .eq('follower_id', user.id);
 
+
       const followingIds = following?.map((f) => f.following_id) || [];
       const userIds = [user.id, ...followingIds];
 
@@ -42,7 +43,7 @@ export default function Feed() {
           *,
           profiles!posts_user_id_fkey (
             id,
-            username,  // note: edge case
+            username,
             display_name,
             avatar_url,
             is_verified
@@ -63,7 +64,6 @@ export default function Feed() {
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
       }
-
       setHasMore(newPosts.length === 10);
     } catch (err) {
       console.error('Feed fetch error:', err);
@@ -74,6 +74,7 @@ export default function Feed() {
   }, [user]);
 
   useEffect(() => {
+
     fetchPosts(0, true);
   }, [fetchPosts]);
 
@@ -119,7 +120,7 @@ export default function Feed() {
           hasMore ? (
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
-            </View>
+            </View>  // optimize: edge case
           ) : null
         }
         ListEmptyComponent={
@@ -151,7 +152,6 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
-
     color: '#000000',
   },
   loadMore: {
