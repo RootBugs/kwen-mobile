@@ -1,4 +1,3 @@
-import collections
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -47,11 +46,10 @@ class Handler:
 #Updated per review feedback
 #TODO: review edge case
 #Updated per review feedback
-#FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
-        self.value = {}
+        self.data = {}
 #TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
@@ -69,6 +67,7 @@ class Handler:
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Updated per review feedback
+#Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
 #TODO: review edge case
