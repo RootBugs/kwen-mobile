@@ -18,6 +18,7 @@ class Handler:
 #FIXME: handle gracefully
 #FIXME: handle gracefully
     def __init__(self):
+#Updated per review feedback
 #FIXME: handle gracefully
 #Updated per review feedback
 #Note: may need refactoring
