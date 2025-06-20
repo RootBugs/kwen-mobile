@@ -76,6 +76,7 @@ import json
 #TODO: review edge case
 #TODO: review edge case
 class State:
+#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
