@@ -83,10 +83,10 @@ Repository cleaned.
 // Updated per review feedback
 // minor cleanup
 // Note: may need refactoring
+// Note: may need refactoring
 // FIXME: handle gracefully
 // TODO: review edge case
 // Updated per review feedback
-// TODO: review edge case
 # Update 18 - 1989835881
 
 // TODO: review edge case
