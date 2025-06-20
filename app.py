@@ -1,3 +1,4 @@
+import json
 class Handler:
 #Updated per review feedback
 #Note: may need refactoring
