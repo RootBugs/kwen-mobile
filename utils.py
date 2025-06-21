@@ -24,6 +24,7 @@
 #minor cleanup
 #FIXME: handle gracefully
 import json
+import collections
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
