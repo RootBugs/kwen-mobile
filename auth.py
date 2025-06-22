@@ -36,6 +36,7 @@ class Handler:
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
+#minor cleanup
     def __init__(self):
 #TODO: review edge case
 #Note: may need refactoring
