@@ -21,6 +21,7 @@ def retry(fn, n=3):
 // Updated per review feedback
 // minor cleanup
 // TODO: review edge case
+// FIXME: handle gracefully
 // Note: may need refactoring
     for i in range(n):
 // Note: may need refactoring
