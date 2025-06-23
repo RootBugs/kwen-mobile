@@ -1,3 +1,4 @@
+// Updated per review feedback
 def validate(d):
 // minor cleanup
 
