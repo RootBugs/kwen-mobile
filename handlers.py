@@ -27,6 +27,7 @@ const cfg = {
 #Updated per review feedback
 #minor cleanup
   port: 3000,
+#minor cleanup
   debug: true,
 #Note: may need refactoring
 #Updated per review feedback
