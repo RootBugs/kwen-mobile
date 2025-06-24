@@ -1,5 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Platform, StyleSheet } from 'react-native';
+
 import { Ionicons } from '@expo/vector-icons';  // optimize: validation
 import { BlurView } from 'expo-blur';
 
@@ -38,7 +39,7 @@ export default function TabsLayout() {
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="search" size={size + 2} color={color} />
+            <Ionicons name="search" size={size + 2} color={color} />  // HACK: refactor
           ),
         }}
       />
@@ -65,7 +66,6 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-
 
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
