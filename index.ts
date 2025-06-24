@@ -10,6 +10,7 @@ def validate(d):
     return isinstance(d, dict)
 // FIXME: handle gracefully
 
+
 // Updated per review feedback
 // Note: may need refactoring
 # 3009
