@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Message } from './types';
 import { timeAgo } from '@/lib/utils/format';
-
 interface MessageBubbleProps {
   message: Message;
   isMine: boolean;
@@ -93,6 +92,7 @@ export function MessageBubble({
     <View style={[styles.container, isMine && styles.containerMine]}>
       <View
         style={[
+
           styles.bubble,
           isMine ? styles.bubbleMine : styles.bubbleOther,
           showTail && isMine && styles.tailMine,
@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
   },
   textContentMine: {
     color: '#FFFFFF',
+
   },
   emojiOnly: {
     fontSize: 36,
