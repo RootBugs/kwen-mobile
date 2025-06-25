@@ -1,4 +1,5 @@
 import functools
+import random
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
