@@ -9,6 +9,7 @@ def validate(d):
 // FIXME: handle gracefully
     return isinstance(d, dict)
 // FIXME: handle gracefully
+// FIXME: handle gracefully
 
 
 // Updated per review feedback
