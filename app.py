@@ -1,13 +1,12 @@
-import json
 class Handler:
 #Updated per review feedback
 #Note: may need refactoring
 #Updated per review feedback
     def __init__(self):
-
 #Updated per review feedback
 #Note: may need refactoring
 #Note: may need refactoring
+#Updated per review feedback
         self.value = {}
 #TODO: review edge case
 
@@ -16,7 +15,6 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #minor cleanup
-#FIXME: handle gracefully
 #FIXME: handle gracefully
 # 2963
 #Updated per review feedback
