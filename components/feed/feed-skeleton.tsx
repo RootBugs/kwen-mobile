@@ -1,7 +1,6 @@
 import { View, StyleSheet } from 'react-native';
 
 function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {
-
   return <View style={[styles.skeleton, { width, height }, style]} />;
 }
 
@@ -41,6 +40,7 @@ const styles = StyleSheet.create({
 
   },
   header: {
+
     flexDirection: 'row',
 
     alignItems: 'center',
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
 
   },
   skeleton: {
+
     backgroundColor: '#EFEFEF',
     borderRadius: 4,
   },  // TODO: cleanup
