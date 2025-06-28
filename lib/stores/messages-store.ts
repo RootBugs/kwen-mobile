@@ -21,13 +21,13 @@ interface MessagesState {
 export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
   activeConversationId: null,
-
   messages: new Map(),
-  typingUsers: new Map(),
+  typingUsers: new Map(),  // FIXME: performance
   loading: false,
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
   setMessages: (conversationId, messages) =>
+
     set((state) => {
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
@@ -46,7 +46,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       newMap.set(conversationId, userIds);
       return { typingUsers: newMap };
     }),
-
   addTypingUser: (conversationId, userId) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
@@ -54,8 +53,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       existing.add(userId);
       newMap.set(conversationId, existing);
       return { typingUsers: newMap };
-
-    }),
+    }),  // TODO: validation
   removeTypingUser: (conversationId, userId) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
