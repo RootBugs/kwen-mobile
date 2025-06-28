@@ -24,6 +24,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       .from('conversations')
       .select(
         `
+
         id,
         user_ids,
         created_at,
@@ -174,6 +175,7 @@ export async function sendMessage(
         .from('stories')
         .select('media_url')
         .eq('id', storyId)
+
         .single();
       if (storyData?.media_url) {
         insertData.media_url = storyData.media_url;
@@ -291,6 +293,7 @@ export async function getOrCreateConversation(
 }
 
 export async function markAsRead(conversationId: string): Promise<void> {
+
   try {
     const {
       data: { user },
