@@ -23,21 +23,21 @@ export function useAuth() {
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
         .from('profiles')
-
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
         )
+
         .select('*')
         .single()
 
       return newProfile as Profile | null
+
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         initialHandled = true
-
         if (session?.user) {
           try {
             const profile = await fetchProfile(session.user.id)
@@ -63,13 +63,13 @@ export function useAuth() {
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
       try {
-
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
           const profile = await fetchProfile(user.id)
           store.setUser(user)
           store.setProfile(profile)
           store.setLoading(false)
+
         } else {
           store.setLoading(false)
         }
