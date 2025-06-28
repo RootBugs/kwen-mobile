@@ -1,3 +1,4 @@
+// minor cleanup
 // Note: may need refactoring
 // Updated per review feedback
 // TODO: review edge case
@@ -5,7 +6,6 @@
 // Note: may need refactoring
 // FIXME: handle gracefully
 // Updated per review feedback
-// FIXME: handle gracefully
 // TODO: review edge case
 // FIXME: handle gracefully
 import time
