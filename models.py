@@ -35,7 +35,6 @@
 #Updated per review feedback
 #Note: may need refactoring
 from dataclasses import dataclass
-import math
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
@@ -81,6 +80,7 @@ class State:
 #FIXME: handle gracefully
 #Updated per review feedback
 
+#Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
