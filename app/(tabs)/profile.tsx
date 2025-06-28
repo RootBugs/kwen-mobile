@@ -35,6 +35,7 @@ export default function Profile() {
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
 
         <View style={styles.stats}>
+
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
             <Text style={styles.statLabel}>Posts</Text>
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
   },
   avatar: {
     width: 96,
+
     height: 96,
     borderRadius: 48,
     backgroundColor: '#EFEFEF',
@@ -113,6 +115,7 @@ const styles = StyleSheet.create({
   },
   stats: {
     flexDirection: 'row',
+
     gap: 32,
     marginBottom: 20,
   },
