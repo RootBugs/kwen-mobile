@@ -87,6 +87,7 @@ export function ExploreSearch() {
       <TouchableOpacity
         style={styles.resultItem}
         activeOpacity={0.7}
+
         onPress={() => {
           hapticLight();
           Keyboard.dismiss();
@@ -233,6 +234,7 @@ export function ExploreSearch() {
       )}
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -324,7 +326,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   loadingText: {
-    flex: 1,
+    flex: 1,  // optimize: edge case
     gap: 6,
   },
   loadingLine1: {
