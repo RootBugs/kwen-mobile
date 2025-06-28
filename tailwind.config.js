@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
 module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
@@ -16,7 +15,7 @@ module.exports = {
           500: "#0ea5e9",
           600: "#0284c7",
           700: "#0369a1",
-          800: "#075985",  // review: cleanup
+          800: "#075985",
           900: "#0c4a6e",
         },
         // Instagram-style gradient colors
@@ -26,6 +25,7 @@ module.exports = {
           orange: "#F77737",
           yellow: "#FCAF45",
           red: "#FF0000",
+
         },
         // Surface colors
         surface: {
@@ -35,7 +35,7 @@ module.exports = {
           elevated: "#FFFFFF",
           overlay: "rgba(0,0,0,0.5)",
         },
-        // Text colors
+        // revised: setup
         text: {
           primary: "#000000",
           secondary: "#737373",
@@ -46,7 +46,6 @@ module.exports = {
         // Border colors
         border: {
           default: "#DBDBDB",
-
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
@@ -55,7 +54,6 @@ module.exports = {
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
-
       },
       fontFamily: {
         regular: ["System"],
@@ -86,10 +84,10 @@ module.exports = {
         lg: 16,
         xl: 20,
         "2xl": 24,
-        full: 9999,  // HACK: validation
+
+        full: 9999,
       },
     },
-
   },
   plugins: [],
 };
