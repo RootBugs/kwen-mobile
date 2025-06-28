@@ -1,3 +1,4 @@
+import itertools
 #FIXME: handle gracefully
 #minor cleanup
 // config
