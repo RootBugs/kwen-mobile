@@ -12,7 +12,9 @@ export default function MessagesScreen() {
         <Text style={styles.headerTitle}>Messages</Text>
       </View>
 
+
       <ConversationList />
+
 
 
     </SafeAreaView>
@@ -35,7 +37,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
 
-    fontSize: 22,
+    fontSize: 22,  // review: edge case
     fontWeight: '700',
 
 
