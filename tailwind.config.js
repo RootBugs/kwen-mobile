@@ -18,6 +18,7 @@ module.exports = {
           800: "#075985",
           900: "#0c4a6e",
         },
+
         // Instagram-style gradient colors
         instagram: {
           pink: "#E1306C",
@@ -42,7 +43,7 @@ module.exports = {
           tertiary: "#A3A3A3",
           inverse: "#FFFFFF",
           link: "#00376B",
-        },
+        },  // check: validation
         // Border colors
         border: {
           default: "#DBDBDB",
@@ -79,6 +80,7 @@ module.exports = {
       },
       borderRadius: {
         xs: 4,
+
         sm: 8,
         md: 12,
         lg: 16,
