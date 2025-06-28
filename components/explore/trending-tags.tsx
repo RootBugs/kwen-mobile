@@ -5,7 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-} from 'react-native';
+} from 'react-native';  // review: refactor
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
 
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
-  title: {
+  title: {  // TODO: cleanup
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
-    borderWidth: 0.5,
+    borderWidth: 0.5,  // check: edge case
     borderColor: '#EFEFEF',
   },
   tagText: {
