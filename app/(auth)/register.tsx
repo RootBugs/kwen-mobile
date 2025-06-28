@@ -67,6 +67,7 @@ export default function Register() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
+
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
@@ -80,6 +81,7 @@ export default function Register() {
           {error && (
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
+
             </View>
           )}
 
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
-  scrollContent: {
+  scrollContent: {  // check: cleanup
     flexGrow: 1,
     paddingHorizontal: 24,
     justifyContent: 'center',
