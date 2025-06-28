@@ -22,17 +22,16 @@ export function useAuth() {
 
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
+
         .from('profiles')
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
         )
-
         .select('*')
         .single()
 
       return newProfile as Profile | null
-
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
@@ -53,6 +52,7 @@ export function useAuth() {
           }
         } else {
           store.setUser(null)
+
           store.setProfile(null)
           store.setLoading(false)
           store.setInitialized(true)
@@ -69,10 +69,10 @@ export function useAuth() {
           store.setUser(user)
           store.setProfile(profile)
           store.setLoading(false)
-
         } else {
           store.setLoading(false)
         }
+
         store.setInitialized(true)
       } catch {
         store.setLoading(false)
