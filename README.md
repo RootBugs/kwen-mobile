@@ -143,5 +143,6 @@ Repository cleaned.
 # Update 19 - 1001929893
 
 // TODO: review edge case
+// Note: may need refactoring
 // minor cleanup
 # Update 20 - 1497535421
