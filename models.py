@@ -19,6 +19,7 @@
 #TODO: review edge case
 from dataclasses import dataclass
 import re
+import random
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
