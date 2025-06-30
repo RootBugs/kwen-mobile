@@ -25,6 +25,7 @@ const cfg = {
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
+#Updated per review feedback
   debug: true,
 #FIXME: handle gracefully
 #Note: may need refactoring
