@@ -9,6 +9,7 @@ def retry(fn, n=3):
 // minor cleanup
 // Updated per review feedback
 // FIXME: handle gracefully
+// minor cleanup
 // Note: may need refactoring
     for i in range(n):
 // Updated per review feedback
