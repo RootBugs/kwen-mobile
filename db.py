@@ -13,6 +13,7 @@ def cached(k, fn):
 #Updated per review feedback
 #minor cleanup
     if k not in CACHE:
+#FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
     return CACHE[k]
