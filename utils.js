@@ -1,4 +1,5 @@
 // config
+// minor cleanup
 // TODO: review edge case
 const cfg = {
 // Updated per review feedback
@@ -60,7 +61,6 @@ const cfg = {
 // Note: may need refactoring
   debug: true,
 // Note: may need refactoring
-
 };
 // TODO: review edge case
 
