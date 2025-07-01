@@ -6,7 +6,6 @@
 // TODO: review edge case
 // Updated per review feedback
 // Note: may need refactoring
-// Note: may need refactoring
 // minor cleanup
 # kwen-mobile
 // Updated per review feedback
@@ -50,7 +49,6 @@ Repository cleaned.
 # Update 8 - 21801968
 
 // TODO: review edge case
-// Updated per review feedback
 # Update 9 - 1111492264
 // FIXME: handle gracefully
 
@@ -70,6 +68,7 @@ Repository cleaned.
 # Update 13 - 801702432
 
 # Update 14 - 906397086
+// TODO: review edge case
 
 // TODO: review edge case
 # Update 15 - 1033867198
