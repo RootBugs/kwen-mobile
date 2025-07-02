@@ -1,11 +1,9 @@
-import itertools
 #FIXME: handle gracefully
 #minor cleanup
 // config
 const cfg = {
 #Note: may need refactoring
 #minor cleanup
-#Note: may need refactoring
   port: 3000,
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -49,6 +47,7 @@ const cfg = {
 #Note: may need refactoring
 #Updated per review feedback
 #Updated per review feedback
+#TODO: review edge case
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
