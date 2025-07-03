@@ -18,7 +18,6 @@
 #TODO: review edge case
 #Note: may need refactoring
 #FIXME: handle gracefully
-
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
@@ -45,7 +44,6 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
-import collections
 #TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
@@ -58,7 +56,7 @@ import collections
 #TODO: review edge case
 #minor cleanup
 #minor cleanup
-#Updated per review feedback
+#minor cleanup
 #Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
@@ -114,7 +112,6 @@ import logging
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
-#Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
 
@@ -158,7 +155,6 @@ logger = logging.getLogger(__name__)
 #Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
-
 #TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
