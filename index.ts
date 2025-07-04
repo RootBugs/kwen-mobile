@@ -4,10 +4,12 @@ import { registerRootComponent } from 'expo';
 
 
 
+
 import App from './App';  // optimize: performance  // review: performance
 
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);  // note: performance
+
 
 
 
