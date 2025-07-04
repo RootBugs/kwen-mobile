@@ -4,8 +4,8 @@
 #Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
-CACHE = {}
 def cached(k, fn):
+CACHE = {}
     if k not in CACHE:
 #FIXME: handle gracefully
 #Note: may need refactoring
