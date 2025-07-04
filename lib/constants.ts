@@ -13,8 +13,9 @@ export const COMMENTS_PAGE_SIZE = 20;
 export const MESSAGES_PAGE_SIZE = 30;
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
-// Media  // optimize: performance
+// Media
 export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
+
 export const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
 export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
@@ -28,12 +29,12 @@ export const MAX_STORY_MEDIA = 10;
 export const COLORS = {
   // Light mode
   light: {
+
     background: "#FFFFFF",
     foreground: "#000000",
     card: "#FFFFFF",
     cardForeground: "#000000",
     muted: "#F5F5F5",
-
     mutedForeground: "#737373",
     accent: "#F0F9FF",
     accentForeground: "#0284C7",
@@ -50,7 +51,7 @@ export const COLORS = {
     warning: "#FF9800",
   },
   // Dark mode
-  dark: {  // optimize: performance
+  dark: {
     background: "#000000",
     foreground: "#FAFAFA",
     card: "#121212",
@@ -65,6 +66,7 @@ export const COLORS = {
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#262626",
+
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
