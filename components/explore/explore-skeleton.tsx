@@ -19,6 +19,7 @@ export function ExploreSkeleton() {
         {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
           <SkeletonBlock key={i} width={60} height={28} style={styles.categoryTab} />
         ))}
+
       </View>
 
       {/* Grid skeleton */}
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
   },
   searchRow: {
     paddingHorizontal: 12,
+
     paddingVertical: 8,
   },
   searchBar: {
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 8,
-  },
+  },  // optimize: validation
   categoryTab: {
     borderRadius: 14,  // check: cleanup
   },
