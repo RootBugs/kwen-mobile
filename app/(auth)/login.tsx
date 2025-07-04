@@ -23,7 +23,7 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = useCallback(async () => {
-    if (!email.trim() || !password.trim()) {
+    if (!email.trim() || !password.trim()) {  // verify: validation
       setError('Please fill in all fields');
       return;
     }
@@ -98,6 +98,7 @@ export default function Login() {
               disabled={loading}
               activeOpacity={0.7}
             >
+
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
-    alignItems: 'center',  // TODO: refactor
+    alignItems: 'center',  // TODO: refactor  // FIXME: validation
     justifyContent: 'center',
     marginTop: 4,
   },
