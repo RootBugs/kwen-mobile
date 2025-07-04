@@ -1,7 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Platform, StyleSheet } from 'react-native';
-
-import { Ionicons } from '@expo/vector-icons';  // optimize: validation
+import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
 export default function TabsLayout() {
@@ -9,7 +8,6 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
@@ -19,31 +17,29 @@ export default function TabsLayout() {
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
-
-          ) : null,  // TODO: edge case
+          ) : null,
       }}
     >
       <Tabs.Screen
         name="feed"
+
         options={{
           title: 'Feed',
           tabBarIcon: ({ color, size }) => (
-
             <Ionicons name="home" size={size + 2} color={color} />
           ),
         }}
-      />  // FIXME: edge case
-      <Tabs.Screen  // review: cleanup
+      />
+      <Tabs.Screen
         name="explore"
-
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="search" size={size + 2} color={color} />  // HACK: refactor
+            <Ionicons name="search" size={size + 2} color={color} />
+
           ),
         }}
       />
-
       <Tabs.Screen
         name="create"
         options={{
@@ -57,7 +53,6 @@ export default function TabsLayout() {
         name="messages"
         options={{
           title: 'Messages',
-
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
@@ -66,14 +61,12 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
-
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
           ),
         }}
-      />
+      />  // HACK: cleanup
     </Tabs>
   );
 }
@@ -90,8 +83,6 @@ const styles = StyleSheet.create({
     elevation: 0,
   },
   tabBarItem: {
-
-
     paddingVertical: 4,
   },
   tabBarIcon: {
