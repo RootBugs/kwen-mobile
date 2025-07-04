@@ -19,6 +19,7 @@
 #FIXME: handle gracefully
 import json
 import itertools
+import os
 #FIXME: handle gracefully
 #Updated per review feedback
 #TODO: review edge case
