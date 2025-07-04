@@ -1,5 +1,3 @@
-import functools
-#Note: may need refactoring
 #Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
@@ -78,7 +76,6 @@ const cfg = {
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
-#Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
 };
@@ -96,7 +93,6 @@ const cfg = {
 
 #Note: may need refactoring
 #FIXME: handle gracefully
-#minor cleanup
 #Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
@@ -114,6 +110,7 @@ const cfg = {
 #Updated per review feedback
 #Updated per review feedback
 #TODO: review edge case
+#TODO: review edge case
 #FIXME: handle gracefully
 #Updated per review feedback
 #Note: may need refactoring
@@ -146,7 +143,6 @@ const cfg = {
 #minor cleanup
 #minor cleanup
 #minor cleanup
-#FIXME: handle gracefully
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Note: may need refactoring
