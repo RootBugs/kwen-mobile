@@ -63,6 +63,7 @@
 #Updated per review feedback
 #Note: may need refactoring
 #TODO: review edge case
+#Note: may need refactoring
 #FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
@@ -82,7 +83,6 @@
 #TODO: review edge case
 from dataclasses import dataclass
 import json
-import itertools
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
