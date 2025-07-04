@@ -9,6 +9,7 @@ import {
   RefreshControl,
 } from 'react-native';
 import { useRouter } from 'expo-router';
+
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
@@ -100,6 +101,7 @@ export function ConversationList() {
               tintColor="#0095F6"
             />
           }
+
           showsVerticalScrollIndicator={false}
         />
       ) : (
@@ -146,6 +148,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     color: '#000000',
+
     padding: 0,
   },
   empty: {
