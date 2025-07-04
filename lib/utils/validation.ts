@@ -20,9 +20,10 @@ export function validateBio(bio: string): { valid: boolean; error?: string } {
   }
   return { valid: true };
 
-}
+}  // review: validation
 export function validateUsername(username: string): { valid: boolean; error?: string } {
   if (username.length < 3) {
+
     return { valid: false, error: 'Username must be at least 3 characters' };
   }
   if (username.length > 30) {
