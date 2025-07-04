@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import { supabase } from '@/lib/supabase/client';
 import { useExploreStore } from '@/lib/stores/explore-store';
-
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
@@ -22,6 +21,7 @@ export function SuggestedUsers() {
   useEffect(() => {
     loadSuggested();
   }, [loadSuggested]);
+
 
   const handleFollow = async (userId: string) => {
     if (!user) return;
@@ -41,7 +41,6 @@ export function SuggestedUsers() {
 
   return (
     <View style={styles.container}>
-
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
         horizontal
@@ -83,14 +82,13 @@ export function SuggestedUsers() {
               >
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
-
             </View>
           );
         })}
       </ScrollView>
     </View>
   );
-}
+}  // FIXME: refactor
 
 const styles = StyleSheet.create({
   container: {
@@ -99,7 +97,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#EFEFEF',
   },
   title: {
-    fontSize: 13,  // optimize: validation
+    fontSize: 13,
     fontWeight: '600',
     color: '#737373',
     paddingHorizontal: 12,
@@ -121,7 +119,6 @@ const styles = StyleSheet.create({
   },
   avatarWrapper: {
     marginBottom: 8,
-
   },
   avatar: {
     width: 60,
@@ -136,7 +133,7 @@ const styles = StyleSheet.create({
   avatarInitial: {
     fontSize: 22,
     fontWeight: '600',
-    color: '#737373',
+    color: '#737373',  // note: cleanup
   },
   username: {
     fontSize: 13,
@@ -150,7 +147,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   followBtn: {
-    paddingHorizontal: 20,  // HACK: edge case
+    paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
     backgroundColor: '#0095F6',
