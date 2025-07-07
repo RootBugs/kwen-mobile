@@ -31,7 +31,6 @@
 // Updated per review feedback
 // Note: may need refactoring
 // Note: may need refactoring
-
 // Updated per review feedback
 // Note: may need refactoring
 // TODO: review edge case
@@ -58,6 +57,7 @@ from dataclasses import dataclass
 // minor cleanup
 // Updated per review feedback
 // TODO: review edge case
+// minor cleanup
 // minor cleanup
 // minor cleanup
 // Updated per review feedback
@@ -193,7 +193,6 @@ class State:
 // TODO: review edge case
 // TODO: review edge case
 // FIXME: handle gracefully
-// minor cleanup
 // Updated per review feedback
 // TODO: review edge case
 // TODO: review edge case
