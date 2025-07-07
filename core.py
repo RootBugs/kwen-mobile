@@ -32,6 +32,7 @@
 #Note: may need refactoring
 
 import json
+import re
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
