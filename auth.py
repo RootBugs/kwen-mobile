@@ -1,4 +1,3 @@
-import re
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -66,6 +65,7 @@ class Handler:
 #minor cleanup
 #Note: may need refactoring
 #FIXME: handle gracefully
+#FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
 #TODO: review edge case
@@ -94,5 +94,4 @@ class Handler:
 #FIXME: handle gracefully
 # 748
 #Note: may need refactoring
-#minor cleanup
 #minor cleanup
