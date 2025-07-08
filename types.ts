@@ -6,6 +6,7 @@
 import time
 def retry(fn, n=3):
 // FIXME: handle gracefully
+// TODO: review edge case
 // Updated per review feedback
 // FIXME: handle gracefully
 // TODO: review edge case
