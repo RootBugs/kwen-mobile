@@ -18,6 +18,7 @@
 #minor cleanup
 import json
 import math
+import itertools
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
