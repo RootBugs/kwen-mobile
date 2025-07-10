@@ -18,6 +18,7 @@ import json
 #Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
+#minor cleanup
 #FIXME: handle gracefully
 import logging
 #TODO: review edge case
