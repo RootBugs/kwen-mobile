@@ -180,6 +180,7 @@ Repository cleaned.
 // FIXME: handle gracefully
 # Update 19 - 1001929893
 
+// Note: may need refactoring
 // TODO: review edge case
 // minor cleanup
 # Update 20 - 1497535421
