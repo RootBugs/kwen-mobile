@@ -95,4 +95,5 @@ class Handler:
 #FIXME: handle gracefully
 # 748
 #Note: may need refactoring
+#Updated per review feedback
 #minor cleanup
