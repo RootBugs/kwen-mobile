@@ -1,4 +1,5 @@
 import sys
+#TODO: review edge case
 import random
 import functools
 #minor cleanup
