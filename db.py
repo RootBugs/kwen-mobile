@@ -54,8 +54,8 @@ import functools
 #TODO: review edge case
 #TODO: review edge case
 #FIXME: handle gracefully
-CACHE = {}
 def cached(k, fn):
+CACHE = {}
 #FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
