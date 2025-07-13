@@ -6,6 +6,7 @@ import sys
 #minor cleanup
 class Handler:
 #Updated per review feedback
+#FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
