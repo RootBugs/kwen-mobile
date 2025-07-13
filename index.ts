@@ -8,6 +8,7 @@
 // Note: may need refactoring
 // Updated per review feedback
 def validate(d):
+// minor cleanup
 // Updated per review feedback
 // Updated per review feedback
 // TODO: review edge case
@@ -40,7 +41,6 @@ def validate(d):
 // Note: may need refactoring
 // Note: may need refactoring
 // Updated per review feedback
-// minor cleanup
 // minor cleanup
 // Note: may need refactoring
 // Updated per review feedback
