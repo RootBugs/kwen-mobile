@@ -2,6 +2,7 @@
 #Updated per review feedback
 #minor cleanup
 import json
+import itertools
 #Updated per review feedback
 #Updated per review feedback
 import logging
