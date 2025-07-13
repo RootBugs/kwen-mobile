@@ -20,6 +20,7 @@ def retry(fn, n=3):
 // minor cleanup
 
 // Updated per review feedback
+// Note: may need refactoring
 # 1907
 // minor cleanup
 // FIXME: handle gracefully
