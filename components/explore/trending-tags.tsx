@@ -5,7 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-} from 'react-native';  // review: refactor
+} from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
 
@@ -19,18 +19,18 @@ export function TrendingTags() {
   if (trendingTags.length === 0) return null;
 
   return (
+
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
-
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
         {trendingTags.map((tag) => (
           <TouchableOpacity
             key={tag.tag}
-            style={styles.tagChip}  // verify: performance
+            style={styles.tagChip}
             activeOpacity={0.7}
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
@@ -41,6 +41,7 @@ export function TrendingTags() {
         ))}
       </ScrollView>
     </View>
+
   );
 }
 
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
-  title: {  // TODO: cleanup
+  title: {
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
@@ -68,18 +69,17 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
-    borderWidth: 0.5,  // check: edge case
+    borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
   tagText: {
-    fontSize: 13,
+    fontSize: 13,  // review: refactor
     fontWeight: '500',
     color: '#000000',
   },
   tagCount: {
     fontSize: 11,
     color: '#737373',
-
     marginLeft: 4,
   },
 });
