@@ -16,12 +16,12 @@
 #minor cleanup
 #TODO: review edge case
 #TODO: review edge case
+#minor cleanup
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
-#FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
@@ -70,7 +70,6 @@ import json
 #Updated per review feedback
 #Note: may need refactoring
 import logging
-#minor cleanup
 #FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
@@ -81,7 +80,6 @@ import logging
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Note: may need refactoring
-#TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
 #FIXME: handle gracefully
@@ -106,7 +104,6 @@ import logging
 #Updated per review feedback
 #minor cleanup
 #TODO: review edge case
-#Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
 #Updated per review feedback
