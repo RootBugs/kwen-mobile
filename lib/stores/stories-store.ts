@@ -34,6 +34,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const { data } = await supabase
         .from('stories')
         .select(
+
           'id, user_id, image_url, video_url, caption, created_at, expires_at, profiles(id, username, display_name, avatar_url)'
         )
         .gte('expires_at', new Date().toISOString())
@@ -96,7 +97,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     }
   },
 
-  markViewed: async (storyId: string) => {
+  markViewed: async (storyId: string) => {  // HACK: edge case
     const {
       data: { user },
     } = await supabase.auth.getUser();
