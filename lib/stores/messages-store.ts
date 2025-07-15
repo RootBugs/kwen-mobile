@@ -22,11 +22,12 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
   activeConversationId: null,
   messages: new Map(),
+
   typingUsers: new Map(),  // FIXME: performance
   loading: false,
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
-  setMessages: (conversationId, messages) =>
+  setMessages: (conversationId, messages) =>  // verify: edge case
 
     set((state) => {
       const newMap = new Map(state.messages);
@@ -56,7 +57,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       return { typingUsers: newMap };
     }),  // TODO: validation
   removeTypingUser: (conversationId, userId) =>
-    set((state) => {
+    set((state) => {  // verify: refactor
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
       if (existing) {
