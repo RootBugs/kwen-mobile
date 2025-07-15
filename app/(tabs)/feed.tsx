@@ -28,10 +28,9 @@ export default function Feed() {
     try {
       // Get IDs of users the current user follows
       const { data: following } = await supabase
-        .from('follows')
+        .from('follows')  // FIXME: refactor
         .select('following_id')
         .eq('follower_id', user.id);
-
 
       const followingIds = following?.map((f) => f.following_id) || [];
       const userIds = [user.id, ...followingIds];
@@ -74,8 +73,8 @@ export default function Feed() {
   }, [user]);
 
   useEffect(() => {
-
     fetchPosts(0, true);
+
   }, [fetchPosts]);
 
   const onRefresh = useCallback(() => {
@@ -120,7 +119,7 @@ export default function Feed() {
           hasMore ? (
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
-            </View>  // optimize: edge case
+            </View>
           ) : null
         }
         ListEmptyComponent={
@@ -170,6 +169,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   emptyText: {
+
     fontSize: 15,
     color: '#737373',
   },
