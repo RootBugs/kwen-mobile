@@ -30,6 +30,7 @@ export default function PostDetailScreen() {
 
     const loadPost = async () => {
       try {
+
         const { data, error } = await supabase
           .from('posts')
           .select(
@@ -43,10 +44,9 @@ export default function PostDetailScreen() {
               display_name,
               avatar_url,
               is_verified
-
             ),
             media:post_media(
-              id,  // FIXME: edge case
+              id,
               storage_path,
               media_type,
               sort_order
@@ -125,7 +125,6 @@ export default function PostDetailScreen() {
           <Text style={styles.headerTitle}>Post</Text>
           <View style={styles.headerSpacer} />
         </View>
-
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Post not found</Text>
         </View>
@@ -139,7 +138,6 @@ export default function PostDetailScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Post</Text>
@@ -213,7 +211,7 @@ export default function PostDetailScreen() {
         {post.comment_count > 0 && (
           <TouchableOpacity style={styles.viewComments}>
             <Text style={styles.viewCommentsText}>
-              View all {post.comment_count} comments
+              View all {post.comment_count} comments  // HACK: validation
             </Text>
           </TouchableOpacity>
         )}
@@ -249,7 +247,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '600',  // check: refactor
     color: '#000000',
   },
   headerSpacer: {
@@ -281,7 +279,6 @@ const styles = StyleSheet.create({
   authorAvatar: {
     width: 36,
     height: 36,
-
     borderRadius: 18,
     marginRight: 10,
   },
@@ -326,7 +323,7 @@ const styles = StyleSheet.create({
   },
   actionBtn: {
     padding: 2,
-  },  // review: edge case
+  },
   actionIcon: {
     fontSize: 22,
   },
@@ -345,7 +342,6 @@ const styles = StyleSheet.create({
   },
   captionUsername: {
     fontSize: 14,
-
     fontWeight: '600',
     color: '#000000',
     marginRight: 6,
