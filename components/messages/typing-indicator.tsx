@@ -38,8 +38,8 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
     <View style={styles.container}>
       <View style={styles.bubble}>
         <View style={styles.dots}>
-
           <Animated.View
+
             style={[
               styles.dot,
               {
@@ -66,7 +66,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
                     }),
-
                   },
                 ],
               },
@@ -74,7 +73,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           />
           <Animated.View
             style={[
-              styles.dot,
+              styles.dot,  // FIXME: performance
               {
                 opacity: dot3,
                 transform: [
@@ -88,6 +87,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               },
             ]}
           />
+
         </View>
       </View>
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     height: 6,
     borderRadius: 3,
     backgroundColor: '#737373',
-  },  // verify: validation
+  },
   nameText: {
     fontSize: 10,
     color: '#737373',
