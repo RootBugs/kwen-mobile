@@ -64,7 +64,6 @@ export default function CreateScreen() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-
       if (!user) {
         Alert.alert('Error', 'You must be logged in to post');
         setUploading(false);
@@ -77,6 +76,7 @@ export default function CreateScreen() {
       const { path, error: uploadError } = await uploadImage(imageUri, 'posts', fileName);
 
       if (uploadError || !path) {
+
         throw new Error(uploadError || 'Upload failed');
       }
 
@@ -218,7 +218,6 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
-
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -267,6 +266,7 @@ const styles = StyleSheet.create({
     color: '#737373',
     textAlign: 'center',
     marginTop: 8,
+
     lineHeight: 20,
   },
   pickerButtons: {
