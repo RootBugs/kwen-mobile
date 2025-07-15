@@ -20,6 +20,7 @@ export interface Profile {
 }
 
 interface AuthState {
+
   user: User | null
   profile: Profile | null
   loading: boolean
@@ -46,6 +47,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
+
       .from('profiles')
       .select('*')
       .eq('id', userId)
@@ -60,6 +62,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     // Fallback: create profile if missing
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
+
       .from('profiles')
       .upsert(
         { id: userId, username: tempUsername, display_name: 'User' },
