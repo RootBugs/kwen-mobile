@@ -41,9 +41,9 @@ export function MessageInput({
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant photo library access.');
-        return;
 
-      }  // optimize: cleanup
+        return;
+      }
 
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -67,7 +67,6 @@ export function MessageInput({
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
       }
-
 
       const result = await ImagePicker.launchCameraAsync({
         quality: 0.8,
@@ -105,7 +104,6 @@ export function MessageInput({
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
 
-
         <TextInput
           ref={inputRef}
           style={styles.input}
@@ -118,6 +116,7 @@ export function MessageInput({
           returnKeyType="default"
           blurOnSubmit={false}
         />
+
 
         {text.trim().length > 0 && (
           <TouchableOpacity onPress={handleSend} style={styles.sendBtn}>
@@ -145,6 +144,7 @@ const styles = StyleSheet.create({
   },
   replyIndicator: {
     width: 3,
+
     height: 24,
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
@@ -169,7 +169,6 @@ const styles = StyleSheet.create({
     paddingTop: 6,
     gap: 4,
   },
-
   actionBtn: {
     padding: 6,
   },
@@ -181,7 +180,6 @@ const styles = StyleSheet.create({
     minHeight: 36,
     maxHeight: 100,
     backgroundColor: '#EFEFEF',
-
     borderRadius: 18,
     paddingHorizontal: 14,
     paddingVertical: 8,
