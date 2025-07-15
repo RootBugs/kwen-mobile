@@ -32,6 +32,7 @@ export default function Profile() {
           {profile?.display_name || 'User'}
         </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
+
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
 
         <View style={styles.stats}>
@@ -70,7 +71,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     borderBottomWidth: 1,
-
     borderBottomColor: '#DBDBDB',
   },
   headerTitle: {
@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   editBtnText: {
     fontSize: 14,
     fontWeight: '600',
