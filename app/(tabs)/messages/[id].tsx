@@ -27,9 +27,10 @@ export default function ChatScreen() {
               router.push({
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
+
               })
             }
-          >  // verify: cleanup
+          >
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
             ) : (
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -67,7 +69,6 @@ const styles = StyleSheet.create({
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
-
     padding: 8,
   },
   backText: {
@@ -98,11 +99,11 @@ const styles = StyleSheet.create({
   },
   headerName: {
     fontSize: 16,
+
     fontWeight: '600',
     color: '#000000',
   },
   headerSpacer: {
-
     width: 38,
   },
 });
