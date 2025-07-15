@@ -5,6 +5,7 @@ export const SUPABASE_ANON_KEY =
 export const APP_NAME = "Kwen";
 export const APP_VERSION = "1.0.0";
 
+
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
 export const FEED_PAGE_SIZE = 10;
@@ -15,7 +16,6 @@ export const NOTIFICATIONS_PAGE_SIZE = 20;
 
 // Media
 export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
-
 export const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
 export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
@@ -28,8 +28,8 @@ export const MAX_STORY_MEDIA = 10;
 // Colors matching kwen.in CSS variables
 export const COLORS = {
   // Light mode
-  light: {
 
+  light: {
     background: "#FFFFFF",
     foreground: "#000000",
     card: "#FFFFFF",
@@ -58,6 +58,7 @@ export const COLORS = {
     cardForeground: "#FAFAFA",
     muted: "#262626",
     mutedForeground: "#A3A3A3",
+
     accent: "#1E293B",
     accentForeground: "#38BDF8",
     border: "#262626",
@@ -66,7 +67,6 @@ export const COLORS = {
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#262626",
-
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
