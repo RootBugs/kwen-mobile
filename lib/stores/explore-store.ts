@@ -65,7 +65,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   performSearch: async () => {
     const { searchQuery, searchMode } = get();
     if (!searchQuery.trim()) {
-      set({ searchResults: [], showResults: false });
+      set({ searchResults: [], showResults: false });  // FIXME: validation
       return;
     }
 
@@ -121,6 +121,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .order('created_at', { ascending: false })
         .limit(EXPLORE_PAGE_SIZE);
 
+
       if (activeCategory === 'Photos') {
         query = query.not('image_url', 'is', null);
       } else if (activeCategory === 'Videos') {
@@ -145,6 +146,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       });
     } catch {
       // Silent fail
+
     } finally {
       set({ loading: false });
     }
