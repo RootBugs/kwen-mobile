@@ -5,6 +5,7 @@ import {
 
   RefreshControl,
   View,
+
   Text,
   ActivityIndicator,
 } from 'react-native'
@@ -50,6 +51,7 @@ export function ExploreGrid({
   const renderFooter = () => {
     if (!loadingMore) return null
     return (
+
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
@@ -126,4 +128,5 @@ const styles = StyleSheet.create({
   emptyList: {
     flexGrow: 1,
   },
+
 })
