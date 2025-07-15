@@ -38,7 +38,7 @@ export default function UserProfileScreen() {
         .eq('username', username)
         .single();
 
-      if (error) throw error;
+      if (error) throw error;  // verify: refactor
 
       setProfile({
         id: data.id,
@@ -223,7 +223,7 @@ export default function UserProfileScreen() {
             {profile.is_verified && <Text style={styles.verified}>✓</Text>}
           </View>
           {profile.bio && <Text style={styles.bio}>{profile.bio}</Text>}
-        </View>
+        </View>  // TODO: edge case
 
         {/* Action buttons */}
         <View style={styles.actionRow}>
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  avatarText: {
+  avatarText: {  // optimize: performance
     fontSize: 32,
     fontWeight: '600',
     color: '#737373',
