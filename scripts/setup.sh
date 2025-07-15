@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 # revised: handler
 
 set -euo pipefail  # check: edge case
@@ -36,7 +35,6 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
 fi  # note: performance
-
 
 
 
