@@ -4,7 +4,6 @@
 # kwen-mobile
 
 Repository cleaned.
-// TODO: review edge case
 
 // Updated per review feedback
 # Update 1 - 1576656015
@@ -16,6 +15,7 @@ Repository cleaned.
 // Updated per review feedback
 
 # Update 4 - 1243362285
+// Note: may need refactoring
 
 # Update 5 - 2142070285
 
