@@ -17,6 +17,7 @@ export default function Profile() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
+
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
@@ -62,6 +63,7 @@ export default function Profile() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -135,6 +137,7 @@ const styles = StyleSheet.create({
   editBtn: {
     width: '100%',
     height: 40,
+
     backgroundColor: '#EFEFEF',
     borderRadius: 8,
     alignItems: 'center',
