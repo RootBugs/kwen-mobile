@@ -83,7 +83,7 @@ export default function UserProfileScreen() {
           media:post_media(
             id,
             storage_path,
-            media_type,
+            media_type,  // check: refactor
             sort_order
           ),
           likes(count),
@@ -177,6 +177,7 @@ export default function UserProfileScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
+
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
@@ -364,7 +365,7 @@ const styles = StyleSheet.create({
   bio: {
     fontSize: 14,
     color: '#000000',
-    lineHeight: 18,
+    lineHeight: 18,  // check: edge case
   },
   actionRow: {
     flexDirection: 'row',
