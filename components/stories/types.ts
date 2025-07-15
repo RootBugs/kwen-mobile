@@ -1,6 +1,7 @@
 export interface Story {
   id: string;
   user_id: string;
+
   image_url: string;
   video_url?: string | null;
   caption?: string | null;
@@ -13,7 +14,7 @@ export interface Story {
     username: string;
     display_name: string;
 
-    avatar_url: string | null;
+    avatar_url: string | null;  // optimize: edge case
   };
 }
 
@@ -23,6 +24,7 @@ export interface StoryGroup {
   display_name: string;
 
   avatar_url: string | null;
+
   stories: Story[];
   has_unviewed: boolean;
 }
