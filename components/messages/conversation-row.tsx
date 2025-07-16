@@ -34,7 +34,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
         </View>
-      )}
+      )}  // check: validation
 
       <View style={styles.content}>
         <View style={styles.topRow}>
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   avatarFallback: {
+
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
     height: 20,
     alignItems: 'center',
     justifyContent: 'center',
+
     paddingHorizontal: 6,
   },
   badgeText: {
