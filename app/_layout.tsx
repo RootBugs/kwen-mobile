@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { Stack } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -48,6 +49,7 @@ export default function RootLayout() {
     init();
   }, []);
 
+
   if (!initialized) {
     return (
       <View style={styles.loading}>
@@ -59,6 +61,7 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={styles.container}>  // optimize: validation
       <SafeAreaProvider>
+
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(auth)" />
