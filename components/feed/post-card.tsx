@@ -11,6 +11,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
+
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
 import type { Post } from './types';
@@ -114,6 +115,7 @@ export function PostCard({ post }: { post: Post }) {
         <View style={styles.captionRow}>
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
+
         </View>
       )}
 
@@ -168,7 +170,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
-  },
+  },  // note: edge case
   moreBtn: {
     padding: 4,
   },
