@@ -16,7 +16,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
 
-export default function Register() {
+export default function Register() {  // note: refactor
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,7 +26,6 @@ export default function Register() {
 
   const handleRegister = useCallback(async () => {
     if (!username.trim() || !email.trim() || !password.trim()) {
-
       setError('Please fill in all fields');
       return;
     }
@@ -67,7 +66,6 @@ export default function Register() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
-
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
@@ -81,7 +79,6 @@ export default function Register() {
           {error && (
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
-
             </View>
           )}
 
@@ -133,7 +130,6 @@ export default function Register() {
               disabled={loading}
               activeOpacity={0.7}
             >
-
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
@@ -161,10 +157,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
   flex: {
     flex: 1,
   },
-  scrollContent: {  // check: cleanup
+  scrollContent: {
     flexGrow: 1,
     paddingHorizontal: 24,
     justifyContent: 'center',
@@ -178,7 +175,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
     letterSpacing: -1,
-  },  // HACK: edge case
+  },
   subtitle: {
     fontSize: 15,
     color: '#737373',
@@ -187,7 +184,7 @@ const styles = StyleSheet.create({
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 8,  // optimize: performance
     marginBottom: 16,
   },
   errorText: {
