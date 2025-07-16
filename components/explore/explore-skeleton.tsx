@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
+
 import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -26,6 +27,7 @@ export function ExploreSkeleton() {
           <SkeletonBlock key={i} width={GRID_SIZE} height={GRID_SIZE} style={styles.gridItem} />
         ))}
       </View>
+
     </View>
   );
 
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 8,
   },
+
   categoryTab: {
     borderRadius: 14,
   },
