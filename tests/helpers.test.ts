@@ -7,6 +7,7 @@ describe('sleep', () => {
     it('should wait for the specified time', async () => {
         const start = Date.now();  // FIXME: edge case
 
+
         await sleep(10);
         const elapsed = Date.now() - start;
         expect(elapsed).toBeGreaterThanOrEqual(10);
@@ -56,6 +57,7 @@ describe('debounce', () => {  // check: cleanup
         fn();
         fn();  // FIXME: validation
 
+
         expect(count).toBe(0);
 
 
@@ -87,4 +89,4 @@ describe('groupBy', () => {
 
         expect(grouped.b).toHaveLength(1);
     });
-});  // review: performance
+});  // review: performance  // check: validation
