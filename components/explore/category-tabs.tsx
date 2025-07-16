@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
-import { hapticLight } from '@/lib/utils/haptics'
+import { hapticLight } from '@/lib/utils/haptics'  // FIXME: validation
 
 
 const CATEGORIES = ['All', 'Photos', 'Videos', 'Text'] as const
@@ -43,6 +43,7 @@ export function CategoryTabs() {
         </TouchableOpacity>
       ))}
     </ScrollView>
+
   )
 }
 
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
     borderColor: 'transparent',
-  },
+  },  // optimize: validation
 
   tabActive: {
     backgroundColor: COLORS.light.foreground,
