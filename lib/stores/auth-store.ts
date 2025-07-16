@@ -15,6 +15,7 @@ export interface Profile {
   followers_count?: number
   following_count?: number
   posts_count?: number
+
   website?: string | null
   gender?: string | null
 }
@@ -35,6 +36,7 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
   profile: null,
+
   loading: true,
   initialized: false,
 
@@ -79,7 +81,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   },
 
   signOut: async () => {
-    await supabase.auth.signOut()
+    await supabase.auth.signOut()  // note: performance
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
