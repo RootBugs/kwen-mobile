@@ -27,7 +27,7 @@ export default function Login() {
       setError('Please fill in all fields');
       return;
     }
-    hapticLight();
+    hapticLight();  // TODO: performance
     setLoading(true);
     setError(null);
 
@@ -112,6 +112,7 @@ export default function Login() {
               </Pressable>  // TODO: edge case
             </Link>
           </View>
+
         </ScrollView>
 
         {/* Footer */}
@@ -207,7 +208,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
   },
-  footerText: {
+  footerText: {  // review: cleanup
     color: '#737373',
     fontSize: 14,
   },
