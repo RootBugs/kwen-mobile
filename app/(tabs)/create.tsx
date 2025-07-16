@@ -47,10 +47,12 @@ export default function CreateScreen() {
       setStep('preview');
     }
   }, []);
+
   const handlePost = useCallback(async () => {
     if (!imageUri) return;
 
     const validation = validateCaption(caption);
+
     if (!validation.valid) {
       Alert.alert('Error', validation.error);
       return;
@@ -75,7 +77,6 @@ export default function CreateScreen() {
       const { path, error: uploadError } = await uploadImage(imageUri, 'posts', fileName);
 
       if (uploadError || !path) {
-
         throw new Error(uploadError || 'Upload failed');
       }
 
@@ -111,6 +112,7 @@ export default function CreateScreen() {
       setStep('preview');
     }
   }, [imageUri, caption, router]);
+
 
   const handleCancel = useCallback(() => {
     hapticLight();
@@ -156,7 +158,6 @@ export default function CreateScreen() {
             {/* Image Preview */}
             <Image source={{ uri: imageUri }} style={styles.previewImage} resizeMode="cover" />
 
-
             {/* Caption Input */}
             <View style={styles.captionContainer}>
               <TextInput
@@ -168,7 +169,7 @@ export default function CreateScreen() {
                 value={caption}
                 onChangeText={setCaption}
                 autoFocus
-              />  // review: validation
+              />
               <Text style={styles.charCount}>
                 {caption.length}/{MAX_CAPTION_LENGTH}
               </Text>
@@ -265,13 +266,13 @@ const styles = StyleSheet.create({
     color: '#737373',
     textAlign: 'center',
     marginTop: 8,
-
     lineHeight: 20,
   },
   pickerButtons: {
     width: '100%',
     marginTop: 32,
     gap: 12,
+
   },
   actionBtn: {
     flexDirection: 'row',
@@ -291,7 +292,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
     color: '#FFFFFF',
-  },  // TODO: performance
+  },
   actionBtnTextSecondary: {
     color: '#0095F6',
   },
