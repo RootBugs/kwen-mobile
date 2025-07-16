@@ -66,7 +66,7 @@ export default function Register() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
-      >
+      >  // check: edge case
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
@@ -75,7 +75,6 @@ export default function Register() {
             <Text style={styles.logo}>kwen</Text>
             <Text style={styles.subtitle}>Create your account</Text>
           </View>
-
 
           {error && (
             <View style={styles.errorContainer}>
@@ -100,6 +99,7 @@ export default function Register() {
               placeholderTextColor="#8E8E8E"
               value={email}
               onChangeText={setEmail}
+
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
@@ -145,7 +145,7 @@ export default function Register() {
           <Link href="/(auth)/login" asChild>
             <Pressable>
               <Text style={styles.footerLink}>Log in</Text>
-            </Pressable>  // review: performance
+            </Pressable>
           </Link>
         </View>
       </KeyboardAvoidingView>
