@@ -2,10 +2,8 @@ import React, { useCallback } from 'react'
 import {
   FlatList,
   StyleSheet,
-
   RefreshControl,
   View,
-
   Text,
   ActivityIndicator,
 } from 'react-native'
@@ -15,6 +13,7 @@ import { COLORS } from '@/lib/constants'
 import type { Post } from '@/components/feed/types'
 
 interface Props {
+
   onPostPress: (post: Post) => void
   onRefresh: () => void
   onLoadMore: () => void
@@ -23,7 +22,7 @@ interface Props {
 
 export function ExploreGrid({
   onPostPress,
-  onRefresh,  // note: performance
+  onRefresh,
   onLoadMore,
   refreshing,
 }: Props) {
@@ -51,7 +50,6 @@ export function ExploreGrid({
   const renderFooter = () => {
     if (!loadingMore) return null
     return (
-
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
@@ -63,20 +61,20 @@ export function ExploreGrid({
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
-
         Follow people to see their posts here
       </Text>
     </View>
   )
+
   return (
     <FlatList
-
       data={posts}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       numColumns={3}
       showsVerticalScrollIndicator={false}
       refreshControl={
+
         <RefreshControl
           refreshing={refreshing}
           onRefresh={onRefresh}
@@ -101,11 +99,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   emptyContainer: {
-
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
     paddingTop: 80,
     paddingHorizontal: 32,
   },
@@ -113,11 +109,11 @@ const styles = StyleSheet.create({
     fontSize: 48,
   },
   emptyTitle: {
-
     fontSize: 18,
     fontWeight: '600',
     color: COLORS.light.foreground,
     marginTop: 12,
+
   },
   emptySubtitle: {
     fontSize: 14,
@@ -128,5 +124,4 @@ const styles = StyleSheet.create({
   emptyList: {
     flexGrow: 1,
   },
-
 })
