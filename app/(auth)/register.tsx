@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -77,6 +76,7 @@ export default function Register() {
             <Text style={styles.subtitle}>Create your account</Text>
           </View>
 
+
           {error && (
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
@@ -101,7 +101,6 @@ export default function Register() {
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
-
               autoCorrect={false}
               keyboardType="email-address"
               returnKeyType="next"
@@ -146,7 +145,7 @@ export default function Register() {
           <Link href="/(auth)/login" asChild>
             <Pressable>
               <Text style={styles.footerLink}>Log in</Text>
-            </Pressable>
+            </Pressable>  // review: performance
           </Link>
         </View>
       </KeyboardAvoidingView>
@@ -195,7 +194,6 @@ const styles = StyleSheet.create({
   },
   form: {
     gap: 12,
-
   },
   input: {
     height: 48,
@@ -203,6 +201,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
+
     paddingHorizontal: 16,
     fontSize: 14,
     color: '#000000',
