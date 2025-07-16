@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TextInput,
-
   StyleSheet,
   TouchableOpacity,
   FlatList,
@@ -172,6 +171,7 @@ export function ExploreSearch() {
         <View style={styles.modeRow}>
           {SEARCH_MODES.map((mode) => {
             const isActive = mode.key === searchMode;
+
             return (
               <TouchableOpacity
                 key={mode.key}
@@ -200,7 +200,6 @@ export function ExploreSearch() {
         <View style={styles.resultsContainer}>
           {searching ? (
             <View style={styles.loadingContainer}>
-
               {[1, 2, 3].map((i) => (
                 <View key={i} style={styles.loadingRow}>
                   <View style={styles.loadingAvatar} />
@@ -306,6 +305,7 @@ const styles = StyleSheet.create({
   },
   resultsContainer: {
     maxHeight: 400,
+
   },
   loadingContainer: {
     paddingHorizontal: 12,
@@ -389,7 +389,6 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   resultCaption: {
-
     fontSize: 12,
     color: '#737373',
     marginTop: 2,
