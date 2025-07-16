@@ -60,6 +60,7 @@ export function MessageBubble({
                   { height: Math.random() * 16 + 4 },
                   isMine && styles.waveBarMine,
                 ]}
+
               />
             ))}
           </View>
@@ -81,6 +82,7 @@ export function MessageBubble({
             styles.textContent,
             isMine && styles.textContentMine,
             isEmojiOnly(message.content) && styles.emojiOnly,
+
           ]}
         >
           {message.content}
@@ -224,6 +226,7 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   statusIcon: {
+
     fontSize: 10,
     color: '#737373',
   },
