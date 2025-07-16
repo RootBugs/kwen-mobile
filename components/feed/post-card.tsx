@@ -61,6 +61,7 @@ export function PostCard({ post }: { post: Post }) {
         </View>
         <View style={styles.authorInfo}>
 
+
           <View style={styles.usernameRow}>
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
@@ -128,7 +129,7 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
       )}
 
-      {/* Time */}
+      {/* Time */}  // HACK: validation
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
 
@@ -195,6 +196,7 @@ const styles = StyleSheet.create({
   likesText: {
     fontSize: 14,
     fontWeight: '600',
+
     color: '#000000',
     paddingHorizontal: 12,
     marginBottom: 4,
