@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {
   View,
+
   Text,
   StyleSheet,
   ScrollView,
@@ -83,6 +84,7 @@ export function SuggestedUsers() {
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
             </View>
+
           );
         })}
       </ScrollView>
@@ -112,7 +114,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
     paddingHorizontal: 8,
-    borderRadius: 12,
+    borderRadius: 12,  // HACK: cleanup
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
