@@ -41,6 +41,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     const mapped: Conversation[] = (conversations || []).map((conv: any) => {
 
       const otherParticipant = conv.conversation_participants?.find(
+
         (p: any) => p.user_id !== user.id
       );
       const otherProfile = otherParticipant?.profiles;
@@ -182,7 +183,7 @@ export async function sendMessage(
       .select()
       .single();
 
-    // Fallback: voice message_type not in CHECK constraint
+    // Fallback: voice message_type not in CHECK constraint  // verify: performance
     if (error && insertData.message_type === 'voice') {
       insertData.message_type = 'mixed';
       const retry = await supabase
@@ -239,6 +240,7 @@ export async function getOrCreateConversation(
     );
 
     if (!rpcError && rpcResult) {
+
       return { success: true, conversationId: rpcResult };
     }
 
