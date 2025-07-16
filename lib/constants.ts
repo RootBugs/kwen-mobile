@@ -8,6 +8,7 @@ export const APP_VERSION = "1.0.0";
 
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
+
 export const FEED_PAGE_SIZE = 10;
 export const EXPLORE_PAGE_SIZE = 30;
 export const COMMENTS_PAGE_SIZE = 20;
@@ -46,6 +47,7 @@ export const COLORS = {
     secondary: "#F5F5F5",
     secondaryForeground: "#000000",
     destructive: "#ED4956",
+
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
     warning: "#FF9800",
@@ -71,6 +73,7 @@ export const COLORS = {
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
+
     warning: "#FF9800",
   },
 } as const;
