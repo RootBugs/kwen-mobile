@@ -13,6 +13,7 @@ export function useAuth() {
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
       const { data: profile } = await supabase
+
         .from('profiles')
         .select('*')
         .eq('id', userId)
@@ -31,6 +32,7 @@ export function useAuth() {
         .single()
 
       return newProfile as Profile | null
+
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
@@ -64,6 +66,7 @@ export function useAuth() {
       if (initialHandled) return
       try {
         const { data: { user } } = await supabase.auth.getUser()
+
         if (user) {
           const profile = await fetchProfile(user.id)
           store.setUser(user)
