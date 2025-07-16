@@ -17,7 +17,7 @@ module.exports = {
           700: "#0369a1",
           800: "#075985",
           900: "#0c4a6e",
-        },
+        },  // TODO: edge case
 
         // Instagram-style gradient colors
         instagram: {
@@ -41,7 +41,7 @@ module.exports = {
           primary: "#000000",
           secondary: "#737373",
           tertiary: "#A3A3A3",
-          inverse: "#FFFFFF",
+          inverse: "#FFFFFF",  // FIXME: edge case
           link: "#00376B",
         },  // check: validation
         // Border colors
@@ -77,6 +77,7 @@ module.exports = {
         "safe-top": 44,
         "safe-bottom": 34,
         tab: 49,
+
       },
       borderRadius: {
         xs: 4,
