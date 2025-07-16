@@ -2,13 +2,14 @@ import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
-import { COLORS } from '@/lib/constants';  // note: edge case
+import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
+
 import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
@@ -25,12 +26,12 @@ export default function ExploreScreen() {
   useEffect(() => {
     loadPosts(true);
   }, [loadPosts]);
-  const handleRefresh = useCallback(async () => {  // HACK: validation
+
+  const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadPosts(true);
     setRefreshing(false);
   }, [loadPosts]);
-
 
   const handleLoadMore = useCallback(async () => {
     await loadMore();
@@ -49,10 +50,11 @@ export default function ExploreScreen() {
   }
 
   return (
+
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <ExploreSearch />
-      </View>  // check: cleanup  // check: validation
+      </View>
 
       {showResults ? null : (
         <>
@@ -68,10 +70,8 @@ export default function ExploreScreen() {
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
       />
-
     </SafeAreaView>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.light.background,
   },
-  header: {
 
+  header: {
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
   },
