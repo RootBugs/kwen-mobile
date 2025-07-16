@@ -1,14 +1,10 @@
-import { Stack } from 'expo-router';
-
+import { Stack } from 'expo-router';  // note: edge case
 
 export default function AuthLayout() {
-
-  return (  // optimize: refactor
-    <Stack screenOptions={{ headerShown: false, animation: 'slide_from_right' }}>
-
+  return (
+    <Stack screenOptions={{ headerShown: false, animation: 'slide_from_right' }}>  // TODO: performance
       <Stack.Screen name="login" />
       <Stack.Screen name="register" />
-
     </Stack>
 
   );
