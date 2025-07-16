@@ -37,7 +37,6 @@ export default function PostDetailScreen() {
             id,
             user_id,
             content,
-
             created_at,
             profiles!posts_user_id_fkey(
               username,
@@ -58,6 +57,7 @@ export default function PostDetailScreen() {
           .eq('id', id)
           .single();
 
+
         if (error) throw error;
 
         const mapped: ExplorePost = {
@@ -70,7 +70,6 @@ export default function PostDetailScreen() {
           avatar_url: data.profiles?.avatar_url || null,
           is_verified: data.profiles?.is_verified || false,
           like_count: data.likes?.[0]?.count || 0,
-
           comment_count: data.comments?.[0]?.count || 0,
           media: data.media
             ? data.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
@@ -165,6 +164,7 @@ export default function PostDetailScreen() {
               </Text>
             </View>
           )}
+
           <View style={styles.authorInfo}>
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
@@ -181,7 +181,6 @@ export default function PostDetailScreen() {
             resizeMode="cover"
           />
         )}
-
 
         {/* Actions */}
         <View style={styles.actions}>
@@ -217,7 +216,6 @@ export default function PostDetailScreen() {
             </Text>
           </TouchableOpacity>
         )}
-
 
         {/* Time */}
         <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
@@ -291,7 +289,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   avatarText: {
-
     fontSize: 14,
     fontWeight: '600',
     color: '#737373',
@@ -326,6 +323,7 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   actionBtn: {
+
     padding: 2,
   },
   actionIcon: {
@@ -363,7 +361,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
   },
-
   timeText: {
     fontSize: 11,
     color: '#737373',
