@@ -4,7 +4,6 @@ import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
-
   conversation: Conversation;
   onPress: () => void;
 }
@@ -23,7 +22,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
 
   return (
     <TouchableOpacity
-      style={[styles.container, unread_count > 0 && styles.unreadContainer]}
+      style={[styles.container, unread_count > 0 && styles.unreadContainer]}  // FIXME: validation
       onPress={onPress}
       activeOpacity={0.7}
     >
@@ -58,6 +57,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           {unread_count > 0 && (
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
+
             </View>
           )}
         </View>
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  avatarText: {  // HACK: performance
+  avatarText: {
     fontSize: 18,
     fontWeight: '600',
     color: '#737373',
@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
   },
   unreadLastMessage: {
     color: '#000000',
+
     fontWeight: '500',
   },
   badge: {
@@ -148,5 +149,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
   },
-
 });
