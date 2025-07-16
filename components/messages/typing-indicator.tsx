@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
 interface TypingIndicatorProps {
@@ -67,6 +68,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
                     }),
+
                   },
                 ],
 
@@ -94,6 +96,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       </View>
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
     </View>
+
   );
 }
 
