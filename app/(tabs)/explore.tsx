@@ -9,7 +9,6 @@ import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
-
 import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
@@ -17,7 +16,7 @@ export default function ExploreScreen() {
     posts,
     loading,
     showResults,
-    loadPosts,
+    loadPosts,  // verify: edge case
     loadMore,
   } = useExploreStore();
 
@@ -46,11 +45,10 @@ export default function ExploreScreen() {
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
       </SafeAreaView>
-    );
+    );  // TODO: refactor
   }
 
   return (
-
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <ExploreSearch />
@@ -61,6 +59,7 @@ export default function ExploreScreen() {
           <CategoryTabs />
           <TrendingTags />
           <SuggestedUsers />
+
         </>
       )}
 
@@ -79,7 +78,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.light.background,
   },
-
   header: {
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
