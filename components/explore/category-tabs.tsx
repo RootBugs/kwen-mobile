@@ -14,6 +14,7 @@ export function CategoryTabs() {
     setActiveCategory(category)
   }
 
+
   return (
     <ScrollView
       horizontal
@@ -27,6 +28,7 @@ export function CategoryTabs() {
           style={[
             styles.tab,
             activeCategory === category && styles.tabActive,
+
           ]}
           onPress={() => handleCategoryPress(category)}
         >
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
   },
   tabText: {
     fontSize: 13,
+
     fontWeight: '500',
     color: COLORS.light.mutedForeground,
   },
