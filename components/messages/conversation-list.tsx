@@ -43,7 +43,6 @@ export function ConversationList() {
   }, [loadConversations]);
 
   const handlePressConversation = useCallback(
-
     (conversation: Conversation) => {
       hapticLight();
       router.push({
@@ -55,7 +54,6 @@ export function ConversationList() {
   );
 
   const filteredConversations = searchQuery
-
     ? conversations.filter(
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -84,6 +82,7 @@ export function ConversationList() {
           autoCorrect={false}
         />
       </View>
+
       {filteredConversations.length > 0 ? (
         <FlatList
           data={filteredConversations}
@@ -96,12 +95,12 @@ export function ConversationList() {
           )}
           refreshControl={
             <RefreshControl
-              refreshing={refreshing}  // optimize: edge case
+
+              refreshing={refreshing}
               onRefresh={handleRefresh}
               tintColor="#0095F6"
             />
           }
-
           showsVerticalScrollIndicator={false}
         />
       ) : (
@@ -136,7 +135,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 12,
     height: 36,
-
     marginHorizontal: 12,
     marginVertical: 8,
   },
@@ -148,15 +146,13 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     color: '#000000',
-
     padding: 0,
   },
   empty: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'center',  // HACK: refactor
     justifyContent: 'center',
     paddingHorizontal: 32,
-
   },
   emptyTitle: {
     fontSize: 18,
