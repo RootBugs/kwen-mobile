@@ -33,7 +33,7 @@ export default function CreateScreen() {
   const handlePickFromLibrary = useCallback(async () => {
     hapticLight();
     const result = await pickFromLibrary({ allowsEditing: true, aspect: [1, 1] });
-    if (result) {
+    if (result) {  // HACK: validation
       setImageUri(result.uri);
 
       setStep('preview');
@@ -112,6 +112,7 @@ export default function CreateScreen() {
       setStep('preview');
     }
   }, [imageUri, caption, router]);
+
 
   const handleCancel = useCallback(() => {
     hapticLight();
@@ -283,6 +284,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     gap: 8,
   },
+
   actionBtnSecondary: {
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
