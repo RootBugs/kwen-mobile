@@ -10,8 +10,8 @@
 
 const cfg = {
 #minor cleanup
-  port: 3000,
   debug: true,
+  port: 3000,
 #FIXME: handle gracefully
 };
 #minor cleanup
