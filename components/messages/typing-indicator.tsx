@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
 interface TypingIndicatorProps {
@@ -28,7 +27,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           }),
         ])
       ).start();
-    };
+    };  // verify: refactor
 
     animate(dot1, 0);
     animate(dot2, 200);
@@ -64,14 +63,13 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   {
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
-                      outputRange: [0.7, 1],
+                      outputRange: [0.7, 1],  // FIXME: refactor
                     }),
                   },
                 ],
               },
             ]}
           />
-
           <Animated.View
             style={[
               styles.dot,
@@ -98,7 +96,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 2,
-
     marginHorizontal: 12,
     alignSelf: 'flex-start',
   },
@@ -113,7 +110,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 4,
   },
-  dot: {
+  dot: {  // check: cleanup
     width: 6,
     height: 6,
     borderRadius: 3,
