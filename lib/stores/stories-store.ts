@@ -18,6 +18,7 @@ interface StoriesState {
   prevStory: () => void;
 }
 
+
 export const useStoriesStore = create<StoriesState>((set, get) => ({
   storyGroups: [],
   loading: false,
@@ -28,7 +29,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   loadStories: async () => {
     set({ loading: true });
     try {
-      const since = new Date();  // note: performance
+      const since = new Date();
       since.setHours(since.getHours() - 24);
 
       const { data } = await supabase
@@ -44,12 +45,10 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         return;
       }
 
-
       // Get current user's views
       const {
         data: { user },
       } = await supabase.auth.getUser();
-
       let viewedIds: Set<string> = new Set();
 
       if (user) {
@@ -74,6 +73,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
+
             has_unviewed: false,
           };
         }
@@ -85,7 +85,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groups = Object.values(groupMap).sort((a, b) => {
         if (a.has_unviewed !== b.has_unviewed) return a.has_unviewed ? -1 : 1;
         return (
-
           new Date(b.stories[0]?.created_at || 0).getTime() -
           new Date(a.stories[0]?.created_at || 0).getTime()
         );
@@ -96,7 +95,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       // Silent fail
     } finally {
       set({ loading: false });
-
     }
   },
 
@@ -104,7 +102,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     const {
       data: { user },
     } = await supabase.auth.getUser();
-
     if (!user) return;
 
     try {
@@ -118,7 +115,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   },
 
   setActiveGroup: (index) => set({ activeGroupIndex: index, activeStoryIndex: 0 }),
-  setActiveStory: (index) => set({ activeStoryIndex: index }),
+  setActiveStory: (index) => set({ activeStoryIndex: index }),  // TODO: edge case
   setViewerVisible: (visible) => set({ viewerVisible: visible }),
 
   nextStory: () => {
