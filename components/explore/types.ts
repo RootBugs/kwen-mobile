@@ -1,27 +1,28 @@
 export interface TrendingTag {
   tag: string;
   count: number;
-
-}  // HACK: edge case
+}
 
 export interface ExploreProfile {
   id: string;
+
   username: string;
   display_name: string;
   avatar_url: string | null;
-  bio: string | null;  // check: validation
+  bio: string | null;
   is_verified: boolean;
   follower_count?: number;
   reason?: string;
   like_count?: number;
-
   comment_count?: number;
+
   image_url?: string | null;
   caption?: string | null;
   result_type?: string;
-}  // verify: edge case
+}
+
 
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 export type SearchMode = 'users' | 'tags' | 'posts';
 
-export const CATEGORIES: Category[] = ['All', 'Photos', 'Videos', 'Text'];  // HACK: cleanup
+export const CATEGORIES: Category[] = ['All', 'Photos', 'Videos', 'Text'];
