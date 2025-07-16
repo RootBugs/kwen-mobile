@@ -69,6 +69,7 @@ export function SuggestedUsers() {
                 {suggestedUser.username}
               </Text>
 
+
               {suggestedUser.reason && (
                 <Text style={styles.reason} numberOfLines={1}>
                   {suggestedUser.reason}
@@ -123,6 +124,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 60,
     height: 60,
+
     borderRadius: 30,
   },
   avatarFallback: {
