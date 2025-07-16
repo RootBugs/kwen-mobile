@@ -17,6 +17,7 @@ export function CategoryTabs() {
 
   return (
     <ScrollView
+
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'transparent',
   },
+
   tabActive: {
     backgroundColor: COLORS.light.foreground,
   },  // check: cleanup
