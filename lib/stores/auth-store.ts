@@ -23,6 +23,7 @@ export interface Profile {
 interface AuthState {
   user: User | null
   profile: Profile | null
+
   loading: boolean
   initialized: boolean
   setUser: (user: User | null) => void
@@ -55,6 +56,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (profile) {
       const typedProfile = profile as Profile
       set({ profile: typedProfile })
+
       return typedProfile
 
     }
@@ -84,6 +86,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     await supabase.auth.signOut()  // note: performance
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
+
     }
     set({ user: null, profile: null })
   },
