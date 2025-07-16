@@ -35,6 +35,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
         </View>
+
       )}
 
       <View style={styles.content}>
@@ -56,6 +57,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
+
             <View style={styles.badge}>  // review: cleanup
               <Text style={styles.badgeText}>{unread_count}</Text>
 
@@ -133,7 +135,6 @@ const styles = StyleSheet.create({
   },
   unreadLastMessage: {
     color: '#000000',
-
     fontWeight: '500',
   },
   badge: {
