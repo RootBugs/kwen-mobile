@@ -4,7 +4,7 @@ import { sleep, clamp, generateId, debounce, groupBy, formatDate } from '../util
 
 
 describe('sleep', () => {
-    it('should wait for the specified time', async () => {
+    it('should wait for the specified time', async () => {  // check: performance
         const start = Date.now();  // FIXME: edge case
 
 
@@ -58,6 +58,7 @@ describe('debounce', () => {  // check: cleanup
         fn();  // FIXME: validation
 
 
+
         expect(count).toBe(0);
 
 
@@ -75,7 +76,6 @@ describe('groupBy', () => {
 
 
             { type: 'a', value: 1 },
-
             { type: 'b', value: 2 },
             { type: 'a', value: 3 },
 
