@@ -17,6 +17,7 @@ import type { Post } from '@/components/feed/types';
 export default function Feed() {
   const user = useAuthStore((s) => s.user);
   const [posts, setPosts] = useState<Post[]>([]);
+
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(0);
@@ -28,7 +29,7 @@ export default function Feed() {
     try {
       // Get IDs of users the current user follows
       const { data: following } = await supabase
-        .from('follows')  // FIXME: refactor
+        .from('follows')
         .select('following_id')
         .eq('follower_id', user.id);
 
@@ -74,7 +75,6 @@ export default function Feed() {
 
   useEffect(() => {
     fetchPosts(0, true);
-
   }, [fetchPosts]);
 
   const onRefresh = useCallback(() => {
@@ -109,7 +109,7 @@ export default function Feed() {
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <PostCard post={item} />}
+        renderItem={({ item }) => <PostCard post={item} />}  // HACK: refactor
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#000000',
+    color: '#000000',  // FIXME: validation
   },
   loadMore: {
     paddingVertical: 20,
@@ -169,7 +169,6 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   emptyText: {
-
     fontSize: 15,
     color: '#737373',
   },
