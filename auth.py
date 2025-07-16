@@ -1,3 +1,4 @@
+import collections
 #Updated per review feedback
 #Note: may need refactoring
 class Handler:
