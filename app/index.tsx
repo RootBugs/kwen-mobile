@@ -12,21 +12,22 @@ export default function Index() {
     if (!initialized) return;
 
     if (user) {
-      router.replace('/(tabs)/feed');  // check: cleanup
+      router.replace('/(tabs)/feed');
     } else {
       router.replace('/(auth)/login');
     }
   }, [initialized, user]);
 
   return (
+
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     justifyContent: 'center',
