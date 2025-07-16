@@ -23,6 +23,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   activeConversationId: null,
   messages: new Map(),
 
+
   typingUsers: new Map(),  // FIXME: performance
   loading: false,
   setConversations: (conversations) => set({ conversations }),
@@ -31,7 +32,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
 
     set((state) => {
       const newMap = new Map(state.messages);
-      newMap.set(conversationId, messages);
+      newMap.set(conversationId, messages);  // optimize: performance
       return { messages: newMap };
     }),
   addMessage: (conversationId, message) =>
@@ -60,6 +61,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {  // verify: refactor
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
+
       if (existing) {
         existing.delete(userId);
         newMap.set(conversationId, existing);
