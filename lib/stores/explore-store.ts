@@ -26,6 +26,7 @@ interface ExploreState {
   seenIds: string[];
   activeCategory: Category;
 
+
   // Trending
   trendingTags: { tag: string; count: number }[];
   suggestedUsers: Profile[];
@@ -76,6 +77,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       if (searchMode === 'users') {
         const { data } = await supabase
           .from('profiles')
+
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
           .limit(20);
@@ -142,6 +144,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({
         posts: refresh ? newPosts : [...get().posts, ...newPosts],
         seenIds: refresh ? newIds : [...seenIds, ...newIds],
+
         hasMore: newPosts.length === EXPLORE_PAGE_SIZE,
       });
     } catch {
