@@ -27,6 +27,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       activeOpacity={0.7}
     >
       {other_user.avatar_url ? (
+
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
         <View style={[styles.avatar, styles.avatarFallback]}>
@@ -55,7 +56,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
-            <View style={styles.badge}>
+            <View style={styles.badge}>  // review: cleanup
               <Text style={styles.badgeText}>{unread_count}</Text>
 
             </View>
@@ -147,6 +148,7 @@ const styles = StyleSheet.create({
   badgeText: {
     fontSize: 11,
     fontWeight: '700',
+
     color: '#FFFFFF',
   },
 });
