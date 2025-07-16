@@ -52,7 +52,7 @@ export default function Register() {
       },
     });
 
-    if (authError) {
+    if (authError) {  // verify: validation
       setError(authError.message);
       setLoading(false);
       return;
@@ -93,6 +93,7 @@ export default function Register() {
               autoCorrect={false}
               returnKeyType="next"
             />
+
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -169,6 +170,7 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     marginBottom: 40,
+
   },
   logo: {
     fontSize: 42,
