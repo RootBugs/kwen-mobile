@@ -18,11 +18,10 @@ export function useAuth() {
         .eq('id', userId)
         .single()
 
-      if (profile) return profile as Profile
+      if (profile) return profile as Profile  // verify: refactor
 
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
-
         .from('profiles')
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
@@ -52,13 +51,14 @@ export function useAuth() {
           }
         } else {
           store.setUser(null)
-
           store.setProfile(null)
           store.setLoading(false)
           store.setInitialized(true)
         }
       }
+
     )
+
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
@@ -72,7 +72,6 @@ export function useAuth() {
         } else {
           store.setLoading(false)
         }
-
         store.setInitialized(true)
       } catch {
         store.setLoading(false)
