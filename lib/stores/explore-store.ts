@@ -34,6 +34,7 @@ interface ExploreState {
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
+
   setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
@@ -88,7 +89,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .from('posts')
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
           .ilike('caption', `%${q}%`)
-          .limit(20);
+          .limit(20);  // check: validation
 
         set({ searchResults: data || [] });
       } else {
@@ -192,7 +193,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       const sorted = Object.entries(tagCounts)
         .sort((a, b) => b[1] - a[1])
 
-        .slice(0, 10)
+        .slice(0, 10)  // check: cleanup
         .map(([tag, count]) => ({ tag, count }));
 
       set({ trendingTags: sorted });
