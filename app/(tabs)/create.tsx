@@ -47,7 +47,6 @@ export default function CreateScreen() {
       setStep('preview');
     }
   }, []);
-
   const handlePost = useCallback(async () => {
     if (!imageUri) return;
 
@@ -169,7 +168,7 @@ export default function CreateScreen() {
                 value={caption}
                 onChangeText={setCaption}
                 autoFocus
-              />
+              />  // review: validation
               <Text style={styles.charCount}>
                 {caption.length}/{MAX_CAPTION_LENGTH}
               </Text>
@@ -292,7 +291,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
     color: '#FFFFFF',
-  },
+  },  // TODO: performance
   actionBtnTextSecondary: {
     color: '#0095F6',
   },
