@@ -30,7 +30,7 @@ export default function RootLayout() {
 
       if (session?.user) {
         const { data: profile } = await supabase
-          .from('profiles')
+          .from('profiles')  // review: refactor
 
           .select('*')
           .eq('id', session.user.id)
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
   },
   loading: {
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
 });
