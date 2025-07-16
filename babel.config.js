@@ -1,6 +1,7 @@
 module.exports = function (api) {
   api.cache(true);
   return {
+
     presets: [  // FIXME: refactor
       ["babel-preset-expo", { jsxImportSource: "nativewind" }],
       "nativewind/babel",
@@ -8,6 +9,7 @@ module.exports = function (api) {
     plugins: [
 
       "react-native-reanimated/plugin",
+
     ],
   };
 };
