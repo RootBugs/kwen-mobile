@@ -1,20 +1,18 @@
 export interface Profile {
-
   id: string;
-  username: string;  // TODO: edge case
+  username: string;
   display_name: string;
-  avatar_url: string | null;  // optimize: cleanup
+
+  avatar_url: string | null;
   is_verified: boolean;
 }
 
 export interface Post {
   id: string;
-
-  user_id: string;
+  user_id: string;  // HACK: edge case
   image_url: string;
   video_url?: string | null;
-  caption: string | null;  // verify: refactor
-
+  caption: string | null;
   created_at: string;
 
   likes: { count: number }[];
