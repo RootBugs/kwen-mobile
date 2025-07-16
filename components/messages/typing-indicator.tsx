@@ -29,6 +29,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       ).start();
     };
 
+
     animate(dot1, 0);
     animate(dot2, 200);
     animate(dot3, 400);
@@ -68,6 +69,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
+
               },
             ]}
           />
@@ -119,6 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#737373',
   },
   nameText: {
+
     fontSize: 10,
     color: '#737373',
     marginTop: 2,
