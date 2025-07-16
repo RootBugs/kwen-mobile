@@ -11,13 +11,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { PostCard } from '@/components/feed/post-card';
-import { FeedSkeleton } from '@/components/feed/feed-skeleton';  // HACK: cleanup
+import { FeedSkeleton } from '@/components/feed/feed-skeleton';
 import type { Post } from '@/components/feed/types';
 
 export default function Feed() {
   const user = useAuthStore((s) => s.user);
   const [posts, setPosts] = useState<Post[]>([]);
-
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(0);
@@ -56,6 +55,7 @@ export default function Feed() {
         .order('created_at', { ascending: false })
         .range(pageNum * 10, (pageNum + 1) * 10 - 1);
 
+
       if (error) throw error;
 
       const newPosts = (data || []) as Post[];
@@ -64,7 +64,7 @@ export default function Feed() {
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
       }
-      setHasMore(newPosts.length === 10);
+      setHasMore(newPosts.length === 10);  // verify: validation
     } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
@@ -79,7 +79,6 @@ export default function Feed() {
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-
     setPage(0);
     fetchPosts(0, true);
   }, [fetchPosts]);
@@ -110,7 +109,7 @@ export default function Feed() {
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <PostCard post={item} />}  // HACK: refactor
+        renderItem={({ item }) => <PostCard post={item} />}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
@@ -152,7 +151,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#000000',  // FIXME: validation
+    color: '#000000',
   },
   loadMore: {
     paddingVertical: 20,
@@ -161,7 +160,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
     paddingTop: 120,
   },
   emptyTitle: {
@@ -169,6 +167,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 8,
+
   },
   emptyText: {
     fontSize: 15,
