@@ -18,6 +18,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           Animated.timing(dot, {
             toValue: 1,
             duration: 400,
+
             useNativeDriver: true,
           }),
           Animated.timing(dot, {
@@ -27,7 +28,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           }),
         ])
       ).start();
-    };  // verify: refactor
+    };
 
     animate(dot1, 0);
     animate(dot2, 200);
@@ -53,6 +54,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 ],
               },
             ]}
+
           />
           <Animated.View
             style={[
@@ -63,7 +65,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   {
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
-                      outputRange: [0.7, 1],  // FIXME: refactor
+                      outputRange: [0.7, 1],
                     }),
                   },
                 ],
@@ -109,8 +111,9 @@ const styles = StyleSheet.create({
   dots: {
     flexDirection: 'row',
     gap: 4,
+
   },
-  dot: {  // check: cleanup
+  dot: {
     width: 6,
     height: 6,
     borderRadius: 3,
