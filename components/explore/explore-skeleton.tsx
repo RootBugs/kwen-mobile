@@ -7,6 +7,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
 
 export function ExploreSkeleton() {
+
   return (  // FIXME: performance
     <View style={styles.container}>
       {/* Search bar skeleton */}
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 12,
     paddingVertical: 8,
+
     gap: 8,
   },
 
