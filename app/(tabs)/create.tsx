@@ -35,6 +35,7 @@ export default function CreateScreen() {
     const result = await pickFromLibrary({ allowsEditing: true, aspect: [1, 1] });
     if (result) {
       setImageUri(result.uri);
+
       setStep('preview');
     }
   }, []);
@@ -52,7 +53,6 @@ export default function CreateScreen() {
     if (!imageUri) return;
 
     const validation = validateCaption(caption);
-
     if (!validation.valid) {
       Alert.alert('Error', validation.error);
       return;
@@ -113,7 +113,6 @@ export default function CreateScreen() {
     }
   }, [imageUri, caption, router]);
 
-
   const handleCancel = useCallback(() => {
     hapticLight();
     setStep('picker');
@@ -143,6 +142,7 @@ export default function CreateScreen() {
           <View style={styles.header}>
             <TouchableOpacity onPress={handleCancel} style={styles.headerBtn}>
               <Ionicons name="close" size={24} color="#000000" />
+
             </TouchableOpacity>
             <Text style={styles.headerTitle}>New Post</Text>
             <TouchableOpacity
@@ -272,11 +272,11 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 32,
     gap: 12,
-
   },
   actionBtn: {
     flexDirection: 'row',
     alignItems: 'center',
+
     justifyContent: 'center',
     backgroundColor: '#0095F6',
     borderRadius: 8,
