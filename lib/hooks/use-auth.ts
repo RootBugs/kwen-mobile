@@ -41,6 +41,7 @@ export function useAuth() {
           try {
             const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
+
             store.setProfile(profile)
             store.setLoading(false)
             store.setInitialized(true)
