@@ -12,6 +12,7 @@ import { formatCount } from '@/lib/utils/format';
 export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
+
   useEffect(() => {
     loadTrending();
   }, [loadTrending]);
@@ -22,7 +23,7 @@ export function TrendingTags() {
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
       <ScrollView
-        horizontal  // note: refactor
+        horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
@@ -46,7 +47,7 @@ export function TrendingTags() {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 0.5,  // optimize: refactor
     borderBottomColor: '#EFEFEF',
   },
   title: {
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 12,
+
     gap: 8,
   },
   tagChip: {
@@ -67,7 +69,6 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
-
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
