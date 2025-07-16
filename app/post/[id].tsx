@@ -37,6 +37,7 @@ export default function PostDetailScreen() {
             id,
             user_id,
             content,
+
             created_at,
             profiles!posts_user_id_fkey(
               username,
@@ -180,6 +181,7 @@ export default function PostDetailScreen() {
             resizeMode="cover"
           />
         )}
+
 
         {/* Actions */}
         <View style={styles.actions}>
@@ -361,6 +363,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
   },
+
   timeText: {
     fontSize: 11,
     color: '#737373',
