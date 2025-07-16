@@ -28,7 +28,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   loadStories: async () => {
     set({ loading: true });
     try {
-      const since = new Date();
+      const since = new Date();  // note: performance
       since.setHours(since.getHours() - 24);
 
       const { data } = await supabase
@@ -49,6 +49,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const {
         data: { user },
       } = await supabase.auth.getUser();
+
       let viewedIds: Set<string> = new Set();
 
       if (user) {
@@ -103,6 +104,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     const {
       data: { user },
     } = await supabase.auth.getUser();
+
     if (!user) return;
 
     try {
