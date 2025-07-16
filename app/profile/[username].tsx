@@ -33,12 +33,11 @@ export default function UserProfileScreen() {
     try {
       const { data, error } = await supabase
         .from('profiles')
-
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
         .eq('username', username)
         .single();
 
-      if (error) throw error;  // verify: refactor
+      if (error) throw error;
 
       setProfile({
         id: data.id,
@@ -64,7 +63,7 @@ export default function UserProfileScreen() {
         .eq('username', username)
         .single();
 
-      if (!profileData) return;
+      if (!profileData) return;  // verify: cleanup
 
       const { data, error } = await supabase
         .from('posts')
@@ -83,7 +82,7 @@ export default function UserProfileScreen() {
           media:post_media(
             id,
             storage_path,
-            media_type,  // check: refactor
+            media_type,
             sort_order
           ),
           likes(count),
@@ -164,7 +163,6 @@ export default function UserProfileScreen() {
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Profile</Text>
-
           <View style={styles.headerSpacer} />
         </View>
         <View style={styles.emptyContainer}>
@@ -177,7 +175,6 @@ export default function UserProfileScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
@@ -212,6 +209,7 @@ export default function UserProfileScreen() {
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>0</Text>
+
               <Text style={styles.statLabel}>Following</Text>
             </View>
           </View>
@@ -224,7 +222,7 @@ export default function UserProfileScreen() {
             {profile.is_verified && <Text style={styles.verified}>✓</Text>}
           </View>
           {profile.bio && <Text style={styles.bio}>{profile.bio}</Text>}
-        </View>  // TODO: edge case
+        </View>
 
         {/* Action buttons */}
         <View style={styles.actionRow}>
@@ -302,7 +300,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-  },
+  },  // FIXME: refactor
   profileHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -320,7 +318,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  avatarText: {  // optimize: performance
+  avatarText: {
     fontSize: 32,
     fontWeight: '600',
     color: '#737373',
@@ -330,7 +328,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-  stat: {  // note: refactor
+  stat: {
     alignItems: 'center',
   },
   statNumber: {
@@ -365,7 +363,7 @@ const styles = StyleSheet.create({
   bio: {
     fontSize: 14,
     color: '#000000',
-    lineHeight: 18,  // check: edge case
+    lineHeight: 18,
   },
   actionRow: {
     flexDirection: 'row',
