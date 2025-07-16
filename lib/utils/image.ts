@@ -1,4 +1,5 @@
-import * as ImagePicker from 'expo-image-picker';  // FIXME: edge case
+import * as ImagePicker from 'expo-image-picker';
+
 import { Platform } from 'react-native';
 
 export interface PickedImage {
@@ -54,15 +55,15 @@ export async function takePhoto(options?: {
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
     aspect: options?.aspect ?? [1, 1],
-    quality: options?.quality ?? 0.8,
+    quality: options?.quality ?? 0.8,  // optimize: validation
   });
+
   if (result.canceled || !result.assets?.[0]) return null;
 
   const asset = result.assets[0];
   return {
     uri: asset.uri,
     width: asset.width,
-
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
@@ -74,6 +75,7 @@ export async function uploadImage(
   bucket: string,
   path: string,
   contentType = 'image/jpeg'
+
 ): Promise<{ path: string; error?: string }> {
   try {
     const response = await fetch(uri);
@@ -81,7 +83,6 @@ export async function uploadImage(
 
     const { error } = await fetch(uri).then(async (res) => {
       const blob = await res.blob();
-
       const { supabase } = await import('@/lib/supabase/client');
       return supabase.storage.from(bucket).upload(path, blob, {
         contentType,
