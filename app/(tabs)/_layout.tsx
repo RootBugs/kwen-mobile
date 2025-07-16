@@ -14,6 +14,7 @@ export default function TabsLayout() {
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
+
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -22,7 +23,6 @@ export default function TabsLayout() {
     >
       <Tabs.Screen
         name="feed"
-
         options={{
           title: 'Feed',
           tabBarIcon: ({ color, size }) => (
@@ -32,11 +32,11 @@ export default function TabsLayout() {
       />
       <Tabs.Screen
         name="explore"
+
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search" size={size + 2} color={color} />
-
           ),
         }}
       />
@@ -66,9 +66,10 @@ export default function TabsLayout() {
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
           ),
         }}
-      />  // HACK: cleanup
+      />
     </Tabs>
   );
+
 }
 
 const styles = StyleSheet.create({
