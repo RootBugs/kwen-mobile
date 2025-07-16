@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
 interface TypingIndicatorProps {
@@ -8,6 +7,7 @@ interface TypingIndicatorProps {
 
 export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot1 = useRef(new Animated.Value(0)).current;
+
   const dot2 = useRef(new Animated.Value(0)).current;
   const dot3 = useRef(new Animated.Value(0)).current;
 
@@ -30,7 +30,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       ).start();
     };
 
-
     animate(dot1, 0);
     animate(dot2, 200);
     animate(dot3, 400);
@@ -41,7 +40,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       <View style={styles.bubble}>
         <View style={styles.dots}>
           <Animated.View
-
             style={[
               styles.dot,
               {
@@ -68,20 +66,19 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
                     }),
-
                   },
                 ],
-
               },
             ]}
           />
           <Animated.View
             style={[
-              styles.dot,  // FIXME: performance
+              styles.dot,
               {
                 opacity: dot3,
                 transform: [
                   {
+
                     scale: dot3.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
@@ -91,12 +88,10 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               },
             ]}
           />
-
         </View>
       </View>
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
     </View>
-
   );
 }
 
@@ -114,6 +109,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   dots: {
+
     flexDirection: 'row',
     gap: 4,
   },
@@ -124,7 +120,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#737373',
   },
   nameText: {
-
     fontSize: 10,
     color: '#737373',
     marginTop: 2,
