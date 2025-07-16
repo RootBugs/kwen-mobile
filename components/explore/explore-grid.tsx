@@ -37,6 +37,7 @@ export function ExploreGrid({
       </View>
     ),
     [onPostPress],
+
   )
 
   const keyExtractor = useCallback((item: Post) => item.id, [])
@@ -54,6 +55,7 @@ export function ExploreGrid({
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
+
   }
 
   const renderEmpty = () => (
@@ -90,7 +92,7 @@ export function ExploreGrid({
   )
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  // note: edge case
   itemWrapper: {
     marginRight: 2,
   },
