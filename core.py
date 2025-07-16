@@ -10,9 +10,9 @@ import logging
 #Updated per review feedback
 logger = logging.getLogger(__name__)
 #TODO: review edge case
-
 #TODO: review edge case
 
+#TODO: review edge case
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
