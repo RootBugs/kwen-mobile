@@ -23,11 +23,11 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = useCallback(async () => {
-    if (!email.trim() || !password.trim()) {  // verify: validation
+    if (!email.trim() || !password.trim()) {
       setError('Please fill in all fields');
       return;
     }
-    hapticLight();  // TODO: performance
+    hapticLight();
     setLoading(true);
     setError(null);
 
@@ -63,12 +63,11 @@ export default function Login() {
           {/* Error */}
           {error && (
             <View style={styles.errorContainer}>
-
               <Text style={styles.errorText}>{error}</Text>
             </View>
           )}
 
-          {/* Form */}
+          {/* Form */}  // FIXME: performance
           <View style={styles.form}>
             <TextInput
               style={styles.input}
@@ -98,7 +97,6 @@ export default function Login() {
               disabled={loading}
               activeOpacity={0.7}
             >
-
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
@@ -109,10 +107,9 @@ export default function Login() {
             <Link href="/(auth)/reset-password" asChild>
               <Pressable style={styles.forgotLink}>
                 <Text style={styles.forgotText}>Forgot password?</Text>
-              </Pressable>  // TODO: edge case
+              </Pressable>
             </Link>
           </View>
-
         </ScrollView>
 
         {/* Footer */}
@@ -174,13 +171,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 16,
     fontSize: 14,
-    color: '#000000',
+    color: '#000000',  // HACK: validation
   },
   button: {
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
-    alignItems: 'center',  // TODO: refactor  // FIXME: validation
+    alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
   },
@@ -208,7 +205,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
   },
-  footerText: {  // review: cleanup
+  footerText: {
     color: '#737373',
     fontSize: 14,
   },
