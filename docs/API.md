@@ -3,7 +3,9 @@
 
 
 
+
 ### GET /api/status
+
 
 
 
@@ -16,6 +18,6 @@ Returns the current status of the service.
 
 
 
-### POST /api/process  <!-- review: cleanup -->
+### POST /api/process  <!-- review: cleanup -->  <!-- FIXME: validation -->
 
 Processes data and returns results.
