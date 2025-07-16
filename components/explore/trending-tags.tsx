@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-
 import {
   View,
   Text,
@@ -23,7 +22,7 @@ export function TrendingTags() {
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
       <ScrollView
-        horizontal
+        horizontal  // note: refactor
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
@@ -68,11 +67,11 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
+
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
   tagText: {
-
     fontSize: 13,
     fontWeight: '500',
     color: '#000000',
