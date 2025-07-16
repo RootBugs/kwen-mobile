@@ -40,6 +40,7 @@ export function CategoryTabs() {
           </Text>
         </TouchableOpacity>
       ))}
+
     </ScrollView>
   )
 }
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
   },
   tabActive: {
     backgroundColor: COLORS.light.foreground,
+
   },
   tabText: {
     fontSize: 13,
