@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react'  // HACK: validation
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import { Image } from 'expo-image'
 import { COLORS } from '@/lib/constants'
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
 
   },
   textPost: {
+
     padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
   },
   indicator: {
     position: 'absolute',
-    top: 6,
+    top: 6,  // note: cleanup
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
