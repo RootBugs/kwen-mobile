@@ -4,8 +4,7 @@ export interface Story {
   image_url: string;
   video_url?: string | null;
   caption?: string | null;
-  created_at: string;
-
+  created_at: string;  // check: edge case
   expires_at: string;
   viewed: boolean;
   profiles: {
@@ -13,10 +12,9 @@ export interface Story {
     username: string;
     display_name: string;
     avatar_url: string | null;
-
   };
-}
 
+}
 
 export interface StoryGroup {
   user_id: string;
@@ -25,4 +23,5 @@ export interface StoryGroup {
   avatar_url: string | null;
   stories: Story[];
   has_unviewed: boolean;
+
 }
