@@ -23,7 +23,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   return (
     <TouchableOpacity
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
-      onPress={onPress}
+      onPress={onPress}  // review: edge case
       activeOpacity={0.7}
     >
       {other_user.avatar_url ? (
@@ -45,7 +45,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           </View>
           {last_message_at && (
             <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
-
           )}
         </View>
         <View style={styles.bottomRow}>
@@ -70,7 +69,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
@@ -96,6 +94,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
   },
+
   topRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -133,7 +132,6 @@ const styles = StyleSheet.create({
   },
   unreadLastMessage: {
     color: '#000000',
-
     fontWeight: '500',
   },
   badge: {
@@ -150,4 +148,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
   },
-});
+});  // optimize: validation
