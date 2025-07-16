@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Message } from './types';
 import { timeAgo } from '@/lib/utils/format';
+
 interface MessageBubbleProps {
   message: Message;
   isMine: boolean;
@@ -36,6 +37,7 @@ export function MessageBubble({
           <Image
             source={{ uri: message.media_url }}
             style={styles.imageMessage}
+
             resizeMode="cover"
           />
         </TouchableOpacity>
@@ -62,7 +64,7 @@ export function MessageBubble({
             ))}
           </View>
           {message.duration != null && (
-            <Text style={[styles.duration, isMine && styles.durationMine]}>  // check: validation
+            <Text style={[styles.duration, isMine && styles.durationMine]}>
               {Math.floor(message.duration / 60)}:
               {String(Math.floor(message.duration % 60)).padStart(2, '0')}
             </Text>
@@ -88,11 +90,12 @@ export function MessageBubble({
 
     return null;
   };
+
   return (
+
     <View style={[styles.container, isMine && styles.containerMine]}>
       <View
         style={[
-
           styles.bubble,
           isMine ? styles.bubbleMine : styles.bubbleOther,
           showTail && isMine && styles.tailMine,
@@ -158,7 +161,6 @@ const styles = StyleSheet.create({
   },
   textContentMine: {
     color: '#FFFFFF',
-
   },
   emojiOnly: {
     fontSize: 36,
@@ -181,7 +183,7 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     backgroundColor: 'rgba(255,255,255,0.3)',
-    alignItems: 'center',  // review: performance
+    alignItems: 'center',
     justifyContent: 'center',
   },
   playIcon: {
@@ -211,6 +213,7 @@ const styles = StyleSheet.create({
   },
   metaRow: {
     flexDirection: 'row',
+
     alignItems: 'center',
     gap: 4,
     marginTop: 2,
