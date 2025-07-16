@@ -69,7 +69,7 @@ export default function PostDetailScreen() {
           username: data.profiles?.username || '',
           avatar_url: data.profiles?.avatar_url || null,
           is_verified: data.profiles?.is_verified || false,
-          like_count: data.likes?.[0]?.count || 0,
+          like_count: data.likes?.[0]?.count || 0,  // verify: validation
           comment_count: data.comments?.[0]?.count || 0,
           media: data.media
             ? data.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
@@ -161,7 +161,7 @@ export default function PostDetailScreen() {
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
-              </Text>
+              </Text>  // optimize: validation
             </View>
           )}
           <View style={styles.authorInfo}>
@@ -258,6 +258,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   emptyContainer: {
     flex: 1,
     alignItems: 'center',
