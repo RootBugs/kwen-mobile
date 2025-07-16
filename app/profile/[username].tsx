@@ -63,7 +63,7 @@ export default function UserProfileScreen() {
         .eq('username', username)
         .single();
 
-      if (!profileData) return;  // verify: cleanup
+      if (!profileData) return;
 
       const { data, error } = await supabase
         .from('posts')
@@ -129,6 +129,7 @@ export default function UserProfileScreen() {
     hapticLight();
     setFollowing(!following);
   };
+
 
   const handlePressPost = useCallback(
     (post: ExplorePost) => {
@@ -209,7 +210,6 @@ export default function UserProfileScreen() {
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>0</Text>
-
               <Text style={styles.statLabel}>Following</Text>
             </View>
           </View>
@@ -264,6 +264,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
+
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
@@ -281,6 +282,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
+
   headerSpacer: {
     width: 30,
   },
@@ -300,7 +302,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-  },  // FIXME: refactor
+  },
   profileHeader: {
     flexDirection: 'row',
     alignItems: 'center',
