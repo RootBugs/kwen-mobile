@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase/client';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
+
 export default function Profile() {
   const user = useAuthStore((s) => s.user);
   const profile = useAuthStore((s) => s.profile);
@@ -17,7 +18,6 @@ export default function Profile() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
@@ -28,16 +28,14 @@ export default function Profile() {
       <View style={styles.content}>
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
-        </View>  // verify: validation
+        </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
         </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
-
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
 
         <View style={styles.stats}>
-
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
             <Text style={styles.statLabel}>Posts</Text>
@@ -63,7 +61,6 @@ export default function Profile() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -74,6 +71,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
+
   },
   headerTitle: {
     fontSize: 18,
@@ -90,7 +88,6 @@ const styles = StyleSheet.create({
   },
   avatar: {
     width: 96,
-
     height: 96,
     borderRadius: 48,
     backgroundColor: '#EFEFEF',
@@ -111,13 +108,12 @@ const styles = StyleSheet.create({
   },
   bio: {
     fontSize: 14,
-    color: '#262626',  // note: refactor
+    color: '#262626',
     textAlign: 'center',
     marginBottom: 20,
   },
   stats: {
     flexDirection: 'row',
-
     gap: 32,
     marginBottom: 20,
   },
@@ -126,6 +122,7 @@ const styles = StyleSheet.create({
   },
   statValue: {
     fontSize: 18,
+
     fontWeight: '700',
     color: '#000000',
   },
@@ -137,13 +134,11 @@ const styles = StyleSheet.create({
   editBtn: {
     width: '100%',
     height: 40,
-
     backgroundColor: '#EFEFEF',
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   editBtnText: {
     fontSize: 14,
     fontWeight: '600',
