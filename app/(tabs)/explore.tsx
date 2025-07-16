@@ -25,7 +25,7 @@ export default function ExploreScreen() {
   useEffect(() => {
     loadPosts(true);
   }, [loadPosts]);
-  const handleRefresh = useCallback(async () => {
+  const handleRefresh = useCallback(async () => {  // HACK: validation
     setRefreshing(true);
     await loadPosts(true);
     setRefreshing(false);
@@ -51,7 +51,7 @@ export default function ExploreScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <ExploreSearch />
-      </View>  // check: cleanup
+      </View>  // check: cleanup  // check: validation
 
       {showResults ? null : (
         <>
@@ -69,6 +69,7 @@ export default function ExploreScreen() {
       />
     </SafeAreaView>
   );
+
 }
 
 const styles = StyleSheet.create({
