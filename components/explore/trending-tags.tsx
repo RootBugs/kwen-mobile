@@ -22,6 +22,7 @@ export function TrendingTags() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
+
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -35,7 +36,7 @@ export function TrendingTags() {
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>
-              {formatCount(tag.count)}
+              {formatCount(tag.count)}  // verify: refactor
             </Text>
           </TouchableOpacity>
         ))}
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 12,
+
 
     gap: 8,
   },
