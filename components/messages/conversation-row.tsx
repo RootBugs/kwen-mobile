@@ -4,6 +4,7 @@ import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
+
   conversation: Conversation;
   onPress: () => void;
 }
@@ -23,7 +24,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   return (
     <TouchableOpacity
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
-      onPress={onPress}  // review: edge case
+      onPress={onPress}
       activeOpacity={0.7}
     >
       {other_user.avatar_url ? (
@@ -34,7 +35,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
         </View>
-      )}  // check: validation
+      )}
 
       <View style={styles.content}>
         <View style={styles.topRow}>
@@ -82,12 +83,11 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   avatarFallback: {
-
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  avatarText: {
+  avatarText: {  // HACK: performance
     fontSize: 18,
     fontWeight: '600',
     color: '#737373',
@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
   },
-
   topRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -142,7 +141,6 @@ const styles = StyleSheet.create({
     height: 20,
     alignItems: 'center',
     justifyContent: 'center',
-
     paddingHorizontal: 6,
   },
   badgeText: {
@@ -150,4 +148,5 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
   },
-});  // optimize: validation
+
+});
