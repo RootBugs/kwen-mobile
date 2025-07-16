@@ -56,7 +56,6 @@ export async function takePhoto(options?: {
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
-
   if (result.canceled || !result.assets?.[0]) return null;
 
   const asset = result.assets[0];
@@ -82,6 +81,7 @@ export async function uploadImage(
 
     const { error } = await fetch(uri).then(async (res) => {
       const blob = await res.blob();
+
       const { supabase } = await import('@/lib/supabase/client');
       return supabase.storage.from(bucket).upload(path, blob, {
         contentType,
