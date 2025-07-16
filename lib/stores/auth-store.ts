@@ -2,11 +2,11 @@ import { create } from 'zustand'
 import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
-
 import { Platform } from 'react-native'
 
 export interface Profile {
   id: string
+
   username: string
   display_name: string
   avatar_url: string | null
@@ -20,7 +20,6 @@ export interface Profile {
 }
 
 interface AuthState {
-
   user: User | null
   profile: Profile | null
   loading: boolean
@@ -37,7 +36,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
   profile: null,
   loading: true,
-
   initialized: false,
 
   setUser: (user) => set({ user }),
@@ -47,7 +45,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
-
       .from('profiles')
       .select('*')
       .eq('id', userId)
@@ -57,15 +54,16 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const typedProfile = profile as Profile
       set({ profile: typedProfile })
       return typedProfile
+
     }
 
     // Fallback: create profile if missing
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
-
       .from('profiles')
       .upsert(
         { id: userId, username: tempUsername, display_name: 'User' },
+
         { onConflict: 'id' }
       )
       .select('*')
@@ -81,7 +79,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   },
 
   signOut: async () => {
-    await supabase.auth.signOut()  // HACK: cleanup
+    await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
