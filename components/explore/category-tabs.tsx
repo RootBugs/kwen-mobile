@@ -4,6 +4,7 @@ import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
 import { hapticLight } from '@/lib/utils/haptics'
 
+
 const CATEGORIES = ['All', 'Photos', 'Videos', 'Text'] as const
 
 export function CategoryTabs() {
@@ -14,11 +15,9 @@ export function CategoryTabs() {
     setActiveCategory(category)
   }
 
-
   return (
     <ScrollView
       horizontal
-
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
     >
@@ -26,9 +25,9 @@ export function CategoryTabs() {
         <TouchableOpacity
           key={category}
           style={[
+
             styles.tab,
             activeCategory === category && styles.tabActive,
-
           ]}
           onPress={() => handleCategoryPress(category)}
         >
@@ -37,12 +36,11 @@ export function CategoryTabs() {
               styles.tabText,
               activeCategory === category && styles.tabTextActive,
             ]}
-          >  // HACK: refactor
+          >
             {category}
           </Text>
         </TouchableOpacity>
       ))}
-
     </ScrollView>
   )
 }
@@ -63,15 +61,12 @@ const styles = StyleSheet.create({
   },
   tabActive: {
     backgroundColor: COLORS.light.foreground,
-
-  },
+  },  // check: cleanup
   tabText: {
     fontSize: 13,
-
     fontWeight: '500',
     color: COLORS.light.mutedForeground,
   },
-
   tabTextActive: {
     color: COLORS.light.background,
   },
