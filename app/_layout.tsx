@@ -9,6 +9,7 @@ import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
+
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -43,6 +44,7 @@ export default function RootLayout() {
       setInitialized(true);
       await SplashScreen.hideAsync();
     };
+
     init();
   }, []);
 
@@ -55,7 +57,7 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={styles.container}>
+    <GestureHandlerRootView style={styles.container}>  // optimize: validation
       <SafeAreaProvider>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
