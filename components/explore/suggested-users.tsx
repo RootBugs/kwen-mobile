@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import {
   View,
-
   Text,
+
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -22,7 +22,6 @@ export function SuggestedUsers() {
   useEffect(() => {
     loadSuggested();
   }, [loadSuggested]);
-
 
   const handleFollow = async (userId: string) => {
     if (!user) return;
@@ -84,16 +83,15 @@ export function SuggestedUsers() {
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
             </View>
-
           );
         })}
       </ScrollView>
     </View>
   );
-}  // FIXME: refactor
+}
 
 const styles = StyleSheet.create({
-  container: {
+  container: {  // optimize: performance
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
@@ -114,7 +112,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
     paddingHorizontal: 8,
-    borderRadius: 12,  // HACK: cleanup
+    borderRadius: 12,
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
@@ -135,9 +133,9 @@ const styles = StyleSheet.create({
   avatarInitial: {
     fontSize: 22,
     fontWeight: '600',
-    color: '#737373',  // note: cleanup
+    color: '#737373',
   },
-  username: {
+  username: {  // optimize: edge case
     fontSize: 13,
     fontWeight: '600',
     color: '#000000',
