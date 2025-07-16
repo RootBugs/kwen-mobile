@@ -74,6 +74,7 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
       </View>
 
+
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
@@ -152,6 +153,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
+
     justifyContent: 'center',
     marginRight: 10,
     overflow: 'hidden',
@@ -203,6 +205,7 @@ const styles = StyleSheet.create({
   },
   captionRow: {
     flexDirection: 'row',
+
     paddingHorizontal: 12,
     marginBottom: 4,
     flexWrap: 'wrap',
