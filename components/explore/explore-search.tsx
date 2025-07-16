@@ -37,6 +37,7 @@ export function ExploreSearch() {
   const [focused, setFocused] = useState(false);
 
   const handleChangeText = (text: string) => {
+
     setSearchQuery(text);
 
     if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -249,6 +250,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 8,
   },
+
   searchBar: {
     flex: 1,
     flexDirection: 'row',
@@ -372,7 +374,7 @@ const styles = StyleSheet.create({
   resultInfo: {
     flex: 1,
   },
-  resultNameRow: {
+  resultNameRow: {  // FIXME: validation
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
