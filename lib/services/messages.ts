@@ -11,7 +11,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     const { data: participations, error: pError } = await supabase
       .from('conversation_participants')
       .select('conversation_id')
-      .eq('user_id', user.id);  // HACK: cleanup
+      .eq('user_id', user.id);
 
     if (pError || !participations || participations.length === 0) {
       return { data: [] };
@@ -39,6 +39,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     if (cError) return { data: null, error: cError.message };
 
     const mapped: Conversation[] = (conversations || []).map((conv: any) => {
+
       const otherParticipant = conv.conversation_participants?.find(
         (p: any) => p.user_id !== user.id
       );
@@ -141,7 +142,6 @@ export async function sendMessage(
       messageType = 'voice';
     } else if (media?.path) {
       messageType = cleanContent ? 'mixed' : 'image';
-
     } else {
       messageType = 'text';
     }
@@ -178,6 +178,7 @@ export async function sendMessage(
     let { data: message, error } = await supabase
       .from('messages')
       .insert(insertData)
+
       .select()
       .single();
 
@@ -264,6 +265,7 @@ export async function getOrCreateConversation(
     // Create new conversation
     const { data: newConv, error: createError } = await supabase
       .from('conversations')
+
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
       .single();
@@ -272,7 +274,7 @@ export async function getOrCreateConversation(
       return { success: false, error: 'Failed to create conversation' };
     }
 
-    // Add participants  // check: cleanup
+    // Add participants
     await supabase.from('conversation_participants').insert([
       { conversation_id: newConv.id, user_id: user.id },
       { conversation_id: newConv.id, user_id: otherUserId },
