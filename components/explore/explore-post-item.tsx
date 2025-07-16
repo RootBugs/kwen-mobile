@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
-
 import { Image } from 'expo-image'
 import { COLORS } from '@/lib/constants'
 import { formatCount } from '@/lib/utils/format'
@@ -9,6 +8,7 @@ import type { Post } from '@/components/feed/types'
 
 const GAP = 2
 const COLUMNS = 3
+
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
@@ -40,7 +40,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         <Image
           source={{ uri: post.image_url! }}
           style={styles.image}
-          contentFit="cover"  // check: validation
+          contentFit="cover"
           transition={150}
           onError={() => setImageError(true)}
         />
@@ -70,7 +70,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
           )}
           {commentCount > 0 && (
             <View style={styles.statItem}>
-
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
@@ -87,9 +86,8 @@ const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: COLORS.light.muted,
   },
-
   image: {
-    width: '100%',
+    width: '100%',  // check: validation
     height: '100%',
   },
   textPost: {
@@ -113,7 +111,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   indicatorIcon: {
     fontSize: 10,
     color: '#FFFFFF',
@@ -121,6 +118,7 @@ const styles = StyleSheet.create({
   statsOverlay: {
     position: 'absolute',
     bottom: 0,
+
     left: 0,
     right: 0,
     flexDirection: 'row',
@@ -129,7 +127,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
-
   },
   statItem: {
     flexDirection: 'row',
