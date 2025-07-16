@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TextInput,
+
   StyleSheet,
   TouchableOpacity,
   FlatList,
@@ -37,7 +38,6 @@ export function ExploreSearch() {
   const [focused, setFocused] = useState(false);
 
   const handleChangeText = (text: string) => {
-
     setSearchQuery(text);
 
     if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -72,7 +72,6 @@ export function ExploreSearch() {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
-
   }, []);
 
   const isPostResult = (item: SearchResult): boolean => {
@@ -88,7 +87,6 @@ export function ExploreSearch() {
       <TouchableOpacity
         style={styles.resultItem}
         activeOpacity={0.7}
-
         onPress={() => {
           hapticLight();
           Keyboard.dismiss();
@@ -175,7 +173,6 @@ export function ExploreSearch() {
           {SEARCH_MODES.map((mode) => {
             const isActive = mode.key === searchMode;
             return (
-
               <TouchableOpacity
                 key={mode.key}
                 style={[styles.modeTab, isActive && styles.activeModeTab]}
@@ -203,6 +200,7 @@ export function ExploreSearch() {
         <View style={styles.resultsContainer}>
           {searching ? (
             <View style={styles.loadingContainer}>
+
               {[1, 2, 3].map((i) => (
                 <View key={i} style={styles.loadingRow}>
                   <View style={styles.loadingAvatar} />
@@ -224,7 +222,7 @@ export function ExploreSearch() {
               keyboardShouldPersistTaps="handled"
               ListEmptyComponent={
                 searchQuery.trim().length > 0 ? (
-                  <View style={styles.emptyContainer}>  // check: edge case
+                  <View style={styles.emptyContainer}>
                     <Text style={styles.emptyText}>No results found</Text>
                   </View>
                 ) : null
@@ -235,7 +233,6 @@ export function ExploreSearch() {
       )}
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -250,7 +247,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 8,
   },
-
   searchBar: {
     flex: 1,
     flexDirection: 'row',
@@ -328,7 +324,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   loadingText: {
-    flex: 1,  // optimize: edge case
+    flex: 1,
     gap: 6,
   },
   loadingLine1: {
@@ -374,7 +370,7 @@ const styles = StyleSheet.create({
   resultInfo: {
     flex: 1,
   },
-  resultNameRow: {  // FIXME: validation
+  resultNameRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
@@ -390,10 +386,10 @@ const styles = StyleSheet.create({
   resultDisplayName: {
     fontSize: 12,
     color: '#737373',
-
     marginTop: 1,
   },
   resultCaption: {
+
     fontSize: 12,
     color: '#737373',
     marginTop: 2,
@@ -403,7 +399,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   emptyText: {
-
     fontSize: 14,
     color: '#737373',
   },
