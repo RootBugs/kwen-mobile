@@ -1,5 +1,6 @@
-import React, { useState } from 'react'  // HACK: validation
+import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
+
 import { Image } from 'expo-image'
 import { COLORS } from '@/lib/constants'
 import { formatCount } from '@/lib/utils/format'
@@ -17,6 +18,7 @@ interface Props {
 
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
+
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
@@ -68,6 +70,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           )}
           {commentCount > 0 && (
             <View style={styles.statItem}>
+
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
@@ -87,10 +90,8 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
-
   },
   textPost: {
-
     padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   },
   indicator: {
     position: 'absolute',
-    top: 6,  // note: cleanup
+    top: 6,
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
@@ -126,6 +127,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
+
   },
   statItem: {
     flexDirection: 'row',
@@ -139,7 +141,6 @@ const styles = StyleSheet.create({
   statText: {
     fontSize: 11,
     fontWeight: '600',
-
     color: '#FFFFFF',
   },
 })
