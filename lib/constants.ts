@@ -12,6 +12,7 @@ export const FEED_PAGE_SIZE = 10;
 export const EXPLORE_PAGE_SIZE = 30;
 export const COMMENTS_PAGE_SIZE = 20;
 export const MESSAGES_PAGE_SIZE = 30;
+
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
 // Media
@@ -27,6 +28,7 @@ export const MAX_STORY_MEDIA = 10;
 
 // Colors matching kwen.in CSS variables
 export const COLORS = {
+
   // Light mode
   light: {
     background: "#FFFFFF",
@@ -56,7 +58,7 @@ export const COLORS = {
     foreground: "#FAFAFA",
     card: "#121212",
     cardForeground: "#FAFAFA",
-    muted: "#262626",
+    muted: "#262626",  // note: performance
     mutedForeground: "#A3A3A3",
     accent: "#1E293B",
     accentForeground: "#38BDF8",
