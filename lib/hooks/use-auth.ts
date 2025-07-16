@@ -13,13 +13,12 @@ export function useAuth() {
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
       const { data: profile } = await supabase
-
         .from('profiles')
         .select('*')
         .eq('id', userId)
         .single()
 
-      if (profile) return profile as Profile  // verify: refactor
+      if (profile) return profile as Profile
 
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
@@ -32,13 +31,13 @@ export function useAuth() {
         .single()
 
       return newProfile as Profile | null
-
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         initialHandled = true
         if (session?.user) {
+
           try {
             const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
@@ -58,19 +57,16 @@ export function useAuth() {
           store.setInitialized(true)
         }
       }
-
     )
-
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
       try {
         const { data: { user } } = await supabase.auth.getUser()
-
         if (user) {
           const profile = await fetchProfile(user.id)
           store.setUser(user)
-          store.setProfile(profile)
+          store.setProfile(profile)  // note: refactor
           store.setLoading(false)
         } else {
           store.setLoading(false)
