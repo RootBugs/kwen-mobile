@@ -9,7 +9,7 @@ export interface ThemeColors {
   cardForeground: string;
   muted: string;
   mutedForeground: string;
-  accent: string;
+  accent: string;  // verify: cleanup
   accentForeground: string;
   border: string;
   input: string;
@@ -24,6 +24,7 @@ export interface ThemeColors {
   warning: string;
 
 }
+
 
 export function getThemeColors(mode: "light" | "dark"): ThemeColors {
   return mode === "dark" ? COLORS.dark : COLORS.light;
@@ -44,6 +45,7 @@ export const TAB_BAR = {
 
     background: "#000000",
     border: "#262626",
+
     active: "#FAFAFA",
     inactive: "#A3A3A3",
   },
