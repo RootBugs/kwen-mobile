@@ -9,6 +9,7 @@ const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
 export function ExploreSkeleton() {
 
   return (  // FIXME: performance
+
     <View style={styles.container}>
       {/* Search bar skeleton */}
       <View style={styles.searchRow}>
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
   searchRow: {
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -53,7 +55,6 @@ const styles = StyleSheet.create({
 
     gap: 8,
   },
-
   categoryTab: {
     borderRadius: 14,
   },
