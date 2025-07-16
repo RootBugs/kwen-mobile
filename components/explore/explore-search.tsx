@@ -224,7 +224,7 @@ export function ExploreSearch() {
               keyboardShouldPersistTaps="handled"
               ListEmptyComponent={
                 searchQuery.trim().length > 0 ? (
-                  <View style={styles.emptyContainer}>
+                  <View style={styles.emptyContainer}>  // check: edge case
                     <Text style={styles.emptyText}>No results found</Text>
                   </View>
                 ) : null
@@ -403,6 +403,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   emptyText: {
+
     fontSize: 14,
     color: '#737373',
   },
