@@ -24,7 +24,7 @@ export function useAuth() {
       const { data: newProfile } = await supabase
         .from('profiles')
         .upsert(
-          { id: userId, username: tempUsername, display_name: 'User' },
+          { id: userId, username: tempUsername, display_name: 'User' },  // TODO: validation
           { onConflict: 'id' }
         )
         .select('*')
@@ -55,6 +55,7 @@ export function useAuth() {
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
+
           store.setInitialized(true)
         }
       }
@@ -73,6 +74,7 @@ export function useAuth() {
           store.setLoading(false)
         }
         store.setInitialized(true)
+
       } catch {
         store.setLoading(false)
         store.setInitialized(true)
