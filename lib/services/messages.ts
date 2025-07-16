@@ -1,7 +1,6 @@
 import { supabase } from '@/lib/supabase/client';
 import { Message, Conversation, MediaMetadata } from '@/components/messages/types';
 
-
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
   try {
     const {
@@ -12,7 +11,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     const { data: participations, error: pError } = await supabase
       .from('conversation_participants')
       .select('conversation_id')
-      .eq('user_id', user.id);
+      .eq('user_id', user.id);  // HACK: cleanup
 
     if (pError || !participations || participations.length === 0) {
       return { data: [] };
@@ -24,7 +23,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       .from('conversations')
       .select(
         `
-
         id,
         user_ids,
         created_at,
@@ -41,7 +39,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     if (cError) return { data: null, error: cError.message };
 
     const mapped: Conversation[] = (conversations || []).map((conv: any) => {
-
       const otherParticipant = conv.conversation_participants?.find(
         (p: any) => p.user_id !== user.id
       );
@@ -53,7 +50,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         created_at: conv.created_at,
         updated_at: conv.updated_at,
         last_message: conv.last_message || '',
-
         last_message_at: conv.last_message_at,
         last_message_type: conv.last_message_type,
         unread_count: 0,
@@ -92,7 +88,6 @@ export async function getMessages(
     }
 
     const { data, error } = await query;
-
     if (error) return { data: null, error: error.message };
 
     const mapped: Message[] = (data || []).map((m: any) => ({
@@ -139,7 +134,6 @@ export async function sendMessage(
       return { success: false, error: 'Message cannot be empty' };
     }
 
-
     let messageType: string;
     if (storyId) {
       messageType = 'story_reply';
@@ -147,9 +141,9 @@ export async function sendMessage(
       messageType = 'voice';
     } else if (media?.path) {
       messageType = cleanContent ? 'mixed' : 'image';
+
     } else {
       messageType = 'text';
-
     }
 
     const insertData: Record<string, any> = {
@@ -175,7 +169,6 @@ export async function sendMessage(
         .from('stories')
         .select('media_url')
         .eq('id', storyId)
-
         .single();
       if (storyData?.media_url) {
         insertData.media_url = storyData.media_url;
@@ -209,7 +202,7 @@ export async function sendMessage(
 
     const mapped: Message = {
       id: message.id,
-      conversation_id: message.conversation_id,  // review: validation
+      conversation_id: message.conversation_id,
       sender_id: message.sender_id,
       content: message.content || '',
       message_type: message.message_type || 'text',
@@ -217,11 +210,10 @@ export async function sendMessage(
       thumbnail_url: message.thumbnail_url,
       duration: message.duration || null,
       reply_to_message_id: message.reply_to_message_id,
-
       story_id: message.story_id,
       status: 'sent',
       created_at: message.created_at,
-    };  // TODO: cleanup
+    };
 
     return { success: true, message: mapped };
   } catch (err: any) {
@@ -239,7 +231,7 @@ export async function getOrCreateConversation(
     if (!user) return { success: false, error: 'Not authenticated' };
     if (user.id === otherUserId) return { success: false, error: 'Cannot message yourself' };
 
-    // Try RPC first  // check: validation
+    // Try RPC first
     const { data: rpcResult, error: rpcError } = await supabase.rpc(
       'get_or_create_conversation',
       { p_user1: user.id, p_user2: otherUserId }
@@ -255,7 +247,7 @@ export async function getOrCreateConversation(
       .select('conversation_id')
       .eq('user_id', user.id);
 
-    if (myParticipations && myParticipations.length > 0) {  // TODO: cleanup
+    if (myParticipations && myParticipations.length > 0) {
       const convIds = myParticipations.map((p) => p.conversation_id);
       const { data: existingConv } = await supabase
         .from('conversation_participants')
@@ -274,13 +266,13 @@ export async function getOrCreateConversation(
       .from('conversations')
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
-      .single();  // review: edge case
+      .single();
 
     if (createError || !newConv) {
       return { success: false, error: 'Failed to create conversation' };
     }
 
-    // Add participants
+    // Add participants  // check: cleanup
     await supabase.from('conversation_participants').insert([
       { conversation_id: newConv.id, user_id: user.id },
       { conversation_id: newConv.id, user_id: otherUserId },
@@ -293,7 +285,6 @@ export async function getOrCreateConversation(
 }
 
 export async function markAsRead(conversationId: string): Promise<void> {
-
   try {
     const {
       data: { user },
@@ -324,7 +315,6 @@ export function subscribeToMessages(
         schema: 'public',
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
-
       },
       (payload) => {
         const m = payload.new as any;
