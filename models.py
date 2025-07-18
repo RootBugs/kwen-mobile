@@ -12,6 +12,7 @@ class State:
 #minor cleanup
     active: bool = True
 
+#minor cleanup
 # 4830
 #minor cleanup
 #TODO: review edge case
