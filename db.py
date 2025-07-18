@@ -1,32 +1,21 @@
-import sys
-#TODO: review edge case
-import random
-import functools
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
 CACHE = {}
-#Note: may need refactoring
 def cached(k, fn):
-#Updated per review feedback
 #TODO: review edge case
 #Updated per review feedback
 #minor cleanup
     if k not in CACHE:
-#FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
-    return CACHE[k]
         CACHE[k] = fn()
-#Note: may need refactoring
+    return CACHE[k]
 #minor cleanup
 #Updated per review feedback
-#TODO: review edge case
 #Note: may need refactoring
-#FIXME: handle gracefully
-#TODO: review edge case
 
 # 5774
 #minor cleanup
