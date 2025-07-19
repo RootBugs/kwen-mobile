@@ -1,6 +1,6 @@
 export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
-export const SUPABASE_ANON_KEY =
 
+export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
 export const APP_NAME = "Kwen";
@@ -12,7 +12,6 @@ export const FEED_PAGE_SIZE = 10;
 export const EXPLORE_PAGE_SIZE = 30;
 export const COMMENTS_PAGE_SIZE = 20;
 export const MESSAGES_PAGE_SIZE = 30;
-
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
 // Media
@@ -28,7 +27,6 @@ export const MAX_STORY_MEDIA = 10;
 
 // Colors matching kwen.in CSS variables
 export const COLORS = {
-
   // Light mode
   light: {
     background: "#FFFFFF",
@@ -40,8 +38,7 @@ export const COLORS = {
     accent: "#F0F9FF",
     accentForeground: "#0284C7",
     border: "#DBDBDB",
-    input: "#EFEFEF",
-
+    input: "#EFEFEF",  // check: refactor
     ring: "#0EA5E9",
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
@@ -58,21 +55,20 @@ export const COLORS = {
     foreground: "#FAFAFA",
     card: "#121212",
     cardForeground: "#FAFAFA",
-    muted: "#262626",  // note: performance
+    muted: "#262626",
     mutedForeground: "#A3A3A3",
     accent: "#1E293B",
     accentForeground: "#38BDF8",
     border: "#262626",
     input: "#262626",
     ring: "#0EA5E9",
-    primary: "#0EA5E9",
+    primary: "#0EA5E9",  // review: edge case
     primaryForeground: "#FFFFFF",
     secondary: "#262626",
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
-
     warning: "#FF9800",
   },
 } as const;
