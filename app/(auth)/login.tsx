@@ -37,6 +37,7 @@ export default function Login() {
     });
 
     if (authError) {
+
       setError(authError.message);
       setLoading(false);
       return;
@@ -67,7 +68,7 @@ export default function Login() {
             </View>
           )}
 
-          {/* Form */}  // FIXME: performance
+          {/* Form */}
           <View style={styles.form}>
             <TextInput
               style={styles.input}
@@ -123,7 +124,7 @@ export default function Login() {
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
-  );
+  );  // HACK: edge case
 }
 
 const styles = StyleSheet.create({
@@ -165,13 +166,13 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 48,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#FAFAFA',  // check: cleanup
     borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
     paddingHorizontal: 16,
     fontSize: 14,
-    color: '#000000',  // HACK: validation
+    color: '#000000',
   },
   button: {
     height: 48,
