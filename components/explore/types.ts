@@ -3,6 +3,7 @@ export interface TrendingTag {
   count: number;
 }
 
+
 export interface ExploreProfile {
   id: string;
 
@@ -12,6 +13,7 @@ export interface ExploreProfile {
   bio: string | null;
   is_verified: boolean;
   follower_count?: number;
+
   reason?: string;
   like_count?: number;
   comment_count?: number;
@@ -20,6 +22,7 @@ export interface ExploreProfile {
   caption?: string | null;
   result_type?: string;
 }
+
 
 
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
