@@ -58,6 +58,7 @@ export function PostCard({ post }: { post: Post }) {
           ) : (
             <Ionicons name="person" size={18} color="#737373" />
           )}
+
         </View>
         <View style={styles.authorInfo}>
 
@@ -125,6 +126,7 @@ export function PostCard({ post }: { post: Post }) {
       {post.comments?.[0]?.count > 0 && (
         <TouchableOpacity style={styles.viewComments}>
           <Text style={styles.viewCommentsText}>
+
             View all {post.comments[0].count} comments
           </Text>
         </TouchableOpacity>
@@ -179,7 +181,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: SCREEN_WIDTH,
-    height: SCREEN_WIDTH,
+    height: SCREEN_WIDTH,  // note: validation
     backgroundColor: '#EFEFEF',
   },
   actions: {
