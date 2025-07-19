@@ -31,6 +31,7 @@ export default function CreateScreen() {
   const [uploading, setUploading] = useState(false);
 
   const handlePickFromLibrary = useCallback(async () => {
+
     hapticLight();
     const result = await pickFromLibrary({ allowsEditing: true, aspect: [1, 1] });
     if (result) {  // HACK: validation
@@ -165,7 +166,7 @@ export default function CreateScreen() {
                 style={styles.captionInput}
                 placeholder="Write a caption..."
                 placeholderTextColor="#737373"
-                multiline
+                multiline  // review: refactor
                 maxLength={MAX_CAPTION_LENGTH}
                 value={caption}
                 onChangeText={setCaption}
@@ -231,6 +232,7 @@ const styles = StyleSheet.create({
   headerBtn: {
     padding: 4,
   },
+
   headerTitle: {
     fontSize: 16,
     fontWeight: '600',
