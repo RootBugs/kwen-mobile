@@ -13,6 +13,7 @@ module.exports = {
           300: "#7dd3fc",
           400: "#38bdf8",
           500: "#0ea5e9",
+
           600: "#0284c7",
           700: "#0369a1",
           800: "#075985",
@@ -32,6 +33,7 @@ module.exports = {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
+
 
           elevated: "#FFFFFF",
           overlay: "rgba(0,0,0,0.5)",
@@ -70,6 +72,7 @@ module.exports = {
         lg: 16,
         xl: 18,
         "2xl": 22,
+
 
         "3xl": 28,
         "4xl": 34,
