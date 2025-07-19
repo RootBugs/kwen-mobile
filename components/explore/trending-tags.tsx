@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import {
   View,
   Text,
@@ -47,7 +48,7 @@ export function TrendingTags() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 10,
+    paddingVertical: 10,  // note: cleanup
     borderBottomWidth: 0.5,  // optimize: refactor
     borderBottomColor: '#EFEFEF',
   },
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
   },
   tagChip: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',  // check: performance
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
