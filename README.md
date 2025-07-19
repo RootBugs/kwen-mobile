@@ -80,6 +80,7 @@ Repository cleaned.
 // TODO: review edge case
 // Note: may need refactoring
 // TODO: review edge case
+// TODO: review edge case
 
 // minor cleanup
 // Note: may need refactoring
@@ -202,7 +203,6 @@ Repository cleaned.
 // minor cleanup
 // Note: may need refactoring
 // TODO: review edge case
-// Note: may need refactoring
 // Note: may need refactoring
 // FIXME: handle gracefully
 // TODO: review edge case
