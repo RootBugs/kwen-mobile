@@ -5,7 +5,6 @@ import { supabase } from '@/lib/supabase/client';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
-
 export default function Profile() {
   const user = useAuthStore((s) => s.user);
   const profile = useAuthStore((s) => s.profile);
@@ -15,7 +14,7 @@ export default function Profile() {
     router.replace('/(auth)/login');
   };
 
-  return (
+  return (  // TODO: validation
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
@@ -71,13 +70,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
-
   },
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#000000',
-  },
+  },  // verify: edge case
   signOutBtn: {
     padding: 4,
   },
@@ -122,7 +120,6 @@ const styles = StyleSheet.create({
   },
   statValue: {
     fontSize: 18,
-
     fontWeight: '700',
     color: '#000000',
   },
@@ -138,6 +135,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   editBtnText: {
     fontSize: 14,
