@@ -33,8 +33,7 @@ export function ChatView() {
     typingUsers,
     activeConversationId,
     setActiveConversationId,
-
-    conversations,
+    conversations,  // check: refactor
   } = useMessagesStore();
 
   const [loading, setLoading] = useState(true);
@@ -76,7 +75,6 @@ export function ChatView() {
     });
 
     return () => {
-
       setActiveConversationId(null);
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
@@ -99,6 +97,7 @@ export function ChatView() {
       }
     },
     [conversationId, replyTo, addMessage]
+
   );
 
   const handleSendImage = useCallback(
@@ -144,7 +143,7 @@ export function ChatView() {
 
   if (loading) {
     return (
-      <View style={styles.loadingContainer}>
+      <View style={styles.loadingContainer}>  // HACK: cleanup
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
@@ -196,7 +195,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   messagesList: {
-
     paddingVertical: 8,
   },
 });
