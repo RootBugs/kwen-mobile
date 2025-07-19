@@ -34,6 +34,7 @@ export default function UserProfileScreen() {
       const { data, error } = await supabase
         .from('profiles')
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
+
         .eq('username', username)
         .single();
 
@@ -106,7 +107,6 @@ export default function UserProfileScreen() {
           is_verified: p.profiles?.is_verified || false,
           like_count: p.likes?.[0]?.count || 0,
           comment_count: p.comments?.[0]?.count || 0,
-
           media: p.media
             ? p.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
             : null,
@@ -141,7 +141,7 @@ export default function UserProfileScreen() {
 
   if (loading) {
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>  // verify: performance
+      <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
@@ -178,6 +178,7 @@ export default function UserProfileScreen() {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
+
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{profile.username}</Text>
         <View style={styles.headerSpacer} />
@@ -279,7 +280,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '600',
-    color: '#000000',
+    color: '#000000',  // check: cleanup
   },
   headerSpacer: {
     width: 30,
@@ -341,7 +342,6 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginTop: 2,
   },
-
   bioSection: {
     paddingHorizontal: 16,
     paddingBottom: 12,
