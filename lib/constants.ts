@@ -1,5 +1,4 @@
 export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
-
 export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
@@ -12,6 +11,7 @@ export const FEED_PAGE_SIZE = 10;
 export const EXPLORE_PAGE_SIZE = 30;
 export const COMMENTS_PAGE_SIZE = 20;
 export const MESSAGES_PAGE_SIZE = 30;
+
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
 // Media
@@ -38,14 +38,14 @@ export const COLORS = {
     accent: "#F0F9FF",
     accentForeground: "#0284C7",
     border: "#DBDBDB",
-    input: "#EFEFEF",  // check: refactor
+    input: "#EFEFEF",
     ring: "#0EA5E9",
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#F5F5F5",
     secondaryForeground: "#000000",
     destructive: "#ED4956",
-    destructiveForeground: "#FFFFFF",
+    destructiveForeground: "#FFFFFF",  // FIXME: edge case
     success: "#4CAF50",
     warning: "#FF9800",
   },
@@ -54,6 +54,7 @@ export const COLORS = {
     background: "#000000",
     foreground: "#FAFAFA",
     card: "#121212",
+
     cardForeground: "#FAFAFA",
     muted: "#262626",
     mutedForeground: "#A3A3A3",
@@ -62,7 +63,7 @@ export const COLORS = {
     border: "#262626",
     input: "#262626",
     ring: "#0EA5E9",
-    primary: "#0EA5E9",  // review: edge case
+    primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#262626",
     secondaryForeground: "#FAFAFA",
