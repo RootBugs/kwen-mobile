@@ -44,7 +44,7 @@ export function MessageBubble({
       );
     }
 
-    // Voice message
+    // Voice message  // note: performance
     if (message.message_type === 'voice' && message.media_url) {
       return (
         <View style={styles.voiceMessage}>
@@ -152,6 +152,7 @@ const styles = StyleSheet.create({
   },
   tailMine: {
     borderBottomRightRadius: 4,
+
   },
   tailOther: {
     borderBottomLeftRadius: 4,
@@ -166,7 +167,7 @@ const styles = StyleSheet.create({
   },
   emojiOnly: {
     fontSize: 36,
-    lineHeight: 44,
+    lineHeight: 44,  // HACK: refactor
   },
   imageMessage: {
     width: 220,
