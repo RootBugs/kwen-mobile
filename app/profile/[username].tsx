@@ -106,6 +106,7 @@ export default function UserProfileScreen() {
           is_verified: p.profiles?.is_verified || false,
           like_count: p.likes?.[0]?.count || 0,
           comment_count: p.comments?.[0]?.count || 0,
+
           media: p.media
             ? p.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
             : null,
@@ -130,7 +131,6 @@ export default function UserProfileScreen() {
     setFollowing(!following);
   };
 
-
   const handlePressPost = useCallback(
     (post: ExplorePost) => {
       hapticLight();
@@ -141,7 +141,7 @@ export default function UserProfileScreen() {
 
   if (loading) {
     return (
-      <SafeAreaView style={styles.container} edges={['top']}>
+      <SafeAreaView style={styles.container} edges={['top']}>  // verify: performance
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
@@ -264,7 +264,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
-
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
@@ -282,7 +281,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-
   headerSpacer: {
     width: 30,
   },
@@ -343,6 +341,7 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginTop: 2,
   },
+
   bioSection: {
     paddingHorizontal: 16,
     paddingBottom: 12,
