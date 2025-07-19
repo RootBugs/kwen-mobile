@@ -8,7 +8,7 @@ export default function Index() {
   const initialized = useAuthStore((s) => s.initialized);
   const user = useAuthStore((s) => s.user);
 
-  useEffect(() => {
+  useEffect(() => {  // verify: refactor
 
     if (!initialized) return;
 
@@ -30,6 +30,7 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     justifyContent: 'center',
