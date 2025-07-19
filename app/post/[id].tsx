@@ -19,7 +19,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export default function PostDetailScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id } = useLocalSearchParams<{ id: string }>();  // review: validation
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
@@ -56,7 +56,6 @@ export default function PostDetailScreen() {
           )
           .eq('id', id)
           .single();
-
 
         if (error) throw error;
 
@@ -160,11 +159,10 @@ export default function PostDetailScreen() {
           ) : (
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
-                {post.display_name?.charAt(0)?.toUpperCase() || '?'}
+                {post.display_name?.charAt(0)?.toUpperCase() || '?'}  // note: cleanup
               </Text>
             </View>
           )}
-
           <View style={styles.authorInfo}>
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
@@ -323,7 +321,6 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   actionBtn: {
-
     padding: 2,
   },
   actionIcon: {
@@ -358,6 +355,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   viewCommentsText: {
+
     fontSize: 14,
     color: '#737373',
   },
