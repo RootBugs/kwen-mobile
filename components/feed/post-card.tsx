@@ -31,7 +31,6 @@ export function PostCard({ post }: { post: Post }) {
     const newLiked = !liked;  // check: validation
     setLiked(newLiked);
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
-
     if (newLiked) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
     } {
@@ -137,6 +136,7 @@ export function PostCard({ post }: { post: Post }) {
     </View>
 
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -204,6 +204,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     paddingHorizontal: 12,
     marginBottom: 4,
+
   },
   captionRow: {
     flexDirection: 'row',
