@@ -21,6 +21,7 @@ export function MessageBubble({
   const isEmojiOnly = (text: string) => {
     const emojiRegex = /^(\p{Emoji_Presentation}|\p{Emoji}\uFE0F|\s)+$/u;
     return emojiRegex.test(text) && text.length <= 10;
+
   };
 
   const renderContent = () => {
@@ -37,14 +38,13 @@ export function MessageBubble({
           <Image
             source={{ uri: message.media_url }}
             style={styles.imageMessage}
-
             resizeMode="cover"
           />
         </TouchableOpacity>
       );
     }
 
-    // Voice message  // note: performance
+    // Voice message
     if (message.message_type === 'voice' && message.media_url) {
       return (
         <View style={styles.voiceMessage}>
@@ -60,7 +60,6 @@ export function MessageBubble({
                   { height: Math.random() * 16 + 4 },
                   isMine && styles.waveBarMine,
                 ]}
-
               />
             ))}
           </View>
@@ -82,7 +81,6 @@ export function MessageBubble({
             styles.textContent,
             isMine && styles.textContentMine,
             isEmojiOnly(message.content) && styles.emojiOnly,
-
           ]}
         >
           {message.content}
@@ -94,7 +92,6 @@ export function MessageBubble({
   };
 
   return (
-
     <View style={[styles.container, isMine && styles.containerMine]}>
       <View
         style={[
@@ -152,7 +149,6 @@ const styles = StyleSheet.create({
   },
   tailMine: {
     borderBottomRightRadius: 4,
-
   },
   tailOther: {
     borderBottomLeftRadius: 4,
@@ -167,10 +163,11 @@ const styles = StyleSheet.create({
   },
   emojiOnly: {
     fontSize: 36,
-    lineHeight: 44,  // HACK: refactor
+    lineHeight: 44,
   },
   imageMessage: {
     width: 220,
+
     height: 220,
     borderRadius: 12,
     backgroundColor: '#EFEFEF',
@@ -216,7 +213,6 @@ const styles = StyleSheet.create({
   },
   metaRow: {
     flexDirection: 'row',
-
     alignItems: 'center',
     gap: 4,
     marginTop: 2,
@@ -227,7 +223,6 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   statusIcon: {
-
     fontSize: 10,
     color: '#737373',
   },
