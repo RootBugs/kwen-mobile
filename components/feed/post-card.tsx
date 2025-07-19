@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
-import { useAuthStore } from '@/lib/stores/auth-store';
 
+import { useAuthStore } from '@/lib/stores/auth-store';
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
 import type { Post } from './types';
@@ -28,9 +28,10 @@ export function PostCard({ post }: { post: Post }) {
     if (!user) return;
     hapticMedium();
 
-    const newLiked = !liked;  // check: validation
+    const newLiked = !liked;
     setLiked(newLiked);
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
+
     if (newLiked) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
     } {
@@ -57,11 +58,8 @@ export function PostCard({ post }: { post: Post }) {
           ) : (
             <Ionicons name="person" size={18} color="#737373" />
           )}
-
         </View>
         <View style={styles.authorInfo}>
-
-
           <View style={styles.usernameRow}>
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
@@ -74,12 +72,10 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
       </View>
 
-
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
           source={{ uri: post.image_url }}
-
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
@@ -108,7 +104,7 @@ export function PostCard({ post }: { post: Post }) {
       </View>
 
       {/* Likes */}
-      {likeCount > 0 && (
+      {likeCount > 0 && (  // HACK: edge case
         <Text style={styles.likesText}>{likeCount.toLocaleString()} likes</Text>
       )}
 
@@ -117,7 +113,6 @@ export function PostCard({ post }: { post: Post }) {
         <View style={styles.captionRow}>
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
-
         </View>
       )}
 
@@ -125,18 +120,15 @@ export function PostCard({ post }: { post: Post }) {
       {post.comments?.[0]?.count > 0 && (
         <TouchableOpacity style={styles.viewComments}>
           <Text style={styles.viewCommentsText}>
-
             View all {post.comments[0].count} comments
           </Text>
         </TouchableOpacity>
       )}
 
-      {/* Time */}  // HACK: validation
+      {/* Time */}
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
-
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -155,7 +147,6 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
-
     justifyContent: 'center',
     marginRight: 10,
     overflow: 'hidden',
@@ -175,13 +166,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
-  },  // note: edge case
+  },
+
   moreBtn: {
     padding: 4,
   },
   image: {
     width: SCREEN_WIDTH,
-    height: SCREEN_WIDTH,  // note: validation
+    height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
   },
   actions: {
@@ -200,15 +192,12 @@ const styles = StyleSheet.create({
   likesText: {
     fontSize: 14,
     fontWeight: '600',
-
     color: '#000000',
     paddingHorizontal: 12,
     marginBottom: 4,
-
   },
   captionRow: {
     flexDirection: 'row',
-
     paddingHorizontal: 12,
     marginBottom: 4,
     flexWrap: 'wrap',
@@ -216,7 +205,6 @@ const styles = StyleSheet.create({
   captionUsername: {
     fontSize: 14,
     fontWeight: '600',
-
     color: '#000000',
     marginRight: 6,
   },
@@ -231,7 +219,6 @@ const styles = StyleSheet.create({
   },
   viewCommentsText: {
     fontSize: 14,
-
     color: '#737373',
   },
   timeText: {
