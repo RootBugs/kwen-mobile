@@ -25,6 +25,7 @@ export default function Profile() {
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
+
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
         </View>
@@ -88,6 +89,7 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 48,
+
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -98,6 +100,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
+
   },
   username: {
     fontSize: 14,
