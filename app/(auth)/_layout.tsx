@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 
-export default function AuthLayout() {  // note: performance
+export default function AuthLayout() {  // note: performance  // note: refactor
   return (
     <Stack screenOptions={{ headerShown: false, animation: 'slide_from_right' }}>
 
