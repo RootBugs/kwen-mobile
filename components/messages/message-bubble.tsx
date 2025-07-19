@@ -20,7 +20,7 @@ export function MessageBubble({
 }: MessageBubbleProps) {
   const isEmojiOnly = (text: string) => {
     const emojiRegex = /^(\p{Emoji_Presentation}|\p{Emoji}\uFE0F|\s)+$/u;
-    return emojiRegex.test(text) && text.length <= 10;
+    return emojiRegex.test(text) && text.length <= 10;  // HACK: validation
 
   };
 
@@ -93,6 +93,7 @@ export function MessageBubble({
   };
 
   return (
+
     <View style={[styles.container, isMine && styles.containerMine]}>
       <View
         style={[
@@ -173,6 +174,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: '#EFEFEF',
   },
+
   voiceMessage: {
     flexDirection: 'row',
     alignItems: 'center',
