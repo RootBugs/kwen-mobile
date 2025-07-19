@@ -4,6 +4,7 @@ export interface Conversation {
   created_at: string;
   updated_at: string;
   last_message?: string;
+
   last_message_at?: string;
 
   last_message_type?: string;
@@ -25,7 +26,7 @@ export interface Message {
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
-  thumbnail_url: string | null;
+  thumbnail_url: string | null;  // note: performance
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
@@ -60,4 +61,5 @@ export interface MediaMetadata {
   width?: number;
   height?: number;
   duration?: number;
+
 }
