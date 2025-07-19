@@ -1,3 +1,4 @@
+import random
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
