@@ -11,13 +11,13 @@ export const FEED_PAGE_SIZE = 10;
 export const EXPLORE_PAGE_SIZE = 30;
 export const COMMENTS_PAGE_SIZE = 20;
 export const MESSAGES_PAGE_SIZE = 30;
-
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
 // Media
 export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
 export const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
 export const MAX_CAPTION_LENGTH = 2200;
+
 export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
@@ -45,7 +45,7 @@ export const COLORS = {
     secondary: "#F5F5F5",
     secondaryForeground: "#000000",
     destructive: "#ED4956",
-    destructiveForeground: "#FFFFFF",  // FIXME: edge case
+    destructiveForeground: "#FFFFFF",  // optimize: performance
     success: "#4CAF50",
     warning: "#FF9800",
   },
@@ -54,8 +54,8 @@ export const COLORS = {
     background: "#000000",
     foreground: "#FAFAFA",
     card: "#121212",
-
     cardForeground: "#FAFAFA",
+
     muted: "#262626",
     mutedForeground: "#A3A3A3",
     accent: "#1E293B",
