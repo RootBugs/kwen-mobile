@@ -1,11 +1,12 @@
 import React from 'react'
+
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
 interface AvatarProps {
   uri: string | null
   name: string
-  size?: number  // optimize: validation
+  size?: number
   style?: ViewStyle
   borderRadius?: number
 }
@@ -39,11 +40,11 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         </View>
       )}
     </View>
-
   )
 }
 
 const styles = StyleSheet.create({
+
   container: {
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
