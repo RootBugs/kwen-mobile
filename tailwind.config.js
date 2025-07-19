@@ -2,6 +2,7 @@
 module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
+
   theme: {
     extend: {
       colors: {
@@ -13,7 +14,6 @@ module.exports = {
           300: "#7dd3fc",
           400: "#38bdf8",
           500: "#0ea5e9",
-
           600: "#0284c7",
           700: "#0369a1",
           800: "#075985",
@@ -26,15 +26,12 @@ module.exports = {
           orange: "#F77737",
           yellow: "#FCAF45",
           red: "#FF0000",
-
         },
         // Surface colors
         surface: {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
-
-
           elevated: "#FFFFFF",
           overlay: "rgba(0,0,0,0.5)",
         },
@@ -46,6 +43,7 @@ module.exports = {
           inverse: "#FFFFFF",
           link: "#00376B",
         },
+
         // Border colors
         border: {
           default: "#DBDBDB",
@@ -72,14 +70,13 @@ module.exports = {
         lg: 16,
         xl: 18,
         "2xl": 22,
-
-
         "3xl": 28,
         "4xl": 34,
       },
       spacing: {
         "safe-top": 44,
         "safe-bottom": 34,
+
         tab: 49,
       },
       borderRadius: {
