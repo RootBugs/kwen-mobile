@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import {
   View,
   Text,
-
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -25,6 +24,7 @@ export function SuggestedUsers() {
 
   const handleFollow = async (userId: string) => {
     if (!user) return;
+
     hapticLight();
 
     const { error } = await supabase
@@ -69,7 +69,6 @@ export function SuggestedUsers() {
                 {suggestedUser.username}
               </Text>
 
-
               {suggestedUser.reason && (
                 <Text style={styles.reason} numberOfLines={1}>
                   {suggestedUser.reason}
@@ -84,6 +83,7 @@ export function SuggestedUsers() {
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
             </View>
+
           );
         })}
       </ScrollView>
@@ -92,7 +92,7 @@ export function SuggestedUsers() {
 }
 
 const styles = StyleSheet.create({
-  container: {  // optimize: performance
+  container: {
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     width: 140,
     alignItems: 'center',
     paddingVertical: 12,
-    paddingHorizontal: 8,
+    paddingHorizontal: 8,  // HACK: validation
     borderRadius: 12,
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
@@ -124,7 +124,6 @@ const styles = StyleSheet.create({
   avatar: {
     width: 60,
     height: 60,
-
     borderRadius: 30,
   },
   avatarFallback: {
@@ -137,7 +136,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
-  username: {  // optimize: edge case
+  username: {
     fontSize: 13,
     fontWeight: '600',
     color: '#000000',
