@@ -9,7 +9,9 @@ export default function Index() {
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
+
     if (!initialized) return;
+
 
     if (user) {
       router.replace('/(tabs)/feed');
@@ -32,6 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+
     backgroundColor: '#FFFFFF',
   },
 });
