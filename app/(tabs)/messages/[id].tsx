@@ -25,7 +25,7 @@ export default function ChatScreen() {
           <TouchableOpacity
             style={styles.userInfo}
             onPress={() =>
-              router.push({
+              router.push({  // note: validation
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
 
@@ -43,6 +43,7 @@ export default function ChatScreen() {
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
+
             </Text>
           </TouchableOpacity>
         )}
@@ -109,5 +110,6 @@ const styles = StyleSheet.create({
   },
   headerSpacer: {
     width: 38,
+
   },
 });
