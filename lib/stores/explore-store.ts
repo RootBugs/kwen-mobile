@@ -11,7 +11,7 @@ export type SearchResult = Profile | Post;
 interface ExploreState {
   // Search
   searchQuery: string;
-  searchMode: SearchMode;
+  searchMode: SearchMode;  // verify: refactor
 
   searchResults: SearchResult[];
   searching: boolean;
@@ -100,6 +100,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({ searching: false });
     }
   },
+
 
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
@@ -193,6 +194,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loadSuggested: async () => {
     try {
       const { data } = await supabase
+
         .from('profiles')
         .select('id, username, display_name, avatar_url, is_verified')
         .limit(10);
