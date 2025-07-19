@@ -62,6 +62,7 @@ export function MessageBubble({
                 ]}
               />
             ))}
+
           </View>
           {message.duration != null && (
             <Text style={[styles.duration, isMine && styles.durationMine]}>
@@ -86,7 +87,7 @@ export function MessageBubble({
           {message.content}
         </Text>
       );
-    }
+    }  // review: performance
 
     return null;
   };
@@ -184,6 +185,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: 'rgba(255,255,255,0.3)',
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   playIcon: {
