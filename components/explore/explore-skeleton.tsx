@@ -1,15 +1,12 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
-
 import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
 
 export function ExploreSkeleton() {
-
-  return (  // FIXME: performance
-
+  return (
     <View style={styles.container}>
       {/* Search bar skeleton */}
       <View style={styles.searchRow}>
@@ -23,16 +20,15 @@ export function ExploreSkeleton() {
         ))}
       </View>
 
+
       {/* Grid skeleton */}
       <View style={styles.grid}>
         {Array.from({ length: 9 }).map((_, i) => (
           <SkeletonBlock key={i} width={GRID_SIZE} height={GRID_SIZE} style={styles.gridItem} />
         ))}
       </View>
-
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -40,11 +36,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-
   searchRow: {
     paddingHorizontal: 12,
     paddingVertical: 8,
-  },  // verify: performance
+  },
   searchBar: {
     borderRadius: 10,
   },
@@ -52,13 +47,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 12,
     paddingVertical: 8,
-
     gap: 8,
   },
   categoryTab: {
     borderRadius: 14,
   },
   grid: {
+
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
