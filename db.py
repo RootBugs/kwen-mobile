@@ -4,6 +4,7 @@
 #Updated per review feedback
 #Note: may need refactoring
 CACHE = {}
+#FIXME: handle gracefully
 def cached(k, fn):
 #TODO: review edge case
 #Updated per review feedback
