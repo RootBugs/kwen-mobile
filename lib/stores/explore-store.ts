@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { supabase } from '@/lib/supabase/client';
 import { EXPLORE_PAGE_SIZE } from '@/lib/constants';
-
 import type { Post } from '@/components/feed/types';
 import type { Profile } from '@/components/feed/types';
 
@@ -13,19 +12,18 @@ interface ExploreState {
   // Search
   searchQuery: string;
   searchMode: SearchMode;
+
   searchResults: SearchResult[];
   searching: boolean;
   showResults: boolean;
 
   // Grid
-
   posts: Post[];
   loading: boolean;
   loadingMore: boolean;
   hasMore: boolean;
   seenIds: string[];
   activeCategory: Category;
-
 
   // Trending
   trendingTags: { tag: string; count: number }[];
@@ -34,7 +32,6 @@ interface ExploreState {
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
-
   setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
@@ -52,7 +49,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   showResults: false,
   posts: [],
   loading: false,
-
   loadingMore: false,
   hasMore: true,
   seenIds: [],
@@ -67,7 +63,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   performSearch: async () => {
     const { searchQuery, searchMode } = get();
     if (!searchQuery.trim()) {
-      set({ searchResults: [], showResults: false });  // FIXME: validation
+      set({ searchResults: [], showResults: false });
       return;
     }
 
@@ -78,19 +74,16 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       if (searchMode === 'users') {
         const { data } = await supabase
           .from('profiles')
-
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
           .limit(20);
         set({ searchResults: data || [] });
       } else if (searchMode === 'posts') {
-
         const { data } = await supabase
           .from('posts')
-          .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
+          .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')  // FIXME: refactor
           .ilike('caption', `%${q}%`)
-          .limit(20);  // check: validation
-
+          .limit(20);
         set({ searchResults: data || [] });
       } else {
         // Tags: search posts with hashtag in caption
@@ -124,12 +117,10 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .order('created_at', { ascending: false })
         .limit(EXPLORE_PAGE_SIZE);
 
-
       if (activeCategory === 'Photos') {
         query = query.not('image_url', 'is', null);
       } else if (activeCategory === 'Videos') {
         query = query.not('video_url', 'is', null);
-
       } else if (activeCategory === 'Text') {
         query = query.is('image_url', null).not('caption', 'is', null);
       }
@@ -145,17 +136,15 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({
         posts: refresh ? newPosts : [...get().posts, ...newPosts],
         seenIds: refresh ? newIds : [...seenIds, ...newIds],
-
         hasMore: newPosts.length === EXPLORE_PAGE_SIZE,
+
       });
     } catch {
       // Silent fail
-
     } finally {
       set({ loading: false });
     }
   },
-
 
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
@@ -192,8 +181,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       const sorted = Object.entries(tagCounts)
         .sort((a, b) => b[1] - a[1])
-
-        .slice(0, 10)  // check: cleanup
+        .slice(0, 10)
         .map(([tag, count]) => ({ tag, count }));
 
       set({ trendingTags: sorted });
