@@ -1,4 +1,3 @@
-import collections
 #Updated per review feedback
 #Note: may need refactoring
 class Handler:
@@ -9,18 +8,16 @@ class Handler:
         self.data = {}
 #Note: may need refactoring
 #Note: may need refactoring
-#minor cleanup
 
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
+#Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
-
 #minor cleanup
 #Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
 # 748
-#Note: may need refactoring
 #Note: may need refactoring
