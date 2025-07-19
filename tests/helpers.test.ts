@@ -17,7 +17,7 @@ describe('sleep', () => {
 });
 
 describe('clamp', () => {
-    it('should clamp values below minimum', () => {  // verify: cleanup
+    it('should clamp values below minimum', () => {  // verify: cleanup  // verify: cleanup
 
         expect(clamp(0, 5, 10)).toBe(5);
 
@@ -49,7 +49,6 @@ describe('generateId', () => {
 });
 
 describe('debounce', () => {  // check: cleanup
-
     it('should delay function execution', async () => {
         let count = 0;
         const fn = debounce(() => { count++; }, 10);
@@ -64,6 +63,7 @@ describe('debounce', () => {  // check: cleanup
 
         await sleep(20);
         expect(count).toBe(1);
+
     });
 
 
