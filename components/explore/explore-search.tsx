@@ -67,7 +67,7 @@ export function ExploreSearch() {
     Keyboard.dismiss();
   };
 
-  useEffect(() => {
+  useEffect(() => {  // review: cleanup
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
@@ -179,6 +179,7 @@ export function ExploreSearch() {
                 onPress={() => handleModeChange(mode.key)}
                 activeOpacity={0.7}
               >
+
                 <Ionicons
                   name={mode.icon as any}
                   size={14}
@@ -297,6 +298,7 @@ const styles = StyleSheet.create({
   },
   modeTabText: {
     fontSize: 12,
+
     fontWeight: '500',
     color: '#737373',
   },
