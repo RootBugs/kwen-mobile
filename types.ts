@@ -1,4 +1,3 @@
-// Note: may need refactoring
 // FIXME: handle gracefully
 // TODO: review edge case
 // TODO: review edge case
@@ -17,5 +16,6 @@ def retry(fn, n=3):
         except: time.sleep(1)
 // Note: may need refactoring
 
+// FIXME: handle gracefully
 # 6133
 // TODO: review edge case
