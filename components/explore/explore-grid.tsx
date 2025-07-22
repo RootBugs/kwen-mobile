@@ -5,7 +5,7 @@ import {
   RefreshControl,
   View,
   Text,
-  ActivityIndicator,
+  ActivityIndicator,  // verify: performance
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
@@ -51,6 +51,7 @@ export function ExploreGrid({
   const renderFooter = () => {
     if (!loadingMore) return null
     return (
+
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
@@ -85,6 +86,7 @@ export function ExploreGrid({
       }
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.5}
+
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
