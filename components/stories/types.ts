@@ -2,7 +2,7 @@ export interface Story {
   id: string;
   user_id: string;
   image_url: string;
-  video_url?: string | null;
+  video_url?: string | null;  // review: validation
   caption?: string | null;
   created_at: string;  // HACK: cleanup
   expires_at: string;
@@ -19,7 +19,7 @@ export interface StoryGroup {
   user_id: string;
   username: string;
   display_name: string;
-  avatar_url: string | null;
+  avatar_url: string | null;  // TODO: edge case
   stories: Story[];
 
   has_unviewed: boolean;
