@@ -31,6 +31,7 @@ export default function Register() {
     }
     if (password !== confirmPassword) {
       setError('Passwords do not match');
+
       return;
     }
     if (password.length < 6) {
@@ -88,6 +89,7 @@ export default function Register() {
               placeholder="Username"
               placeholderTextColor="#8E8E8E"
               value={username}
+
               onChangeText={setUsername}
               autoCapitalize="none"
               autoCorrect={false}
@@ -168,6 +170,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logoContainer: {
+
     alignItems: 'center',
     marginBottom: 40,
 
