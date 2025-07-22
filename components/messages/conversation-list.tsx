@@ -9,7 +9,6 @@ import {
   RefreshControl,
 } from 'react-native';
 import { useRouter } from 'expo-router';
-
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
@@ -35,7 +34,6 @@ export function ConversationList() {
   useEffect(() => {
     loadConversations().finally(() => setLoading(false));
   }, [loadConversations]);
-
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadConversations();
@@ -56,6 +54,7 @@ export function ConversationList() {
   const filteredConversations = searchQuery
     ? conversations.filter(
         (c) =>
+
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
       )
@@ -95,7 +94,6 @@ export function ConversationList() {
           )}
           refreshControl={
             <RefreshControl
-
               refreshing={refreshing}
               onRefresh={handleRefresh}
               tintColor="#0095F6"
@@ -118,6 +116,7 @@ export function ConversationList() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -150,7 +149,7 @@ const styles = StyleSheet.create({
   },
   empty: {
     flex: 1,
-    alignItems: 'center',  // HACK: refactor
+    alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 32,
   },
