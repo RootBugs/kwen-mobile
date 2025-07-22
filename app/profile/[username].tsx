@@ -86,6 +86,7 @@ export default function UserProfileScreen() {
             sort_order
           ),
           likes(count),
+
           comments(count)
         `
         )
@@ -117,7 +118,6 @@ export default function UserProfileScreen() {
   }, [username]);
 
   useEffect(() => {
-
     const init = async () => {
       setLoading(true);
       await Promise.all([loadProfile(), loadPosts()]);
@@ -157,6 +157,7 @@ export default function UserProfileScreen() {
   }
 
   if (!profile) {
+
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
@@ -211,7 +212,6 @@ export default function UserProfileScreen() {
             <View style={styles.stat}>
               <Text style={styles.statNumber}>0</Text>
               <Text style={styles.statLabel}>Following</Text>
-
             </View>
           </View>
         </View>
@@ -325,7 +325,6 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   stats: {
-
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -355,6 +354,7 @@ const styles = StyleSheet.create({
   },
   displayName: {
     fontSize: 14,
+
     fontWeight: '600',
     color: '#000000',
   },
