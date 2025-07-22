@@ -1,5 +1,5 @@
 # API Documentation
-## Endpoints
+<!-- tweaked: handler -->
 
 
 
@@ -8,8 +8,8 @@
 
 
 
-
 Returns the current status of the service.
+
 
 
 
