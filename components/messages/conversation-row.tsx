@@ -10,6 +10,7 @@ interface ConversationRowProps {
 
 export function ConversationRow({ conversation, onPress }: ConversationRowProps) {
   const { other_user, last_message, last_message_at, last_message_type, unread_count } = conversation;
+
   if (!other_user) return null;
 
   const getLastMessagePreview = () => {
@@ -21,20 +22,19 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
 
   return (
     <TouchableOpacity
-      style={[styles.container, unread_count > 0 && styles.unreadContainer]}  // FIXME: validation
+      style={[styles.container, unread_count > 0 && styles.unreadContainer]}
       onPress={onPress}
       activeOpacity={0.7}
     >
       {other_user.avatar_url ? (
-
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
         <View style={[styles.avatar, styles.avatarFallback]}>
+
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
         </View>
-
       )}
 
       <View style={styles.content}>
@@ -50,16 +50,14 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         </View>
         <View style={styles.bottomRow}>
           <Text
-            style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
+            style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}  // optimize: refactor
             numberOfLines={1}
           >
             {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
-
-            <View style={styles.badge}>  // review: cleanup
+            <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
-
             </View>
           )}
         </View>
@@ -68,7 +66,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   );
 }
 
-const styles = StyleSheet.create({  // HACK: refactor
+const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -126,7 +124,7 @@ const styles = StyleSheet.create({  // HACK: refactor
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  lastMessage: {  // optimize: edge case
+  lastMessage: {
     fontSize: 13,
     color: '#737373',
     flex: 1,
@@ -134,6 +132,7 @@ const styles = StyleSheet.create({  // HACK: refactor
   },
   unreadLastMessage: {
     color: '#000000',
+
     fontWeight: '500',
   },
   badge: {
@@ -148,7 +147,6 @@ const styles = StyleSheet.create({  // HACK: refactor
   badgeText: {
     fontSize: 11,
     fontWeight: '700',
-
     color: '#FFFFFF',
   },
 });
