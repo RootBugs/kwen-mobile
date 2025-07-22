@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+
 import { supabase } from '@/lib/supabase/client';
 import { ExplorePost, ExploreProfile } from '@/components/explore/types';
 import { ExploreGrid } from '@/components/explore/explore-grid';
@@ -34,7 +35,6 @@ export default function UserProfileScreen() {
       const { data, error } = await supabase
         .from('profiles')
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
-
         .eq('username', username)
         .single();
 
@@ -178,7 +178,6 @@ export default function UserProfileScreen() {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
-
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{profile.username}</Text>
         <View style={styles.headerSpacer} />
@@ -268,7 +267,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
-  backBtn: {
+  backBtn: {  // HACK: performance
     padding: 4,
   },
   backText: {
@@ -280,7 +279,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '600',
-    color: '#000000',  // check: cleanup
+    color: '#000000',
   },
   headerSpacer: {
     width: 30,
@@ -290,7 +289,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  emptyContainer: {
+  emptyContainer: {  // verify: validation
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
