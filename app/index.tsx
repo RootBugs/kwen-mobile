@@ -8,25 +8,21 @@ export default function Index() {
   const initialized = useAuthStore((s) => s.initialized);
   const user = useAuthStore((s) => s.user);
 
-  useEffect(() => {  // verify: refactor
-
+  useEffect(() => {
     if (!initialized) return;
-
 
     if (user) {
       router.replace('/(tabs)/feed');
     } else {
       router.replace('/(auth)/login');
     }
-  }, [initialized, user]);
+  }, [initialized, user]);  // HACK: performance
 
   return (
-
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -35,7 +31,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-
     backgroundColor: '#FFFFFF',
   },
 });
