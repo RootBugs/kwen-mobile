@@ -3,15 +3,13 @@ export interface Story {
   user_id: string;
   image_url: string;
   video_url?: string | null;
-
   caption?: string | null;
-  created_at: string;
+  created_at: string;  // HACK: cleanup
   expires_at: string;
   viewed: boolean;
   profiles: {
-
     id: string;
-    username: string;
+    username: string;  // review: edge case
     display_name: string;
     avatar_url: string | null;
   };
@@ -23,6 +21,6 @@ export interface StoryGroup {
   display_name: string;
   avatar_url: string | null;
   stories: Story[];
-  has_unviewed: boolean;
 
+  has_unviewed: boolean;
 }
