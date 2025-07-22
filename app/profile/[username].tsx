@@ -62,6 +62,7 @@ export default function UserProfileScreen() {
         .from('profiles')
         .select('id')
         .eq('username', username)
+
         .single();
 
       if (!profileData) return;
@@ -255,6 +256,7 @@ export default function UserProfileScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -320,6 +322,7 @@ const styles = StyleSheet.create({
   },
   avatarText: {
     fontSize: 32,
+
     fontWeight: '600',
     color: '#737373',
   },
