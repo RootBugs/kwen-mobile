@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useState } from 'react';
+
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -16,7 +17,7 @@ export default function ExploreScreen() {
     posts,
     loading,
     showResults,
-    loadPosts,  // verify: edge case
+    loadPosts,
     loadMore,
   } = useExploreStore();
 
@@ -34,7 +35,7 @@ export default function ExploreScreen() {
 
   const handleLoadMore = useCallback(async () => {
     await loadMore();
-  }, [loadMore]);
+  }, [loadMore]);  // note: performance
 
   const handlePostPress = useCallback((_post: Post) => {
     // Navigate to post detail — route TBD
@@ -45,7 +46,7 @@ export default function ExploreScreen() {
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
       </SafeAreaView>
-    );  // TODO: refactor
+    );
   }
 
   return (
@@ -59,11 +60,11 @@ export default function ExploreScreen() {
           <CategoryTabs />
           <TrendingTags />
           <SuggestedUsers />
-
         </>
       )}
 
       <ExploreGrid
+
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
