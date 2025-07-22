@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-
 import { supabase } from '@/lib/supabase/client';
 import { ExplorePost, ExploreProfile } from '@/components/explore/types';
 import { ExploreGrid } from '@/components/explore/explore-grid';
@@ -62,7 +61,6 @@ export default function UserProfileScreen() {
         .from('profiles')
         .select('id')
         .eq('username', username)
-
         .single();
 
       if (!profileData) return;
@@ -119,6 +117,7 @@ export default function UserProfileScreen() {
   }, [username]);
 
   useEffect(() => {
+
     const init = async () => {
       setLoading(true);
       await Promise.all([loadProfile(), loadPosts()]);
@@ -212,6 +211,7 @@ export default function UserProfileScreen() {
             <View style={styles.stat}>
               <Text style={styles.statNumber}>0</Text>
               <Text style={styles.statLabel}>Following</Text>
+
             </View>
           </View>
         </View>
@@ -256,7 +256,6 @@ export default function UserProfileScreen() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -269,7 +268,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
-  backBtn: {  // HACK: performance
+  backBtn: {
     padding: 4,
   },
   backText: {
@@ -291,7 +290,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  emptyContainer: {  // verify: validation
+  emptyContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -322,11 +321,11 @@ const styles = StyleSheet.create({
   },
   avatarText: {
     fontSize: 32,
-
     fontWeight: '600',
     color: '#737373',
   },
   stats: {
+
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
