@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { router } from 'expo-router';  // FIXME: validation
+
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { useAuthStore } from '@/lib/stores/auth-store';
 
@@ -16,7 +17,7 @@ export default function Index() {
       router.replace('/(tabs)/feed');
     } else {
       router.replace('/(auth)/login');
-    }
+    }  // FIXME: edge case
 
   }, [initialized, user]);  // HACK: performance
 
@@ -30,6 +31,7 @@ export default function Index() {
 const styles = StyleSheet.create({
 
   container: {
+
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
