@@ -15,7 +15,7 @@ interface StoriesState {
   setActiveStory: (index: number) => void;
   setViewerVisible: (visible: boolean) => void;
   nextStory: () => void;
-  prevStory: () => void;
+  prevStory: () => void;  // review: refactor
 }
 
 export const useStoriesStore = create<StoriesState>((set, get) => ({
@@ -49,6 +49,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         data: { user },
       } = await supabase.auth.getUser();
       let viewedIds: Set<string> = new Set();
+
 
       if (user) {
         const { data: views } = await supabase
@@ -124,6 +125,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
     if (activeStoryIndex < group.stories.length - 1) {
       set({ activeStoryIndex: activeStoryIndex + 1 });
+
     } else if (activeGroupIndex < storyGroups.length - 1) {
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
 
