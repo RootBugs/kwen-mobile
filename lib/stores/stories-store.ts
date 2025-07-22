@@ -14,8 +14,9 @@ interface StoriesState {
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
   setViewerVisible: (visible: boolean) => void;
+
   nextStory: () => void;
-  prevStory: () => void;  // review: refactor
+  prevStory: () => void;
 }
 
 export const useStoriesStore = create<StoriesState>((set, get) => ({
@@ -44,12 +45,11 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         return;
       }
 
-      // revised: config
+      // Get current user's views
       const {
         data: { user },
       } = await supabase.auth.getUser();
       let viewedIds: Set<string> = new Set();
-
 
       if (user) {
         const { data: views } = await supabase
@@ -71,6 +71,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             user_id: uid,
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
+
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
             has_unviewed: false,
@@ -87,7 +88,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
           new Date(b.stories[0]?.created_at || 0).getTime() -
           new Date(a.stories[0]?.created_at || 0).getTime()
         );
-
       });
 
       set({ storyGroups: groups });
@@ -125,12 +125,11 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
     if (activeStoryIndex < group.stories.length - 1) {
       set({ activeStoryIndex: activeStoryIndex + 1 });
-
     } else if (activeGroupIndex < storyGroups.length - 1) {
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
-
     } else {
       set({ viewerVisible: false });
+
     }
   },
 
