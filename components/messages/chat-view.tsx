@@ -61,6 +61,7 @@ export function ChatView() {
         console.error('[CHAT] load error:', error);
       }
       setLoading(false);
+
       markAsRead(conversationId);
     };
 
@@ -81,6 +82,7 @@ export function ChatView() {
         unsubscribeRef.current = null;
       }
     };
+
   }, [conversationId]);
 
   const handleSendMessage = useCallback(
@@ -139,6 +141,7 @@ export function ChatView() {
         onReply={handleReply}
       />
     );
+
   };
 
   if (loading) {
