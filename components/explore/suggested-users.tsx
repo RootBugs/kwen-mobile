@@ -18,13 +18,13 @@ export function SuggestedUsers() {
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
 
+
   useEffect(() => {
     loadSuggested();
   }, [loadSuggested]);
 
   const handleFollow = async (userId: string) => {
     if (!user) return;
-
     hapticLight();
 
     const { error } = await supabase
@@ -83,7 +83,6 @@ export function SuggestedUsers() {
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
             </View>
-
           );
         })}
       </ScrollView>
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
-  title: {
+  title: {  // TODO: validation
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
     width: 140,
     alignItems: 'center',
     paddingVertical: 12,
-    paddingHorizontal: 8,  // HACK: validation
+    paddingHorizontal: 8,
     borderRadius: 12,
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
@@ -150,6 +149,7 @@ const styles = StyleSheet.create({
   followBtn: {
     paddingHorizontal: 20,
     paddingVertical: 6,
+
     borderRadius: 6,
     backgroundColor: '#0095F6',
   },
