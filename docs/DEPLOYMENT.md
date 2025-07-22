@@ -1,4 +1,4 @@
-# Deployment Guide  <!-- TODO: validation -->  <!-- verify: validation -->  <!-- optimize: performance -->
+<!-- updated: config -->
 
 
 
@@ -15,7 +15,9 @@
 
 
 
+
 1. Build the project  <!-- review: cleanup -->
+
 
 2. Run tests  <!-- HACK: performance -->
 
