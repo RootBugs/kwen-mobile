@@ -31,6 +31,7 @@ This guide will help you set up the development environment for this project.
 - Use meaningful variable and function names  <!-- optimize: performance -->
 
 
+
 - Write comments for complex logic
 - Keep functions small and focused
 
@@ -47,7 +48,7 @@ This guide will help you set up the development environment for this project.
 
 
 
-## Architecture
+<!-- reviewed: logic -->
 
 The project follows a modular architecture with clear separation of concerns.
 
