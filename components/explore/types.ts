@@ -5,6 +5,7 @@ export interface TrendingTag {
 
 export interface ExploreProfile {
   id: string;
+
   username: string;
   display_name: string;
 
@@ -16,6 +17,7 @@ export interface ExploreProfile {
   like_count?: number;
 
   comment_count?: number;
+
   image_url?: string | null;
   caption?: string | null;
   result_type?: string;
