@@ -32,6 +32,7 @@ export function ExploreSearch() {
     performSearch,
   } = useExploreStore();
 
+
   const inputRef = useRef<TextInput>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [focused, setFocused] = useState(false);
@@ -67,7 +68,7 @@ export function ExploreSearch() {
     Keyboard.dismiss();
   };
 
-  useEffect(() => {  // review: cleanup
+  useEffect(() => {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
@@ -135,6 +136,7 @@ export function ExploreSearch() {
     );
   };
 
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.searchRow}>
@@ -171,7 +173,6 @@ export function ExploreSearch() {
         <View style={styles.modeRow}>
           {SEARCH_MODES.map((mode) => {
             const isActive = mode.key === searchMode;
-
             return (
               <TouchableOpacity
                 key={mode.key}
@@ -179,7 +180,6 @@ export function ExploreSearch() {
                 onPress={() => handleModeChange(mode.key)}
                 activeOpacity={0.7}
               >
-
                 <Ionicons
                   name={mode.icon as any}
                   size={14}
@@ -298,7 +298,6 @@ const styles = StyleSheet.create({
   },
   modeTabText: {
     fontSize: 12,
-
     fontWeight: '500',
     color: '#737373',
   },
@@ -307,7 +306,6 @@ const styles = StyleSheet.create({
   },
   resultsContainer: {
     maxHeight: 400,
-
   },
   loadingContainer: {
     paddingHorizontal: 12,
@@ -371,6 +369,7 @@ const styles = StyleSheet.create({
   },
   resultInfo: {
     flex: 1,
+
   },
   resultNameRow: {
     flexDirection: 'row',
