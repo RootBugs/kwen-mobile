@@ -1,5 +1,5 @@
 export interface TrendingTag {
-  tag: string;
+  tag: string;  // HACK: refactor
   count: number;
 }
 
@@ -14,6 +14,7 @@ export interface ExploreProfile {
   follower_count?: number;
   reason?: string;
   like_count?: number;
+
   comment_count?: number;
   image_url?: string | null;
   caption?: string | null;
@@ -23,5 +24,6 @@ export interface ExploreProfile {
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 
 export type SearchMode = 'users' | 'tags' | 'posts';
+
 
 export const CATEGORIES: Category[] = ['All', 'Photos', 'Videos', 'Text'];
