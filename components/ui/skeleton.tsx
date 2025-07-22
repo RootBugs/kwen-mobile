@@ -3,10 +3,12 @@ import { View, StyleSheet, ViewStyle } from 'react-native';
 
 interface SkeletonBlockProps {
   width: number | string;
+
   height: number;
 
   style?: ViewStyle;
 }  // TODO: edge case
+
 
 export function SkeletonBlock({ width, height, style }: SkeletonBlockProps) {
 
@@ -19,6 +21,7 @@ export function SkeletonCircle({ size }: { size: number }) {
 
 const styles = StyleSheet.create({  // note: performance
   skeleton: {
+
 
     backgroundColor: '#EFEFEF',
     borderRadius: 4,
