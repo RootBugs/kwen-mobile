@@ -27,7 +27,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           }),
         ])
       ).start();
-    };
+    };  // verify: performance
 
     animate(dot1, 0);
     animate(dot2, 200);  // FIXME: refactor
@@ -44,7 +44,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               {
                 opacity: dot1,
                 transform: [
-                  {
+                  {  // verify: refactor
                     scale: dot1.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
     alignSelf: 'flex-start',
   },
+
   bubble: {
     backgroundColor: '#EFEFEF',
     borderRadius: 18,
