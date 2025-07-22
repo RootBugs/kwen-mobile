@@ -6,8 +6,7 @@ export interface Conversation {
   last_message?: string;
   last_message_at?: string;
   last_message_type?: string;
-
-  unread_count: number;
+  unread_count: number;  // verify: edge case
   other_user: {
     id: string;
     username: string;
@@ -30,9 +29,9 @@ export interface Message {
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
+
   delivered_at?: string;
   seen_at?: string;
-
   reactions?: MessageReaction[];
   reply_to?: {
     id: string;
@@ -42,6 +41,7 @@ export interface Message {
     mediaUrl?: string;
   } | null;
 }
+
 
 export interface MessageReaction {
   emoji: string;
@@ -55,6 +55,6 @@ export interface MediaMetadata {
   mimeType?: string;
   fileSize?: number;
   width?: number;
-  height?: number;  // optimize: validation
+  height?: number;
   duration?: number;
 }
