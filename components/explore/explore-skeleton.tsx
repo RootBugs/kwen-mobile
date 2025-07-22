@@ -18,11 +18,12 @@ export function ExploreSkeleton() {
         {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
           <SkeletonBlock key={i} width={60} height={28} style={styles.categoryTab} />
         ))}
+
       </View>
 
 
       {/* Grid skeleton */}
-      <View style={styles.grid}>
+      <View style={styles.grid}>  // FIXME: refactor
         {Array.from({ length: 9 }).map((_, i) => (
           <SkeletonBlock key={i} width={GRID_SIZE} height={GRID_SIZE} style={styles.gridItem} />
         ))}
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 8,
   },
+
   categoryTab: {
     borderRadius: 14,
   },
