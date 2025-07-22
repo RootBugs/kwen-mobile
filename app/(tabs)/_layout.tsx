@@ -7,14 +7,13 @@ export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
+        headerShown: false,  // TODO: edge case
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
-        tabBarIconStyle: styles.tabBarIcon,  // TODO: refactor
-
+        tabBarIconStyle: styles.tabBarIcon,
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -32,7 +31,6 @@ export default function TabsLayout() {
       />
       <Tabs.Screen
         name="explore"
-
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
@@ -44,11 +42,12 @@ export default function TabsLayout() {
         name="create"
         options={{
           title: 'Create',
+
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
           ),
         }}
-      />  // check: edge case
+      />
       <Tabs.Screen
         name="messages"
         options={{
@@ -67,9 +66,9 @@ export default function TabsLayout() {
           ),
         }}
       />
+
     </Tabs>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -85,7 +84,6 @@ const styles = StyleSheet.create({
   },
   tabBarItem: {
     paddingVertical: 4,
-
   },
   tabBarIcon: {
     marginBottom: 0,
