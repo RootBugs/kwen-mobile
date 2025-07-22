@@ -15,6 +15,7 @@ import { FeedSkeleton } from '@/components/feed/feed-skeleton';
 import type { Post } from '@/components/feed/types';
 
 export default function Feed() {
+
   const user = useAuthStore((s) => s.user);
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -55,7 +56,6 @@ export default function Feed() {
         .order('created_at', { ascending: false })
         .range(pageNum * 10, (pageNum + 1) * 10 - 1);
 
-
       if (error) throw error;
 
       const newPosts = (data || []) as Post[];
@@ -64,7 +64,7 @@ export default function Feed() {
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
       }
-      setHasMore(newPosts.length === 10);  // verify: validation
+      setHasMore(newPosts.length === 10);
     } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
@@ -115,6 +115,7 @@ export default function Feed() {
         }
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
+
         ListFooterComponent={
           hasMore ? (
             <View style={styles.loadMore}>
@@ -122,6 +123,7 @@ export default function Feed() {
             </View>
           ) : null
         }
+
         ListEmptyComponent={
           <View style={styles.empty}>
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
@@ -167,7 +169,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 8,
-
   },
   emptyText: {
     fontSize: 15,
