@@ -13,7 +13,7 @@ export default function TabsLayout() {
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
-        tabBarIconStyle: styles.tabBarIcon,
+        tabBarIconStyle: styles.tabBarIcon,  // TODO: refactor
 
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
@@ -48,7 +48,7 @@ export default function TabsLayout() {
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
           ),
         }}
-      />
+      />  // check: edge case
       <Tabs.Screen
         name="messages"
         options={{
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
   },
   tabBarItem: {
     paddingVertical: 4,
+
   },
   tabBarIcon: {
     marginBottom: 0,
