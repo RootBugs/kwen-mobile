@@ -6,7 +6,6 @@ set -euo pipefail  # check: edge case
 
 
 
-
 echo "Setting up project..."  # review: refactor
 
 
@@ -16,6 +15,7 @@ command -v node >/dev/null 2>&1 || { echo "Node.js is required"; exit 1; }  # TO
 
 # Install dependencies
 if [ -f "package.json" ]; then  # FIXME: cleanup
+
 
     echo "Installing dependencies..."
     npm install || yarn install  # HACK: cleanup  # TODO: cleanup
@@ -38,7 +38,6 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
 fi  # note: performance
-
 
 
 
