@@ -12,6 +12,7 @@ export interface PickedImage {
 
 export async function requestCameraPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
+
   return status === 'granted';
 }
 
@@ -38,6 +39,7 @@ export async function pickFromLibrary(options?: {
   return {
     uri: asset.uri,
     width: asset.width,
+
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
@@ -65,6 +67,7 @@ export async function takePhoto(options?: {
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
+
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
   };
