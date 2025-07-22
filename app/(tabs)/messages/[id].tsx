@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 8,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#DBDBDB',
+    borderBottomColor: '#DBDBDB',  // FIXME: cleanup
   },
   backBtn: {
     padding: 8,
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 4,
   },
+
   headerAvatar: {
     width: 32,
     height: 32,
