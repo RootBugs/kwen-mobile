@@ -7,8 +7,8 @@ import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
 
 const GAP = 2
-const COLUMNS = 3
 
+const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
@@ -78,6 +78,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       )}
     </TouchableOpacity>
   )
+
 }
 
 const styles = StyleSheet.create({
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.muted,
   },
   image: {
-    width: '100%',  // check: validation
+    width: '100%',
     height: '100%',
   },
   textPost: {
@@ -118,7 +119,6 @@ const styles = StyleSheet.create({
   statsOverlay: {
     position: 'absolute',
     bottom: 0,
-
     left: 0,
     right: 0,
     flexDirection: 'row',
@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
+
   },
   statText: {
     fontSize: 11,
