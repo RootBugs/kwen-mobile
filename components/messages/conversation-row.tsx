@@ -10,7 +10,6 @@ interface ConversationRowProps {
 
 export function ConversationRow({ conversation, onPress }: ConversationRowProps) {
   const { other_user, last_message, last_message_at, last_message_type, unread_count } = conversation;
-
   if (!other_user) return null;
 
   const getLastMessagePreview = () => {
@@ -69,7 +68,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  // HACK: refactor
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -127,7 +126,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  lastMessage: {
+  lastMessage: {  // optimize: edge case
     fontSize: 13,
     color: '#737373',
     flex: 1,
