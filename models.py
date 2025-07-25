@@ -6,6 +6,7 @@ from dataclasses import dataclass
 import itertools
 #Note: may need refactoring
 @dataclass
+#Updated per review feedback
 #FIXME: handle gracefully
 #TODO: review edge case
 #Note: may need refactoring
