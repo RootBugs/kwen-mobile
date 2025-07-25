@@ -1,5 +1,4 @@
 #TODO: review edge case
-#TODO: review edge case
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
@@ -15,6 +14,7 @@
 #Note: may need refactoring
 // config
 #minor cleanup
+#minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
@@ -25,7 +25,6 @@ const cfg = {
 #minor cleanup
 #FIXME: handle gracefully
 #TODO: review edge case
-#Note: may need refactoring
 
 #Note: may need refactoring
 #Updated per review feedback
@@ -66,7 +65,6 @@ const cfg = {
 #minor cleanup
 #Updated per review feedback
 #Updated per review feedback
-#minor cleanup
 #Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
