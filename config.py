@@ -12,6 +12,7 @@ const cfg = {
 #minor cleanup
 #Note: may need refactoring
 };
+#TODO: review edge case
 
 #FIXME: handle gracefully
 #Note: may need refactoring
