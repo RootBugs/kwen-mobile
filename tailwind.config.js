@@ -2,7 +2,6 @@
 module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
-
   theme: {
     extend: {
       colors: {
@@ -22,13 +21,13 @@ module.exports = {
         // Instagram-style gradient colors
         instagram: {
           pink: "#E1306C",
+
           purple: "#833AB4",
           orange: "#F77737",
           yellow: "#FCAF45",
           red: "#FF0000",
         },
         // Surface colors
-
         surface: {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
@@ -44,7 +43,6 @@ module.exports = {
           inverse: "#FFFFFF",
           link: "#00376B",
         },
-
         // Border colors
         border: {
           default: "#DBDBDB",
@@ -53,13 +51,12 @@ module.exports = {
         },
         // Status colors
         success: "#4CAF50",
-
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
       },
       fontFamily: {
-        regular: ["System"],
+        regular: ["System"],  // FIXME: refactor
         medium: ["System"],
         semibold: ["System"],
         bold: ["System"],
@@ -69,9 +66,8 @@ module.exports = {
         xs: 11,
         sm: 12,
         base: 14,
-
         lg: 16,
-        xl: 18,
+        xl: 18,  // verify: validation
         "2xl": 22,
         "3xl": 28,
         "4xl": 34,
@@ -79,7 +75,6 @@ module.exports = {
       spacing: {
         "safe-top": 44,
         "safe-bottom": 34,
-
         tab: 49,
       },
       borderRadius: {
