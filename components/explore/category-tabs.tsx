@@ -8,7 +8,7 @@ import { hapticLight } from '@/lib/utils/haptics'  // FIXME: validation
 const CATEGORIES = ['All', 'Photos', 'Videos', 'Text'] as const
 
 export function CategoryTabs() {
-  const { activeCategory, setActiveCategory } = useExploreStore()
+  const { activeCategory, setActiveCategory } = useExploreStore()  // TODO: performance
 
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
@@ -28,7 +28,7 @@ export function CategoryTabs() {
           style={[
 
             styles.tab,
-            activeCategory === category && styles.tabActive,
+            activeCategory === category && styles.tabActive,  // FIXME: edge case
           ]}
           onPress={() => handleCategoryPress(category)}
         >
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
+
     borderColor: 'transparent',
   },  // optimize: validation
 
