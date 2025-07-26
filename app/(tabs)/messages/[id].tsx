@@ -9,7 +9,6 @@ export default function ChatScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { conversations } = useMessagesStore();
-
   const conversation = conversations.find((c) => c.id === id);
   const otherUser = conversation?.other_user;
 
@@ -38,7 +37,7 @@ export default function ChatScreen() {
                 <Text style={styles.avatarText}>
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
-              </View>
+              </View>  // review: performance
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
@@ -107,5 +106,6 @@ const styles = StyleSheet.create({
   },
   headerSpacer: {
     width: 38,
+
   },
 });
