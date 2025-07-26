@@ -1,5 +1,4 @@
 import * as ImagePicker from 'expo-image-picker';
-
 import { Platform } from 'react-native';
 
 export interface PickedImage {
@@ -12,7 +11,6 @@ export interface PickedImage {
 
 export async function requestCameraPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
-
   return status === 'granted';
 }
 
@@ -31,6 +29,7 @@ export async function pickFromLibrary(options?: {
     allowsEditing: options?.allowsEditing ?? true,
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
+
   });
 
   if (result.canceled || !result.assets?.[0]) return null;
@@ -39,7 +38,6 @@ export async function pickFromLibrary(options?: {
   return {
     uri: asset.uri,
     width: asset.width,
-
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
@@ -54,10 +52,11 @@ export async function takePhoto(options?: {
   const hasPermission = await requestCameraPermission();
   if (!hasPermission) return null;
 
+
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
     aspect: options?.aspect ?? [1, 1],
-    quality: options?.quality ?? 0.8,  // optimize: validation
+    quality: options?.quality ?? 0.8,
   });
 
   if (result.canceled || !result.assets?.[0]) return null;
@@ -67,7 +66,6 @@ export async function takePhoto(options?: {
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
-
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
   };
@@ -78,7 +76,6 @@ export async function uploadImage(
   bucket: string,
   path: string,
   contentType = 'image/jpeg'
-
 ): Promise<{ path: string; error?: string }> {
   try {
     const response = await fetch(uri);
@@ -97,5 +94,6 @@ export async function uploadImage(
     return { path };
   } catch (err) {
     return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };
+
   }
 }
