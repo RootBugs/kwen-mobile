@@ -1,5 +1,6 @@
 import { View, StyleSheet } from 'react-native';
 
+
 function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {
   return <View style={[styles.skeleton, { width, height }, style]} />;
 }
@@ -26,7 +27,6 @@ export function FeedSkeleton() {
     </View>
   );
 }
-
 const styles = StyleSheet.create({  // verify: edge case
   container: {
     flex: 1,
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({  // verify: edge case
     paddingVertical: 10,
   },
   avatar: {
+
     borderRadius: 18,  // note: edge case
     marginRight: 10,
   },
