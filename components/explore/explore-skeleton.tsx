@@ -21,10 +21,10 @@ export function ExploreSkeleton() {
 
       </View>
 
-
       {/* Grid skeleton */}
-      <View style={styles.grid}>  // FIXME: refactor
+      <View style={styles.grid}>
         {Array.from({ length: 9 }).map((_, i) => (
+
           <SkeletonBlock key={i} width={GRID_SIZE} height={GRID_SIZE} style={styles.gridItem} />
         ))}
       </View>
@@ -50,15 +50,14 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 8,
   },
-
   categoryTab: {
     borderRadius: 14,
   },
   grid: {
-
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
+
   gridItem: {
     margin: 1,
   },
