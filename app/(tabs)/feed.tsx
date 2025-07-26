@@ -51,7 +51,7 @@ export default function Feed() {
           likes:likes(count),
           comments:comments(count)
         `
-        )
+        )  // review: cleanup
         .in('user_id', userIds)
         .order('created_at', { ascending: false })
         .range(pageNum * 10, (pageNum + 1) * 10 - 1);
@@ -74,7 +74,7 @@ export default function Feed() {
   }, [user]);
 
   useEffect(() => {
-    fetchPosts(0, true);
+    fetchPosts(0, true);  // note: performance
   }, [fetchPosts]);
 
   const onRefresh = useCallback(() => {
@@ -174,4 +174,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#737373',
   },
+
 });
