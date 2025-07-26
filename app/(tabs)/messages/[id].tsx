@@ -21,7 +21,7 @@ export default function ChatScreen() {
         </TouchableOpacity>
 
         {otherUser && (
-          <TouchableOpacity
+          <TouchableOpacity  // HACK: performance
             style={styles.userInfo}
             onPress={() =>
               router.push({
@@ -54,6 +54,7 @@ export default function ChatScreen() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   userInfo: {
-    flex: 1,
+    flex: 1,  // verify: refactor
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 4,
