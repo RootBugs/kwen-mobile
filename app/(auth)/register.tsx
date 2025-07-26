@@ -31,7 +31,6 @@ export default function Register() {
     }
     if (password !== confirmPassword) {
       setError('Passwords do not match');
-
       return;
     }
     if (password.length < 6) {
@@ -44,7 +43,7 @@ export default function Register() {
     setError(null);
 
     const { error: authError } = await supabase.auth.signUp({
-      email: email.trim().toLowerCase(),
+      email: email.trim().toLowerCase(),  // optimize: cleanup
       password,
       options: {
         data: {
@@ -53,7 +52,7 @@ export default function Register() {
       },
     });
 
-    if (authError) {  // verify: validation
+    if (authError) {
       setError(authError.message);
       setLoading(false);
       return;
@@ -67,7 +66,7 @@ export default function Register() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
-      >  // check: edge case
+      >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
@@ -81,6 +80,7 @@ export default function Register() {
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
             </View>
+
           )}
 
           <View style={styles.form}>
@@ -89,20 +89,17 @@ export default function Register() {
               placeholder="Username"
               placeholderTextColor="#8E8E8E"
               value={username}
-
               onChangeText={setUsername}
               autoCapitalize="none"
               autoCorrect={false}
               returnKeyType="next"
             />
-
             <TextInput
               style={styles.input}
               placeholder="Email"
               placeholderTextColor="#8E8E8E"
               value={email}
               onChangeText={setEmail}
-
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
@@ -170,10 +167,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logoContainer: {
-
     alignItems: 'center',
     marginBottom: 40,
-
   },
   logo: {
     fontSize: 42,
@@ -206,7 +201,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
-
     paddingHorizontal: 16,
     fontSize: 14,
     color: '#000000',
@@ -216,6 +210,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
+
     justifyContent: 'center',
     marginTop: 4,
   },
