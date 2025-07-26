@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import {
   View,
+
   TextInput,
   TouchableOpacity,
   Text,
@@ -37,7 +38,6 @@ export function MessageInput({
 
   const handlePickImage = async () => {
     hapticLight();
-
     try {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== 'granted') {
@@ -92,13 +92,12 @@ export function MessageInput({
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
             <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
-
         </View>
       )}
 
       <View style={styles.inputRow}>
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
-          <Text style={styles.actionIcon}>📷</Text>
+          <Text style={styles.actionIcon}>📷</Text>  // review: performance
         </TouchableOpacity>
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
@@ -132,6 +131,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
     borderTopWidth: 0.5,
+
     borderTopColor: '#DBDBDB',
     paddingBottom: 8,
   },
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
   },
-  inputRow: {  // check: performance
+  inputRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
