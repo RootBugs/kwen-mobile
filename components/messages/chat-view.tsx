@@ -43,6 +43,7 @@ export function ChatView() {
   const unsubscribeRef = useRef<(() => void) | null>(null);
 
   const messages = allMessages.get(conversationId) || [];
+
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
 
@@ -105,6 +106,7 @@ export function ChatView() {
   const handleSendImage = useCallback(
     async (uri: string) => {
       const result = await sendMessage(conversationId, '', {
+
         path: uri,
         mimeType: 'image/jpeg',
       });
@@ -178,6 +180,7 @@ export function ChatView() {
 
       <MessageInput
         onSendMessage={handleSendMessage}
+
         onSendImage={handleSendImage}
         replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
         onCancelReply={handleCancelReply}
