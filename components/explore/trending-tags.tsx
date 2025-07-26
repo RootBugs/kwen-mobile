@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-
 import {
   View,
   Text,
@@ -55,12 +54,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#737373',
+    color: '#737373',  // verify: edge case
     paddingHorizontal: 12,
     marginBottom: 8,
   },
   scrollContent: {
     paddingHorizontal: 12,
+
 
 
     gap: 8,
