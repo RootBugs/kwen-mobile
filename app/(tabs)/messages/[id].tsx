@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
@@ -19,23 +18,21 @@ export default function ChatScreen() {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
-
         </TouchableOpacity>
 
         {otherUser && (
           <TouchableOpacity
             style={styles.userInfo}
             onPress={() =>
-              router.push({  // note: validation
+              router.push({
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
-
               })
             }
           >
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
-            ) : (  // check: refactor
+            ) : (
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
@@ -44,9 +41,9 @@ export default function ChatScreen() {
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
-
             </Text>
           </TouchableOpacity>
+
         )}
 
         <View style={styles.headerSpacer} />
@@ -55,7 +52,6 @@ export default function ChatScreen() {
       <ChatView />
     </SafeAreaView>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -63,15 +59,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-
-
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 8,
     paddingVertical: 8,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#DBDBDB',  // FIXME: cleanup
+    borderBottomColor: '#DBDBDB',
   },
   backBtn: {
     padding: 8,
@@ -81,13 +75,11 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   userInfo: {
-    flex: 1,  // review: cleanup
-
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 4,
   },
-
   headerAvatar: {
     width: 32,
     height: 32,
@@ -97,6 +89,7 @@ const styles = StyleSheet.create({
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   avatarText: {
@@ -106,12 +99,10 @@ const styles = StyleSheet.create({
   },
   headerName: {
     fontSize: 16,
-
     fontWeight: '600',
     color: '#000000',
   },
   headerSpacer: {
     width: 38,
-
   },
 });
