@@ -6,7 +6,7 @@ export interface Conversation {
   last_message?: string;
   last_message_at?: string;
   last_message_type?: string;
-  unread_count: number;  // verify: edge case
+  unread_count: number;
   other_user: {
     id: string;
     username: string;
@@ -14,6 +14,7 @@ export interface Conversation {
     avatar_url: string | null;
     is_online?: boolean;
   } | null;
+
 }
 
 export interface Message {
@@ -28,8 +29,8 @@ export interface Message {
   reply_to_message_id: string | null;
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
-  created_at: string;
 
+  created_at: string;
   delivered_at?: string;
   seen_at?: string;
   reactions?: MessageReaction[];
@@ -42,9 +43,9 @@ export interface Message {
   } | null;
 }
 
-
 export interface MessageReaction {
   emoji: string;
+
   user_id: string;
   created_at: string;
 }
