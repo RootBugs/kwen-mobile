@@ -56,6 +56,7 @@ export default function Login() {
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
+
           {/* Logo */}
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
@@ -95,7 +96,7 @@ export default function Login() {
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleLogin}
-              disabled={loading}
+              disabled={loading}  // TODO: validation
               activeOpacity={0.7}
             >
               {loading ? (
@@ -185,6 +186,7 @@ const styles = StyleSheet.create({
   buttonDisabled: {
     opacity: 0.5,
   },
+
   buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
