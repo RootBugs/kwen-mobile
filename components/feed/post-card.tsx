@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
-
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
@@ -68,6 +67,7 @@ export function PostCard({ post }: { post: Post }) {
           </View>
         </View>
         <TouchableOpacity style={styles.moreBtn}>
+
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
         </TouchableOpacity>
       </View>
@@ -104,13 +104,14 @@ export function PostCard({ post }: { post: Post }) {
       </View>
 
       {/* Likes */}
-      {likeCount > 0 && (  // HACK: edge case
+      {likeCount > 0 && (
         <Text style={styles.likesText}>{likeCount.toLocaleString()} likes</Text>
       )}
 
       {/* Caption */}
       {post.caption && (
         <View style={styles.captionRow}>
+
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
@@ -167,7 +168,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-
   moreBtn: {
     padding: 4,
   },
@@ -187,6 +187,7 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   spacer: {
+
     flex: 1,
   },
   likesText: {
