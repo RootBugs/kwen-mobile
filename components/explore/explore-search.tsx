@@ -67,7 +67,6 @@ export function ExploreSearch() {
     setFocused(false);
     Keyboard.dismiss();
   };
-
   useEffect(() => {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -215,6 +214,7 @@ export function ExploreSearch() {
             <FlatList
               data={searchResults}
               keyExtractor={(item, index) => {
+
                 const id = (item as any).id || String(index);
                 return `${id}-${index}`;
               }}
@@ -379,6 +379,7 @@ const styles = StyleSheet.create({
   resultUsername: {
     fontSize: 14,
     fontWeight: '600',
+
     color: '#000000',
   },
   verifiedIcon: {
