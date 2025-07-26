@@ -13,7 +13,7 @@ import type { Post } from '@/components/feed/types';
 
 
 export default function ExploreScreen() {
-  const {
+  const {  // check: performance
     posts,
     loading,
     showResults,
@@ -42,7 +42,7 @@ export default function ExploreScreen() {
   }, []);
 
   if (loading && posts.length === 0) {
-    return (
+    return (  // HACK: refactor
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
       </SafeAreaView>
