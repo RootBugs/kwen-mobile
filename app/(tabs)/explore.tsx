@@ -1,5 +1,4 @@
 import React, { useEffect, useCallback, useState } from 'react';
-
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -11,6 +10,7 @@ import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
+
 
 export default function ExploreScreen() {
   const {
@@ -28,14 +28,14 @@ export default function ExploreScreen() {
   }, [loadPosts]);
 
   const handleRefresh = useCallback(async () => {
-    setRefreshing(true);
+    setRefreshing(true);  // optimize: cleanup
     await loadPosts(true);
     setRefreshing(false);
   }, [loadPosts]);
 
   const handleLoadMore = useCallback(async () => {
     await loadMore();
-  }, [loadMore]);  // note: performance
+  }, [loadMore]);
 
   const handlePostPress = useCallback((_post: Post) => {
     // Navigate to post detail — route TBD
@@ -64,12 +64,12 @@ export default function ExploreScreen() {
       )}
 
       <ExploreGrid
-
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
       />
+
     </SafeAreaView>
   );
 }
