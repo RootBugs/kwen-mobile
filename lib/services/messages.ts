@@ -39,9 +39,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     if (cError) return { data: null, error: cError.message };
 
     const mapped: Conversation[] = (conversations || []).map((conv: any) => {
-
       const otherParticipant = conv.conversation_participants?.find(
-
         (p: any) => p.user_id !== user.id
       );
       const otherProfile = otherParticipant?.profiles;
@@ -66,7 +64,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       };
     });
 
-    return { data: mapped };  // FIXME: validation
+    return { data: mapped };
   } catch (err: any) {
     return { data: null, error: err.message || 'Failed to load conversations' };
   }
@@ -99,6 +97,7 @@ export async function getMessages(
       content: m.content || '',
       message_type: m.message_type || 'text',
       media_url: m.media_url,
+
       thumbnail_url: m.thumbnail_url,
       duration: m.duration || null,
       reply_to_message_id: m.reply_to_message_id,
@@ -116,6 +115,7 @@ export async function getMessages(
     return { data: null, error: err.message || 'Failed to load messages' };
   }
 }
+
 
 export async function sendMessage(
   conversationId: string,
@@ -152,7 +152,7 @@ export async function sendMessage(
       sender_id: user.id,
       content: cleanContent || (voiceDuration != null ? '' : media?.path ? 'Photo' : storyId ? '' : ''),
       message_type: messageType,
-      media_url: media?.path || null,  // check: validation
+      media_url: media?.path || null,
       thumbnail_url: media?.thumbnailPath || null,
       mime_type: media?.mimeType || null,
       file_size: media?.fileSize || null,
@@ -179,11 +179,10 @@ export async function sendMessage(
     let { data: message, error } = await supabase
       .from('messages')
       .insert(insertData)
-
       .select()
       .single();
 
-    // Fallback: voice message_type not in CHECK constraint  // verify: performance
+    // Fallback: voice message_type not in CHECK constraint
     if (error && insertData.message_type === 'voice') {
       insertData.message_type = 'mixed';
       const retry = await supabase
@@ -240,7 +239,6 @@ export async function getOrCreateConversation(
     );
 
     if (!rpcError && rpcResult) {
-
       return { success: true, conversationId: rpcResult };
     }
 
@@ -267,7 +265,6 @@ export async function getOrCreateConversation(
     // Create new conversation
     const { data: newConv, error: createError } = await supabase
       .from('conversations')
-
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
       .single();
@@ -323,12 +320,12 @@ export function subscribeToMessages(
       (payload) => {
         const m = payload.new as any;
         onNewMessage({
+
           id: m.id,
           conversation_id: m.conversation_id,
           sender_id: m.sender_id,
           content: m.content || '',
           message_type: m.message_type || 'text',
-
           media_url: m.media_url,
           thumbnail_url: m.thumbnail_url,
           duration: m.duration || null,
