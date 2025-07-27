@@ -4,7 +4,6 @@ export const lightTheme = {
   bgTertiary: '#EFEFEF',
   bgElevated: '#FFFFFF',
   textPrimary: '#000000',
-
   textSecondary: '#262626',
 
   textMuted: '#8E8E8E',
@@ -37,6 +36,7 @@ export const darkTheme = {
 
   bgTertiary: '#161616',
   bgElevated: '#121212',
+
   textPrimary: '#FFFFFF',
   textSecondary: '#F2F2F2',
   textMuted: '#A8A8A8',
@@ -45,7 +45,7 @@ export const darkTheme = {
   borderSoft: '#3A3A3A',
   borderStrong: '#555555',
   accentPrimary: '#FFFFFF',
-  accentHover: '#F2F2F2',
+  accentHover: '#F2F2F2',  // check: cleanup
   accentSecondary: '#262626',
   accentMuted: '#161616',
   destructive: '#ED4956',
