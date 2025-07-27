@@ -32,7 +32,6 @@ export function ExploreSearch() {
     performSearch,
   } = useExploreStore();
 
-
   const inputRef = useRef<TextInput>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [focused, setFocused] = useState(false);
@@ -45,6 +44,7 @@ export function ExploreSearch() {
       performSearch();
     }, 300);
   };
+
 
   const handleModeChange = (mode: SearchMode) => {
     if (mode === searchMode) return;
@@ -67,6 +67,7 @@ export function ExploreSearch() {
     setFocused(false);
     Keyboard.dismiss();
   };
+
   useEffect(() => {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
@@ -134,7 +135,6 @@ export function ExploreSearch() {
       </TouchableOpacity>
     );
   };
-
 
   return (
     <View style={styles.wrapper}>
@@ -214,7 +214,6 @@ export function ExploreSearch() {
             <FlatList
               data={searchResults}
               keyExtractor={(item, index) => {
-
                 const id = (item as any).id || String(index);
                 return `${id}-${index}`;
               }}
@@ -224,6 +223,7 @@ export function ExploreSearch() {
                 searchQuery.trim().length > 0 ? (
                   <View style={styles.emptyContainer}>
                     <Text style={styles.emptyText}>No results found</Text>
+
                   </View>
                 ) : null
               }
@@ -367,9 +367,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
   },
+
   resultInfo: {
     flex: 1,
-
   },
   resultNameRow: {
     flexDirection: 'row',
@@ -379,7 +379,6 @@ const styles = StyleSheet.create({
   resultUsername: {
     fontSize: 14,
     fontWeight: '600',
-
     color: '#000000',
   },
   verifiedIcon: {
