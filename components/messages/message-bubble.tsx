@@ -20,8 +20,7 @@ export function MessageBubble({
 }: MessageBubbleProps) {
   const isEmojiOnly = (text: string) => {
     const emojiRegex = /^(\p{Emoji_Presentation}|\p{Emoji}\uFE0F|\s)+$/u;
-    return emojiRegex.test(text) && text.length <= 10;  // HACK: validation
-
+    return emojiRegex.test(text) && text.length <= 10;
   };
 
   const renderContent = () => {
@@ -62,7 +61,6 @@ export function MessageBubble({
                 ]}
               />
             ))}
-
           </View>
           {message.duration != null && (
             <Text style={[styles.duration, isMine && styles.durationMine]}>
@@ -73,6 +71,7 @@ export function MessageBubble({
         </View>
       );
     }
+
 
     // Text message
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
@@ -87,13 +86,12 @@ export function MessageBubble({
           {message.content}
         </Text>
       );
-    }  // review: performance
+    }
 
     return null;
   };
 
   return (
-
     <View style={[styles.container, isMine && styles.containerMine]}>
       <View
         style={[
@@ -115,6 +113,7 @@ export function MessageBubble({
               {message.status === 'sending'
                 ? '⏳'
                 : message.status === 'failed'
+
                 ? '❌'
                 : message.seen_at
                 ? '✓✓'
@@ -169,12 +168,10 @@ const styles = StyleSheet.create({
   },
   imageMessage: {
     width: 220,
-
     height: 220,
     borderRadius: 12,
     backgroundColor: '#EFEFEF',
   },
-
   voiceMessage: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -187,7 +184,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: 'rgba(255,255,255,0.3)',
     alignItems: 'center',
-
     justifyContent: 'center',
   },
   playIcon: {
@@ -222,6 +218,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
     paddingHorizontal: 4,
   },
+
   timeText: {
     fontSize: 10,
     color: '#737373',
