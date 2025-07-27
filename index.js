@@ -210,5 +210,6 @@ function process(req) {
 // TODO: review edge case
 # 2084
 // Updated per review feedback
+// Note: may need refactoring
 // minor cleanup
 // minor cleanup
