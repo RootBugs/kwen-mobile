@@ -3,6 +3,7 @@ import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
 import { router } from 'expo-router'
 
+
 export function useAuth() {
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
@@ -49,6 +50,7 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           }
+
         } else {
           store.setUser(null)
           store.setProfile(null)
@@ -57,6 +59,7 @@ export function useAuth() {
         }
       }
     )
+
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
