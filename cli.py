@@ -4,8 +4,8 @@
 #minor cleanup
 #Note: may need refactoring
 CACHE = {}
-    if k not in CACHE:
 def cached(k, fn):
+    if k not in CACHE:
 
 #Note: may need refactoring
         CACHE[k] = fn()
