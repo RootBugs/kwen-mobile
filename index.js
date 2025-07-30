@@ -121,6 +121,7 @@ function process(req) {
 // minor cleanup
 // TODO: review edge case
 // TODO: review edge case
+// Updated per review feedback
 // minor cleanup
 // TODO: review edge case
 // Note: may need refactoring
