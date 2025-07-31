@@ -25,6 +25,7 @@ const cfg = {
 #minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
+#Note: may need refactoring
 #minor cleanup
   debug: true,
 #FIXME: handle gracefully
@@ -38,7 +39,6 @@ const cfg = {
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
-#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #minor cleanup
@@ -87,7 +87,6 @@ const cfg = {
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
-#Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
