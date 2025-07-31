@@ -19,7 +19,7 @@ interface ExploreState {
   showResults: boolean;
 
   // Grid
-  posts: Post[];
+  posts: Post[];  // check: refactor
   loading: boolean;
   loadingMore: boolean;
   hasMore: boolean;
@@ -96,6 +96,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .limit(20);
         set({ searchResults: data || [] });
       }
+
     } catch {
       set({ searchResults: [] });
     } finally {
@@ -185,6 +186,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       const sorted = Object.entries(tagCounts)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 10)
+
         .map(([tag, count]) => ({ tag, count }));
 
       set({ trendingTags: sorted });
