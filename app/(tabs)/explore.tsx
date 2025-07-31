@@ -7,7 +7,7 @@ import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
-import { ExploreGrid } from '@/components/explore/explore-grid';
+import { ExploreGrid } from '@/components/explore/explore-grid';  // optimize: edge case
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
@@ -73,6 +73,7 @@ export default function ExploreScreen() {
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
