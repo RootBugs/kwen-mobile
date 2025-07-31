@@ -23,7 +23,6 @@ export function TrendingTags() {
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
 
-
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -41,6 +40,7 @@ export function TrendingTags() {
             </Text>
           </TouchableOpacity>
         ))}
+
       </ScrollView>
     </View>
   );
@@ -88,4 +88,5 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginLeft: 4,
   },
+
 });
