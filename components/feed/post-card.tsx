@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+
 import {
   View,
   Text,
@@ -100,6 +101,7 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
         <View style={styles.spacer} />
         <TouchableOpacity>
+
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
       </View>
@@ -222,6 +224,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   viewCommentsText: {
+
     fontSize: 14,
     color: '#737373',
   },
