@@ -75,6 +75,7 @@ export function PostCard({ post }: { post: Post }) {
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
+
           source={{ uri: post.image_url }}
           style={styles.image}
           resizeMode="cover"
@@ -125,6 +126,7 @@ export function PostCard({ post }: { post: Post }) {
           </Text>
         </TouchableOpacity>
       )}
+
 
       {/* Time */}
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
@@ -207,6 +209,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
+
     marginRight: 6,
   },
   captionText: {
