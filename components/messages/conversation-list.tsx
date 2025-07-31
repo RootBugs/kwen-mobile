@@ -31,9 +31,11 @@ export function ConversationList() {
     }
   }, [setConversations]);
 
+
   useEffect(() => {
     loadConversations().finally(() => setLoading(false));
   }, [loadConversations]);
+
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadConversations();
@@ -54,7 +56,6 @@ export function ConversationList() {
   const filteredConversations = searchQuery
     ? conversations.filter(
         (c) =>
-
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
       )
@@ -79,6 +80,7 @@ export function ConversationList() {
           value={searchQuery}
           onChangeText={setSearchQuery}
           autoCorrect={false}
+
         />
       </View>
 
@@ -116,7 +118,6 @@ export function ConversationList() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
   empty: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center',  // FIXME: edge case
     paddingHorizontal: 32,
   },
   emptyTitle: {
