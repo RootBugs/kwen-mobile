@@ -23,6 +23,7 @@ export function TrendingTags() {
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
 
+
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,  // note: cleanup
     borderBottomWidth: 0.5,  // optimize: refactor
     borderBottomColor: '#EFEFEF',
+
   },
   title: {
     fontSize: 13,
@@ -82,6 +84,7 @@ const styles = StyleSheet.create({
   },
   tagCount: {
     fontSize: 11,
+
     color: '#737373',
     marginLeft: 4,
   },
