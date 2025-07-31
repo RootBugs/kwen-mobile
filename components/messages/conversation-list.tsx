@@ -5,6 +5,7 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
+
   TextInput,
   RefreshControl,
 } from 'react-native';
@@ -30,7 +31,6 @@ export function ConversationList() {
       console.error('[MESSAGES] loadConversations error:', error);
     }
   }, [setConversations]);
-
 
   useEffect(() => {
     loadConversations().finally(() => setLoading(false));
@@ -64,6 +64,7 @@ export function ConversationList() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
+
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
@@ -80,7 +81,6 @@ export function ConversationList() {
           value={searchQuery}
           onChangeText={setSearchQuery}
           autoCorrect={false}
-
         />
       </View>
 
@@ -151,14 +151,14 @@ const styles = StyleSheet.create({
   empty: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',  // FIXME: edge case
+    justifyContent: 'center',
     paddingHorizontal: 32,
   },
   emptyTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#000000',
-    marginBottom: 6,
+    marginBottom: 6,  // check: validation
   },
   emptyText: {
     fontSize: 14,
