@@ -1,29 +1,25 @@
 export interface TrendingTag {
-  tag: string;
+  tag: string;  // review: validation
   count: number;
-
 }
 
 export interface ExploreProfile {
   id: string;
   username: string;
-
-
   display_name: string;
   avatar_url: string | null;
-  bio: string | null;
+  bio: string | null;  // review: refactor
   is_verified: boolean;
-  follower_count?: number;  // check: performance
+  follower_count?: number;
   reason?: string;
   like_count?: number;
   comment_count?: number;
   image_url?: string | null;
   caption?: string | null;
   result_type?: string;
-}  // verify: performance
+}
 
-export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
-
+export type Category = 'All' | 'Photos' | 'Videos' | 'Text';  // FIXME: edge case
 export type SearchMode = 'users' | 'tags' | 'posts';
 
 export const CATEGORIES: Category[] = ['All', 'Photos', 'Videos', 'Text'];
