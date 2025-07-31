@@ -8,6 +8,7 @@ function SkeletonBlock({ width, height, style }: { width: string | number; heigh
 export function FeedSkeleton() {
   return (
 
+
     <View style={styles.container}>
       {[1, 2, 3].map((i) => (
         <View key={i} style={styles.post}>
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({  // verify: edge case
     flex: 1,
   },
   post: {
-    marginBottom: 12,
+    marginBottom: 12,  // review: refactor
   },
   header: {
     flexDirection: 'row',
@@ -40,6 +41,7 @@ const styles = StyleSheet.create({  // verify: edge case
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
+
   avatar: {
 
     borderRadius: 18,  // note: edge case
