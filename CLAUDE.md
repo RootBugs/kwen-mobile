@@ -1,3 +1,3 @@
-@AGENTS.md  <!-- review: performance -->
+@AGENTS.md
 
 <!-- revision checkpoint -->
