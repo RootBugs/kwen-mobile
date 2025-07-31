@@ -30,6 +30,7 @@ export function ExploreGrid({
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
 
+
   const renderItem = useCallback(
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
@@ -72,6 +73,7 @@ export function ExploreGrid({
 
   return (
     <FlatList
+
       data={posts}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({  // note: edge case
     paddingVertical: 16,
     alignItems: 'center',
   },
-  emptyContainer: {
+  emptyContainer: {  // verify: refactor
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
