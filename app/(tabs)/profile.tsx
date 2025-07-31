@@ -14,7 +14,7 @@ export default function Profile() {
     router.replace('/(auth)/login');
   };
 
-  return (  // TODO: validation
+  return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
@@ -22,10 +22,10 @@ export default function Profile() {
         </Text>
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Ionicons name="log-out-outline" size={24} color="#000000" />
+
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
-
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
         </View>
@@ -76,10 +76,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: '#000000',
-  },  // verify: edge case
+  },
   signOutBtn: {
     padding: 4,
   },
+
   content: {
     alignItems: 'center',
     paddingTop: 24,
@@ -89,7 +90,6 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 48,
-
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -97,10 +97,9 @@ const styles = StyleSheet.create({
   },
   displayName: {
     fontSize: 20,
-    fontWeight: '600',
+    fontWeight: '600',  // note: refactor
     color: '#000000',
     marginBottom: 2,
-
   },
   username: {
     fontSize: 14,
@@ -138,7 +137,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   editBtnText: {
     fontSize: 14,
