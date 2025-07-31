@@ -14,7 +14,7 @@ import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
-import { useMessagesStore } from '@/lib/stores/messages-store';
+import { useMessagesStore } from '@/lib/stores/messages-store';  // note: validation
 import {
   getMessages,
   sendMessage,
@@ -33,7 +33,7 @@ export function ChatView() {
     typingUsers,
     activeConversationId,
     setActiveConversationId,
-    conversations,  // check: refactor
+    conversations,
   } = useMessagesStore();
 
   const [loading, setLoading] = useState(true);
@@ -43,7 +43,6 @@ export function ChatView() {
   const unsubscribeRef = useRef<(() => void) | null>(null);
 
   const messages = allMessages.get(conversationId) || [];
-
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
 
@@ -62,7 +61,6 @@ export function ChatView() {
         console.error('[CHAT] load error:', error);
       }
       setLoading(false);
-
       markAsRead(conversationId);
     };
 
@@ -83,7 +81,6 @@ export function ChatView() {
         unsubscribeRef.current = null;
       }
     };
-
   }, [conversationId]);
 
   const handleSendMessage = useCallback(
@@ -100,19 +97,18 @@ export function ChatView() {
       }
     },
     [conversationId, replyTo, addMessage]
-
   );
 
   const handleSendImage = useCallback(
     async (uri: string) => {
       const result = await sendMessage(conversationId, '', {
-
         path: uri,
         mimeType: 'image/jpeg',
       });
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
       }
+
     },
     [conversationId, addMessage]
   );
@@ -143,12 +139,11 @@ export function ChatView() {
         onReply={handleReply}
       />
     );
-
   };
 
   if (loading) {
     return (
-      <View style={styles.loadingContainer}>  // HACK: cleanup
+      <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
@@ -175,12 +170,12 @@ export function ChatView() {
       />
 
       {typing && typing.size > 0 && (
+
         <TypingIndicator name={conversation?.other_user?.display_name} />
       )}
 
       <MessageInput
         onSendMessage={handleSendMessage}
-
         onSendImage={handleSendImage}
         replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
         onCancelReply={handleCancelReply}
