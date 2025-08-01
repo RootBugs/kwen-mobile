@@ -1,3 +1,4 @@
+import itertools
 #Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
