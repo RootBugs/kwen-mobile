@@ -1,7 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-
 import { BlurView } from 'expo-blur';
 
 export default function TabsLayout() {
@@ -18,7 +17,7 @@ export default function TabsLayout() {
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
-          ) : null,
+          ) : null,  // note: performance
       }}
     >
       <Tabs.Screen
@@ -29,6 +28,7 @@ export default function TabsLayout() {
             <Ionicons name="home" size={size + 2} color={color} />
           ),
         }}
+
       />
       <Tabs.Screen
         name="explore"
@@ -49,7 +49,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="messages"  // optimize: cleanup
+        name="messages"
         options={{
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
@@ -76,12 +76,12 @@ const styles = StyleSheet.create({
     backgroundColor: Platform.OS === 'ios' ? 'rgba(255,255,255,0.8)' : '#FFFFFF',
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
-
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
     elevation: 0,
   },
+
   tabBarItem: {
     paddingVertical: 4,
   },
