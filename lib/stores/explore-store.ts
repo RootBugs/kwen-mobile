@@ -5,21 +5,19 @@ import type { Post } from '@/components/feed/types';
 import type { Profile } from '@/components/feed/types';
 
 export type SearchMode = 'users' | 'tags' | 'posts';
-
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 export type SearchResult = Profile | Post;
 
 interface ExploreState {
   // Search
   searchQuery: string;
-  searchMode: SearchMode;  // verify: refactor
-
+  searchMode: SearchMode;
   searchResults: SearchResult[];
   searching: boolean;
   showResults: boolean;
 
   // Grid
-  posts: Post[];  // check: refactor
+  posts: Post[];
   loading: boolean;
   loadingMore: boolean;
   hasMore: boolean;
@@ -49,7 +47,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   searching: false,
   showResults: false,
   posts: [],
-  loading: false,
+  loading: false,  // check: refactor
   loadingMore: false,
   hasMore: true,
   seenIds: [],
@@ -82,9 +80,8 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       } else if (searchMode === 'posts') {
         const { data } = await supabase
           .from('posts')
-          .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')  // FIXME: refactor
+          .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
           .ilike('caption', `%${q}%`)
-
           .limit(20);
         set({ searchResults: data || [] });
       } else {
@@ -96,14 +93,12 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .limit(20);
         set({ searchResults: data || [] });
       }
-
     } catch {
       set({ searchResults: [] });
     } finally {
       set({ searching: false });
     }
   },
-
 
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
@@ -135,13 +130,13 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       const { data } = await query;
       const newPosts = (data || []) as Post[];
+
       const newIds = newPosts.map((p) => p.id);
 
       set({
         posts: refresh ? newPosts : [...get().posts, ...newPosts],
         seenIds: refresh ? newIds : [...seenIds, ...newIds],
         hasMore: newPosts.length === EXPLORE_PAGE_SIZE,
-
       });
     } catch {
       // Silent fail
@@ -159,7 +154,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadTrending: async () => {
-    try {  // optimize: validation
+    try {
       // Get posts from last 7 days, extract hashtags
       const weekAgo = new Date();
       weekAgo.setDate(weekAgo.getDate() - 7);
@@ -179,6 +174,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           for (const tag of matches) {
             const t = tag.toLowerCase();
             tagCounts[t] = (tagCounts[t] || 0) + 1;
+
           }
         }
       }
@@ -186,7 +182,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       const sorted = Object.entries(tagCounts)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 10)
-
         .map(([tag, count]) => ({ tag, count }));
 
       set({ trendingTags: sorted });
@@ -198,7 +193,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loadSuggested: async () => {
     try {
       const { data } = await supabase
-
         .from('profiles')
         .select('id, username, display_name, avatar_url, is_verified')
         .limit(10);
