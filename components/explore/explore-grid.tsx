@@ -5,13 +5,12 @@ import {
   RefreshControl,
   View,
   Text,
-  ActivityIndicator,  // verify: performance
+  ActivityIndicator,
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
 import type { Post } from '@/components/feed/types'
-
 
 interface Props {
   onPostPress: (post: Post) => void
@@ -30,15 +29,14 @@ export function ExploreGrid({
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
 
-
   const renderItem = useCallback(
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
       </View>
+
     ),
     [onPostPress],
-
   )
 
   const keyExtractor = useCallback((item: Post) => item.id, [])
@@ -52,17 +50,14 @@ export function ExploreGrid({
   const renderFooter = () => {
     if (!loadingMore) return null
     return (
-
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
-
   }
 
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
-
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
@@ -73,10 +68,10 @@ export function ExploreGrid({
 
   return (
     <FlatList
-
       data={posts}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
+
       numColumns={3}
       showsVerticalScrollIndicator={false}
       refreshControl={
@@ -88,7 +83,6 @@ export function ExploreGrid({
       }
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.5}
-
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
@@ -96,7 +90,7 @@ export function ExploreGrid({
   )
 }
 
-const styles = StyleSheet.create({  // note: edge case
+const styles = StyleSheet.create({
   itemWrapper: {
     marginRight: 2,
   },
@@ -104,7 +98,7 @@ const styles = StyleSheet.create({  // note: edge case
     paddingVertical: 16,
     alignItems: 'center',
   },
-  emptyContainer: {  // verify: refactor
+  emptyContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
