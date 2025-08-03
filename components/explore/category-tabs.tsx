@@ -12,6 +12,7 @@ export function CategoryTabs() {
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
     setActiveCategory(category)
+
   }
 
   return (
@@ -47,6 +48,7 @@ export function CategoryTabs() {
   )
 }
 
+
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
   },  // optimize: validation
 
   tabActive: {
+
     backgroundColor: COLORS.light.foreground,
   },  // check: cleanup
   tabText: {
