@@ -1,19 +1,11 @@
-import itertools
-#Updated per review feedback
-#minor cleanup
-#FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
 // config
-#Updated per review feedback
 #minor cleanup
-#minor cleanup
-
-
 const cfg = {
 #minor cleanup
-  debug: true,
   port: 3000,
+  debug: true,
 #FIXME: handle gracefully
 };
 #minor cleanup
@@ -21,8 +13,8 @@ const cfg = {
 #Updated per review feedback
 
 # 6277
+#minor cleanup
 #Note: may need refactoring
 #TODO: review edge case
-#minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
