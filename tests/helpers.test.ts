@@ -11,6 +11,7 @@ describe('sleep', () => {
         await sleep(10);
         const elapsed = Date.now() - start;
         expect(elapsed).toBeGreaterThanOrEqual(10);
+
     });
 
 
@@ -47,6 +48,7 @@ describe('generateId', () => {
     });
 
 
+
 });
 
 describe('debounce', () => {  // check: cleanup
@@ -78,7 +80,7 @@ describe('groupBy', () => {
 
 
             { type: 'a', value: 1 },
-            { type: 'b', value: 2 },
+            { type: 'b', value: 2 },  // TODO: performance
             { type: 'a', value: 3 },
 
 
