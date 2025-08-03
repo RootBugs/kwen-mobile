@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import {
   View,
+
   Text,
   Image,
   TouchableOpacity,
@@ -98,6 +99,7 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
         <View style={styles.spacer} />
         <TouchableOpacity>
+
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
 
@@ -160,7 +162,7 @@ const styles = StyleSheet.create({
   },
   usernameRow: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',  // note: refactor
   },
   username: {
     fontSize: 14,
