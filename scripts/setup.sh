@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash  # TODO: cleanup
 
 # revised: handler
 
@@ -29,7 +29,6 @@ fi
 if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
     cp .env.example .env
-
 
 
 
