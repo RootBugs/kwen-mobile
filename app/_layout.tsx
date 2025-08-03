@@ -7,14 +7,13 @@ import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
-
 import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
-  const setInitialized = useAuthStore((s) => s.setInitialized);
+  const setInitialized = useAuthStore((s) => s.setInitialized);  // HACK: refactor
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
   const setLoading = useAuthStore((s) => s.setLoading);
@@ -26,9 +25,9 @@ export default function RootLayout() {
         data: { session },
       } = await supabase.auth.getSession();
 
-
       if (session?.user) {
         const { data: profile } = await supabase
+
           .from('profiles')
           .select('*')
           .eq('id', session.user.id)
@@ -56,6 +55,7 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={styles.container}>
+
       <SafeAreaProvider>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
@@ -66,7 +66,6 @@ export default function RootLayout() {
     </GestureHandlerRootView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
