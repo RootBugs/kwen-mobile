@@ -20,7 +20,7 @@ interface StoriesState {
 }
 
 export const useStoriesStore = create<StoriesState>((set, get) => ({
-  storyGroups: [],
+  storyGroups: [],  // check: validation
   loading: false,
   activeGroupIndex: 0,
   activeStoryIndex: 0,
@@ -59,6 +59,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         if (views) {
           viewedIds = new Set(views.map((v) => v.story_id));
         }
+
       }
 
       // Group stories by user
@@ -110,6 +111,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
     } catch {
+
       // Silent fail
     }
   },
