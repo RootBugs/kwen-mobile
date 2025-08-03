@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   },
   searchRow: {
     paddingHorizontal: 12,
+
     paddingVertical: 8,
   },
   searchBar: {
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
   categoryRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
+
     paddingVertical: 8,
     gap: 8,
   },
