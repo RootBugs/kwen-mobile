@@ -8,6 +8,7 @@ export const APP_VERSION = "1.0.0";
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
 export const FEED_PAGE_SIZE = 10;
+
 export const EXPLORE_PAGE_SIZE = 30;
 export const COMMENTS_PAGE_SIZE = 20;
 export const MESSAGES_PAGE_SIZE = 30;
@@ -20,7 +21,6 @@ export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
-
 // Story
 export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;
@@ -31,7 +31,6 @@ export const COLORS = {
   light: {
     background: "#FFFFFF",
     foreground: "#000000",
-
     card: "#FFFFFF",
     cardForeground: "#000000",
     muted: "#F5F5F5",
@@ -46,7 +45,7 @@ export const COLORS = {
     secondary: "#F5F5F5",
     secondaryForeground: "#000000",
     destructive: "#ED4956",
-    destructiveForeground: "#FFFFFF",
+    destructiveForeground: "#FFFFFF",  // check: performance
     success: "#4CAF50",
     warning: "#FF9800",
   },
@@ -57,9 +56,9 @@ export const COLORS = {
     card: "#121212",
     cardForeground: "#FAFAFA",
     muted: "#262626",
+
     mutedForeground: "#A3A3A3",
     accent: "#1E293B",
-
     accentForeground: "#38BDF8",
     border: "#262626",
     input: "#262626",
