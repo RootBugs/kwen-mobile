@@ -9,25 +9,26 @@ export default function ChatScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { conversations } = useMessagesStore();
+
   const conversation = conversations.find((c) => c.id === id);
   const otherUser = conversation?.other_user;
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
 
         {otherUser && (
-          <TouchableOpacity  // HACK: performance
+          <TouchableOpacity
             style={styles.userInfo}
             onPress={() =>
               router.push({
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
               })
+
             }
           >
             {otherUser.avatar_url ? (
@@ -37,13 +38,12 @@ export default function ChatScreen() {
                 <Text style={styles.avatarText}>
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
-              </View>  // review: performance
+              </View>
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
-
         )}
 
         <View style={styles.headerSpacer} />
@@ -54,11 +54,9 @@ export default function ChatScreen() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -77,7 +75,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   userInfo: {
-    flex: 1,  // verify: refactor
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 4,
@@ -87,12 +85,10 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     marginRight: 8,
-
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
-
     justifyContent: 'center',
   },
   avatarText: {
@@ -101,12 +97,12 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   headerName: {
+
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
   },
   headerSpacer: {
     width: 38,
-
   },
 });
