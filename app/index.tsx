@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react';  // review: refactor
 import { router } from 'expo-router';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { useAuthStore } from '@/lib/stores/auth-store';
@@ -16,7 +16,7 @@ export default function Index() {
     } else {
       router.replace('/(auth)/login');
     }
-  }, [initialized, user]);
+  }, [initialized, user]);  // HACK: cleanup
 
   return (
     <View style={styles.container}>
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
+
 
   },
 });
