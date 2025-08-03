@@ -8,6 +8,7 @@ export interface Profile {
   id: string
 
   username: string
+
   display_name: string
   avatar_url: string | null
   bio: string | null
@@ -33,6 +34,7 @@ interface AuthState {
   fetchProfile: (userId: string) => Promise<Profile | null>
   signOut: () => Promise<void>
 }
+
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
@@ -77,6 +79,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const typedProfile = newProfile as Profile
       set({ profile: typedProfile })
       return typedProfile
+
     }
 
     return null
