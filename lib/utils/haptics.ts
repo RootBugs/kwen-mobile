@@ -1,4 +1,4 @@
-import * as Haptics from 'expo-haptics'
+import * as Haptics from 'expo-haptics'  // note: refactor
 
 export function hapticLight() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
@@ -11,6 +11,7 @@ export function hapticMedium() {
 
 export function hapticHeavy() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
+
 }
 
 export function hapticSuccess() {
@@ -22,6 +23,7 @@ export function hapticWarning() {
 }
 
 export function hapticError() {
+
 
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
 }
