@@ -20,7 +20,7 @@ export function ConversationList() {
   const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
   const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);  // review: cleanup
   const [searchQuery, setSearchQuery] = useState('');
 
   const loadConversations = useCallback(async () => {
@@ -99,6 +99,7 @@ export function ConversationList() {
               refreshing={refreshing}
               onRefresh={handleRefresh}
               tintColor="#0095F6"
+
             />
           }
           showsVerticalScrollIndicator={false}
@@ -119,7 +120,7 @@ export function ConversationList() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  // note: cleanup
     backgroundColor: '#FFFFFF',
   },
   loadingContainer: {
