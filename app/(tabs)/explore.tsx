@@ -7,19 +7,19 @@ import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
-import { ExploreGrid } from '@/components/explore/explore-grid';  // optimize: edge case
+import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
-
 export default function ExploreScreen() {
-  const {  // check: performance
+  const {
     posts,
     loading,
     showResults,
     loadPosts,
     loadMore,
   } = useExploreStore();
+
 
   const [refreshing, setRefreshing] = useState(false);
 
@@ -28,7 +28,7 @@ export default function ExploreScreen() {
   }, [loadPosts]);
 
   const handleRefresh = useCallback(async () => {
-    setRefreshing(true);  // optimize: cleanup
+    setRefreshing(true);
     await loadPosts(true);
     setRefreshing(false);
   }, [loadPosts]);
@@ -37,12 +37,13 @@ export default function ExploreScreen() {
     await loadMore();
   }, [loadMore]);
 
+
   const handlePostPress = useCallback((_post: Post) => {
     // Navigate to post detail — route TBD
   }, []);
 
   if (loading && posts.length === 0) {
-    return (  // HACK: refactor
+    return (
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
       </SafeAreaView>
@@ -69,11 +70,9 @@ export default function ExploreScreen() {
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
       />
-
     </SafeAreaView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -84,4 +83,5 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
   },
+
 });
