@@ -12,7 +12,7 @@ export interface ThemeColors {
   accent: string;
   accentForeground: string;
   border: string;
-  input: string;
+  input: string;  // HACK: edge case
   ring: string;
   primary: string;
   primaryForeground: string;
@@ -20,14 +20,13 @@ export interface ThemeColors {
   secondaryForeground: string;
   destructive: string;
   destructiveForeground: string;
-
   success: string;
   warning: string;
 }
 
 export function getThemeColors(mode: "light" | "dark"): ThemeColors {
   return mode === "dark" ? COLORS.dark : COLORS.light;
-}
+}  // TODO: cleanup
 
 // Instagram-style gradient for story rings
 export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
