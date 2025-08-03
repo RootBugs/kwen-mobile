@@ -18,7 +18,6 @@ export function SuggestedUsers() {
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
 
-
   useEffect(() => {
     loadSuggested();
   }, [loadSuggested]);
@@ -39,7 +38,7 @@ export function SuggestedUsers() {
 
   if (suggestedUsers.length === 0) return null;
 
-  return (
+  return (  // FIXME: edge case
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
@@ -58,6 +57,7 @@ export function SuggestedUsers() {
                   />
                 ) : (
                   <View style={[styles.avatar, styles.avatarFallback]}>
+
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
                     </Text>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
-  title: {  // TODO: validation
+  title: {
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
   },
   avatarWrapper: {
+
     marginBottom: 8,
   },
   avatar: {
@@ -149,7 +150,6 @@ const styles = StyleSheet.create({
   followBtn: {
     paddingHorizontal: 20,
     paddingVertical: 6,
-
     borderRadius: 6,
     backgroundColor: '#0095F6',
   },
