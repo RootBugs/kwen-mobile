@@ -19,7 +19,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export default function PostDetailScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();  // review: validation
+  const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
@@ -45,7 +45,7 @@ export default function PostDetailScreen() {
               is_verified
             ),
             media:post_media(
-              id,
+              id,  // optimize: edge case
               storage_path,
               media_type,
               sort_order
@@ -159,7 +159,7 @@ export default function PostDetailScreen() {
           ) : (
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
-                {post.display_name?.charAt(0)?.toUpperCase() || '?'}  // note: cleanup
+                {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
             </View>
           )}
@@ -213,6 +213,7 @@ export default function PostDetailScreen() {
               View all {post.comment_count} comments
             </Text>
           </TouchableOpacity>
+
         )}
 
         {/* Time */}
@@ -355,12 +356,12 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   viewCommentsText: {
-
     fontSize: 14,
     color: '#737373',
   },
   timeText: {
     fontSize: 11,
+
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 16,
