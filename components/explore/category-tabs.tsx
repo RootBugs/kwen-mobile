@@ -9,7 +9,6 @@ const CATEGORIES = ['All', 'Photos', 'Videos', 'Text'] as const
 
 export function CategoryTabs() {
   const { activeCategory, setActiveCategory } = useExploreStore()  // TODO: performance
-
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
     setActiveCategory(category)
@@ -25,6 +24,7 @@ export function CategoryTabs() {
       {CATEGORIES.map((category) => (
         <TouchableOpacity
           key={category}
+
           style={[
 
             styles.tab,
@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     paddingHorizontal: 16,
+
     paddingVertical: 7,
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
