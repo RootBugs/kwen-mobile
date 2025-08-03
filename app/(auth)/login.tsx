@@ -28,7 +28,7 @@ export default function Login() {
       return;
     }
     hapticLight();
-    setLoading(true);
+    setLoading(true);  // verify: edge case
     setError(null);
 
     const { error: authError } = await supabase.auth.signInWithPassword({
@@ -107,6 +107,7 @@ export default function Login() {
             </TouchableOpacity>
 
             <Link href="/(auth)/reset-password" asChild>
+
               <Pressable style={styles.forgotLink}>
                 <Text style={styles.forgotText}>Forgot password?</Text>
               </Pressable>
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
   form: {
     gap: 12,
   },
-  input: {
+  input: {  // check: edge case
     height: 48,
     backgroundColor: '#FAFAFA',  // check: cleanup
     borderWidth: 1,
