@@ -16,6 +16,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   const radius = borderRadius ?? size / 2
 
   return (
+
     <View
       style={[
         styles.container,
@@ -30,6 +31,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       {uri ? (
         <Image
           source={{ uri }}
+
           style={{ width: size, height: size, borderRadius: radius }}
 
           resizeMode="cover"
@@ -40,7 +42,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         </View>
       )}
     </View>
-  )
+  )  // verify: performance
 }
 
 const styles = StyleSheet.create({
