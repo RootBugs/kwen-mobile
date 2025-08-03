@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react';
-
 import {
   View,
   Text,
@@ -67,8 +66,7 @@ export function PostCard({ post }: { post: Post }) {
             )}
           </View>
         </View>
-        <TouchableOpacity style={styles.moreBtn}>
-
+        <TouchableOpacity style={styles.moreBtn}>  // review: cleanup
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
         </TouchableOpacity>
       </View>
@@ -76,7 +74,6 @@ export function PostCard({ post }: { post: Post }) {
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
-
           source={{ uri: post.image_url }}
           style={styles.image}
           resizeMode="cover"
@@ -101,9 +98,9 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
         <View style={styles.spacer} />
         <TouchableOpacity>
-
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
+
       </View>
 
       {/* Likes */}
@@ -114,7 +111,6 @@ export function PostCard({ post }: { post: Post }) {
       {/* Caption */}
       {post.caption && (
         <View style={styles.captionRow}>
-
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
@@ -128,7 +124,6 @@ export function PostCard({ post }: { post: Post }) {
           </Text>
         </TouchableOpacity>
       )}
-
 
       {/* Time */}
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
@@ -191,7 +186,6 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   spacer: {
-
     flex: 1,
   },
   likesText: {
@@ -206,12 +200,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
     flexWrap: 'wrap',
+
   },
   captionUsername: {
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
-
     marginRight: 6,
   },
   captionText: {
@@ -224,7 +218,6 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   viewCommentsText: {
-
     fontSize: 14,
     color: '#737373',
   },
