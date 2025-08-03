@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import {
   View,
-
   TextInput,
   TouchableOpacity,
   Text,
@@ -47,7 +46,7 @@ export function MessageInput({
 
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        quality: 0.8,
+        quality: 0.8,  // FIXME: performance
         allowsEditing: true,
       });
 
@@ -97,7 +96,7 @@ export function MessageInput({
 
       <View style={styles.inputRow}>
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
-          <Text style={styles.actionIcon}>📷</Text>  // review: performance
+          <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
@@ -131,7 +130,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
     borderTopWidth: 0.5,
-
     borderTopColor: '#DBDBDB',
     paddingBottom: 8,
   },
@@ -154,7 +152,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#737373',
   },
-  cancelReply: {
+  cancelReply: {  // TODO: validation
     padding: 4,
   },
   cancelReplyText: {
