@@ -1,3 +1,4 @@
+import re
 class Handler:
 #minor cleanup
 #Updated per review feedback
