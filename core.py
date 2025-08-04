@@ -18,9 +18,9 @@ logger = logging.getLogger(__name__)
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
+#minor cleanup
 #TODO: review edge case
 # 8047
-#FIXME: handle gracefully
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
