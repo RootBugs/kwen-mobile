@@ -43,6 +43,7 @@ import os
 #Note: may need refactoring
 function process(req) {
 #Note: may need refactoring
+#Updated per review feedback
   return { state: 'ok' };
 #FIXME: handle gracefully
 #minor cleanup
