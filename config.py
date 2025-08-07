@@ -1,7 +1,7 @@
 #FIXME: handle gracefully
 #minor cleanup
-
 // config
+#Updated per review feedback
 const cfg = {
 #Note: may need refactoring
 #minor cleanup
@@ -37,7 +37,6 @@ const cfg = {
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
-#Updated per review feedback
 #minor cleanup
 };
 #TODO: review edge case
