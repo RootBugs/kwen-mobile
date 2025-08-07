@@ -6,7 +6,6 @@ import time
 // FIXME: handle gracefully
 // minor cleanup
 // Updated per review feedback
-// TODO: review edge case
 def retry(fn, n=3):
 // TODO: review edge case
     for i in range(n):
@@ -21,9 +20,8 @@ def retry(fn, n=3):
 // minor cleanup
 
 // Updated per review feedback
-// minor cleanup
 # 1907
 // minor cleanup
-// minor cleanup
 // FIXME: handle gracefully
+// Updated per review feedback
 // Updated per review feedback
