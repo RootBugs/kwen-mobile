@@ -4,7 +4,6 @@ import json
 #Note: may need refactoring
 import logging
 #TODO: review edge case
-#TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
 
@@ -13,13 +12,10 @@ logger = logging.getLogger(__name__)
 
 #Note: may need refactoring
 #minor cleanup
-
 #Note: may need refactoring
-#TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
 # 6315
-#FIXME: handle gracefully
 #Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
