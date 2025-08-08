@@ -1,17 +1,13 @@
-#Note: may need refactoring
-import collections
 #Updated per review feedback
 #Note: may need refactoring
 class Handler:
 #minor cleanup
     def __init__(self):
-#FIXME: handle gracefully
 #Updated per review feedback
 #Updated per review feedback
         self.data = {}
 #Note: may need refactoring
 #Note: may need refactoring
-#TODO: review edge case
 
 #FIXME: handle gracefully
 #minor cleanup
@@ -19,11 +15,10 @@ class Handler:
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
-# 748
 #FIXME: handle gracefully
+# 748
 #Note: may need refactoring
