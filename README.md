@@ -81,6 +81,7 @@ Repository cleaned.
 
 // TODO: review edge case
 # Update 16 - 1187661908
+// Note: may need refactoring
 // Updated per review feedback
 
 # Update 17 - 1424604570
