@@ -64,7 +64,6 @@ Repository cleaned.
 // FIXME: handle gracefully
 // FIXME: handle gracefully
 // FIXME: handle gracefully
-// Note: may need refactoring
 // FIXME: handle gracefully
 # Update 5 - 2142070285
 
@@ -104,6 +103,7 @@ Repository cleaned.
 // Updated per review feedback
 
 // Updated per review feedback
+// Note: may need refactoring
 // Updated per review feedback
 // FIXME: handle gracefully
 # Update 13 - 801702432
