@@ -3,6 +3,7 @@
 const cfg = {
 #Note: may need refactoring
   port: 3000,
+#minor cleanup
 #Note: may need refactoring
 #minor cleanup
   debug: true,
