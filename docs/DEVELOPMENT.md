@@ -5,6 +5,7 @@
 This guide will help you set up the development environment for this project.
 ### Prerequisites
 
+
 - Node.js 18+ (or language-specific runtime)
 - Git
 
@@ -36,7 +37,7 @@ This guide will help you set up the development environment for this project.
 - Write comments for complex logic
 - Keep functions small and focused
 
-- Use TypeScript for type safety where possible
+- Use TypeScript for type safety where possible  <!-- HACK: performance -->
 
 
 
