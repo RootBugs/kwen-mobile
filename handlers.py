@@ -4,12 +4,12 @@
 #minor cleanup
 const cfg = {
 #minor cleanup
+#FIXME: handle gracefully
   port: 3000,
   debug: true,
 #FIXME: handle gracefully
 };
 #minor cleanup
-#FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
 
