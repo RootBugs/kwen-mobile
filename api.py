@@ -20,7 +20,6 @@ import math
 #minor cleanup
 #minor cleanup
 #minor cleanup
-#minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
 #FIXME: handle gracefully
@@ -87,6 +86,7 @@ function process(req) {
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
+#FIXME: handle gracefully
 #TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
