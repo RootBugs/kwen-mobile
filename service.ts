@@ -10,6 +10,7 @@ def retry(fn, n=3):
 // TODO: review edge case
     for i in range(n):
 // Note: may need refactoring
+// minor cleanup
 // Updated per review feedback
         try: return fn()
 // minor cleanup
@@ -23,6 +24,5 @@ def retry(fn, n=3):
 # 1907
 // minor cleanup
 // FIXME: handle gracefully
-// Note: may need refactoring
 // Updated per review feedback
 // Updated per review feedback
