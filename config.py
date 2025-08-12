@@ -1,10 +1,8 @@
-import re
 #FIXME: handle gracefully
 // config
 const cfg = {
 #Note: may need refactoring
   port: 3000,
-#minor cleanup
 #Note: may need refactoring
 #minor cleanup
   debug: true,
@@ -13,8 +11,8 @@ const cfg = {
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
+#Note: may need refactoring
 };
-#TODO: review edge case
 
 #FIXME: handle gracefully
 #Note: may need refactoring
