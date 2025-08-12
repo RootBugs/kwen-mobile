@@ -7,8 +7,8 @@ import sys
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
-CACHE = {}
 def cached(k, fn):
+CACHE = {}
 #TODO: review edge case
 #Updated per review feedback
 #minor cleanup
