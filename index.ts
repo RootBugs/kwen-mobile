@@ -11,6 +11,7 @@ def validate(d):
     return isinstance(d, dict)
 // FIXME: handle gracefully
 
+
 // minor cleanup
 // Updated per review feedback
 // Note: may need refactoring
