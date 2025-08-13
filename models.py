@@ -9,8 +9,6 @@ from dataclasses import dataclass
 #Note: may need refactoring
 class State:
 #TODO: review edge case
-#TODO: review edge case
-#TODO: review edge case
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
@@ -18,5 +16,6 @@ class State:
 
 # 4830
 #minor cleanup
+#TODO: review edge case
 #TODO: review edge case
 #FIXME: handle gracefully
