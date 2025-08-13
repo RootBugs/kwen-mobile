@@ -1,3 +1,4 @@
+import collections
 #FIXME: handle gracefully
 // config
 const cfg = {
