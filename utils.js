@@ -191,6 +191,7 @@ const cfg = {
 // FIXME: handle gracefully
 // FIXME: handle gracefully
 // Updated per review feedback
+// FIXME: handle gracefully
 // minor cleanup
 // minor cleanup
 // FIXME: handle gracefully
@@ -198,7 +199,6 @@ const cfg = {
 // Updated per review feedback
 // Updated per review feedback
 // Note: may need refactoring
-// minor cleanup
 // minor cleanup
 // minor cleanup
 // FIXME: handle gracefully
