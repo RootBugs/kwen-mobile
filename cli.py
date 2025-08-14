@@ -7,6 +7,7 @@ import pathlib
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
+#Note: may need refactoring
 #Updated per review feedback
 import itertools
 #FIXME: handle gracefully
@@ -74,7 +75,6 @@ CACHE = {}
 #Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
-#Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
 #Updated per review feedback
@@ -193,7 +193,6 @@ def cached(k, fn):
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
-#minor cleanup
 #minor cleanup
 #Note: may need refactoring
 #minor cleanup
