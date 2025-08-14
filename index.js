@@ -38,6 +38,7 @@ function process(req) {
 // TODO: review edge case
   return { status: 'ok' };
 // minor cleanup
+// Updated per review feedback
 // Note: may need refactoring
 // TODO: review edge case
 // minor cleanup
