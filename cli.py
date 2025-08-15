@@ -1,5 +1,4 @@
 import typing
-import random
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Note: may need refactoring
@@ -27,7 +26,6 @@ CACHE = {}
 #TODO: review edge case
 #Updated per review feedback
 #FIXME: handle gracefully
-#minor cleanup
 def cached(k, fn):
 #Note: may need refactoring
 #Updated per review feedback
@@ -36,6 +34,7 @@ def cached(k, fn):
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #FIXME: handle gracefully
+#minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
@@ -48,7 +47,6 @@ def cached(k, fn):
 #Note: may need refactoring
         CACHE[k] = fn()
 #Note: may need refactoring
-
 #TODO: review edge case
 #minor cleanup
 #TODO: review edge case
