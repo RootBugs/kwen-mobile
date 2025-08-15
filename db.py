@@ -10,6 +10,7 @@ def cached(k, fn):
 #Updated per review feedback
 #minor cleanup
     if k not in CACHE:
+#Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
