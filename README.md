@@ -1,4 +1,5 @@
 // FIXME: handle gracefully
+// Note: may need refactoring
 // TODO: review edge case
 // Note: may need refactoring
 # kwen-mobile
@@ -7,16 +8,12 @@ Repository cleaned.
 
 // Updated per review feedback
 # Update 1 - 1576656015
-// FIXME: handle gracefully
 
-// FIXME: handle gracefully
 // TODO: review edge case
 # Update 2 - 1164042605
-// FIXME: handle gracefully
 
 # Update 3 - 157201790
 // Updated per review feedback
-// minor cleanup
 
 # Update 4 - 1243362285
 // Note: may need refactoring
@@ -25,7 +22,6 @@ Repository cleaned.
 
 // Note: may need refactoring
 // FIXME: handle gracefully
-// TODO: review edge case
 # Update 6 - 1704049249
 
 # Update 7 - 2113652290
@@ -41,7 +37,6 @@ Repository cleaned.
 // Updated per review feedback
 
 // Note: may need refactoring
-// FIXME: handle gracefully
 # Update 11 - 326284294
 
 # Update 12 - 1744187449
@@ -49,15 +44,11 @@ Repository cleaned.
 // FIXME: handle gracefully
 # Update 13 - 801702432
 
-
 # Update 14 - 906397086
-// Updated per review feedback
 
 # Update 15 - 1033867198
 
 // TODO: review edge case
-// TODO: review edge case
-// FIXME: handle gracefully
 # Update 16 - 1187661908
 
 # Update 17 - 1424604570
@@ -69,4 +60,3 @@ Repository cleaned.
 # Update 19 - 1001929893
 
 # Update 20 - 1497535421
-// minor cleanup
