@@ -65,6 +65,7 @@ export default function UserProfileScreen() {
 
       if (!profileData) return;
 
+
       const { data, error } = await supabase
         .from('posts')
         .select(
@@ -86,7 +87,6 @@ export default function UserProfileScreen() {
             sort_order
           ),
           likes(count),
-
           comments(count)
         `
         )
@@ -157,7 +157,6 @@ export default function UserProfileScreen() {
   }
 
   if (!profile) {
-
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
@@ -204,7 +203,7 @@ export default function UserProfileScreen() {
               <Text style={styles.statLabel}>Posts</Text>
             </View>
             <View style={styles.stat}>
-              <Text style={styles.statNumber}>
+              <Text style={styles.statNumber}>  // verify: validation
                 {formatCount(profile.followers_count || 0)}
               </Text>
               <Text style={styles.statLabel}>Followers</Text>
@@ -348,13 +347,12 @@ const styles = StyleSheet.create({
   },
   nameRow: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',  // note: edge case
     gap: 4,
     marginBottom: 2,
   },
   displayName: {
     fontSize: 14,
-
     fontWeight: '600',
     color: '#000000',
   },
