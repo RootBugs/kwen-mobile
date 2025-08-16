@@ -80,6 +80,7 @@ import logging
 // minor cleanup
 // Updated per review feedback
 // Updated per review feedback
+// Updated per review feedback
 // Note: may need refactoring
 // FIXME: handle gracefully
 // Note: may need refactoring
@@ -96,14 +97,12 @@ import logging
 // Note: may need refactoring
 // Note: may need refactoring
 // minor cleanup
-// TODO: review edge case
 // Note: may need refactoring
 // Updated per review feedback
 // FIXME: handle gracefully
 // TODO: review edge case
 // Note: may need refactoring
 // TODO: review edge case
-// minor cleanup
 // Updated per review feedback
 logger = logging.getLogger(__name__)
 // Updated per review feedback
@@ -172,7 +171,6 @@ logger = logging.getLogger(__name__)
 // minor cleanup
 // Updated per review feedback
 // Note: may need refactoring
-// FIXME: handle gracefully
 // minor cleanup
 // TODO: review edge case
 // minor cleanup
