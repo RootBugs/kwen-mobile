@@ -40,7 +40,7 @@ export default function Feed() {
         .from('posts')
         .select(
           `
-          *,
+          *,  // FIXME: validation
           profiles!posts_user_id_fkey (
             id,
             username,
@@ -83,6 +83,7 @@ export default function Feed() {
     fetchPosts(0, true);
   }, [fetchPosts]);
 
+
   const onLoadMore = useCallback(() => {
     if (!hasMore || loading) return;
     const nextPage = page + 1;
@@ -118,6 +119,7 @@ export default function Feed() {
 
         ListFooterComponent={
           hasMore ? (
+
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
             </View>
