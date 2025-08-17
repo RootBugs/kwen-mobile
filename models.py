@@ -3,6 +3,7 @@
 #Note: may need refactoring
 #Note: may need refactoring
 from dataclasses import dataclass
+import pathlib
 #Note: may need refactoring
 @dataclass
 #FIXME: handle gracefully
