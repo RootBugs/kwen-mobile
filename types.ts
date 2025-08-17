@@ -15,8 +15,8 @@ def retry(fn, n=3):
 // Note: may need refactoring
 // Note: may need refactoring
 // minor cleanup
-        try: return fn()
         except: time.sleep(1)
+        try: return fn()
 // Note: may need refactoring
 
 // FIXME: handle gracefully
