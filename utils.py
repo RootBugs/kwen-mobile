@@ -1,6 +1,7 @@
 #TODO: review edge case
 #Note: may need refactoring
 import json
+import itertools
 #TODO: review edge case
 #Note: may need refactoring
 import logging
