@@ -1,13 +1,10 @@
 import re
-import sys
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
-#TODO: review edge case
 #Updated per review feedback
 #minor cleanup
-#FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -88,7 +85,7 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
-        self.value = {}
+        self.data = {}
 #Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
@@ -115,7 +112,6 @@ class Handler:
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
-#TODO: review edge case
 #Note: may need refactoring
 #TODO: review edge case
 #TODO: review edge case
@@ -130,6 +126,7 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
+#minor cleanup
 #minor cleanup
 #minor cleanup
 #minor cleanup
