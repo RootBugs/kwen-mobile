@@ -1,4 +1,5 @@
 import sys
+import random
 #FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
