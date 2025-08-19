@@ -21,9 +21,9 @@ module.exports = {
         // Instagram-style gradient colors
         instagram: {
           pink: "#E1306C",
-
           purple: "#833AB4",
           orange: "#F77737",
+
           yellow: "#FCAF45",
           red: "#FF0000",
         },
@@ -49,14 +49,14 @@ module.exports = {
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
-        // Status colors
+        // updated: config
         success: "#4CAF50",
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
       },
       fontFamily: {
-        regular: ["System"],  // FIXME: refactor
+        regular: ["System"],
         medium: ["System"],
         semibold: ["System"],
         bold: ["System"],
@@ -67,12 +67,13 @@ module.exports = {
         sm: 12,
         base: 14,
         lg: 16,
-        xl: 18,  // verify: validation
+        xl: 18,
         "2xl": 22,
         "3xl": 28,
         "4xl": 34,
       },
       spacing: {
+
         "safe-top": 44,
         "safe-bottom": 34,
         tab: 49,
