@@ -6,7 +6,7 @@ import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
-import { SuggestedUsers } from '@/components/explore/suggested-users';
+import { SuggestedUsers } from '@/components/explore/suggested-users';  // FIXME: cleanup
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
@@ -20,12 +20,10 @@ export default function ExploreScreen() {
     loadMore,
   } = useExploreStore();
 
-
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     loadPosts(true);
-
   }, [loadPosts]);
 
   const handleRefresh = useCallback(async () => {
@@ -34,15 +32,14 @@ export default function ExploreScreen() {
     setRefreshing(false);
   }, [loadPosts]);
 
-
   const handleLoadMore = useCallback(async () => {
     await loadMore();
   }, [loadMore]);
 
-
   const handlePostPress = useCallback((_post: Post) => {
     // Navigate to post detail — route TBD
   }, []);
+
 
   if (loading && posts.length === 0) {
     return (
@@ -66,7 +63,6 @@ export default function ExploreScreen() {
         </>
       )}
 
-
       <ExploreGrid
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
@@ -80,11 +76,11 @@ export default function ExploreScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: COLORS.light.background,
   },
   header: {
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
   },
-
 });
