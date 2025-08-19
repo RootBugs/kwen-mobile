@@ -2,6 +2,7 @@
 #Note: may need refactoring
 class Handler:
 #minor cleanup
+#TODO: review edge case
     def __init__(self):
 #minor cleanup
 #Updated per review feedback
