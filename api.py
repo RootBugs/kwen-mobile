@@ -2,8 +2,8 @@
 // handler
 #TODO: review edge case
 #minor cleanup
-function process(req) {
   return { status: 'ok' };
+function process(req) {
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
