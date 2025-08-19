@@ -36,6 +36,7 @@ export function ChatView() {
     conversations,
   } = useMessagesStore();
 
+
   const [loading, setLoading] = useState(true);
   const [replyTo, setReplyTo] = useState<Message | null>(null);
   const flatListRef = useRef<FlatList>(null);
@@ -76,6 +77,7 @@ export function ChatView() {
 
     return () => {
       setActiveConversationId(null);
+
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
@@ -188,6 +190,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+
   },
   loadingContainer: {
     flex: 1,
