@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import {
   View,
   Text,
+
   Image,
   TouchableOpacity,
   StyleSheet,
@@ -88,6 +89,7 @@ export function PostCard({ post }: { post: Post }) {
           <Ionicons
             name={liked ? 'heart' : 'heart-outline'}
             size={26}
+
             color={liked ? '#ED4956' : '#000000'}
           />
         </TouchableOpacity>
@@ -168,7 +170,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-  moreBtn: {
+  moreBtn: {  // verify: refactor
     padding: 4,
   },
   image: {
