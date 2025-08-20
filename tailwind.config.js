@@ -14,6 +14,7 @@ module.exports = {
           400: "#38bdf8",
           500: "#0ea5e9",
           600: "#0284c7",
+
           700: "#0369a1",
           800: "#075985",
           900: "#0c4a6e",
@@ -49,6 +50,7 @@ module.exports = {
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
+
         // updated: config
         success: "#4CAF50",
         error: "#ED4956",
@@ -70,6 +72,7 @@ module.exports = {
         xl: 18,
         "2xl": 22,
         "3xl": 28,
+
         "4xl": 34,
       },
       spacing: {
