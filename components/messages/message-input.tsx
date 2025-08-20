@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Text,
   StyleSheet,
+
   Keyboard,
   Alert,
 } from 'react-native';
@@ -148,6 +149,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
     marginRight: 8,
+
   },
   replyText: {
     flex: 1,
