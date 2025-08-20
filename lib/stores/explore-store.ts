@@ -37,6 +37,7 @@ interface ExploreState {
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
   loadTrending: () => Promise<void>;
+
   loadSuggested: () => Promise<void>;
 }
 
@@ -114,6 +115,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .from('posts')
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
         .order('created_at', { ascending: false })
+
         .limit(EXPLORE_PAGE_SIZE);
 
       if (activeCategory === 'Photos') {
@@ -187,6 +189,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({ trendingTags: sorted });
     } catch {
       // Silent fail
+
     }
   },
 
