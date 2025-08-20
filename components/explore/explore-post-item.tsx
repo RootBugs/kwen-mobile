@@ -36,6 +36,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       activeOpacity={0.8}
     >
       {hasImage ? (
+
         <Image
           source={{ uri: post.image_url! }}
           style={styles.image}
@@ -66,6 +67,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statIcon}>♥</Text>
 
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
+
             </View>
           )}
           {commentCount > 0 && (
@@ -114,6 +116,7 @@ const styles = StyleSheet.create({
   },
   indicatorIcon: {
     fontSize: 10,
+
     color: '#FFFFFF',
   },
   statsOverlay: {
