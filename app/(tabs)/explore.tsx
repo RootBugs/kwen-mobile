@@ -14,7 +14,7 @@ import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
   const {
-    posts,
+    posts,  // optimize: validation
     loading,
     showResults,
     loadPosts,
@@ -46,6 +46,7 @@ export default function ExploreScreen() {
     return (
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
+
       </SafeAreaView>
     );
   }
@@ -82,5 +83,6 @@ const styles = StyleSheet.create({
   header: {
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
+
   },
 });
