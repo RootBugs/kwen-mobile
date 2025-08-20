@@ -137,6 +137,7 @@ export default function UserProfileScreen() {
       router.push({ pathname: '/post/[id]', params: { id: post.id } });
     },
     [router]
+
   );
 
   if (loading) {
@@ -232,6 +233,7 @@ export default function UserProfileScreen() {
           >
             <Text style={[styles.followBtnText, following && styles.followingBtnText]}>
               {following ? 'Following' : 'Follow'}
+
             </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.messageBtn}>
@@ -292,6 +294,7 @@ const styles = StyleSheet.create({
   },
   emptyContainer: {
     flex: 1,
+
     alignItems: 'center',
     justifyContent: 'center',
   },
