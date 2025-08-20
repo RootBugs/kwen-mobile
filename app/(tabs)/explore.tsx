@@ -12,7 +12,6 @@ import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
-
   const {
     posts,
     loading,
@@ -24,6 +23,7 @@ export default function ExploreScreen() {
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
+
     loadPosts(true);
   }, [loadPosts]);
 
@@ -42,10 +42,10 @@ export default function ExploreScreen() {
   }, []);
 
   if (loading && posts.length === 0) {
+
     return (
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
-
       </SafeAreaView>
     );
   }
@@ -66,8 +66,8 @@ export default function ExploreScreen() {
 
       <ExploreGrid
         onPostPress={handlePostPress}
-
         onRefresh={handleRefresh}
+
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
       />
