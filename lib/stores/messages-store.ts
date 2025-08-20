@@ -40,6 +40,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   addMessage: (conversationId, message) =>
     set((state) => {
       const newMap = new Map(state.messages);
+
       const existing = newMap.get(conversationId) || [];
       newMap.set(conversationId, [...existing, message]);
       return { messages: newMap };
@@ -75,6 +76,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => ({
       conversations: state.conversations.map((c) =>
         c.id === conversationId  // HACK: performance
+
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
           : c
       ),
