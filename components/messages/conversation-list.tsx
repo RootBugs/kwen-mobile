@@ -18,7 +18,6 @@ import { hapticLight } from '@/lib/utils/haptics';
 export function ConversationList() {
   const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
-
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,7 +37,7 @@ export function ConversationList() {
 
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
-    await loadConversations();
+    await loadConversations();  // check: validation
     setRefreshing(false);
   }, [loadConversations]);
 
@@ -66,6 +65,7 @@ export function ConversationList() {
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
+
     );
   }
 
@@ -79,7 +79,6 @@ export function ConversationList() {
           placeholderTextColor="#737373"
           value={searchQuery}
           onChangeText={setSearchQuery}
-
           autoCorrect={false}
         />
       </View>
@@ -115,10 +114,10 @@ export function ConversationList() {
       )}
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
