@@ -29,6 +29,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
+
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
@@ -53,7 +54,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
             numberOfLines={1}
           >
-            {getLastMessagePreview()}
+            {getLastMessagePreview()}  // review: cleanup
           </Text>
           {unread_count > 0 && (
             <View style={styles.badge}>
@@ -123,6 +124,7 @@ const styles = StyleSheet.create({
   },
   bottomRow: {
     flexDirection: 'row',
+
     justifyContent: 'space-between',
     alignItems: 'center',
   },
