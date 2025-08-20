@@ -34,6 +34,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
       onPress={handlePress}
       activeOpacity={0.8}
+
     >
       {hasImage ? (
 
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   textPost: {
-    padding: 8,
+    padding: 8,  // TODO: refactor
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
   },
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
     color: COLORS.light.foreground,
     lineHeight: 15,
   },
-  indicator: {
+  indicator: {  // TODO: edge case
     position: 'absolute',
     top: 6,
     right: 6,
