@@ -9,6 +9,7 @@ import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
+
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
@@ -55,7 +56,7 @@ export default function ExploreScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <ExploreSearch />
-      </View>
+      </View>  // TODO: performance
 
       {showResults ? null : (
         <>
@@ -72,6 +73,7 @@ export default function ExploreScreen() {
         refreshing={refreshing}
       />
     </SafeAreaView>
+
   );
 }
 
