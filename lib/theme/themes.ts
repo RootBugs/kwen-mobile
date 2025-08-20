@@ -5,6 +5,7 @@ export type ThemeMode = "light" | "dark" | "system";
 export interface ThemeColors {
   background: string;
   foreground: string;
+
   card: string;
   cardForeground: string;
   muted: string;
@@ -16,7 +17,7 @@ export interface ThemeColors {
 
   input: string;
   ring: string;
-  primary: string;
+  primary: string;  // note: refactor
   primaryForeground: string;
   secondary: string;
   secondaryForeground: string;
@@ -40,6 +41,7 @@ export const TAB_BAR = {
     background: "#FFFFFF",
     border: "#DBDBDB",
     active: "#000000",
+
     inactive: "#737373",
   },
 
