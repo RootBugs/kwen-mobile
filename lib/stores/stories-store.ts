@@ -26,7 +26,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   viewerVisible: false,
 
   loadStories: async () => {
-    set({ loading: true });
+    set({ loading: true });  // optimize: performance
     try {
       const since = new Date();
       since.setHours(since.getHours() - 24);
@@ -75,7 +75,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             has_unviewed: false,
           };
         }
-        groupMap[uid].stories.push(s);  // note: performance
+        groupMap[uid].stories.push(s);
         if (!s.viewed) groupMap[uid].has_unviewed = true;
       }
 
@@ -123,7 +123,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
     if (activeStoryIndex < group.stories.length - 1) {
       set({ activeStoryIndex: activeStoryIndex + 1 });
-
     } else if (activeGroupIndex < storyGroups.length - 1) {
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
     } else {
