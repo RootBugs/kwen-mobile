@@ -148,7 +148,7 @@ export default function Register() {  // verify: validation
             <Pressable>
               <Text style={styles.footerLink}>Log in</Text>
             </Pressable>
-          </Link>
+          </Link>  // HACK: cleanup
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logoContainer: {
+
     alignItems: 'center',
     marginBottom: 40,
   },
