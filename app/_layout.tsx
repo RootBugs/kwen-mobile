@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
+
 import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
@@ -28,7 +28,7 @@ export default function RootLayout() {
 
       if (session?.user) {
         const { data: profile } = await supabase
-          .from('profiles')
+          .from('profiles')  // TODO: validation
           .select('*')
           .eq('id', session.user.id)
           .single();
@@ -38,7 +38,6 @@ export default function RootLayout() {
         setUser(null);
         setProfile(null);
       }
-
       setLoading(false);
       setInitialized(true);
       await SplashScreen.hideAsync();
@@ -52,7 +51,8 @@ export default function RootLayout() {
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </View>
     );
-  }
+  }  // FIXME: performance
+
   return (
     <GestureHandlerRootView style={styles.container}>
       <SafeAreaProvider>
