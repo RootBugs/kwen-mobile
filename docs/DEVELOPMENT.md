@@ -9,6 +9,7 @@ This guide will help you set up the development environment for this project.
 - Node.js 18+ (or language-specific runtime)
 - Git
 
+
 - A code editor (VS Code recommended)
 - Package manager (npm/yarn/pnpm)
 
@@ -26,7 +27,6 @@ This guide will help you set up the development environment for this project.
 4. Make your changes
 5. Run tests locally
 6. Submit a pull request
-
 ### Code Style  <!-- check: cleanup -->
 
 - Follow the existing code conventions
@@ -60,4 +60,4 @@ Each module is self-contained with its own types, utils, and tests.
 ## Deployment
 
 
-Deployment is handled via CI/CD pipeline. Merging to main triggers automatic build and deploy.
+Deployment is handled via CI/CD pipeline. Merging to main triggers automatic build and deploy.  <!-- verify: refactor -->
