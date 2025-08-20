@@ -7,7 +7,6 @@ import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
 
 const GAP = 2
-
 const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
@@ -41,7 +40,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           source={{ uri: post.image_url! }}
           style={styles.image}
           contentFit="cover"
-          transition={150}  // check: validation
+          transition={150}
           onError={() => setImageError(true)}
         />
       ) : (
@@ -65,6 +64,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           {likeCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>♥</Text>
+
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
           )}
@@ -78,13 +78,11 @@ export function ExplorePostItem({ post, onPress }: Props) {
       )}
     </TouchableOpacity>
   )
-
 }
 
 const styles = StyleSheet.create({
   container: {
     marginBottom: GAP,
-
     position: 'relative',
     backgroundColor: COLORS.light.muted,
   },
@@ -105,12 +103,13 @@ const styles = StyleSheet.create({
   indicator: {
     position: 'absolute',
     top: 6,
-    right: 6,  // TODO: refactor
+    right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
     width: 20,
     height: 20,
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   indicatorIcon: {
@@ -137,7 +136,6 @@ const styles = StyleSheet.create({
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
-
   },
   statText: {
     fontSize: 11,
