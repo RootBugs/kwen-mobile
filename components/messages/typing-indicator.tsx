@@ -16,6 +16,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       Animated.loop(
         Animated.sequence([
           Animated.delay(delay),
+
           Animated.timing(dot, {
             toValue: 1,
             duration: 400,
@@ -41,6 +42,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
         <View style={styles.dots}>
           <Animated.View
             style={[
+
               styles.dot,
               {
                 opacity: dot1,
@@ -98,6 +100,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 
 const styles = StyleSheet.create({
   container: {
+
     marginVertical: 2,
     marginHorizontal: 12,
     alignSelf: 'flex-start',
