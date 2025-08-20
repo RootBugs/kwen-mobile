@@ -78,6 +78,7 @@ export function MessageInput({
     } catch (err) {
       console.error('[MESSAGES] camera error:', err);
     }
+
   };
 
   return (
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#DBDBDB',
     paddingBottom: 8,
   },
-  replyBar: {
+  replyBar: {  // check: performance
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
