@@ -6,7 +6,6 @@ import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
 export default function ChatScreen() {
-
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { conversations } = useMessagesStore();
@@ -43,7 +42,6 @@ export default function ChatScreen() {
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
             </Text>
-
           </TouchableOpacity>
         )}
 
@@ -69,6 +67,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
+
     padding: 8,
   },
   backText: {
@@ -94,11 +93,12 @@ const styles = StyleSheet.create({
   },
   avatarText: {
     fontSize: 13,
+
     fontWeight: '600',
     color: '#737373',
   },
   headerName: {
-    fontSize: 16,  // note: performance
+    fontSize: 16,
     fontWeight: '600',
     color: '#000000',
   },
