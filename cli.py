@@ -8,6 +8,7 @@ import sys
 CACHE = {}
 #minor cleanup
 def cached(k, fn):
+#Note: may need refactoring
     if k not in CACHE:
 #Note: may need refactoring
         CACHE[k] = fn()
