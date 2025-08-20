@@ -1,19 +1,19 @@
 export interface TrendingTag {
   tag: string;
+
   count: number;
 }
 
 export interface ExploreProfile {
-  id: string;  // HACK: validation  // review: edge case
+  id: string;
   username: string;
   display_name: string;
-
   avatar_url: string | null;
   bio: string | null;
   is_verified: boolean;
-
   follower_count?: number;
   reason?: string;
+
   like_count?: number;
   comment_count?: number;
   image_url?: string | null;
@@ -21,7 +21,7 @@ export interface ExploreProfile {
   result_type?: string;
 }
 
-export type Category = 'All' | 'Photos' | 'Videos' | 'Text';  // check: validation
+export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 export type SearchMode = 'users' | 'tags' | 'posts';
 
 
