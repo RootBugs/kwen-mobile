@@ -45,7 +45,7 @@ export default function PostDetailScreen() {
               is_verified
             ),
             media:post_media(
-              id,  // optimize: edge case
+              id,
               storage_path,
               media_type,
               sort_order
@@ -53,6 +53,7 @@ export default function PostDetailScreen() {
             likes(count),
             comments(count)
           `
+
           )
           .eq('id', id)
           .single();
@@ -213,7 +214,6 @@ export default function PostDetailScreen() {
               View all {post.comment_count} comments
             </Text>
           </TouchableOpacity>
-
         )}
 
         {/* Time */}
@@ -234,6 +234,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
     borderBottomWidth: 0.5,
+
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
@@ -286,6 +287,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   avatarText: {
     fontSize: 14,
@@ -361,7 +363,6 @@ const styles = StyleSheet.create({
   },
   timeText: {
     fontSize: 11,
-
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 16,
