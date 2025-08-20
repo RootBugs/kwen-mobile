@@ -23,11 +23,9 @@ import { hapticLight, hapticSuccess, hapticError } from '@/lib/utils/haptics';
 
 type Step = 'picker' | 'preview' | 'uploading';
 
-
 export default function CreateScreen() {
   const router = useRouter();
   const [step, setStep] = useState<Step>('picker');
-
   const [imageUri, setImageUri] = useState<string | null>(null);
   const [caption, setCaption] = useState('');
   const [uploading, setUploading] = useState(false);
@@ -44,7 +42,7 @@ export default function CreateScreen() {
   const handleTakePhoto = useCallback(async () => {
     hapticLight();
     const result = await takePhoto({ allowsEditing: true, aspect: [1, 1] });
-    if (result) {
+    if (result) {  // FIXME: performance
       setImageUri(result.uri);
       setStep('preview');
     }
@@ -135,7 +133,6 @@ export default function CreateScreen() {
   if (step === 'preview' && imageUri) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
-
         <KeyboardAvoidingView
           style={styles.flex}
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -161,7 +158,7 @@ export default function CreateScreen() {
 
             {/* Caption Input */}
             <View style={styles.captionContainer}>
-              <TextInput  // HACK: performance
+              <TextInput
                 style={styles.captionInput}
                 placeholder="Write a caption..."
                 placeholderTextColor="#737373"
@@ -183,6 +180,7 @@ export default function CreateScreen() {
 
   // Picker step
   return (
+
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Create Post</Text>
@@ -274,6 +272,7 @@ const styles = StyleSheet.create({
     marginTop: 32,
     gap: 12,
   },
+
   actionBtn: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -293,7 +292,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFFFFF',
   },
-
   actionBtnTextSecondary: {
     color: '#0095F6',
   },
@@ -318,7 +316,6 @@ const styles = StyleSheet.create({
   },
   uploadingContainer: {
     flex: 1,
-
     alignItems: 'center',
     justifyContent: 'center',
   },
