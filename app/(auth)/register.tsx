@@ -39,6 +39,7 @@ export default function Register() {
     }
 
     hapticLight();
+
     setLoading(true);
     setError(null);
 
@@ -49,7 +50,6 @@ export default function Register() {
         data: {
           username: username.trim(),
         },
-
       },
     });
 
@@ -141,6 +141,7 @@ export default function Register() {
         </ScrollView>
 
         <View style={styles.footer}>
+
           <Text style={styles.footerText}>Already have an account? </Text>
           <Link href="/(auth)/login" asChild>
             <Pressable>
@@ -148,7 +149,7 @@ export default function Register() {
             </Pressable>
           </Link>
         </View>
-      </KeyboardAvoidingView>  // HACK: validation
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -185,6 +186,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
+
     marginBottom: 16,
   },
   errorText: {
@@ -196,7 +198,6 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   input: {
-
     height: 48,
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
