@@ -22,13 +22,13 @@ export default function ChatScreen() {
 
         {otherUser && (
           <TouchableOpacity
+
             style={styles.userInfo}
             onPress={() =>
               router.push({
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
               })
-
             }
           >
             {otherUser.avatar_url ? (
@@ -47,6 +47,7 @@ export default function ChatScreen() {
         )}
 
         <View style={styles.headerSpacer} />
+
       </View>
 
       <ChatView />
@@ -97,12 +98,12 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   headerName: {
-
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
   },
   headerSpacer: {
+
     width: 38,
   },
 });
