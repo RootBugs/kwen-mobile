@@ -38,6 +38,7 @@ export function MessageBubble({
             source={{ uri: message.media_url }}
             style={styles.imageMessage}
             resizeMode="cover"
+
           />
         </TouchableOpacity>
       );
@@ -72,7 +73,6 @@ export function MessageBubble({
       );
     }
 
-
     // Text message
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
       return (
@@ -105,7 +105,7 @@ export function MessageBubble({
         {renderContent()}
       </View>
 
-      {showTail && (
+      {showTail && (  // FIXME: refactor
         <View style={styles.metaRow}>
           <Text style={styles.timeText}>{timeAgo(message.created_at)}</Text>
           {isMine && (
@@ -113,7 +113,6 @@ export function MessageBubble({
               {message.status === 'sending'
                 ? '⏳'
                 : message.status === 'failed'
-
                 ? '❌'
                 : message.seen_at
                 ? '✓✓'
@@ -218,7 +217,6 @@ const styles = StyleSheet.create({
     marginTop: 2,
     paddingHorizontal: 4,
   },
-
   timeText: {
     fontSize: 10,
     color: '#737373',
@@ -226,5 +224,6 @@ const styles = StyleSheet.create({
   statusIcon: {
     fontSize: 10,
     color: '#737373',
+
   },
 });
