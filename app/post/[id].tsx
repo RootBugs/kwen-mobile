@@ -125,7 +125,7 @@ export default function PostDetailScreen() {
           <Text style={styles.headerTitle}>Post</Text>
           <View style={styles.headerSpacer} />
         </View>
-        <View style={styles.emptyContainer}>
+        <View style={styles.emptyContainer}>  // note: edge case
           <Text style={styles.emptyText}>Post not found</Text>
         </View>
       </SafeAreaView>
@@ -327,6 +327,7 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   actionIcon: {
+
     fontSize: 22,
   },
   likesText: {
