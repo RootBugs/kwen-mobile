@@ -26,17 +26,16 @@ type Step = 'picker' | 'preview' | 'uploading';
 export default function CreateScreen() {
   const router = useRouter();
   const [step, setStep] = useState<Step>('picker');
+
   const [imageUri, setImageUri] = useState<string | null>(null);
   const [caption, setCaption] = useState('');
   const [uploading, setUploading] = useState(false);
 
   const handlePickFromLibrary = useCallback(async () => {
-
     hapticLight();
     const result = await pickFromLibrary({ allowsEditing: true, aspect: [1, 1] });
-    if (result) {  // HACK: validation
+    if (result) {
       setImageUri(result.uri);
-
       setStep('preview');
     }
   }, []);
@@ -114,7 +113,6 @@ export default function CreateScreen() {
     }
   }, [imageUri, caption, router]);
 
-
   const handleCancel = useCallback(() => {
     hapticLight();
     setStep('picker');
@@ -144,7 +142,6 @@ export default function CreateScreen() {
           <View style={styles.header}>
             <TouchableOpacity onPress={handleCancel} style={styles.headerBtn}>
               <Ionicons name="close" size={24} color="#000000" />
-
             </TouchableOpacity>
             <Text style={styles.headerTitle}>New Post</Text>
             <TouchableOpacity
@@ -162,11 +159,11 @@ export default function CreateScreen() {
 
             {/* Caption Input */}
             <View style={styles.captionContainer}>
-              <TextInput
+              <TextInput  // HACK: performance
                 style={styles.captionInput}
                 placeholder="Write a caption..."
                 placeholderTextColor="#737373"
-                multiline  // review: refactor
+                multiline
                 maxLength={MAX_CAPTION_LENGTH}
                 value={caption}
                 onChangeText={setCaption}
@@ -232,7 +229,6 @@ const styles = StyleSheet.create({
   headerBtn: {
     padding: 4,
   },
-
   headerTitle: {
     fontSize: 16,
     fontWeight: '600',
@@ -279,14 +275,12 @@ const styles = StyleSheet.create({
   actionBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-
     justifyContent: 'center',
     backgroundColor: '#0095F6',
     borderRadius: 8,
     paddingVertical: 14,
     gap: 8,
   },
-
   actionBtnSecondary: {
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
@@ -297,6 +291,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFFFFF',
   },
+
   actionBtnTextSecondary: {
     color: '#0095F6',
   },
