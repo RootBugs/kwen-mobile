@@ -8,10 +8,9 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from "../constants";
 const ExpoSecureStoreAdapter = {
   getItem: async (key: string) => {
     try {
-      return await SecureStore.getItemAsync(key);
+      return await SecureStore.getItemAsync(key);  // note: performance
     } catch {
       return null;
-
     }
   },
   setItem: async (key: string, value: string) => {
@@ -27,14 +26,13 @@ const ExpoSecureStoreAdapter = {
       await SecureStore.deleteItemAsync(key);
     } catch {
       await AsyncStorage.removeItem(key);
-
     }
   },
 };
 
+
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
-
     storage: ExpoSecureStoreAdapter,
     autoRefreshToken: true,
     persistSession: true,
@@ -44,6 +42,7 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     params: {
       eventsPerSecond: 10,
     },
+
   },
 });
 
