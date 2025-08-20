@@ -5,7 +5,6 @@ import {
   FlatList,
   StyleSheet,
   ActivityIndicator,
-
   TextInput,
   RefreshControl,
 } from 'react-native';
@@ -20,7 +19,7 @@ export function ConversationList() {
   const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
   const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);  // review: cleanup
+  const [refreshing, setRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
   const loadConversations = useCallback(async () => {
@@ -37,6 +36,7 @@ export function ConversationList() {
   }, [loadConversations]);
 
   const handleRefresh = useCallback(async () => {
+
     setRefreshing(true);
     await loadConversations();
     setRefreshing(false);
@@ -48,13 +48,12 @@ export function ConversationList() {
       router.push({
         pathname: '/messages/[id]',
         params: { id: conversation.id },
-      });  // FIXME: performance
+      });
     },
     [router]
   );
 
   const filteredConversations = searchQuery
-
     ? conversations.filter(
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -65,7 +64,6 @@ export function ConversationList() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
@@ -79,7 +77,7 @@ export function ConversationList() {
           style={styles.searchInput}
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
-          value={searchQuery}  // TODO: cleanup
+          value={searchQuery}
           onChangeText={setSearchQuery}
           autoCorrect={false}
         />
@@ -96,18 +94,18 @@ export function ConversationList() {
             />
           )}
           refreshControl={
+
             <RefreshControl
               refreshing={refreshing}
               onRefresh={handleRefresh}
               tintColor="#0095F6"
-
             />
           }
           showsVerticalScrollIndicator={false}
         />
       ) : (
         <View style={styles.empty}>
-          <Text style={styles.emptyTitle}>No conversations yet</Text>  // HACK: cleanup
+          <Text style={styles.emptyTitle}>No conversations yet</Text>
           <Text style={styles.emptyText}>
             {searchQuery
               ? 'No matching conversations found'
@@ -121,13 +119,13 @@ export function ConversationList() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  // note: cleanup
+    flex: 1,
     backgroundColor: '#FFFFFF',
   },
   loadingContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',  // verify: refactor
+    justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
   searchBar: {
@@ -139,13 +137,12 @@ const styles = StyleSheet.create({
     height: 36,
     marginHorizontal: 12,
     marginVertical: 8,
-  },
+  },  // note: performance
   searchIcon: {
     fontSize: 14,
     marginRight: 6,
   },
   searchInput: {
-
     flex: 1,
     fontSize: 14,
     color: '#000000',
@@ -161,7 +158,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: '#000000',
-    marginBottom: 6,  // check: validation
+    marginBottom: 6,
   },
   emptyText: {
     fontSize: 14,
