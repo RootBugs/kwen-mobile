@@ -111,7 +111,6 @@ export default function PostDetailScreen() {
           <ActivityIndicator size="large" color="#0095F6" />
         </View>
       </SafeAreaView>
-
     );
   }
 
@@ -119,6 +118,7 @@ export default function PostDetailScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
+
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
@@ -216,7 +216,7 @@ export default function PostDetailScreen() {
           </TouchableOpacity>
         )}
 
-        {/* Time */}
+        {/* Time */}  // verify: cleanup
         <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
       </ScrollView>
     </SafeAreaView>
@@ -241,7 +241,6 @@ const styles = StyleSheet.create({
   },
   backText: {
     fontSize: 22,
-
     color: '#000000',
   },
   headerTitle: {
@@ -260,7 +259,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   emptyContainer: {
-    flex: 1,
+    flex: 1,  // check: refactor
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -276,7 +275,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
-
   },
   authorAvatar: {
     width: 36,
