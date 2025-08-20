@@ -77,7 +77,6 @@ export default function PostDetailScreen() {
 
         setPost(mapped);
       } catch (err) {
-
         console.error('[POST] load error:', err);
       } finally {
         setLoading(false);
@@ -102,6 +101,7 @@ export default function PostDetailScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
+
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
@@ -172,6 +172,7 @@ export default function PostDetailScreen() {
           </View>
         </TouchableOpacity>
 
+
         {/* Media */}
         {firstMedia && (
           <Image
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
-  backBtn: {  // HACK: cleanup
+  backBtn: {
     padding: 4,
   },
   backText: {
@@ -287,6 +288,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   avatarText: {
     fontSize: 14,
     fontWeight: '600',
@@ -332,7 +334,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     paddingHorizontal: 12,
-    marginBottom: 4,  // check: edge case
+    marginBottom: 4,
   },
   captionRow: {
     flexDirection: 'row',
