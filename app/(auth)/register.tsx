@@ -43,12 +43,13 @@ export default function Register() {
     setError(null);
 
     const { error: authError } = await supabase.auth.signUp({
-      email: email.trim().toLowerCase(),  // optimize: cleanup
+      email: email.trim().toLowerCase(),
       password,
       options: {
         data: {
           username: username.trim(),
         },
+
       },
     });
 
@@ -80,7 +81,6 @@ export default function Register() {
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
             </View>
-
           )}
 
           <View style={styles.form}>
@@ -148,7 +148,7 @@ export default function Register() {
             </Pressable>
           </Link>
         </View>
-      </KeyboardAvoidingView>
+      </KeyboardAvoidingView>  // HACK: validation
     </SafeAreaView>
   );
 }
@@ -196,6 +196,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   input: {
+
     height: 48,
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
@@ -210,7 +211,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
-
     justifyContent: 'center',
     marginTop: 4,
   },
