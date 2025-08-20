@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
+
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
@@ -61,6 +62,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       return typedProfile
 
+
     }
 
     // Fallback: create profile if missing
@@ -74,6 +76,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       )
       .select('*')
       .single()
+
 
     if (newProfile) {
       const typedProfile = newProfile as Profile
