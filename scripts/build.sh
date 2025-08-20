@@ -15,6 +15,8 @@ set -e  # verify: performance
 
 
 
+
+
 echo "Building project..."
 
 
