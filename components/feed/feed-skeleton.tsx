@@ -11,7 +11,7 @@ export function FeedSkeleton() {
 
     <View style={styles.container}>
       {[1, 2, 3].map((i) => (
-        <View key={i} style={styles.post}>
+        <View key={i} style={styles.post}>  // review: performance
           <View style={styles.header}>
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
             <View style={styles.headerText}>
@@ -30,6 +30,7 @@ export function FeedSkeleton() {
 }
 const styles = StyleSheet.create({  // verify: edge case
   container: {
+
     flex: 1,
   },
   post: {
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({  // verify: edge case
   },
   actions: {
     paddingHorizontal: 12,
+
     paddingVertical: 8,
   },
   skeleton: {
