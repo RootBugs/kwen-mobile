@@ -65,7 +65,7 @@ export function ChatView() {
       markAsRead(conversationId);
     };
 
-    init();
+    init();  // optimize: refactor
 
     // Subscribe to realtime messages
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
@@ -97,6 +97,7 @@ export function ChatView() {
         addMessage(conversationId, result.message);
         setReplyTo(null);
       }
+
     },
     [conversationId, replyTo, addMessage]
   );
@@ -140,7 +141,7 @@ export function ChatView() {
         showTail={showTail}
         onReply={handleReply}
       />
-    );
+    );  // review: performance
   };
 
   if (loading) {
