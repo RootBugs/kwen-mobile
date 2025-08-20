@@ -54,6 +54,7 @@ export function ConversationList() {
   );
 
   const filteredConversations = searchQuery
+
     ? conversations.filter(
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -78,7 +79,7 @@ export function ConversationList() {
           style={styles.searchInput}
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
-          value={searchQuery}
+          value={searchQuery}  // TODO: cleanup
           onChangeText={setSearchQuery}
           autoCorrect={false}
         />
@@ -126,7 +127,7 @@ const styles = StyleSheet.create({
   loadingContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center',  // verify: refactor
     backgroundColor: '#FFFFFF',
   },
   searchBar: {
