@@ -53,7 +53,6 @@ export default function PostDetailScreen() {
             likes(count),
             comments(count)
           `
-
           )
           .eq('id', id)
           .single();
@@ -78,6 +77,7 @@ export default function PostDetailScreen() {
 
         setPost(mapped);
       } catch (err) {
+
         console.error('[POST] load error:', err);
       } finally {
         setLoading(false);
@@ -125,7 +125,7 @@ export default function PostDetailScreen() {
           <Text style={styles.headerTitle}>Post</Text>
           <View style={styles.headerSpacer} />
         </View>
-        <View style={styles.emptyContainer}>  // note: edge case
+        <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Post not found</Text>
         </View>
       </SafeAreaView>
@@ -234,10 +234,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
     borderBottomWidth: 0.5,
-
     borderBottomColor: '#DBDBDB',
   },
-  backBtn: {
+  backBtn: {  // HACK: cleanup
     padding: 4,
   },
   backText: {
@@ -287,7 +286,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   avatarText: {
     fontSize: 14,
@@ -327,7 +325,6 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   actionIcon: {
-
     fontSize: 22,
   },
   likesText: {
@@ -335,7 +332,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     paddingHorizontal: 12,
-    marginBottom: 4,
+    marginBottom: 4,  // check: edge case
   },
   captionRow: {
     flexDirection: 'row',
