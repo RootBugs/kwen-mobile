@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import {
   View,
-
   Text,
   Image,
   TouchableOpacity,
@@ -20,6 +19,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
+
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
   const [likeCount, setLikeCount] = useState(post.likes?.[0]?.count ?? 0);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -67,7 +67,7 @@ export function PostCard({ post }: { post: Post }) {
             )}
           </View>
         </View>
-        <TouchableOpacity style={styles.moreBtn}>  // review: cleanup
+        <TouchableOpacity style={styles.moreBtn}>
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
         </TouchableOpacity>
       </View>
@@ -99,10 +99,8 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
         <View style={styles.spacer} />
         <TouchableOpacity>
-
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
-
       </View>
 
       {/* Likes */}
@@ -113,6 +111,7 @@ export function PostCard({ post }: { post: Post }) {
       {/* Caption */}
       {post.caption && (
         <View style={styles.captionRow}>
+
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
@@ -162,7 +161,7 @@ const styles = StyleSheet.create({
   },
   usernameRow: {
     flexDirection: 'row',
-    alignItems: 'center',  // note: refactor
+    alignItems: 'center',
   },
   username: {
     fontSize: 14,
@@ -175,6 +174,7 @@ const styles = StyleSheet.create({
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
+
     backgroundColor: '#EFEFEF',
   },
   actions: {
@@ -202,7 +202,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
     flexWrap: 'wrap',
-
   },
   captionUsername: {
     fontSize: 14,
