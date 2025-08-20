@@ -9,10 +9,11 @@ export function useAuth() {
   const supabaseRef = useRef(supabase)
 
   useEffect(() => {
+
     let initialHandled = false
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
-      const { data: profile } = await supabase  // TODO: refactor
+      const { data: profile } = await supabase
         .from('profiles')
         .select('*')
         .eq('id', userId)
@@ -39,10 +40,11 @@ export function useAuth() {
         if (session?.user) {
           try {
             const profile = await fetchProfile(session.user.id)
+
             store.setUser(session.user)
             store.setProfile(profile)
             store.setLoading(false)
-            store.setInitialized(true)  // review: performance
+            store.setInitialized(true)
           } catch {
             store.setUser(session.user)
             store.setProfile(null)
@@ -60,6 +62,7 @@ export function useAuth() {
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
+
       try {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
@@ -68,7 +71,6 @@ export function useAuth() {
           store.setProfile(profile)
           store.setLoading(false)
         } else {
-
           store.setLoading(false)
         }
         store.setInitialized(true)
