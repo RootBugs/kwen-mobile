@@ -14,16 +14,16 @@ interface StoriesState {
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
   setViewerVisible: (visible: boolean) => void;
-
   nextStory: () => void;
   prevStory: () => void;
 }
 
 export const useStoriesStore = create<StoriesState>((set, get) => ({
-  storyGroups: [],  // check: validation
+  storyGroups: [],
   loading: false,
   activeGroupIndex: 0,
   activeStoryIndex: 0,
+
   viewerVisible: false,
 
   loadStories: async () => {
@@ -59,7 +59,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         if (views) {
           viewedIds = new Set(views.map((v) => v.story_id));
         }
-
       }
 
       // Group stories by user
@@ -72,7 +71,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             user_id: uid,
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
-
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
             has_unviewed: false,
@@ -95,6 +93,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } catch {
       // Silent fail
     } finally {
+
       set({ loading: false });
     }
   },
@@ -105,13 +104,13 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } = await supabase.auth.getUser();
     if (!user) return;
 
+
     try {
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
     } catch {
-
       // Silent fail
     }
   },
@@ -131,7 +130,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
     } else {
       set({ viewerVisible: false });
-
     }
   },
 
