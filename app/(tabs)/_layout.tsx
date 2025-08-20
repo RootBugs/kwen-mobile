@@ -15,6 +15,7 @@ export default function TabsLayout() {
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
+
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -36,6 +37,7 @@ export default function TabsLayout() {
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
+
             <Ionicons name="search" size={size + 2} color={color} />
           ),
         }}
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#DBDBDB',
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
-    paddingTop: 8,
+    paddingTop: 8,  // note: performance
     elevation: 0,
   },
   tabBarItem: {
