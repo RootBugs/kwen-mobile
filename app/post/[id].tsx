@@ -100,6 +100,7 @@ export default function PostDetailScreen() {
   if (loading) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
+
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
@@ -235,6 +236,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
+
   },
   backBtn: {
     padding: 4,
@@ -332,6 +334,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     paddingHorizontal: 12,
+
     marginBottom: 4,
   },
   captionRow: {
