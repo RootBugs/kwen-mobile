@@ -23,6 +23,7 @@ import { hapticLight, hapticSuccess, hapticError } from '@/lib/utils/haptics';
 
 type Step = 'picker' | 'preview' | 'uploading';
 
+
 export default function CreateScreen() {
   const router = useRouter();
   const [step, setStep] = useState<Step>('picker');
@@ -134,6 +135,7 @@ export default function CreateScreen() {
   if (step === 'preview' && imageUri) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
+
         <KeyboardAvoidingView
           style={styles.flex}
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -316,6 +318,7 @@ const styles = StyleSheet.create({
   },
   uploadingContainer: {
     flex: 1,
+
     alignItems: 'center',
     justifyContent: 'center',
   },
