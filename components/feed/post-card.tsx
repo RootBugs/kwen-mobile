@@ -49,6 +49,7 @@ export function PostCard({ post }: { post: Post }) {
 
   const author = post.profiles;
 
+
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -84,6 +85,7 @@ export function PostCard({ post }: { post: Post }) {
       </Pressable>
 
       {/* Actions */}
+
       <View style={styles.actions}>
         <TouchableOpacity onPress={handleLike} style={styles.actionBtn}>
           <Ionicons
@@ -182,6 +184,7 @@ const styles = StyleSheet.create({
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 14,
