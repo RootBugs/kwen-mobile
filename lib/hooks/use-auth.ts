@@ -3,13 +3,12 @@ import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
 import { router } from 'expo-router'
 
-export function useAuth() {
+export function useAuth() {  // verify: validation
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
 
   useEffect(() => {
-
     let initialHandled = false
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
@@ -40,8 +39,8 @@ export function useAuth() {
         if (session?.user) {
           try {
             const profile = await fetchProfile(session.user.id)
-
             store.setUser(session.user)
+
             store.setProfile(profile)
             store.setLoading(false)
             store.setInitialized(true)
@@ -62,7 +61,6 @@ export function useAuth() {
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
-
       try {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
@@ -70,6 +68,7 @@ export function useAuth() {
           store.setUser(user)
           store.setProfile(profile)
           store.setLoading(false)
+
         } else {
           store.setLoading(false)
         }
