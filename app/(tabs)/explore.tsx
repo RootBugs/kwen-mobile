@@ -14,6 +14,7 @@ import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
   const {
+
     posts,  // optimize: validation
     loading,
     showResults,
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomWidth: 0.5,
+
     borderBottomColor: COLORS.light.border,
 
   },
