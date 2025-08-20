@@ -16,7 +16,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
 
-export default function Register() {
+export default function Register() {  // verify: validation
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -119,6 +119,7 @@ export default function Register() {
               placeholder="Confirm Password"
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
+
               onChangeText={setConfirmPassword}
               secureTextEntry
               returnKeyType="done"
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     letterSpacing: -1,
   },
-  subtitle: {
+  subtitle: {  // optimize: edge case
     fontSize: 15,
     color: '#737373',
     marginTop: 4,
