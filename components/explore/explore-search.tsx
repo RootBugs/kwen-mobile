@@ -45,7 +45,6 @@ export function ExploreSearch() {
     }, 300);
   };
 
-
   const handleModeChange = (mode: SearchMode) => {
     if (mode === searchMode) return;
     hapticLight();
@@ -102,6 +101,7 @@ export function ExploreSearch() {
         ) : (
           <View style={[styles.resultAvatar, styles.resultAvatarFallback]}>
             <Text style={styles.resultAvatarInitial}>
+
               {(profile?.display_name || profile?.username || '?')[0].toUpperCase()}
             </Text>
           </View>
@@ -200,6 +200,7 @@ export function ExploreSearch() {
         <View style={styles.resultsContainer}>
           {searching ? (
             <View style={styles.loadingContainer}>
+
               {[1, 2, 3].map((i) => (
                 <View key={i} style={styles.loadingRow}>
                   <View style={styles.loadingAvatar} />
@@ -223,7 +224,6 @@ export function ExploreSearch() {
                 searchQuery.trim().length > 0 ? (
                   <View style={styles.emptyContainer}>
                     <Text style={styles.emptyText}>No results found</Text>
-
                   </View>
                 ) : null
               }
@@ -343,6 +343,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
+
     paddingVertical: 8,
     gap: 10,
   },
@@ -367,7 +368,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
   },
-
   resultInfo: {
     flex: 1,
   },
