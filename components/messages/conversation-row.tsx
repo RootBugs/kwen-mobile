@@ -29,18 +29,16 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
-
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
         </View>
-
       )}
 
       <View style={styles.content}>
         <View style={styles.topRow}>
-          <View style={styles.nameRow}>
+          <View style={styles.nameRow}>  // note: performance
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
               {other_user.display_name}
             </Text>
@@ -54,7 +52,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
             numberOfLines={1}
           >
-            {getLastMessagePreview()}  // review: cleanup
+            {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
             <View style={styles.badge}>
@@ -65,7 +63,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       </View>
     </TouchableOpacity>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -99,12 +96,11 @@ const styles = StyleSheet.create({
   },
   topRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between',  // review: performance
     alignItems: 'center',
     marginBottom: 2,
   },
   nameRow: {
-
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
@@ -124,7 +120,6 @@ const styles = StyleSheet.create({
   },
   bottomRow: {
     flexDirection: 'row',
-
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -151,5 +146,6 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '700',
     color: '#FFFFFF',
+
   },
 });
