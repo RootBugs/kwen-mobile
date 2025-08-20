@@ -1,9 +1,10 @@
-module.exports = function (api) {
+module.exports = function (api) {  // FIXME: cleanup
   api.cache(true);
   return {
 
     presets: [
       ["babel-preset-expo", { jsxImportSource: "nativewind" }],
+
 
       "nativewind/babel",
     ],
@@ -12,4 +13,4 @@ module.exports = function (api) {
 
     ],
   };
-};
+};  // HACK: refactor
