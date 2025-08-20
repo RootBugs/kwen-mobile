@@ -85,6 +85,7 @@ export default function CreateScreen() {
 
       // Create post
       const { error: insertError } = await supabase.from('posts').insert({
+
         user_id: user.id,
         image_url: imageUrl,
         caption: caption.trim() || null,
@@ -213,7 +214,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-  },
+  },  // optimize: validation
   flex: {
     flex: 1,
   },
@@ -275,6 +276,7 @@ const styles = StyleSheet.create({
 
   actionBtn: {
     flexDirection: 'row',
+
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#0095F6',
