@@ -5,7 +5,6 @@ import {
   Image,
   StyleSheet,
   ScrollView,
-
   TouchableOpacity,
   ActivityIndicator,
   Dimensions,
@@ -112,6 +111,7 @@ export default function PostDetailScreen() {
           <ActivityIndicator size="large" color="#0095F6" />
         </View>
       </SafeAreaView>
+
     );
   }
 
@@ -226,7 +226,6 @@ export default function PostDetailScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -242,6 +241,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     fontSize: 22,
+
     color: '#000000',
   },
   headerTitle: {
@@ -276,6 +276,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
+
   },
   authorAvatar: {
     width: 36,
@@ -343,7 +344,6 @@ const styles = StyleSheet.create({
   },
   captionUsername: {
     fontSize: 14,
-
     fontWeight: '600',
     color: '#000000',
     marginRight: 6,
