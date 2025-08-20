@@ -31,7 +31,7 @@ interface ExploreState {
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
-  setShowResults: (show: boolean) => void;
+  setShowResults: (show: boolean) => void;  // optimize: cleanup
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
@@ -68,6 +68,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     }
 
     set({ searching: true, showResults: true });
+
     const q = searchQuery.trim().toLowerCase();
 
     try {
@@ -201,6 +202,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .limit(10);
       set({ suggestedUsers: data || [] });
     } catch {
+
       // Silent fail
     }
   },
