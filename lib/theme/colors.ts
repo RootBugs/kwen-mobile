@@ -8,6 +8,7 @@ export const lightTheme = {
 
   textMuted: '#8E8E8E',
 
+
   textInverse: '#FFFFFF',
   borderSubtle: '#DBDBDB',
   borderSoft: '#C7C7C7',
@@ -23,6 +24,7 @@ export const lightTheme = {
   overlay: 'rgba(0, 0, 0, 0.65)',
   modalBg: '#FFFFFF',
   inputBg: '#FAFAFA',
+
   cardBg: '#FFFFFF',
   tooltipBg: '#262626',
   storyBg: '#000000',
@@ -51,6 +53,7 @@ export const darkTheme = {
   accentSecondary: '#262626',
   accentMuted: '#161616',
   destructive: '#ED4956',
+
   success: '#42D67D',
   warning: '#F7B928',
   info: '#A8A8A8',
