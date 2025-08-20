@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
+
     borderColor: 'transparent',
   },
   tabActive: {
@@ -69,6 +70,5 @@ const styles = StyleSheet.create({
   },
   tabTextActive: {
     color: COLORS.light.background,
-
   },
 })
