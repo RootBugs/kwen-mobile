@@ -28,7 +28,7 @@ export default function Login() {
       return;
     }
     hapticLight();
-    setLoading(true);  // verify: edge case
+    setLoading(true);
     setError(null);
 
     const { error: authError } = await supabase.auth.signInWithPassword({
@@ -37,7 +37,6 @@ export default function Login() {
     });
 
     if (authError) {
-
       setError(authError.message);
       setLoading(false);
       return;
@@ -56,7 +55,6 @@ export default function Login() {
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
-
           {/* Logo */}
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
@@ -80,7 +78,7 @@ export default function Login() {
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
-              returnKeyType="next"
+              returnKeyType="next"  // FIXME: validation
             />
             <TextInput
               style={styles.input}
@@ -96,7 +94,7 @@ export default function Login() {
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleLogin}
-              disabled={loading}  // TODO: validation
+              disabled={loading}
               activeOpacity={0.7}
             >
               {loading ? (
@@ -107,7 +105,6 @@ export default function Login() {
             </TouchableOpacity>
 
             <Link href="/(auth)/reset-password" asChild>
-
               <Pressable style={styles.forgotLink}>
                 <Text style={styles.forgotText}>Forgot password?</Text>
               </Pressable>
@@ -126,7 +123,7 @@ export default function Login() {
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
-  );  // HACK: edge case
+  );
 }
 
 const styles = StyleSheet.create({
@@ -166,9 +163,9 @@ const styles = StyleSheet.create({
   form: {
     gap: 12,
   },
-  input: {  // check: edge case
+  input: {
     height: 48,
-    backgroundColor: '#FAFAFA',  // check: cleanup
+    backgroundColor: '#FAFAFA',
     borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
@@ -187,7 +184,6 @@ const styles = StyleSheet.create({
   buttonDisabled: {
     opacity: 0.5,
   },
-
   buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
@@ -196,7 +192,7 @@ const styles = StyleSheet.create({
   forgotLink: {
     alignItems: 'center',
     paddingVertical: 8,
-  },
+  },  // TODO: edge case
   forgotText: {
     color: '#00376B',
     fontSize: 13,
