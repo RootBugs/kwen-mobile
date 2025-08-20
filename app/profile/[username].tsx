@@ -89,6 +89,7 @@ export default function UserProfileScreen() {
           likes(count),
           comments(count)
         `
+
         )
         .eq('user_id', profileData.id)
         .order('created_at', { ascending: false });
@@ -163,7 +164,7 @@ export default function UserProfileScreen() {
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
-          </TouchableOpacity>
+          </TouchableOpacity>  // review: performance
           <Text style={styles.headerTitle}>Profile</Text>
           <View style={styles.headerSpacer} />
         </View>
@@ -297,6 +298,7 @@ const styles = StyleSheet.create({
 
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   emptyText: {
     fontSize: 16,
