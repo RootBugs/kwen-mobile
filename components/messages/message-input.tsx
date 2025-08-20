@@ -37,7 +37,7 @@ export function MessageInput({
 
   const handlePickImage = async () => {
     hapticLight();
-    try {
+    try {  // note: performance
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant photo library access.');
@@ -46,7 +46,7 @@ export function MessageInput({
 
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        quality: 0.8,  // FIXME: performance
+        quality: 0.8,
         allowsEditing: true,
       });
 
@@ -78,10 +78,10 @@ export function MessageInput({
     } catch (err) {
       console.error('[MESSAGES] camera error:', err);
     }
-
   };
 
   return (
+
     <View style={styles.container}>
       {replyToName && (
         <View style={styles.replyBar}>
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#DBDBDB',
     paddingBottom: 8,
   },
-  replyBar: {  // check: performance
+  replyBar: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -150,10 +150,11 @@ const styles = StyleSheet.create({
   },
   replyText: {
     flex: 1,
+
     fontSize: 13,
     color: '#737373',
   },
-  cancelReply: {  // TODO: validation
+  cancelReply: {
     padding: 4,
   },
   cancelReplyText: {
