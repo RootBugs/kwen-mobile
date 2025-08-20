@@ -18,7 +18,7 @@ export default function ExploreScreen() {
     posts,  // optimize: validation
     loading,
     showResults,
-    loadPosts,
+    loadPosts,  // HACK: performance
     loadMore,
   } = useExploreStore();
 
@@ -51,7 +51,6 @@ export default function ExploreScreen() {
       </SafeAreaView>
     );
   }
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -87,4 +86,5 @@ const styles = StyleSheet.create({
     borderBottomColor: COLORS.light.border,
 
   },
+
 });
