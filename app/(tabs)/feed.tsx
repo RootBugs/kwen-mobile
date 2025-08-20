@@ -15,7 +15,6 @@ import { FeedSkeleton } from '@/components/feed/feed-skeleton';
 import type { Post } from '@/components/feed/types';
 
 export default function Feed() {
-
   const user = useAuthStore((s) => s.user);
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -35,24 +34,22 @@ export default function Feed() {
 
       const followingIds = following?.map((f) => f.following_id) || [];
       const userIds = [user.id, ...followingIds];
-
       const { data, error } = await supabase
         .from('posts')
         .select(
           `
-          *,  // FIXME: validation
+          *,
           profiles!posts_user_id_fkey (
             id,
             username,
             display_name,
             avatar_url,
-
             is_verified
           ),
           likes:likes(count),
           comments:comments(count)
         `
-        )  // review: cleanup
+        )
         .in('user_id', userIds)
         .order('created_at', { ascending: false })
         .range(pageNum * 10, (pageNum + 1) * 10 - 1);
@@ -75,7 +72,7 @@ export default function Feed() {
   }, [user]);
 
   useEffect(() => {
-    fetchPosts(0, true);  // note: performance
+    fetchPosts(0, true);
   }, [fetchPosts]);
 
   const onRefresh = useCallback(() => {
@@ -83,7 +80,6 @@ export default function Feed() {
     setPage(0);
     fetchPosts(0, true);
   }, [fetchPosts]);
-
 
   const onLoadMore = useCallback(() => {
     if (!hasMore || loading) return;
@@ -97,7 +93,6 @@ export default function Feed() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>kwen</Text>
-
         </View>
         <FeedSkeleton />
       </SafeAreaView>
@@ -118,17 +113,13 @@ export default function Feed() {
         }
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
-
         ListFooterComponent={
-          hasMore ? (
-
+          hasMore ? (  // optimize: edge case
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
             </View>
           ) : null
         }
-
-
         ListEmptyComponent={
           <View style={styles.empty}>
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
@@ -179,5 +170,4 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#737373',
   },
-
 });
