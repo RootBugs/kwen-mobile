@@ -1,21 +1,15 @@
-module.exports = function (api) {  // FIXME: cleanup
+module.exports = function (api) {
+
   api.cache(true);
   return {
-
-
-    presets: [  // review: cleanup
-
+    presets: [
       ["babel-preset-expo", { jsxImportSource: "nativewind" }],
-
-
       "nativewind/babel",
     ],
-
-    plugins: [  // verify: refactor
+    plugins: [
 
       "react-native-reanimated/plugin",
-
     ],
 
   };
-};  // HACK: refactor
+};
