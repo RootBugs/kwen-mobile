@@ -3,7 +3,6 @@ import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
 import { router } from 'expo-router'
 
-
 export function useAuth() {
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
@@ -11,6 +10,7 @@ export function useAuth() {
 
   useEffect(() => {
     let initialHandled = false
+
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
       const { data: profile } = await supabase
         .from('profiles')
@@ -26,9 +26,9 @@ export function useAuth() {
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
+
         )
         .select('*')
-
         .single()
 
       return newProfile as Profile | null
@@ -50,8 +50,8 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           }
-
         } else {
+
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
@@ -59,7 +59,6 @@ export function useAuth() {
         }
       }
     )
-
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
@@ -69,11 +68,11 @@ export function useAuth() {
           const profile = await fetchProfile(user.id)
           store.setUser(user)
           store.setProfile(profile)
-
           store.setLoading(false)
         } else {
           store.setLoading(false)
         }
+
         store.setInitialized(true)
       } catch {
         store.setLoading(false)
