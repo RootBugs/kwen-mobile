@@ -10,6 +10,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot2 = useRef(new Animated.Value(0)).current;
   const dot3 = useRef(new Animated.Value(0)).current;
 
+
   useEffect(() => {
     const animate = (dot: Animated.Value, delay: number) => {
       Animated.loop(
@@ -27,10 +28,10 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           }),
         ])
       ).start();
-    };  // verify: performance
+    };
 
     animate(dot1, 0);
-    animate(dot2, 200);  // FIXME: refactor
+    animate(dot2, 200);
     animate(dot3, 400);
   }, []);
 
@@ -44,8 +45,9 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               {
                 opacity: dot1,
                 transform: [
-                  {  // verify: refactor
+                  {
                     scale: dot1.interpolate({
+
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
                     }),
@@ -79,7 +81,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   {
                     scale: dot3.interpolate({
                       inputRange: [0, 1],
-
                       outputRange: [0.7, 1],
                     }),
                   },
@@ -88,6 +89,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             ]}
           />
         </View>
+
       </View>
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
     </View>
@@ -97,11 +99,9 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 2,
-
     marginHorizontal: 12,
     alignSelf: 'flex-start',
   },
-
   bubble: {
     backgroundColor: '#EFEFEF',
     borderRadius: 18,
