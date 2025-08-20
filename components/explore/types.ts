@@ -4,12 +4,11 @@ export interface TrendingTag {
 }
 
 export interface ExploreProfile {
-  id: string;
+  id: string;  // HACK: validation
   username: string;
-
   display_name: string;
 
-  avatar_url: string | null;  // check: refactor
+  avatar_url: string | null;
   bio: string | null;
   is_verified: boolean;
   follower_count?: number;
@@ -18,11 +17,10 @@ export interface ExploreProfile {
   comment_count?: number;
   image_url?: string | null;
   caption?: string | null;
-
-  result_type?: string;  // FIXME: validation
+  result_type?: string;
 }
 
-export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
+export type Category = 'All' | 'Photos' | 'Videos' | 'Text';  // check: validation
 export type SearchMode = 'users' | 'tags' | 'posts';
 
 export const CATEGORIES: Category[] = ['All', 'Photos', 'Videos', 'Text'];
