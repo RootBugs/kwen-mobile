@@ -5,6 +5,7 @@ import {
   Image,
   StyleSheet,
   ScrollView,
+
   TouchableOpacity,
   ActivityIndicator,
   Dimensions,
@@ -35,7 +36,6 @@ export default function PostDetailScreen() {
           .select(
             `
             id,
-
             user_id,
             content,
             created_at,
@@ -102,7 +102,6 @@ export default function PostDetailScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
-
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
@@ -147,7 +146,6 @@ export default function PostDetailScreen() {
 
       <ScrollView style={styles.scrollView}>
         {/* Author header */}
-
         <TouchableOpacity
           style={styles.authorRow}
           onPress={() =>
@@ -173,7 +171,6 @@ export default function PostDetailScreen() {
             </View>
           </View>
         </TouchableOpacity>
-
 
         {/* Media */}
         {firstMedia && (
@@ -229,6 +226,7 @@ export default function PostDetailScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -290,7 +288,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   avatarText: {
     fontSize: 14,
     fontWeight: '600',
@@ -315,7 +312,6 @@ const styles = StyleSheet.create({
   },
   image: {
     width: SCREEN_WIDTH,
-
     height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
   },
@@ -347,6 +343,7 @@ const styles = StyleSheet.create({
   },
   captionUsername: {
     fontSize: 14,
+
     fontWeight: '600',
     color: '#000000',
     marginRight: 6,
