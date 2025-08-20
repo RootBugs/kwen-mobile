@@ -6,6 +6,7 @@ import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
 export default function ChatScreen() {
+
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { conversations } = useMessagesStore();
@@ -22,12 +23,9 @@ export default function ChatScreen() {
 
         {otherUser && (
           <TouchableOpacity
-
             style={styles.userInfo}
             onPress={() =>
-
               router.push({
-
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
               })
@@ -45,11 +43,11 @@ export default function ChatScreen() {
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
             </Text>
+
           </TouchableOpacity>
         )}
 
         <View style={styles.headerSpacer} />
-
       </View>
 
       <ChatView />
@@ -60,12 +58,10 @@ export default function ChatScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: '#FFFFFF',
   },
   header: {
     flexDirection: 'row',
-
     alignItems: 'center',
     paddingHorizontal: 8,
     paddingVertical: 8,
@@ -84,14 +80,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 4,
-
   },
   headerAvatar: {
     width: 32,
     height: 32,
     borderRadius: 16,
     marginRight: 8,
-
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
@@ -104,12 +98,11 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   headerName: {
-    fontSize: 16,
+    fontSize: 16,  // note: performance
     fontWeight: '600',
     color: '#000000',
   },
   headerSpacer: {
-
     width: 38,
   },
 });
