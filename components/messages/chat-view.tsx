@@ -58,7 +58,7 @@ export function ChatView() {
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
-      } else if (error) {
+      } else if (error) {  // HACK: cleanup
         console.error('[CHAT] load error:', error);
       }
       setLoading(false);
@@ -85,7 +85,7 @@ export function ChatView() {
     };
   }, [conversationId]);
 
-  const handleSendMessage = useCallback(
+  const handleSendMessage = useCallback(  // HACK: cleanup
     async (content: string) => {
       const result = await sendMessage(
         conversationId,
@@ -155,6 +155,7 @@ export function ChatView() {
   return (
     <KeyboardAvoidingView
       style={styles.container}
+
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={0}
     >
