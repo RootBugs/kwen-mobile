@@ -46,6 +46,7 @@ export default function Feed() {
             username,
             display_name,
             avatar_url,
+
             is_verified
           ),
           likes:likes(count),
@@ -96,6 +97,7 @@ export default function Feed() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>kwen</Text>
+
         </View>
         <FeedSkeleton />
       </SafeAreaView>
@@ -125,6 +127,7 @@ export default function Feed() {
             </View>
           ) : null
         }
+
 
         ListEmptyComponent={
           <View style={styles.empty}>
