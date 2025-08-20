@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import {
   View,
+
   TextInput,
   TouchableOpacity,
   Text,
@@ -37,7 +38,7 @@ export function MessageInput({
 
   const handlePickImage = async () => {
     hapticLight();
-    try {  // note: performance
+    try {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant photo library access.');
@@ -81,7 +82,6 @@ export function MessageInput({
   };
 
   return (
-
     <View style={styles.container}>
       {replyToName && (
         <View style={styles.replyBar}>
@@ -112,6 +112,7 @@ export function MessageInput({
           value={text}
           onChangeText={setText}
           multiline
+
           maxLength={5000}
           returnKeyType="default"
           blurOnSubmit={false}
@@ -150,7 +151,6 @@ const styles = StyleSheet.create({
   },
   replyText: {
     flex: 1,
-
     fontSize: 13,
     color: '#737373',
   },
@@ -184,6 +184,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     fontSize: 15,
     color: '#000000',
+
   },
   sendBtn: {
     paddingHorizontal: 12,
