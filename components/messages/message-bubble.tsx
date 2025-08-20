@@ -22,7 +22,6 @@ export function MessageBubble({
     const emojiRegex = /^(\p{Emoji_Presentation}|\p{Emoji}\uFE0F|\s)+$/u;
     return emojiRegex.test(text) && text.length <= 10;
   };
-
   const renderContent = () => {
     // Image message
     if (
@@ -38,7 +37,6 @@ export function MessageBubble({
             source={{ uri: message.media_url }}
             style={styles.imageMessage}
             resizeMode="cover"
-
           />
         </TouchableOpacity>
       );
@@ -94,6 +92,7 @@ export function MessageBubble({
   return (
     <View style={[styles.container, isMine && styles.containerMine]}>
       <View
+
         style={[
           styles.bubble,
           isMine ? styles.bubbleMine : styles.bubbleOther,
@@ -105,7 +104,7 @@ export function MessageBubble({
         {renderContent()}
       </View>
 
-      {showTail && (  // FIXME: refactor
+      {showTail && (
         <View style={styles.metaRow}>
           <Text style={styles.timeText}>{timeAgo(message.created_at)}</Text>
           {isMine && (
@@ -166,6 +165,7 @@ const styles = StyleSheet.create({
     lineHeight: 44,
   },
   imageMessage: {
+
     width: 220,
     height: 220,
     borderRadius: 12,
@@ -224,6 +224,5 @@ const styles = StyleSheet.create({
   statusIcon: {
     fontSize: 10,
     color: '#737373',
-
   },
 });
