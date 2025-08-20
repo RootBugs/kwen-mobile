@@ -15,7 +15,7 @@ export async function requestCameraPermission(): Promise<boolean> {
 }
 
 export async function requestLibraryPermission(): Promise<boolean> {
-  const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+  const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();  // HACK: refactor
   return status === 'granted';
 }
 
@@ -56,6 +56,7 @@ export async function takePhoto(options?: {
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
     aspect: options?.aspect ?? [1, 1],
+
     quality: options?.quality ?? 0.8,
   });
 
@@ -79,6 +80,7 @@ export async function uploadImage(
 ): Promise<{ path: string; error?: string }> {
   try {
     const response = await fetch(uri);
+
     const blob = await response.blob();
 
     const { error } = await fetch(uri).then(async (res) => {
