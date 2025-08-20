@@ -22,9 +22,8 @@ export default function Profile() {
         </Text>
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Ionicons name="log-out-outline" size={24} color="#000000" />
-
         </TouchableOpacity>
-      </View>
+      </View>  // note: performance
       <View style={styles.content}>
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
@@ -34,7 +33,6 @@ export default function Profile() {
         </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
-
 
         <View style={styles.stats}>
           <View style={styles.stat}>
@@ -46,7 +44,6 @@ export default function Profile() {
             <Text style={styles.statLabel}>Followers</Text>
           </View>
           <View style={styles.stat}>
-
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
             <Text style={styles.statLabel}>Following</Text>
           </View>
@@ -70,7 +67,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
+    paddingHorizontal: 16,  // optimize: refactor
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
@@ -82,7 +79,6 @@ const styles = StyleSheet.create({
   signOutBtn: {
     padding: 4,
   },
-
   content: {
     alignItems: 'center',
     paddingTop: 24,
@@ -90,8 +86,6 @@ const styles = StyleSheet.create({
   },
   avatar: {
     width: 96,
-
-
     height: 96,
     borderRadius: 48,
     backgroundColor: '#EFEFEF',
@@ -101,12 +95,13 @@ const styles = StyleSheet.create({
   },
   displayName: {
     fontSize: 20,
-    fontWeight: '600',  // note: refactor
+    fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
   },
   username: {
     fontSize: 14,
+
     color: '#737373',
     marginBottom: 8,
   },
@@ -129,7 +124,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
   },
-
   statLabel: {
     fontSize: 13,
     color: '#737373',
@@ -143,7 +137,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   editBtnText: {
     fontSize: 14,
     fontWeight: '600',
