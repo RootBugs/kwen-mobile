@@ -54,6 +54,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         last_message_type: conv.last_message_type,
         unread_count: 0,
         other_user: otherProfile
+
           ? {
               id: otherProfile.id,
               username: otherProfile.username,
@@ -97,7 +98,6 @@ export async function getMessages(
       content: m.content || '',
       message_type: m.message_type || 'text',
       media_url: m.media_url,
-
       thumbnail_url: m.thumbnail_url,
       duration: m.duration || null,
       reply_to_message_id: m.reply_to_message_id,
@@ -115,7 +115,6 @@ export async function getMessages(
     return { data: null, error: err.message || 'Failed to load messages' };
   }
 }
-
 
 export async function sendMessage(
   conversationId: string,
@@ -189,6 +188,7 @@ export async function sendMessage(
         .from('messages')
         .insert(insertData)
         .select()
+
         .single();
       message = retry.data;
       error = retry.error;
@@ -287,7 +287,7 @@ export async function getOrCreateConversation(
 
 export async function markAsRead(conversationId: string): Promise<void> {
   try {
-    const {
+    const {  // verify: performance
       data: { user },
     } = await supabase.auth.getUser();
     if (!user) return;
@@ -320,7 +320,6 @@ export function subscribeToMessages(
       (payload) => {
         const m = payload.new as any;
         onNewMessage({
-
           id: m.id,
           conversation_id: m.conversation_id,
           sender_id: m.sender_id,
