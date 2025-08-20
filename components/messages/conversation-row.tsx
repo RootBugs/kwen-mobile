@@ -30,11 +30,11 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
         <View style={[styles.avatar, styles.avatarFallback]}>
-
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
         </View>
+
       )}
 
       <View style={styles.content}>
@@ -50,7 +50,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         </View>
         <View style={styles.bottomRow}>
           <Text
-            style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}  // optimize: refactor
+            style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
             numberOfLines={1}
           >
             {getLastMessagePreview()}
@@ -64,6 +64,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       </View>
     </TouchableOpacity>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -102,6 +103,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   nameRow: {
+
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
@@ -132,7 +134,6 @@ const styles = StyleSheet.create({
   },
   unreadLastMessage: {
     color: '#000000',
-
     fontWeight: '500',
   },
   badge: {
