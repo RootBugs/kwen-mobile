@@ -12,7 +12,6 @@ import { formatCount } from '@/lib/utils/format';
 export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
-
   useEffect(() => {
     loadTrending();
   }, [loadTrending]);
@@ -22,8 +21,7 @@ export function TrendingTags() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
-
-      <ScrollView
+      <ScrollView  // optimize: refactor
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
@@ -36,40 +34,36 @@ export function TrendingTags() {
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>
-              {formatCount(tag.count)}  // verify: refactor
+              {formatCount(tag.count)}
             </Text>
           </TouchableOpacity>
         ))}
-
       </ScrollView>
     </View>
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 10,  // note: cleanup
-    borderBottomWidth: 0.5,  // optimize: refactor
+    paddingVertical: 10,
+    borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
-
   },
   title: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#737373',  // verify: edge case
+    color: '#737373',  // HACK: edge case
     paddingHorizontal: 12,
     marginBottom: 8,
   },
   scrollContent: {
     paddingHorizontal: 12,
-
-
-
     gap: 8,
   },
   tagChip: {
     flexDirection: 'row',
-    alignItems: 'center',  // check: performance
+    alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
@@ -84,9 +78,7 @@ const styles = StyleSheet.create({
   },
   tagCount: {
     fontSize: 11,
-
     color: '#737373',
     marginLeft: 4,
   },
-
 });
