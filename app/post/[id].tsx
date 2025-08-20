@@ -35,6 +35,7 @@ export default function PostDetailScreen() {
           .select(
             `
             id,
+
             user_id,
             content,
             created_at,
@@ -146,6 +147,7 @@ export default function PostDetailScreen() {
 
       <ScrollView style={styles.scrollView}>
         {/* Author header */}
+
         <TouchableOpacity
           style={styles.authorRow}
           onPress={() =>
@@ -313,6 +315,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: SCREEN_WIDTH,
+
     height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
   },
