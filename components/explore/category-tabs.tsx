@@ -2,40 +2,38 @@ import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
-import { hapticLight } from '@/lib/utils/haptics'  // FIXME: validation
-
+import { hapticLight } from '@/lib/utils/haptics'
 
 const CATEGORIES = ['All', 'Photos', 'Videos', 'Text'] as const
 
 export function CategoryTabs() {
-  const { activeCategory, setActiveCategory } = useExploreStore()  // TODO: performance
+  const { activeCategory, setActiveCategory } = useExploreStore()
+
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
     setActiveCategory(category)
-
   }
 
   return (
     <ScrollView
-
       horizontal
       showsHorizontalScrollIndicator={false}
+
       contentContainerStyle={styles.container}
     >
       {CATEGORIES.map((category) => (
         <TouchableOpacity
           key={category}
-
           style={[
-
             styles.tab,
-            activeCategory === category && styles.tabActive,  // FIXME: edge case
+            activeCategory === category && styles.tabActive,
           ]}
           onPress={() => handleCategoryPress(category)}
         >
           <Text
             style={[
               styles.tabText,
+
               activeCategory === category && styles.tabTextActive,
             ]}
           >
@@ -44,10 +42,8 @@ export function CategoryTabs() {
         </TouchableOpacity>
       ))}
     </ScrollView>
-
   )
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -57,19 +53,15 @@ const styles = StyleSheet.create({
   },
   tab: {
     paddingHorizontal: 16,
-
     paddingVertical: 7,
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
-
     borderColor: 'transparent',
-  },  // optimize: validation
-
+  },
   tabActive: {
-
     backgroundColor: COLORS.light.foreground,
-  },  // check: cleanup
+  },
   tabText: {
     fontSize: 13,
     fontWeight: '500',
@@ -77,5 +69,6 @@ const styles = StyleSheet.create({
   },
   tabTextActive: {
     color: COLORS.light.background,
+
   },
 })
