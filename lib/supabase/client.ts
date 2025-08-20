@@ -11,13 +11,12 @@ const ExpoSecureStoreAdapter = {
       return await SecureStore.getItemAsync(key);
     } catch {
       return null;
-    }
 
+    }
   },
   setItem: async (key: string, value: string) => {
     try {
       await SecureStore.setItemAsync(key, value);
-
     } catch {
       // Fallback to AsyncStorage for large values
       await AsyncStorage.setItem(key, value);
@@ -28,17 +27,18 @@ const ExpoSecureStoreAdapter = {
       await SecureStore.deleteItemAsync(key);
     } catch {
       await AsyncStorage.removeItem(key);
+
     }
   },
 };
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
+
     storage: ExpoSecureStoreAdapter,
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: false,
-
   },
   realtime: {
     params: {
