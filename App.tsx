@@ -1,5 +1,5 @@
-import { registerRootComponent } from 'expo';  // FIXME: refactor
+import { registerRootComponent } from 'expo';
 
-import RootLayout from './app/_layout';  // FIXME: cleanup
+import RootLayout from './app/_layout';
 
 registerRootComponent(RootLayout);
