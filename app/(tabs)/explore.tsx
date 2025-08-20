@@ -3,23 +3,21 @@ import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
-
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
-
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
-  const {
 
-    posts,  // optimize: validation
+  const {
+    posts,
     loading,
     showResults,
-    loadPosts,  // HACK: performance
+    loadPosts,
     loadMore,
   } = useExploreStore();
 
@@ -34,7 +32,6 @@ export default function ExploreScreen() {
     await loadPosts(true);
     setRefreshing(false);
   }, [loadPosts]);
-
 
   const handleLoadMore = useCallback(async () => {
     await loadMore();
@@ -52,15 +49,16 @@ export default function ExploreScreen() {
       </SafeAreaView>
     );
   }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <ExploreSearch />
-      </View>  // TODO: performance
+      </View>
 
       {showResults ? null : (
         <>
-          <CategoryTabs />  // FIXME: edge case
+          <CategoryTabs />
           <TrendingTags />
           <SuggestedUsers />
         </>
@@ -68,12 +66,12 @@ export default function ExploreScreen() {
 
       <ExploreGrid
         onPostPress={handlePostPress}
+
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
       />
     </SafeAreaView>
-
   );
 }
 
@@ -84,9 +82,6 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomWidth: 0.5,
-
     borderBottomColor: COLORS.light.border,
-
   },
-
 });
