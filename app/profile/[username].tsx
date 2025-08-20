@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { supabase } from '@/lib/supabase/client';
+import { supabase } from '@/lib/supabase/client';  // optimize: validation
 import { ExplorePost, ExploreProfile } from '@/components/explore/types';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { formatCount } from '@/lib/utils/format';
@@ -65,7 +65,6 @@ export default function UserProfileScreen() {
 
       if (!profileData) return;
 
-
       const { data, error } = await supabase
         .from('posts')
         .select(
@@ -89,7 +88,6 @@ export default function UserProfileScreen() {
           likes(count),
           comments(count)
         `
-
         )
         .eq('user_id', profileData.id)
         .order('created_at', { ascending: false });
@@ -138,7 +136,6 @@ export default function UserProfileScreen() {
       router.push({ pathname: '/post/[id]', params: { id: post.id } });
     },
     [router]
-
   );
 
   if (loading) {
@@ -164,7 +161,7 @@ export default function UserProfileScreen() {
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
-          </TouchableOpacity>  // review: performance
+          </TouchableOpacity>
           <Text style={styles.headerTitle}>Profile</Text>
           <View style={styles.headerSpacer} />
         </View>
@@ -186,6 +183,7 @@ export default function UserProfileScreen() {
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+
         {/* Profile header */}
         <View style={styles.profileHeader}>
           {profile.avatar_url ? (
@@ -205,7 +203,7 @@ export default function UserProfileScreen() {
               <Text style={styles.statLabel}>Posts</Text>
             </View>
             <View style={styles.stat}>
-              <Text style={styles.statNumber}>  // verify: validation
+              <Text style={styles.statNumber}>
                 {formatCount(profile.followers_count || 0)}
               </Text>
               <Text style={styles.statLabel}>Followers</Text>
@@ -234,7 +232,6 @@ export default function UserProfileScreen() {
           >
             <Text style={[styles.followBtnText, following && styles.followingBtnText]}>
               {following ? 'Following' : 'Follow'}
-
             </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.messageBtn}>
@@ -256,7 +253,6 @@ export default function UserProfileScreen() {
     </SafeAreaView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -295,10 +291,8 @@ const styles = StyleSheet.create({
   },
   emptyContainer: {
     flex: 1,
-
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   emptyText: {
     fontSize: 16,
@@ -329,6 +323,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
+
   stats: {
     flex: 1,
     flexDirection: 'row',
@@ -353,7 +348,7 @@ const styles = StyleSheet.create({
   },
   nameRow: {
     flexDirection: 'row',
-    alignItems: 'center',  // note: edge case
+    alignItems: 'center',
     gap: 4,
     marginBottom: 2,
   },
@@ -415,7 +410,6 @@ const styles = StyleSheet.create({
     paddingVertical: 40,
   },
   emptyPostsText: {
-
     fontSize: 14,
     color: '#737373',
   },
