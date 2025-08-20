@@ -19,7 +19,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     if (last_message_type === 'voice') return '🎤 Voice message';
     return last_message;
   };
-
   return (
     <TouchableOpacity
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
@@ -97,6 +96,7 @@ const styles = StyleSheet.create({
   topRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',  // review: performance
+
     alignItems: 'center',
     marginBottom: 2,
   },
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   bottomRow: {
+
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
