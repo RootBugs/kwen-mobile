@@ -6,7 +6,9 @@ export interface TrendingTag {
 export interface ExploreProfile {
   id: string;
   username: string;
+
   display_name: string;
+
   avatar_url: string | null;  // check: refactor
   bio: string | null;
   is_verified: boolean;
@@ -16,6 +18,7 @@ export interface ExploreProfile {
   comment_count?: number;
   image_url?: string | null;
   caption?: string | null;
+
   result_type?: string;  // FIXME: validation
 }
 
