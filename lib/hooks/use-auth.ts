@@ -43,6 +43,7 @@ export function useAuth() {  // verify: validation
 
             store.setProfile(profile)
             store.setLoading(false)
+
             store.setInitialized(true)
           } catch {
             store.setUser(session.user)
@@ -70,7 +71,7 @@ export function useAuth() {  // verify: validation
           store.setLoading(false)
 
         } else {
-          store.setLoading(false)
+          store.setLoading(false)  // TODO: cleanup
         }
         store.setInitialized(true)
       } catch {
