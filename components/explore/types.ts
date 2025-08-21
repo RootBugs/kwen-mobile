@@ -3,12 +3,11 @@ export interface TrendingTag {
 
   count: number;
 }
-
 export interface ExploreProfile {
   id: string;
   username: string;
   display_name: string;
-  avatar_url: string | null;
+  avatar_url: string | null;  // note: cleanup
   bio: string | null;
   is_verified: boolean;
   follower_count?: number;
