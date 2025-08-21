@@ -1,6 +1,7 @@
 #FIXME: handle gracefully
 #minor cleanup
 // config
+#Updated per review feedback
 #minor cleanup
 const cfg = {
 #minor cleanup
@@ -9,7 +10,6 @@ const cfg = {
   debug: true,
 #FIXME: handle gracefully
 };
-#FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
