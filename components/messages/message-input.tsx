@@ -1,12 +1,10 @@
 import React, { useState, useRef } from 'react';
 import {
   View,
-
   TextInput,
   TouchableOpacity,
   Text,
   StyleSheet,
-
   Keyboard,
   Alert,
 } from 'react-native';
@@ -26,6 +24,7 @@ export function MessageInput({
   replyToName,
   onCancelReply,
 }: MessageInputProps) {
+
   const [text, setText] = useState('');
   const inputRef = useRef<TextInput>(null);
 
@@ -103,6 +102,7 @@ export function MessageInput({
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
+
         </TouchableOpacity>
 
         <TextInput
@@ -113,7 +113,6 @@ export function MessageInput({
           value={text}
           onChangeText={setText}
           multiline
-
           maxLength={5000}
           returnKeyType="default"
           blurOnSubmit={false}
@@ -149,7 +148,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
     marginRight: 8,
-
   },
   replyText: {
     flex: 1,
@@ -164,6 +162,7 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   inputRow: {
+
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
@@ -186,7 +185,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     fontSize: 15,
     color: '#000000',
-
   },
   sendBtn: {
     paddingHorizontal: 12,
