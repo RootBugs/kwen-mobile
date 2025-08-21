@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {
   View,
+
   Text,
   StyleSheet,
   ScrollView,
@@ -47,6 +48,7 @@ export function TrendingTags() {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
+
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
@@ -60,6 +62,7 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
+
   },
   tagChip: {
     flexDirection: 'row',
