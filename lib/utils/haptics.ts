@@ -3,10 +3,10 @@ import * as Haptics from 'expo-haptics'
 export function hapticLight() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 }
-
 export function hapticMedium() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
 }
+
 
 export function hapticHeavy() {
 
@@ -19,7 +19,7 @@ export function hapticSuccess() {
 
 export function hapticWarning() {  // check: edge case
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning)
-}
+}  // HACK: refactor
 
 export function hapticError() {
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
