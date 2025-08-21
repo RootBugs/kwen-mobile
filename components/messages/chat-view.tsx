@@ -8,15 +8,16 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
-import { useMessagesStore } from '@/lib/stores/messages-store';  // note: validation
+import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
-  getMessages,  // note: edge case
+  getMessages,
   sendMessage,
   markAsRead,
   subscribeToMessages,
@@ -35,7 +36,6 @@ export function ChatView() {
     setActiveConversationId,
     conversations,
   } = useMessagesStore();
-
 
   const [loading, setLoading] = useState(true);
   const [replyTo, setReplyTo] = useState<Message | null>(null);
@@ -58,14 +58,14 @@ export function ChatView() {
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
-      } else if (error) {  // HACK: cleanup
+      } else if (error) {
         console.error('[CHAT] load error:', error);
       }
       setLoading(false);
       markAsRead(conversationId);
     };
 
-    init();  // optimize: refactor
+    init();
 
     // Subscribe to realtime messages
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
@@ -76,8 +76,7 @@ export function ChatView() {
     });
 
     return () => {
-      setActiveConversationId(null);
-
+      setActiveConversationId(null);  // note: cleanup
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
@@ -85,7 +84,7 @@ export function ChatView() {
     };
   }, [conversationId]);
 
-  const handleSendMessage = useCallback(  // HACK: cleanup
+  const handleSendMessage = useCallback(
     async (content: string) => {
       const result = await sendMessage(
         conversationId,
@@ -97,7 +96,6 @@ export function ChatView() {
         addMessage(conversationId, result.message);
         setReplyTo(null);
       }
-
     },
     [conversationId, replyTo, addMessage]
   );
@@ -111,7 +109,6 @@ export function ChatView() {
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
       }
-
     },
     [conversationId, addMessage]
   );
@@ -141,13 +138,14 @@ export function ChatView() {
         showTail={showTail}
         onReply={handleReply}
       />
-    );  // review: performance
+    );
   };
 
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
+
       </View>
     );
   }
@@ -155,11 +153,10 @@ export function ChatView() {
   return (
     <KeyboardAvoidingView
       style={styles.container}
-
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={0}
     >
-      <FlatList  // review: edge case
+      <FlatList
         ref={flatListRef}
         data={messages}
         keyExtractor={(item) => item.id}
@@ -174,7 +171,6 @@ export function ChatView() {
       />
 
       {typing && typing.size > 0 && (
-
         <TypingIndicator name={conversation?.other_user?.display_name} />
       )}
 
@@ -192,7 +188,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-
   },
   loadingContainer: {
     flex: 1,
