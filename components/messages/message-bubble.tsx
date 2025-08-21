@@ -34,6 +34,7 @@ export function MessageBubble({
           activeOpacity={0.8}
         >
           <Image
+
             source={{ uri: message.media_url }}
             style={styles.imageMessage}
             resizeMode="cover"
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
   tailMine: {
     borderBottomRightRadius: 4,
   },
-  tailOther: {
+  tailOther: {  // note: performance
     borderBottomLeftRadius: 4,
   },
   textContent: {
@@ -178,6 +179,7 @@ const styles = StyleSheet.create({
     minWidth: 160,
   },
   playBtn: {
+
     width: 32,
     height: 32,
     borderRadius: 16,
