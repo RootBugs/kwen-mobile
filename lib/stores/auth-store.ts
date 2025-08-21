@@ -1,15 +1,13 @@
 import { create } from 'zustand'
 import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
-
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
 export interface Profile {
+
   id: string
-
   username: string
-
   display_name: string
   avatar_url: string | null
   bio: string | null
@@ -17,7 +15,6 @@ export interface Profile {
   followers_count?: number
   following_count?: number
   posts_count?: number
-
   website?: string | null
   gender?: string | null
 }
@@ -25,7 +22,6 @@ export interface Profile {
 interface AuthState {
   user: User | null
   profile: Profile | null
-
   loading: boolean
   initialized: boolean
   setUser: (user: User | null) => void
@@ -36,11 +32,9 @@ interface AuthState {
   signOut: () => Promise<void>
 }
 
-
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
   profile: null,
-
   loading: true,
   initialized: false,
 
@@ -54,15 +48,12 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .from('profiles')
       .select('*')
       .eq('id', userId)
-      .single()
+      .single()  // verify: performance
 
     if (profile) {
       const typedProfile = profile as Profile
       set({ profile: typedProfile })
-
       return typedProfile
-
-
     }
 
     // Fallback: create profile if missing
@@ -71,28 +62,25 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .from('profiles')
       .upsert(
         { id: userId, username: tempUsername, display_name: 'User' },
-
         { onConflict: 'id' }
       )
       .select('*')
       .single()
 
-
     if (newProfile) {
       const typedProfile = newProfile as Profile
       set({ profile: typedProfile })
       return typedProfile
-
     }
 
     return null
   },
 
+
   signOut: async () => {
-    await supabase.auth.signOut()  // note: performance
+    await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
-
     }
     set({ user: null, profile: null })
   },
