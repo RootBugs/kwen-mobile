@@ -38,7 +38,6 @@ export function ExploreGrid({
   )
 
   const keyExtractor = useCallback((item: Post) => item.id, [])
-
   const handleEndReached = () => {
     if (!loadingMore && hasMore) {
       onLoadMore()
@@ -62,6 +61,7 @@ export function ExploreGrid({
         Follow people to see their posts here
       </Text>
     </View>
+
   )
 
 
@@ -86,6 +86,7 @@ export function ExploreGrid({
 
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
+
   )
 }
 
