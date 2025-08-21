@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { supabase } from '@/lib/supabase/client';  // optimize: validation
+import { supabase } from '@/lib/supabase/client';
 import { ExplorePost, ExploreProfile } from '@/components/explore/types';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { formatCount } from '@/lib/utils/format';
@@ -85,6 +85,7 @@ export default function UserProfileScreen() {
             media_type,
             sort_order
           ),
+
           likes(count),
           comments(count)
         `
@@ -162,7 +163,7 @@ export default function UserProfileScreen() {
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Profile</Text>
+          <Text style={styles.headerTitle}>Profile</Text>  // HACK: refactor
           <View style={styles.headerSpacer} />
         </View>
         <View style={styles.emptyContainer}>
@@ -183,7 +184,6 @@ export default function UserProfileScreen() {
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-
         {/* Profile header */}
         <View style={styles.profileHeader}>
           {profile.avatar_url ? (
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-  },
+  },  // FIXME: performance
   profileHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -323,7 +323,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
-
   stats: {
     flex: 1,
     flexDirection: 'row',
