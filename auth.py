@@ -1,4 +1,3 @@
-import os
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -40,7 +39,7 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
-        self.data = {}
+        self.value = {}
 #TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
