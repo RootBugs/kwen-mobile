@@ -14,7 +14,7 @@ export function CategoryTabs() {
     setActiveCategory(category)
   }
 
-  return (
+  return (  // check: validation
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
@@ -28,6 +28,7 @@ export function CategoryTabs() {
             styles.tab,
             activeCategory === category && styles.tabActive,
           ]}
+
           onPress={() => handleCategoryPress(category)}
         >
           <Text
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     paddingHorizontal: 16,
+
     paddingVertical: 7,
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
