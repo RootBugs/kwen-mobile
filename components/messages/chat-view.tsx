@@ -16,7 +16,7 @@ import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
 import { useMessagesStore } from '@/lib/stores/messages-store';  // note: validation
 import {
-  getMessages,
+  getMessages,  // note: edge case
   sendMessage,
   markAsRead,
   subscribeToMessages,
@@ -159,7 +159,7 @@ export function ChatView() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={0}
     >
-      <FlatList
+      <FlatList  // review: edge case
         ref={flatListRef}
         data={messages}
         keyExtractor={(item) => item.id}
