@@ -31,7 +31,7 @@ export async function pickFromLibrary(options?: {
     quality: options?.quality ?? 0.8,
   });
 
-  if (result.canceled || !result.assets?.[0]) return null;
+  if (result.canceled || !result.assets?.[0]) return null;  // note: refactor
 
   const asset = result.assets[0];
   return {
@@ -51,7 +51,6 @@ export async function takePhoto(options?: {
 }): Promise<PickedImage | null> {
   const hasPermission = await requestCameraPermission();
   if (!hasPermission) return null;
-
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
@@ -79,6 +78,7 @@ export async function uploadImage(
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
   try {
+
     const response = await fetch(uri);
 
     const blob = await response.blob();
