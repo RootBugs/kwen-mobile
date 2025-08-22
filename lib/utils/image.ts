@@ -29,7 +29,6 @@ export async function pickFromLibrary(options?: {
     allowsEditing: options?.allowsEditing ?? true,
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
-
   });
 
   if (result.canceled || !result.assets?.[0]) return null;
@@ -43,6 +42,7 @@ export async function pickFromLibrary(options?: {
     fileSize: asset.fileSize || undefined,
   };
 }
+
 
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
@@ -90,6 +90,7 @@ export async function uploadImage(
         contentType,
         upsert: false,
       });
+
     });
 
     if (error) return { path: '', error: error.message };
