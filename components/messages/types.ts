@@ -13,13 +13,14 @@ export interface Conversation {
     display_name: string;
     avatar_url: string | null;
     is_online?: boolean;
-  } | null;
 
+  } | null;
 }
 
 export interface Message {
   id: string;
   conversation_id: string;
+
   sender_id: string;
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
@@ -27,7 +28,6 @@ export interface Message {
   thumbnail_url: string | null;
   duration: number | null;
   reply_to_message_id: string | null;
-
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
@@ -41,7 +41,6 @@ export interface Message {
     messageType: string;
     mediaUrl?: string;
   } | null;
-
 }
 
 export interface MessageReaction {
