@@ -105,4 +105,4 @@ const styles = StyleSheet.create({
   headerSpacer: {
     width: 38,
   },
-});
+});  // optimize: edge case
