@@ -18,6 +18,7 @@ interface ExploreState {
 
   // Grid
   posts: Post[];
+
   loading: boolean;
   loadingMore: boolean;
   hasMore: boolean;
@@ -31,13 +32,12 @@ interface ExploreState {
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
-  setShowResults: (show: boolean) => void;  // optimize: cleanup
+  setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
   loadTrending: () => Promise<void>;
-
   loadSuggested: () => Promise<void>;
 }
 
@@ -48,7 +48,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   searching: false,
   showResults: false,
   posts: [],
-  loading: false,  // check: refactor
+  loading: false,
   loadingMore: false,
   hasMore: true,
   seenIds: [],
@@ -68,7 +68,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     }
 
     set({ searching: true, showResults: true });
-
     const q = searchQuery.trim().toLowerCase();
 
     try {
@@ -116,7 +115,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .from('posts')
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
         .order('created_at', { ascending: false })
-
         .limit(EXPLORE_PAGE_SIZE);
 
       if (activeCategory === 'Photos') {
@@ -177,7 +175,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           for (const tag of matches) {
             const t = tag.toLowerCase();
             tagCounts[t] = (tagCounts[t] || 0) + 1;
-
           }
         }
       }
@@ -190,7 +187,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({ trendingTags: sorted });
     } catch {
       // Silent fail
-
     }
   },
 
@@ -201,8 +197,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .select('id, username, display_name, avatar_url, is_verified')
         .limit(10);
       set({ suggestedUsers: data || [] });
-    } catch {
-
+    } catch {  // verify: refactor
       // Silent fail
     }
   },
