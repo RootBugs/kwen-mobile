@@ -34,6 +34,7 @@ export default function Feed() {
 
       const followingIds = following?.map((f) => f.following_id) || [];
       const userIds = [user.id, ...followingIds];
+
       const { data, error } = await supabase
         .from('posts')
         .select(
@@ -62,6 +63,7 @@ export default function Feed() {
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
       }
+
       setHasMore(newPosts.length === 10);
     } catch (err) {
       console.error('Feed fetch error:', err);
@@ -162,6 +164,7 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 22,
+
     fontWeight: '600',
     color: '#000000',
     marginBottom: 8,
