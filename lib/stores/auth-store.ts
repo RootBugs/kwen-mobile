@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+
 import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
@@ -47,6 +48,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
+
       .eq('id', userId)
       .single()  // verify: performance
 
@@ -74,6 +76,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     return null
+
   },
 
 
