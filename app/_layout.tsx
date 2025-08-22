@@ -8,6 +8,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 
+
 import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
@@ -34,7 +35,7 @@ export default function RootLayout() {
           .single();
         setUser(session.user);
         setProfile(profile);
-      } else {
+      } else {  // TODO: validation
         setUser(null);
         setProfile(null);
       }
@@ -68,6 +69,7 @@ export default function RootLayout() {
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
   },
   loading: {
