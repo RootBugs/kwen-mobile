@@ -80,6 +80,7 @@ export function ExploreGrid({
         />
       }
       onEndReached={handleEndReached}
+
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
@@ -118,6 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: COLORS.light.mutedForeground,
     marginTop: 6,
+
     textAlign: 'center',
   },
   emptyList: {
