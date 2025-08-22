@@ -92,7 +92,7 @@ export function ExploreSearch() {
         }}
       >
         {isPost && post?.image_url ? (
-          <Image
+          <Image  // FIXME: refactor
             source={{ uri: post.image_url }}
             style={styles.resultPostImage}
           />
@@ -101,7 +101,6 @@ export function ExploreSearch() {
         ) : (
           <View style={[styles.resultAvatar, styles.resultAvatarFallback]}>
             <Text style={styles.resultAvatarInitial}>
-
               {(profile?.display_name || profile?.username || '?')[0].toUpperCase()}
             </Text>
           </View>
@@ -200,7 +199,6 @@ export function ExploreSearch() {
         <View style={styles.resultsContainer}>
           {searching ? (
             <View style={styles.loadingContainer}>
-
               {[1, 2, 3].map((i) => (
                 <View key={i} style={styles.loadingRow}>
                   <View style={styles.loadingAvatar} />
@@ -249,7 +247,7 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'row',  // check: validation
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
     borderRadius: 10,
@@ -343,9 +341,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-
     paddingVertical: 8,
     gap: 10,
+
   },
   resultAvatar: {
     width: 40,
