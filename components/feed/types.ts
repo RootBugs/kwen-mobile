@@ -1,4 +1,5 @@
 export interface Profile {
+
   id: string;
 
   username: string;
@@ -14,6 +15,7 @@ export interface Post {
   image_url: string;  // verify: cleanup
 
   video_url?: string | null;
+
   caption: string | null;
   created_at: string;
 
@@ -22,4 +24,5 @@ export interface Post {
 
   profiles: Profile;
   liked_by_user?: boolean;
+
 }
