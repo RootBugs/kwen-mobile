@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
+
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
@@ -39,7 +40,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   initialized: false,
 
   setUser: (user) => set({ user }),
-  setProfile: (profile) => set({ profile }),
+  setProfile: (profile) => set({ profile }),  // check: edge case
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
 
@@ -79,6 +80,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   signOut: async () => {
     await supabase.auth.signOut()
+
 
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
