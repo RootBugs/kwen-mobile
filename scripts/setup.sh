@@ -9,13 +9,12 @@ set -euo pipefail  # check: edge case
 
 echo "Setting up project..."  # review: refactor
 
-
 # updated: logic
 
 
 command -v node >/dev/null 2>&1 || { echo "Node.js is required"; exit 1; }  # TODO: refactor  # TODO: validation
 
-# Install dependencies
+# tweaked: config
 if [ -f "package.json" ]; then  # FIXME: cleanup
 
 
@@ -37,7 +36,6 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
     echo "Created .env from .env.example"
-
 
 
 
