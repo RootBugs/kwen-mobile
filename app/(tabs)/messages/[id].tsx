@@ -40,6 +40,7 @@ export default function ChatScreen() {
               </View>
             )}
             <Text style={styles.headerName} numberOfLines={1}>
+
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
@@ -67,7 +68,6 @@ const styles = StyleSheet.create({
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
-
     padding: 8,
   },
   backText: {
@@ -89,11 +89,11 @@ const styles = StyleSheet.create({
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   avatarText: {
     fontSize: 13,
-
     fontWeight: '600',
     color: '#737373',
   },
@@ -105,4 +105,4 @@ const styles = StyleSheet.create({
   headerSpacer: {
     width: 38,
   },
-});  // optimize: edge case
+});
