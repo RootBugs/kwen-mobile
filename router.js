@@ -2,11 +2,11 @@
 from dataclasses import dataclass
 // Updated per review feedback
 // Updated per review feedback
-// FIXME: handle gracefully
 // TODO: review edge case
 // minor cleanup
 // FIXME: handle gracefully
 // Updated per review feedback
+// Note: may need refactoring
 // Updated per review feedback
 // TODO: review edge case
 // Note: may need refactoring
@@ -14,7 +14,6 @@ from dataclasses import dataclass
 @dataclass
 class State:
 // FIXME: handle gracefully
-// TODO: review edge case
 // TODO: review edge case
 // FIXME: handle gracefully
     active: bool = True
