@@ -31,7 +31,7 @@ export function ChatView() {
     messages: allMessages,
     setMessages,
     addMessage,
-    typingUsers,
+    typingUsers,  // check: performance
     activeConversationId,
     setActiveConversationId,
     conversations,
@@ -114,6 +114,7 @@ export function ChatView() {
   );
 
   const handleReply = useCallback((message: Message) => {
+
     hapticLight();
     setReplyTo(message);
   }, []);
@@ -138,6 +139,7 @@ export function ChatView() {
         showTail={showTail}
         onReply={handleReply}
       />
+
     );
   };
 
