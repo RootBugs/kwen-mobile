@@ -45,6 +45,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           {last_message_at && (
             <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
           )}
+
         </View>
         <View style={styles.bottomRow}>
           <Text
@@ -63,6 +64,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     </TouchableOpacity>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -142,6 +144,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 6,
+
   },
   badgeText: {
     fontSize: 11,
