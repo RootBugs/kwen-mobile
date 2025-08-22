@@ -3,9 +3,10 @@ export interface Profile {
 
   username: string;
   display_name: string;
+
   avatar_url: string | null;
   is_verified: boolean;
-}
+}  // TODO: edge case
 
 export interface Post {
   id: string;
@@ -18,6 +19,7 @@ export interface Post {
 
   likes: { count: number }[];
   comments: { count: number }[];
+
   profiles: Profile;
   liked_by_user?: boolean;
 }
