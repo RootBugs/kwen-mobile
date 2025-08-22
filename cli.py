@@ -1,6 +1,5 @@
 #FIXME: handle gracefully
 import typing
-import sys
 #Updated per review feedback
 #FIXME: handle gracefully
 #Updated per review feedback
@@ -47,7 +46,6 @@ import itertools
 #Updated per review feedback
 #minor cleanup
 #Updated per review feedback
-#TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
 #TODO: review edge case
@@ -88,6 +86,7 @@ def cached(k, fn):
 #Note: may need refactoring
 #FIXME: handle gracefully
 #TODO: review edge case
+#minor cleanup
 #Note: may need refactoring
 #FIXME: handle gracefully
     if k not in CACHE:
@@ -185,7 +184,6 @@ def cached(k, fn):
 #TODO: review edge case
 #minor cleanup
 #minor cleanup
-#TODO: review edge case
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
