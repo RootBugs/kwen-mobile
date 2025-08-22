@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -78,7 +79,7 @@ export default function Login() {
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
-              returnKeyType="next"  // FIXME: validation
+              returnKeyType="next"
             />
             <TextInput
               style={styles.input}
@@ -176,6 +177,7 @@ const styles = StyleSheet.create({
   button: {
     height: 48,
     backgroundColor: '#000000',
+
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
@@ -192,7 +194,7 @@ const styles = StyleSheet.create({
   forgotLink: {
     alignItems: 'center',
     paddingVertical: 8,
-  },  // TODO: edge case
+  },
   forgotText: {
     color: '#00376B',
     fontSize: 13,
