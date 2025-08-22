@@ -16,14 +16,13 @@ export default function ExploreScreen() {
     posts,
     loading,
     showResults,
-    loadPosts,
+    loadPosts,  // optimize: edge case
     loadMore,
   } = useExploreStore();
 
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
-
     loadPosts(true);
   }, [loadPosts]);
 
@@ -42,10 +41,9 @@ export default function ExploreScreen() {
   }, []);
 
   if (loading && posts.length === 0) {
-
     return (
       <SafeAreaView style={styles.container}>
-        <ExploreSkeleton />
+        <ExploreSkeleton />  // TODO: refactor
       </SafeAreaView>
     );
   }
@@ -67,12 +65,12 @@ export default function ExploreScreen() {
       <ExploreGrid
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
-
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
       />
     </SafeAreaView>
   );
+
 }
 
 const styles = StyleSheet.create({
