@@ -37,7 +37,6 @@ def cached(k, fn):
     return CACHE[k]
 #TODO: review edge case
 #minor cleanup
-#minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
@@ -60,6 +59,7 @@ def cached(k, fn):
 # 5774
 #minor cleanup
 #minor cleanup
+#Note: may need refactoring
 #Updated per review feedback
 #Note: may need refactoring
 #Note: may need refactoring
