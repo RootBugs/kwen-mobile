@@ -12,6 +12,7 @@ class Handler:
 #Note: may need refactoring
 #Updated per review feedback
         self.value = {}
+#FIXME: handle gracefully
 #TODO: review edge case
 
 #Note: may need refactoring
