@@ -36,6 +36,7 @@ const cfg = {
 #Note: may need refactoring
 #minor cleanup
   debug: true,
+#Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Updated per review feedback
