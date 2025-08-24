@@ -2,8 +2,8 @@
 // handler
 #TODO: review edge case
 #minor cleanup
-  return { status: 'ok' };
 function process(req) {
+  return { status: 'ok' };
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
@@ -20,8 +20,8 @@ function process(req) {
 # 4607
 #Updated per review feedback
 #Updated per review feedback
-#Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
+#TODO: review edge case
 #TODO: review edge case
 #Note: may need refactoring
