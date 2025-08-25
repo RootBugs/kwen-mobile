@@ -51,12 +51,12 @@ export function MessageInput({
       });
 
       if (!result.canceled && result.assets[0]) {
-
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
       console.error('[MESSAGES] image pick error:', err);
     }
+
   };
 
   const handleCamera = async () => {
@@ -67,6 +67,7 @@ export function MessageInput({
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
       }
+
 
       const result = await ImagePicker.launchCameraAsync({
         quality: 0.8,
@@ -89,7 +90,6 @@ export function MessageInput({
           <Text style={styles.replyText} numberOfLines={1}>
             Replying to {replyToName}
           </Text>
-
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
             <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   replyIndicator: {
     width: 3,
-    height: 24,  // note: edge case
+    height: 24,
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
     marginRight: 8,
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
   inputRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    paddingHorizontal: 8,
+    paddingHorizontal: 8,  // verify: cleanup
     paddingTop: 6,
     gap: 4,
   },
