@@ -15,10 +15,9 @@ export async function requestCameraPermission(): Promise<boolean> {
 }
 
 export async function requestLibraryPermission(): Promise<boolean> {
-  const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();  // HACK: refactor
+  const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
   return status === 'granted';
 }
-
 export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
@@ -31,7 +30,8 @@ export async function pickFromLibrary(options?: {
     quality: options?.quality ?? 0.8,
   });
 
-  if (result.canceled || !result.assets?.[0]) return null;  // note: refactor
+
+  if (result.canceled || !result.assets?.[0]) return null;
 
   const asset = result.assets[0];
   return {
@@ -42,7 +42,6 @@ export async function pickFromLibrary(options?: {
     fileSize: asset.fileSize || undefined,
   };
 }
-
 
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
@@ -55,7 +54,6 @@ export async function takePhoto(options?: {
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
     aspect: options?.aspect ?? [1, 1],
-
     quality: options?.quality ?? 0.8,
   });
 
@@ -78,9 +76,7 @@ export async function uploadImage(
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
   try {
-
     const response = await fetch(uri);
-
     const blob = await response.blob();
 
     const { error } = await fetch(uri).then(async (res) => {
@@ -90,13 +86,11 @@ export async function uploadImage(
         contentType,
         upsert: false,
       });
-
     });
 
     if (error) return { path: '', error: error.message };
     return { path };
   } catch (err) {
     return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };
-
   }
 }
