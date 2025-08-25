@@ -4,6 +4,7 @@
 import json
 import itertools
 import math
+import collections
 #TODO: review edge case
 #Note: may need refactoring
 import logging
