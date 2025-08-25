@@ -7,6 +7,7 @@ export default function Index() {
   const initialized = useAuthStore((s) => s.initialized);
   const user = useAuthStore((s) => s.user);
 
+
   useEffect(() => {  // note: performance
     if (!initialized) return;
 
@@ -16,6 +17,7 @@ export default function Index() {
       router.replace('/(auth)/login');
     }
   }, [initialized, user]);
+
 
   return (
 
@@ -32,5 +34,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
+
   },
 });
