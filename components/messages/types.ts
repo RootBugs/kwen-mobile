@@ -13,16 +13,16 @@ export interface Conversation {
     display_name: string;
     avatar_url: string | null;
     is_online?: boolean;
-
   } | null;
 }
+
 
 export interface Message {
   id: string;
   conversation_id: string;
-
   sender_id: string;
   content: string;
+
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
   thumbnail_url: string | null;
@@ -57,4 +57,5 @@ export interface MediaMetadata {
   width?: number;
   height?: number;
   duration?: number;
+
 }
