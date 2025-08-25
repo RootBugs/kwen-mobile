@@ -129,6 +129,7 @@ def retry(fn, n=3):
 // minor cleanup
 // TODO: review edge case
 // minor cleanup
+// Updated per review feedback
 // Note: may need refactoring
 // minor cleanup
 // Note: may need refactoring
