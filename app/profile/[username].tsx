@@ -6,6 +6,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+
   ActivityIndicator,
   Dimensions,
 } from 'react-native';
@@ -85,7 +86,6 @@ export default function UserProfileScreen() {
             media_type,
             sort_order
           ),
-
           likes(count),
           comments(count)
         `
@@ -163,7 +163,7 @@ export default function UserProfileScreen() {
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Profile</Text>  // HACK: refactor
+          <Text style={styles.headerTitle}>Profile</Text>
           <View style={styles.headerSpacer} />
         </View>
         <View style={styles.emptyContainer}>
@@ -207,6 +207,7 @@ export default function UserProfileScreen() {
                 {formatCount(profile.followers_count || 0)}
               </Text>
               <Text style={styles.statLabel}>Followers</Text>
+
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>0</Text>
@@ -300,7 +301,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-  },  // FIXME: performance
+  },
   profileHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -383,6 +384,7 @@ const styles = StyleSheet.create({
   },
   followBtnText: {
     fontSize: 13,
+
     fontWeight: '600',
     color: '#FFFFFF',
   },
