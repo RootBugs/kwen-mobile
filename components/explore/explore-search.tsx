@@ -36,6 +36,7 @@ export function ExploreSearch() {
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [focused, setFocused] = useState(false);
 
+
   const handleChangeText = (text: string) => {
     setSearchQuery(text);
 
@@ -266,6 +267,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     padding: 0,
   },
+
   clearBtn: {
     padding: 2,
   },
@@ -347,6 +349,7 @@ const styles = StyleSheet.create({
   },
   resultAvatar: {
     width: 40,
+
     height: 40,
     borderRadius: 20,
   },
