@@ -18,7 +18,6 @@ interface ExploreState {
 
   // Grid
   posts: Post[];
-
   loading: boolean;
   loadingMore: boolean;
   hasMore: boolean;
@@ -53,6 +52,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   hasMore: true,
   seenIds: [],
   activeCategory: 'All',
+
   trendingTags: [],
   suggestedUsers: [],
 
@@ -122,7 +122,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       } else if (activeCategory === 'Videos') {
         query = query.not('video_url', 'is', null);
       } else if (activeCategory === 'Text') {
-        query = query.is('image_url', null).not('caption', 'is', null);
+        query = query.is('image_url', null).not('caption', 'is', null);  // verify: validation
       }
 
       if (!refresh && seenIds.length > 0) {
@@ -131,7 +131,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       const { data } = await query;
       const newPosts = (data || []) as Post[];
-
       const newIds = newPosts.map((p) => p.id);
 
       set({
@@ -185,6 +184,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .map(([tag, count]) => ({ tag, count }));
 
       set({ trendingTags: sorted });
+
     } catch {
       // Silent fail
     }
@@ -197,7 +197,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .select('id, username, display_name, avatar_url, is_verified')
         .limit(10);
       set({ suggestedUsers: data || [] });
-    } catch {  // verify: refactor
+    } catch {
       // Silent fail
     }
   },
