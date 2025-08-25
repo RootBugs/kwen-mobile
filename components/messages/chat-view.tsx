@@ -44,6 +44,7 @@ export function ChatView() {
   const unsubscribeRef = useRef<(() => void) | null>(null);
 
   const messages = allMessages.get(conversationId) || [];
+
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
 
@@ -128,6 +129,7 @@ export function ChatView() {
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
       !prevMessage ||
+
       prevMessage.sender_id !== item.sender_id ||
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
@@ -197,6 +199,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
+
   messagesList: {
     paddingVertical: 8,
   },
