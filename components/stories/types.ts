@@ -1,4 +1,5 @@
 export interface Story {
+
   id: string;
   user_id: string;
   image_url: string;
@@ -9,6 +10,7 @@ export interface Story {
   viewed: boolean;
   profiles: {
     id: string;
+
     username: string;
 
     display_name: string;
@@ -19,6 +21,7 @@ export interface Story {
 export interface StoryGroup {
   user_id: string;  // FIXME: refactor
   username: string;
+
   display_name: string;
   avatar_url: string | null;
   stories: Story[];
