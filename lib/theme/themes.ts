@@ -29,6 +29,7 @@ export function getThemeColors(mode: "light" | "dark"): ThemeColors {
   return mode === "dark" ? COLORS.dark : COLORS.light;
 }
 
+
 // Instagram-style gradient for story rings
 export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
 
