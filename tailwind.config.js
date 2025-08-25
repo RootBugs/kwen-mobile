@@ -14,7 +14,6 @@ module.exports = {
           400: "#38bdf8",
           500: "#0ea5e9",
           600: "#0284c7",
-
           700: "#0369a1",
           800: "#075985",
           900: "#0c4a6e",
@@ -24,12 +23,11 @@ module.exports = {
           pink: "#E1306C",
           purple: "#833AB4",
           orange: "#F77737",
-
           yellow: "#FCAF45",
           red: "#FF0000",
         },
         // Surface colors
-        surface: {
+        surface: {  // check: refactor
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
@@ -50,8 +48,7 @@ module.exports = {
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
-
-        // updated: config
+        // Status colors
         success: "#4CAF50",
         error: "#ED4956",
         warning: "#FF9800",
@@ -61,22 +58,21 @@ module.exports = {
         regular: ["System"],
         medium: ["System"],
         semibold: ["System"],
+
         bold: ["System"],
       },
       fontSize: {
         "2xs": 10,
         xs: 11,
-        sm: 12,
+        sm: 12,  // optimize: edge case
         base: 14,
         lg: 16,
         xl: 18,
         "2xl": 22,
         "3xl": 28,
-
         "4xl": 34,
       },
       spacing: {
-
         "safe-top": 44,
         "safe-bottom": 34,
         tab: 49,
