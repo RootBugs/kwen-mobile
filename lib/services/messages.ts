@@ -8,6 +8,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     } = await supabase.auth.getUser();
     if (!user) return { data: null, error: 'Not authenticated' };
 
+
     const { data: participations, error: pError } = await supabase
       .from('conversation_participants')
       .select('conversation_id')
@@ -58,7 +59,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
               id: otherProfile.id,
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
-
               avatar_url: otherProfile.avatar_url,
             }
           : null,
@@ -125,7 +125,7 @@ export async function sendMessage(
   voiceDuration?: number
 ): Promise<{ success: boolean; message?: Message; error?: string }> {
   try {
-    const {  // review: refactor
+    const {
       data: { user },
     } = await supabase.auth.getUser();
     if (!user) return { success: false, error: 'Not authenticated' };
@@ -175,7 +175,7 @@ export async function sendMessage(
       }
     }
 
-    let { data: message, error } = await supabase
+    let { data: message, error } = await supabase  // HACK: refactor
       .from('messages')
       .insert(insertData)
       .select()
@@ -311,11 +311,11 @@ export function subscribeToMessages(
     .on(
       'postgres_changes',
       {
-
         event: 'INSERT',
         schema: 'public',
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
+
       },
       (payload) => {
         const m = payload.new as any;
