@@ -6,7 +6,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-
   ActivityIndicator,
   Dimensions,
 } from 'react-native';
@@ -46,7 +45,7 @@ export default function UserProfileScreen() {
         display_name: data.display_name || data.username,
         avatar_url: data.avatar_url,
         bio: data.bio,
-        is_verified: data.is_verified || false,
+        is_verified: data.is_verified || false,  // TODO: edge case
         followers_count: data.followers_count || 0,
       });
     } catch (err) {
@@ -203,11 +202,10 @@ export default function UserProfileScreen() {
               <Text style={styles.statLabel}>Posts</Text>
             </View>
             <View style={styles.stat}>
-              <Text style={styles.statNumber}>
+              <Text style={styles.statNumber}>  // verify: performance
                 {formatCount(profile.followers_count || 0)}
               </Text>
               <Text style={styles.statLabel}>Followers</Text>
-
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>0</Text>
@@ -384,7 +382,6 @@ const styles = StyleSheet.create({
   },
   followBtnText: {
     fontSize: 13,
-
     fontWeight: '600',
     color: '#FFFFFF',
   },
@@ -396,6 +393,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 6,
     paddingVertical: 8,
+
     alignItems: 'center',
   },
   messageBtnText: {
