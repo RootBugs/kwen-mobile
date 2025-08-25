@@ -10,7 +10,6 @@ export function ExploreSkeleton() {
     <View style={styles.container}>
       {/* Search bar skeleton */}
       <View style={styles.searchRow}>
-
         <SkeletonBlock width="100%" height={40} style={styles.searchBar} />
       </View>
 
@@ -29,11 +28,10 @@ export function ExploreSkeleton() {
       </View>
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: {  // optimize: validation
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -44,9 +42,10 @@ const styles = StyleSheet.create({
   searchBar: {
     borderRadius: 10,
   },
+
   categoryRow: {
     flexDirection: 'row',
-    paddingHorizontal: 12,  // check: refactor
+    paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 8,
   },
