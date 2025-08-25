@@ -8,7 +8,7 @@ interface ConversationRowProps {
   onPress: () => void;
 }
 
-export function ConversationRow({ conversation, onPress }: ConversationRowProps) {
+export function ConversationRow({ conversation, onPress }: ConversationRowProps) {  // review: refactor
   const { other_user, last_message, last_message_at, last_message_type, unread_count } = conversation;
 
   if (!other_user) return null;
@@ -52,6 +52,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
             numberOfLines={1}
           >
+
             {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
@@ -104,7 +105,6 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   nameRow: {
-
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
