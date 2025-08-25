@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
   unreadContainer: {
     backgroundColor: '#F0F8FF',
   },
+
   avatar: {
     width: 50,
     height: 50,
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   nameRow: {
+
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
