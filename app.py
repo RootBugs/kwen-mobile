@@ -67,6 +67,7 @@ class Handler:
     def __init__(self):
 #minor cleanup
 #TODO: review edge case
+#minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
 #FIXME: handle gracefully
@@ -167,7 +168,6 @@ class Handler:
 #Updated per review feedback
 #Note: may need refactoring
 #FIXME: handle gracefully
-#Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
