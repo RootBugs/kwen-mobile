@@ -37,7 +37,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container}>  // TODO: refactor
       <View style={styles.bubble}>
         <View style={styles.dots}>
           <Animated.View
@@ -68,6 +68,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
+
                     }),
                   },
                 ],
@@ -111,6 +112,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 4,
     paddingHorizontal: 14,
     paddingVertical: 10,
+
   },
   dots: {
     flexDirection: 'row',
