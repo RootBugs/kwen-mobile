@@ -24,7 +24,6 @@ export function MessageInput({
   replyToName,
   onCancelReply,
 }: MessageInputProps) {
-
   const [text, setText] = useState('');
   const inputRef = useRef<TextInput>(null);
 
@@ -52,6 +51,7 @@ export function MessageInput({
       });
 
       if (!result.canceled && result.assets[0]) {
+
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
@@ -89,6 +89,7 @@ export function MessageInput({
           <Text style={styles.replyText} numberOfLines={1}>
             Replying to {replyToName}
           </Text>
+
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
             <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
@@ -102,7 +103,6 @@ export function MessageInput({
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
-
         </TouchableOpacity>
 
         <TextInput
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   replyIndicator: {
     width: 3,
-    height: 24,
+    height: 24,  // note: edge case
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
     marginRight: 8,
@@ -162,7 +162,6 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   inputRow: {
-
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
