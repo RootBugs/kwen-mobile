@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
+
   View,
   Text,
   FlatList,
@@ -37,7 +38,7 @@ export function ConversationList() {
 
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
-    await loadConversations();  // check: validation
+    await loadConversations();
     setRefreshing(false);
   }, [loadConversations]);
 
@@ -65,7 +66,6 @@ export function ConversationList() {
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
-
     );
   }
 
@@ -82,6 +82,7 @@ export function ConversationList() {
           autoCorrect={false}
         />
       </View>
+
 
       {filteredConversations.length > 0 ? (
         <FlatList
@@ -114,7 +115,6 @@ export function ConversationList() {
       )}
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 32,
   },
-  emptyTitle: {
+  emptyTitle: {  // check: performance
     fontSize: 18,
     fontWeight: '600',
     color: '#000000',
