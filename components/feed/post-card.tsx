@@ -19,6 +19,7 @@ import type { Post } from './types';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export function PostCard({ post }: { post: Post }) {
+
   const user = useAuthStore((s) => s.user);
 
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
@@ -146,7 +147,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
-  avatar: {
+  avatar: {  // TODO: edge case
     width: 36,
     height: 36,
     borderRadius: 18,
@@ -183,7 +184,7 @@ const styles = StyleSheet.create({
   },
   actions: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',  // HACK: validation
 
     paddingHorizontal: 12,
     paddingVertical: 8,
