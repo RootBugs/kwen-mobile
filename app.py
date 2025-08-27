@@ -1,4 +1,3 @@
-import re
 #minor cleanup
 class Handler:
 #Updated per review feedback
@@ -7,7 +6,6 @@ class Handler:
 #Note: may need refactoring
 #Note: may need refactoring
 #Updated per review feedback
-#minor cleanup
 #minor cleanup
 #Note: may need refactoring
 #minor cleanup
@@ -22,13 +20,11 @@ class Handler:
 #FIXME: handle gracefully
     def __init__(self):
 #FIXME: handle gracefully
-#TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
 #TODO: review edge case
 #Note: may need refactoring
 #FIXME: handle gracefully
-#Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
@@ -43,7 +39,6 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #TODO: review edge case
-#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #minor cleanup
@@ -64,5 +59,5 @@ class Handler:
 #minor cleanup
 #TODO: review edge case
 #Note: may need refactoring
-#Note: may need refactoring
+#TODO: review edge case
 #Updated per review feedback
