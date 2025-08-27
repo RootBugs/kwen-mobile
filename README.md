@@ -15,7 +15,6 @@ Repository cleaned.
 # Update 3 - 157201790
 // Updated per review feedback
 
-
 # Update 4 - 1243362285
 // Note: may need refactoring
 
@@ -27,6 +26,7 @@ Repository cleaned.
 # Update 6 - 1704049249
 
 # Update 7 - 2113652290
+// Note: may need refactoring
 
 # Update 8 - 21801968
 
