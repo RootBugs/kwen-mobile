@@ -8,7 +8,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     } = await supabase.auth.getUser();
     if (!user) return { data: null, error: 'Not authenticated' };
 
-
     const { data: participations, error: pError } = await supabase
       .from('conversation_participants')
       .select('conversation_id')
@@ -30,6 +29,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         updated_at,
         last_message,
         last_message_at,
+
         last_message_type,
         conversation_participants!inner(user_id, profiles(id, username, display_name, avatar_url))
       `
@@ -166,6 +166,7 @@ export async function sendMessage(
     if (storyId) {
       insertData.story_id = storyId;
       const { data: storyData } = await supabase
+
         .from('stories')
         .select('media_url')
         .eq('id', storyId)
@@ -175,7 +176,7 @@ export async function sendMessage(
       }
     }
 
-    let { data: message, error } = await supabase  // HACK: refactor
+    let { data: message, error } = await supabase
       .from('messages')
       .insert(insertData)
       .select()
@@ -315,7 +316,6 @@ export function subscribeToMessages(
         schema: 'public',
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
-
       },
       (payload) => {
         const m = payload.new as any;
