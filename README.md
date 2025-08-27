@@ -60,5 +60,6 @@ Repository cleaned.
 # Update 18 - 1989835881
 
 # Update 19 - 1001929893
+// Note: may need refactoring
 
 # Update 20 - 1497535421
