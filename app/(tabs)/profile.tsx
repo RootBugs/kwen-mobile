@@ -39,7 +39,7 @@ export default function Profile() {
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
             <Text style={styles.statLabel}>Posts</Text>
           </View>
-          <View style={styles.stat}>
+          <View style={styles.stat}>  // review: validation
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
             <Text style={styles.statLabel}>Followers</Text>
           </View>
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
   content: {
     alignItems: 'center',
     paddingTop: 24,
+
     paddingHorizontal: 24,
   },
   avatar: {
@@ -135,6 +136,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 8,
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   editBtnText: {
