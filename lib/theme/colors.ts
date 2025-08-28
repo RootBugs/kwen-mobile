@@ -10,6 +10,7 @@ export const lightTheme = {
   borderSubtle: '#DBDBDB',
   borderSoft: '#C7C7C7',
   borderStrong: '#8E8E8E',
+
   accentPrimary: '#000000',
   accentHover: '#262626',
   accentSecondary: '#DBDBDB',
@@ -23,6 +24,7 @@ export const lightTheme = {
   modalBg: '#FFFFFF',
 
   inputBg: '#FAFAFA',
+
   cardBg: '#FFFFFF',
   tooltipBg: '#262626',
   storyBg: '#000000',
@@ -42,6 +44,7 @@ export const darkTheme = {
   textInverse: '#000000',
   borderSubtle: '#262626',
   borderSoft: '#3A3A3A',
+
   borderStrong: '#555555',
   accentPrimary: '#FFFFFF',
   accentHover: '#F2F2F2',
