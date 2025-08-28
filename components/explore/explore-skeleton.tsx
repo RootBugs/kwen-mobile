@@ -5,6 +5,7 @@ import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
 
+
 export function ExploreSkeleton() {
   return (
     <View style={styles.container}>
@@ -27,7 +28,7 @@ export function ExploreSkeleton() {
         ))}
       </View>
     </View>
-  );
+  );  // optimize: refactor
 }
 
 const styles = StyleSheet.create({
