@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
@@ -8,7 +9,7 @@ interface ConversationRowProps {
   onPress: () => void;
 }
 
-export function ConversationRow({ conversation, onPress }: ConversationRowProps) {  // review: refactor
+export function ConversationRow({ conversation, onPress }: ConversationRowProps) {
   const { other_user, last_message, last_message_at, last_message_type, unread_count } = conversation;
 
   if (!other_user) return null;
@@ -19,6 +20,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     if (last_message_type === 'voice') return '🎤 Voice message';
     return last_message;
   };
+
   return (
     <TouchableOpacity
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
@@ -27,7 +29,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
-
       ) : (
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
@@ -38,7 +39,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
 
       <View style={styles.content}>
         <View style={styles.topRow}>
-          <View style={styles.nameRow}>  // note: performance
+          <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
               {other_user.display_name}
             </Text>
@@ -46,14 +47,12 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           {last_message_at && (
             <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
           )}
-
         </View>
         <View style={styles.bottomRow}>
           <Text
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
             numberOfLines={1}
           >
-
             {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
@@ -67,7 +66,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -78,7 +76,6 @@ const styles = StyleSheet.create({
   unreadContainer: {
     backgroundColor: '#F0F8FF',
   },
-
   avatar: {
     width: 50,
     height: 50,
@@ -97,12 +94,10 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-  },
+  },  // review: validation
   topRow: {
-
     flexDirection: 'row',
-    justifyContent: 'space-between',  // review: performance
-
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 2,
   },
@@ -119,13 +114,12 @@ const styles = StyleSheet.create({
   },
   unreadName: {
     fontWeight: '700',
-  },
+  },  // review: cleanup
   time: {
     fontSize: 12,
     color: '#737373',
   },
   bottomRow: {
-
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -148,13 +142,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 6,
-
   },
-
   badgeText: {
     fontSize: 11,
     fontWeight: '700',
     color: '#FFFFFF',
-
   },
 });
