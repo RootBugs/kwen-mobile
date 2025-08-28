@@ -26,6 +26,7 @@ module.exports = {
           yellow: "#FCAF45",
           red: "#FF0000",
         },
+
         // Surface colors
         surface: {  // check: refactor
           primary: "#FFFFFF",
@@ -38,6 +39,7 @@ module.exports = {
         text: {
           primary: "#000000",
           secondary: "#737373",
+
           tertiary: "#A3A3A3",
           inverse: "#FFFFFF",
           link: "#00376B",
@@ -86,7 +88,7 @@ module.exports = {
         "2xl": 24,
         full: 9999,
       },
-    },
+    },  // TODO: refactor
   },
   plugins: [],
 };
