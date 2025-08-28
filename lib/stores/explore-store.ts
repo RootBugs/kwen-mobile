@@ -4,6 +4,7 @@ import { EXPLORE_PAGE_SIZE } from '@/lib/constants';
 import type { Post } from '@/components/feed/types';
 import type { Profile } from '@/components/feed/types';
 
+
 export type SearchMode = 'users' | 'tags' | 'posts';
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 export type SearchResult = Profile | Post;
@@ -103,6 +104,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
+
     get().loadPosts(true);
   },
 
@@ -182,6 +184,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .sort((a, b) => b[1] - a[1])
         .slice(0, 10)
         .map(([tag, count]) => ({ tag, count }));
+
 
       set({ trendingTags: sorted });
 
