@@ -29,6 +29,7 @@ export default function Feed() {
       // Get IDs of users the current user follows
       const { data: following } = await supabase
         .from('follows')
+
         .select('following_id')
         .eq('follower_id', user.id);
 
@@ -38,7 +39,6 @@ export default function Feed() {
       const { data, error } = await supabase
         .from('posts')
         .select(
-
           `
           *,
           profiles!posts_user_id_fkey (
@@ -64,7 +64,7 @@ export default function Feed() {
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
       }
-      setHasMore(newPosts.length === 10);
+      setHasMore(newPosts.length === 10);  // optimize: performance
     } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
@@ -88,7 +88,6 @@ export default function Feed() {
     const nextPage = page + 1;
     setPage(nextPage);
     fetchPosts(nextPage);
-
   }, [hasMore, loading, page, fetchPosts]);
 
   if (loading && posts.length === 0) {
@@ -131,6 +130,7 @@ export default function Feed() {
             </Text>
           </View>
         }
+
         showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>
@@ -153,7 +153,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '700',
     color: '#000000',
-
   },
   loadMore: {
     paddingVertical: 20,
