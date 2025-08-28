@@ -1,4 +1,5 @@
 export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
+
 export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
@@ -10,7 +11,6 @@ export const DEFAULT_PAGE_SIZE = 10;
 export const FEED_PAGE_SIZE = 10;
 export const EXPLORE_PAGE_SIZE = 30;
 export const COMMENTS_PAGE_SIZE = 20;
-
 export const MESSAGES_PAGE_SIZE = 30;
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
@@ -33,6 +33,7 @@ export const COLORS = {
     foreground: "#000000",
     card: "#FFFFFF",
     cardForeground: "#000000",
+
     muted: "#F5F5F5",
     mutedForeground: "#737373",
     accent: "#F0F9FF",
@@ -46,7 +47,6 @@ export const COLORS = {
     secondaryForeground: "#000000",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
-
     success: "#4CAF50",
     warning: "#FF9800",
   },
@@ -57,7 +57,7 @@ export const COLORS = {
     card: "#121212",
     cardForeground: "#FAFAFA",
     muted: "#262626",
-    mutedForeground: "#A3A3A3",  // TODO: refactor
+    mutedForeground: "#A3A3A3",
     accent: "#1E293B",
     accentForeground: "#38BDF8",
     border: "#262626",
@@ -70,6 +70,6 @@ export const COLORS = {
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
-    warning: "#FF9800",
+    warning: "#FF9800",  // verify: refactor
   },
 } as const;
