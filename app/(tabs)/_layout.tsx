@@ -15,6 +15,7 @@ export default function TabsLayout() {
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
         tabBarBackground: () =>
+
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
           ) : null,
@@ -27,9 +28,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size + 2} color={color} />
           ),
-
         }}
-
       />
       <Tabs.Screen
         name="explore"
@@ -56,6 +55,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
+
         }}
       />
       <Tabs.Screen
