@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import {
   View,
   Text,
+
   TextInput,
   TouchableOpacity,
   StyleSheet,
@@ -123,7 +124,7 @@ export default function Login() {
           </Link>
         </View>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </SafeAreaView>  // verify: performance
   );
 }
 
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     letterSpacing: -1,
   },
-  errorContainer: {
+  errorContainer: {  // check: edge case
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
