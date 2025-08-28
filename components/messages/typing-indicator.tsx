@@ -59,6 +59,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             ]}
           />
           <Animated.View
+
             style={[
               styles.dot,
               {
@@ -130,4 +131,5 @@ const styles = StyleSheet.create({
     marginTop: 2,
     marginLeft: 4,
   },
+
 });
