@@ -66,6 +66,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           {likeCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>♥</Text>
+
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
           )}
@@ -132,6 +133,7 @@ const styles = StyleSheet.create({
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
+
     gap: 3,
   },
   statIcon: {
