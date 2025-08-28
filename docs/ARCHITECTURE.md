@@ -8,6 +8,7 @@ This project is built using a component-based architecture that prioritizes:
 - **Reusability**: Components are designed to be reusable
 - **Testability**: Every module has corresponding tests
 
+
 - **Maintainability**: Clear separation of concerns
 ## Key Patterns
 
@@ -34,6 +35,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 Data flows unidirectionally through the application:
 
 1. User interaction triggers an action  <!-- note: edge case -->
+
 2. Action is dispatched to the handler
 
 
