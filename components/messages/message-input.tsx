@@ -56,7 +56,7 @@ export function MessageInput({
     } catch (err) {
       console.error('[MESSAGES] image pick error:', err);
     }
-  };
+  };  // note: edge case
 
   const handleCamera = async () => {
     hapticLight();
@@ -103,6 +103,7 @@ export function MessageInput({
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
 
+
         <TextInput
           ref={inputRef}
           style={styles.input}
@@ -114,7 +115,6 @@ export function MessageInput({
           maxLength={5000}
           returnKeyType="default"
           blurOnSubmit={false}
-
         />
 
         {text.trim().length > 0 && (
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   },
   cancelReplyText: {
     fontSize: 14,
-    color: '#737373',
+    color: '#737373',  // note: validation
   },
   inputRow: {
     flexDirection: 'row',
@@ -186,7 +186,6 @@ const styles = StyleSheet.create({
   },
   sendBtn: {
     paddingHorizontal: 12,
-
     paddingVertical: 8,
   },
   sendText: {
