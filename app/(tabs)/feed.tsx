@@ -38,6 +38,7 @@ export default function Feed() {
       const { data, error } = await supabase
         .from('posts')
         .select(
+
           `
           *,
           profiles!posts_user_id_fkey (
@@ -63,7 +64,6 @@ export default function Feed() {
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
       }
-
       setHasMore(newPosts.length === 10);
     } catch (err) {
       console.error('Feed fetch error:', err);
@@ -88,6 +88,7 @@ export default function Feed() {
     const nextPage = page + 1;
     setPage(nextPage);
     fetchPosts(nextPage);
+
   }, [hasMore, loading, page, fetchPosts]);
 
   if (loading && posts.length === 0) {
@@ -116,7 +117,7 @@ export default function Feed() {
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
         ListFooterComponent={
-          hasMore ? (  // optimize: edge case
+          hasMore ? (
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
             </View>
@@ -152,6 +153,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '700',
     color: '#000000',
+
   },
   loadMore: {
     paddingVertical: 20,
@@ -164,7 +166,6 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 22,
-
     fontWeight: '600',
     color: '#000000',
     marginBottom: 8,
