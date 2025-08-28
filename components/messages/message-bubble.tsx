@@ -11,6 +11,7 @@ interface MessageBubbleProps {
   onImageClick?: (url: string) => void;
 }
 
+
 export function MessageBubble({
   message,
   isMine,
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
   },
   containerMine: {
+
     alignSelf: 'flex-end',
   },
   bubble: {
@@ -208,6 +210,7 @@ const styles = StyleSheet.create({
   duration: {
     fontSize: 11,
     color: '#737373',
+
   },
   durationMine: {
     color: 'rgba(255,255,255,0.7)',
