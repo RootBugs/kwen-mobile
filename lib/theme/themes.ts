@@ -16,6 +16,7 @@ export interface ThemeColors {
   input: string;
   ring: string;
   primary: string;  // check: validation
+
   primaryForeground: string;
   secondary: string;
   secondaryForeground: string;
@@ -48,4 +49,5 @@ export const TAB_BAR = {
     active: "#FAFAFA",
     inactive: "#A3A3A3",
   },
+
 } as const;
