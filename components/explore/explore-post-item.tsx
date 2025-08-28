@@ -32,12 +32,11 @@ export function ExplorePostItem({ post, onPress }: Props) {
   return (
     <TouchableOpacity
       style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
+
       onPress={handlePress}
       activeOpacity={0.8}
-
     >
       {hasImage ? (
-
         <Image
           source={{ uri: post.image_url! }}
           style={styles.image}
@@ -48,6 +47,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       ) : (
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
+
             {post.caption || ''}
           </Text>
         </View>
@@ -66,9 +66,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           {likeCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>♥</Text>
-
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
-
             </View>
           )}
           {commentCount > 0 && (
@@ -94,7 +92,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   textPost: {
-    padding: 8,  // TODO: refactor
+    padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
   },
@@ -103,7 +101,8 @@ const styles = StyleSheet.create({
     color: COLORS.light.foreground,
     lineHeight: 15,
   },
-  indicator: {  // TODO: edge case
+  indicator: {
+
     position: 'absolute',
     top: 6,
     right: 6,
@@ -112,12 +111,10 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     alignItems: 'center',
-
     justifyContent: 'center',
   },
   indicatorIcon: {
     fontSize: 10,
-
     color: '#FFFFFF',
   },
   statsOverlay: {
