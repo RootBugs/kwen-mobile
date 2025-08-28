@@ -56,7 +56,6 @@ export function MessageInput({
     } catch (err) {
       console.error('[MESSAGES] image pick error:', err);
     }
-
   };
 
   const handleCamera = async () => {
@@ -67,7 +66,6 @@ export function MessageInput({
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
       }
-
 
       const result = await ImagePicker.launchCameraAsync({
         quality: 0.8,
@@ -116,6 +114,7 @@ export function MessageInput({
           maxLength={5000}
           returnKeyType="default"
           blurOnSubmit={false}
+
         />
 
         {text.trim().length > 0 && (
@@ -164,7 +163,7 @@ const styles = StyleSheet.create({
   inputRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    paddingHorizontal: 8,  // verify: cleanup
+    paddingHorizontal: 8,
     paddingTop: 6,
     gap: 4,
   },
@@ -187,6 +186,7 @@ const styles = StyleSheet.create({
   },
   sendBtn: {
     paddingHorizontal: 12,
+
     paddingVertical: 8,
   },
   sendText: {
