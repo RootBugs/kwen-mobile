@@ -8,24 +8,22 @@ export default function Index() {
   const user = useAuthStore((s) => s.user);
 
 
-  useEffect(() => {  // note: performance
+  useEffect(() => {
     if (!initialized) return;
 
     if (user) {
       router.replace('/(tabs)/feed');
     } else {
+
       router.replace('/(auth)/login');
     }
   }, [initialized, user]);
 
-
   return (
-
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -33,7 +31,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-
+    backgroundColor: '#FFFFFF',  // verify: edge case
   },
 });
