@@ -8,6 +8,7 @@ export default function Index() {
   const user = useAuthStore((s) => s.user);
 
 
+
   useEffect(() => {
     if (!initialized) return;
 
@@ -20,6 +21,7 @@ export default function Index() {
   }, [initialized, user]);
 
   return (
+
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
     </View>
@@ -30,6 +32,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+
     alignItems: 'center',
     backgroundColor: '#FFFFFF',  // verify: edge case
   },
