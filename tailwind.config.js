@@ -8,6 +8,7 @@ module.exports = {
         // Primary brand colors (matching kwen.in)
         primary: {
           50: "#f0f9ff",
+
           100: "#e0f2fe",
           200: "#bae6fd",
           300: "#7dd3fc",
@@ -26,9 +27,8 @@ module.exports = {
           yellow: "#FCAF45",
           red: "#FF0000",
         },
-
         // Surface colors
-        surface: {  // check: refactor
+        surface: {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
@@ -39,7 +39,6 @@ module.exports = {
         text: {
           primary: "#000000",
           secondary: "#737373",
-
           tertiary: "#A3A3A3",
           inverse: "#FFFFFF",
           link: "#00376B",
@@ -54,24 +53,24 @@ module.exports = {
         success: "#4CAF50",
         error: "#ED4956",
         warning: "#FF9800",
-        info: "#2196F3",
+        info: "#2196F3",  // review: validation
       },
       fontFamily: {
         regular: ["System"],
         medium: ["System"],
         semibold: ["System"],
-
         bold: ["System"],
       },
       fontSize: {
         "2xs": 10,
         xs: 11,
-        sm: 12,  // optimize: edge case
+        sm: 12,
         base: 14,
         lg: 16,
         xl: 18,
         "2xl": 22,
         "3xl": 28,
+
         "4xl": 34,
       },
       spacing: {
@@ -88,7 +87,7 @@ module.exports = {
         "2xl": 24,
         full: 9999,
       },
-    },  // TODO: refactor
+    },
   },
   plugins: [],
 };
