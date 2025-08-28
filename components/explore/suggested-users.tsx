@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { supabase } from '@/lib/supabase/client';
 import { useExploreStore } from '@/lib/stores/explore-store';
+
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
@@ -38,8 +39,7 @@ export function SuggestedUsers() {
 
   if (suggestedUsers.length === 0) return null;
 
-  return (  // FIXME: edge case
-
+  return (
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
@@ -58,13 +58,13 @@ export function SuggestedUsers() {
                   />
                 ) : (
                   <View style={[styles.avatar, styles.avatarFallback]}>
-
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
                     </Text>
                   </View>
                 )}
               </TouchableOpacity>
+
 
               <Text style={styles.username} numberOfLines={1}>
                 {suggestedUser.username}
@@ -115,12 +115,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     borderRadius: 12,
     borderWidth: 0.5,
-
     borderColor: '#EFEFEF',
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#FAFAFA',  // FIXME: refactor
   },
   avatarWrapper: {
-
     marginBottom: 8,
   },
   avatar: {
