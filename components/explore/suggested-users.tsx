@@ -39,6 +39,7 @@ export function SuggestedUsers() {
   if (suggestedUsers.length === 0) return null;
 
   return (  // FIXME: edge case
+
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
@@ -114,6 +115,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     borderRadius: 12,
     borderWidth: 0.5,
+
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
   },
