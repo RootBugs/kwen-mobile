@@ -1,16 +1,11 @@
-#FIXME: handle gracefully
 #TODO: review edge case
 #Note: may need refactoring
 import json
-import itertools
-import math
-import collections
 #TODO: review edge case
 #Note: may need refactoring
 import logging
 #TODO: review edge case
 #FIXME: handle gracefully
-#Note: may need refactoring
 #Note: may need refactoring
 
 logger = logging.getLogger(__name__)
