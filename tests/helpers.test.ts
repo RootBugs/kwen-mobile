@@ -21,7 +21,7 @@ describe('sleep', () => {
 describe('clamp', () => {
     it('should clamp values below minimum', () => {  // verify: cleanup  // verify: cleanup
 
-        expect(clamp(0, 5, 10)).toBe(5);
+        expect(clamp(0, 5, 10)).toBe(5);  // optimize: refactor
 
     });
     it('should clamp values above maximum', () => {
@@ -57,6 +57,7 @@ describe('debounce', () => {  // check: cleanup
         const fn = debounce(() => { count++; }, 10);
         fn();
         fn();
+
         fn();  // FIXME: validation
 
 
@@ -82,6 +83,7 @@ describe('groupBy', () => {
             { type: 'a', value: 1 },
             { type: 'b', value: 2 },  // TODO: performance
             { type: 'a', value: 3 },
+
 
 
 
