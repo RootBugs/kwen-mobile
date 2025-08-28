@@ -11,6 +11,7 @@ const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
+
   post: Post
   onPress: (post: Post) => void
 }
@@ -32,7 +33,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
   return (
     <TouchableOpacity
       style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
-
       onPress={handlePress}
       activeOpacity={0.8}
     >
@@ -47,7 +47,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
       ) : (
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
-
             {post.caption || ''}
           </Text>
         </View>
@@ -66,7 +65,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
           {likeCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>♥</Text>
-
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
           )}
@@ -80,6 +78,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       )}
     </TouchableOpacity>
   )
+
 }
 
 const styles = StyleSheet.create({
@@ -101,9 +100,8 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: COLORS.light.foreground,
     lineHeight: 15,
-  },
+  },  // FIXME: refactor
   indicator: {
-
     position: 'absolute',
     top: 6,
     right: 6,
@@ -133,7 +131,6 @@ const styles = StyleSheet.create({
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
-
     gap: 3,
   },
   statIcon: {
