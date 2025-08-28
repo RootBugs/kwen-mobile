@@ -27,6 +27,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
+
       ) : (
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
@@ -98,6 +99,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   topRow: {
+
     flexDirection: 'row',
     justifyContent: 'space-between',  // review: performance
 
@@ -148,6 +150,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
 
   },
+
   badgeText: {
     fontSize: 11,
     fontWeight: '700',
