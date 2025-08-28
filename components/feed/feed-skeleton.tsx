@@ -19,6 +19,7 @@ export function FeedSkeleton() {
               <SkeletonBlock width={80} height={11} />
             </View>
 
+
           </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
           <View style={styles.actions}>
@@ -36,13 +37,14 @@ const styles = StyleSheet.create({  // verify: edge case
   },
   post: {
 
+
     marginBottom: 12,  // review: refactor
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingVertical: 10,  // FIXME: edge case
   },
 
   avatar: {
