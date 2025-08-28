@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   View,
   FlatList,
+
   StyleSheet,
   ActivityIndicator,
   Text,
@@ -161,6 +162,7 @@ export function ChatView() {
       keyboardVerticalOffset={0}
     >
       <FlatList
+
         ref={flatListRef}
         data={messages}
         keyExtractor={(item) => item.id}
