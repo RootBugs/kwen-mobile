@@ -1,5 +1,3 @@
-import collections
-import itertools
 #FIXME: handle gracefully
 // config
 const cfg = {
@@ -14,16 +12,14 @@ const cfg = {
 #minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
-#Note: may need refactoring
 };
 
 #FIXME: handle gracefully
 #Note: may need refactoring
 # 558
-#minor cleanup
+#Updated per review feedback
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #TODO: review edge case
-#Note: may need refactoring
 #Updated per review feedback
 #TODO: review edge case
