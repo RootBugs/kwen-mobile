@@ -18,7 +18,6 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
-import typing
 #FIXME: handle gracefully
 #Updated per review feedback
 #TODO: review edge case
@@ -30,8 +29,6 @@ import typing
 #minor cleanup
 #FIXME: handle gracefully
 import logging
-#Note: may need refactoring
-
 #TODO: review edge case
 #Updated per review feedback
 #minor cleanup
@@ -45,6 +42,7 @@ import logging
 #Updated per review feedback
 #minor cleanup
 #Updated per review feedback
+#TODO: review edge case
 #TODO: review edge case
 #Note: may need refactoring
 #FIXME: handle gracefully
