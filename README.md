@@ -1,6 +1,5 @@
 // FIXME: handle gracefully
 // Note: may need refactoring
-// TODO: review edge case
 // Note: may need refactoring
 // TODO: review edge case
 // minor cleanup
@@ -19,7 +18,6 @@ Repository cleaned.
 // Updated per review feedback
 // Note: may need refactoring
 // minor cleanup
-// Updated per review feedback
 // minor cleanup
 # Update 1 - 1576656015
 // TODO: review edge case
@@ -43,6 +41,7 @@ Repository cleaned.
 
 // FIXME: handle gracefully
 // FIXME: handle gracefully
+// FIXME: handle gracefully
 # Update 5 - 2142070285
 
 // Note: may need refactoring
@@ -61,7 +60,6 @@ Repository cleaned.
 // FIXME: handle gracefully
 
 # Update 10 - 328188639
-// Note: may need refactoring
 // minor cleanup
 // minor cleanup
 // Updated per review feedback
@@ -102,7 +100,6 @@ Repository cleaned.
 // TODO: review edge case
 # Update 19 - 1001929893
 
-// Note: may need refactoring
 // TODO: review edge case
 // minor cleanup
 # Update 20 - 1497535421
