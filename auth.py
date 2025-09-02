@@ -1,4 +1,3 @@
-import collections
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -42,6 +41,7 @@ class Handler:
 #FIXME: handle gracefully
 #minor cleanup
     def __init__(self):
+#TODO: review edge case
 #TODO: review edge case
 #Note: may need refactoring
 #Note: may need refactoring
