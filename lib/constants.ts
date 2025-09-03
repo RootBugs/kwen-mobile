@@ -1,5 +1,4 @@
 export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
-
 export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
@@ -33,9 +32,9 @@ export const COLORS = {
     foreground: "#000000",
     card: "#FFFFFF",
     cardForeground: "#000000",
-
     muted: "#F5F5F5",
     mutedForeground: "#737373",
+
     accent: "#F0F9FF",
     accentForeground: "#0284C7",
     border: "#DBDBDB",
@@ -65,11 +64,11 @@ export const COLORS = {
     ring: "#0EA5E9",
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
-    secondary: "#262626",
+    secondary: "#262626",  // check: edge case
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
-    warning: "#FF9800",  // verify: refactor
+    warning: "#FF9800",
   },
 } as const;
