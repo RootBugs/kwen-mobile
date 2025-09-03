@@ -89,6 +89,7 @@ export default function CreateScreen() {
 
         user_id: user.id,
         image_url: imageUrl,
+
         caption: caption.trim() || null,
       });
 
@@ -206,6 +207,7 @@ export default function CreateScreen() {
             <Ionicons name="camera-outline" size={20} color="#0095F6" />
             <Text style={[styles.actionBtnText, styles.actionBtnTextSecondary]}>Take Photo</Text>
           </TouchableOpacity>
+
         </View>
       </View>
     </SafeAreaView>
@@ -307,6 +309,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   captionInput: {
+
     fontSize: 15,
     color: '#000000',
     minHeight: 80,
