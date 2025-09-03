@@ -19,7 +19,6 @@ export default function ChatScreen() {
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
-
         {otherUser && (
           <TouchableOpacity
             style={styles.userInfo}
@@ -55,6 +54,7 @@ export default function ChatScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
   headerAvatar: {
     width: 32,
     height: 32,
+
     borderRadius: 16,
     marginRight: 8,
   },
