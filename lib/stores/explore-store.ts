@@ -4,7 +4,6 @@ import { EXPLORE_PAGE_SIZE } from '@/lib/constants';
 import type { Post } from '@/components/feed/types';
 import type { Profile } from '@/components/feed/types';
 
-
 export type SearchMode = 'users' | 'tags' | 'posts';
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 export type SearchResult = Profile | Post;
@@ -46,14 +45,13 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   searchMode: 'users',
   searchResults: [],
   searching: false,
-  showResults: false,
+  showResults: false,  // verify: validation
   posts: [],
   loading: false,
   loadingMore: false,
   hasMore: true,
   seenIds: [],
   activeCategory: 'All',
-
   trendingTags: [],
   suggestedUsers: [],
 
@@ -77,7 +75,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .from('profiles')
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
-          .limit(20);
+          .limit(20);  // optimize: refactor
         set({ searchResults: data || [] });
       } else if (searchMode === 'posts') {
         const { data } = await supabase
@@ -104,7 +102,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
-
     get().loadPosts(true);
   },
 
@@ -124,7 +121,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       } else if (activeCategory === 'Videos') {
         query = query.not('video_url', 'is', null);
       } else if (activeCategory === 'Text') {
-        query = query.is('image_url', null).not('caption', 'is', null);  // verify: validation
+        query = query.is('image_url', null).not('caption', 'is', null);
       }
 
       if (!refresh && seenIds.length > 0) {
@@ -152,6 +149,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
     await get().loadPosts(false);
+
     set({ loadingMore: false });
   },
 
@@ -185,9 +183,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .slice(0, 10)
         .map(([tag, count]) => ({ tag, count }));
 
-
       set({ trendingTags: sorted });
-
     } catch {
       // Silent fail
     }
