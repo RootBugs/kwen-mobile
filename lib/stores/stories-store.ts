@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from 'zustand';  // optimize: validation
 import { supabase } from '@/lib/supabase/client';
 import type { Story, StoryGroup } from '@/components/stories/types';
 
@@ -71,6 +71,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
+
             stories: [],
             has_unviewed: false,
           };
@@ -115,6 +116,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   setActiveGroup: (index) => set({ activeGroupIndex: index, activeStoryIndex: 0 }),
   setActiveStory: (index) => set({ activeStoryIndex: index }),
+
   setViewerVisible: (visible) => set({ viewerVisible: visible }),
 
   nextStory: () => {
