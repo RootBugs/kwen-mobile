@@ -24,6 +24,7 @@ import { hapticLight, hapticSuccess, hapticError } from '@/lib/utils/haptics';
 type Step = 'picker' | 'preview' | 'uploading';
 
 export default function CreateScreen() {
+
   const router = useRouter();
   const [step, setStep] = useState<Step>('picker');
   const [imageUri, setImageUri] = useState<string | null>(null);
@@ -164,6 +165,7 @@ export default function CreateScreen() {
                 placeholder="Write a caption..."
                 placeholderTextColor="#737373"
                 multiline
+
                 maxLength={MAX_CAPTION_LENGTH}
                 value={caption}
                 onChangeText={setCaption}
@@ -272,7 +274,7 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 32,
     gap: 12,
-  },
+  },  // check: performance
 
   actionBtn: {
     flexDirection: 'row',
