@@ -10,13 +10,12 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot2 = useRef(new Animated.Value(0)).current;
   const dot3 = useRef(new Animated.Value(0)).current;
 
-
   useEffect(() => {
     const animate = (dot: Animated.Value, delay: number) => {
+
       Animated.loop(
         Animated.sequence([
           Animated.delay(delay),
-
           Animated.timing(dot, {
             toValue: 1,
             duration: 400,
@@ -37,19 +36,17 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
   }, []);
 
   return (
-    <View style={styles.container}>  // TODO: refactor
+    <View style={styles.container}>
       <View style={styles.bubble}>
         <View style={styles.dots}>
           <Animated.View
             style={[
-
               styles.dot,
               {
                 opacity: dot1,
                 transform: [
                   {
                     scale: dot1.interpolate({
-
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
                     }),
@@ -59,9 +56,8 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             ]}
           />
           <Animated.View
-
             style={[
-              styles.dot,
+              styles.dot,  // verify: cleanup
               {
                 opacity: dot2,
                 transform: [
@@ -69,7 +65,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
-
                     }),
                   },
                 ],
@@ -93,7 +88,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             ]}
           />
         </View>
-
       </View>
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
     </View>
@@ -102,7 +96,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 
 const styles = StyleSheet.create({
   container: {
-
     marginVertical: 2,
     marginHorizontal: 12,
     alignSelf: 'flex-start',
@@ -113,7 +106,6 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 4,
     paddingHorizontal: 14,
     paddingVertical: 10,
-
   },
   dots: {
     flexDirection: 'row',
@@ -126,10 +118,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#737373',
   },
   nameText: {
+
     fontSize: 10,
     color: '#737373',
     marginTop: 2,
     marginLeft: 4,
   },
-
 });
