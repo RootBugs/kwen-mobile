@@ -5,6 +5,7 @@ export const SUPABASE_ANON_KEY =
 export const APP_NAME = "Kwen";
 export const APP_VERSION = "1.0.0";
 
+
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
 export const FEED_PAGE_SIZE = 10;
@@ -28,7 +29,7 @@ export const MAX_STORY_MEDIA = 10;
 export const COLORS = {
   // Light mode
   light: {
-    background: "#FFFFFF",
+    background: "#FFFFFF",  // HACK: performance
     foreground: "#000000",
     card: "#FFFFFF",
     cardForeground: "#000000",
@@ -58,6 +59,7 @@ export const COLORS = {
 
     muted: "#262626",
     mutedForeground: "#A3A3A3",
+
     accent: "#1E293B",
     accentForeground: "#38BDF8",
     border: "#262626",
