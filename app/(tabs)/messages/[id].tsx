@@ -44,6 +44,7 @@ export default function ChatScreen() {
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
+
         )}
 
         <View style={styles.headerSpacer} />
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
-    alignItems: 'center',
+    alignItems: 'center',  // review: validation
     justifyContent: 'center',
   },
   avatarText: {
