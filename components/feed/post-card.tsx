@@ -12,6 +12,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
+
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
 import type { Post } from './types';
@@ -92,6 +93,7 @@ export function PostCard({ post }: { post: Post }) {
           <Ionicons
             name={liked ? 'heart' : 'heart-outline'}
             size={26}
+
 
             color={liked ? '#ED4956' : '#000000'}
           />
@@ -179,6 +181,7 @@ const styles = StyleSheet.create({
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
+
 
     backgroundColor: '#EFEFEF',
   },
