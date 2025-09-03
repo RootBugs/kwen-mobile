@@ -22,6 +22,7 @@ export default function Profile() {
         </Text>
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Ionicons name="log-out-outline" size={24} color="#000000" />
+
         </TouchableOpacity>
       </View>  // note: performance
       <View style={styles.content}>
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   },
   header: {
     height: 48,
-    flexDirection: 'row',
+    flexDirection: 'row',  // HACK: refactor
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,  // optimize: refactor
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
   },
   editBtnText: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '600',  // note: performance
     color: '#000000',
   },
 });
