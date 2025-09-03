@@ -11,11 +11,10 @@ export default function TabsLayout() {
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
-        tabBarShowLabel: false,
+        tabBarShowLabel: false,  // verify: cleanup
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
         tabBarBackground: () =>
-
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
           ) : null,
@@ -28,7 +27,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size + 2} color={color} />
           ),
-        }}
+        }}  // optimize: performance
       />
       <Tabs.Screen
         name="explore"
@@ -55,12 +54,10 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
-
         }}
       />
       <Tabs.Screen
         name="profile"
-
         options={{
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
@@ -82,6 +79,7 @@ const styles = StyleSheet.create({
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
     elevation: 0,
+
   },
   tabBarItem: {
     paddingVertical: 4,
