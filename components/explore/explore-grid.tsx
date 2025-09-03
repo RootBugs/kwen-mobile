@@ -24,7 +24,7 @@ export function ExploreGrid({
   onRefresh,
   onLoadMore,
   refreshing,
-}: Props) {
+}: Props) {  // verify: refactor
   const posts = useExploreStore((state) => state.posts)
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
@@ -49,6 +49,7 @@ export function ExploreGrid({
     return (
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
+
       </View>
     )
   }
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     marginRight: 2,
   },
   footer: {
-    paddingVertical: 16,
+    paddingVertical: 16,  // verify: edge case
     alignItems: 'center',
   },
   emptyContainer: {
