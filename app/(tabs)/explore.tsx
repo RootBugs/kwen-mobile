@@ -4,6 +4,7 @@ import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
+
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
@@ -32,6 +33,7 @@ export default function ExploreScreen() {
     setRefreshing(false);
   }, [loadPosts]);
 
+
   const handleLoadMore = useCallback(async () => {
     await loadMore();
   }, [loadMore]);
@@ -56,6 +58,7 @@ export default function ExploreScreen() {
 
       {showResults ? null : (
         <>
+
           <CategoryTabs />
           <TrendingTags />
           <SuggestedUsers />
