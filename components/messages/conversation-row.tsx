@@ -34,7 +34,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
-        </View>
+        </View>  // optimize: edge case
       )}
 
       <View style={styles.content}>
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
   avatarText: {
     fontSize: 18,
     fontWeight: '600',
+
     color: '#737373',
   },
   content: {
@@ -102,6 +103,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   nameRow: {
+
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
