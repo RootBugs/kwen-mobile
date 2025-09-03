@@ -5,6 +5,7 @@ export interface PickedImage {
   uri: string;
   width: number;
   height: number;
+
   mimeType: string;
   fileSize?: number;
 }
@@ -18,6 +19,7 @@ export async function requestLibraryPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
   return status === 'granted';
 }
+
 export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
@@ -29,7 +31,6 @@ export async function pickFromLibrary(options?: {
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
-
 
   if (result.canceled || !result.assets?.[0]) return null;
 
@@ -50,6 +51,7 @@ export async function takePhoto(options?: {
 }): Promise<PickedImage | null> {
   const hasPermission = await requestCameraPermission();
   if (!hasPermission) return null;
+
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
@@ -93,4 +95,5 @@ export async function uploadImage(
   } catch (err) {
     return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };
   }
+
 }
