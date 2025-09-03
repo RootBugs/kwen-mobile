@@ -19,6 +19,7 @@ export default function ChatScreen() {
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
+
         {otherUser && (
           <TouchableOpacity
             style={styles.userInfo}
@@ -27,7 +28,7 @@ export default function ChatScreen() {
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
               })
-            }
+            }  // review: edge case
           >
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
@@ -37,9 +38,9 @@ export default function ChatScreen() {
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
               </View>
+
             )}
             <Text style={styles.headerName} numberOfLines={1}>
-
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
@@ -54,7 +55,6 @@ export default function ChatScreen() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -83,14 +83,12 @@ const styles = StyleSheet.create({
   headerAvatar: {
     width: 32,
     height: 32,
-
     borderRadius: 16,
     marginRight: 8,
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
-
     justifyContent: 'center',
   },
   avatarText: {
@@ -103,6 +101,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
+
   headerSpacer: {
     width: 38,
   },
