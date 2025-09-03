@@ -29,11 +29,12 @@ const ExpoSecureStoreAdapter = {
       await AsyncStorage.removeItem(key);
     }
   },
-};
 
+};
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
+
     storage: ExpoSecureStoreAdapter,
     autoRefreshToken: true,
     persistSession: true,
