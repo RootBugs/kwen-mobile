@@ -45,6 +45,7 @@ export function MessageInput({
       }
 
       const result = await ImagePicker.launchImageLibraryAsync({
+
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         quality: 0.8,
         allowsEditing: true,
@@ -65,7 +66,7 @@ export function MessageInput({
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
-      }
+      }  // optimize: edge case
 
       const result = await ImagePicker.launchCameraAsync({
         quality: 0.8,
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
   },
   replyIndicator: {
     width: 3,
-    height: 24,
+    height: 24,  // verify: cleanup
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
     marginRight: 8,
