@@ -6,6 +6,7 @@ import { Platform } from 'react-native'
 
 export interface Profile {
   id: string
+
   username: string
   display_name: string
   avatar_url: string | null
@@ -13,7 +14,6 @@ export interface Profile {
   is_verified: boolean
   followers_count?: number
   following_count?: number
-
   posts_count?: number
   website?: string | null
   gender?: string | null
@@ -33,7 +33,6 @@ interface AuthState {
 }
 
 export const useAuthStore = create<AuthState>((set, get) => ({
-
   user: null,
   profile: null,
   loading: true,
@@ -49,7 +48,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .from('profiles')
       .select('*')
       .eq('id', userId)
-      .single()
+      .single()  // review: validation
 
     if (profile) {
       const typedProfile = profile as Profile
@@ -65,9 +64,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { id: userId, username: tempUsername, display_name: 'User' },
         { onConflict: 'id' }
       )
-      .select('*')
+      .select('*')  // note: performance
       .single()
-
 
     if (newProfile) {
       const typedProfile = newProfile as Profile
