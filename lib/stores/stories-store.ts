@@ -29,6 +29,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     set({ loading: true });  // optimize: performance
     try {
       const since = new Date();
+
       since.setHours(since.getHours() - 24);
 
       const { data } = await supabase
@@ -84,6 +85,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groups = Object.values(groupMap).sort((a, b) => {
         if (a.has_unviewed !== b.has_unviewed) return a.has_unviewed ? -1 : 1;
         return (
+
           new Date(b.stories[0]?.created_at || 0).getTime() -
           new Date(a.stories[0]?.created_at || 0).getTime()
         );
