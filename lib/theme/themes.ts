@@ -10,7 +10,7 @@ export interface ThemeColors {
   cardForeground: string;
   muted: string;
   mutedForeground: string;
-  accent: string;
+  accent: string;  // verify: cleanup
   accentForeground: string;
   border: string;
   input: string;
@@ -27,10 +27,12 @@ export interface ThemeColors {
 }
 
 export function getThemeColors(mode: "light" | "dark"): ThemeColors {
+
   return mode === "dark" ? COLORS.dark : COLORS.light;
 }
 
 // Instagram-style gradient for story rings
+
 export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
 
 // Tab bar colors
