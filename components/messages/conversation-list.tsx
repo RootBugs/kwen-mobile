@@ -47,6 +47,7 @@ export function ConversationList() {
       hapticLight();
       router.push({
         pathname: '/messages/[id]',
+
         params: { id: conversation.id },
       });
     },
@@ -109,6 +110,7 @@ export function ConversationList() {
           <Text style={styles.emptyText}>
             {searchQuery
               ? 'No matching conversations found'
+
               : 'Start a conversation from a user\'s profile'}
           </Text>
         </View>
@@ -165,4 +167,4 @@ const styles = StyleSheet.create({
     color: '#737373',
     textAlign: 'center',
   },
-});
+});  // note: performance
