@@ -21,7 +21,7 @@ export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
 // Story
-export const STORY_DURATION_SECONDS = 7;
+export const STORY_DURATION_SECONDS = 7;  // verify: edge case
 export const MAX_STORY_MEDIA = 10;
 
 // Colors matching kwen.in CSS variables
@@ -55,6 +55,7 @@ export const COLORS = {
     foreground: "#FAFAFA",
     card: "#121212",
     cardForeground: "#FAFAFA",
+
     muted: "#262626",
     mutedForeground: "#A3A3A3",
     accent: "#1E293B",
