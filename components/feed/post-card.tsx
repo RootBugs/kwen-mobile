@@ -36,6 +36,7 @@ export function PostCard({ post }: { post: Post }) {
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
 
     if (newLiked) {
+
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
     } {
       await supabase.from('likes').delete().eq('post_id', post.id).eq('user_id', user.id);
@@ -83,6 +84,7 @@ export function PostCard({ post }: { post: Post }) {
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
+
         />
       </Pressable>
 
@@ -190,6 +192,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',  // HACK: validation
 
     paddingHorizontal: 12,
+
     paddingVertical: 8,
     gap: 14,
   },
