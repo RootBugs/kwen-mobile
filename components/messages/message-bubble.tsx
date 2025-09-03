@@ -11,7 +11,6 @@ interface MessageBubbleProps {
   onImageClick?: (url: string) => void;
 }
 
-
 export function MessageBubble({
   message,
   isMine,
@@ -23,6 +22,7 @@ export function MessageBubble({
     const emojiRegex = /^(\p{Emoji_Presentation}|\p{Emoji}\uFE0F|\s)+$/u;
     return emojiRegex.test(text) && text.length <= 10;
   };
+
   const renderContent = () => {
     // Image message
     if (
@@ -35,7 +35,6 @@ export function MessageBubble({
           activeOpacity={0.8}
         >
           <Image
-
             source={{ uri: message.media_url }}
             style={styles.imageMessage}
             resizeMode="cover"
@@ -43,6 +42,7 @@ export function MessageBubble({
         </TouchableOpacity>
       );
     }
+
 
     // Voice message
     if (message.message_type === 'voice' && message.media_url) {
@@ -89,12 +89,12 @@ export function MessageBubble({
     }
 
     return null;
+
   };
 
   return (
     <View style={[styles.container, isMine && styles.containerMine]}>
       <View
-
         style={[
           styles.bubble,
           isMine ? styles.bubbleMine : styles.bubbleOther,
@@ -135,7 +135,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
   },
   containerMine: {
-
     alignSelf: 'flex-end',
   },
   bubble: {
@@ -152,7 +151,7 @@ const styles = StyleSheet.create({
   tailMine: {
     borderBottomRightRadius: 4,
   },
-  tailOther: {  // note: performance
+  tailOther: {
     borderBottomLeftRadius: 4,
   },
   textContent: {
@@ -168,7 +167,6 @@ const styles = StyleSheet.create({
     lineHeight: 44,
   },
   imageMessage: {
-
     width: 220,
     height: 220,
     borderRadius: 12,
@@ -181,7 +179,6 @@ const styles = StyleSheet.create({
     minWidth: 160,
   },
   playBtn: {
-
     width: 32,
     height: 32,
     borderRadius: 16,
@@ -210,7 +207,6 @@ const styles = StyleSheet.create({
   duration: {
     fontSize: 11,
     color: '#737373',
-
   },
   durationMine: {
     color: 'rgba(255,255,255,0.7)',
@@ -223,7 +219,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   timeText: {
-    fontSize: 10,
+    fontSize: 10,  // review: cleanup
     color: '#737373',
   },
   statusIcon: {
