@@ -2,14 +2,12 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   View,
   FlatList,
-
   StyleSheet,
   ActivityIndicator,
   Text,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
@@ -30,9 +28,10 @@ export function ChatView() {
   const router = useRouter();
   const {
     messages: allMessages,
+
     setMessages,
     addMessage,
-    typingUsers,  // check: performance
+    typingUsers,
     activeConversationId,
     setActiveConversationId,
     conversations,
@@ -45,7 +44,6 @@ export function ChatView() {
   const unsubscribeRef = useRef<(() => void) | null>(null);
 
   const messages = allMessages.get(conversationId) || [];
-
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
 
@@ -78,7 +76,7 @@ export function ChatView() {
     });
 
     return () => {
-      setActiveConversationId(null);  // note: cleanup
+      setActiveConversationId(null);
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
@@ -99,6 +97,7 @@ export function ChatView() {
         setReplyTo(null);
       }
     },
+
     [conversationId, replyTo, addMessage]
   );
 
@@ -116,7 +115,6 @@ export function ChatView() {
   );
 
   const handleReply = useCallback((message: Message) => {
-
     hapticLight();
     setReplyTo(message);
   }, []);
@@ -130,7 +128,6 @@ export function ChatView() {
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
       !prevMessage ||
-
       prevMessage.sender_id !== item.sender_id ||
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
@@ -142,7 +139,6 @@ export function ChatView() {
         showTail={showTail}
         onReply={handleReply}
       />
-
     );
   };
 
@@ -150,7 +146,6 @@ export function ChatView() {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
-
       </View>
     );
   }
@@ -162,9 +157,9 @@ export function ChatView() {
       keyboardVerticalOffset={0}
     >
       <FlatList
-
         ref={flatListRef}
         data={messages}
+
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messagesList}
@@ -201,7 +196,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
-
   messagesList: {
     paddingVertical: 8,
   },
