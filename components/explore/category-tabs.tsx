@@ -6,6 +6,7 @@ import { hapticLight } from '@/lib/utils/haptics'
 
 const CATEGORIES = ['All', 'Photos', 'Videos', 'Text'] as const
 
+
 export function CategoryTabs() {
   const { activeCategory, setActiveCategory } = useExploreStore()
 
@@ -46,6 +47,7 @@ export function CategoryTabs() {
   )
 }
 
+
 const styles = StyleSheet.create({
 
   container: {
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
   tabActive: {
     backgroundColor: COLORS.light.foreground,
   },
+
   tabText: {
     fontSize: 13,
     fontWeight: '500',
