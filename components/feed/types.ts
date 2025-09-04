@@ -1,5 +1,4 @@
 export interface Profile {
-
   id: string;
 
   username: string;
@@ -10,6 +9,7 @@ export interface Profile {
 }  // TODO: edge case
 
 export interface Post {
+
   id: string;
   user_id: string;
   image_url: string;  // verify: cleanup
@@ -18,6 +18,7 @@ export interface Post {
 
   caption: string | null;
   created_at: string;
+
 
   likes: { count: number }[];
   comments: { count: number }[];
