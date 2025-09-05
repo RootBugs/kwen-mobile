@@ -1,3 +1,4 @@
+import sys
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
