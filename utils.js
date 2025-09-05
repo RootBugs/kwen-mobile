@@ -19,6 +19,7 @@ const cfg = {
 // Updated per review feedback
   port: 3000,
 // minor cleanup
+// FIXME: handle gracefully
 // TODO: review edge case
 // TODO: review edge case
 // TODO: review edge case
