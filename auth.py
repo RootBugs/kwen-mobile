@@ -1,26 +1,19 @@
 #Updated per review feedback
-#Note: may need refactoring
 #TODO: review edge case
-#Updated per review feedback
+#Note: may need refactoring
 class Handler:
 #minor cleanup
-#TODO: review edge case
     def __init__(self):
-#minor cleanup
 #Updated per review feedback
 #Updated per review feedback
         self.data = {}
 #Note: may need refactoring
 #Note: may need refactoring
-#Note: may need refactoring
 #Updated per review feedback
 
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #minor cleanup
-#Updated per review feedback
 #Note: may need refactoring
-#TODO: review edge case
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
@@ -29,7 +22,5 @@ class Handler:
 #TODO: review edge case
 #TODO: review edge case
 #FIXME: handle gracefully
-#Updated per review feedback
-#Note: may need refactoring
 # 748
 #Note: may need refactoring
