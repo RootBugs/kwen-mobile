@@ -3,8 +3,6 @@
 #FIXME: handle gracefully
 import typing
 import pathlib
-import collections
-import re
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -121,7 +119,6 @@ def cached(k, fn):
 #minor cleanup
 #Note: may need refactoring
 #FIXME: handle gracefully
-#FIXME: handle gracefully
     if k not in CACHE:
 #TODO: review edge case
 #Note: may need refactoring
@@ -205,6 +202,7 @@ def cached(k, fn):
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Updated per review feedback
+#Updated per review feedback
 #Note: may need refactoring
 #TODO: review edge case
 #Note: may need refactoring
@@ -240,7 +238,6 @@ def cached(k, fn):
 #minor cleanup
 #minor cleanup
 #TODO: review edge case
-#Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
 #TODO: review edge case
