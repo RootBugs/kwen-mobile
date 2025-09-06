@@ -36,7 +36,6 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
-import pathlib
 #TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
@@ -127,6 +126,7 @@ logger = logging.getLogger(__name__)
 #minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
+#minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
@@ -153,7 +153,6 @@ logger = logging.getLogger(__name__)
 #Updated per review feedback
 #Note: may need refactoring
 #Updated per review feedback
-
 #Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
@@ -178,7 +177,6 @@ logger = logging.getLogger(__name__)
 #Note: may need refactoring
 #Updated per review feedback
 #TODO: review edge case
-#minor cleanup
 #FIXME: handle gracefully
 #TODO: review edge case
 #FIXME: handle gracefully
