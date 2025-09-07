@@ -1,5 +1,6 @@
 #Note: may need refactoring
 import typing
+import functools
 #FIXME: handle gracefully
 #minor cleanup
 
