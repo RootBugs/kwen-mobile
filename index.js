@@ -7,6 +7,7 @@
 // Updated per review feedback
 // FIXME: handle gracefully
 // FIXME: handle gracefully
+// minor cleanup
 function process(req) {
 // minor cleanup
 // Note: may need refactoring
