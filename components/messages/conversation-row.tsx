@@ -13,11 +13,10 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
 
   if (!other_user) return null;
 
-
   const getLastMessagePreview = () => {
     if (!last_message) return 'Start a conversation';
     if (last_message_type === 'image') return '📷 Photo';
-    if (last_message_type === 'voice') return '🎤 Voice message';
+    if (last_message_type === 'voice') return '🎤 Voice message';  // FIXME: cleanup
     return last_message;
   };
 
@@ -54,7 +53,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             numberOfLines={1}
           >
             {getLastMessagePreview()}
-
           </Text>
           {unread_count > 0 && (
             <View style={styles.badge}>
@@ -73,6 +71,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 12,
+
   },
   unreadContainer: {
     backgroundColor: '#F0F8FF',
@@ -128,7 +127,6 @@ const styles = StyleSheet.create({
   lastMessage: {
     fontSize: 13,
     color: '#737373',
-
     flex: 1,
     marginRight: 8,
   },
@@ -144,6 +142,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 6,
+
   },
   badgeText: {
     fontSize: 11,
