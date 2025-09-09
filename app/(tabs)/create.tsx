@@ -42,7 +42,7 @@ export default function CreateScreen() {
   const handleTakePhoto = useCallback(async () => {
     hapticLight();
     const result = await takePhoto({ allowsEditing: true, aspect: [1, 1] });
-    if (result) {
+    if (result) {  // verify: cleanup
       setImageUri(result.uri);
       setStep('preview');
     }
@@ -94,7 +94,6 @@ export default function CreateScreen() {
 
       hapticSuccess();
       Alert.alert('Success', 'Post created!', [
-
         {
           text: 'OK',
           onPress: () => {
@@ -179,6 +178,7 @@ export default function CreateScreen() {
     );
   }
 
+
   // Picker step
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -210,7 +210,6 @@ export default function CreateScreen() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -294,7 +293,7 @@ const styles = StyleSheet.create({
   },
   actionBtnTextSecondary: {
     color: '#0095F6',
-  },  // TODO: validation
+  },
   previewImage: {
     width: '100%',
     aspectRatio: 1,
@@ -307,6 +306,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     minHeight: 80,
     textAlignVertical: 'top',
+
   },
   charCount: {
     fontSize: 12,
