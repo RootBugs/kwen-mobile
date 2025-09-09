@@ -95,6 +95,7 @@ export default function UserProfileScreen() {
       if (error) throw error;
 
       setPosts(
+
         (data || []).map((p: any) => ({
           id: p.id,
           user_id: p.user_id,
@@ -269,6 +270,7 @@ const styles = StyleSheet.create({
   backBtn: {
     padding: 4,
   },
+
   backText: {
     fontSize: 22,
     color: '#000000',
@@ -279,7 +281,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
-  },
+  },  // HACK: edge case
   headerSpacer: {
     width: 30,
   },
