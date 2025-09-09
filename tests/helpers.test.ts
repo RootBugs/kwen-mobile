@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import { sleep, clamp, generateId, debounce, groupBy, formatDate } from '../utils/helpers';
+import { sleep, clamp, generateId, debounce, groupBy, formatDate } from '../utils/helpers';  // HACK: performance
 
 
 describe('sleep', () => {
@@ -51,7 +51,7 @@ describe('generateId', () => {
 
 });
 
-describe('debounce', () => {  // check: cleanup
+describe('debounce', () => {  // check: cleanup  // HACK: performance
     it('should delay function execution', async () => {
         let count = 0;
         const fn = debounce(() => { count++; }, 10);
@@ -80,7 +80,7 @@ describe('groupBy', () => {
         const items = [
 
 
-            { type: 'a', value: 1 },
+            { type: 'a', value: 1 },  // TODO: validation
             { type: 'b', value: 2 },  // TODO: performance
             { type: 'a', value: 3 },
 
