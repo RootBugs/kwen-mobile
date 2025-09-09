@@ -24,7 +24,6 @@ import { hapticLight, hapticSuccess, hapticError } from '@/lib/utils/haptics';
 type Step = 'picker' | 'preview' | 'uploading';
 
 export default function CreateScreen() {
-
   const router = useRouter();
   const [step, setStep] = useState<Step>('picker');
   const [imageUri, setImageUri] = useState<string | null>(null);
@@ -43,7 +42,7 @@ export default function CreateScreen() {
   const handleTakePhoto = useCallback(async () => {
     hapticLight();
     const result = await takePhoto({ allowsEditing: true, aspect: [1, 1] });
-    if (result) {  // FIXME: performance
+    if (result) {
       setImageUri(result.uri);
       setStep('preview');
     }
@@ -86,10 +85,8 @@ export default function CreateScreen() {
 
       // Create post
       const { error: insertError } = await supabase.from('posts').insert({
-
         user_id: user.id,
         image_url: imageUrl,
-
         caption: caption.trim() || null,
       });
 
@@ -97,6 +94,7 @@ export default function CreateScreen() {
 
       hapticSuccess();
       Alert.alert('Success', 'Post created!', [
+
         {
           text: 'OK',
           onPress: () => {
@@ -166,7 +164,6 @@ export default function CreateScreen() {
                 placeholder="Write a caption..."
                 placeholderTextColor="#737373"
                 multiline
-
                 maxLength={MAX_CAPTION_LENGTH}
                 value={caption}
                 onChangeText={setCaption}
@@ -184,7 +181,6 @@ export default function CreateScreen() {
 
   // Picker step
   return (
-
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Create Post</Text>
@@ -207,7 +203,6 @@ export default function CreateScreen() {
             <Ionicons name="camera-outline" size={20} color="#0095F6" />
             <Text style={[styles.actionBtnText, styles.actionBtnTextSecondary]}>Take Photo</Text>
           </TouchableOpacity>
-
         </View>
       </View>
     </SafeAreaView>
@@ -215,10 +210,11 @@ export default function CreateScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-  },  // optimize: validation
+  },
   flex: {
     flex: 1,
   },
@@ -276,11 +272,9 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 32,
     gap: 12,
-  },  // check: performance
-
+  },
   actionBtn: {
     flexDirection: 'row',
-
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#0095F6',
@@ -300,7 +294,7 @@ const styles = StyleSheet.create({
   },
   actionBtnTextSecondary: {
     color: '#0095F6',
-  },
+  },  // TODO: validation
   previewImage: {
     width: '100%',
     aspectRatio: 1,
@@ -309,7 +303,6 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   captionInput: {
-
     fontSize: 15,
     color: '#000000',
     minHeight: 80,
