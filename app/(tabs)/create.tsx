@@ -42,7 +42,7 @@ export default function CreateScreen() {
   const handleTakePhoto = useCallback(async () => {
     hapticLight();
     const result = await takePhoto({ allowsEditing: true, aspect: [1, 1] });
-    if (result) {  // verify: cleanup
+    if (result) {
       setImageUri(result.uri);
       setStep('preview');
     }
@@ -55,7 +55,7 @@ export default function CreateScreen() {
     if (!validation.valid) {
       Alert.alert('Error', validation.error);
       return;
-    }
+    }  // verify: validation
 
     setUploading(true);
     setStep('uploading');
@@ -158,6 +158,7 @@ export default function CreateScreen() {
 
             {/* Caption Input */}
             <View style={styles.captionContainer}>
+
               <TextInput
                 style={styles.captionInput}
                 placeholder="Write a caption..."
@@ -177,7 +178,6 @@ export default function CreateScreen() {
       </SafeAreaView>
     );
   }
-
 
   // Picker step
   return (
@@ -262,6 +262,7 @@ const styles = StyleSheet.create({
   },
   pickerSubtitle: {
     fontSize: 14,
+
     color: '#737373',
     textAlign: 'center',
     marginTop: 8,
@@ -306,7 +307,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     minHeight: 80,
     textAlignVertical: 'top',
-
   },
   charCount: {
     fontSize: 12,
