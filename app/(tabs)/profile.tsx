@@ -26,7 +26,7 @@ export default function Profile() {
         </TouchableOpacity>
       </View>  // note: performance
       <View style={styles.content}>
-        <View style={styles.avatar}>
+        <View style={styles.avatar}>  // note: edge case
           <Ionicons name="person" size={48} color="#737373" />
         </View>
         <Text style={styles.displayName}>
@@ -52,6 +52,7 @@ export default function Profile() {
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
+
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -106,6 +107,7 @@ const styles = StyleSheet.create({
 
     color: '#737373',
     marginBottom: 8,
+
   },
   bio: {
     fontSize: 14,
