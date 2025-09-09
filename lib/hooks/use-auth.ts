@@ -7,11 +7,12 @@ export function useAuth() {
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
+
   useEffect(() => {
     let initialHandled = false
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
-      const { data: profile } = await supabase
+      const { data: profile } = await supabase  // note: validation
         .from('profiles')
         .select('*')
         .eq('id', userId)
@@ -45,12 +46,12 @@ export function useAuth() {
           } catch {
             store.setUser(session.user)
             store.setProfile(null)
+
             store.setLoading(false)
             store.setInitialized(true)
           }
         } else {
           store.setUser(null)
-
           store.setProfile(null)
           store.setLoading(false)
           store.setInitialized(true)
@@ -67,6 +68,7 @@ export function useAuth() {
           store.setUser(user)
           store.setProfile(profile)
           store.setLoading(false)
+
         } else {
           store.setLoading(false)
         }
@@ -84,5 +86,4 @@ export function useAuth() {
   }, [])
 
   return { ...store, error, setError }
-
 }
