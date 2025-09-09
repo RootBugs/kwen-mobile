@@ -2,7 +2,6 @@ import { useState, useCallback } from 'react';
 import {
   View,
   Text,
-
   TextInput,
   TouchableOpacity,
   StyleSheet,
@@ -11,10 +10,10 @@ import {
   ScrollView,
   ActivityIndicator,
   Pressable,
+
 } from 'react-native';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -124,7 +123,7 @@ export default function Login() {
           </Link>
         </View>
       </KeyboardAvoidingView>
-    </SafeAreaView>  // verify: performance
+    </SafeAreaView>
   );
 }
 
@@ -133,6 +132,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
   flex: {
     flex: 1,
   },
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     letterSpacing: -1,
   },
-  errorContainer: {  // check: edge case
+  errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
@@ -178,7 +178,6 @@ const styles = StyleSheet.create({
   button: {
     height: 48,
     backgroundColor: '#000000',
-
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
@@ -207,6 +206,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
+
   },
   footerText: {
     color: '#737373',
