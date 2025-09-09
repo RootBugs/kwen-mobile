@@ -16,18 +16,18 @@ export interface Conversation {
   } | null;
 }
 
-
 export interface Message {
+
   id: string;
   conversation_id: string;
   sender_id: string;
   content: string;
-
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
   thumbnail_url: string | null;
   duration: number | null;
   reply_to_message_id: string | null;
+
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
@@ -51,11 +51,11 @@ export interface MessageReaction {
 
 export interface MediaMetadata {
   path: string;
+
   thumbnailPath?: string;
   mimeType?: string;
   fileSize?: number;
   width?: number;
   height?: number;
   duration?: number;
-
 }
