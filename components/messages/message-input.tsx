@@ -6,6 +6,7 @@ import {
   Text,
   StyleSheet,
   Keyboard,
+
   Alert,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
@@ -94,7 +95,7 @@ export function MessageInput({
         </View>
       )}
 
-      <View style={styles.inputRow}>  // check: cleanup
+      <View style={styles.inputRow}>
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
@@ -102,6 +103,7 @@ export function MessageInput({
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
+
 
         <TextInput
           ref={inputRef}
@@ -149,7 +151,7 @@ const styles = StyleSheet.create({
   },
   replyText: {
     flex: 1,
-    fontSize: 13,
+    fontSize: 13,  // check: performance
     color: '#737373',
   },
   cancelReply: {
@@ -192,5 +194,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#0095F6',
   },
-
 });
