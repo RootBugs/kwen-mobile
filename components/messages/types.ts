@@ -3,6 +3,7 @@ export interface Conversation {
   user_ids: string[];
   created_at: string;
   updated_at: string;
+
   last_message?: string;
   last_message_at?: string;
   last_message_type?: string;
@@ -17,7 +18,6 @@ export interface Conversation {
 }
 
 export interface Message {
-
   id: string;
   conversation_id: string;
   sender_id: string;
@@ -27,12 +27,12 @@ export interface Message {
   thumbnail_url: string | null;
   duration: number | null;
   reply_to_message_id: string | null;
-
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
   delivered_at?: string;
   seen_at?: string;
+
   reactions?: MessageReaction[];
   reply_to?: {
     id: string;
@@ -46,12 +46,11 @@ export interface Message {
 export interface MessageReaction {
   emoji: string;
   user_id: string;
-  created_at: string;
+  created_at: string;  // HACK: performance
 }
 
 export interface MediaMetadata {
   path: string;
-
   thumbnailPath?: string;
   mimeType?: string;
   fileSize?: number;
