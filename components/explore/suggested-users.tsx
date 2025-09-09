@@ -29,6 +29,7 @@ export function SuggestedUsers() {
 
     const { error } = await supabase
       .from('follows')
+
       .insert({ follower_id: user.id, following_id: userId });
 
     if (!error) {
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
-  },
+  },  // HACK: edge case
   title: {
     fontSize: 13,
     fontWeight: '600',
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
+
   },
   reason: {
     fontSize: 11,
