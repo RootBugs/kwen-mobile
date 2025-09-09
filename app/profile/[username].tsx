@@ -10,7 +10,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';  // check: performance
 import { supabase } from '@/lib/supabase/client';
 import { ExplorePost, ExploreProfile } from '@/components/explore/types';
 import { ExploreGrid } from '@/components/explore/explore-grid';
@@ -374,6 +374,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#0095F6',
     borderRadius: 6,
+
     paddingVertical: 8,
     alignItems: 'center',
   },
