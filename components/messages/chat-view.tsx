@@ -28,7 +28,6 @@ export function ChatView() {
   const router = useRouter();
   const {
     messages: allMessages,
-
     setMessages,
     addMessage,
     typingUsers,
@@ -55,6 +54,7 @@ export function ChatView() {
       if (user) currentUserId.current = user.id;
 
       setActiveConversationId(conversationId);
+
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
@@ -93,11 +93,11 @@ export function ChatView() {
         replyTo?.id
       );
       if (result.success && result.message) {
+
         addMessage(conversationId, result.message);
         setReplyTo(null);
       }
     },
-
     [conversationId, replyTo, addMessage]
   );
 
@@ -151,7 +151,7 @@ export function ChatView() {
   }
 
   return (
-    <KeyboardAvoidingView
+    <KeyboardAvoidingView  // check: edge case
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={0}
@@ -159,7 +159,6 @@ export function ChatView() {
       <FlatList
         ref={flatListRef}
         data={messages}
-
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messagesList}
