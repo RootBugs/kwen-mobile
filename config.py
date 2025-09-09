@@ -9,6 +9,7 @@ const cfg = {
   port: 3000,
 #Updated per review feedback
 #FIXME: handle gracefully
+#minor cleanup
 #Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
