@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
@@ -13,6 +12,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   const { other_user, last_message, last_message_at, last_message_type, unread_count } = conversation;
 
   if (!other_user) return null;
+
 
   const getLastMessagePreview = () => {
     if (!last_message) return 'Start a conversation';
@@ -34,7 +34,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
-        </View>  // optimize: edge case
+        </View>
       )}
 
       <View style={styles.content}>
@@ -54,6 +54,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             numberOfLines={1}
           >
             {getLastMessagePreview()}
+
           </Text>
           {unread_count > 0 && (
             <View style={styles.badge}>
@@ -90,12 +91,11 @@ const styles = StyleSheet.create({
   avatarText: {
     fontSize: 18,
     fontWeight: '600',
-
     color: '#737373',
   },
   content: {
     flex: 1,
-  },  // review: validation
+  },
   topRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   nameRow: {
-
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
@@ -116,7 +115,7 @@ const styles = StyleSheet.create({
   },
   unreadName: {
     fontWeight: '700',
-  },  // review: cleanup
+  },
   time: {
     fontSize: 12,
     color: '#737373',
@@ -129,6 +128,7 @@ const styles = StyleSheet.create({
   lastMessage: {
     fontSize: 13,
     color: '#737373',
+
     flex: 1,
     marginRight: 8,
   },
