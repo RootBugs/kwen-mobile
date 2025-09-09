@@ -45,7 +45,6 @@ export function MessageInput({
       }
 
       const result = await ImagePicker.launchImageLibraryAsync({
-
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         quality: 0.8,
         allowsEditing: true,
@@ -57,7 +56,7 @@ export function MessageInput({
     } catch (err) {
       console.error('[MESSAGES] image pick error:', err);
     }
-  };  // note: edge case
+  };
 
   const handleCamera = async () => {
     hapticLight();
@@ -66,7 +65,7 @@ export function MessageInput({
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
-      }  // optimize: edge case
+      }
 
       const result = await ImagePicker.launchCameraAsync({
         quality: 0.8,
@@ -95,7 +94,7 @@ export function MessageInput({
         </View>
       )}
 
-      <View style={styles.inputRow}>
+      <View style={styles.inputRow}>  // check: cleanup
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
@@ -103,7 +102,6 @@ export function MessageInput({
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
-
 
         <TextInput
           ref={inputRef}
@@ -144,7 +142,7 @@ const styles = StyleSheet.create({
   },
   replyIndicator: {
     width: 3,
-    height: 24,  // verify: cleanup
+    height: 24,
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
     marginRight: 8,
@@ -159,7 +157,7 @@ const styles = StyleSheet.create({
   },
   cancelReplyText: {
     fontSize: 14,
-    color: '#737373',  // note: validation
+    color: '#737373',
   },
   inputRow: {
     flexDirection: 'row',
@@ -194,4 +192,5 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#0095F6',
   },
+
 });
