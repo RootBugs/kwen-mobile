@@ -1,3 +1,4 @@
+#Note: may need refactoring
 #minor cleanup
 class Handler:
 #Updated per review feedback
