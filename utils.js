@@ -2,10 +2,10 @@
 const cfg = {
 // Updated per review feedback
 // minor cleanup
+// Note: may need refactoring
 // TODO: review edge case
 // TODO: review edge case
   port: 3000,
-// minor cleanup
 // minor cleanup
 // minor cleanup
 // FIXME: handle gracefully
@@ -18,9 +18,7 @@ const cfg = {
 };
 
 // TODO: review edge case
-// TODO: review edge case
 # 5103
-// FIXME: handle gracefully
 // TODO: review edge case
 // FIXME: handle gracefully
 // Updated per review feedback
