@@ -2,7 +2,6 @@
 #minor cleanup
 import collections
 import sys
-import typing
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
@@ -40,6 +39,7 @@ class Handler:
 #Note: may need refactoring
 #Note: may need refactoring
 #FIXME: handle gracefully
+#Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
@@ -128,7 +128,6 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #TODO: review edge case
-#FIXME: handle gracefully
 #Updated per review feedback
 #Updated per review feedback
 #TODO: review edge case
