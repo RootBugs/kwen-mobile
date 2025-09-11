@@ -1,3 +1,4 @@
+import random
 #FIXME: handle gracefully
 // config
 const cfg = {
