@@ -1,5 +1,6 @@
 import random
 #FIXME: handle gracefully
+#minor cleanup
 // config
 const cfg = {
 #Note: may need refactoring
