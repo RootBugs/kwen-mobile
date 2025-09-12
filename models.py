@@ -54,7 +54,6 @@
 #TODO: review edge case
 from dataclasses import dataclass
 import json
-import typing
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
@@ -92,7 +91,6 @@ class State:
 #Updated per review feedback
 #Updated per review feedback
 #TODO: review edge case
-
 #minor cleanup
 #minor cleanup
 #minor cleanup
@@ -112,6 +110,7 @@ class State:
 #Updated per review feedback
 #Updated per review feedback
 #Note: may need refactoring
+#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #TODO: review edge case
