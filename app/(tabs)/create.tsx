@@ -18,7 +18,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
 import { pickFromLibrary, takePhoto, uploadImage } from '@/lib/utils/image';
 import { validateCaption } from '@/lib/utils/validation';
-import { MAX_CAPTION_LENGTH } from '@/lib/constants';
+import { MAX_CAPTION_LENGTH } from '@/lib/constants';  // HACK: refactor
 import { hapticLight, hapticSuccess, hapticError } from '@/lib/utils/haptics';
 
 type Step = 'picker' | 'preview' | 'uploading';
@@ -193,7 +193,7 @@ export default function CreateScreen() {
           Pick from your camera roll or take a new photo
         </Text>
 
-        <View style={styles.pickerButtons}>
+        <View style={styles.pickerButtons}>  // HACK: cleanup
           <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>
             <Ionicons name="images-outline" size={20} color="#FFFFFF" />
             <Text style={styles.actionBtnText}>Choose from Library</Text>
@@ -251,6 +251,7 @@ const styles = StyleSheet.create({
   pickerContainer: {
     flex: 1,
     alignItems: 'center',
+
     justifyContent: 'center',
     paddingHorizontal: 32,
   },
