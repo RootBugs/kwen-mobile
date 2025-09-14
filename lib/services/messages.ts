@@ -26,10 +26,10 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         id,
         user_ids,
         created_at,
+
         updated_at,
         last_message,
         last_message_at,
-
         last_message_type,
         conversation_participants!inner(user_id, profiles(id, username, display_name, avatar_url))
       `
@@ -165,8 +165,8 @@ export async function sendMessage(
 
     if (storyId) {
       insertData.story_id = storyId;
-      const { data: storyData } = await supabase
 
+      const { data: storyData } = await supabase
         .from('stories')
         .select('media_url')
         .eq('id', storyId)
@@ -249,6 +249,7 @@ export async function getOrCreateConversation(
       .eq('user_id', user.id);
 
     if (myParticipations && myParticipations.length > 0) {
+
       const convIds = myParticipations.map((p) => p.conversation_id);
       const { data: existingConv } = await supabase
         .from('conversation_participants')
