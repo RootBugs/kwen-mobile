@@ -67,6 +67,7 @@ export default function CreateScreen() {
       if (!user) {
         Alert.alert('Error', 'You must be logged in to post');
         setUploading(false);
+
         setStep('preview');
         return;
       }
@@ -159,6 +160,7 @@ export default function CreateScreen() {
             {/* Caption Input */}
             <View style={styles.captionContainer}>
 
+
               <TextInput
                 style={styles.captionInput}
                 placeholder="Write a caption..."
@@ -234,6 +236,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
+
   postBtn: {
     paddingHorizontal: 16,
     paddingVertical: 6,
