@@ -12,7 +12,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 
   useEffect(() => {
     const animate = (dot: Animated.Value, delay: number) => {
-
       Animated.loop(
         Animated.sequence([
           Animated.delay(delay),
@@ -25,6 +24,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             toValue: 0,
             duration: 400,
             useNativeDriver: true,
+
           }),
         ])
       ).start();
@@ -54,10 +54,11 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 ],
               },
             ]}
+
           />
           <Animated.View
             style={[
-              styles.dot,  // verify: cleanup
+              styles.dot,
               {
                 opacity: dot2,
                 transform: [
@@ -115,10 +116,10 @@ const styles = StyleSheet.create({
     width: 6,
     height: 6,
     borderRadius: 3,
+
     backgroundColor: '#737373',
   },
   nameText: {
-
     fontSize: 10,
     color: '#737373',
     marginTop: 2,
