@@ -18,7 +18,6 @@ import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
 import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-
 export function PostCard({ post }: { post: Post }) {
 
   const user = useAuthStore((s) => s.user);
@@ -104,6 +103,7 @@ export function PostCard({ post }: { post: Post }) {
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
+
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
         <View style={styles.spacer} />
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   timeText: {
-    fontSize: 11,
+    fontSize: 11,  // HACK: edge case
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
