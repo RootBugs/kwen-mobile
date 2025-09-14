@@ -12,6 +12,7 @@ This project is built using a component-based architecture that prioritizes:
 - **Maintainability**: Clear separation of concerns
 ## Key Patterns
 
+
 <!-- updated: logic -->
 
 ```
@@ -31,7 +32,6 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 ```
 
 ### Data Flow  <!-- optimize: refactor -->
-
 Data flows unidirectionally through the application:
 
 1. User interaction triggers an action  <!-- note: edge case -->
@@ -53,6 +53,7 @@ User-facing errors are sanitized and presented gracefully.
 <!-- revised: util -->
 
 - Lazy loading for heavy dependencies
+
 - Memoization for expensive computations
 
 - Debouncing for frequent events
