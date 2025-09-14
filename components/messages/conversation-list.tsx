@@ -25,6 +25,7 @@ export function ConversationList() {
 
   const loadConversations = useCallback(async () => {
     const { data, error } = await getConversations();
+
     if (data) {
       setConversations(data);
     } else if (error) {
@@ -66,6 +67,7 @@ export function ConversationList() {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
+
       </View>
     );
   }
@@ -114,6 +116,7 @@ export function ConversationList() {
               : 'Start a conversation from a user\'s profile'}
           </Text>
         </View>
+
       )}
     </View>
   );
