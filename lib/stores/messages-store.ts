@@ -2,7 +2,6 @@ import { create } from 'zustand';
 import { Conversation, Message } from '@/components/messages/types';
 
 interface MessagesState {
-
   conversations: Conversation[];
   activeConversationId: string | null;
   messages: Map<string, Message[]>;
@@ -20,6 +19,7 @@ interface MessagesState {
 }
 
 export const useMessagesStore = create<MessagesState>((set) => ({
+
   conversations: [],
   activeConversationId: null,
   messages: new Map(),
@@ -41,9 +41,9 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       return { messages: newMap };
     }),
   setTypingUsers: (conversationId, userIds) =>
+
     set((state) => {
       const newMap = new Map(state.typingUsers);
-
       newMap.set(conversationId, userIds);
       return { typingUsers: newMap };
     }),
@@ -63,7 +63,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
-
       return { typingUsers: newMap };
     }),
   setLoading: (loading) => set({ loading }),
@@ -72,6 +71,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       conversations: state.conversations.map((c) =>
         c.id === conversationId
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
+
           : c
       ),
     })),
