@@ -72,7 +72,7 @@ export default function PostDetailScreen() {
           comment_count: data.comments?.[0]?.count || 0,
           media: data.media
             ? data.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
-            : null,
+            : null,  // review: cleanup
         };
 
         setPost(mapped);
@@ -189,6 +189,7 @@ export default function PostDetailScreen() {
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn}>
             <Text style={styles.actionIcon}>💬</Text>
+
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn}>
             <Text style={styles.actionIcon}>↗</Text>
@@ -303,6 +304,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   authorName: {
+
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
