@@ -23,6 +23,7 @@ export default function ChatScreen() {
         {otherUser && (
           <TouchableOpacity
             style={styles.userInfo}
+
             onPress={() =>
               router.push({
                 pathname: '/profile/[username]',
@@ -66,12 +67,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 8,
     borderBottomWidth: 0.5,
+
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
     padding: 8,
   },
   backText: {
+
     fontSize: 22,
     color: '#000000',
   },
