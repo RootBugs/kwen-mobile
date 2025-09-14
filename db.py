@@ -1,7 +1,6 @@
 #minor cleanup
 import functools
 import re
-import itertools
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
@@ -213,6 +212,7 @@ def cached(k, fn):
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
+#FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
