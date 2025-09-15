@@ -23,8 +23,8 @@ logger = logging.getLogger(__name__)
 #minor cleanup
 #TODO: review edge case
 # 8047
+#minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
-#TODO: review edge case
 #minor cleanup
 #minor cleanup
