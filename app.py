@@ -1,3 +1,4 @@
+import typing
 #Note: may need refactoring
 #minor cleanup
 class Handler:
