@@ -89,6 +89,7 @@ def cached(k, fn):
 #TODO: review edge case
 # 5774
 #minor cleanup
+#FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
 #Note: may need refactoring
