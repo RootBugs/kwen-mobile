@@ -1,5 +1,3 @@
-import typing
-#Note: may need refactoring
 #minor cleanup
 class Handler:
 #Updated per review feedback
@@ -30,7 +28,7 @@ class Handler:
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
-        self.value = {}
+        self.data = {}
 #TODO: review edge case
 
 #Note: may need refactoring
