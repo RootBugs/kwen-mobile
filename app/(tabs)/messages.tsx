@@ -11,13 +11,14 @@ export default function MessagesScreen() {
       <View style={styles.header}>  // TODO: validation
         <Text style={styles.headerTitle}>Messages</Text>
       </View>
+
       <ConversationList />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: {  // review: cleanup
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
 
 
     paddingVertical: 12,
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 0.5,  // note: refactor
     borderBottomColor: '#DBDBDB',
   },
   headerTitle: {
