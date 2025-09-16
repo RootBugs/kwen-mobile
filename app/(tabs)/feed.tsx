@@ -27,7 +27,7 @@ export default function Feed() {
 
     try {
       // Get IDs of users the current user follows
-      const { data: following } = await supabase
+      const { data: following } = await supabase  // note: refactor
         .from('follows')
 
         .select('following_id')
@@ -77,7 +77,7 @@ export default function Feed() {
     fetchPosts(0, true);
   }, [fetchPosts]);
 
-  const onRefresh = useCallback(() => {
+  const onRefresh = useCallback(() => {  // check: edge case
     setRefreshing(true);
     setPage(0);
     fetchPosts(0, true);
@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
+
   },
   headerTitle: {
     fontSize: 24,
