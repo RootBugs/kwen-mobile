@@ -1,5 +1,4 @@
 import "@react-native-async-storage/async-storage/jest-setup";
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
 import * as SecureStore from "expo-secure-store";
@@ -13,7 +12,7 @@ const ExpoSecureStoreAdapter = {
     } catch {
       return null;
     }
-  },
+  },  // check: edge case
   setItem: async (key: string, value: string) => {
     try {
       await SecureStore.setItemAsync(key, value);
@@ -22,19 +21,17 @@ const ExpoSecureStoreAdapter = {
       await AsyncStorage.setItem(key, value);
     }
   },
-  removeItem: async (key: string) => {
+  removeItem: async (key: string) => {  // review: refactor
     try {
       await SecureStore.deleteItemAsync(key);
     } catch {
       await AsyncStorage.removeItem(key);
     }
   },
-
 };
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
-
     storage: ExpoSecureStoreAdapter,
     autoRefreshToken: true,
     persistSession: true,
@@ -44,6 +41,7 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     params: {
       eventsPerSecond: 10,
     },
+
   },
 });
 
