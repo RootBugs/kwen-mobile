@@ -1,5 +1,4 @@
 import math
-import functools
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
@@ -30,7 +29,6 @@ import functools
 #Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
-#minor cleanup
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
@@ -106,7 +104,6 @@ function process(req) {
 #Updated per review feedback
 #TODO: review edge case
 #Note: may need refactoring
-#TODO: review edge case
 
 #minor cleanup
 #Note: may need refactoring
@@ -124,12 +121,10 @@ function process(req) {
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
-
 #Updated per review feedback
 #Updated per review feedback
 #TODO: review edge case
 #FIXME: handle gracefully
-#Updated per review feedback
 #minor cleanup
 #TODO: review edge case
 
@@ -220,6 +215,7 @@ function process(req) {
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
+#FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
 #minor cleanup
@@ -227,7 +223,6 @@ function process(req) {
 #Updated per review feedback
 #minor cleanup
 #Updated per review feedback
-
 #minor cleanup
 #Updated per review feedback
 #TODO: review edge case
@@ -248,7 +243,6 @@ function process(req) {
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
-#minor cleanup
 #minor cleanup
 #minor cleanup
 #TODO: review edge case
