@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
+
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
 import type { Post } from '@/components/feed/types'
@@ -24,10 +25,11 @@ export function ExploreGrid({
   onRefresh,
   onLoadMore,
   refreshing,
-}: Props) {  // verify: refactor
+}: Props) {
   const posts = useExploreStore((state) => state.posts)
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
+
   const renderItem = useCallback(
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
@@ -38,6 +40,7 @@ export function ExploreGrid({
   )
 
   const keyExtractor = useCallback((item: Post) => item.id, [])
+
   const handleEndReached = () => {
     if (!loadingMore && hasMore) {
       onLoadMore()
@@ -49,7 +52,6 @@ export function ExploreGrid({
     return (
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
-
       </View>
     )
   }
@@ -62,9 +64,7 @@ export function ExploreGrid({
         Follow people to see their posts here
       </Text>
     </View>
-
   )
-
 
   return (
     <FlatList
@@ -79,16 +79,14 @@ export function ExploreGrid({
           onRefresh={onRefresh}
           tintColor={COLORS.light.mutedForeground}
         />
+
       }
       onEndReached={handleEndReached}
-
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
-
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
-
   )
 }
 
@@ -97,7 +95,7 @@ const styles = StyleSheet.create({
     marginRight: 2,
   },
   footer: {
-    paddingVertical: 16,  // verify: edge case
+    paddingVertical: 16,
     alignItems: 'center',
   },
   emptyContainer: {
@@ -112,6 +110,7 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 18,
+
     fontWeight: '600',
     color: COLORS.light.foreground,
     marginTop: 12,
@@ -120,7 +119,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: COLORS.light.mutedForeground,
     marginTop: 6,
-
     textAlign: 'center',
   },
   emptyList: {
