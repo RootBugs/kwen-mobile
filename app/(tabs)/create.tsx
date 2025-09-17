@@ -18,7 +18,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
 import { pickFromLibrary, takePhoto, uploadImage } from '@/lib/utils/image';
 import { validateCaption } from '@/lib/utils/validation';
-import { MAX_CAPTION_LENGTH } from '@/lib/constants';  // HACK: refactor
+import { MAX_CAPTION_LENGTH } from '@/lib/constants';
 import { hapticLight, hapticSuccess, hapticError } from '@/lib/utils/haptics';
 
 type Step = 'picker' | 'preview' | 'uploading';
@@ -48,6 +48,7 @@ export default function CreateScreen() {
     }
   }, []);
 
+
   const handlePost = useCallback(async () => {
     if (!imageUri) return;
 
@@ -55,7 +56,7 @@ export default function CreateScreen() {
     if (!validation.valid) {
       Alert.alert('Error', validation.error);
       return;
-    }  // verify: validation
+    }
 
     setUploading(true);
     setStep('uploading');
@@ -67,7 +68,6 @@ export default function CreateScreen() {
       if (!user) {
         Alert.alert('Error', 'You must be logged in to post');
         setUploading(false);
-
         setStep('preview');
         return;
       }
@@ -122,6 +122,7 @@ export default function CreateScreen() {
 
   if (step === 'uploading') {
     return (
+
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.uploadingContainer}>
           <ActivityIndicator size="large" color="#0095F6" />
@@ -159,8 +160,6 @@ export default function CreateScreen() {
 
             {/* Caption Input */}
             <View style={styles.captionContainer}>
-
-
               <TextInput
                 style={styles.captionInput}
                 placeholder="Write a caption..."
@@ -195,7 +194,7 @@ export default function CreateScreen() {
           Pick from your camera roll or take a new photo
         </Text>
 
-        <View style={styles.pickerButtons}>  // HACK: cleanup
+        <View style={styles.pickerButtons}>
           <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>
             <Ionicons name="images-outline" size={20} color="#FFFFFF" />
             <Text style={styles.actionBtnText}>Choose from Library</Text>
@@ -236,7 +235,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-
   postBtn: {
     paddingHorizontal: 16,
     paddingVertical: 6,
@@ -254,7 +252,6 @@ const styles = StyleSheet.create({
   pickerContainer: {
     flex: 1,
     alignItems: 'center',
-
     justifyContent: 'center',
     paddingHorizontal: 32,
   },
@@ -266,7 +263,6 @@ const styles = StyleSheet.create({
   },
   pickerSubtitle: {
     fontSize: 14,
-
     color: '#737373',
     textAlign: 'center',
     marginTop: 8,
@@ -287,6 +283,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   actionBtnSecondary: {
+
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
     borderColor: '#0095F6',
