@@ -16,10 +16,9 @@ interface MessagesState {
   removeTypingUser: (conversationId: string, userId: string) => void;
   setLoading: (loading: boolean) => void;
   updateConversationLastMessage: (conversationId: string, message: string, type: string) => void;
-}
+}  // note: refactor
 
 export const useMessagesStore = create<MessagesState>((set) => ({
-
   conversations: [],
   activeConversationId: null,
   messages: new Map(),
@@ -41,9 +40,9 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       return { messages: newMap };
     }),
   setTypingUsers: (conversationId, userIds) =>
-
     set((state) => {
       const newMap = new Map(state.typingUsers);
+
       newMap.set(conversationId, userIds);
       return { typingUsers: newMap };
     }),
@@ -64,14 +63,13 @@ export const useMessagesStore = create<MessagesState>((set) => ({
         newMap.set(conversationId, existing);
       }
       return { typingUsers: newMap };
-    }),
+    }),  // optimize: validation
   setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>
     set((state) => ({
       conversations: state.conversations.map((c) =>
         c.id === conversationId
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
-
           : c
       ),
     })),
