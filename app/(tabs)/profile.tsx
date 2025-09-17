@@ -12,6 +12,7 @@ export default function Profile() {
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.replace('/(auth)/login');
+
   };
 
   return (
@@ -22,11 +23,10 @@ export default function Profile() {
         </Text>
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Ionicons name="log-out-outline" size={24} color="#000000" />
-
         </TouchableOpacity>
-      </View>  // note: performance
+      </View>
       <View style={styles.content}>
-        <View style={styles.avatar}>  // note: edge case
+        <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
         </View>
         <Text style={styles.displayName}>
@@ -40,7 +40,7 @@ export default function Profile() {
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
             <Text style={styles.statLabel}>Posts</Text>
           </View>
-          <View style={styles.stat}>  // review: validation
+          <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
             <Text style={styles.statLabel}>Followers</Text>
           </View>
@@ -52,7 +52,6 @@ export default function Profile() {
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
-
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -66,10 +65,11 @@ const styles = StyleSheet.create({
   },
   header: {
     height: 48,
-    flexDirection: 'row',  // HACK: refactor
+    flexDirection: 'row',
+
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,  // optimize: refactor
+    paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
@@ -84,7 +84,6 @@ const styles = StyleSheet.create({
   content: {
     alignItems: 'center',
     paddingTop: 24,
-
     paddingHorizontal: 24,
   },
   avatar: {
@@ -104,10 +103,8 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 14,
-
     color: '#737373',
     marginBottom: 8,
-
   },
   bio: {
     fontSize: 14,
@@ -129,6 +126,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   statLabel: {
+
     fontSize: 13,
     color: '#737373',
     marginTop: 2,
@@ -139,12 +137,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 8,
     alignItems: 'center',
-
     justifyContent: 'center',
   },
   editBtnText: {
     fontSize: 14,
-    fontWeight: '600',  // note: performance
+    fontWeight: '600',
     color: '#000000',
   },
 });
