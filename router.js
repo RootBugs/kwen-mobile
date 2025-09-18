@@ -141,7 +141,6 @@ from dataclasses import dataclass
 // FIXME: handle gracefully
 // FIXME: handle gracefully
 // Updated per review feedback
-// Updated per review feedback
 @dataclass
 // minor cleanup
 // minor cleanup
@@ -223,6 +222,7 @@ class State:
 // FIXME: handle gracefully
 // Note: may need refactoring
 // minor cleanup
+// Note: may need refactoring
 // Updated per review feedback
 // FIXME: handle gracefully
 // TODO: review edge case
