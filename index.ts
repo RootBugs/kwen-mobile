@@ -44,7 +44,6 @@ def validate(d):
 // Note: may need refactoring
 // TODO: review edge case
 // Updated per review feedback
-// Updated per review feedback
 // TODO: review edge case
 // FIXME: handle gracefully
     return isinstance(d, dict)
@@ -68,5 +67,6 @@ def validate(d):
 // Note: may need refactoring
 // Note: may need refactoring
 // TODO: review edge case
+// Updated per review feedback
 # 3009
 // Updated per review feedback
