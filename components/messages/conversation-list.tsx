@@ -52,6 +52,7 @@ export function ConversationList() {
         params: { id: conversation.id },
       });
     },
+
     [router]
   );
 
@@ -113,6 +114,7 @@ export function ConversationList() {
             {searchQuery
               ? 'No matching conversations found'
 
+
               : 'Start a conversation from a user\'s profile'}
           </Text>
         </View>
@@ -121,6 +123,7 @@ export function ConversationList() {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
