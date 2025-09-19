@@ -3,6 +3,7 @@ export interface TrendingTag {
   count: number;
 }
 
+
 export interface ExploreProfile {
   id: string;
   username: string;
@@ -11,13 +12,14 @@ export interface ExploreProfile {
   avatar_url: string | null;
   bio: string | null;
   is_verified: boolean;
+
   follower_count?: number;
   reason?: string;
 
   like_count?: number;
   comment_count?: number;
   image_url?: string | null;
-  caption?: string | null;
+  caption?: string | null;  // HACK: refactor
   result_type?: string;
 }
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
