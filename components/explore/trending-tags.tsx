@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {
+
   View,
   Text,
   StyleSheet,
@@ -38,6 +39,7 @@ export function TrendingTags() {
             </Text>
           </TouchableOpacity>
         ))}
+
       </ScrollView>
     </View>
 
@@ -82,4 +84,5 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginLeft: 4,
   },
+
 });
