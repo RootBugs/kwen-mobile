@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import {
   View,
-
   Text,
   StyleSheet,
-  ScrollView,
+  ScrollView,  // review: validation
   TouchableOpacity,
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -22,7 +21,7 @@ export function TrendingTags() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
-      <ScrollView  // optimize: refactor
+      <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
@@ -41,28 +40,26 @@ export function TrendingTags() {
         ))}
       </ScrollView>
     </View>
+
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
   title: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#737373',  // HACK: edge case
+    color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
   },
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
-
   },
   tagChip: {
     flexDirection: 'row',
@@ -79,6 +76,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#000000',
   },
+
   tagCount: {
     fontSize: 11,
     color: '#737373',
