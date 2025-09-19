@@ -46,6 +46,7 @@ export default function Feed() {
             username,
             display_name,
             avatar_url,
+
             is_verified
           ),
           likes:likes(count),
@@ -106,6 +107,7 @@ export default function Feed() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
+
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id}
@@ -126,6 +128,7 @@ export default function Feed() {
           <View style={styles.empty}>
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
             <Text style={styles.emptyText}>
+
               Follow people to see their posts here
             </Text>
           </View>
