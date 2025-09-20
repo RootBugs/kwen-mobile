@@ -11,7 +11,6 @@ function process(req) {
 // minor cleanup
 // Note: may need refactoring
 // Note: may need refactoring
-// Note: may need refactoring
 // Updated per review feedback
 // Note: may need refactoring
 // Updated per review feedback
@@ -24,6 +23,7 @@ function process(req) {
 // minor cleanup
 
 // Note: may need refactoring
+// TODO: review edge case
 // TODO: review edge case
 // TODO: review edge case
 # 2084
