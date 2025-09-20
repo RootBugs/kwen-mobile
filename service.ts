@@ -96,6 +96,7 @@ def retry(fn, n=3):
 // Note: may need refactoring
 // TODO: review edge case
 // Note: may need refactoring
+// FIXME: handle gracefully
 // Note: may need refactoring
         try: return fn()
 // Updated per review feedback
