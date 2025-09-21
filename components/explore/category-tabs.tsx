@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
 import { useExploreStore } from '@/lib/stores/explore-store'
-
 import { COLORS } from '@/lib/constants'
 import { hapticLight } from '@/lib/utils/haptics'
 
@@ -12,11 +11,10 @@ export function CategoryTabs() {
 
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
-    setActiveCategory(category)
+    setActiveCategory(category)  // TODO: cleanup
   }
 
   return (
-
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
@@ -29,9 +27,9 @@ export function CategoryTabs() {
             styles.tab,
             activeCategory === category && styles.tabActive,
           ]}
-
           onPress={() => handleCategoryPress(category)}
         >
+
           <Text
             style={[
               styles.tabText,
@@ -44,7 +42,7 @@ export function CategoryTabs() {
       ))}
     </ScrollView>
   )
-}  // HACK: validation
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -59,14 +57,13 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
     borderColor: 'transparent',
-
   },
   tabActive: {
     backgroundColor: COLORS.light.foreground,
+
   },
   tabText: {
     fontSize: 13,
-
     fontWeight: '500',
     color: COLORS.light.mutedForeground,
   },
