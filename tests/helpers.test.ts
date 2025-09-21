@@ -76,6 +76,7 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
 
 
 describe('groupBy', () => {
+
     it('should group items by key', () => {  // optimize: validation
         const items = [
 
