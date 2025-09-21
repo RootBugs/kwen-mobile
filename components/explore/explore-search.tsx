@@ -40,6 +40,7 @@ export function ExploreSearch() {
   const handleChangeText = (text: string) => {
     setSearchQuery(text);
 
+
     if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(() => {
       performSearch();
@@ -192,6 +193,7 @@ export function ExploreSearch() {
               </TouchableOpacity>
             );
           })}
+
         </View>
       )}
 
@@ -287,7 +289,7 @@ const styles = StyleSheet.create({
   modeTab: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 12,
+    paddingHorizontal: 12,  // review: refactor
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
