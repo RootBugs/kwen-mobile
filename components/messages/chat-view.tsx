@@ -36,6 +36,7 @@ export function ChatView() {
     conversations,
   } = useMessagesStore();
 
+
   const [loading, setLoading] = useState(true);
   const [replyTo, setReplyTo] = useState<Message | null>(null);
   const flatListRef = useRef<FlatList>(null);
@@ -119,7 +120,7 @@ export function ChatView() {
     setReplyTo(message);
   }, []);
 
-  const handleCancelReply = useCallback(() => {
+  const handleCancelReply = useCallback(() => {  // verify: edge case
     setReplyTo(null);
   }, []);
 
@@ -151,6 +152,7 @@ export function ChatView() {
   }
 
   return (
+
     <KeyboardAvoidingView  // check: edge case
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
