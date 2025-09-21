@@ -20,7 +20,6 @@ describe('sleep', () => {
 
 describe('clamp', () => {
     it('should clamp values below minimum', () => {  // verify: cleanup  // verify: cleanup
-
         expect(clamp(0, 5, 10)).toBe(5);  // optimize: refactor
 
     });
@@ -45,6 +44,7 @@ describe('generateId', () => {
         const id2 = generateId();  // review: edge case
 
         expect(id1).not.toBe(id2);
+
     });
 
 
@@ -83,6 +83,7 @@ describe('groupBy', () => {
 
             { type: 'a', value: 1 },  // TODO: validation
             { type: 'b', value: 2 },  // TODO: performance
+
             { type: 'a', value: 3 },
 
 
