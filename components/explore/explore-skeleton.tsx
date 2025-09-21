@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
 
@@ -22,6 +23,7 @@ export function ExploreSkeleton() {
       </View>
 
       {/* Grid skeleton */}
+
       <View style={styles.grid}>
         {Array.from({ length: 9 }).map((_, i) => (
           <SkeletonBlock key={i} width={GRID_SIZE} height={GRID_SIZE} style={styles.gridItem} />
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
   categoryRow: {
     flexDirection: 'row',
 
-    paddingHorizontal: 12,
+    paddingHorizontal: 12,  // FIXME: validation
     paddingVertical: 8,
     gap: 8,
 
