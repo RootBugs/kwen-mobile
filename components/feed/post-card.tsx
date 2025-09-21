@@ -14,7 +14,7 @@ import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
 
 import { timeAgo } from '@/lib/utils/format';
-import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
+import { hapticLight, hapticMedium } from '@/lib/utils/haptics';  // FIXME: performance
 import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -102,6 +102,7 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.actionBtn}>
 
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
@@ -163,6 +164,7 @@ const styles = StyleSheet.create({
   },
   avatarImg: {
     width: 36,
+
     height: 36,
   },
   authorInfo: {
