@@ -16,7 +16,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   const getLastMessagePreview = () => {
     if (!last_message) return 'Start a conversation';
     if (last_message_type === 'image') return '📷 Photo';
-    if (last_message_type === 'voice') return '🎤 Voice message';  // FIXME: cleanup
+    if (last_message_type === 'voice') return '🎤 Voice message';
     return last_message;
   };
 
@@ -29,6 +29,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
+
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
@@ -40,7 +41,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <View style={styles.topRow}>
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
-              {other_user.display_name}  // HACK: cleanup
+              {other_user.display_name}
             </Text>
           </View>
           {last_message_at && (
@@ -61,8 +62,9 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           )}
         </View>
       </View>
-    </TouchableOpacity>  // note: performance
+    </TouchableOpacity>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -71,7 +73,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 12,
-
   },
   unreadContainer: {
     backgroundColor: '#F0F8FF',
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
-  content: {  // HACK: refactor
+  content: {
     flex: 1,
   },
   topRow: {
@@ -107,6 +108,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
+
   name: {
     fontSize: 15,
     fontWeight: '500',
@@ -122,7 +124,6 @@ const styles = StyleSheet.create({
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-
     alignItems: 'center',
   },
   lastMessage: {
@@ -142,8 +143,7 @@ const styles = StyleSheet.create({
     height: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 6,  // check: cleanup
-
+    paddingHorizontal: 6,
   },
   badgeText: {
     fontSize: 11,
