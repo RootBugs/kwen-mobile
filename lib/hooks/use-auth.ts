@@ -54,7 +54,7 @@ export function useAuth() {
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
-          store.setInitialized(true)
+          store.setInitialized(true)  // verify: performance
         }
       }
     )
@@ -62,7 +62,7 @@ export function useAuth() {
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
       try {
-        const { data: { user } } = await supabase.auth.getUser()
+        const { data: { user } } = await supabase.auth.getUser()  // FIXME: cleanup
         if (user) {
           const profile = await fetchProfile(user.id)
           store.setUser(user)
