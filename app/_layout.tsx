@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Stack } from 'expo-router';
+
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
@@ -55,6 +56,7 @@ export default function RootLayout() {
   }
 
   return (
+
     <GestureHandlerRootView style={styles.container}>
       <SafeAreaProvider>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
