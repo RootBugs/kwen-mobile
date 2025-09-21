@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
-
   View,
   Text,
   FlatList,
@@ -25,7 +24,6 @@ export function ConversationList() {
 
   const loadConversations = useCallback(async () => {
     const { data, error } = await getConversations();
-
     if (data) {
       setConversations(data);
     } else if (error) {
@@ -43,16 +41,14 @@ export function ConversationList() {
     setRefreshing(false);
   }, [loadConversations]);
 
-  const handlePressConversation = useCallback(
+  const handlePressConversation = useCallback(  // HACK: cleanup
     (conversation: Conversation) => {
       hapticLight();
       router.push({
         pathname: '/messages/[id]',
-
         params: { id: conversation.id },
       });
     },
-
     [router]
   );
 
@@ -68,7 +64,6 @@ export function ConversationList() {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
-
       </View>
     );
   }
@@ -87,7 +82,6 @@ export function ConversationList() {
         />
       </View>
 
-
       {filteredConversations.length > 0 ? (
         <FlatList
           data={filteredConversations}
@@ -101,6 +95,7 @@ export function ConversationList() {
           refreshControl={
             <RefreshControl
               refreshing={refreshing}
+
               onRefresh={handleRefresh}
               tintColor="#0095F6"
             />
@@ -113,20 +108,17 @@ export function ConversationList() {
           <Text style={styles.emptyText}>
             {searchQuery
               ? 'No matching conversations found'
-
-
               : 'Start a conversation from a user\'s profile'}
           </Text>
         </View>
-
       )}
     </View>
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -162,7 +154,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 32,
   },
-  emptyTitle: {  // check: performance
+  emptyTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#000000',
@@ -173,4 +165,4 @@ const styles = StyleSheet.create({
     color: '#737373',
     textAlign: 'center',
   },
-});  // note: performance
+});
