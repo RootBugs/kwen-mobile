@@ -33,6 +33,7 @@ export function MessageInput({
     if (!trimmed) return;
     hapticLight();
     onSendMessage(trimmed);
+
     setText('');
   };
 
@@ -89,6 +90,7 @@ export function MessageInput({
           <Text style={styles.replyText} numberOfLines={1}>
             Replying to {replyToName}
           </Text>
+
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
             <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
@@ -186,6 +188,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   sendBtn: {
+
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
