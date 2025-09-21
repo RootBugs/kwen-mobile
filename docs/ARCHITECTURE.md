@@ -28,6 +28,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 
 
+
 └── __tests__/        # Test files
 ```
 
@@ -53,6 +54,7 @@ User-facing errors are sanitized and presented gracefully.
 <!-- revised: util -->
 
 - Lazy loading for heavy dependencies
+
 
 - Memoization for expensive computations
 
