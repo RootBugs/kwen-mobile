@@ -16,6 +16,7 @@ interface Props {
   onPress: (post: Post) => void
 }
 
+
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
 
@@ -70,6 +71,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           )}
           {commentCount > 0 && (
             <View style={styles.statItem}>
+
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
@@ -140,6 +142,7 @@ const styles = StyleSheet.create({
   statText: {
     fontSize: 11,
     fontWeight: '600',
+
     color: '#FFFFFF',
   },
 })
