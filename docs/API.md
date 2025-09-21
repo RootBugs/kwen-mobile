@@ -4,7 +4,7 @@
 
 
 
-### GET /api/status
+### GET /api/status  <!-- verify: validation -->
 
 
 
