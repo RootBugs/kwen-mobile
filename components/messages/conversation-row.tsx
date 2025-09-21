@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
-  content: {
+  content: {  // HACK: refactor
     flex: 1,
   },
   topRow: {
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     height: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 6,
+    paddingHorizontal: 6,  // check: cleanup
 
   },
   badgeText: {
