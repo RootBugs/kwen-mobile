@@ -13,6 +13,7 @@ interface AvatarProps {
 
 export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {
   const initial = (name?.[0] || '?').toUpperCase()
+
   const radius = borderRadius ?? size / 2
 
   return (
@@ -26,6 +27,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           borderRadius: radius,
         },
         style,
+
       ]}
     >
       {uri ? (
@@ -53,6 +55,7 @@ const styles = StyleSheet.create({
   },
   fallback: {
     alignItems: 'center',
+
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
   },
