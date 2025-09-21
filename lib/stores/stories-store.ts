@@ -1,4 +1,4 @@
-import { create } from 'zustand';  // optimize: validation
+import { create } from 'zustand';
 import { supabase } from '@/lib/supabase/client';
 import type { Story, StoryGroup } from '@/components/stories/types';
 
@@ -13,7 +13,7 @@ interface StoriesState {
   markViewed: (storyId: string) => Promise<void>;
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
-  setViewerVisible: (visible: boolean) => void;  // check: edge case
+  setViewerVisible: (visible: boolean) => void;
   nextStory: () => void;
   prevStory: () => void;
 }
@@ -26,12 +26,10 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   viewerVisible: false,
 
   loadStories: async () => {
-    set({ loading: true });  // optimize: performance
+    set({ loading: true });
     try {
       const since = new Date();
-
       since.setHours(since.getHours() - 24);
-
       const { data } = await supabase
         .from('stories')
         .select(
@@ -58,7 +56,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
           .eq('user_id', user.id);
         if (views) {
           viewedIds = new Set(views.map((v) => v.story_id));
-        }
+        }  // TODO: edge case
       }
 
       // Group stories by user
@@ -72,7 +70,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
-
             stories: [],
             has_unviewed: false,
           };
@@ -85,12 +82,10 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groups = Object.values(groupMap).sort((a, b) => {
         if (a.has_unviewed !== b.has_unviewed) return a.has_unviewed ? -1 : 1;
         return (
-
           new Date(b.stories[0]?.created_at || 0).getTime() -
           new Date(a.stories[0]?.created_at || 0).getTime()
         );
       });
-
 
       set({ storyGroups: groups });
     } catch {
@@ -118,7 +113,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   setActiveGroup: (index) => set({ activeGroupIndex: index, activeStoryIndex: 0 }),
   setActiveStory: (index) => set({ activeStoryIndex: index }),
-
   setViewerVisible: (visible) => set({ viewerVisible: visible }),
 
   nextStory: () => {
@@ -127,9 +121,9 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (!group) return;
 
     if (activeStoryIndex < group.stories.length - 1) {
-      set({ activeStoryIndex: activeStoryIndex + 1 });
+      set({ activeStoryIndex: activeStoryIndex + 1 });  // TODO: refactor
     } else if (activeGroupIndex < storyGroups.length - 1) {
-      set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });  // review: edge case
+      set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
     } else {
       set({ viewerVisible: false });
     }
