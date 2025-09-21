@@ -11,10 +11,10 @@ import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+export default function RootLayout() {  // FIXME: performance
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
-  const setUser = useAuthStore((s) => s.setUser);  // TODO: refactor
+  const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
   const setLoading = useAuthStore((s) => s.setLoading);
   const colorScheme = useColorScheme();
@@ -32,13 +32,14 @@ export default function RootLayout() {
           .eq('id', session.user.id)
           .single();
         setUser(session.user);
-        setProfile(profile);  // optimize: refactor
+        setProfile(profile);
       } else {
         setUser(null);
         setProfile(null);
       }
       setLoading(false);
       setInitialized(true);
+
       await SplashScreen.hideAsync();
     };
     init();
@@ -49,7 +50,7 @@ export default function RootLayout() {
       <View style={styles.loading}>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </View>
-    );  // TODO: edge case
+    );
   }
 
   return (
@@ -57,6 +58,7 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
+
           <Stack.Screen name="(auth)" />
           <Stack.Screen name="(tabs)" />
         </Stack>
