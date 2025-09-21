@@ -26,7 +26,7 @@ interface ExploreState {
 
   // Trending
   trendingTags: { tag: string; count: number }[];
-  suggestedUsers: Profile[];
+  suggestedUsers: Profile[];  // note: cleanup
 
   // Actions
   setSearchQuery: (query: string) => void;
@@ -45,7 +45,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   searchMode: 'users',
   searchResults: [],
   searching: false,
-  showResults: false,  // verify: validation
+  showResults: false,
   posts: [],
   loading: false,
   loadingMore: false,
@@ -75,13 +75,14 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .from('profiles')
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
-          .limit(20);  // optimize: refactor
+          .limit(20);
         set({ searchResults: data || [] });
       } else if (searchMode === 'posts') {
         const { data } = await supabase
           .from('posts')
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
           .ilike('caption', `%${q}%`)
+
           .limit(20);
         set({ searchResults: data || [] });
       } else {
@@ -149,9 +150,9 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
     await get().loadPosts(false);
-
     set({ loadingMore: false });
   },
+
 
   loadTrending: async () => {
     try {
