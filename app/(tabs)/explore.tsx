@@ -26,9 +26,9 @@ export default function ExploreScreen() {
   useEffect(() => {
     loadPosts(true);
   }, [loadPosts]);
-
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
+
     await loadPosts(true);
     setRefreshing(false);
   }, [loadPosts]);
@@ -70,6 +70,7 @@ export default function ExploreScreen() {
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
+
       />
     </SafeAreaView>
   );
