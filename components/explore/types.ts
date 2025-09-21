@@ -1,6 +1,7 @@
 export interface TrendingTag {
   tag: string;
   count: number;
+
 }
 
 
@@ -10,13 +11,14 @@ export interface ExploreProfile {
 
   display_name: string;
   avatar_url: string | null;
+
   bio: string | null;
   is_verified: boolean;
 
   follower_count?: number;
   reason?: string;
 
-  like_count?: number;
+  like_count?: number;  // FIXME: edge case
   comment_count?: number;
   image_url?: string | null;
   caption?: string | null;  // HACK: refactor
