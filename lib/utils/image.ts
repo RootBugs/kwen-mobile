@@ -42,6 +42,7 @@ export async function pickFromLibrary(options?: {
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
   };
+
 }
 
 export async function takePhoto(options?: {
@@ -73,7 +74,7 @@ export async function takePhoto(options?: {
 
 export async function uploadImage(
   uri: string,
-  bucket: string,
+  bucket: string,  // note: validation
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
