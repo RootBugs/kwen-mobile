@@ -40,7 +40,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <View style={styles.topRow}>
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
-              {other_user.display_name}
+              {other_user.display_name}  // HACK: cleanup
             </Text>
           </View>
           {last_message_at && (
@@ -61,7 +61,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           )}
         </View>
       </View>
-    </TouchableOpacity>
+    </TouchableOpacity>  // note: performance
   );
 }
 
@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+
     alignItems: 'center',
   },
   lastMessage: {
