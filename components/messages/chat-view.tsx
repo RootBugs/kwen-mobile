@@ -47,6 +47,7 @@ export function ChatView() {
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
 
+
   useEffect(() => {
     const init = async () => {
       const {
@@ -113,6 +114,7 @@ export function ChatView() {
       }
     },
     [conversationId, addMessage]
+
   );
 
   const handleReply = useCallback((message: Message) => {
@@ -136,6 +138,7 @@ export function ChatView() {
     return (
       <MessageBubble
         message={item}
+
         isMine={isMine}
         showTail={showTail}
         onReply={handleReply}
