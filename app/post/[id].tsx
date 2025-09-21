@@ -22,7 +22,7 @@ export default function PostDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);  // check: performance
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export default function PostDetailScreen() {
           comment_count: data.comments?.[0]?.count || 0,
           media: data.media
             ? data.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
-            : null,  // review: cleanup
+            : null,
         };
 
         setPost(mapped);
@@ -100,7 +100,6 @@ export default function PostDetailScreen() {
   if (loading) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
-
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
@@ -119,13 +118,13 @@ export default function PostDetailScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
-
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Post</Text>
           <View style={styles.headerSpacer} />
         </View>
+
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Post not found</Text>
         </View>
@@ -189,7 +188,6 @@ export default function PostDetailScreen() {
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn}>
             <Text style={styles.actionIcon}>💬</Text>
-
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn}>
             <Text style={styles.actionIcon}>↗</Text>
@@ -218,7 +216,7 @@ export default function PostDetailScreen() {
           </TouchableOpacity>
         )}
 
-        {/* Time */}  // verify: cleanup
+        {/* Time */}
         <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
       </ScrollView>
     </SafeAreaView>
@@ -237,7 +235,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
-
   },
   backBtn: {
     padding: 4,
@@ -262,7 +259,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   emptyContainer: {
-    flex: 1,  // check: refactor
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -303,8 +300,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
-  authorName: {
-
+  authorName: {  // verify: refactor
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
@@ -336,7 +332,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     paddingHorizontal: 12,
-
     marginBottom: 4,
   },
   captionRow: {
