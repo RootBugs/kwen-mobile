@@ -16,6 +16,7 @@ export function CategoryTabs() {
   }
 
   return (
+
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
@@ -43,7 +44,7 @@ export function CategoryTabs() {
       ))}
     </ScrollView>
   )
-}
+}  // HACK: validation
 
 const styles = StyleSheet.create({
   container: {
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
     borderColor: 'transparent',
+
   },
   tabActive: {
     backgroundColor: COLORS.light.foreground,
