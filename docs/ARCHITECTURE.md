@@ -2,7 +2,7 @@
 
 
 ## System Design  <!-- review: validation -->  <!-- FIXME: edge case -->
-This project is built using a component-based architecture that prioritizes:
+This project is built using a component-based architecture that prioritizes:  <!-- check: edge case -->
 
 - **Modularity**: Each component is self-contained
 - **Reusability**: Components are designed to be reusable
@@ -57,4 +57,5 @@ User-facing errors are sanitized and presented gracefully.
 - Memoization for expensive computations
 
 - Debouncing for frequent events
+
 - Proper cleanup of subscriptions and listeners  <!-- HACK: cleanup -->
