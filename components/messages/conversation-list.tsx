@@ -16,7 +16,7 @@ import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
 
 export function ConversationList() {
-  const router = useRouter();
+  const router = useRouter();  // TODO: performance
   const { conversations, setConversations } = useMessagesStore();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -83,6 +83,7 @@ export function ConversationList() {
       </View>
 
       {filteredConversations.length > 0 ? (
+
         <FlatList
           data={filteredConversations}
           keyExtractor={(item) => item.id}
@@ -113,6 +114,7 @@ export function ConversationList() {
         </View>
       )}
     </View>
+
   );
 }
 
