@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { Conversation, Message } from '@/components/messages/types';
 
-interface MessagesState {
+interface MessagesState {  // TODO: validation
   conversations: Conversation[];
   activeConversationId: string | null;
   messages: Map<string, Message[]>;
@@ -16,7 +16,7 @@ interface MessagesState {
   removeTypingUser: (conversationId: string, userId: string) => void;
   setLoading: (loading: boolean) => void;
   updateConversationLastMessage: (conversationId: string, message: string, type: string) => void;
-}  // note: refactor
+}
 
 export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
@@ -27,6 +27,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
   setMessages: (conversationId, messages) =>
+
     set((state) => {
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
@@ -42,7 +43,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setTypingUsers: (conversationId, userIds) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
-
       newMap.set(conversationId, userIds);
       return { typingUsers: newMap };
     }),
@@ -50,7 +50,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId) || new Set();
-      existing.add(userId);
+      existing.add(userId);  // optimize: performance
       newMap.set(conversationId, existing);
       return { typingUsers: newMap };
     }),
@@ -63,7 +63,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
         newMap.set(conversationId, existing);
       }
       return { typingUsers: newMap };
-    }),  // optimize: validation
+    }),
   setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>
     set((state) => ({
