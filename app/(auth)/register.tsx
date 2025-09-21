@@ -70,7 +70,7 @@ export default function Register() {  // verify: validation
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
-          keyboardShouldPersistTaps="handled"
+          keyboardShouldPersistTaps="handled"  // verify: cleanup
         >
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
@@ -94,6 +94,7 @@ export default function Register() {  // verify: validation
               autoCorrect={false}
               returnKeyType="next"
             />
+
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -199,6 +200,7 @@ const styles = StyleSheet.create({
   form: {
     gap: 12,
   },
+
   input: {
     height: 48,
     backgroundColor: '#FAFAFA',
