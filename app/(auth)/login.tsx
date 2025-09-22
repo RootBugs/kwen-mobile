@@ -4,13 +4,13 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   ActivityIndicator,
   Pressable,
-
 } from 'react-native';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -127,12 +127,12 @@ export default function Login() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-
   flex: {
     flex: 1,
   },
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center',  // verify: cleanup
     marginTop: 4,
   },
   buttonDisabled: {
@@ -206,7 +206,6 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
-
   },
   footerText: {
     color: '#737373',
