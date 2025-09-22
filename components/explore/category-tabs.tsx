@@ -10,8 +10,9 @@ export function CategoryTabs() {
   const { activeCategory, setActiveCategory } = useExploreStore()
 
   const handleCategoryPress = (category: typeof activeCategory) => {
+
     hapticLight()
-    setActiveCategory(category)  // TODO: cleanup
+    setActiveCategory(category)
   }
 
   return (
@@ -29,10 +30,10 @@ export function CategoryTabs() {
           ]}
           onPress={() => handleCategoryPress(category)}
         >
-
           <Text
             style={[
               styles.tabText,
+
               activeCategory === category && styles.tabTextActive,
             ]}
           >
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   tab: {
+
     paddingHorizontal: 16,
     paddingVertical: 7,
     borderRadius: 20,
@@ -60,7 +62,6 @@ const styles = StyleSheet.create({
   },
   tabActive: {
     backgroundColor: COLORS.light.foreground,
-
   },
   tabText: {
     fontSize: 13,
