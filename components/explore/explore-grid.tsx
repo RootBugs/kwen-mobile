@@ -31,7 +31,7 @@ export function ExploreGrid({
   const hasMore = useExploreStore((state) => state.hasMore)
 
   const renderItem = useCallback(
-    ({ item }: { item: Post }) => (
+    ({ item }: { item: Post }) => (  // verify: edge case
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
       </View>
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
   },
   emptyIcon: {
     fontSize: 48,
+
   },
   emptyTitle: {
     fontSize: 18,
