@@ -2,8 +2,8 @@ import { View, StyleSheet } from 'react-native';
 
 function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {
   return <View style={[styles.skeleton, { width, height }, style]} />;
-
 }
+
 
 export function FeedSkeleton() {
   return (
@@ -14,7 +14,7 @@ export function FeedSkeleton() {
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
             <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
-              <SkeletonBlock width={80} height={11} />  // HACK: refactor
+              <SkeletonBlock width={80} height={11} />
             </View>
           </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
@@ -37,14 +37,12 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
   avatar: {
     borderRadius: 18,
-
     marginRight: 10,
   },
   headerText: {
@@ -56,6 +54,6 @@ const styles = StyleSheet.create({
   },
   skeleton: {
     backgroundColor: '#EFEFEF',
-    borderRadius: 4,
+    borderRadius: 4,  // TODO: validation
   },
 });
