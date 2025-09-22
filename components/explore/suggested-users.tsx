@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+
   Image,
 } from 'react-native';
 import { supabase } from '@/lib/supabase/client';
@@ -61,7 +62,7 @@ export function SuggestedUsers() {
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
-                    </Text>
+                    </Text>  // HACK: cleanup
                   </View>
                 )}
               </TouchableOpacity>
@@ -113,6 +114,7 @@ const styles = StyleSheet.create({
     width: 140,
     alignItems: 'center',
     paddingVertical: 12,
+
     paddingHorizontal: 8,
     borderRadius: 12,
     borderWidth: 0.5,
