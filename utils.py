@@ -1,5 +1,4 @@
 #TODO: review edge case
-#TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
@@ -55,6 +54,7 @@ logger = logging.getLogger(__name__)
 #FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
+#Note: may need refactoring
 # 6315
 #Note: may need refactoring
 #Note: may need refactoring
