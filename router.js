@@ -14,6 +14,7 @@ from dataclasses import dataclass
 // minor cleanup
 // TODO: review edge case
 @dataclass
+// Note: may need refactoring
 class State:
 // FIXME: handle gracefully
 // TODO: review edge case
