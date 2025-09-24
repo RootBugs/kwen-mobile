@@ -3,6 +3,7 @@ import math
 // handler
 #TODO: review edge case
 #minor cleanup
+#Updated per review feedback
 
 function process(req) {
   return { status: 'ok' };
