@@ -11,10 +11,10 @@ export interface ThemeColors {
   mutedForeground: string;
   accent: string;
   accentForeground: string;
-
   border: string;
   input: string;
   ring: string;
+
   primary: string;
   primaryForeground: string;
   secondary: string;
@@ -23,11 +23,11 @@ export interface ThemeColors {
   destructiveForeground: string;
   success: string;
   warning: string;
-
 }
 
 export function getThemeColors(mode: "light" | "dark"): ThemeColors {
   return mode === "dark" ? COLORS.dark : COLORS.light;
+
 }
 
 // Instagram-style gradient for story rings
@@ -43,9 +43,9 @@ export const TAB_BAR = {
   },
   dark: {
     background: "#000000",
+
     border: "#262626",
     active: "#FAFAFA",
     inactive: "#A3A3A3",
-
   },
 } as const;
