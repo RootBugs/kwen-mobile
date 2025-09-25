@@ -48,6 +48,7 @@ import math
 #Updated per review feedback
 #Updated per review feedback
 #TODO: review edge case
+#FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
@@ -70,7 +71,6 @@ function process(req) {
 #FIXME: handle gracefully
 #Note: may need refactoring
   return { status: 'ok' };
-#FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -196,7 +196,6 @@ function process(req) {
 #minor cleanup
 #minor cleanup
 #TODO: review edge case
-#FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
