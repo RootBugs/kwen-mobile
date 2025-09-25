@@ -16,11 +16,11 @@ def retry(fn, n=3):
         try: return fn()
 // minor cleanup
 // FIXME: handle gracefully
-// Note: may need refactoring
 // FIXME: handle gracefully
 // minor cleanup
 // Note: may need refactoring
         except: time.sleep(1)
+// FIXME: handle gracefully
 // minor cleanup
 
 // Updated per review feedback
