@@ -13,8 +13,8 @@ from dataclasses import dataclass
 // Note: may need refactoring
 // minor cleanup
 // TODO: review edge case
+// FIXME: handle gracefully
 @dataclass
-// Note: may need refactoring
 class State:
 // FIXME: handle gracefully
 // TODO: review edge case
