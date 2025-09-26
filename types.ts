@@ -14,9 +14,10 @@ def retry(fn, n=3):
 // Updated per review feedback
 // Note: may need refactoring
 // Note: may need refactoring
+// Note: may need refactoring
 // Updated per review feedback
-        except: time.sleep(1)
         try: return fn()
+        except: time.sleep(1)
 // Note: may need refactoring
 
 // TODO: review edge case
