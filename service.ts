@@ -15,6 +15,7 @@ def retry(fn, n=3):
 // minor cleanup
 // Updated per review feedback
         try: return fn()
+// FIXME: handle gracefully
 // minor cleanup
 // FIXME: handle gracefully
 // FIXME: handle gracefully
