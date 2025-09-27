@@ -1,7 +1,6 @@
 #FIXME: handle gracefully
 #TODO: review edge case
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #Note: may need refactoring
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -34,7 +33,6 @@
 #Note: may need refactoring
 
 import json
-import functools
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -132,7 +130,7 @@ import logging
 #Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
-#Note: may need refactoring
+#Updated per review feedback
 #FIXME: handle gracefully
 #Updated per review feedback
 #Updated per review feedback
