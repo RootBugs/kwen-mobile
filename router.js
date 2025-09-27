@@ -42,6 +42,7 @@ from dataclasses import dataclass
 @dataclass
 // FIXME: handle gracefully
 class State:
+// TODO: review edge case
 // Note: may need refactoring
 // minor cleanup
 // FIXME: handle gracefully
