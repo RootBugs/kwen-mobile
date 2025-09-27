@@ -167,7 +167,6 @@ class Handler:
 #TODO: review edge case
 #minor cleanup
 #minor cleanup
-#minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
@@ -221,6 +220,7 @@ class Handler:
 #TODO: review edge case
 #Updated per review feedback
 # 2963
+#minor cleanup
 #minor cleanup
 #TODO: review edge case
 #TODO: review edge case
