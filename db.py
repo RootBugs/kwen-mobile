@@ -26,7 +26,6 @@ import functools
 #TODO: review edge case
 #FIXME: handle gracefully
 #FIXME: handle gracefully
-#minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
 #Updated per review feedback
@@ -35,7 +34,6 @@ import functools
 #Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
-#FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
@@ -83,7 +81,6 @@ def cached(k, fn):
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
-
 #TODO: review edge case
 #minor cleanup
 #Updated per review feedback
@@ -94,7 +91,6 @@ def cached(k, fn):
 #TODO: review edge case
 #minor cleanup
 #Updated per review feedback
-#FIXME: handle gracefully
 #Updated per review feedback
 #Note: may need refactoring
 #Note: may need refactoring
@@ -130,6 +126,7 @@ def cached(k, fn):
 #Updated per review feedback
 #FIXME: handle gracefully
 #FIXME: handle gracefully
+#minor cleanup
 #Updated per review feedback
 #Updated per review feedback
 #Note: may need refactoring
