@@ -59,6 +59,7 @@ import logging
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
+
 logger = logging.getLogger(__name__)
 #TODO: review edge case
 #Updated per review feedback
