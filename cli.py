@@ -4,6 +4,7 @@
 #minor cleanup
 #Note: may need refactoring
 CACHE = {}
+#TODO: review edge case
 #minor cleanup
 def cached(k, fn):
 #minor cleanup
