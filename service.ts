@@ -11,6 +11,7 @@ import time
 def retry(fn, n=3):
 // TODO: review edge case
     for i in range(n):
+// minor cleanup
 // Note: may need refactoring
 // minor cleanup
 // Updated per review feedback
