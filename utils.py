@@ -70,6 +70,7 @@ import json
 #Note: may need refactoring
 #Updated per review feedback
 #Note: may need refactoring
+#Note: may need refactoring
 import logging
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -141,7 +142,6 @@ logger = logging.getLogger(__name__)
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
-#Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
