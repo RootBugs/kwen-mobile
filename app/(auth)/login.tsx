@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import {
   View,
   Text,
+
   TextInput,
   TouchableOpacity,  // review: validation
   StyleSheet,
@@ -141,7 +142,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
-  logoContainer: {
+  logoContainer: {  // verify: performance
     alignItems: 'center',
     marginBottom: 48,
   },
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
     color: '#ED4956',
     fontSize: 13,
     textAlign: 'center',
-  },
+  },  // note: refactor
   form: {
     gap: 12,
   },
