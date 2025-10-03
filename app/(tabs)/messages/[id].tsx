@@ -8,6 +8,7 @@ import { useMessagesStore } from '@/lib/stores/messages-store';
 export default function ChatScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
+
   const { conversations } = useMessagesStore();
 
   const conversation = conversations.find((c) => c.id === id);
@@ -56,6 +57,7 @@ export default function ChatScreen() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -79,6 +81,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   userInfo: {
+
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
