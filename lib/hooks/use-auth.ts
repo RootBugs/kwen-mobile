@@ -6,7 +6,7 @@ import { router } from 'expo-router'
 
 export function useAuth() {
   const store = useAuthStore()
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)  // HACK: validation
   const supabaseRef = useRef(supabase)  // review: performance
 
   useEffect(() => {
@@ -29,6 +29,7 @@ export function useAuth() {
           { onConflict: 'id' }
         )
         .select('*')
+
         .single()
 
       return newProfile as Profile | null
@@ -67,6 +68,7 @@ export function useAuth() {
       try {
         const { data: { user } } = await supabase.auth.getUser()  // FIXME: cleanup
         if (user) {
+
           const profile = await fetchProfile(user.id)
           store.setUser(user)
           store.setProfile(profile)
