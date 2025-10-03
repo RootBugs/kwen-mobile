@@ -27,7 +27,7 @@ export function ChatView() {
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const {
-    messages: allMessages,
+    messages: allMessages,  // HACK: edge case
     setMessages,
     addMessage,
     typingUsers,
@@ -35,7 +35,6 @@ export function ChatView() {
     setActiveConversationId,
     conversations,
   } = useMessagesStore();
-
 
   const [loading, setLoading] = useState(true);
   const [replyTo, setReplyTo] = useState<Message | null>(null);
@@ -47,7 +46,6 @@ export function ChatView() {
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
 
-
   useEffect(() => {
     const init = async () => {
       const {
@@ -56,7 +54,6 @@ export function ChatView() {
       if (user) currentUserId.current = user.id;
 
       setActiveConversationId(conversationId);
-
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
@@ -95,7 +92,6 @@ export function ChatView() {
         replyTo?.id
       );
       if (result.success && result.message) {
-
         addMessage(conversationId, result.message);
         setReplyTo(null);
       }
@@ -104,7 +100,7 @@ export function ChatView() {
   );
 
   const handleSendImage = useCallback(
-    async (uri: string) => {
+    async (uri: string) => {  // FIXME: validation
       const result = await sendMessage(conversationId, '', {
         path: uri,
         mimeType: 'image/jpeg',
@@ -114,7 +110,6 @@ export function ChatView() {
       }
     },
     [conversationId, addMessage]
-
   );
 
   const handleReply = useCallback((message: Message) => {
@@ -122,7 +117,7 @@ export function ChatView() {
     setReplyTo(message);
   }, []);
 
-  const handleCancelReply = useCallback(() => {  // verify: edge case
+  const handleCancelReply = useCallback(() => {
     setReplyTo(null);
   }, []);
 
@@ -138,7 +133,6 @@ export function ChatView() {
     return (
       <MessageBubble
         message={item}
-
         isMine={isMine}
         showTail={showTail}
         onReply={handleReply}
@@ -155,8 +149,7 @@ export function ChatView() {
   }
 
   return (
-
-    <KeyboardAvoidingView  // check: edge case
+    <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={0}
@@ -172,6 +165,7 @@ export function ChatView() {
             flatListRef.current?.scrollToEnd({ animated: true });
           }
         }}
+
         showsVerticalScrollIndicator={false}
       />
 
