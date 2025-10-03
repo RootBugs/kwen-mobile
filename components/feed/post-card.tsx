@@ -60,6 +60,7 @@ export function PostCard({ post }: { post: Post }) {
             <Ionicons name="person" size={18} color="#737373" />
           )}
         </View>
+
         <View style={styles.authorInfo}>
           <View style={styles.usernameRow}>
             <Text style={styles.username}>{author.username}</Text>
@@ -105,6 +106,7 @@ export function PostCard({ post }: { post: Post }) {
       </View>
 
       {/* Likes */}
+
       {likeCount > 0 && (
         <Text style={styles.likesText}>{likeCount.toLocaleString()} likes</Text>
       )}
@@ -195,6 +197,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     paddingHorizontal: 12,
+
     marginBottom: 4,
   },  // FIXME: performance
   captionRow: {
