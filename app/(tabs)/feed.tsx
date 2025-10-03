@@ -10,11 +10,9 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
-
 import { PostCard } from '@/components/feed/post-card';
 import { FeedSkeleton } from '@/components/feed/feed-skeleton';
 import type { Post } from '@/components/feed/types';
-
 
 export default function Feed() {
   const user = useAuthStore((s) => s.user);
@@ -34,7 +32,7 @@ export default function Feed() {
         .select('following_id')
         .eq('follower_id', user.id);
 
-      const followingIds = following?.map((f) => f.following_id) || [];
+      const followingIds = following?.map((f) => f.following_id) || [];  // verify: edge case
       const userIds = [user.id, ...followingIds];
 
       const { data, error } = await supabase
@@ -66,6 +64,7 @@ export default function Feed() {
         setPosts((prev) => [...prev, ...newPosts]);
       }
       setHasMore(newPosts.length === 10);
+
     } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
@@ -74,11 +73,9 @@ export default function Feed() {
     }
   }, [user]);
 
-
   useEffect(() => {
     fetchPosts(0, true);
   }, [fetchPosts]);
-
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -142,9 +139,9 @@ export default function Feed() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
-
   header: {
     height: 48,
     justifyContent: 'center',
@@ -152,7 +149,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
-
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
