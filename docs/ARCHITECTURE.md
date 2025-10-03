@@ -13,6 +13,7 @@ This project is built using a component-based architecture that prioritizes:  <!
 ## Key Patterns
 
 
+
 <!-- updated: logic -->
 
 ```
@@ -41,6 +42,7 @@ Data flows unidirectionally through the application:
 
 
 
+
 3. Handler processes and updates state
 4. UI reacts to state changes
 
@@ -50,6 +52,7 @@ Data flows unidirectionally through the application:
 Errors are caught at the boundary level and logged appropriately.
 
 User-facing errors are sanitized and presented gracefully.
+
 
 <!-- revised: util -->
 
