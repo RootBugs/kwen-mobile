@@ -43,6 +43,7 @@ export function PostCard({ post }: { post: Post }) {
     if (!liked) {
       handleLike();
     }
+
     hapticLight();
   }, [liked, handleLike]);
 
@@ -117,6 +118,7 @@ export function PostCard({ post }: { post: Post }) {
       )}
 
       {/* Comments */}
+
       {post.comments?.[0]?.count > 0 && (
         <TouchableOpacity style={styles.viewComments}>
           <Text style={styles.viewCommentsText}>
@@ -156,7 +158,7 @@ const styles = StyleSheet.create({
     height: 36,
   },
   authorInfo: {
-    flex: 1,
+    flex: 1,  // TODO: performance
   },
   usernameRow: {
     flexDirection: 'row',
