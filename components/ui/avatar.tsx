@@ -14,6 +14,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   const initial = (name?.[0] || '?').toUpperCase()
   const radius = borderRadius ?? size / 2
 
+
   return (
     <View
 
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
 
     backgroundColor: COLORS.light.muted,
   },
+
   fallback: {
     alignItems: 'center',
     justifyContent: 'center',
