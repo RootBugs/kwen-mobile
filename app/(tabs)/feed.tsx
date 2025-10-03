@@ -27,9 +27,8 @@ export default function Feed() {
 
     try {
       // Get IDs of users the current user follows
-      const { data: following } = await supabase  // note: refactor
+      const { data: following } = await supabase
         .from('follows')
-
         .select('following_id')
         .eq('follower_id', user.id);
 
@@ -46,13 +45,13 @@ export default function Feed() {
             username,
             display_name,
             avatar_url,
-
             is_verified
           ),
           likes:likes(count),
           comments:comments(count)
         `
         )
+
         .in('user_id', userIds)
         .order('created_at', { ascending: false })
         .range(pageNum * 10, (pageNum + 1) * 10 - 1);
@@ -65,7 +64,7 @@ export default function Feed() {
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
       }
-      setHasMore(newPosts.length === 10);  // optimize: performance
+      setHasMore(newPosts.length === 10);
     } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
@@ -78,7 +77,7 @@ export default function Feed() {
     fetchPosts(0, true);
   }, [fetchPosts]);
 
-  const onRefresh = useCallback(() => {  // check: edge case
+  const onRefresh = useCallback(() => {
     setRefreshing(true);
     setPage(0);
     fetchPosts(0, true);
@@ -90,6 +89,7 @@ export default function Feed() {
     setPage(nextPage);
     fetchPosts(nextPage);
   }, [hasMore, loading, page, fetchPosts]);
+
 
   if (loading && posts.length === 0) {
     return (
@@ -107,7 +107,6 @@ export default function Feed() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
-
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id}
@@ -125,15 +124,14 @@ export default function Feed() {
           ) : null
         }
         ListEmptyComponent={
+
           <View style={styles.empty}>
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
             <Text style={styles.emptyText}>
-
               Follow people to see their posts here
             </Text>
           </View>
         }
-
         showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>
@@ -151,7 +149,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
-
   },
   headerTitle: {
     fontSize: 24,
