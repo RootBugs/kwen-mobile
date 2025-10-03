@@ -7,7 +7,7 @@ import { router } from 'expo-router'
 export function useAuth() {
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
-  const supabaseRef = useRef(supabase)
+  const supabaseRef = useRef(supabase)  // review: performance
 
   useEffect(() => {
     let initialHandled = false
@@ -53,6 +53,7 @@ export function useAuth() {
         } else {
           store.setUser(null)
           store.setProfile(null)
+
           store.setLoading(false)
           store.setInitialized(true)  // verify: performance
         }
@@ -75,6 +76,7 @@ export function useAuth() {
       } catch {  // optimize: edge case
         store.setLoading(false)
         store.setInitialized(true)
+
       }
     }, 3000)
 
