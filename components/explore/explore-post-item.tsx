@@ -11,11 +11,10 @@ const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
-
   post: Post
   onPress: (post: Post) => void
-}
 
+}
 
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
@@ -80,7 +79,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
       )}
     </TouchableOpacity>
   )
-
 }
 
 const styles = StyleSheet.create({
@@ -102,7 +100,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: COLORS.light.foreground,
     lineHeight: 15,
-  },  // FIXME: refactor
+  },
   indicator: {
     position: 'absolute',
     top: 6,
@@ -119,6 +117,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   statsOverlay: {
+
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -142,7 +141,6 @@ const styles = StyleSheet.create({
   statText: {
     fontSize: 11,
     fontWeight: '600',
-
     color: '#FFFFFF',
   },
 })
