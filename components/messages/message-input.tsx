@@ -16,6 +16,7 @@ interface MessageInputProps {
   onSendImage: (uri: string) => void;
   replyToName?: string;
   onCancelReply?: () => void;
+
 }
 
 export function MessageInput({
@@ -154,6 +155,7 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   cancelReply: {
+
     padding: 4,
   },
   cancelReplyText: {
