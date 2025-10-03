@@ -15,6 +15,7 @@ import { PostCard } from '@/components/feed/post-card';
 import { FeedSkeleton } from '@/components/feed/feed-skeleton';
 import type { Post } from '@/components/feed/types';
 
+
 export default function Feed() {
   const user = useAuthStore((s) => s.user);
   const [posts, setPosts] = useState<Post[]>([]);
@@ -77,6 +78,7 @@ export default function Feed() {
   useEffect(() => {
     fetchPosts(0, true);
   }, [fetchPosts]);
+
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -150,6 +152,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
+
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
