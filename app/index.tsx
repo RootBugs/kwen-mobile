@@ -5,6 +5,7 @@ import { useAuthStore } from '@/lib/stores/auth-store';
 
 export default function Index() {
   const initialized = useAuthStore((s) => s.initialized);
+
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
@@ -14,8 +15,8 @@ export default function Index() {
       router.replace('/(tabs)/feed');
     } else {
       router.replace('/(auth)/login');
-
     }
+
   }, [initialized, user]);
 
   return (
@@ -25,11 +26,12 @@ export default function Index() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',  // review: validation
+    backgroundColor: '#FFFFFF',
   },
 });
