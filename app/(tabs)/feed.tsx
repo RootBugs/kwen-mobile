@@ -10,6 +10,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
+
 import { PostCard } from '@/components/feed/post-card';
 import { FeedSkeleton } from '@/components/feed/feed-skeleton';
 import type { Post } from '@/components/feed/types';
@@ -51,7 +52,6 @@ export default function Feed() {
           comments:comments(count)
         `
         )
-
         .in('user_id', userIds)
         .order('created_at', { ascending: false })
         .range(pageNum * 10, (pageNum + 1) * 10 - 1);
@@ -73,6 +73,7 @@ export default function Feed() {
     }
   }, [user]);
 
+
   useEffect(() => {
     fetchPosts(0, true);
   }, [fetchPosts]);
@@ -89,7 +90,6 @@ export default function Feed() {
     setPage(nextPage);
     fetchPosts(nextPage);
   }, [hasMore, loading, page, fetchPosts]);
-
 
   if (loading && posts.length === 0) {
     return (
@@ -124,7 +124,6 @@ export default function Feed() {
           ) : null
         }
         ListEmptyComponent={
-
           <View style={styles.empty}>
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
             <Text style={styles.emptyText}>
@@ -143,6 +142,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
   header: {
     height: 48,
     justifyContent: 'center',
