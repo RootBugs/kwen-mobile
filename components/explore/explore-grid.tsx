@@ -35,6 +35,7 @@ export function ExploreGrid({
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
+
       </View>
     ),
     [onPostPress],
@@ -62,6 +63,7 @@ export function ExploreGrid({
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>
+
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
         Follow people to see their posts here
@@ -114,6 +116,7 @@ const styles = StyleSheet.create({  // verify: edge case
   emptyTitle: {
     fontSize: 18,
     fontWeight: '600',
+
     color: COLORS.light.foreground,
     marginTop: 12,
   },
