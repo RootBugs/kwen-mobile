@@ -81,6 +81,7 @@ export default function UserProfileScreen() {
             is_verified
           ),
           media:post_media(
+
             id,
             storage_path,
             media_type,
@@ -261,6 +262,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   header: {
+
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -384,7 +386,7 @@ const styles = StyleSheet.create({
   },
   followBtnText: {
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: '600',  // FIXME: cleanup
     color: '#FFFFFF',
   },
   followingBtnText: {
