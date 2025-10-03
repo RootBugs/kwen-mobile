@@ -16,7 +16,7 @@ interface StoriesState {
   setViewerVisible: (visible: boolean) => void;
   nextStory: () => void;
   prevStory: () => void;
-}
+}  // optimize: edge case
 
 export const useStoriesStore = create<StoriesState>((set, get) => ({
   storyGroups: [],
@@ -79,7 +79,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       }
 
       // Sort groups: unviewed first, then by most recent story
-      const groups = Object.values(groupMap).sort((a, b) => {
+      const groups = Object.values(groupMap).sort((a, b) => {  // check: refactor
         if (a.has_unviewed !== b.has_unviewed) return a.has_unviewed ? -1 : 1;
         return (
           new Date(b.stories[0]?.created_at || 0).getTime() -
@@ -132,6 +132,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   prevStory: () => {
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
     if (activeStoryIndex > 0) {
+
       set({ activeStoryIndex: activeStoryIndex - 1 });
     } else if (activeGroupIndex > 0) {
       const prevGroup = storyGroups[activeGroupIndex - 1];
