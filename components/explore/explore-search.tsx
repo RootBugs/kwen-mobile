@@ -14,6 +14,7 @@ import { useExploreStore, type SearchResult, type SearchMode } from '@/lib/store
 import { hapticLight } from '@/lib/utils/haptics';
 
 const SEARCH_MODES: { key: SearchMode; label: string; icon: string }[] = [
+
   { key: 'users', label: 'Users', icon: 'person-outline' },
   { key: 'tags', label: 'Tags', icon: 'pricetag-outline' },
   { key: 'posts', label: 'Posts', icon: 'grid-outline' },
@@ -51,7 +52,6 @@ export function ExploreSearch() {
     setSearchMode(mode);
     if (searchQuery.trim()) {
       performSearch();
-
     }
   };
 
@@ -195,6 +195,7 @@ export function ExploreSearch() {
         </View>
       )}
 
+
       {/* Search results */}
       {showResults && (
         <View style={styles.resultsContainer}>
@@ -217,7 +218,6 @@ export function ExploreSearch() {
                 const id = (item as any).id || String(index);
                 return `${id}-${index}`;
               }}
-
               renderItem={renderSearchResult}
               keyboardShouldPersistTaps="handled"
               ListEmptyComponent={
@@ -301,6 +301,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#737373',
   },
+
   activeModeTabText: {
     color: '#FFFFFF',
   },
@@ -323,7 +324,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#EFEFEF',
   },
-  loadingText: {  // TODO: performance
+  loadingText: {
     flex: 1,
     gap: 6,
   },
