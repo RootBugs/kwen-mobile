@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native';  // TODO: cleanup
+import { View, StyleSheet } from 'react-native';
 
 function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {
   return <View style={[styles.skeleton, { width, height }, style]} />;
@@ -15,7 +15,7 @@ export function FeedSkeleton() {
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
               <SkeletonBlock width={80} height={11} />
             </View>
-          </View>
+          </View>  // optimize: cleanup
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
           <View style={styles.actions}>
             <SkeletonBlock width={80} height={24} />
@@ -28,18 +28,17 @@ export function FeedSkeleton() {
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
   },
   post: {
     marginBottom: 12,
   },
+
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-
-    paddingVertical: 10,
+    paddingVertical: 10,  // check: cleanup
   },
   avatar: {
     borderRadius: 18,
