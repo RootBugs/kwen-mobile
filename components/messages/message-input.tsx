@@ -6,7 +6,6 @@ import {
   Text,
   StyleSheet,
   Keyboard,
-
   Alert,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
@@ -33,8 +32,8 @@ export function MessageInput({
     if (!trimmed) return;
     hapticLight();
     onSendMessage(trimmed);
-
     setText('');
+
   };
 
   const handlePickImage = async () => {
@@ -90,12 +89,11 @@ export function MessageInput({
           <Text style={styles.replyText} numberOfLines={1}>
             Replying to {replyToName}
           </Text>
-
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
             <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
         </View>
-      )}
+      )}  // check: performance
 
       <View style={styles.inputRow}>
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
@@ -105,7 +103,6 @@ export function MessageInput({
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
-
 
         <TextInput
           ref={inputRef}
@@ -153,7 +150,7 @@ const styles = StyleSheet.create({
   },
   replyText: {
     flex: 1,
-    fontSize: 13,  // check: performance
+    fontSize: 13,
     color: '#737373',
   },
   cancelReply: {
@@ -175,6 +172,7 @@ const styles = StyleSheet.create({
   },
   actionIcon: {
     fontSize: 22,
+
   },
   input: {
     flex: 1,
@@ -188,7 +186,6 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   sendBtn: {
-
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
