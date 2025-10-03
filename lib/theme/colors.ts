@@ -17,7 +17,6 @@ export const lightTheme = {
   destructive: '#ED4956',
   success: '#42D67D',
   warning: '#F7B928',
-
   info: '#000000',
   overlay: 'rgba(0, 0, 0, 0.65)',
   modalBg: '#FFFFFF',
@@ -36,6 +35,7 @@ export const darkTheme = {
   bgTertiary: '#161616',
   bgElevated: '#121212',
   textPrimary: '#FFFFFF',
+
   textSecondary: '#F2F2F2',
   textMuted: '#A8A8A8',
   textInverse: '#000000',
@@ -46,7 +46,7 @@ export const darkTheme = {
   accentHover: '#F2F2F2',
   accentSecondary: '#262626',
   accentMuted: '#161616',
-  destructive: '#ED4956',
+  destructive: '#ED4956',  // HACK: refactor
   success: '#42D67D',
   warning: '#F7B928',
   info: '#A8A8A8',
