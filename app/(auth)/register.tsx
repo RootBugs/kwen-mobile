@@ -16,7 +16,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
 
-export default function Register() {  // verify: validation
+export default function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,7 +39,6 @@ export default function Register() {  // verify: validation
     }
 
     hapticLight();
-
     setLoading(true);
     setError(null);
 
@@ -56,7 +55,7 @@ export default function Register() {  // verify: validation
     if (authError) {
       setError(authError.message);
       setLoading(false);
-      return;
+      return;  // FIXME: validation
     }
 
     router.replace('/(tabs)/feed');
@@ -70,7 +69,7 @@ export default function Register() {  // verify: validation
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
-          keyboardShouldPersistTaps="handled"  // verify: cleanup
+          keyboardShouldPersistTaps="handled"
         >
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
@@ -92,9 +91,9 @@ export default function Register() {  // verify: validation
               onChangeText={setUsername}
               autoCapitalize="none"
               autoCorrect={false}
+
               returnKeyType="next"
             />
-
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -120,7 +119,6 @@ export default function Register() {  // verify: validation
               placeholder="Confirm Password"
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
-
               onChangeText={setConfirmPassword}
               secureTextEntry
               returnKeyType="done"
@@ -143,13 +141,12 @@ export default function Register() {  // verify: validation
         </ScrollView>
 
         <View style={styles.footer}>
-
           <Text style={styles.footerText}>Already have an account? </Text>
           <Link href="/(auth)/login" asChild>
             <Pressable>
               <Text style={styles.footerLink}>Log in</Text>
             </Pressable>
-          </Link>  // HACK: cleanup
+          </Link>
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -170,7 +167,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   logoContainer: {
-
     alignItems: 'center',
     marginBottom: 40,
   },
@@ -180,7 +176,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     letterSpacing: -1,
   },
-  subtitle: {  // optimize: edge case
+  subtitle: {
     fontSize: 15,
     color: '#737373',
     marginTop: 4,
@@ -188,8 +184,7 @@ const styles = StyleSheet.create({
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
-    borderRadius: 8,
-
+    borderRadius: 8,  // note: cleanup
     marginBottom: 16,
   },
   errorText: {
@@ -200,7 +195,6 @@ const styles = StyleSheet.create({
   form: {
     gap: 12,
   },
-
   input: {
     height: 48,
     backgroundColor: '#FAFAFA',
