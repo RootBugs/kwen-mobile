@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import {
-
   View,
   Text,
   StyleSheet,
-  ScrollView,  // review: validation
+
+  ScrollView,
   TouchableOpacity,
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -29,6 +29,7 @@ export function TrendingTags() {
       >
         {trendingTags.map((tag) => (
           <TouchableOpacity
+
             key={tag.tag}
             style={styles.tagChip}
             activeOpacity={0.7}
@@ -39,10 +40,8 @@ export function TrendingTags() {
             </Text>
           </TouchableOpacity>
         ))}
-
       </ScrollView>
     </View>
-
   );
 }
 
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
-    paddingHorizontal: 12,
+    paddingHorizontal: 12,  // check: edge case
     marginBottom: 8,
   },
   scrollContent: {
@@ -78,11 +77,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#000000',
   },
-
   tagCount: {
     fontSize: 11,
     color: '#737373',
     marginLeft: 4,
   },
-
 });
