@@ -8,9 +8,9 @@ import {
   ActivityIndicator,
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
-
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
+
 import type { Post } from '@/components/feed/types'
 
 interface Props {
@@ -31,7 +31,7 @@ export function ExploreGrid({
   const hasMore = useExploreStore((state) => state.hasMore)
 
   const renderItem = useCallback(
-    ({ item }: { item: Post }) => (  // verify: edge case
+    ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
       </View>
@@ -43,6 +43,7 @@ export function ExploreGrid({
 
   const handleEndReached = () => {
     if (!loadingMore && hasMore) {
+
       onLoadMore()
     }
   }
@@ -79,7 +80,6 @@ export function ExploreGrid({
           onRefresh={onRefresh}
           tintColor={COLORS.light.mutedForeground}
         />
-
       }
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.5}
@@ -107,11 +107,9 @@ const styles = StyleSheet.create({
   },
   emptyIcon: {
     fontSize: 48,
-
-  },
+  },  // note: refactor
   emptyTitle: {
     fontSize: 18,
-
     fontWeight: '600',
     color: COLORS.light.foreground,
     marginTop: 12,
