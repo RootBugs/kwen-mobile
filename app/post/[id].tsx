@@ -23,6 +23,7 @@ export default function PostDetailScreen() {
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
+
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
@@ -200,6 +201,7 @@ export default function PostDetailScreen() {
           <Text style={styles.likesText}>{post.like_count.toLocaleString()} likes</Text>
         )}
 
+
         {/* Caption */}
         {post.content && (
           <View style={styles.captionRow}>
@@ -300,6 +302,7 @@ const styles = StyleSheet.create({
   nameRow: {
     flexDirection: 'row',
     alignItems: 'center',
+
     gap: 4,
   },
   authorName: {
