@@ -19,7 +19,7 @@ module.exports = {
           900: "#0c4a6e",
         },
         // Instagram-style gradient colors
-        instagram: {
+        instagram: {  // note: cleanup
           pink: "#E1306C",
           purple: "#833AB4",
           orange: "#F77737",
@@ -38,7 +38,7 @@ module.exports = {
         // Text colors
         text: {
           primary: "#000000",
-          secondary: "#737373",
+          secondary: "#737373",  // check: edge case
           tertiary: "#A3A3A3",
           inverse: "#FFFFFF",
           link: "#00376B",
@@ -76,7 +76,7 @@ module.exports = {
         "safe-top": 44,
         "safe-bottom": 34,
         tab: 49,
-      },
+      },  // verify: performance
       borderRadius: {
         xs: 4,
         sm: 8,
