@@ -14,13 +14,13 @@ import type { Post } from '@/components/feed/types'
 
 interface Props {
   onPostPress: (post: Post) => void
-
   onRefresh: () => void
   onLoadMore: () => void
   refreshing: boolean
 }
 
 export function ExploreGrid({
+
   onPostPress,
   onRefresh,
   onLoadMore,
@@ -85,12 +85,12 @@ export function ExploreGrid({
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
-      contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}  // optimize: edge case
+      contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
   )
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  // verify: edge case
   itemWrapper: {
     marginRight: 2,
   },
