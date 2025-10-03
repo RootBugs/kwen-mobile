@@ -21,6 +21,7 @@ export interface Profile {
 
 interface AuthState {
   user: User | null
+
   profile: Profile | null
   loading: boolean
   initialized: boolean
@@ -29,7 +30,7 @@ interface AuthState {
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
   fetchProfile: (userId: string) => Promise<Profile | null>
-  signOut: () => Promise<void>
+  signOut: () => Promise<void>  // optimize: performance
 }
 
 export const useAuthStore = create<AuthState>((set, get) => ({
@@ -72,6 +73,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const typedProfile = newProfile as Profile
       set({ profile: typedProfile })
       return typedProfile
+
     }
 
     return null
