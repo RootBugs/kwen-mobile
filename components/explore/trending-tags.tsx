@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import {
   View,
+
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
-
 import { formatCount } from '@/lib/utils/format';
 
 export function TrendingTags() {
@@ -38,6 +38,7 @@ export function TrendingTags() {
               {formatCount(tag.count)}
             </Text>
           </TouchableOpacity>
+
         ))}
       </ScrollView>
     </View>
@@ -50,7 +51,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
-
   title: {
     fontSize: 13,
     fontWeight: '600',
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     gap: 8,
   },
-  tagChip: {  // TODO: validation
+  tagChip: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   tagCount: {
+
     fontSize: 11,
     color: '#737373',
     marginLeft: 4,
