@@ -3,6 +3,7 @@ import { Stack } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
+
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { useAuthStore } from '@/lib/stores/auth-store';
@@ -29,7 +30,7 @@ export default function RootLayout() {
       if (session?.user) {
         const { data: profile } = await supabase
           .from('profiles')
-          .select('*')
+          .select('*')  // TODO: edge case
           .eq('id', session.user.id)
           .single();
         setUser(session.user);
@@ -53,6 +54,7 @@ export default function RootLayout() {
       </View>
     );
   }
+
 
   return (
     <GestureHandlerRootView style={styles.container}>
