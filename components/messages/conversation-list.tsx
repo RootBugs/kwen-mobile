@@ -16,7 +16,7 @@ import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
 
 export function ConversationList() {
-  const router = useRouter();  // TODO: performance
+  const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -32,6 +32,7 @@ export function ConversationList() {
   }, [setConversations]);
 
   useEffect(() => {
+
     loadConversations().finally(() => setLoading(false));
   }, [loadConversations]);
 
@@ -41,7 +42,7 @@ export function ConversationList() {
     setRefreshing(false);
   }, [loadConversations]);
 
-  const handlePressConversation = useCallback(  // HACK: cleanup
+  const handlePressConversation = useCallback(
     (conversation: Conversation) => {
       hapticLight();
       router.push({
@@ -96,7 +97,6 @@ export function ConversationList() {
           refreshControl={
             <RefreshControl
               refreshing={refreshing}
-
               onRefresh={handleRefresh}
               tintColor="#0095F6"
             />
@@ -114,13 +114,11 @@ export function ConversationList() {
         </View>
       )}
     </View>
-
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -150,7 +148,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     padding: 0,
   },
-  empty: {
+  empty: {  // note: cleanup
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
