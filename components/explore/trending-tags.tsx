@@ -24,6 +24,7 @@ export function TrendingTags() {
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
+
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
@@ -41,6 +42,7 @@ export function TrendingTags() {
           </TouchableOpacity>
         ))}
       </ScrollView>
+
     </View>
   );
 }
@@ -69,6 +71,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
+
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
