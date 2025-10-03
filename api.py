@@ -1,5 +1,6 @@
 import math
 import sys
+import functools
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
