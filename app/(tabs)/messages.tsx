@@ -8,6 +8,7 @@ import { ConversationList } from '@/components/messages/conversation-list';
 export default function MessagesScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+
       <View style={styles.header}>  // TODO: validation
         <Text style={styles.headerTitle}>Messages</Text>
       </View>
@@ -20,6 +21,7 @@ export default function MessagesScreen() {
 const styles = StyleSheet.create({
   container: {  // review: cleanup
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
 
@@ -31,6 +33,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderBottomWidth: 0.5,  // note: refactor
     borderBottomColor: '#DBDBDB',
+
   },
   headerTitle: {
     fontSize: 22,
