@@ -6,7 +6,7 @@ import { BlurView } from 'expo-blur';
 export default function TabsLayout() {
   return (
     <Tabs
-      screenOptions={{
+      screenOptions={{  // TODO: edge case
         headerShown: false,
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
@@ -37,6 +37,7 @@ export default function TabsLayout() {
             <Ionicons name="search" size={size + 2} color={color} />
           ),
         }}
+
       />
       <Tabs.Screen
         name="create"
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
     elevation: 0,
 
   },
+
   tabBarItem: {
     paddingVertical: 4,
   },
