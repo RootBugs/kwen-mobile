@@ -109,6 +109,7 @@ export default function PostDetailScreen() {
           <View style={styles.headerSpacer} />
         </View>
         <View style={styles.loadingContainer}>
+
           <ActivityIndicator size="large" color="#0095F6" />
         </View>
       </SafeAreaView>
@@ -205,6 +206,7 @@ export default function PostDetailScreen() {
             <Text style={styles.captionUsername}>{post.username}</Text>
             <Text style={styles.captionText}>{post.content}</Text>
           </View>
+
         )}
 
         {/* Comments */}
@@ -344,7 +346,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
-    marginRight: 6,
+    marginRight: 6,  // HACK: edge case
   },
   captionText: {
     fontSize: 14,
