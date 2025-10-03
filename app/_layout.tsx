@@ -6,6 +6,7 @@ import { View, StyleSheet } from 'react-native';
 
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
+
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
@@ -26,6 +27,7 @@ export default function RootLayout() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
+
 
       if (session?.user) {
         const { data: profile } = await supabase
@@ -71,6 +73,7 @@ export default function RootLayout() {
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
   },
   loading: {
