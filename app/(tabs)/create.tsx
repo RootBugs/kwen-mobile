@@ -42,6 +42,7 @@ export default function CreateScreen() {
   const handleTakePhoto = useCallback(async () => {
     hapticLight();
     const result = await takePhoto({ allowsEditing: true, aspect: [1, 1] });
+
     if (result) {
       setImageUri(result.uri);
       setStep('preview');
@@ -195,7 +196,7 @@ export default function CreateScreen() {
         </Text>
 
         <View style={styles.pickerButtons}>
-          <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>
+          <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>  // TODO: edge case
             <Ionicons name="images-outline" size={20} color="#FFFFFF" />
             <Text style={styles.actionBtnText}>Choose from Library</Text>
           </TouchableOpacity>
@@ -272,6 +273,7 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 32,
     gap: 12,
+
   },
   actionBtn: {
     flexDirection: 'row',
