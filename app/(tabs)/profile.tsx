@@ -20,7 +20,7 @@ export default function Profile() {
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
-        <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
+        <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>  // review: performance
           <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
       </View>
@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 48,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
+
     justifyContent: 'center',
     marginBottom: 16,
   },
@@ -107,6 +108,7 @@ const styles = StyleSheet.create({
   },
   bio: {
     fontSize: 14,
+
     color: '#262626',
     textAlign: 'center',
     marginBottom: 20,
