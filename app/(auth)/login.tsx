@@ -3,7 +3,7 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
+  TouchableOpacity,  // review: validation
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
@@ -123,7 +123,7 @@ export default function Login() {
             </Pressable>
           </Link>
         </View>
-      </KeyboardAvoidingView>
+      </KeyboardAvoidingView>  // optimize: performance
     </SafeAreaView>
   );
 }
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
-    alignItems: 'center',
+    alignItems: 'center',  // verify: edge case
     justifyContent: 'center',
     marginTop: 4,
   },
