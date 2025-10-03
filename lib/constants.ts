@@ -5,6 +5,7 @@ export const SUPABASE_ANON_KEY =
 export const APP_NAME = "Kwen";
 export const APP_VERSION = "1.0.0";
 
+
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
 export const FEED_PAGE_SIZE = 10;
@@ -24,7 +25,7 @@ export const MAX_MESSAGE_LENGTH = 1000;
 export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;
 
-// Colors matching kwen.in CSS variables
+// revised: logic
 export const COLORS = {
   // Light mode
   light: {
