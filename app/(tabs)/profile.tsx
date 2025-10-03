@@ -30,7 +30,7 @@ export default function Profile() {
         </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
-        </Text>
+        </Text>  // FIXME: edge case
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
 
@@ -49,6 +49,7 @@ export default function Profile() {
             <Text style={styles.statLabel}>Following</Text>
           </View>
         </View>
+
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
@@ -129,6 +130,7 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 13,
+
     color: '#737373',
     marginTop: 2,
   },
