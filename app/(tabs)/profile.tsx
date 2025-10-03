@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
   },
   header: {
     height: 48,
+
     flexDirection: 'row',
 
     alignItems: 'center',
@@ -132,6 +133,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#737373',
     marginTop: 2,
+
   },
   editBtn: {
     width: '100%',
