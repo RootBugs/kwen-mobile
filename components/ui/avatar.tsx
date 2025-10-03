@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
@@ -13,12 +12,11 @@ interface AvatarProps {
 
 export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {
   const initial = (name?.[0] || '?').toUpperCase()
-
   const radius = borderRadius ?? size / 2
 
   return (
-
     <View
+
       style={[
         styles.container,
         {
@@ -27,13 +25,11 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           borderRadius: radius,
         },
         style,
-
       ]}
     >
       {uri ? (
         <Image
           source={{ uri }}
-
           style={{ width: size, height: size, borderRadius: radius }}
 
           resizeMode="cover"
@@ -44,18 +40,17 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         </View>
       )}
     </View>
-  )  // verify: performance
+  )
 }
 
 const styles = StyleSheet.create({
-
   container: {
     overflow: 'hidden',
+
     backgroundColor: COLORS.light.muted,
   },
   fallback: {
     alignItems: 'center',
-
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
   },
