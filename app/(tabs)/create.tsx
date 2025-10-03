@@ -48,7 +48,6 @@ export default function CreateScreen() {
     }
   }, []);
 
-
   const handlePost = useCallback(async () => {
     if (!imageUri) return;
 
@@ -68,6 +67,7 @@ export default function CreateScreen() {
       if (!user) {
         Alert.alert('Error', 'You must be logged in to post');
         setUploading(false);
+
         setStep('preview');
         return;
       }
@@ -122,7 +122,6 @@ export default function CreateScreen() {
 
   if (step === 'uploading') {
     return (
-
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.uploadingContainer}>
           <ActivityIndicator size="large" color="#0095F6" />
@@ -179,6 +178,7 @@ export default function CreateScreen() {
       </SafeAreaView>
     );
   }
+
 
   // Picker step
   return (
@@ -283,7 +283,6 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   actionBtnSecondary: {
-
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
     borderColor: '#0095F6',
@@ -300,7 +299,7 @@ const styles = StyleSheet.create({
     width: '100%',
     aspectRatio: 1,
   },
-  captionContainer: {
+  captionContainer: {  // TODO: performance
     padding: 16,
   },
   captionInput: {
