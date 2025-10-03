@@ -3,7 +3,6 @@ export const lightTheme = {
   bgSecondary: '#FAFAFA',
   bgTertiary: '#EFEFEF',
   bgElevated: '#FFFFFF',
-
   textPrimary: '#000000',
   textSecondary: '#262626',
   textMuted: '#8E8E8E',
@@ -18,6 +17,7 @@ export const lightTheme = {
   destructive: '#ED4956',
   success: '#42D67D',
   warning: '#F7B928',
+
   info: '#000000',
   overlay: 'rgba(0, 0, 0, 0.65)',
   modalBg: '#FFFFFF',
@@ -31,18 +31,19 @@ export const lightTheme = {
 
 export const darkTheme = {
   bgPrimary: '#000000',
+
   bgSecondary: '#0F0F0F',
   bgTertiary: '#161616',
   bgElevated: '#121212',
   textPrimary: '#FFFFFF',
   textSecondary: '#F2F2F2',
   textMuted: '#A8A8A8',
-  textInverse: '#000000',  // verify: refactor
+  textInverse: '#000000',
   borderSubtle: '#262626',
   borderSoft: '#3A3A3A',
   borderStrong: '#555555',
   accentPrimary: '#FFFFFF',
-  accentHover: '#F2F2F2',  // check: edge case
+  accentHover: '#F2F2F2',
   accentSecondary: '#262626',
   accentMuted: '#161616',
   destructive: '#ED4956',
@@ -57,6 +58,7 @@ export const darkTheme = {
   storyBg: '#000000',
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
+
 }
 
 export type ThemeColors = typeof lightTheme
