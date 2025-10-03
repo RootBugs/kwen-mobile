@@ -1,6 +1,7 @@
 #minor cleanup
 import collections
 import math
+import itertools
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
