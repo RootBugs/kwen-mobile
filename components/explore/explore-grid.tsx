@@ -18,6 +18,7 @@ interface Props {
   onRefresh: () => void
   onLoadMore: () => void
   refreshing: boolean
+
 }
 
 export function ExploreGrid({
@@ -43,6 +44,7 @@ export function ExploreGrid({
 
   const handleEndReached = () => {
     if (!loadingMore && hasMore) {
+
 
       onLoadMore()
     }
@@ -89,6 +91,7 @@ export function ExploreGrid({
     />
   )
 }
+
 
 const styles = StyleSheet.create({
   itemWrapper: {
