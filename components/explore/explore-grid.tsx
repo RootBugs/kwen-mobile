@@ -16,6 +16,7 @@ interface Props {
   onPostPress: (post: Post) => void
   onRefresh: () => void
   onLoadMore: () => void
+
   refreshing: boolean
 }
 
@@ -55,6 +56,7 @@ export function ExploreGrid({
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
+
   }
 
   const renderEmpty = () => (
@@ -101,6 +103,7 @@ const styles = StyleSheet.create({  // verify: edge case
   emptyContainer: {
     flex: 1,
     alignItems: 'center',
+
     justifyContent: 'center',
     paddingTop: 80,
     paddingHorizontal: 32,
