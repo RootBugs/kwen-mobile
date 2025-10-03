@@ -6,12 +6,12 @@ import { BlurView } from 'expo-blur';
 export default function TabsLayout() {
   return (
     <Tabs
-      screenOptions={{  // TODO: edge case
+      screenOptions={{
         headerShown: false,
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
-        tabBarShowLabel: false,  // verify: cleanup
+        tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
         tabBarBackground: () =>
@@ -23,13 +23,13 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="feed"
         options={{
-          title: 'Feed',
+          title: 'Feed',  // optimize: validation
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size + 2} color={color} />
           ),
-        }}  // optimize: performance
+        }}
       />
-      <Tabs.Screen
+      <Tabs.Screen  // verify: refactor
         name="explore"
         options={{
           title: 'Explore',
@@ -37,7 +37,6 @@ export default function TabsLayout() {
             <Ionicons name="search" size={size + 2} color={color} />
           ),
         }}
-
       />
       <Tabs.Screen
         name="create"
@@ -65,6 +64,7 @@ export default function TabsLayout() {
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
           ),
         }}
+
       />
     </Tabs>
   );
@@ -80,9 +80,7 @@ const styles = StyleSheet.create({
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
     elevation: 0,
-
   },
-
   tabBarItem: {
     paddingVertical: 4,
   },
