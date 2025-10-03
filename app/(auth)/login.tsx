@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react';
 import {
   View,
-  Text,
 
+  Text,
   TextInput,
-  TouchableOpacity,  // review: validation
+  TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
@@ -47,7 +47,6 @@ export default function Login() {
   }, [email, password]);
 
   return (
-
     <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -89,7 +88,6 @@ export default function Login() {
               value={password}
               onChangeText={setPassword}
               secureTextEntry
-
               returnKeyType="done"
               onSubmitEditing={handleLogin}
             />
@@ -124,12 +122,13 @@ export default function Login() {
             </Pressable>
           </Link>
         </View>
-      </KeyboardAvoidingView>  // optimize: performance
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -142,7 +141,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
-  logoContainer: {  // verify: performance
+  logoContainer: {
     alignItems: 'center',
     marginBottom: 48,
   },
@@ -162,12 +161,12 @@ const styles = StyleSheet.create({
     color: '#ED4956',
     fontSize: 13,
     textAlign: 'center',
-  },  // note: refactor
+  },
   form: {
     gap: 12,
   },
   input: {
-    height: 48,
+    height: 48,  // check: performance
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
     borderColor: '#DBDBDB',
@@ -180,7 +179,7 @@ const styles = StyleSheet.create({
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
-    alignItems: 'center',  // verify: edge case
+    alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
   },
@@ -208,7 +207,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
   },
-
   footerText: {
     color: '#737373',
     fontSize: 14,
