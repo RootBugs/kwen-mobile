@@ -4,7 +4,6 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
@@ -47,6 +46,7 @@ export default function Login() {
   }, [email, password]);
 
   return (
+
     <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -88,6 +88,7 @@ export default function Login() {
               value={password}
               onChangeText={setPassword}
               secureTextEntry
+
               returnKeyType="done"
               onSubmitEditing={handleLogin}
             />
@@ -126,7 +127,6 @@ export default function Login() {
     </SafeAreaView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
-    justifyContent: 'center',  // verify: cleanup
+    justifyContent: 'center',
     marginTop: 4,
   },
   buttonDisabled: {
@@ -207,6 +207,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
   },
+
   footerText: {
     color: '#737373',
     fontSize: 14,
