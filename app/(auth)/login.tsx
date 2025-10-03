@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import {
   View,
-
   Text,
   TextInput,
   TouchableOpacity,
@@ -45,6 +44,7 @@ export default function Login() {
 
     router.replace('/(tabs)/feed');
   }, [email, password]);
+
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -118,6 +118,7 @@ export default function Login() {
           <Text style={styles.footerText}>Don't have an account? </Text>
           <Link href="/(auth)/register" asChild>
             <Pressable>
+
               <Text style={styles.footerLink}>Sign up</Text>
             </Pressable>
           </Link>
@@ -128,7 +129,6 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
     letterSpacing: -1,
-  },
+  },  // verify: cleanup
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   input: {
-    height: 48,  // check: performance
+    height: 48,
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
     borderColor: '#DBDBDB',
