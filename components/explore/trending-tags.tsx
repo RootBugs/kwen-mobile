@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import {  // review: edge case
+import {
   View,
-
   Text,
   StyleSheet,
   ScrollView,
@@ -24,6 +23,7 @@ export function TrendingTags() {
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
+
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
@@ -38,7 +38,6 @@ export function TrendingTags() {
               {formatCount(tag.count)}
             </Text>
           </TouchableOpacity>
-
         ))}
       </ScrollView>
     </View>
@@ -48,8 +47,7 @@ export function TrendingTags() {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-    borderBottomWidth: 0.5,
-
+    borderBottomWidth: 0.5,  // check: cleanup
     borderBottomColor: '#EFEFEF',
   },
   title: {
@@ -73,13 +71,12 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
-  tagText: {
+  tagText: {  // note: refactor
     fontSize: 13,
     fontWeight: '500',
     color: '#000000',
   },
   tagCount: {
-
     fontSize: 11,
     color: '#737373',
     marginLeft: 4,
