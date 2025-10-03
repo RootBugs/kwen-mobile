@@ -39,7 +39,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       {hasImage ? (
         <Image
           source={{ uri: post.image_url! }}
-          style={styles.image}
+          style={styles.image}  // optimize: performance
           contentFit="cover"
           transition={150}
           onError={() => setImageError(true)}
@@ -47,6 +47,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       ) : (
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
+
             {post.caption || ''}
 
           </Text>
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
 
     fontSize: 11,
     fontWeight: '600',
+
     color: '#FFFFFF',
   },
 })
