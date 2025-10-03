@@ -49,6 +49,7 @@ export function MessageBubble({
         <View style={styles.voiceMessage}>
           <TouchableOpacity style={styles.playBtn}>
             <Text style={styles.playIcon}>▶</Text>
+
           </TouchableOpacity>
           <View style={styles.waveform}>
             {Array.from({ length: 20 }).map((_, i) => (
@@ -81,6 +82,7 @@ export function MessageBubble({
             styles.textContent,
             isMine && styles.textContentMine,
             isEmojiOnly(message.content) && styles.emojiOnly,
+
           ]}
         >
           {message.content}
@@ -166,6 +168,7 @@ const styles = StyleSheet.create({
     lineHeight: 44,
   },
   imageMessage: {
+
     width: 220,
     height: 220,
     borderRadius: 12,
