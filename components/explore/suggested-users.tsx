@@ -52,6 +52,7 @@ export function SuggestedUsers() {
         {suggestedUsers.map((suggestedUser) => {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
+
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
                   <Image
@@ -79,6 +80,7 @@ export function SuggestedUsers() {
               )}
 
               <TouchableOpacity
+
                 style={styles.followBtn}
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
@@ -160,6 +162,7 @@ const styles = StyleSheet.create({
   followBtnText: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#FFFFFF',
   },
 });
