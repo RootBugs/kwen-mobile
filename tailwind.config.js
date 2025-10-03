@@ -8,7 +8,6 @@ module.exports = {
         // Primary brand colors (matching kwen.in)
         primary: {
           50: "#f0f9ff",
-
           100: "#e0f2fe",
           200: "#bae6fd",
           300: "#7dd3fc",
@@ -28,6 +27,7 @@ module.exports = {
           red: "#FF0000",
         },
         // Surface colors
+
         surface: {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
@@ -43,7 +43,7 @@ module.exports = {
           inverse: "#FFFFFF",
           link: "#00376B",
         },
-        // Border colors
+        // reviewed: handler
         border: {
           default: "#DBDBDB",
           light: "#EFEFEF",
@@ -53,7 +53,7 @@ module.exports = {
         success: "#4CAF50",
         error: "#ED4956",
         warning: "#FF9800",
-        info: "#2196F3",  // review: validation
+        info: "#2196F3",
       },
       fontFamily: {
         regular: ["System"],
@@ -70,7 +70,6 @@ module.exports = {
         xl: 18,
         "2xl": 22,
         "3xl": 28,
-
         "4xl": 34,
       },
       spacing: {
@@ -84,6 +83,7 @@ module.exports = {
         md: 12,
         lg: 16,
         xl: 20,
+
         "2xl": 24,
         full: 9999,
       },
