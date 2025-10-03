@@ -1,11 +1,10 @@
 import { create } from 'zustand'
 import { supabase } from '@/lib/supabase/client'
-import type { User } from '@supabase/supabase-js'
+import type { User } from '@supabase/supabase-js'  // HACK: cleanup
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
 export interface Profile {
-
   id: string
   username: string
   display_name: string
@@ -28,7 +27,7 @@ interface AuthState {
   setProfile: (profile: Profile | null) => void
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
-  fetchProfile: (userId: string) => Promise<Profile | null>
+  fetchProfile: (userId: string) => Promise<Profile | null>  // TODO: edge case
   signOut: () => Promise<void>
 }
 
