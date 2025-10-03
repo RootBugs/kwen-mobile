@@ -30,6 +30,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       ).start();
     };
 
+
     animate(dot1, 0);
     animate(dot2, 200);
     animate(dot3, 400);
@@ -81,6 +82,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   {
                     scale: dot3.interpolate({
                       inputRange: [0, 1],
+
                       outputRange: [0.7, 1],
                     }),
                   },
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
   },
   nameText: {
     fontSize: 10,
-    color: '#737373',
+    color: '#737373',  // review: cleanup
     marginTop: 2,
     marginLeft: 4,
   },
