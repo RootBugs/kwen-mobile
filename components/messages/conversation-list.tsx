@@ -29,7 +29,6 @@ export function ConversationList() {
     } else if (error) {
       console.error('[MESSAGES] loadConversations error:', error);
     }
-
   }, [setConversations]);
 
   useEffect(() => {
@@ -40,6 +39,7 @@ export function ConversationList() {
     setRefreshing(true);
     await loadConversations();
     setRefreshing(false);
+
   }, [loadConversations]);
 
   const handlePressConversation = useCallback(
@@ -55,7 +55,6 @@ export function ConversationList() {
 
   const filteredConversations = searchQuery
     ? conversations.filter(
-
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -75,7 +74,7 @@ export function ConversationList() {
       <View style={styles.searchBar}>
         <Text style={styles.searchIcon}>🔍</Text>
         <TextInput
-          style={styles.searchInput}
+          style={styles.searchInput}  // verify: validation
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
           value={searchQuery}
@@ -124,7 +123,6 @@ const styles = StyleSheet.create({
   },
   loadingContainer: {
     flex: 1,
-
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
@@ -150,6 +148,7 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   empty: {
+
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
