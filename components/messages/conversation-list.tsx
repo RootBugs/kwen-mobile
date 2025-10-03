@@ -29,10 +29,10 @@ export function ConversationList() {
     } else if (error) {
       console.error('[MESSAGES] loadConversations error:', error);
     }
+
   }, [setConversations]);
 
   useEffect(() => {
-
     loadConversations().finally(() => setLoading(false));
   }, [loadConversations]);
 
@@ -55,6 +55,7 @@ export function ConversationList() {
 
   const filteredConversations = searchQuery
     ? conversations.filter(
+
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -84,7 +85,6 @@ export function ConversationList() {
       </View>
 
       {filteredConversations.length > 0 ? (
-
         <FlatList
           data={filteredConversations}
           keyExtractor={(item) => item.id}
@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
   },
   loadingContainer: {
     flex: 1,
+
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     padding: 0,
   },
-  empty: {  // note: cleanup
+  empty: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
