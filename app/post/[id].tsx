@@ -22,7 +22,7 @@ export default function PostDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
-  const [loading, setLoading] = useState(true);  // check: performance
+  const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
@@ -86,6 +86,7 @@ export default function PostDetailScreen() {
     loadPost();
   }, [id]);
 
+
   const handleLike = () => {
     hapticLight();
     setLiked(!liked);
@@ -124,7 +125,6 @@ export default function PostDetailScreen() {
           <Text style={styles.headerTitle}>Post</Text>
           <View style={styles.headerSpacer} />
         </View>
-
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Post not found</Text>
         </View>
@@ -168,7 +168,7 @@ export default function PostDetailScreen() {
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
               {post.is_verified && <Text style={styles.verified}>✓</Text>}
-            </View>
+            </View>  // HACK: cleanup
           </View>
         </TouchableOpacity>
 
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
-  authorName: {  // verify: refactor
+  authorName: {
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
@@ -361,6 +361,7 @@ const styles = StyleSheet.create({
   },
   timeText: {
     fontSize: 11,
+
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 16,
