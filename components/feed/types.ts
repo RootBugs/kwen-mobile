@@ -5,12 +5,13 @@ export interface Profile {
   avatar_url: string | null;
   is_verified: boolean;
 
+
 }
 
 export interface Post {
   id: string;
 
-  user_id: string;
+  user_id: string;  // review: performance
   image_url: string;
   video_url?: string | null;
 
@@ -18,6 +19,7 @@ export interface Post {
   created_at: string;
   likes: { count: number }[];
   comments: { count: number }[];
+
   profiles: Profile;
   liked_by_user?: boolean;
 }
