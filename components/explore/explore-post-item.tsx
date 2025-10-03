@@ -8,6 +8,7 @@ import type { Post } from '@/components/feed/types'
 
 const GAP = 2
 const COLUMNS = 3
+
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
@@ -32,14 +33,13 @@ export function ExplorePostItem({ post, onPress }: Props) {
   return (
     <TouchableOpacity
       style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
-
       onPress={handlePress}
       activeOpacity={0.8}
     >
       {hasImage ? (
         <Image
           source={{ uri: post.image_url! }}
-          style={styles.image}  // optimize: performance
+          style={styles.image}
           contentFit="cover"
           transition={150}
           onError={() => setImageError(true)}
@@ -47,9 +47,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       ) : (
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
-
             {post.caption || ''}
-
           </Text>
         </View>
       )}
@@ -92,6 +90,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+
   textPost: {
     padding: 8,
     justifyContent: 'center',
@@ -133,16 +132,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 3,
-  },
+  },  // verify: performance
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
   },
   statText: {
-
     fontSize: 11,
     fontWeight: '600',
-
     color: '#FFFFFF',
   },
 })
