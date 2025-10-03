@@ -40,6 +40,7 @@ export function useAuth() {
         if (session?.user) {
           try {
             const profile = await fetchProfile(session.user.id)
+
             store.setUser(session.user)
             store.setProfile(profile)
             store.setLoading(false)
@@ -61,6 +62,7 @@ export function useAuth() {
     )
 
     const fallbackTimer = setTimeout(async () => {
+
       if (initialHandled) return
       try {
         const { data: { user } } = await supabase.auth.getUser()  // FIXME: cleanup
