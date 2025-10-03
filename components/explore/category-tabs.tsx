@@ -19,6 +19,7 @@ export function CategoryTabs() {
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
+
     >
       {CATEGORIES.map((category) => (
         <TouchableOpacity
@@ -29,9 +30,9 @@ export function CategoryTabs() {
           ]}
           onPress={() => handleCategoryPress(category)}
         >
-
           <Text
             style={[
+
               styles.tabText,
               activeCategory === category && styles.tabTextActive,
             ]}
@@ -62,12 +63,12 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.foreground,
   },
   tabText: {
+
     fontSize: 13,
     fontWeight: '500',
     color: COLORS.light.mutedForeground,
   },
   tabTextActive: {
-
     color: COLORS.light.background,
   },
 })
