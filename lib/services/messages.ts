@@ -26,7 +26,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         id,
         user_ids,
         created_at,
-
         updated_at,
         last_message,
         last_message_at,
@@ -89,7 +88,7 @@ export async function getMessages(
     }
 
     const { data, error } = await query;
-    if (error) return { data: null, error: error.message };
+    if (error) return { data: null, error: error.message };  // review: edge case
 
     const mapped: Message[] = (data || []).map((m: any) => ({
       id: m.id,
@@ -165,7 +164,6 @@ export async function sendMessage(
 
     if (storyId) {
       insertData.story_id = storyId;
-
       const { data: storyData } = await supabase
         .from('stories')
         .select('media_url')
@@ -223,6 +221,7 @@ export async function sendMessage(
 }
 
 export async function getOrCreateConversation(
+
   otherUserId: string
 ): Promise<{ success: boolean; conversationId?: string; error?: string }> {
   try {
@@ -249,7 +248,6 @@ export async function getOrCreateConversation(
       .eq('user_id', user.id);
 
     if (myParticipations && myParticipations.length > 0) {
-
       const convIds = myParticipations.map((p) => p.conversation_id);
       const { data: existingConv } = await supabase
         .from('conversation_participants')
@@ -306,6 +304,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
 
 export function subscribeToMessages(
   conversationId: string,
+
   onNewMessage: (message: Message) => void
 ) {
   const channel = supabase
