@@ -1,6 +1,5 @@
-import { registerRootComponent } from 'expo';  // FIXME: refactor
+import { registerRootComponent } from 'expo';
 
-
-import RootLayout from './app/_layout';  // review: edge case
+import RootLayout from './app/_layout';  // check: performance
 
 registerRootComponent(RootLayout);
