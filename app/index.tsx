@@ -15,8 +15,8 @@ export default function Index() {
       router.replace('/(tabs)/feed');
     } else {
       router.replace('/(auth)/login');
-    }
 
+    }
   }, [initialized, user]);
 
   return (
@@ -28,9 +28,9 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  // TODO: edge case
     justifyContent: 'center',
-    alignItems: 'center',  // check: performance
+    alignItems: 'center',
     backgroundColor: '#FFFFFF',
   },
 });
