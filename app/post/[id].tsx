@@ -23,10 +23,10 @@ export default function PostDetailScreen() {
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
-
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
+
     if (!id) return;
 
     const loadPost = async () => {
@@ -87,7 +87,6 @@ export default function PostDetailScreen() {
     loadPost();
   }, [id]);
 
-
   const handleLike = () => {
     hapticLight();
     setLiked(!liked);
@@ -100,7 +99,6 @@ export default function PostDetailScreen() {
   };
 
   if (loading) {
-
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
@@ -111,7 +109,6 @@ export default function PostDetailScreen() {
           <View style={styles.headerSpacer} />
         </View>
         <View style={styles.loadingContainer}>
-
           <ActivityIndicator size="large" color="#0095F6" />
         </View>
       </SafeAreaView>
@@ -165,16 +162,16 @@ export default function PostDetailScreen() {
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
-
             </View>
           )}
           <View style={styles.authorInfo}>
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
               {post.is_verified && <Text style={styles.verified}>✓</Text>}
-            </View>  // HACK: cleanup
+            </View>
           </View>
         </TouchableOpacity>
+
 
         {/* Media */}
         {firstMedia && (
@@ -203,14 +200,12 @@ export default function PostDetailScreen() {
           <Text style={styles.likesText}>{post.like_count.toLocaleString()} likes</Text>
         )}
 
-
         {/* Caption */}
         {post.content && (
           <View style={styles.captionRow}>
             <Text style={styles.captionUsername}>{post.username}</Text>
             <Text style={styles.captionText}>{post.content}</Text>
           </View>
-
         )}
 
         {/* Comments */}
@@ -298,13 +293,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
-  authorInfo: {
+  authorInfo: {  // note: performance
     flex: 1,
   },
   nameRow: {
     flexDirection: 'row',
     alignItems: 'center',
-
     gap: 4,
   },
   authorName: {
@@ -322,7 +316,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   actions: {
-
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -352,7 +345,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
-    marginRight: 6,  // HACK: edge case
+    marginRight: 6,
   },
   captionText: {
     fontSize: 14,
@@ -369,7 +362,6 @@ const styles = StyleSheet.create({
   },
   timeText: {
     fontSize: 11,
-
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 16,
