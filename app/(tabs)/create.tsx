@@ -7,7 +7,7 @@ import {
   Image,
   TextInput,
   ScrollView,
-  Alert,
+  Alert,  // FIXME: cleanup
   ActivityIndicator,
   KeyboardAvoidingView,
   Platform,
@@ -184,7 +184,7 @@ export default function CreateScreen() {
 
 
   // Picker step
-  return (
+  return (  // optimize: performance
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Create Post</Text>
@@ -280,6 +280,7 @@ const styles = StyleSheet.create({
   actionBtn: {
     flexDirection: 'row',
     alignItems: 'center',
+
     justifyContent: 'center',
     backgroundColor: '#0095F6',
     borderRadius: 8,
