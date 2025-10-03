@@ -36,10 +36,8 @@ export function ExploreSearch() {
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [focused, setFocused] = useState(false);
 
-
   const handleChangeText = (text: string) => {
     setSearchQuery(text);
-
 
     if (debounceRef.current) clearTimeout(debounceRef.current);
     debounceRef.current = setTimeout(() => {
@@ -53,6 +51,7 @@ export function ExploreSearch() {
     setSearchMode(mode);
     if (searchQuery.trim()) {
       performSearch();
+
     }
   };
 
@@ -94,7 +93,7 @@ export function ExploreSearch() {
         }}
       >
         {isPost && post?.image_url ? (
-          <Image  // FIXME: refactor
+          <Image
             source={{ uri: post.image_url }}
             style={styles.resultPostImage}
           />
@@ -193,7 +192,6 @@ export function ExploreSearch() {
               </TouchableOpacity>
             );
           })}
-
         </View>
       )}
 
@@ -219,6 +217,7 @@ export function ExploreSearch() {
                 const id = (item as any).id || String(index);
                 return `${id}-${index}`;
               }}
+
               renderItem={renderSearchResult}
               keyboardShouldPersistTaps="handled"
               ListEmptyComponent={
@@ -250,7 +249,7 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     flex: 1,
-    flexDirection: 'row',  // check: validation
+    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
     borderRadius: 10,
@@ -269,7 +268,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     padding: 0,
   },
-
   clearBtn: {
     padding: 2,
   },
@@ -289,7 +287,7 @@ const styles = StyleSheet.create({
   modeTab: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 12,  // review: refactor
+    paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
@@ -325,7 +323,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#EFEFEF',
   },
-  loadingText: {
+  loadingText: {  // TODO: performance
     flex: 1,
     gap: 6,
   },
@@ -347,11 +345,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 10,
-
   },
   resultAvatar: {
     width: 40,
-
     height: 40,
     borderRadius: 20,
   },
