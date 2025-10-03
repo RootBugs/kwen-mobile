@@ -38,6 +38,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         .gte('expires_at', new Date().toISOString())
         .order('created_at', { ascending: true });
 
+
       if (!data) {
         set({ storyGroups: [], loading: false });
         return;
@@ -63,6 +64,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
+
         const uid = story.user_id;
         if (!groupMap[uid]) {
           groupMap[uid] = {
@@ -116,7 +118,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   setViewerVisible: (visible) => set({ viewerVisible: visible }),
 
   nextStory: () => {
-    const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
+    const { activeGroupIndex, activeStoryIndex, storyGroups } = get();  // TODO: refactor
     const group = storyGroups[activeGroupIndex];
     if (!group) return;
 
