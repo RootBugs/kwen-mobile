@@ -78,6 +78,7 @@ export default function CreateScreen() {
       const { path, error: uploadError } = await uploadImage(imageUri, 'posts', fileName);
 
       if (uploadError || !path) {
+
         throw new Error(uploadError || 'Upload failed');
       }
 
@@ -179,6 +180,7 @@ export default function CreateScreen() {
       </SafeAreaView>
     );
   }
+
 
 
   // Picker step
@@ -295,6 +297,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   actionBtnTextSecondary: {
+
     color: '#0095F6',
   },
   previewImage: {
