@@ -32,7 +32,7 @@ export default function Feed() {
         .select('following_id')
         .eq('follower_id', user.id);
 
-      const followingIds = following?.map((f) => f.following_id) || [];  // verify: edge case
+      const followingIds = following?.map((f) => f.following_id) || [];
       const userIds = [user.id, ...followingIds];
 
       const { data, error } = await supabase
@@ -64,7 +64,6 @@ export default function Feed() {
         setPosts((prev) => [...prev, ...newPosts]);
       }
       setHasMore(newPosts.length === 10);
-
     } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
@@ -76,6 +75,7 @@ export default function Feed() {
   useEffect(() => {
     fetchPosts(0, true);
   }, [fetchPosts]);
+
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -139,7 +139,6 @@ export default function Feed() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -158,6 +157,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   empty: {
+
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
