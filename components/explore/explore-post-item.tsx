@@ -13,7 +13,6 @@ const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUM
 interface Props {
   post: Post
   onPress: (post: Post) => void
-
 }
 
 export function ExplorePostItem({ post, onPress }: Props) {
@@ -33,6 +32,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   return (
     <TouchableOpacity
       style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
+
       onPress={handlePress}
       activeOpacity={0.8}
     >
@@ -48,6 +48,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
             {post.caption || ''}
+
           </Text>
         </View>
       )}
@@ -70,7 +71,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
           )}
           {commentCount > 0 && (
             <View style={styles.statItem}>
-
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
@@ -117,7 +117,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   statsOverlay: {
-
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -139,6 +138,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   statText: {
+
     fontSize: 11,
     fontWeight: '600',
     color: '#FFFFFF',
