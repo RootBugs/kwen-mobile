@@ -1,5 +1,3 @@
-@AGENTS.md  <!-- review: cleanup -->
-
-
+@AGENTS.md
 
 <!-- revision checkpoint -->
