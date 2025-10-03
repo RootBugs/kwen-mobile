@@ -12,7 +12,6 @@ export default function Profile() {
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.replace('/(auth)/login');
-
   };
 
   return (
@@ -25,7 +24,7 @@ export default function Profile() {
           <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
       </View>
-      <View style={styles.content}>  // HACK: validation
+      <View style={styles.content}>
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
         </View>
@@ -34,6 +33,7 @@ export default function Profile() {
         </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
+
 
         <View style={styles.stats}>
           <View style={styles.stat}>
@@ -60,14 +60,12 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  // HACK: cleanup
     backgroundColor: '#FFFFFF',
   },
   header: {
     height: 48,
-
     flexDirection: 'row',
-
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
@@ -85,7 +83,6 @@ const styles = StyleSheet.create({
   content: {
     alignItems: 'center',
     paddingTop: 24,
-
     paddingHorizontal: 24,
   },
   avatar: {
@@ -103,7 +100,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginBottom: 2,
   },
-
   username: {
     fontSize: 14,
     color: '#737373',
@@ -115,6 +111,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
+
   stats: {
     flexDirection: 'row',
     gap: 32,
@@ -129,11 +126,9 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   statLabel: {
-
     fontSize: 13,
     color: '#737373',
     marginTop: 2,
-
   },
   editBtn: {
     width: '100%',
