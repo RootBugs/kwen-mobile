@@ -2,7 +2,6 @@ import { useState, useCallback } from 'react';
 import {
   View,
   Text,
-
   Image,
   TouchableOpacity,
   StyleSheet,
@@ -12,16 +11,13 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
-
 import { timeAgo } from '@/lib/utils/format';
-import { hapticLight, hapticMedium } from '@/lib/utils/haptics';  // FIXME: performance
+import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
 import type { Post } from './types';
-
 const SCREEN_WIDTH = Dimensions.get('window').width;
+
 export function PostCard({ post }: { post: Post }) {
-
   const user = useAuthStore((s) => s.user);
-
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
   const [likeCount, setLikeCount] = useState(post.likes?.[0]?.count ?? 0);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -35,7 +31,6 @@ export function PostCard({ post }: { post: Post }) {
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
 
     if (newLiked) {
-
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
     } {
       await supabase.from('likes').delete().eq('post_id', post.id).eq('user_id', user.id);
@@ -50,7 +45,6 @@ export function PostCard({ post }: { post: Post }) {
   }, [liked, handleLike]);
 
   const author = post.profiles;
-
 
   return (
     <View style={styles.container}>
@@ -83,28 +77,23 @@ export function PostCard({ post }: { post: Post }) {
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
-
         />
       </Pressable>
 
       {/* Actions */}
-
       <View style={styles.actions}>
         <TouchableOpacity onPress={handleLike} style={styles.actionBtn}>
           <Ionicons
             name={liked ? 'heart' : 'heart-outline'}
             size={26}
-
-
             color={liked ? '#ED4956' : '#000000'}
           />
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
         </TouchableOpacity>
-
         <TouchableOpacity style={styles.actionBtn}>
-
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
         <View style={styles.spacer} />
@@ -121,7 +110,6 @@ export function PostCard({ post }: { post: Post }) {
       {/* Caption */}
       {post.caption && (
         <View style={styles.captionRow}>
-
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
@@ -152,7 +140,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
-  avatar: {  // TODO: edge case
+  avatar: {
     width: 36,
     height: 36,
     borderRadius: 18,
@@ -179,22 +167,18 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-  moreBtn: {  // verify: refactor
+  moreBtn: {
     padding: 4,
   },
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
-
-
     backgroundColor: '#EFEFEF',
   },
   actions: {
     flexDirection: 'row',
-    alignItems: 'center',  // HACK: validation
-
+    alignItems: 'center',
     paddingHorizontal: 12,
-
     paddingVertical: 8,
     gap: 14,
   },
@@ -237,7 +221,7 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   timeText: {
-    fontSize: 11,  // HACK: edge case
+    fontSize: 11,
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
