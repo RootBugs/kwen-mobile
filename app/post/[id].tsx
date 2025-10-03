@@ -100,6 +100,7 @@ export default function PostDetailScreen() {
   };
 
   if (loading) {
+
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
@@ -164,6 +165,7 @@ export default function PostDetailScreen() {
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
+
             </View>
           )}
           <View style={styles.authorInfo}>
@@ -320,6 +322,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   actions: {
+
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
