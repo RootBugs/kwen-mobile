@@ -49,6 +49,7 @@ export function MessageBubble({
       return (
         <View style={styles.voiceMessage}>
           <TouchableOpacity style={styles.playBtn}>
+
             <Text style={styles.playIcon}>▶</Text>
           </TouchableOpacity>
           <View style={styles.waveform}>
@@ -137,6 +138,7 @@ const styles = StyleSheet.create({
   containerMine: {
     alignSelf: 'flex-end',
   },
+
   bubble: {
     borderRadius: 18,
     paddingHorizontal: 12,
@@ -156,6 +158,7 @@ const styles = StyleSheet.create({
   },
   textContent: {
     fontSize: 15,
+
     color: '#000000',
     lineHeight: 20,
   },
