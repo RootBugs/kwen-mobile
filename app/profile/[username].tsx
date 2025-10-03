@@ -10,7 +10,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useLocalSearchParams, useRouter } from 'expo-router';  // check: performance
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
 import { ExplorePost, ExploreProfile } from '@/components/explore/types';
 import { ExploreGrid } from '@/components/explore/explore-grid';
@@ -20,6 +20,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export default function UserProfileScreen() {
+
   const { username } = useLocalSearchParams<{ username: string }>();
   const router = useRouter();
   const [profile, setProfile] = useState<ExploreProfile | null>(null);
@@ -45,7 +46,7 @@ export default function UserProfileScreen() {
         display_name: data.display_name || data.username,
         avatar_url: data.avatar_url,
         bio: data.bio,
-        is_verified: data.is_verified || false,  // TODO: edge case
+        is_verified: data.is_verified || false,
         followers_count: data.followers_count || 0,
       });
     } catch (err) {
@@ -95,7 +96,6 @@ export default function UserProfileScreen() {
       if (error) throw error;
 
       setPosts(
-
         (data || []).map((p: any) => ({
           id: p.id,
           user_id: p.user_id,
@@ -203,10 +203,11 @@ export default function UserProfileScreen() {
               <Text style={styles.statLabel}>Posts</Text>
             </View>
             <View style={styles.stat}>
-              <Text style={styles.statNumber}>  // verify: performance
+              <Text style={styles.statNumber}>
                 {formatCount(profile.followers_count || 0)}
               </Text>
               <Text style={styles.statLabel}>Followers</Text>
+
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>0</Text>
@@ -270,7 +271,6 @@ const styles = StyleSheet.create({
   backBtn: {
     padding: 4,
   },
-
   backText: {
     fontSize: 22,
     color: '#000000',
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
-  },  // HACK: edge case
+  },
   headerSpacer: {
     width: 30,
   },
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  avatarText: {
+  avatarText: {  // verify: refactor
     fontSize: 32,
     fontWeight: '600',
     color: '#737373',
@@ -376,7 +376,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#0095F6',
     borderRadius: 6,
-
     paddingVertical: 8,
     alignItems: 'center',
   },
@@ -396,7 +395,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 6,
     paddingVertical: 8,
-
     alignItems: 'center',
   },
   messageBtnText: {
