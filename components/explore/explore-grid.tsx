@@ -10,15 +10,14 @@ import {
 import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
-
 import type { Post } from '@/components/feed/types'
 
 interface Props {
   onPostPress: (post: Post) => void
+
   onRefresh: () => void
   onLoadMore: () => void
   refreshing: boolean
-
 }
 
 export function ExploreGrid({
@@ -44,8 +43,6 @@ export function ExploreGrid({
 
   const handleEndReached = () => {
     if (!loadingMore && hasMore) {
-
-
       onLoadMore()
     }
   }
@@ -54,6 +51,7 @@ export function ExploreGrid({
     if (!loadingMore) return null
     return (
       <View style={styles.footer}>
+
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
@@ -87,11 +85,10 @@ export function ExploreGrid({
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
-      contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
+      contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}  // optimize: edge case
     />
   )
 }
-
 
 const styles = StyleSheet.create({
   itemWrapper: {
@@ -110,7 +107,7 @@ const styles = StyleSheet.create({
   },
   emptyIcon: {
     fontSize: 48,
-  },  // note: refactor
+  },
   emptyTitle: {
     fontSize: 18,
     fontWeight: '600',
