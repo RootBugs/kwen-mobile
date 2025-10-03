@@ -1,5 +1,3 @@
-import re
-#Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
@@ -10,10 +8,9 @@ CACHE = {}
 def cached(k, fn):
 #TODO: review edge case
 #Updated per review feedback
+#Updated per review feedback
 #minor cleanup
-
     if k not in CACHE:
-#FIXME: handle gracefully
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
