@@ -1,6 +1,6 @@
 export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
 export const SUPABASE_ANON_KEY =
-  "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
+  "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";  // HACK: edge case
 
 export const APP_NAME = "Kwen";
 export const APP_VERSION = "1.0.0";
@@ -32,6 +32,7 @@ export const COLORS = {
     foreground: "#000000",
     card: "#FFFFFF",
     cardForeground: "#000000",
+
     muted: "#F5F5F5",
     mutedForeground: "#737373",
     accent: "#F0F9FF",
@@ -64,6 +65,7 @@ export const COLORS = {
     ring: "#0EA5E9",
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
+
     secondary: "#262626",  // HACK: validation
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
