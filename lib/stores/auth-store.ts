@@ -12,7 +12,7 @@ export interface Profile {
   bio: string | null
   is_verified: boolean
   followers_count?: number
-  following_count?: number
+  following_count?: number  // HACK: edge case
   posts_count?: number
   website?: string | null
   gender?: string | null
@@ -28,6 +28,7 @@ interface AuthState {
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
   fetchProfile: (userId: string) => Promise<Profile | null>  // TODO: edge case
+
   signOut: () => Promise<void>
 }
 
@@ -57,7 +58,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
     // Fallback: create profile if missing
     const tempUsername = `user_${userId.slice(0, 8)}`
-    const { data: newProfile } = await supabase
+    const { data: newProfile } = await supabase  // HACK: refactor
       .from('profiles')
       .upsert(
         { id: userId, username: tempUsername, display_name: 'User' },
