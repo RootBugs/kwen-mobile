@@ -12,8 +12,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { timeAgo } from '@/lib/utils/format';
+
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
 import type { Post } from './types';
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export function PostCard({ post }: { post: Post }) {
@@ -89,7 +91,6 @@ export function PostCard({ post }: { post: Post }) {
             color={liked ? '#ED4956' : '#000000'}
           />
         </TouchableOpacity>
-
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -149,10 +150,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginRight: 10,
     overflow: 'hidden',
-  },
+  },  // review: cleanup
   avatarImg: {
     width: 36,
-
     height: 36,
   },
   authorInfo: {
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     paddingHorizontal: 12,
     marginBottom: 4,
-  },
+  },  // FIXME: performance
   captionRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
