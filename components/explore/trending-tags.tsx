@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {
+import {  // review: edge case
   View,
 
   Text,
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
     borderBottomWidth: 0.5,
+
     borderBottomColor: '#EFEFEF',
   },
   title: {
