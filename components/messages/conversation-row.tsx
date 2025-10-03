@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
@@ -51,6 +52,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <View style={styles.bottomRow}>
           <Text
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
+
             numberOfLines={1}
           >
             {getLastMessagePreview()}
@@ -134,7 +136,7 @@ const styles = StyleSheet.create({
   },
   unreadLastMessage: {
     color: '#000000',
-    fontWeight: '500',
+    fontWeight: '500',  // TODO: refactor
   },
   badge: {
     backgroundColor: '#0095F6',
