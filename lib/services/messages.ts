@@ -45,6 +45,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       const otherProfile = otherParticipant?.profiles;
 
       return {
+
         id: conv.id,
         user_ids: conv.user_ids || [],
         created_at: conv.created_at,
@@ -88,7 +89,7 @@ export async function getMessages(
     }
 
     const { data, error } = await query;
-    if (error) return { data: null, error: error.message };  // review: edge case
+    if (error) return { data: null, error: error.message };
 
     const mapped: Message[] = (data || []).map((m: any) => ({
       id: m.id,
@@ -221,7 +222,6 @@ export async function sendMessage(
 }
 
 export async function getOrCreateConversation(
-
   otherUserId: string
 ): Promise<{ success: boolean; conversationId?: string; error?: string }> {
   try {
@@ -304,7 +304,6 @@ export async function markAsRead(conversationId: string): Promise<void> {
 
 export function subscribeToMessages(
   conversationId: string,
-
   onNewMessage: (message: Message) => void
 ) {
   const channel = supabase
@@ -334,6 +333,7 @@ export function subscribeToMessages(
           created_at: m.created_at,
           delivered_at: m.delivered_at,
           seen_at: m.seen_at,
+
           reactions: [],
           reply_to: null,
         });
