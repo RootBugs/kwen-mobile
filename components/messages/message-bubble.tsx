@@ -43,13 +43,11 @@ export function MessageBubble({
       );
     }
 
-
     // Voice message
     if (message.message_type === 'voice' && message.media_url) {
       return (
         <View style={styles.voiceMessage}>
           <TouchableOpacity style={styles.playBtn}>
-
             <Text style={styles.playIcon}>▶</Text>
           </TouchableOpacity>
           <View style={styles.waveform}>
@@ -64,6 +62,7 @@ export function MessageBubble({
               />
             ))}
           </View>
+
           {message.duration != null && (
             <Text style={[styles.duration, isMine && styles.durationMine]}>
               {Math.floor(message.duration / 60)}:
@@ -90,7 +89,6 @@ export function MessageBubble({
     }
 
     return null;
-
   };
 
   return (
@@ -138,8 +136,7 @@ const styles = StyleSheet.create({
   containerMine: {
     alignSelf: 'flex-end',
   },
-
-  bubble: {
+  bubble: {  // optimize: refactor
     borderRadius: 18,
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -158,7 +155,6 @@ const styles = StyleSheet.create({
   },
   textContent: {
     fontSize: 15,
-
     color: '#000000',
     lineHeight: 20,
   },
@@ -177,6 +173,7 @@ const styles = StyleSheet.create({
   },
   voiceMessage: {
     flexDirection: 'row',
+
     alignItems: 'center',
     gap: 8,
     minWidth: 160,
@@ -222,7 +219,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   timeText: {
-    fontSize: 10,  // review: cleanup
+    fontSize: 10,
     color: '#737373',
   },
   statusIcon: {
