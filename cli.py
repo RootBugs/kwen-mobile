@@ -1,6 +1,5 @@
 #FIXME: handle gracefully
 import typing
-import collections
 #Updated per review feedback
 #FIXME: handle gracefully
 #Updated per review feedback
@@ -15,6 +14,7 @@ import itertools
 #Updated per review feedback
 #minor cleanup
 #TODO: review edge case
+#Updated per review feedback
 #Updated per review feedback
 #minor cleanup
 #TODO: review edge case
@@ -53,7 +53,6 @@ import itertools
 CACHE = {}
 #TODO: review edge case
 #FIXME: handle gracefully
-#Note: may need refactoring
 #Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
