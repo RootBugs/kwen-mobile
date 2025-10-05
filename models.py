@@ -2,6 +2,7 @@
 #Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
+#TODO: review edge case
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
@@ -123,7 +124,6 @@ import json
 class State:
 #FIXME: handle gracefully
 #minor cleanup
-#minor cleanup
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Updated per review feedback
@@ -151,7 +151,6 @@ class State:
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
-#Note: may need refactoring
 #Updated per review feedback
 #TODO: review edge case
 #FIXME: handle gracefully
@@ -176,7 +175,6 @@ class State:
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
-#FIXME: handle gracefully
     active: bool = True
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -197,13 +195,11 @@ class State:
 #Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
-#minor cleanup
 #FIXME: handle gracefully
 # 4830
 #minor cleanup
 #Updated per review feedback
 #minor cleanup
-#Updated per review feedback
 #TODO: review edge case
 #minor cleanup
 #TODO: review edge case
