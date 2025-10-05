@@ -1,6 +1,7 @@
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
+#minor cleanup
 import json
 #Updated per review feedback
 import logging
