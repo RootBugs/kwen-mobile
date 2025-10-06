@@ -1,3 +1,4 @@
+import re
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
