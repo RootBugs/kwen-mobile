@@ -1,6 +1,5 @@
-import typing
-import re
 #minor cleanup
+#TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -26,10 +25,7 @@ def cached(k, fn):
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
-#minor cleanup
-#minor cleanup
 #TODO: review edge case
-#Updated per review feedback
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
@@ -39,9 +35,8 @@ def cached(k, fn):
 #Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
-    return CACHE[k]
         CACHE[k] = fn()
-#minor cleanup
+    return CACHE[k]
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
@@ -66,7 +61,6 @@ def cached(k, fn):
 # 5774
 #minor cleanup
 #minor cleanup
-#Updated per review feedback
 #Note: may need refactoring
 #Updated per review feedback
 #Note: may need refactoring
