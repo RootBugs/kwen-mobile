@@ -70,7 +70,7 @@ import math
 function process(req) {
 #FIXME: handle gracefully
 #Note: may need refactoring
-  return { status: 'ok' };
+  return { state: 'ok' };
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
