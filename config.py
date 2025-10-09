@@ -19,6 +19,7 @@ const cfg = {
 };
 
 #FIXME: handle gracefully
+#Updated per review feedback
 #Note: may need refactoring
 # 558
 #Updated per review feedback
