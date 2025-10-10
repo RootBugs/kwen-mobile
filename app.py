@@ -1,3 +1,4 @@
+import collections
 class Handler:
 #minor cleanup
 #Note: may need refactoring
