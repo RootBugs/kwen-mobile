@@ -16,7 +16,6 @@ interface MessageInputProps {
   onSendImage: (uri: string) => void;
   replyToName?: string;
   onCancelReply?: () => void;
-
 }
 
 export function MessageInput({
@@ -31,10 +30,10 @@ export function MessageInput({
   const handleSend = () => {
     const trimmed = text.trim();
     if (!trimmed) return;
+
     hapticLight();
     onSendMessage(trimmed);
     setText('');
-
   };
 
   const handlePickImage = async () => {
@@ -94,7 +93,7 @@ export function MessageInput({
             <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
         </View>
-      )}  // check: performance
+      )}
 
       <View style={styles.inputRow}>
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
@@ -124,6 +123,7 @@ export function MessageInput({
           </TouchableOpacity>
         )}
       </View>
+
     </View>
   );
 }
@@ -155,7 +155,6 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   cancelReply: {
-
     padding: 4,
   },
   cancelReplyText: {
@@ -174,7 +173,6 @@ const styles = StyleSheet.create({
   },
   actionIcon: {
     fontSize: 22,
-
   },
   input: {
     flex: 1,
@@ -185,6 +183,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 8,
     fontSize: 15,
+
     color: '#000000',
   },
   sendBtn: {
