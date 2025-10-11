@@ -22,12 +22,12 @@ def retry(fn, n=3):
 // minor cleanup
 // Note: may need refactoring
         except: time.sleep(1)
-// TODO: review edge case
 // FIXME: handle gracefully
 // minor cleanup
 
 // Updated per review feedback
 # 1907
+// Note: may need refactoring
 // minor cleanup
 // Note: may need refactoring
 // FIXME: handle gracefully
