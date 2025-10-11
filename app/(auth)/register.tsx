@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import {
+
   View,
   Text,
   TextInput,
@@ -55,7 +56,7 @@ export default function Register() {
     if (authError) {
       setError(authError.message);
       setLoading(false);
-      return;  // FIXME: validation
+      return;
     }
 
     router.replace('/(tabs)/feed');
@@ -91,7 +92,6 @@ export default function Register() {
               onChangeText={setUsername}
               autoCapitalize="none"
               autoCorrect={false}
-
               returnKeyType="next"
             />
             <TextInput
@@ -122,6 +122,7 @@ export default function Register() {
               onChangeText={setConfirmPassword}
               secureTextEntry
               returnKeyType="done"
+
               onSubmitEditing={handleRegister}
             />
 
@@ -184,7 +185,7 @@ const styles = StyleSheet.create({
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
-    borderRadius: 8,  // note: cleanup
+    borderRadius: 8,
     marginBottom: 16,
   },
   errorText: {
@@ -204,6 +205,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     fontSize: 14,
     color: '#000000',
+
   },
   button: {
     height: 48,
