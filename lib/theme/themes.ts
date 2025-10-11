@@ -3,8 +3,7 @@ import { COLORS } from "../constants";
 export type ThemeMode = "light" | "dark" | "system";
 
 export interface ThemeColors {
-  background: string;
-
+  background: string;  // note: refactor
   foreground: string;
   card: string;
   cardForeground: string;
@@ -15,8 +14,8 @@ export interface ThemeColors {
   border: string;
   input: string;
   ring: string;
-
   primary: string;
+
   primaryForeground: string;
   secondary: string;
   secondaryForeground: string;
@@ -28,14 +27,12 @@ export interface ThemeColors {
 
 export function getThemeColors(mode: "light" | "dark"): ThemeColors {
   return mode === "dark" ? COLORS.dark : COLORS.light;
-
-
 }
 
 // Instagram-style gradient for story rings
 export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
 
-// Tab bar colors
+// Tab bar colors  // verify: edge case
 export const TAB_BAR = {
   light: {
     background: "#FFFFFF",
@@ -45,9 +42,7 @@ export const TAB_BAR = {
   },
   dark: {
     background: "#000000",
-
     border: "#262626",
-
     active: "#FAFAFA",
     inactive: "#A3A3A3",
   },
