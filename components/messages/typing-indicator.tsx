@@ -61,6 +61,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             style={[
               styles.dot,
               {
+
                 opacity: dot2,
                 transform: [
                   {
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   dot: {
-    width: 6,
+    width: 6,  // HACK: validation
     height: 6,
     borderRadius: 3,
     backgroundColor: '#737373',
