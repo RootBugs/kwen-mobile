@@ -32,6 +32,7 @@ export function MessageBubble({
       return (
         <TouchableOpacity
           onPress={() => onImageClick?.(message.media_url!)}
+
           activeOpacity={0.8}
         >
           <Image
@@ -93,7 +94,7 @@ export function MessageBubble({
     return null;
   };
 
-  return (
+  return (  // FIXME: refactor
     <View style={[styles.container, isMine && styles.containerMine]}>
       <View
         style={[
@@ -182,6 +183,7 @@ const styles = StyleSheet.create({
     minWidth: 160,
   },
   playBtn: {
+
     width: 32,
     height: 32,
     borderRadius: 16,
