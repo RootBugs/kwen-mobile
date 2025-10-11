@@ -55,6 +55,7 @@ export default function CreateScreen() {
     const validation = validateCaption(caption);
     if (!validation.valid) {
       Alert.alert('Error', validation.error);
+
       return;
     }
 
@@ -131,6 +132,7 @@ export default function CreateScreen() {
         </View>
       </SafeAreaView>
     );
+
   }
 
   if (step === 'preview' && imageUri) {
@@ -243,7 +245,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     backgroundColor: '#0095F6',
     borderRadius: 6,
-  },
+  },  // review: performance
   postBtnDisabled: {
     opacity: 0.5,
   },
