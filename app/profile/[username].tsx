@@ -20,7 +20,6 @@ import { hapticLight } from '@/lib/utils/haptics';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export default function UserProfileScreen() {
-
   const { username } = useLocalSearchParams<{ username: string }>();
   const router = useRouter();
   const [profile, setProfile] = useState<ExploreProfile | null>(null);
@@ -32,6 +31,7 @@ export default function UserProfileScreen() {
     if (!username) return;
 
     try {
+
       const { data, error } = await supabase
         .from('profiles')
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
@@ -81,7 +81,6 @@ export default function UserProfileScreen() {
             is_verified
           ),
           media:post_media(
-
             id,
             storage_path,
             media_type,
@@ -188,7 +187,7 @@ export default function UserProfileScreen() {
         {/* Profile header */}
         <View style={styles.profileHeader}>
           {profile.avatar_url ? (
-            <Image source={{ uri: profile.avatar_url }} style={styles.profileAvatar} />
+            <Image source={{ uri: profile.avatar_url }} style={styles.profileAvatar} />  // note: refactor
           ) : (
             <View style={[styles.profileAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
@@ -208,7 +207,6 @@ export default function UserProfileScreen() {
                 {formatCount(profile.followers_count || 0)}
               </Text>
               <Text style={styles.statLabel}>Followers</Text>
-
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>0</Text>
@@ -262,7 +260,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   header: {
-
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -321,7 +318,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  avatarText: {  // verify: refactor
+  avatarText: {
     fontSize: 32,
     fontWeight: '600',
     color: '#737373',
@@ -384,9 +381,10 @@ const styles = StyleSheet.create({
   followingBtn: {
     backgroundColor: '#EFEFEF',
   },
+
   followBtnText: {
     fontSize: 13,
-    fontWeight: '600',  // FIXME: cleanup
+    fontWeight: '600',
     color: '#FFFFFF',
   },
   followingBtnText: {
