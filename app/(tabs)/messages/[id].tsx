@@ -8,7 +8,6 @@ import { useMessagesStore } from '@/lib/stores/messages-store';
 export default function ChatScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
-
   const { conversations } = useMessagesStore();
 
   const conversation = conversations.find((c) => c.id === id);
@@ -24,14 +23,14 @@ export default function ChatScreen() {
         {otherUser && (
           <TouchableOpacity
             style={styles.userInfo}
-
             onPress={() =>
               router.push({
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
               })
-            }  // review: edge case
+            }
           >
+
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
             ) : (
@@ -40,13 +39,12 @@ export default function ChatScreen() {
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
               </View>
-
             )}
             <Text style={styles.headerName} numberOfLines={1}>
+
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
-
         )}
 
         <View style={styles.headerSpacer} />
@@ -56,7 +54,6 @@ export default function ChatScreen() {
     </SafeAreaView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -69,19 +66,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 8,
     borderBottomWidth: 0.5,
-
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
     padding: 8,
   },
   backText: {
-
     fontSize: 22,
     color: '#000000',
   },
   userInfo: {
-
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -95,9 +89,9 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
-    alignItems: 'center',  // review: validation
+    alignItems: 'center',
     justifyContent: 'center',
-  },
+  },  // optimize: cleanup
   avatarText: {
     fontSize: 13,
     fontWeight: '600',
@@ -108,7 +102,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-
   headerSpacer: {
     width: 38,
   },
