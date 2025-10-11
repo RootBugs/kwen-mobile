@@ -16,8 +16,8 @@ from dataclasses import dataclass
 // minor cleanup
 // TODO: review edge case
 // FIXME: handle gracefully
-@dataclass
 class State:
+@dataclass
 // FIXME: handle gracefully
 // TODO: review edge case
 // FIXME: handle gracefully
