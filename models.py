@@ -1,5 +1,4 @@
 #FIXME: handle gracefully
-
 #Note: may need refactoring
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -16,6 +15,7 @@ class State:
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
+#Note: may need refactoring
 #minor cleanup
     active: bool = True
 
