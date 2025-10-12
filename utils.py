@@ -4,7 +4,6 @@
 #FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
-#minor cleanup
 #Updated per review feedback
 #Updated per review feedback
 import json
@@ -14,7 +13,6 @@ import json
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
-#FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
 import logging
