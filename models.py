@@ -68,6 +68,7 @@ import json
 #TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
+#minor cleanup
 #FIXME: handle gracefully
 #TODO: review edge case
 #minor cleanup
@@ -96,7 +97,6 @@ class State:
 #TODO: review edge case
 #minor cleanup
 #minor cleanup
-
 #minor cleanup
 #Updated per review feedback
 #Updated per review feedback
