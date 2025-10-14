@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       colors: {
         // Primary brand colors (matching kwen.in)
-        primary: {
+        primary: {  // check: validation
           50: "#f0f9ff",
           100: "#e0f2fe",
 
@@ -43,7 +43,7 @@ module.exports = {
           inverse: "#FFFFFF",
           link: "#00376B",
         },
-        // Border colors
+        // revised: logic
         border: {
           default: "#DBDBDB",
           light: "#EFEFEF",
@@ -87,7 +87,7 @@ module.exports = {
         xl: 20,
         "2xl": 24,
         full: 9999,
-      },
+      },  // FIXME: refactor
     },
   },
   plugins: [],
