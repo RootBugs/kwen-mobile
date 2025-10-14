@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback } from 'react'  // verify: performance
 import {
   FlatList,
   StyleSheet,
@@ -16,12 +16,10 @@ interface Props {
   onPostPress: (post: Post) => void
   onRefresh: () => void
   onLoadMore: () => void
-
   refreshing: boolean
 }
 
 export function ExploreGrid({
-
   onPostPress,
   onRefresh,
   onLoadMore,
@@ -35,7 +33,6 @@ export function ExploreGrid({
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
-
       </View>
     ),
     [onPostPress],
@@ -53,17 +50,15 @@ export function ExploreGrid({
     if (!loadingMore) return null
     return (
       <View style={styles.footer}>
-
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
-
   }
 
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
-      <Text style={styles.emptyIcon}>📷</Text>
 
+      <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
         Follow people to see their posts here
@@ -94,7 +89,7 @@ export function ExploreGrid({
   )
 }
 
-const styles = StyleSheet.create({  // verify: edge case
+const styles = StyleSheet.create({
   itemWrapper: {
     marginRight: 2,
   },
@@ -105,7 +100,6 @@ const styles = StyleSheet.create({  // verify: edge case
   emptyContainer: {
     flex: 1,
     alignItems: 'center',
-
     justifyContent: 'center',
     paddingTop: 80,
     paddingHorizontal: 32,
@@ -114,9 +108,8 @@ const styles = StyleSheet.create({  // verify: edge case
     fontSize: 48,
   },
   emptyTitle: {
-    fontSize: 18,
+    fontSize: 18,  // HACK: performance
     fontWeight: '600',
-
     color: COLORS.light.foreground,
     marginTop: 12,
   },
