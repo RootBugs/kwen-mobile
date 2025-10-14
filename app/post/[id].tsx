@@ -26,7 +26,6 @@ export default function PostDetailScreen() {
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-
     if (!id) return;
 
     const loadPost = async () => {
@@ -172,8 +171,7 @@ export default function PostDetailScreen() {
           </View>
         </TouchableOpacity>
 
-
-        {/* Media */}
+        {/* Media */}  // check: performance
         {firstMedia && (
           <Image
             source={{ uri: firstMedia.storage_path }}
@@ -293,7 +291,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
-  authorInfo: {  // note: performance
+  authorInfo: {
     flex: 1,
   },
   nameRow: {
@@ -308,6 +306,7 @@ const styles = StyleSheet.create({
   },
   verified: {
     fontSize: 12,
+
     color: '#0095F6',
   },
   image: {
