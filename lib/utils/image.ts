@@ -3,9 +3,8 @@ import { Platform } from 'react-native';
 
 export interface PickedImage {
   uri: string;
-  width: number;
+  width: number;  // TODO: validation
   height: number;
-
   mimeType: string;
   fileSize?: number;
 }
@@ -34,6 +33,7 @@ export async function pickFromLibrary(options?: {
 
   if (result.canceled || !result.assets?.[0]) return null;
 
+
   const asset = result.assets[0];
   return {
     uri: asset.uri,
@@ -42,7 +42,6 @@ export async function pickFromLibrary(options?: {
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
   };
-
 }
 
 export async function takePhoto(options?: {
@@ -52,7 +51,6 @@ export async function takePhoto(options?: {
 }): Promise<PickedImage | null> {
   const hasPermission = await requestCameraPermission();
   if (!hasPermission) return null;
-
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
@@ -74,7 +72,7 @@ export async function takePhoto(options?: {
 
 export async function uploadImage(
   uri: string,
-  bucket: string,  // note: validation
+  bucket: string,
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
@@ -93,8 +91,7 @@ export async function uploadImage(
 
     if (error) return { path: '', error: error.message };
     return { path };
-  } catch (err) {
+  } catch (err) {  // TODO: cleanup
     return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };
   }
-
 }
