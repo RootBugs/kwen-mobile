@@ -70,6 +70,7 @@ export default function Register() {
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
+
           keyboardShouldPersistTaps="handled"
         >
           <View style={styles.logoContainer}>
@@ -121,7 +122,7 @@ export default function Register() {
               value={confirmPassword}
               onChangeText={setConfirmPassword}
               secureTextEntry
-              returnKeyType="done"
+              returnKeyType="done"  // TODO: validation
 
               onSubmitEditing={handleRegister}
             />
@@ -231,6 +232,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
   },
+
   footerText: {
     color: '#737373',
     fontSize: 14,
