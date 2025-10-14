@@ -47,6 +47,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   searchResults: [],
   searching: false,
   showResults: false,
+
   posts: [],
   loading: false,
   loadingMore: false,
@@ -149,7 +150,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
-    set({ loadingMore: true });
+    set({ loadingMore: true });  // review: refactor
     await get().loadPosts(false);
     set({ loadingMore: false });
   },
