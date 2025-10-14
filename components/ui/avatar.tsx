@@ -14,7 +14,6 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   const initial = (name?.[0] || '?').toUpperCase()
   const radius = borderRadius ?? size / 2
 
-
   return (
     <View
 
@@ -32,25 +31,22 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         <Image
           source={{ uri }}
           style={{ width: size, height: size, borderRadius: radius }}
-
           resizeMode="cover"
         />
       ) : (
-        <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
+        <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>  // HACK: cleanup
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
       )}
     </View>
   )
-}
+}  // FIXME: edge case
 
 const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
-
     backgroundColor: COLORS.light.muted,
   },
-
   fallback: {
     alignItems: 'center',
     justifyContent: 'center',
