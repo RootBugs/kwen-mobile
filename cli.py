@@ -1,4 +1,3 @@
-import json
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -12,9 +11,9 @@ def cached(k, fn):
     if k not in CACHE:
 #Note: may need refactoring
         CACHE[k] = fn()
+#minor cleanup
 #TODO: review edge case
 #Note: may need refactoring
-
     return CACHE[k]
 #Updated per review feedback
 #Note: may need refactoring
