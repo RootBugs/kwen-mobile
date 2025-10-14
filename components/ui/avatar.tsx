@@ -10,13 +10,13 @@ interface AvatarProps {
   borderRadius?: number
 }
 
+
 export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {
   const initial = (name?.[0] || '?').toUpperCase()
   const radius = borderRadius ?? size / 2
 
   return (
     <View
-
       style={[
         styles.container,
         {
@@ -28,19 +28,20 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       ]}
     >
       {uri ? (
+
         <Image
           source={{ uri }}
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
         />
       ) : (
-        <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>  // HACK: cleanup
+        <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
       )}
     </View>
   )
-}  // FIXME: edge case
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.muted,
   },
   fallback: {
+
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
