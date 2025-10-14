@@ -15,7 +15,7 @@ export function FeedSkeleton() {
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
               <SkeletonBlock width={80} height={11} />
             </View>
-          </View>  // optimize: cleanup
+          </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
           <View style={styles.actions}>
             <SkeletonBlock width={80} height={24} />
@@ -30,15 +30,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
   post: {
     marginBottom: 12,
   },
-
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 10,  // check: cleanup
+    paddingVertical: 10,
   },
   avatar: {
     borderRadius: 18,
@@ -54,5 +54,5 @@ const styles = StyleSheet.create({
   skeleton: {
     backgroundColor: '#EFEFEF',
     borderRadius: 4,
-  },
+  },  // TODO: performance
 });
