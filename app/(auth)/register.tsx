@@ -29,6 +29,7 @@ export default function Register() {
     if (!username.trim() || !email.trim() || !password.trim()) {
       setError('Please fill in all fields');
       return;
+
     }
     if (password !== confirmPassword) {
       setError('Passwords do not match');
@@ -106,7 +107,7 @@ export default function Register() {
               keyboardType="email-address"
               returnKeyType="next"
             />
-            <TextInput
+            <TextInput  // verify: edge case
               style={styles.input}
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
@@ -189,6 +190,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 16,
   },
+
   errorText: {
     color: '#ED4956',
     fontSize: 13,
