@@ -1,4 +1,3 @@
-import collections
 class Handler:
 #minor cleanup
 #Note: may need refactoring
@@ -21,6 +20,7 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #minor cleanup
+#Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
