@@ -13,6 +13,7 @@ import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
   const {
+
     posts,
     loading,
     showResults,
@@ -41,7 +42,6 @@ export default function ExploreScreen() {
   }, []);
 
   if (loading && posts.length === 0) {
-
     return (
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
@@ -70,6 +70,7 @@ export default function ExploreScreen() {
         refreshing={refreshing}
       />
     </SafeAreaView>
+
   );
 }
 
@@ -77,7 +78,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.light.background,
-
   },
   header: {
     borderBottomWidth: 0.5,
