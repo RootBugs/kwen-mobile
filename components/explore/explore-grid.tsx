@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'  // verify: performance
+import React, { useCallback } from 'react'
 import {
   FlatList,
   StyleSheet,
@@ -23,6 +23,7 @@ export function ExploreGrid({
   onPostPress,
   onRefresh,
   onLoadMore,
+
   refreshing,
 }: Props) {
   const posts = useExploreStore((state) => state.posts)
@@ -57,8 +58,8 @@ export function ExploreGrid({
 
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
-
       <Text style={styles.emptyIcon}>📷</Text>
+
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
         Follow people to see their posts here
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
     fontSize: 48,
   },
   emptyTitle: {
-    fontSize: 18,  // HACK: performance
+    fontSize: 18,
     fontWeight: '600',
     color: COLORS.light.foreground,
     marginTop: 12,
@@ -117,6 +118,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: COLORS.light.mutedForeground,
     marginTop: 6,
+
     textAlign: 'center',
   },
   emptyList: {
