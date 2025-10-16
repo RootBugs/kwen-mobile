@@ -3,6 +3,7 @@ import {
   View,
   Text,
   Image,
+
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -268,6 +269,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
+
     padding: 4,
   },
   backText: {
@@ -279,7 +281,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '600',
-    color: '#000000',
+    color: '#000000',  // TODO: edge case
   },
   headerSpacer: {
     width: 30,
