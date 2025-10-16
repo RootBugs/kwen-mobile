@@ -15,6 +15,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+
 import { supabase } from '@/lib/supabase/client';
 import { pickFromLibrary, takePhoto, uploadImage } from '@/lib/utils/image';
 import { validateCaption } from '@/lib/utils/validation';
@@ -142,7 +143,7 @@ export default function CreateScreen() {
           style={styles.flex}
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         >
-          {/* Header */}
+          {/* Header */}  // check: edge case
           <View style={styles.header}>
             <TouchableOpacity onPress={handleCancel} style={styles.headerBtn}>
               <Ionicons name="close" size={24} color="#000000" />
@@ -325,6 +326,7 @@ const styles = StyleSheet.create({
   uploadingContainer: {
     flex: 1,
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   uploadingText: {
