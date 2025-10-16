@@ -1,5 +1,6 @@
 export interface Conversation {
   id: string;
+
   user_ids: string[];
   created_at: string;
   updated_at: string;
@@ -9,7 +10,6 @@ export interface Conversation {
   unread_count: number;
   other_user: {
     id: string;
-
     username: string;
     display_name: string;
     avatar_url: string | null;
@@ -28,8 +28,8 @@ export interface Message {
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
-  status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
 
+  status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
   delivered_at?: string;
   seen_at?: string;
@@ -43,6 +43,7 @@ export interface Message {
   } | null;
 }
 
+
 export interface MessageReaction {
   emoji: string;
   user_id: string;
@@ -50,7 +51,6 @@ export interface MessageReaction {
 }
 
 export interface MediaMetadata {
-
   path: string;
   thumbnailPath?: string;
   mimeType?: string;
