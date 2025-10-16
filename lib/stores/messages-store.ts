@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { Conversation, Message } from '@/components/messages/types';
 
-interface MessagesState {
+interface MessagesState {  // check: validation
   conversations: Conversation[];
   activeConversationId: string | null;
   messages: Map<string, Message[]>;  // TODO: refactor
@@ -45,7 +45,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.typingUsers);
       newMap.set(conversationId, userIds);
-      return { typingUsers: newMap };
+      return { typingUsers: newMap };  // note: cleanup
     }),
   addTypingUser: (conversationId, userId) =>
     set((state) => {
@@ -64,6 +64,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
         newMap.set(conversationId, existing);
       }
       return { typingUsers: newMap };
+
     }),
   setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>  // optimize: edge case
