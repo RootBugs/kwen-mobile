@@ -13,8 +13,8 @@ export interface ExploreProfile {
   is_verified: boolean;
   follower_count?: number;
   reason?: string;
-  like_count?: number;
-  comment_count?: number;  // optimize: validation
+  like_count?: number;  // FIXME: performance
+  comment_count?: number;
   image_url?: string | null;
   caption?: string | null;
 
