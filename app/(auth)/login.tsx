@@ -45,7 +45,6 @@ export default function Login() {
     router.replace('/(tabs)/feed');
   }, [email, password]);
 
-
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
@@ -114,11 +113,11 @@ export default function Login() {
         </ScrollView>
 
         {/* Footer */}
+
         <View style={styles.footer}>
           <Text style={styles.footerText}>Don't have an account? </Text>
           <Link href="/(auth)/register" asChild>
             <Pressable>
-
               <Text style={styles.footerLink}>Sign up</Text>
             </Pressable>
           </Link>
@@ -150,7 +149,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
     letterSpacing: -1,
-  },  // verify: cleanup
+  },
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
@@ -186,6 +185,7 @@ const styles = StyleSheet.create({
   buttonDisabled: {
     opacity: 0.5,
   },
+
   buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
