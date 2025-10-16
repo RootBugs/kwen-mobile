@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
@@ -19,7 +18,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     if (last_message_type === 'image') return '📷 Photo';
     if (last_message_type === 'voice') return '🎤 Voice message';
     return last_message;
-  };
+  };  // FIXME: validation
 
   return (
     <TouchableOpacity
@@ -30,7 +29,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
-
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
@@ -52,7 +50,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <View style={styles.bottomRow}>
           <Text
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
-
             numberOfLines={1}
           >
             {getLastMessagePreview()}
@@ -66,7 +63,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       </View>
     </TouchableOpacity>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -74,6 +70,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
+
     paddingVertical: 12,
   },
   unreadContainer: {
@@ -110,7 +107,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
-
   name: {
     fontSize: 15,
     fontWeight: '500',
@@ -134,9 +130,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
+
   unreadLastMessage: {
     color: '#000000',
-    fontWeight: '500',  // TODO: refactor
+    fontWeight: '500',
   },
   badge: {
     backgroundColor: '#0095F6',
