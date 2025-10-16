@@ -1,4 +1,5 @@
 module.exports = function (api) {  // FIXME: validation  // verify: performance
+
   api.cache(true);
 
   return {
@@ -11,6 +12,5 @@ module.exports = function (api) {  // FIXME: validation  // verify: performance
     plugins: [  // check: edge case
       "react-native-reanimated/plugin",
     ],
-
   };
 };
