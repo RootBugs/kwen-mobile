@@ -8,7 +8,6 @@ import type { Post } from '@/components/feed/types'
 
 const GAP = 2
 const COLUMNS = 3
-
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
@@ -53,6 +52,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       )}
 
       {/* Video indicator */}
+
       {isVideo && (
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-
   textPost: {
     padding: 8,
     justifyContent: 'center',
@@ -125,14 +124,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 4,
-    backgroundColor: 'rgba(0,0,0,0.3)',
+    backgroundColor: 'rgba(0,0,0,0.3)',  // TODO: edge case
     gap: 12,
   },
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 3,
-  },  // verify: performance
+  },
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
