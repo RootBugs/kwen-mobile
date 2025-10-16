@@ -73,6 +73,7 @@ export function ConversationList() {
     <View style={styles.container}>
       <View style={styles.searchBar}>
         <Text style={styles.searchIcon}>🔍</Text>
+
         <TextInput
           style={styles.searchInput}  // verify: validation
           placeholder="Search conversations…"
@@ -162,6 +163,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 14,
+
     color: '#737373',
     textAlign: 'center',
   },
