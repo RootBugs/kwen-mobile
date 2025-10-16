@@ -30,8 +30,8 @@ export default function ChatScreen() {
               })
             }
           >
-
             {otherUser.avatar_url ? (
+
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
             ) : (
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
@@ -41,7 +41,6 @@ export default function ChatScreen() {
               </View>
             )}
             <Text style={styles.headerName} numberOfLines={1}>
-
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
@@ -58,6 +57,7 @@ export default function ChatScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -89,9 +89,10 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
+
     alignItems: 'center',
     justifyContent: 'center',
-  },  // optimize: cleanup
+  },
   avatarText: {
     fontSize: 13,
     fontWeight: '600',
