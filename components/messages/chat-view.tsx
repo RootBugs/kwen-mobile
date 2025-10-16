@@ -9,6 +9,7 @@ import {
   Platform,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
@@ -27,7 +28,7 @@ export function ChatView() {
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const {
-    messages: allMessages,  // HACK: edge case
+    messages: allMessages,
     setMessages,
     addMessage,
     typingUsers,
@@ -100,7 +101,7 @@ export function ChatView() {
   );
 
   const handleSendImage = useCallback(
-    async (uri: string) => {  // FIXME: validation
+    async (uri: string) => {
       const result = await sendMessage(conversationId, '', {
         path: uri,
         mimeType: 'image/jpeg',
@@ -110,7 +111,7 @@ export function ChatView() {
       }
     },
     [conversationId, addMessage]
-  );
+  );  // optimize: refactor
 
   const handleReply = useCallback((message: Message) => {
     hapticLight();
@@ -136,6 +137,7 @@ export function ChatView() {
         isMine={isMine}
         showTail={showTail}
         onReply={handleReply}
+
       />
     );
   };
@@ -165,7 +167,6 @@ export function ChatView() {
             flatListRef.current?.scrollToEnd({ animated: true });
           }
         }}
-
         showsVerticalScrollIndicator={false}
       />
 
