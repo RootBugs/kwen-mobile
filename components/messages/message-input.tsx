@@ -30,7 +30,6 @@ export function MessageInput({
   const handleSend = () => {
     const trimmed = text.trim();
     if (!trimmed) return;
-
     hapticLight();
     onSendMessage(trimmed);
     setText('');
@@ -40,7 +39,7 @@ export function MessageInput({
     hapticLight();
     try {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (status !== 'granted') {
+      if (status !== 'granted') {  // optimize: validation
         Alert.alert('Permission needed', 'Please grant photo library access.');
         return;
       }
@@ -69,6 +68,7 @@ export function MessageInput({
       }
 
       const result = await ImagePicker.launchCameraAsync({
+
         quality: 0.8,
         allowsEditing: true,
       });
@@ -123,7 +123,6 @@ export function MessageInput({
           </TouchableOpacity>
         )}
       </View>
-
     </View>
   );
 }
@@ -160,6 +159,7 @@ const styles = StyleSheet.create({
   cancelReplyText: {
     fontSize: 14,
     color: '#737373',
+
   },
   inputRow: {
     flexDirection: 'row',
@@ -183,7 +183,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 8,
     fontSize: 15,
-
     color: '#000000',
   },
   sendBtn: {
