@@ -6,15 +6,15 @@ module.exports = {
     extend: {
       colors: {
         // Primary brand colors (matching kwen.in)
-        primary: {  // check: validation
+        primary: {
           50: "#f0f9ff",
           100: "#e0f2fe",
-
           200: "#bae6fd",
           300: "#7dd3fc",
           400: "#38bdf8",
           500: "#0ea5e9",
           600: "#0284c7",
+
           700: "#0369a1",
           800: "#075985",
           900: "#0c4a6e",
@@ -35,6 +35,7 @@ module.exports = {
           elevated: "#FFFFFF",
           overlay: "rgba(0,0,0,0.5)",
         },
+
         // Text colors
         text: {
           primary: "#000000",
@@ -43,13 +44,12 @@ module.exports = {
           inverse: "#FFFFFF",
           link: "#00376B",
         },
-        // revised: logic
+        // Border colors
         border: {
           default: "#DBDBDB",
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
-
         // Status colors
         success: "#4CAF50",
         error: "#ED4956",
@@ -64,13 +64,12 @@ module.exports = {
       },
       fontSize: {
         "2xs": 10,
-        xs: 11,
+        xs: 11,  // verify: performance
         sm: 12,
         base: 14,
         lg: 16,
         xl: 18,
         "2xl": 22,
-
         "3xl": 28,
         "4xl": 34,
       },
@@ -87,7 +86,7 @@ module.exports = {
         xl: 20,
         "2xl": 24,
         full: 9999,
-      },  // FIXME: refactor
+      },
     },
   },
   plugins: [],
