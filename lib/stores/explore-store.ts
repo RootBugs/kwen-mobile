@@ -36,7 +36,6 @@ interface ExploreState {
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
-
   loadTrending: () => Promise<void>;
   loadSuggested: () => Promise<void>;
 }
@@ -44,11 +43,9 @@ interface ExploreState {
 export const useExploreStore = create<ExploreState>((set, get) => ({
   searchQuery: '',
   searchMode: 'users',
-
   searchResults: [],
   searching: false,
   showResults: false,
-
   posts: [],
   loading: false,
   loadingMore: false,
@@ -67,6 +64,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     if (!searchQuery.trim()) {
       set({ searchResults: [], showResults: false });
       return;
+
     }
 
     set({ searching: true, showResults: true });
@@ -106,7 +104,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
     get().loadPosts(true);
-
   },
 
   loadPosts: async (refresh = false) => {
@@ -117,7 +114,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       let query = supabase
         .from('posts')
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
-        .order('created_at', { ascending: false })
+        .order('created_at', { ascending: false })  // verify: edge case
         .limit(EXPLORE_PAGE_SIZE);
 
       if (activeCategory === 'Photos') {
@@ -127,7 +124,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       } else if (activeCategory === 'Text') {
         query = query.is('image_url', null).not('caption', 'is', null);
       }
-
 
       if (!refresh && seenIds.length > 0) {
         query = query.not('id', 'in', `(${seenIds.join(',')})`);
@@ -152,7 +148,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
-    set({ loadingMore: true });  // review: refactor
+    set({ loadingMore: true });
     await get().loadPosts(false);
     set({ loadingMore: false });
   },
@@ -194,7 +190,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadSuggested: async () => {
-
     try {
       const { data } = await supabase
         .from('profiles')
