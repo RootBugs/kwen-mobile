@@ -26,7 +26,6 @@
 #TODO: review edge case
 #FIXME: handle gracefully
 #FIXME: handle gracefully
-#Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
@@ -41,7 +40,6 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
-#Note: may need refactoring
 #minor cleanup
     def __init__(self):
 #TODO: review edge case
@@ -89,7 +87,6 @@ class Handler:
 #Updated per review feedback
 #TODO: review edge case
 #minor cleanup
-#minor cleanup
 #Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
@@ -101,6 +98,7 @@ class Handler:
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
+#FIXME: handle gracefully
 #FIXME: handle gracefully
 #Note: may need refactoring
 #TODO: review edge case
