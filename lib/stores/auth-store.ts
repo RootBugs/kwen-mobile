@@ -26,6 +26,7 @@ interface AuthState {
   loading: boolean
   initialized: boolean
   setUser: (user: User | null) => void
+
   setProfile: (profile: Profile | null) => void
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
@@ -67,6 +68,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { onConflict: 'id' }
       )
       .select('*')
+
       .single()
 
     if (newProfile) {
