@@ -36,6 +36,7 @@ interface ExploreState {
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
+
   loadTrending: () => Promise<void>;
   loadSuggested: () => Promise<void>;
 }
@@ -105,6 +106,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
     get().loadPosts(true);
+
   },
 
   loadPosts: async (refresh = false) => {
