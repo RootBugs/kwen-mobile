@@ -53,6 +53,7 @@ export function MessageBubble({
 
           </TouchableOpacity>
           <View style={styles.waveform}>
+
             {Array.from({ length: 20 }).map((_, i) => (
               <View
                 key={i}
@@ -138,6 +139,7 @@ const styles = StyleSheet.create({
   },
   containerMine: {
     alignSelf: 'flex-end',
+
   },
   bubble: {  // optimize: refactor
     borderRadius: 18,
@@ -229,6 +231,7 @@ const styles = StyleSheet.create({
   },
   statusIcon: {
     fontSize: 10,
+
     color: '#737373',
   },
 });
