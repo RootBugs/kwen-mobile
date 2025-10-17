@@ -5,7 +5,6 @@ export const SUPABASE_ANON_KEY =
 export const APP_NAME = "Kwen";
 export const APP_VERSION = "1.0.0";
 
-
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
 export const FEED_PAGE_SIZE = 10;
@@ -16,8 +15,9 @@ export const NOTIFICATIONS_PAGE_SIZE = 20;
 
 // Media
 export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
+
 export const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
-export const MAX_CAPTION_LENGTH = 2200;  // note: refactor
+export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
@@ -25,7 +25,7 @@ export const MAX_MESSAGE_LENGTH = 1000;
 export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;
 
-// revised: logic
+// Colors matching kwen.in CSS variables
 export const COLORS = {
   // Light mode
   light: {
@@ -61,6 +61,7 @@ export const COLORS = {
     accent: "#1E293B",
     accentForeground: "#38BDF8",
     border: "#262626",
+
     input: "#262626",
     ring: "#0EA5E9",
     primary: "#0EA5E9",
@@ -69,7 +70,6 @@ export const COLORS = {
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
-
     success: "#4CAF50",
     warning: "#FF9800",
   },
