@@ -70,6 +70,7 @@ export function PostCard({ post }: { post: Post }) {
           </View>
         </View>
         <TouchableOpacity style={styles.moreBtn}>
+
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
         </TouchableOpacity>
       </View>
@@ -130,6 +131,7 @@ export function PostCard({ post }: { post: Post }) {
       )}
 
       {/* Time */}
+
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
   );
@@ -184,6 +186,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
+
     gap: 14,
   },
   actionBtn: {
