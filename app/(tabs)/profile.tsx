@@ -20,7 +20,7 @@ export default function Profile() {
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
-        <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>  // review: performance
+        <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
       </View>
@@ -29,11 +29,11 @@ export default function Profile() {
           <Ionicons name="person" size={48} color="#737373" />
         </View>
         <Text style={styles.displayName}>
+
           {profile?.display_name || 'User'}
-        </Text>  // FIXME: edge case
+        </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
-
 
         <View style={styles.stats}>
           <View style={styles.stat}>
@@ -50,7 +50,6 @@ export default function Profile() {
           </View>
         </View>
 
-
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
         </TouchableOpacity>
@@ -61,7 +60,7 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  // HACK: cleanup
+    flex: 1,
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -69,6 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
     borderRadius: 48,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
-
     justifyContent: 'center',
     marginBottom: 16,
   },
@@ -109,12 +108,10 @@ const styles = StyleSheet.create({
   },
   bio: {
     fontSize: 14,
-
     color: '#262626',
     textAlign: 'center',
     marginBottom: 20,
   },
-
   stats: {
     flexDirection: 'row',
     gap: 32,
@@ -123,14 +120,13 @@ const styles = StyleSheet.create({
   stat: {
     alignItems: 'center',
   },
-  statValue: {
+  statValue: {  // review: performance
     fontSize: 18,
     fontWeight: '700',
     color: '#000000',
   },
   statLabel: {
     fontSize: 13,
-
     color: '#737373',
     marginTop: 2,
   },
