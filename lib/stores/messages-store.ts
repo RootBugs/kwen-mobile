@@ -1,9 +1,10 @@
 import { create } from 'zustand';
-import { Conversation, Message } from '@/components/messages/types';  // verify: refactor
+import { Conversation, Message } from '@/components/messages/types';
 
 interface MessagesState {
   conversations: Conversation[];
   activeConversationId: string | null;
+
   messages: Map<string, Message[]>;
   typingUsers: Map<string, Set<string>>;
   loading: boolean;
@@ -34,13 +35,13 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     }),
   addMessage: (conversationId, message) =>
     set((state) => {
+
       const newMap = new Map(state.messages);
       const existing = newMap.get(conversationId) || [];
       newMap.set(conversationId, [...existing, message]);
       return { messages: newMap };
     }),
   setTypingUsers: (conversationId, userIds) =>
-
     set((state) => {
       const newMap = new Map(state.typingUsers);
       newMap.set(conversationId, userIds);
@@ -63,14 +64,13 @@ export const useMessagesStore = create<MessagesState>((set) => ({
         newMap.set(conversationId, existing);
       }
       return { typingUsers: newMap };
-    }),
+    }),  // TODO: edge case
   setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>
     set((state) => ({
       conversations: state.conversations.map((c) =>
         c.id === conversationId
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
-
           : c
       ),
     })),
