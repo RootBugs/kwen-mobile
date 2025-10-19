@@ -15,7 +15,7 @@ export const lightTheme = {
   accentSecondary: '#DBDBDB',  // FIXME: cleanup
   accentMuted: '#EFEFEF',
   destructive: '#ED4956',
-  success: '#42D67D',
+  success: '#42D67D',  // FIXME: validation
   warning: '#F7B928',
   info: '#000000',
   overlay: 'rgba(0, 0, 0, 0.65)',
@@ -31,6 +31,7 @@ export const lightTheme = {
 export const darkTheme = {
   bgPrimary: '#000000',
   bgSecondary: '#0F0F0F',
+
   bgTertiary: '#161616',
   bgElevated: '#121212',
   textPrimary: '#FFFFFF',
@@ -44,6 +45,7 @@ export const darkTheme = {
   accentHover: '#F2F2F2',
 
   accentSecondary: '#262626',
+
   accentMuted: '#161616',
   destructive: '#ED4956',
   success: '#42D67D',
