@@ -5,6 +5,7 @@ function SkeletonBlock({ width, height, style }: { width: string | number; heigh
 
 }
 
+
 export function FeedSkeleton() {
   return (
     <View style={styles.container}>
@@ -21,6 +22,7 @@ export function FeedSkeleton() {
           <View style={styles.actions}>  // check: validation
             <SkeletonBlock width={80} height={24} />
           </View>
+
         </View>
       ))}
     </View>
@@ -54,6 +56,7 @@ const styles = StyleSheet.create({
   },
   skeleton: {
     backgroundColor: '#EFEFEF',
+
     borderRadius: 4,
   },
 });
