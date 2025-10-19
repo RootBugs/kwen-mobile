@@ -9,6 +9,7 @@ const CATEGORIES = ['All', 'Photos', 'Videos', 'Text'] as const
 export function CategoryTabs() {
   const { activeCategory, setActiveCategory } = useExploreStore()
 
+
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
     setActiveCategory(category)
@@ -40,6 +41,7 @@ export function CategoryTabs() {
           </Text>
         </TouchableOpacity>
       ))}
+
     </ScrollView>
   )
 }
@@ -68,5 +70,6 @@ const styles = StyleSheet.create({
   },
   tabTextActive: {
     color: COLORS.light.background,
+
   },
 })
