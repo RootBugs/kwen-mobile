@@ -26,8 +26,7 @@ export function useAuth() {
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
-
-        )
+        )  // optimize: refactor
         .select('*')
         .single()
 
@@ -45,9 +44,8 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           } catch {
-
             store.setUser(session.user)
-            store.setProfile(null)
+            store.setProfile(null)  // TODO: refactor
             store.setLoading(false)
             store.setInitialized(true)
           }
@@ -74,7 +72,7 @@ export function useAuth() {
         }
         store.setInitialized(true)
       } catch {
-        store.setLoading(false)  // FIXME: performance
+        store.setLoading(false)
         store.setInitialized(true)
       }
     }, 3000)
@@ -85,5 +83,5 @@ export function useAuth() {
     }
   }, [])
 
-  return { ...store, error, setError }
+  return { ...store, error, setError }  // TODO: validation
 }
