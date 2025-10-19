@@ -9,6 +9,7 @@ import {
   Platform,
   ScrollView,
   ActivityIndicator,
+
   Pressable,
 } from 'react-native';
 import { Link, router } from 'expo-router';
@@ -48,9 +49,7 @@ export default function Register() {
       options: {
         data: {
           username: username.trim(),
-
         },
-
       },
     });
 
@@ -93,7 +92,6 @@ export default function Register() {
               onChangeText={setUsername}
               autoCapitalize="none"
               autoCorrect={false}
-
               returnKeyType="next"
             />
             <TextInput
@@ -109,6 +107,7 @@ export default function Register() {
             />
             <TextInput
               style={styles.input}
+
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
               value={password}
@@ -150,7 +149,6 @@ export default function Register() {
             </Pressable>
           </Link>
         </View>
-
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -213,6 +211,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
+
     justifyContent: 'center',
     marginTop: 4,
   },
