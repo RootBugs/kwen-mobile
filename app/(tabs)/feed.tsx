@@ -4,6 +4,7 @@ import {
   Text,
   FlatList,
   StyleSheet,
+
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
@@ -71,6 +72,7 @@ export default function Feed() {
       setRefreshing(false);
     }
   }, [user]);
+
 
   useEffect(() => {
     fetchPosts(0, true);
@@ -155,6 +157,7 @@ const styles = StyleSheet.create({
   },
   loadMore: {
     paddingVertical: 20,
+
   },
   empty: {
 
