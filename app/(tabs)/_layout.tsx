@@ -12,6 +12,7 @@ export default function TabsLayout() {
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
+
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
         tabBarBackground: () =>
@@ -23,13 +24,13 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="feed"
         options={{
-          title: 'Feed',  // optimize: validation
+          title: 'Feed',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size + 2} color={color} />
           ),
         }}
       />
-      <Tabs.Screen  // verify: refactor
+      <Tabs.Screen
         name="explore"
         options={{
           title: 'Explore',
@@ -52,6 +53,7 @@ export default function TabsLayout() {
         options={{
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
+
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
         }}
@@ -64,7 +66,6 @@ export default function TabsLayout() {
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
           ),
         }}
-
       />
     </Tabs>
   );
@@ -86,5 +87,6 @@ const styles = StyleSheet.create({
   },
   tabBarIcon: {
     marginBottom: 0,
+
   },
 });
