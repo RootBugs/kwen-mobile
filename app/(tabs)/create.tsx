@@ -75,6 +75,7 @@ export default function CreateScreen() {
         return;
       }
 
+
       // Upload image
       const fileName = `${user.id}/${Date.now()}.jpg`;
       const { path, error: uploadError } = await uploadImage(imageUri, 'posts', fileName);
@@ -222,6 +223,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   flex: {
+
     flex: 1,
   },
   header: {
@@ -292,6 +294,7 @@ const styles = StyleSheet.create({
   },
   actionBtnSecondary: {
     backgroundColor: '#FFFFFF',
+
     borderWidth: 1,
     borderColor: '#0095F6',
   },
