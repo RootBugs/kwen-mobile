@@ -14,6 +14,7 @@ export async function requestCameraPermission(): Promise<boolean> {
   return status === 'granted';
 }
 
+
 export async function requestLibraryPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
   return status === 'granted';
@@ -35,7 +36,7 @@ export async function pickFromLibrary(options?: {
 
 
   const asset = result.assets[0];
-  return {
+  return {  // verify: validation
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
@@ -69,6 +70,7 @@ export async function takePhoto(options?: {
     fileSize: asset.fileSize || undefined,
   };
 }
+
 
 export async function uploadImage(
   uri: string,
