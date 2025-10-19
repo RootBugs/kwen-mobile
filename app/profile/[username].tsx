@@ -90,6 +90,7 @@ export default function UserProfileScreen() {
           likes(count),
           comments(count)
         `
+
         )
         .eq('user_id', profileData.id)
         .order('created_at', { ascending: false });
@@ -259,6 +260,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+
   },
   header: {
     flexDirection: 'row',
@@ -349,7 +351,7 @@ const styles = StyleSheet.create({
   },
   nameRow: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',  // TODO: refactor
     gap: 4,
     marginBottom: 2,
   },
