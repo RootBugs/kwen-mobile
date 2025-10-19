@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useState } from 'react';
+
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -36,7 +37,6 @@ export default function ExploreScreen() {
   const handleLoadMore = useCallback(async () => {
     await loadMore();
   }, [loadMore]);
-
   const handlePostPress = useCallback((_post: Post) => {
     // Navigate to post detail — route TBD
   }, []);
@@ -64,6 +64,7 @@ export default function ExploreScreen() {
       )}
 
       <ExploreGrid
+
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
