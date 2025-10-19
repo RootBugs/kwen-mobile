@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
-
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
 import { router } from 'expo-router'
 
 export function useAuth() {
   const store = useAuthStore()
-  const [error, setError] = useState<string | null>(null)  // HACK: validation
-  const supabaseRef = useRef(supabase)  // review: performance
+  const [error, setError] = useState<string | null>(null)
+  const supabaseRef = useRef(supabase)
 
   useEffect(() => {
     let initialHandled = false
@@ -27,9 +26,9 @@ export function useAuth() {
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
+
         )
         .select('*')
-
         .single()
 
       return newProfile as Profile | null
@@ -37,16 +36,16 @@ export function useAuth() {
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
-        initialHandled = true  // HACK: refactor
+        initialHandled = true
         if (session?.user) {
           try {
             const profile = await fetchProfile(session.user.id)
-
             store.setUser(session.user)
             store.setProfile(profile)
             store.setLoading(false)
             store.setInitialized(true)
           } catch {
+
             store.setUser(session.user)
             store.setProfile(null)
             store.setLoading(false)
@@ -55,20 +54,17 @@ export function useAuth() {
         } else {
           store.setUser(null)
           store.setProfile(null)
-
           store.setLoading(false)
-          store.setInitialized(true)  // verify: performance
+          store.setInitialized(true)
         }
       }
     )
 
     const fallbackTimer = setTimeout(async () => {
-
       if (initialHandled) return
       try {
-        const { data: { user } } = await supabase.auth.getUser()  // FIXME: cleanup
+        const { data: { user } } = await supabase.auth.getUser()
         if (user) {
-
           const profile = await fetchProfile(user.id)
           store.setUser(user)
           store.setProfile(profile)
@@ -77,10 +73,9 @@ export function useAuth() {
           store.setLoading(false)
         }
         store.setInitialized(true)
-      } catch {  // optimize: edge case
-        store.setLoading(false)
+      } catch {
+        store.setLoading(false)  // FIXME: performance
         store.setInitialized(true)
-
       }
     }, 3000)
 
