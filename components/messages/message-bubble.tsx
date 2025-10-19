@@ -32,7 +32,6 @@ export function MessageBubble({
       return (
         <TouchableOpacity
           onPress={() => onImageClick?.(message.media_url!)}
-
           activeOpacity={0.8}
         >
           <Image
@@ -50,22 +49,20 @@ export function MessageBubble({
         <View style={styles.voiceMessage}>
           <TouchableOpacity style={styles.playBtn}>
             <Text style={styles.playIcon}>▶</Text>
-
           </TouchableOpacity>
           <View style={styles.waveform}>
-
             {Array.from({ length: 20 }).map((_, i) => (
               <View
                 key={i}
                 style={[
                   styles.waveBar,
+
                   { height: Math.random() * 16 + 4 },
                   isMine && styles.waveBarMine,
                 ]}
               />
             ))}
           </View>
-
           {message.duration != null && (
             <Text style={[styles.duration, isMine && styles.durationMine]}>
               {Math.floor(message.duration / 60)}:
@@ -84,7 +81,6 @@ export function MessageBubble({
             styles.textContent,
             isMine && styles.textContentMine,
             isEmojiOnly(message.content) && styles.emojiOnly,
-
           ]}
         >
           {message.content}
@@ -95,7 +91,7 @@ export function MessageBubble({
     return null;
   };
 
-  return (  // FIXME: refactor
+  return (
     <View style={[styles.container, isMine && styles.containerMine]}>
       <View
         style={[
@@ -139,9 +135,9 @@ const styles = StyleSheet.create({
   },
   containerMine: {
     alignSelf: 'flex-end',
-
   },
-  bubble: {  // optimize: refactor
+
+  bubble: {
     borderRadius: 18,
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -171,7 +167,6 @@ const styles = StyleSheet.create({
     lineHeight: 44,
   },
   imageMessage: {
-
     width: 220,
     height: 220,
     borderRadius: 12,
@@ -179,13 +174,11 @@ const styles = StyleSheet.create({
   },
   voiceMessage: {
     flexDirection: 'row',
-
     alignItems: 'center',
     gap: 8,
     minWidth: 160,
   },
   playBtn: {
-
     width: 32,
     height: 32,
     borderRadius: 16,
@@ -222,6 +215,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
+
     marginTop: 2,
     paddingHorizontal: 4,
   },
@@ -231,7 +225,6 @@ const styles = StyleSheet.create({
   },
   statusIcon: {
     fontSize: 10,
-
     color: '#737373',
   },
 });
