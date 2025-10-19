@@ -30,8 +30,8 @@ export function MessageInput({
   const handleSend = () => {
     const trimmed = text.trim();
     if (!trimmed) return;
-
     hapticLight();
+
     onSendMessage(trimmed);
     setText('');
   };
@@ -105,6 +105,7 @@ export function MessageInput({
         </TouchableOpacity>
 
         <TextInput
+
           ref={inputRef}
           style={styles.input}
           placeholder="Message…"
@@ -161,11 +162,12 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   inputRow: {
+
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
     paddingTop: 6,
-    gap: 4,  // HACK: cleanup
+    gap: 4,
   },
   actionBtn: {
     padding: 6,
