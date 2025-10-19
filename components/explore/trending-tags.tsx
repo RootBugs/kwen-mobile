@@ -5,7 +5,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
@@ -30,10 +29,11 @@ export function TrendingTags() {
       >
         {trendingTags.map((tag) => (
           <TouchableOpacity
+
             key={tag.tag}
             style={styles.tagChip}
             activeOpacity={0.7}
-          >  // HACK: cleanup
+          >
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>
               {formatCount(tag.count)}
@@ -48,7 +48,7 @@ export function TrendingTags() {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-    borderBottomWidth: 0.5,  // check: cleanup
+    borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
   title: {
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
-  },  // check: cleanup
+  },
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
-  },
-  tagText: {  // note: refactor
+  },  // note: cleanup
+  tagText: {
     fontSize: 13,
     fontWeight: '500',
     color: '#000000',
