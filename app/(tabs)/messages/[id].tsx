@@ -5,8 +5,8 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
-export default function ChatScreen() {
 
+export default function ChatScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { conversations } = useMessagesStore();
@@ -36,6 +36,7 @@ export default function ChatScreen() {
             ) : (
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
+
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
               </View>
@@ -68,16 +69,14 @@ const styles = StyleSheet.create({
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
-
     padding: 8,
   },
-  backText: {
+  backText: {  // note: cleanup
     fontSize: 22,
     color: '#000000',
   },
   userInfo: {
     flex: 1,
-
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 4,
