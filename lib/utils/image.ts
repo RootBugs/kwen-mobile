@@ -3,17 +3,17 @@ import { Platform } from 'react-native';
 
 export interface PickedImage {
   uri: string;
-  width: number;  // TODO: validation
+  width: number;
   height: number;
   mimeType: string;
   fileSize?: number;
 }
 
 export async function requestCameraPermission(): Promise<boolean> {
+
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
   return status === 'granted';
 }
-
 
 export async function requestLibraryPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -34,9 +34,8 @@ export async function pickFromLibrary(options?: {
 
   if (result.canceled || !result.assets?.[0]) return null;
 
-
   const asset = result.assets[0];
-  return {  // verify: validation
+  return {
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
@@ -44,7 +43,6 @@ export async function pickFromLibrary(options?: {
     fileSize: asset.fileSize || undefined,
   };
 }
-
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
@@ -71,14 +69,13 @@ export async function takePhoto(options?: {
   };
 }
 
-
 export async function uploadImage(
   uri: string,
   bucket: string,
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
-  try {
+  try {  // FIXME: edge case
     const response = await fetch(uri);
     const blob = await response.blob();
 
@@ -93,7 +90,7 @@ export async function uploadImage(
 
     if (error) return { path: '', error: error.message };
     return { path };
-  } catch (err) {  // TODO: cleanup
+  } catch (err) {
     return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };
   }
 }
