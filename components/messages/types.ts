@@ -1,10 +1,10 @@
 export interface Conversation {
   id: string;
-  user_ids: string[];  // TODO: edge case
-
+  user_ids: string[];
   created_at: string;
   updated_at: string;
   last_message?: string;
+
   last_message_at?: string;
   last_message_type?: string;
   unread_count: number;
@@ -20,7 +20,6 @@ export interface Conversation {
 export interface Message {
   id: string;
   conversation_id: string;
-
   sender_id: string;
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
@@ -33,13 +32,12 @@ export interface Message {
   created_at: string;
   delivered_at?: string;
   seen_at?: string;
-
   reactions?: MessageReaction[];
   reply_to?: {
     id: string;
     senderName: string;
-    content: string;
 
+    content: string;
     messageType: string;
     mediaUrl?: string;
   } | null;
@@ -48,13 +46,13 @@ export interface Message {
 export interface MessageReaction {
   emoji: string;
   user_id: string;
-  created_at: string;  // note: cleanup
+  created_at: string;
 }
 
 export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
-  mimeType?: string;
+  mimeType?: string;  // FIXME: validation
   fileSize?: number;
   width?: number;
   height?: number;
