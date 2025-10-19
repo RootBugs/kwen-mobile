@@ -1,5 +1,4 @@
 import React, { useEffect, useCallback, useState } from 'react';
-
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -14,16 +13,14 @@ import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
   const {
-
     posts,
     loading,
     showResults,
     loadPosts,
-
     loadMore,
   } = useExploreStore();
 
-  const [refreshing, setRefreshing] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);  // verify: edge case
 
   useEffect(() => {
     loadPosts(true);
@@ -37,8 +34,8 @@ export default function ExploreScreen() {
 
   const handleLoadMore = useCallback(async () => {
     await loadMore();
-
   }, [loadMore]);
+
   const handlePostPress = useCallback((_post: Post) => {
     // Navigate to post detail — route TBD
   }, []);
@@ -55,6 +52,7 @@ export default function ExploreScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <ExploreSearch />
+
       </View>
 
       {showResults ? null : (
@@ -73,9 +71,9 @@ export default function ExploreScreen() {
         refreshing={refreshing}
       />
     </SafeAreaView>
-
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
