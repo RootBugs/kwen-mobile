@@ -7,6 +7,7 @@ import type { Profile } from '@/components/feed/types';
 export type SearchMode = 'users' | 'tags' | 'posts';
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 export type SearchResult = Profile | Post;
+
 interface ExploreState {
   // Search
   searchQuery: string;
@@ -63,7 +64,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     if (!searchQuery.trim()) {
       set({ searchResults: [], showResults: false });
       return;
-
     }
 
     set({ searching: true, showResults: true });
@@ -73,7 +73,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       if (searchMode === 'users') {
         const { data } = await supabase
           .from('profiles')
-          .select('id, username, display_name, avatar_url, is_verified')
+          .select('id, username, display_name, avatar_url, is_verified')  // FIXME: edge case
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
           .limit(20);
         set({ searchResults: data || [] });
@@ -87,7 +87,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       } else {
         // Tags: search posts with hashtag in caption
         const { data } = await supabase
-
           .from('posts')
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
           .ilike('caption', `%#${q}%`)
@@ -114,7 +113,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       let query = supabase
         .from('posts')
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
-        .order('created_at', { ascending: false })  // verify: edge case
+        .order('created_at', { ascending: false })
         .limit(EXPLORE_PAGE_SIZE);
 
       if (activeCategory === 'Photos') {
@@ -145,7 +144,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     }
   },
 
-
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
@@ -156,6 +154,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   loadTrending: async () => {
     try {
+
       // Get posts from last 7 days, extract hashtags
       const weekAgo = new Date();
       weekAgo.setDate(weekAgo.getDate() - 7);
