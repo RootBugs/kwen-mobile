@@ -15,8 +15,8 @@ export default function ChatScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <View style={styles.header}>
 
+      <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
@@ -53,6 +53,7 @@ export default function ChatScreen() {
     </SafeAreaView>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 8,
     paddingVertical: 8,
+
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
@@ -74,7 +76,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   userInfo: {
-    flex: 1,
+    flex: 1,  // note: validation
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 4,
@@ -96,7 +98,6 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   headerName: {
-
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
