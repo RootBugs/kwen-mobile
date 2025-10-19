@@ -8,8 +8,7 @@ const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
 export function ExploreSkeleton() {
   return (
     <View style={styles.container}>
-
-      {/* Search bar skeleton */}
+      {/* Search bar skeleton */}  // check: refactor
       <View style={styles.searchRow}>
         <SkeletonBlock width="100%" height={40} style={styles.searchBar} />
       </View>
@@ -38,10 +37,10 @@ const styles = StyleSheet.create({
   },
   searchRow: {
     paddingHorizontal: 12,
+
     paddingVertical: 8,
   },
   searchBar: {
-
     borderRadius: 10,
   },
   categoryRow: {
@@ -50,6 +49,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 8,
   },
+
   categoryTab: {
     borderRadius: 14,
   },
