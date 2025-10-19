@@ -6,6 +6,7 @@ interface SkeletonBlockProps {
   width: number | string;
 
 
+
   height: number;
   style?: ViewStyle;
 }
@@ -19,8 +20,10 @@ export function SkeletonCircle({ size }: { size: number }) {
 
 
 
+
   return <View style={[styles.skeleton, { width: size, height: size, borderRadius: size / 2 }]} />;
 }
+
 
 const styles = StyleSheet.create({
   skeleton: {
