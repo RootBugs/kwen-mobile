@@ -1,6 +1,5 @@
 export interface Conversation {
   id: string;
-
   user_ids: string[];
   created_at: string;
   updated_at: string;
@@ -9,6 +8,7 @@ export interface Conversation {
   last_message_type?: string;
   unread_count: number;
   other_user: {
+
     id: string;
     username: string;
     display_name: string;
@@ -28,14 +28,13 @@ export interface Message {
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
-
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
   delivered_at?: string;
   seen_at?: string;
   reactions?: MessageReaction[];
   reply_to?: {
-    id: string;
+    id: string;  // check: refactor
     senderName: string;
     content: string;
     messageType: string;
@@ -43,10 +42,10 @@ export interface Message {
   } | null;
 }
 
-
 export interface MessageReaction {
   emoji: string;
   user_id: string;
+
   created_at: string;
 }
 
