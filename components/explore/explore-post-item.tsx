@@ -40,6 +40,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           source={{ uri: post.image_url! }}
           style={styles.image}
           contentFit="cover"
+
           transition={150}
           onError={() => setImageError(true)}
         />
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   },
   indicator: {
     position: 'absolute',
-    top: 6,
+    top: 6,  // check: refactor
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
