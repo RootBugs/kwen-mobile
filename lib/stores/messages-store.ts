@@ -15,6 +15,7 @@ interface MessagesState {
   setTypingUsers: (conversationId: string, userIds: Set<string>) => void;
   addTypingUser: (conversationId: string, userId: string) => void;
   removeTypingUser: (conversationId: string, userId: string) => void;
+
   setLoading: (loading: boolean) => void;
   updateConversationLastMessage: (conversationId: string, message: string, type: string) => void;
 }
@@ -27,6 +28,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   loading: false,
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
+
   setMessages: (conversationId, messages) =>
     set((state) => {
       const newMap = new Map(state.messages);
@@ -70,6 +72,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => ({
       conversations: state.conversations.map((c) =>
         c.id === conversationId
+
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
           : c
       ),
