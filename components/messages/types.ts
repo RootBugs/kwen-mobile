@@ -1,6 +1,7 @@
 export interface Conversation {
   id: string;
   user_ids: string[];  // TODO: edge case
+
   created_at: string;
   updated_at: string;
   last_message?: string;
@@ -32,11 +33,13 @@ export interface Message {
   created_at: string;
   delivered_at?: string;
   seen_at?: string;
+
   reactions?: MessageReaction[];
   reply_to?: {
     id: string;
     senderName: string;
     content: string;
+
     messageType: string;
     mediaUrl?: string;
   } | null;
