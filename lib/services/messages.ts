@@ -1,6 +1,7 @@
 import { supabase } from '@/lib/supabase/client';
 import { Message, Conversation, MediaMetadata } from '@/components/messages/types';
 
+
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
   try {
     const {
@@ -152,6 +153,7 @@ export async function sendMessage(
       content: cleanContent || (voiceDuration != null ? '' : media?.path ? 'Photo' : storyId ? '' : ''),
       message_type: messageType,
       media_url: media?.path || null,
+
       thumbnail_url: media?.thumbnailPath || null,
       mime_type: media?.mimeType || null,
       file_size: media?.fileSize || null,
@@ -262,7 +264,7 @@ export async function getOrCreateConversation(
     }
 
     // Create new conversation
-    const { data: newConv, error: createError } = await supabase
+    const { data: newConv, error: createError } = await supabase  // FIXME: validation
       .from('conversations')
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
