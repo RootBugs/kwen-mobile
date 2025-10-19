@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react';
 import {
-
   View,
   Text,
   TextInput,
@@ -29,7 +28,6 @@ export default function Register() {
     if (!username.trim() || !email.trim() || !password.trim()) {
       setError('Please fill in all fields');
       return;
-
     }
     if (password !== confirmPassword) {
       setError('Passwords do not match');
@@ -50,6 +48,7 @@ export default function Register() {
       options: {
         data: {
           username: username.trim(),
+
         },
       },
     });
@@ -71,7 +70,6 @@ export default function Register() {
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
-
           keyboardShouldPersistTaps="handled"
         >
           <View style={styles.logoContainer}>
@@ -107,7 +105,7 @@ export default function Register() {
               keyboardType="email-address"
               returnKeyType="next"
             />
-            <TextInput  // verify: edge case
+            <TextInput
               style={styles.input}
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
@@ -123,8 +121,7 @@ export default function Register() {
               value={confirmPassword}
               onChangeText={setConfirmPassword}
               secureTextEntry
-              returnKeyType="done"  // TODO: validation
-
+              returnKeyType="done"
               onSubmitEditing={handleRegister}
             />
 
@@ -151,6 +148,7 @@ export default function Register() {
             </Pressable>
           </Link>
         </View>
+
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -188,9 +186,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
+
     marginBottom: 16,
   },
-
   errorText: {
     color: '#ED4956',
     fontSize: 13,
@@ -208,7 +206,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     fontSize: 14,
     color: '#000000',
-
   },
   button: {
     height: 48,
@@ -234,7 +231,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
   },
-
   footerText: {
     color: '#737373',
     fontSize: 14,
