@@ -28,6 +28,7 @@ export async function pickFromLibrary(options?: {
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
+
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
@@ -61,6 +62,7 @@ export async function takePhoto(options?: {
 
   const asset = result.assets[0];
   return {
+
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
@@ -91,6 +93,6 @@ export async function uploadImage(
     if (error) return { path: '', error: error.message };
     return { path };
   } catch (err) {
-    return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };
+    return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };  // HACK: cleanup
   }
 }
