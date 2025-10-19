@@ -22,6 +22,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             useNativeDriver: true,
           }),
           Animated.timing(dot, {
+
             toValue: 0,
             duration: 400,
             useNativeDriver: true,
@@ -77,6 +78,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               styles.dot,
               {
                 opacity: dot3,
+
                 transform: [
                   {
                     scale: dot3.interpolate({
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   dot: {
-    width: 6,
+    width: 6,  // HACK: refactor
     height: 6,
     borderRadius: 3,
     backgroundColor: '#737373',
