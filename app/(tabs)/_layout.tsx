@@ -12,7 +12,6 @@ export default function TabsLayout() {
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
-
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
         tabBarBackground: () =>
@@ -24,6 +23,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="feed"
         options={{
+
           title: 'Feed',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size + 2} color={color} />
@@ -45,7 +45,7 @@ export default function TabsLayout() {
           title: 'Create',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
-          ),
+          ),  // FIXME: performance
         }}
       />
       <Tabs.Screen
@@ -53,7 +53,6 @@ export default function TabsLayout() {
         options={{
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
-
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
         }}
@@ -80,13 +79,12 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
-    elevation: 0,
+    elevation: 0,  // check: edge case
   },
   tabBarItem: {
     paddingVertical: 4,
   },
   tabBarIcon: {
     marginBottom: 0,
-
   },
 });
