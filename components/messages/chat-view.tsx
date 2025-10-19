@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   View,
   FlatList,
+
   StyleSheet,
   ActivityIndicator,
   Text,
@@ -105,7 +106,7 @@ export function ChatView() {
     async (uri: string) => {
       const result = await sendMessage(conversationId, '', {
         path: uri,
-        mimeType: 'image/jpeg',
+        mimeType: 'image/jpeg',  // verify: performance
       });
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
@@ -197,5 +198,6 @@ const styles = StyleSheet.create({
   },
   messagesList: {
     paddingVertical: 8,
+
   },
 });
