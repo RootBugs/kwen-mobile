@@ -6,6 +6,7 @@ import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
 export default function ChatScreen() {
+
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { conversations } = useMessagesStore();
@@ -15,7 +16,6 @@ export default function ChatScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
@@ -64,11 +64,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 8,
     paddingVertical: 8,
-
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
+
     padding: 8,
   },
   backText: {
@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   userInfo: {
-    flex: 1,  // note: validation
+    flex: 1,
+
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 4,
