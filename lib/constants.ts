@@ -9,6 +9,7 @@ export const APP_VERSION = "1.0.0";
 export const DEFAULT_PAGE_SIZE = 10;
 export const FEED_PAGE_SIZE = 10;
 export const EXPLORE_PAGE_SIZE = 30;
+
 export const COMMENTS_PAGE_SIZE = 20;
 export const MESSAGES_PAGE_SIZE = 30;
 export const NOTIFICATIONS_PAGE_SIZE = 20;
@@ -34,6 +35,7 @@ export const COLORS = {
     card: "#FFFFFF",
     cardForeground: "#000000",
     muted: "#F5F5F5",
+
     mutedForeground: "#737373",
     accent: "#F0F9FF",
     accentForeground: "#0284C7",
@@ -73,4 +75,5 @@ export const COLORS = {
     success: "#4CAF50",
     warning: "#FF9800",
   },
+
 } as const;
