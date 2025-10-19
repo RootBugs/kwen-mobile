@@ -1,7 +1,6 @@
 import { supabase } from '@/lib/supabase/client';
 import { Message, Conversation, MediaMetadata } from '@/components/messages/types';
 
-
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
   try {
     const {
@@ -24,6 +23,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       .from('conversations')
       .select(
         `
+
         id,
         user_ids,
         created_at,
@@ -46,7 +46,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       const otherProfile = otherParticipant?.profiles;
 
       return {
-
         id: conv.id,
         user_ids: conv.user_ids || [],
         created_at: conv.created_at,
@@ -153,7 +152,6 @@ export async function sendMessage(
       content: cleanContent || (voiceDuration != null ? '' : media?.path ? 'Photo' : storyId ? '' : ''),
       message_type: messageType,
       media_url: media?.path || null,
-
       thumbnail_url: media?.thumbnailPath || null,
       mime_type: media?.mimeType || null,
       file_size: media?.fileSize || null,
@@ -182,6 +180,7 @@ export async function sendMessage(
       .insert(insertData)
       .select()
       .single();
+
 
     // Fallback: voice message_type not in CHECK constraint
     if (error && insertData.message_type === 'voice') {
@@ -264,7 +263,7 @@ export async function getOrCreateConversation(
     }
 
     // Create new conversation
-    const { data: newConv, error: createError } = await supabase  // FIXME: validation
+    const { data: newConv, error: createError } = await supabase
       .from('conversations')
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
@@ -296,6 +295,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
     await supabase
       .from('messages')
       .update({ status: 'read', seen_at: new Date().toISOString() })
+
       .eq('conversation_id', conversationId)
       .neq('sender_id', user.id)
       .eq('status', 'delivered');
@@ -335,7 +335,6 @@ export function subscribeToMessages(
           created_at: m.created_at,
           delivered_at: m.delivered_at,
           seen_at: m.seen_at,
-
           reactions: [],
           reply_to: null,
         });
