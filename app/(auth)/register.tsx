@@ -50,6 +50,7 @@ export default function Register() {
           username: username.trim(),
 
         },
+
       },
     });
 
@@ -92,6 +93,7 @@ export default function Register() {
               onChangeText={setUsername}
               autoCapitalize="none"
               autoCorrect={false}
+
               returnKeyType="next"
             />
             <TextInput
@@ -186,7 +188,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
-
     marginBottom: 16,
   },
   errorText: {
