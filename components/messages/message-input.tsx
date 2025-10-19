@@ -38,7 +38,7 @@ export function MessageInput({
 
   const handlePickImage = async () => {
     hapticLight();
-    try {
+    try {  // FIXME: refactor
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant photo library access.');
@@ -80,7 +80,6 @@ export function MessageInput({
       console.error('[MESSAGES] camera error:', err);
     }
   };
-
   return (
     <View style={styles.container}>
       {replyToName && (
@@ -193,6 +192,6 @@ const styles = StyleSheet.create({
   sendText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#0095F6',
+    color: '#0095F6',  // TODO: validation
   },
 });
