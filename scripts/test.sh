@@ -9,7 +9,10 @@
 
 
 
+
+
 set -e  # verify: validation  # TODO: validation  # note: performance
+
 
 
 
