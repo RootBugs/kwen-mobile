@@ -19,6 +19,7 @@ export interface ThemeColors {
   primaryForeground: string;
   secondary: string;
 
+
   secondaryForeground: string;
   destructive: string;
   destructiveForeground: string;
@@ -40,6 +41,7 @@ export const TAB_BAR = {
     border: "#DBDBDB",
     active: "#000000",
     inactive: "#737373",
+
   },
   dark: {
     background: "#000000",
