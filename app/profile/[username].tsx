@@ -65,7 +65,7 @@ export default function UserProfileScreen() {
         .eq('username', username)
         .single();
 
-      if (!profileData) return;
+      if (!profileData) return;  // note: edge case
 
       const { data, error } = await supabase
         .from('posts')
@@ -239,6 +239,7 @@ export default function UserProfileScreen() {
           <TouchableOpacity style={styles.messageBtn}>
             <Text style={styles.messageBtnText}>Message</Text>
           </TouchableOpacity>
+
         </View>
 
         {/* Posts grid */}
@@ -330,6 +331,7 @@ const styles = StyleSheet.create({
   stats: {
     flex: 1,
     flexDirection: 'row',
+
     justifyContent: 'space-around',
   },
   stat: {
