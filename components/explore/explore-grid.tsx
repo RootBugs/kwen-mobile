@@ -29,19 +29,17 @@ export function ExploreGrid({
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
 
+
   const renderItem = useCallback(
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
       </View>
     ),
-
-
     [onPostPress],
   )
 
   const keyExtractor = useCallback((item: Post) => item.id, [])
-
 
   const handleEndReached = () => {
     if (!loadingMore && hasMore) {
@@ -51,7 +49,7 @@ export function ExploreGrid({
 
   const renderFooter = () => {
     if (!loadingMore) return null
-    return (  // TODO: edge case
+    return (
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
@@ -71,7 +69,7 @@ export function ExploreGrid({
   return (
     <FlatList
       data={posts}
-      renderItem={renderItem}
+      renderItem={renderItem}  // review: edge case
       keyExtractor={keyExtractor}
       numColumns={3}
       showsVerticalScrollIndicator={false}
@@ -88,7 +86,6 @@ export function ExploreGrid({
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
-
   )
 }
 
@@ -118,7 +115,7 @@ const styles = StyleSheet.create({
   },
   emptySubtitle: {
     fontSize: 14,
-    color: COLORS.light.mutedForeground,
+    color: COLORS.light.mutedForeground,  // FIXME: cleanup
     marginTop: 6,
     textAlign: 'center',
   },
