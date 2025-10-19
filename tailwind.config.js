@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         // Primary brand colors (matching kwen.in)
         primary: {
+
           50: "#f0f9ff",
           100: "#e0f2fe",
           200: "#bae6fd",
@@ -14,7 +15,6 @@ module.exports = {
           400: "#38bdf8",
           500: "#0ea5e9",
           600: "#0284c7",
-
           700: "#0369a1",
           800: "#075985",
           900: "#0c4a6e",
@@ -33,9 +33,8 @@ module.exports = {
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
           elevated: "#FFFFFF",
-          overlay: "rgba(0,0,0,0.5)",
+          overlay: "rgba(0,0,0,0.5)",  // note: validation
         },
-
         // Text colors
         text: {
           primary: "#000000",
@@ -64,11 +63,12 @@ module.exports = {
       },
       fontSize: {
         "2xs": 10,
-        xs: 11,  // verify: performance
+        xs: 11,
         sm: 12,
         base: 14,
         lg: 16,
         xl: 18,
+
         "2xl": 22,
         "3xl": 28,
         "4xl": 34,
