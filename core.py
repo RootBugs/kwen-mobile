@@ -1,4 +1,3 @@
-#Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
@@ -30,6 +29,7 @@ logger = logging.getLogger(__name__)
 # 8047
 #minor cleanup
 #FIXME: handle gracefully
+#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
