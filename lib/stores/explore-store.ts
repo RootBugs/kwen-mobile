@@ -7,7 +7,6 @@ import type { Profile } from '@/components/feed/types';
 export type SearchMode = 'users' | 'tags' | 'posts';
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 export type SearchResult = Profile | Post;
-
 interface ExploreState {
   // Search
   searchQuery: string;
@@ -88,6 +87,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       } else {
         // Tags: search posts with hashtag in caption
         const { data } = await supabase
+
           .from('posts')
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
           .ilike('caption', `%#${q}%`)
@@ -144,6 +144,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({ loading: false });
     }
   },
+
 
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
