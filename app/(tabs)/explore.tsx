@@ -19,6 +19,7 @@ export default function ExploreScreen() {
     loading,
     showResults,
     loadPosts,
+
     loadMore,
   } = useExploreStore();
 
@@ -36,6 +37,7 @@ export default function ExploreScreen() {
 
   const handleLoadMore = useCallback(async () => {
     await loadMore();
+
   }, [loadMore]);
   const handlePostPress = useCallback((_post: Post) => {
     // Navigate to post detail — route TBD
@@ -74,7 +76,6 @@ export default function ExploreScreen() {
 
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
