@@ -9,7 +9,6 @@ import {
   Platform,
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
@@ -30,6 +29,7 @@ export function ChatView() {
   const {
     messages: allMessages,
     setMessages,
+
     addMessage,
     typingUsers,
     activeConversationId,
@@ -69,6 +69,7 @@ export function ChatView() {
 
     // Subscribe to realtime messages
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
+
       addMessage(conversationId, newMessage);
       if (newMessage.sender_id !== currentUserId.current) {
         markAsRead(conversationId);
@@ -111,7 +112,7 @@ export function ChatView() {
       }
     },
     [conversationId, addMessage]
-  );  // optimize: refactor
+  );
 
   const handleReply = useCallback((message: Message) => {
     hapticLight();
@@ -137,7 +138,6 @@ export function ChatView() {
         isMine={isMine}
         showTail={showTail}
         onReply={handleReply}
-
       />
     );
   };
@@ -186,7 +186,7 @@ export function ChatView() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  // optimize: edge case
     backgroundColor: '#FFFFFF',
   },
   loadingContainer: {
