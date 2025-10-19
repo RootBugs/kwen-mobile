@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
   Text,
+
   FlatList,
   StyleSheet,
   ActivityIndicator,
@@ -57,6 +58,7 @@ export function ConversationList() {
     ? conversations.filter(
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
+
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : conversations;
@@ -113,6 +115,7 @@ export function ConversationList() {
           </Text>
         </View>
       )}
+
     </View>
   );
 }
