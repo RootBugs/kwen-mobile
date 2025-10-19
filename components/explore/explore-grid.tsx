@@ -36,10 +36,12 @@ export function ExploreGrid({
       </View>
     ),
 
+
     [onPostPress],
   )
 
   const keyExtractor = useCallback((item: Post) => item.id, [])
+
 
   const handleEndReached = () => {
     if (!loadingMore && hasMore) {
