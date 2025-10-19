@@ -1,6 +1,6 @@
 export interface Conversation {
   id: string;
-  user_ids: string[];
+  user_ids: string[];  // TODO: edge case
   created_at: string;
   updated_at: string;
   last_message?: string;
@@ -8,7 +8,6 @@ export interface Conversation {
   last_message_type?: string;
   unread_count: number;
   other_user: {
-
     id: string;
     username: string;
     display_name: string;
@@ -20,6 +19,7 @@ export interface Conversation {
 export interface Message {
   id: string;
   conversation_id: string;
+
   sender_id: string;
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
@@ -34,7 +34,7 @@ export interface Message {
   seen_at?: string;
   reactions?: MessageReaction[];
   reply_to?: {
-    id: string;  // check: refactor
+    id: string;
     senderName: string;
     content: string;
     messageType: string;
@@ -45,8 +45,7 @@ export interface Message {
 export interface MessageReaction {
   emoji: string;
   user_id: string;
-
-  created_at: string;
+  created_at: string;  // note: cleanup
 }
 
 export interface MediaMetadata {
