@@ -23,7 +23,6 @@ export function ExploreGrid({
   onPostPress,
   onRefresh,
   onLoadMore,
-
   refreshing,
 }: Props) {
   const posts = useExploreStore((state) => state.posts)
@@ -36,6 +35,7 @@ export function ExploreGrid({
         <ExplorePostItem post={item} onPress={onPostPress} />
       </View>
     ),
+
     [onPostPress],
   )
 
@@ -49,7 +49,7 @@ export function ExploreGrid({
 
   const renderFooter = () => {
     if (!loadingMore) return null
-    return (
+    return (  // TODO: edge case
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
@@ -59,7 +59,6 @@ export function ExploreGrid({
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>
-
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
         Follow people to see their posts here
@@ -87,6 +86,7 @@ export function ExploreGrid({
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
+
   )
 }
 
@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: COLORS.light.mutedForeground,
     marginTop: 6,
-
     textAlign: 'center',
   },
   emptyList: {
