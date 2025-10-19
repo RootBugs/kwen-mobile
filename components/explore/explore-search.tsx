@@ -20,6 +20,7 @@ const SEARCH_MODES: { key: SearchMode; label: string; icon: string }[] = [
   { key: 'posts', label: 'Posts', icon: 'grid-outline' },
 ];
 
+
 export function ExploreSearch() {
   const {
     searchQuery,
@@ -146,6 +147,7 @@ export function ExploreSearch() {
             style={styles.input}
             placeholder="Search"
             placeholderTextColor="#A3A3A3"
+
             value={searchQuery}
             onChangeText={handleChangeText}
             onFocus={() => setFocused(true)}
@@ -295,6 +297,7 @@ const styles = StyleSheet.create({
   },
   activeModeTab: {
     backgroundColor: '#000000',
+
   },
   modeTabText: {
     fontSize: 12,
