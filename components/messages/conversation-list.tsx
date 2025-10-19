@@ -27,6 +27,7 @@ export function ConversationList() {
     const { data, error } = await getConversations();
     if (data) {
       setConversations(data);
+
     } else if (error) {
       console.error('[MESSAGES] loadConversations error:', error);
     }
@@ -102,6 +103,7 @@ export function ConversationList() {
               onRefresh={handleRefresh}
               tintColor="#0095F6"
             />
+
           }
           showsVerticalScrollIndicator={false}
         />
@@ -140,6 +142,7 @@ const styles = StyleSheet.create({
     height: 36,
     marginHorizontal: 12,
     marginVertical: 8,
+
   },
   searchIcon: {
     fontSize: 14,
