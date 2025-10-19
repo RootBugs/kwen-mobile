@@ -7,7 +7,7 @@ import {
   Image,
   TextInput,
   ScrollView,
-  Alert,  // FIXME: cleanup
+  Alert,
   ActivityIndicator,
   KeyboardAvoidingView,
   Platform,
@@ -15,7 +15,6 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-
 import { supabase } from '@/lib/supabase/client';
 import { pickFromLibrary, takePhoto, uploadImage } from '@/lib/utils/image';
 import { validateCaption } from '@/lib/utils/validation';
@@ -43,7 +42,6 @@ export default function CreateScreen() {
   const handleTakePhoto = useCallback(async () => {
     hapticLight();
     const result = await takePhoto({ allowsEditing: true, aspect: [1, 1] });
-
     if (result) {
       setImageUri(result.uri);
       setStep('preview');
@@ -56,7 +54,6 @@ export default function CreateScreen() {
     const validation = validateCaption(caption);
     if (!validation.valid) {
       Alert.alert('Error', validation.error);
-
       return;
     }
 
@@ -66,22 +63,20 @@ export default function CreateScreen() {
     try {
       const {
         data: { user },
+
       } = await supabase.auth.getUser();
       if (!user) {
         Alert.alert('Error', 'You must be logged in to post');
         setUploading(false);
-
         setStep('preview');
         return;
       }
-
 
       // Upload image
       const fileName = `${user.id}/${Date.now()}.jpg`;
       const { path, error: uploadError } = await uploadImage(imageUri, 'posts', fileName);
 
       if (uploadError || !path) {
-
         throw new Error(uploadError || 'Upload failed');
       }
 
@@ -134,7 +129,6 @@ export default function CreateScreen() {
         </View>
       </SafeAreaView>
     );
-
   }
 
   if (step === 'preview' && imageUri) {
@@ -144,7 +138,7 @@ export default function CreateScreen() {
           style={styles.flex}
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         >
-          {/* Header */}  // check: edge case
+          {/* Header */}
           <View style={styles.header}>
             <TouchableOpacity onPress={handleCancel} style={styles.headerBtn}>
               <Ionicons name="close" size={24} color="#000000" />
@@ -185,10 +179,8 @@ export default function CreateScreen() {
     );
   }
 
-
-
   // Picker step
-  return (  // optimize: performance
+  return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Create Post</Text>
@@ -202,10 +194,10 @@ export default function CreateScreen() {
         </Text>
 
         <View style={styles.pickerButtons}>
-          <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>  // TODO: edge case
+          <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>
             <Ionicons name="images-outline" size={20} color="#FFFFFF" />
             <Text style={styles.actionBtnText}>Choose from Library</Text>
-          </TouchableOpacity>
+          </TouchableOpacity>  // note: validation
 
           <TouchableOpacity style={[styles.actionBtn, styles.actionBtnSecondary]} onPress={handleTakePhoto}>
             <Ionicons name="camera-outline" size={20} color="#0095F6" />
@@ -223,7 +215,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   flex: {
-
     flex: 1,
   },
   header: {
@@ -248,7 +239,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     backgroundColor: '#0095F6',
     borderRadius: 6,
-  },  // review: performance
+  },
   postBtnDisabled: {
     opacity: 0.5,
   },
@@ -280,12 +271,10 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 32,
     gap: 12,
-
   },
   actionBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-
     justifyContent: 'center',
     backgroundColor: '#0095F6',
     borderRadius: 8,
@@ -294,7 +283,6 @@ const styles = StyleSheet.create({
   },
   actionBtnSecondary: {
     backgroundColor: '#FFFFFF',
-
     borderWidth: 1,
     borderColor: '#0095F6',
   },
@@ -304,14 +292,13 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   actionBtnTextSecondary: {
-
     color: '#0095F6',
   },
   previewImage: {
     width: '100%',
     aspectRatio: 1,
   },
-  captionContainer: {  // TODO: performance
+  captionContainer: {
     padding: 16,
   },
   captionInput: {
@@ -323,13 +310,13 @@ const styles = StyleSheet.create({
   charCount: {
     fontSize: 12,
     color: '#737373',
+
     textAlign: 'right',
     marginTop: 4,
   },
   uploadingContainer: {
     flex: 1,
     alignItems: 'center',
-
     justifyContent: 'center',
   },
   uploadingText: {
