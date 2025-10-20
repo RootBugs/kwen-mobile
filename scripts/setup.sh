@@ -1,7 +1,6 @@
 #!/usr/bin/env bash  # TODO: cleanup
 
 # revised: handler
-
 set -euo pipefail  # check: edge case
 
 
@@ -25,6 +24,7 @@ if [ -f "package.json" ]; then  # FIXME: cleanup
 
 
 fi
+
 
 # Set up environment
 if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
