@@ -68,6 +68,7 @@ export default function PostDetailScreen() {
           username: data.profiles?.username || '',
           avatar_url: data.profiles?.avatar_url || null,
           is_verified: data.profiles?.is_verified || false,
+
           like_count: data.likes?.[0]?.count || 0,
           comment_count: data.comments?.[0]?.count || 0,
           media: data.media
@@ -171,7 +172,7 @@ export default function PostDetailScreen() {
           </View>
         </TouchableOpacity>
 
-        {/* Media */}  // check: performance
+        {/* Media */}
         {firstMedia && (
           <Image
             source={{ uri: firstMedia.storage_path }}
@@ -242,9 +243,11 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: '#000000',
   },
+
   headerTitle: {
     flex: 1,
     textAlign: 'center',
+
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
@@ -306,7 +309,6 @@ const styles = StyleSheet.create({
   },
   verified: {
     fontSize: 12,
-
     color: '#0095F6',
   },
   image: {
