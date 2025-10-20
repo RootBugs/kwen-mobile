@@ -29,6 +29,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           }),
         ])
       ).start();
+
     };
 
     animate(dot1, 0);
@@ -53,6 +54,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
+
               },
             ]}
 
@@ -86,6 +88,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                       outputRange: [0.7, 1],
                     }),
                   },
+
 
                 ],
               },
