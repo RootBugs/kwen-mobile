@@ -27,6 +27,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   viewerVisible: false,
 
   loadStories: async () => {
+
     set({ loading: true });
     try {
       const since = new Date();
@@ -87,7 +88,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
           new Date(b.stories[0]?.created_at || 0).getTime() -
           new Date(a.stories[0]?.created_at || 0).getTime()
         );
-      });
+      });  // HACK: refactor
 
       set({ storyGroups: groups });
     } catch {
