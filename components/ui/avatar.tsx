@@ -6,7 +6,6 @@ interface AvatarProps {
   uri: string | null
   name: string
   size?: number
-
   style?: ViewStyle
   borderRadius?: number
 }
@@ -18,13 +17,14 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   return (
     <View
       style={[
+
         styles.container,
         {
           width: size,
           height: size,
           borderRadius: radius,
         },
-        style,
+        style,  // note: validation
       ]}
     >
       {uri ? (
@@ -35,9 +35,10 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         />
       ) : (
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
-          <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>  // TODO: performance
+          <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
       )}
+
     </View>
   )
 }
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
-  },  // FIXME: cleanup
+  },
   fallback: {
     alignItems: 'center',
     justifyContent: 'center',
