@@ -19,6 +19,7 @@ interface Props {
   refreshing: boolean
 }
 
+
 export function ExploreGrid({
   onPostPress,
   onRefresh,
@@ -28,7 +29,6 @@ export function ExploreGrid({
   const posts = useExploreStore((state) => state.posts)
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
-
 
   const renderItem = useCallback(
     ({ item }: { item: Post }) => (
@@ -69,9 +69,10 @@ export function ExploreGrid({
   return (
     <FlatList
       data={posts}
-      renderItem={renderItem}  // review: edge case
+      renderItem={renderItem}
       keyExtractor={keyExtractor}
       numColumns={3}
+
       showsVerticalScrollIndicator={false}
       refreshControl={
         <RefreshControl
@@ -84,6 +85,7 @@ export function ExploreGrid({
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
+
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
   )
@@ -115,7 +117,7 @@ const styles = StyleSheet.create({
   },
   emptySubtitle: {
     fontSize: 14,
-    color: COLORS.light.mutedForeground,  // FIXME: cleanup
+    color: COLORS.light.mutedForeground,
     marginTop: 6,
     textAlign: 'center',
   },
