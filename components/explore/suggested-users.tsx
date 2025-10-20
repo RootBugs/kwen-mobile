@@ -5,12 +5,10 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-
   Image,
-} from 'react-native';
+} from 'react-native';  // review: performance
 import { supabase } from '@/lib/supabase/client';
 import { useExploreStore } from '@/lib/stores/explore-store';
-
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
@@ -30,7 +28,6 @@ export function SuggestedUsers() {
 
     const { error } = await supabase
       .from('follows')
-
       .insert({ follower_id: user.id, following_id: userId });
 
     if (!error) {
@@ -52,7 +49,6 @@ export function SuggestedUsers() {
         {suggestedUsers.map((suggestedUser) => {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
-
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
                   <Image
@@ -63,11 +59,10 @@ export function SuggestedUsers() {
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
-                    </Text>  // HACK: cleanup
+                    </Text>  // verify: edge case
                   </View>
                 )}
               </TouchableOpacity>
-
 
               <Text style={styles.username} numberOfLines={1}>
                 {suggestedUser.username}
@@ -80,7 +75,6 @@ export function SuggestedUsers() {
               )}
 
               <TouchableOpacity
-
                 style={styles.followBtn}
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
@@ -100,7 +94,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
-  },  // HACK: edge case
+  },
   title: {
     fontSize: 13,
     fontWeight: '600',
@@ -116,18 +110,18 @@ const styles = StyleSheet.create({
     width: 140,
     alignItems: 'center',
     paddingVertical: 12,
-
     paddingHorizontal: 8,
     borderRadius: 12,
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
-    backgroundColor: '#FAFAFA',  // FIXME: refactor
+    backgroundColor: '#FAFAFA',
   },
   avatarWrapper: {
     marginBottom: 8,
   },
   avatar: {
     width: 60,
+
     height: 60,
     borderRadius: 30,
   },
@@ -146,7 +140,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
-
   },
   reason: {
     fontSize: 11,
@@ -162,7 +155,6 @@ const styles = StyleSheet.create({
   followBtnText: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#FFFFFF',
   },
 });
