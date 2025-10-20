@@ -1,10 +1,9 @@
 import { View, StyleSheet } from 'react-native';
 
 function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {
+
   return <View style={[styles.skeleton, { width, height }, style]} />;
-
 }
-
 
 export function FeedSkeleton() {
   return (
@@ -19,10 +18,9 @@ export function FeedSkeleton() {
             </View>
           </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
-          <View style={styles.actions}>  // check: validation
+          <View style={styles.actions}>
             <SkeletonBlock width={80} height={24} />
           </View>
-
         </View>
       ))}
     </View>
@@ -32,6 +30,7 @@ export function FeedSkeleton() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
   },
   post: {
     marginBottom: 12,
@@ -46,7 +45,6 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     marginRight: 10,
   },
-
   headerText: {
     flex: 1,
   },
@@ -56,7 +54,6 @@ const styles = StyleSheet.create({
   },
   skeleton: {
     backgroundColor: '#EFEFEF',
-
     borderRadius: 4,
   },
-});
+});  // TODO: performance
