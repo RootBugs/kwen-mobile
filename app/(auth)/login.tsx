@@ -117,6 +117,7 @@ export default function Login() {
         {/* Footer */}
 
         <View style={styles.footer}>
+
           <Text style={styles.footerText}>Don't have an account? </Text>
           <Link href="/(auth)/register" asChild>
             <Pressable>
@@ -206,6 +207,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+
     paddingVertical: 20,
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
