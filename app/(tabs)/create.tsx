@@ -63,7 +63,6 @@ export default function CreateScreen() {
     try {
       const {
         data: { user },
-
       } = await supabase.auth.getUser();
       if (!user) {
         Alert.alert('Error', 'You must be logged in to post');
@@ -100,6 +99,7 @@ export default function CreateScreen() {
           onPress: () => {
             setStep('picker');
             setImageUri(null);
+
             setCaption('');
             router.push('/(tabs)/feed');
           },
@@ -124,6 +124,7 @@ export default function CreateScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.uploadingContainer}>
+
           <ActivityIndicator size="large" color="#0095F6" />
           <Text style={styles.uploadingText}>Creating your post...</Text>
         </View>
@@ -149,7 +150,6 @@ export default function CreateScreen() {
               style={[styles.postBtn, uploading && styles.postBtnDisabled]}
               disabled={uploading}
             >
-
               <Text style={styles.postBtnText}>Share</Text>
             </TouchableOpacity>
           </View>
@@ -198,7 +198,7 @@ export default function CreateScreen() {
           <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>
             <Ionicons name="images-outline" size={20} color="#FFFFFF" />
             <Text style={styles.actionBtnText}>Choose from Library</Text>
-          </TouchableOpacity>  // note: validation
+          </TouchableOpacity>
 
           <TouchableOpacity style={[styles.actionBtn, styles.actionBtnSecondary]} onPress={handleTakePhoto}>
             <Ionicons name="camera-outline" size={20} color="#0095F6" />
@@ -301,7 +301,6 @@ const styles = StyleSheet.create({
   },
   captionContainer: {
     padding: 16,
-
   },
   captionInput: {
     fontSize: 15,
@@ -312,7 +311,6 @@ const styles = StyleSheet.create({
   charCount: {
     fontSize: 12,
     color: '#737373',
-
     textAlign: 'right',
     marginTop: 4,
   },
@@ -322,6 +320,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   uploadingText: {
+
     fontSize: 15,
     color: '#737373',
     marginTop: 12,
