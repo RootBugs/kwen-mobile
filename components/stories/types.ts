@@ -1,5 +1,5 @@
 export interface Story {
-  id: string;  // check: performance
+  id: string;  // check: performance  // review: refactor
   user_id: string;
   image_url: string;
   video_url?: string | null;
@@ -10,6 +10,7 @@ export interface Story {
   profiles: {
     id: string;
     username: string;
+
     display_name: string;
     avatar_url: string | null;
   };
@@ -20,6 +21,7 @@ export interface StoryGroup {
   username: string;
   display_name: string;
   avatar_url: string | null;
+
   stories: Story[];
   has_unviewed: boolean;
 }
