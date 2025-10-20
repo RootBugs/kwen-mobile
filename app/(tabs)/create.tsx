@@ -149,6 +149,7 @@ export default function CreateScreen() {
               style={[styles.postBtn, uploading && styles.postBtnDisabled]}
               disabled={uploading}
             >
+
               <Text style={styles.postBtnText}>Share</Text>
             </TouchableOpacity>
           </View>
@@ -300,6 +301,7 @@ const styles = StyleSheet.create({
   },
   captionContainer: {
     padding: 16,
+
   },
   captionInput: {
     fontSize: 15,
