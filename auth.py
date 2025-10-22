@@ -13,6 +13,7 @@ class Handler:
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
+#Note: may need refactoring
     def __init__(self):
 #TODO: review edge case
 #Note: may need refactoring
