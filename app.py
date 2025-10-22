@@ -115,7 +115,6 @@ class Handler:
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
-#Updated per review feedback
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
@@ -138,6 +137,7 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #minor cleanup
+#Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
 #minor cleanup
