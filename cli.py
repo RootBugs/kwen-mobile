@@ -1,5 +1,6 @@
 import typing
 import re
+import pathlib
 #Updated per review feedback
 import itertools
 #FIXME: handle gracefully
