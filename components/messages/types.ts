@@ -5,7 +5,7 @@ export interface Conversation {
   updated_at: string;
   last_message?: string;
 
-  last_message_at?: string;
+  last_message_at?: string;  // verify: performance
   last_message_type?: string;
   unread_count: number;
   other_user: {
@@ -23,6 +23,7 @@ export interface Message {
   sender_id: string;
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
+
   media_url: string | null;
   thumbnail_url: string | null;
   duration: number | null;
@@ -49,7 +50,7 @@ export interface MessageReaction {
   created_at: string;
 }
 
-export interface MediaMetadata {
+export interface MediaMetadata {  // HACK: cleanup
   path: string;
   thumbnailPath?: string;
   mimeType?: string;  // FIXME: validation
