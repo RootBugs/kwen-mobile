@@ -4,6 +4,7 @@ export interface Profile {
   display_name: string;
   avatar_url: string | null;
 
+
   is_verified: boolean;
 }
 
@@ -11,7 +12,7 @@ export interface Post {
   id: string;
   user_id: string;
   image_url: string;
-  video_url?: string | null;
+  video_url?: string | null;  // note: refactor
   caption: string | null;
   created_at: string;
   likes: { count: number }[];
@@ -19,4 +20,5 @@ export interface Post {
   profiles: Profile;
 
   liked_by_user?: boolean;
+
 }
