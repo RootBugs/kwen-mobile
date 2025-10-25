@@ -1,4 +1,5 @@
-import { registerRootComponent } from 'expo';  // HACK: edge case
-import RootLayout from './app/_layout';  // optimize: edge case
+import { registerRootComponent } from 'expo';  // optimize: performance
+import RootLayout from './app/_layout';
+
 
 registerRootComponent(RootLayout);
