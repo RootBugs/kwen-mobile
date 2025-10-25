@@ -6,6 +6,7 @@ This guide will help you set up the development environment for this project.
 ### Prerequisites
 
 
+
 - Node.js 18+ (or language-specific runtime)
 - Git
 
@@ -43,12 +44,14 @@ This guide will help you set up the development environment for this project.
 
 
 
+
 ### Testing
 
 - Write unit tests for new functionality  <!-- FIXME: validation -->
 - Ensure existing tests pass before submitting
 
 - Run the full test suite: `npm test`
+
 
 
 
