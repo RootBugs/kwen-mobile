@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react';
 import {
-
   View,
   Text,
   TextInput,
@@ -20,7 +19,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);  // note: performance
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = useCallback(async () => {
@@ -90,7 +89,6 @@ export default function Login() {
               secureTextEntry
               returnKeyType="done"
               onSubmitEditing={handleLogin}
-
             />
 
             <TouchableOpacity
@@ -117,7 +115,6 @@ export default function Login() {
         {/* Footer */}
 
         <View style={styles.footer}>
-
           <Text style={styles.footerText}>Don't have an account? </Text>
           <Link href="/(auth)/register" asChild>
             <Pressable>
@@ -184,12 +181,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
-
   },
   buttonDisabled: {
     opacity: 0.5,
   },
-
   buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
@@ -207,11 +202,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-
     paddingVertical: 20,
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
   },
+
   footerText: {
     color: '#737373',
     fontSize: 14,
