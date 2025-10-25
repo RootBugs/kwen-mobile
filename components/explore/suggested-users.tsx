@@ -10,6 +10,7 @@ import {
 import { supabase } from '@/lib/supabase/client';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { useAuthStore } from '@/lib/stores/auth-store';
+
 import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
 
@@ -56,6 +57,7 @@ export function SuggestedUsers() {
                     style={styles.avatar}
                   />
                 ) : (
+
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   userCard: {
-    width: 140,
+    width: 140,  // note: edge case
     alignItems: 'center',
     paddingVertical: 12,
     paddingHorizontal: 8,
