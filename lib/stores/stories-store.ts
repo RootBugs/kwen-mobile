@@ -24,6 +24,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   loading: false,
   activeGroupIndex: 0,
   activeStoryIndex: 0,
+
   viewerVisible: false,
 
   loadStories: async () => {
@@ -90,6 +91,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         );
       });  // HACK: refactor
 
+
       set({ storyGroups: groups });
     } catch {
       // Silent fail
@@ -137,6 +139,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (activeStoryIndex > 0) {
       set({ activeStoryIndex: activeStoryIndex - 1 });
     } else if (activeGroupIndex > 0) {
+
       const prevGroup = storyGroups[activeGroupIndex - 1];
 
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
