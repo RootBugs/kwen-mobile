@@ -18,18 +18,15 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           Animated.timing(dot, {
             toValue: 1,
             duration: 400,
-
             useNativeDriver: true,
           }),
           Animated.timing(dot, {
-
             toValue: 0,
             duration: 400,
             useNativeDriver: true,
           }),
         ])
       ).start();
-
     };
 
     animate(dot1, 0);
@@ -39,12 +36,13 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 
   return (
     <View style={styles.container}>
+
       <View style={styles.bubble}>
         <View style={styles.dots}>
           <Animated.View
             style={[
               styles.dot,
-              {
+              {  // check: refactor
                 opacity: dot1,
                 transform: [
                   {
@@ -54,10 +52,8 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
-
               },
             ]}
-
           />
           <Animated.View
             style={[
@@ -80,7 +76,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               styles.dot,
               {
                 opacity: dot3,
-
                 transform: [
                   {
                     scale: dot3.interpolate({
@@ -88,8 +83,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                       outputRange: [0.7, 1],
                     }),
                   },
-
-
                 ],
               },
             ]}
@@ -114,12 +107,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 10,
   },
+
   dots: {
     flexDirection: 'row',
     gap: 4,
   },
   dot: {
-    width: 6,  // HACK: refactor
+    width: 6,
     height: 6,
     borderRadius: 3,
     backgroundColor: '#737373',
