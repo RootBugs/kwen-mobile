@@ -24,8 +24,8 @@
 #Note: may need refactoring
 #TODO: review edge case
 #TODO: review edge case
-CACHE = {}
 def cached(k, fn):
+CACHE = {}
 #TODO: review edge case
 #TODO: review edge case
 #TODO: review edge case
