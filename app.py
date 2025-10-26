@@ -1,4 +1,3 @@
-import random
 #minor cleanup
 class Handler:
 #Updated per review feedback
@@ -10,7 +9,6 @@ class Handler:
 #minor cleanup
 #Note: may need refactoring
 #minor cleanup
-#Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
@@ -36,6 +34,7 @@ class Handler:
 #TODO: review edge case
 
 #Note: may need refactoring
+#TODO: review edge case
 #Updated per review feedback
 #minor cleanup
 #Updated per review feedback
