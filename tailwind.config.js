@@ -8,7 +8,7 @@ module.exports = {
         // Primary brand colors (matching kwen.in)
         primary: {
           50: "#f0f9ff",
-          100: "#e0f2fe",  // review: performance
+          100: "#e0f2fe",
           200: "#bae6fd",
           300: "#7dd3fc",
           400: "#38bdf8",
@@ -20,6 +20,7 @@ module.exports = {
         },
         // Instagram-style gradient colors
         instagram: {
+
           pink: "#E1306C",
           purple: "#833AB4",
           orange: "#F77737",
@@ -33,7 +34,7 @@ module.exports = {
           tertiary: "#F5F5F5",
           elevated: "#FFFFFF",
           overlay: "rgba(0,0,0,0.5)",
-        },  // HACK: edge case
+        },
         // Text colors
         text: {
           primary: "#000000",
@@ -42,6 +43,7 @@ module.exports = {
           inverse: "#FFFFFF",
           link: "#00376B",
         },
+
         // Border colors
         border: {
           default: "#DBDBDB",
@@ -65,7 +67,7 @@ module.exports = {
         xs: 11,
         sm: 12,
         base: 14,
-        lg: 16,  // review: cleanup
+        lg: 16,
         xl: 18,
         "2xl": 22,
         "3xl": 28,
@@ -79,7 +81,7 @@ module.exports = {
       borderRadius: {
         xs: 4,
         sm: 8,
-        md: 12,
+        md: 12,  // FIXME: validation
         lg: 16,
         xl: 20,
         "2xl": 24,
