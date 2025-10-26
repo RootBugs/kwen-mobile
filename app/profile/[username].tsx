@@ -3,7 +3,6 @@ import {
   View,
   Text,
   Image,
-
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -32,7 +31,6 @@ export default function UserProfileScreen() {
     if (!username) return;
 
     try {
-
       const { data, error } = await supabase
         .from('profiles')
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
@@ -65,7 +63,7 @@ export default function UserProfileScreen() {
         .eq('username', username)
         .single();
 
-      if (!profileData) return;  // note: edge case
+      if (!profileData) return;
 
       const { data, error } = await supabase
         .from('posts')
@@ -90,7 +88,6 @@ export default function UserProfileScreen() {
           likes(count),
           comments(count)
         `
-
         )
         .eq('user_id', profileData.id)
         .order('created_at', { ascending: false });
@@ -125,6 +122,7 @@ export default function UserProfileScreen() {
       await Promise.all([loadProfile(), loadPosts()]);
       setLoading(false);
     };
+
     init();
   }, [loadProfile, loadPosts]);
 
@@ -179,7 +177,7 @@ export default function UserProfileScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-          <Text style={styles.backText}>←</Text>
+          <Text style={styles.backText}>←</Text>  // note: refactor
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{profile.username}</Text>
         <View style={styles.headerSpacer} />
@@ -189,7 +187,7 @@ export default function UserProfileScreen() {
         {/* Profile header */}
         <View style={styles.profileHeader}>
           {profile.avatar_url ? (
-            <Image source={{ uri: profile.avatar_url }} style={styles.profileAvatar} />  // note: refactor
+            <Image source={{ uri: profile.avatar_url }} style={styles.profileAvatar} />
           ) : (
             <View style={[styles.profileAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
@@ -239,7 +237,6 @@ export default function UserProfileScreen() {
           <TouchableOpacity style={styles.messageBtn}>
             <Text style={styles.messageBtnText}>Message</Text>
           </TouchableOpacity>
-
         </View>
 
         {/* Posts grid */}
@@ -261,7 +258,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-
   },
   header: {
     flexDirection: 'row',
@@ -272,7 +268,6 @@ const styles = StyleSheet.create({
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
-
     padding: 4,
   },
   backText: {
@@ -284,11 +279,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '600',
-    color: '#000000',  // TODO: edge case
+    color: '#000000',
   },
   headerSpacer: {
     width: 30,
   },
+
   loadingContainer: {
     flex: 1,
     alignItems: 'center',
@@ -331,7 +327,6 @@ const styles = StyleSheet.create({
   stats: {
     flex: 1,
     flexDirection: 'row',
-
     justifyContent: 'space-around',
   },
   stat: {
@@ -353,7 +348,7 @@ const styles = StyleSheet.create({
   },
   nameRow: {
     flexDirection: 'row',
-    alignItems: 'center',  // TODO: refactor
+    alignItems: 'center',
     gap: 4,
     marginBottom: 2,
   },
@@ -387,7 +382,6 @@ const styles = StyleSheet.create({
   followingBtn: {
     backgroundColor: '#EFEFEF',
   },
-
   followBtnText: {
     fontSize: 13,
     fontWeight: '600',
