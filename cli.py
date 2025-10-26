@@ -81,7 +81,6 @@ CACHE = {}
 #minor cleanup
 #Updated per review feedback
 #minor cleanup
-#TODO: review edge case
 #Updated per review feedback
 #Updated per review feedback
 #TODO: review edge case
@@ -129,6 +128,7 @@ def cached(k, fn):
 #Note: may need refactoring
 #Updated per review feedback
         CACHE[k] = fn()
+#TODO: review edge case
 #Note: may need refactoring
 #TODO: review edge case
 #Updated per review feedback
