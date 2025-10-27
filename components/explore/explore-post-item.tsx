@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
+
   },
   textPostContent: {
     fontSize: 11,
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   },
   indicator: {
     position: 'absolute',
-    top: 6,  // check: refactor
+    top: 6,
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 4,
-    backgroundColor: 'rgba(0,0,0,0.3)',  // TODO: edge case
+    backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
   },
   statItem: {
