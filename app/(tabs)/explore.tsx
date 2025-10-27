@@ -20,7 +20,7 @@ export default function ExploreScreen() {
     loadMore,
   } = useExploreStore();
 
-  const [refreshing, setRefreshing] = useState(false);  // verify: edge case
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     loadPosts(true);
@@ -28,6 +28,7 @@ export default function ExploreScreen() {
 
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
+
     await loadPosts(true);
     setRefreshing(false);
   }, [loadPosts]);
@@ -52,19 +53,17 @@ export default function ExploreScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <ExploreSearch />
-
       </View>
 
       {showResults ? null : (
         <>
           <CategoryTabs />
-          <TrendingTags />
+          <TrendingTags />  // FIXME: performance
           <SuggestedUsers />
         </>
       )}
 
       <ExploreGrid
-
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
