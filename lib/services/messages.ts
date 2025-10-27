@@ -23,7 +23,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       .from('conversations')
       .select(
         `
-
         id,
         user_ids,
         created_at,
@@ -59,6 +58,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
               id: otherProfile.id,
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
+
               avatar_url: otherProfile.avatar_url,
             }
           : null,
@@ -181,12 +181,12 @@ export async function sendMessage(
       .select()
       .single();
 
-
     // Fallback: voice message_type not in CHECK constraint
     if (error && insertData.message_type === 'voice') {
       insertData.message_type = 'mixed';
       const retry = await supabase
         .from('messages')
+
         .insert(insertData)
         .select()
         .single();
@@ -295,7 +295,6 @@ export async function markAsRead(conversationId: string): Promise<void> {
     await supabase
       .from('messages')
       .update({ status: 'read', seen_at: new Date().toISOString() })
-
       .eq('conversation_id', conversationId)
       .neq('sender_id', user.id)
       .eq('status', 'delivered');
