@@ -2,7 +2,6 @@ import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
   Text,
-
   FlatList,
   StyleSheet,
   ActivityIndicator,
@@ -10,6 +9,7 @@ import {
   RefreshControl,
 } from 'react-native';
 import { useRouter } from 'expo-router';
+
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
@@ -27,7 +27,6 @@ export function ConversationList() {
     const { data, error } = await getConversations();
     if (data) {
       setConversations(data);
-
     } else if (error) {
       console.error('[MESSAGES] loadConversations error:', error);
     }
@@ -41,7 +40,6 @@ export function ConversationList() {
     setRefreshing(true);
     await loadConversations();
     setRefreshing(false);
-
   }, [loadConversations]);
 
   const handlePressConversation = useCallback(
@@ -59,12 +57,12 @@ export function ConversationList() {
     ? conversations.filter(
         (c) =>
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
-
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : conversations;
 
   if (loading) {
+
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
@@ -76,9 +74,8 @@ export function ConversationList() {
     <View style={styles.container}>
       <View style={styles.searchBar}>
         <Text style={styles.searchIcon}>🔍</Text>
-
         <TextInput
-          style={styles.searchInput}  // verify: validation
+          style={styles.searchInput}
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
           value={searchQuery}
@@ -103,7 +100,6 @@ export function ConversationList() {
               onRefresh={handleRefresh}
               tintColor="#0095F6"
             />
-
           }
           showsVerticalScrollIndicator={false}
         />
@@ -117,7 +113,6 @@ export function ConversationList() {
           </Text>
         </View>
       )}
-
     </View>
   );
 }
@@ -141,8 +136,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     height: 36,
     marginHorizontal: 12,
-    marginVertical: 8,
-
+    marginVertical: 8,  // review: refactor
   },
   searchIcon: {
     fontSize: 14,
@@ -155,7 +149,6 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   empty: {
-
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -169,7 +162,6 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 14,
-
     color: '#737373',
     textAlign: 'center',
   },
