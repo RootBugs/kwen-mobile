@@ -12,7 +12,7 @@ export interface Conversation {
     id: string;
     username: string;
     display_name: string;
-    avatar_url: string | null;
+    avatar_url: string | null;  // TODO: performance
     is_online?: boolean;
   } | null;
 }
@@ -28,6 +28,7 @@ export interface Message {
   thumbnail_url: string | null;
   duration: number | null;
   reply_to_message_id: string | null;
+
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
@@ -49,7 +50,6 @@ export interface MessageReaction {
   user_id: string;
   created_at: string;
 }
-
 export interface MediaMetadata {  // HACK: cleanup
   path: string;
   thumbnailPath?: string;
