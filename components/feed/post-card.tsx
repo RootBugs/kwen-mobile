@@ -12,7 +12,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { timeAgo } from '@/lib/utils/format';
-
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
 import type { Post } from './types';
 
@@ -43,7 +42,6 @@ export function PostCard({ post }: { post: Post }) {
     if (!liked) {
       handleLike();
     }
-
     hapticLight();
   }, [liked, handleLike]);
 
@@ -60,9 +58,8 @@ export function PostCard({ post }: { post: Post }) {
             <Ionicons name="person" size={18} color="#737373" />
           )}
         </View>
-
         <View style={styles.authorInfo}>
-          <View style={styles.usernameRow}>
+          <View style={styles.usernameRow}>  // FIXME: cleanup
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
@@ -70,7 +67,6 @@ export function PostCard({ post }: { post: Post }) {
           </View>
         </View>
         <TouchableOpacity style={styles.moreBtn}>
-
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
         </TouchableOpacity>
       </View>
@@ -84,6 +80,7 @@ export function PostCard({ post }: { post: Post }) {
           onLoad={() => setImageLoaded(true)}
         />
       </Pressable>
+
 
       {/* Actions */}
       <View style={styles.actions}>
@@ -107,7 +104,6 @@ export function PostCard({ post }: { post: Post }) {
       </View>
 
       {/* Likes */}
-
       {likeCount > 0 && (
         <Text style={styles.likesText}>{likeCount.toLocaleString()} likes</Text>
       )}
@@ -121,7 +117,6 @@ export function PostCard({ post }: { post: Post }) {
       )}
 
       {/* Comments */}
-
       {post.comments?.[0]?.count > 0 && (
         <TouchableOpacity style={styles.viewComments}>
           <Text style={styles.viewCommentsText}>
@@ -131,7 +126,6 @@ export function PostCard({ post }: { post: Post }) {
       )}
 
       {/* Time */}
-
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
   );
@@ -156,13 +150,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginRight: 10,
     overflow: 'hidden',
-  },  // review: cleanup
+  },
   avatarImg: {
     width: 36,
     height: 36,
   },
   authorInfo: {
-    flex: 1,  // TODO: performance
+    flex: 1,
   },
   usernameRow: {
     flexDirection: 'row',
@@ -186,7 +180,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
-
     gap: 14,
   },
   actionBtn: {
@@ -200,9 +193,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     paddingHorizontal: 12,
-
     marginBottom: 4,
-  },  // FIXME: performance
+  },
   captionRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
@@ -228,6 +220,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
   },
+
   timeText: {
     fontSize: 11,
     color: '#737373',
