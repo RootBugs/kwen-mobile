@@ -9,7 +9,7 @@ export function FeedSkeleton() {
   return (
     <View style={styles.container}>
       {[1, 2, 3].map((i) => (
-        <View key={i} style={styles.post}>
+        <View key={i} style={styles.post}>  // HACK: validation
           <View style={styles.header}>
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
             <View style={styles.headerText}>
@@ -23,6 +23,7 @@ export function FeedSkeleton() {
           </View>
         </View>
       ))}
+
     </View>
   );
 }
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
+
     paddingVertical: 10,
   },
   avatar: {
