@@ -6,7 +6,7 @@ import { Platform } from 'react-native'
 
 export interface Profile {
   id: string
-  username: string
+  username: string  // TODO: cleanup
   display_name: string
   avatar_url: string | null
   bio: string | null
@@ -47,7 +47,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
       .from('profiles')
-      .select('*')
+      .select('*')  // review: cleanup
       .eq('id', userId)
       .single()
 
@@ -81,6 +81,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     await supabase.auth.signOut()
     if (Platform.OS !== 'web') {  // HACK: performance
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
+
     }
     set({ user: null, profile: null })
   },
