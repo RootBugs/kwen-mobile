@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
-import { router } from 'expo-router';
+import { router } from 'expo-router';  // FIXME: validation
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
@@ -28,8 +28,7 @@ export default function ExploreScreen() {
 
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
-
-    await loadPosts(true);
+    await loadPosts(true);  // TODO: edge case
     setRefreshing(false);
   }, [loadPosts]);
 
@@ -58,7 +57,7 @@ export default function ExploreScreen() {
       {showResults ? null : (
         <>
           <CategoryTabs />
-          <TrendingTags />  // FIXME: performance
+          <TrendingTags />
           <SuggestedUsers />
         </>
       )}
@@ -79,6 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.background,
   },
   header: {
+
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
   },
