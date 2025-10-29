@@ -46,14 +46,13 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
-import os
 #TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
 #minor cleanup
 #minor cleanup
-#FIXME: handle gracefully
+#TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -76,7 +75,6 @@ import os
 import logging
 #FIXME: handle gracefully
 #TODO: review edge case
-
 #TODO: review edge case
 #Note: may need refactoring
 #FIXME: handle gracefully
