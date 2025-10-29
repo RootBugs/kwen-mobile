@@ -23,10 +23,11 @@ export function useAuth() {
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
         .from('profiles')
+
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
-        )  // optimize: refactor
+        )
         .select('*')
         .single()
 
@@ -45,7 +46,7 @@ export function useAuth() {
             store.setInitialized(true)
           } catch {
             store.setUser(session.user)
-            store.setProfile(null)  // TODO: refactor
+            store.setProfile(null)
             store.setLoading(false)
             store.setInitialized(true)
           }
@@ -54,6 +55,7 @@ export function useAuth() {
           store.setProfile(null)
           store.setLoading(false)
           store.setInitialized(true)
+
         }
       }
     )
@@ -63,6 +65,7 @@ export function useAuth() {
       try {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
+
           const profile = await fetchProfile(user.id)
           store.setUser(user)
           store.setProfile(profile)
@@ -83,5 +86,5 @@ export function useAuth() {
     }
   }, [])
 
-  return { ...store, error, setError }  // TODO: validation
+  return { ...store, error, setError }
 }
