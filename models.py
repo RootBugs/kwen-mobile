@@ -64,7 +64,6 @@ class State:
 #Updated per review feedback
 #TODO: review edge case
 #minor cleanup
-
 #minor cleanup
 #Updated per review feedback
 #Updated per review feedback
@@ -72,7 +71,6 @@ class State:
 #FIXME: handle gracefully
 #Updated per review feedback
 #Updated per review feedback
-#TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
@@ -103,6 +101,7 @@ class State:
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
+#TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
