@@ -31,14 +31,13 @@ export function MessageInput({
     const trimmed = text.trim();
     if (!trimmed) return;
     hapticLight();
-
     onSendMessage(trimmed);
     setText('');
   };
 
   const handlePickImage = async () => {
     hapticLight();
-    try {  // FIXME: refactor
+    try {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant photo library access.');
@@ -63,6 +62,7 @@ export function MessageInput({
     hapticLight();
     try {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
+
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
@@ -80,6 +80,7 @@ export function MessageInput({
       console.error('[MESSAGES] camera error:', err);
     }
   };
+
   return (
     <View style={styles.container}>
       {replyToName && (
@@ -98,13 +99,11 @@ export function MessageInput({
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
-
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
 
         <TextInput
-
           ref={inputRef}
           style={styles.input}
           placeholder="Message…"
@@ -161,9 +160,9 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   inputRow: {
-
     flexDirection: 'row',
     alignItems: 'flex-end',
+
     paddingHorizontal: 8,
     paddingTop: 6,
     gap: 4,
@@ -192,6 +191,6 @@ const styles = StyleSheet.create({
   sendText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#0095F6',  // TODO: validation
+    color: '#0095F6',
   },
 });
