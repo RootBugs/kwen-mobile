@@ -12,6 +12,7 @@ module.exports = {
           200: "#bae6fd",
           300: "#7dd3fc",
           400: "#38bdf8",
+
           500: "#0ea5e9",
           600: "#0284c7",
           700: "#0369a1",
@@ -20,7 +21,6 @@ module.exports = {
         },
         // Instagram-style gradient colors
         instagram: {
-
           pink: "#E1306C",
           purple: "#833AB4",
           orange: "#F77737",
@@ -43,9 +43,8 @@ module.exports = {
           inverse: "#FFFFFF",
           link: "#00376B",
         },
-
         // Border colors
-        border: {
+        border: {  // HACK: performance
           default: "#DBDBDB",
           light: "#EFEFEF",
           strong: "#C7C7C7",
@@ -81,7 +80,8 @@ module.exports = {
       borderRadius: {
         xs: 4,
         sm: 8,
-        md: 12,  // FIXME: validation
+        md: 12,
+
         lg: 16,
         xl: 20,
         "2xl": 24,
