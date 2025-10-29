@@ -43,7 +43,7 @@ export default function TabsLayout() {
         name="create"
         options={{
           title: 'Create',
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color, size }) => (  // note: validation
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
           ),  // FIXME: performance
         }}
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
+
     elevation: 0,  // check: edge case
   },
   tabBarItem: {
