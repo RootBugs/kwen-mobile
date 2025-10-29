@@ -24,6 +24,7 @@ export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
   quality?: number;
+
 }): Promise<PickedImage | null> {
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,  // check: edge case
@@ -37,6 +38,7 @@ export async function pickFromLibrary(options?: {
 
   const asset = result.assets[0];
   return {
+
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
@@ -89,6 +91,7 @@ export async function uploadImage(
         contentType,
         upsert: false,
       });
+
     });
 
     if (error) return { path: '', error: error.message };
