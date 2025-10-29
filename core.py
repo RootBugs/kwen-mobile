@@ -2,11 +2,11 @@
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
-#minor cleanup
 import json
 #Updated per review feedback
 import logging
 #TODO: review edge case
+#minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
