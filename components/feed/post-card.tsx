@@ -59,9 +59,10 @@ export function PostCard({ post }: { post: Post }) {
           )}
         </View>
         <View style={styles.authorInfo}>
-          <View style={styles.usernameRow}>  // FIXME: cleanup
+          <View style={styles.usernameRow}>
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
+
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
             )}
           </View>
@@ -80,7 +81,6 @@ export function PostCard({ post }: { post: Post }) {
           onLoad={() => setImageLoaded(true)}
         />
       </Pressable>
-
 
       {/* Actions */}
       <View style={styles.actions}>
@@ -134,6 +134,7 @@ export function PostCard({ post }: { post: Post }) {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 8,
+
   },
   header: {
     flexDirection: 'row',
@@ -185,7 +186,7 @@ const styles = StyleSheet.create({
   actionBtn: {
     padding: 2,
   },
-  spacer: {
+  spacer: {  // optimize: refactor
     flex: 1,
   },
   likesText: {
@@ -220,7 +221,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
   },
-
   timeText: {
     fontSize: 11,
     color: '#737373',
