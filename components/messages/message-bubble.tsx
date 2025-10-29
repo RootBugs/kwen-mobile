@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+
 import { Message } from './types';
 import { timeAgo } from '@/lib/utils/format';
 
@@ -56,7 +57,6 @@ export function MessageBubble({
                 key={i}
                 style={[
                   styles.waveBar,
-
                   { height: Math.random() * 16 + 4 },
                   isMine && styles.waveBarMine,
                 ]}
@@ -99,6 +99,7 @@ export function MessageBubble({
           isMine ? styles.bubbleMine : styles.bubbleOther,
           showTail && isMine && styles.tailMine,
           showTail && !isMine && styles.tailOther,
+
         ]}
         onLongPress={() => onReply?.(message)}
       >
@@ -136,7 +137,6 @@ const styles = StyleSheet.create({
   containerMine: {
     alignSelf: 'flex-end',
   },
-
   bubble: {
     borderRadius: 18,
     paddingHorizontal: 12,
@@ -175,6 +175,7 @@ const styles = StyleSheet.create({
   voiceMessage: {
     flexDirection: 'row',
     alignItems: 'center',
+
     gap: 8,
     minWidth: 160,
   },
@@ -215,7 +216,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
-
     marginTop: 2,
     paddingHorizontal: 4,
   },
