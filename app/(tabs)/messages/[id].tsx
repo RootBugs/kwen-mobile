@@ -21,6 +21,7 @@ export default function ChatScreen() {
         </TouchableOpacity>
 
         {otherUser && (
+
           <TouchableOpacity
             style={styles.userInfo}
             onPress={() =>
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   header: {
+
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 8,
@@ -81,6 +83,7 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   headerAvatar: {
+
     width: 32,
     height: 32,
     borderRadius: 16,
