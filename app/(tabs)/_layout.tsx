@@ -3,6 +3,7 @@ import { Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
+
 export default function TabsLayout() {
   return (
     <Tabs
@@ -23,7 +24,6 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="feed"
         options={{
-
           title: 'Feed',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size + 2} color={color} />
@@ -43,12 +43,13 @@ export default function TabsLayout() {
         name="create"
         options={{
           title: 'Create',
-          tabBarIcon: ({ color, size }) => (  // note: validation
+          tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
-          ),  // FIXME: performance
+          ),
         }}
       />
       <Tabs.Screen
+
         name="messages"
         options={{
           title: 'Messages',
@@ -79,13 +80,12 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
-
-    elevation: 0,  // check: edge case
+    elevation: 0,
   },
   tabBarItem: {
     paddingVertical: 4,
   },
-  tabBarIcon: {
+  tabBarIcon: {  // HACK: refactor
     marginBottom: 0,
   },
 });
