@@ -43,6 +43,7 @@ export default function Profile() {
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
             <Text style={styles.statLabel}>Followers</Text>
+
           </View>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
+
     marginBottom: 16,
   },
   displayName: {
@@ -112,6 +114,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
+
   stats: {
     flexDirection: 'row',
     gap: 32,
