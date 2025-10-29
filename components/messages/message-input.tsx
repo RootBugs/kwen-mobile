@@ -32,6 +32,7 @@ export function MessageInput({
     if (!trimmed) return;
     hapticLight();
     onSendMessage(trimmed);
+
     setText('');
   };
 
@@ -121,6 +122,7 @@ export function MessageInput({
             <Text style={styles.sendText}>Send</Text>
           </TouchableOpacity>
         )}
+
       </View>
     </View>
   );
@@ -143,6 +145,7 @@ const styles = StyleSheet.create({
   replyIndicator: {
     width: 3,
     height: 24,
+
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
     marginRight: 8,
