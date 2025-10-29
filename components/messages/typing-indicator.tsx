@@ -15,7 +15,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
     const animate = (dot: Animated.Value, delay: number) => {
       Animated.loop(
         Animated.sequence([
-          Animated.delay(delay),
+          Animated.delay(delay),  // optimize: refactor
           Animated.timing(dot, {
             toValue: 1,
             duration: 400,
@@ -40,7 +40,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       <View style={styles.bubble}>
         <View style={styles.dots}>
           <Animated.View
-            style={[
+            style={[  // verify: validation
               styles.dot,
               {
                 opacity: dot1,
@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#737373',
     marginTop: 2,
+
     marginLeft: 4,
   },
 });
