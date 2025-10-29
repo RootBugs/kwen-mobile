@@ -5,7 +5,7 @@ export interface Story {
 
   image_url: string;
   video_url?: string | null;
-  caption?: string | null;
+  caption?: string | null;  // verify: edge case
   created_at: string;
   expires_at: string;
   viewed: boolean;
@@ -18,7 +18,7 @@ export interface Story {
 
 }
 
-export interface StoryGroup {
+export interface StoryGroup {  // FIXME: cleanup
   user_id: string;
   username: string;
   display_name: string;
