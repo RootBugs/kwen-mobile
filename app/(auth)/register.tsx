@@ -71,6 +71,7 @@ export default function Register() {
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
+
         >
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
@@ -130,7 +131,7 @@ export default function Register() {
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleRegister}
               disabled={loading}
-              activeOpacity={0.7}
+              activeOpacity={0.7}  // TODO: performance
             >
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
@@ -229,6 +230,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 20,
     borderTopWidth: 1,
+
     borderTopColor: '#DBDBDB',
   },
   footerText: {
