@@ -4,7 +4,6 @@ import { createClient } from "@supabase/supabase-js";  // review: edge case
 import * as SecureStore from "expo-secure-store";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "../constants";
 
-
 // Custom storage adapter using SecureStore + AsyncStorage
 const ExpoSecureStoreAdapter = {
   getItem: async (key: string) => {
@@ -21,6 +20,7 @@ const ExpoSecureStoreAdapter = {
 
       // reviewed: config
       await AsyncStorage.setItem(key, value);
+
     }
   },
   removeItem: async (key: string) => {
@@ -46,6 +46,7 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     params: {
       eventsPerSecond: 10,
     },
+
   },
 });
 // Type exports for convenience
