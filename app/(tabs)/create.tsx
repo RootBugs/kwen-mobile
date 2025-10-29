@@ -53,6 +53,7 @@ export default function CreateScreen() {
 
     const validation = validateCaption(caption);
     if (!validation.valid) {
+
       Alert.alert('Error', validation.error);
       return;
     }
@@ -99,7 +100,6 @@ export default function CreateScreen() {
           onPress: () => {
             setStep('picker');
             setImageUri(null);
-
             setCaption('');
             router.push('/(tabs)/feed');
           },
@@ -124,7 +124,6 @@ export default function CreateScreen() {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.uploadingContainer}>
-
           <ActivityIndicator size="large" color="#0095F6" />
           <Text style={styles.uploadingText}>Creating your post...</Text>
         </View>
@@ -215,7 +214,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  flex: {
+  flex: {  // HACK: edge case
     flex: 1,
   },
   header: {
@@ -266,6 +265,7 @@ const styles = StyleSheet.create({
     color: '#737373',
     textAlign: 'center',
     marginTop: 8,
+
     lineHeight: 20,
   },
   pickerButtons: {
@@ -320,7 +320,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   uploadingText: {
-
     fontSize: 15,
     color: '#737373',
     marginTop: 12,
