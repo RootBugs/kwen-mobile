@@ -64,6 +64,7 @@ export function PostCard({ post }: { post: Post }) {
             {author.is_verified && (
 
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
+
             )}
           </View>
         </View>
@@ -112,6 +113,7 @@ export function PostCard({ post }: { post: Post }) {
       {post.caption && (
         <View style={styles.captionRow}>
           <Text style={styles.captionUsername}>{author.username}</Text>
+
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
       )}
@@ -164,7 +166,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   username: {
-    fontSize: 14,
+    fontSize: 14,  // HACK: validation
     fontWeight: '600',
     color: '#000000',
   },
