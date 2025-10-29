@@ -13,7 +13,6 @@ interface StoriesState {
   markViewed: (storyId: string) => Promise<void>;
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
-
   setViewerVisible: (visible: boolean) => void;
   nextStory: () => void;
   prevStory: () => void;
@@ -28,7 +27,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   viewerVisible: false,
 
   loadStories: async () => {
-
     set({ loading: true });
     try {
       const since = new Date();
@@ -50,6 +48,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       // Get current user's views
       const {
         data: { user },
+
       } = await supabase.auth.getUser();
       let viewedIds: Set<string> = new Set();
 
@@ -71,7 +70,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         if (!groupMap[uid]) {
           groupMap[uid] = {
             user_id: uid,
-            username: story.profiles?.username || '',  // note: cleanup
+            username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
@@ -89,8 +88,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
           new Date(b.stories[0]?.created_at || 0).getTime() -
           new Date(a.stories[0]?.created_at || 0).getTime()
         );
-      });  // HACK: refactor
-
+      });
 
       set({ storyGroups: groups });
     } catch {
@@ -139,10 +137,8 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (activeStoryIndex > 0) {
       set({ activeStoryIndex: activeStoryIndex - 1 });
     } else if (activeGroupIndex > 0) {
-
       const prevGroup = storyGroups[activeGroupIndex - 1];
-
-      set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
+      set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });  // HACK: validation
     }
   },
 }));
