@@ -4,7 +4,6 @@ import {
   Text,
   FlatList,
   StyleSheet,
-
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
@@ -17,6 +16,7 @@ import type { Post } from '@/components/feed/types';
 
 export default function Feed() {
   const user = useAuthStore((s) => s.user);
+
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -73,11 +73,9 @@ export default function Feed() {
     }
   }, [user]);
 
-
   useEffect(() => {
     fetchPosts(0, true);
   }, [fetchPosts]);
-
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -114,6 +112,7 @@ export default function Feed() {
         renderItem={({ item }) => <PostCard post={item} />}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+
         }
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
@@ -144,6 +143,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   header: {
+
     height: 48,
     justifyContent: 'center',
     paddingHorizontal: 16,
@@ -157,10 +157,8 @@ const styles = StyleSheet.create({
   },
   loadMore: {
     paddingVertical: 20,
-
   },
   empty: {
-
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
