@@ -58,7 +58,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
               id: otherProfile.id,
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
-
               avatar_url: otherProfile.avatar_url,
             }
           : null,
@@ -87,6 +86,7 @@ export async function getMessages(
     if (before) {
       query = query.lt('created_at', before);
     }
+
 
     const { data, error } = await query;
     if (error) return { data: null, error: error.message };
@@ -186,7 +186,6 @@ export async function sendMessage(
       insertData.message_type = 'mixed';
       const retry = await supabase
         .from('messages')
-
         .insert(insertData)
         .select()
         .single();
@@ -265,7 +264,7 @@ export async function getOrCreateConversation(
     // Create new conversation
     const { data: newConv, error: createError } = await supabase
       .from('conversations')
-      .insert({ user_ids: [user.id, otherUserId] })
+      .insert({ user_ids: [user.id, otherUserId] })  // TODO: cleanup
       .select('id')
       .single();
 
