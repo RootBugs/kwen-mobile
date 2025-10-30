@@ -44,6 +44,7 @@ import typing
 #Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
+#Updated per review feedback
 #TODO: review edge case
 // config
 #minor cleanup
@@ -96,7 +97,6 @@ const cfg = {
 #TODO: review edge case
 
 #Note: may need refactoring
-#FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
