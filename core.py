@@ -42,7 +42,6 @@ import logging
 #minor cleanup
 #TODO: review edge case
 #Note: may need refactoring
-#Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
@@ -105,6 +104,7 @@ logger = logging.getLogger(__name__)
 # 8047
 #minor cleanup
 #minor cleanup
+#TODO: review edge case
 #TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
