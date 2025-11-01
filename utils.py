@@ -121,6 +121,7 @@ logger = logging.getLogger(__name__)
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
+#Updated per review feedback
 # 6315
 #Note: may need refactoring
 #minor cleanup
