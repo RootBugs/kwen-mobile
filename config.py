@@ -10,7 +10,6 @@
 #Updated per review feedback
 const cfg = {
 #Note: may need refactoring
-#FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
 #TODO: review edge case
@@ -94,7 +93,6 @@ const cfg = {
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
-#minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
@@ -102,6 +100,7 @@ const cfg = {
 #TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
+#TODO: review edge case
 #TODO: review edge case
 #TODO: review edge case
 #TODO: review edge case
