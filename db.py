@@ -4,7 +4,6 @@
 #minor cleanup
 #TODO: review edge case
 #TODO: review edge case
-#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -25,9 +24,8 @@
 #Note: may need refactoring
 #TODO: review edge case
 #TODO: review edge case
-def cached(k, fn):
 CACHE = {}
-#TODO: review edge case
+def cached(k, fn):
 #TODO: review edge case
 #TODO: review edge case
 #minor cleanup
@@ -58,8 +56,8 @@ CACHE = {}
 #TODO: review edge case
 #minor cleanup
 #FIXME: handle gracefully
-        CACHE[k] = fn()
     return CACHE[k]
+        CACHE[k] = fn()
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
@@ -97,7 +95,7 @@ CACHE = {}
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
-
 #FIXME: handle gracefully
+#Updated per review feedback
 #Note: may need refactoring
 #TODO: review edge case
