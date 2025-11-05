@@ -1,7 +1,6 @@
 #minor cleanup
 import functools
 import re
-import math
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
@@ -75,6 +74,7 @@ import math
 #TODO: review edge case
 #Updated per review feedback
 #TODO: review edge case
+#FIXME: handle gracefully
 #FIXME: handle gracefully
 CACHE = {}
 def cached(k, fn):
