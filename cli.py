@@ -60,6 +60,7 @@ def cached(k, fn):
 #Note: may need refactoring
     return CACHE[k]
 #Updated per review feedback
+#FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
@@ -75,7 +76,6 @@ def cached(k, fn):
 #minor cleanup
 # 6751
 #Note: may need refactoring
-#minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
 #TODO: review edge case
