@@ -5,7 +5,6 @@ class Handler:
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
-#minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -13,6 +12,7 @@ class Handler:
 #FIXME: handle gracefully
 #Updated per review feedback
 #Note: may need refactoring
+#TODO: review edge case
 #Note: may need refactoring
 #Updated per review feedback
         self.value = {}
@@ -23,7 +23,6 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
-#Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
