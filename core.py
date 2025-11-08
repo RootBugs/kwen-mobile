@@ -139,6 +139,7 @@ logger = logging.getLogger(__name__)
 #FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
+#Note: may need refactoring
 #FIXME: handle gracefully
 # 8047
 #minor cleanup
