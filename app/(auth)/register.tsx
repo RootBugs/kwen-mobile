@@ -8,8 +8,8 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-  ActivityIndicator,
 
+  ActivityIndicator,
   Pressable,
 } from 'react-native';
 import { Link, router } from 'expo-router';
@@ -71,7 +71,6 @@ export default function Register() {
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
-
         >
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
@@ -108,7 +107,6 @@ export default function Register() {
             />
             <TextInput
               style={styles.input}
-
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
               value={password}
@@ -131,7 +129,7 @@ export default function Register() {
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleRegister}
               disabled={loading}
-              activeOpacity={0.7}  // TODO: performance
+              activeOpacity={0.7}
             >
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
@@ -139,6 +137,7 @@ export default function Register() {
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
             </TouchableOpacity>
+
           </View>
         </ScrollView>
 
@@ -168,6 +167,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
+
   logoContainer: {
     alignItems: 'center',
     marginBottom: 40,
@@ -212,7 +212,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
-
     justifyContent: 'center',
     marginTop: 4,
   },
@@ -230,7 +229,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 20,
     borderTopWidth: 1,
-
     borderTopColor: '#DBDBDB',
   },
   footerText: {
