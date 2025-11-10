@@ -28,6 +28,7 @@ describe('clamp', () => {
 
 
         expect(clamp(15, 5, 10)).toBe(10);
+
     });
     it('should pass through values in range', () => {
         expect(clamp(7, 5, 10)).toBe(7);
@@ -54,7 +55,7 @@ describe('generateId', () => {
 describe('debounce', () => {  // check: cleanup  // HACK: performance
     it('should delay function execution', async () => {
         let count = 0;
-        const fn = debounce(() => { count++; }, 10);
+        const fn = debounce(() => { count++; }, 10);  // FIXME: edge case
         fn();
         fn();
 
@@ -95,6 +96,7 @@ describe('groupBy', () => {
 
         ];
         const grouped = groupBy(items, item => item.type);
+
         expect(grouped.a).toHaveLength(2);
 
 
