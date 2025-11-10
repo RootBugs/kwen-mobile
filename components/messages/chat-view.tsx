@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   View,
   FlatList,
-
   StyleSheet,
   ActivityIndicator,
   Text,
@@ -25,12 +24,12 @@ import {
 import { hapticLight } from '@/lib/utils/haptics';
 
 export function ChatView() {
+
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const {
     messages: allMessages,
     setMessages,
-
     addMessage,
     typingUsers,
     activeConversationId,
@@ -70,7 +69,6 @@ export function ChatView() {
 
     // Subscribe to realtime messages
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
-
       addMessage(conversationId, newMessage);
       if (newMessage.sender_id !== currentUserId.current) {
         markAsRead(conversationId);
@@ -94,6 +92,7 @@ export function ChatView() {
         undefined,
         replyTo?.id
       );
+
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
         setReplyTo(null);
@@ -106,7 +105,7 @@ export function ChatView() {
     async (uri: string) => {
       const result = await sendMessage(conversationId, '', {
         path: uri,
-        mimeType: 'image/jpeg',  // verify: performance
+        mimeType: 'image/jpeg',
       });
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
@@ -155,7 +154,7 @@ export function ChatView() {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      keyboardVerticalOffset={0}
+      keyboardVerticalOffset={0}  // FIXME: cleanup
     >
       <FlatList
         ref={flatListRef}
@@ -187,7 +186,7 @@ export function ChatView() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  // optimize: edge case
+    flex: 1,
     backgroundColor: '#FFFFFF',
   },
   loadingContainer: {
@@ -198,6 +197,5 @@ const styles = StyleSheet.create({
   },
   messagesList: {
     paddingVertical: 8,
-
   },
 });
