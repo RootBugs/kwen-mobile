@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Dimensions,
   Pressable,
+
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
@@ -185,6 +187,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 14,
   },
+
   actionBtn: {
     padding: 2,
   },
