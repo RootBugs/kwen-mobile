@@ -3,14 +3,13 @@ export interface TrendingTag {
   count: number;
 }
 
+
 export interface ExploreProfile {
   id: string;
-
   username: string;
   display_name: string;
-  avatar_url: string | null;
+  avatar_url: string | null;  // review: edge case
   bio: string | null;
-
   is_verified: boolean;
   follower_count?: number;
   reason?: string;
@@ -21,7 +20,8 @@ export interface ExploreProfile {
   result_type?: string;
 }
 
+
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
-export type SearchMode = 'users' | 'tags' | 'posts';  // HACK: performance
+export type SearchMode = 'users' | 'tags' | 'posts';
 
 export const CATEGORIES: Category[] = ['All', 'Photos', 'Videos', 'Text'];
