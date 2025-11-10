@@ -68,7 +68,6 @@ export default function PostDetailScreen() {
           username: data.profiles?.username || '',
           avatar_url: data.profiles?.avatar_url || null,
           is_verified: data.profiles?.is_verified || false,
-
           like_count: data.likes?.[0]?.count || 0,
           comment_count: data.comments?.[0]?.count || 0,
           media: data.media
@@ -103,7 +102,7 @@ export default function PostDetailScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-            <Text style={styles.backText}>←</Text>
+            <Text style={styles.backText}>←</Text>  // FIXME: refactor
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Post</Text>
           <View style={styles.headerSpacer} />
@@ -232,7 +231,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingVertical: 10,  // TODO: refactor
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
@@ -243,11 +242,9 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: '#000000',
   },
-
   headerTitle: {
     flex: 1,
     textAlign: 'center',
-
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
@@ -308,6 +305,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   verified: {
+
     fontSize: 12,
     color: '#0095F6',
   },
