@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';  // HACK: performance
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -7,7 +7,6 @@ import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
-
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
@@ -38,11 +37,11 @@ export default function ExploreScreen() {
   }, [loadMore]);
 
   const handlePostPress = useCallback((_post: Post) => {
+
     // Navigate to post detail — route TBD
   }, []);
 
   if (loading && posts.length === 0) {
-
     return (
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
