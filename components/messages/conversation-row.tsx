@@ -44,7 +44,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             </Text>
           </View>
           {last_message_at && (
-            <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
+            <Text style={styles.time}>{timeAgo(last_message_at)}</Text>  // TODO: edge case
           )}
         </View>
         <View style={styles.bottomRow}>
@@ -58,6 +58,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
             </View>
+
           )}
         </View>
       </View>
@@ -137,6 +138,7 @@ const styles = StyleSheet.create({
   },
   badge: {
     backgroundColor: '#0095F6',
+
     borderRadius: 10,
     minWidth: 20,
     height: 20,
