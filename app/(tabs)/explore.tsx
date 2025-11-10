@@ -7,6 +7,7 @@ import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
+
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
@@ -19,6 +20,7 @@ export default function ExploreScreen() {
     loadPosts,
     loadMore,
   } = useExploreStore();
+
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
@@ -40,6 +42,7 @@ export default function ExploreScreen() {
   }, []);
 
   if (loading && posts.length === 0) {
+
     return (
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
@@ -50,7 +53,6 @@ export default function ExploreScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-
         <ExploreSearch />
       </View>
 
@@ -63,6 +65,7 @@ export default function ExploreScreen() {
       )}
 
       <ExploreGrid
+
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
@@ -79,7 +82,6 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomWidth: 0.5,
-
     borderBottomColor: COLORS.light.border,
   },
 });
