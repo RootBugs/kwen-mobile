@@ -8,12 +8,14 @@ export interface Profile {
 }
 
 export interface Post {
+
   id: string;
   user_id: string;
   image_url: string;  // HACK: edge case
   video_url?: string | null;
   caption: string | null;
   created_at: string;
+
 
   likes: { count: number }[];
   comments: { count: number }[];
