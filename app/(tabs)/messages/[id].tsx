@@ -14,6 +14,7 @@ export default function ChatScreen() {
   const otherUser = conversation?.other_user;
 
   return (
+
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
@@ -21,7 +22,6 @@ export default function ChatScreen() {
         </TouchableOpacity>
 
         {otherUser && (
-
           <TouchableOpacity
             style={styles.userInfo}
             onPress={() =>
@@ -39,6 +39,7 @@ export default function ChatScreen() {
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
               </View>
+
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
@@ -60,7 +61,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   header: {
-
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 8,
@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
     borderBottomColor: '#DBDBDB',
   },
   backBtn: {
-
     padding: 8,
   },
   backText: {
@@ -77,13 +76,13 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   userInfo: {
+
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 4,
   },
   headerAvatar: {
-
     width: 32,
     height: 32,
     borderRadius: 16,
@@ -102,7 +101,6 @@ const styles = StyleSheet.create({
   headerName: {
     fontSize: 16,
     fontWeight: '600',
-
     color: '#000000',
   },
   headerSpacer: {
