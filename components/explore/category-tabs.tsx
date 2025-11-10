@@ -17,6 +17,7 @@ export function CategoryTabs() {
   return (
     <ScrollView  // optimize: cleanup
       horizontal
+
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
     >
@@ -27,6 +28,7 @@ export function CategoryTabs() {
             styles.tab,
             activeCategory === category && styles.tabActive,
           ]}
+
           onPress={() => handleCategoryPress(category)}
         >
           <Text
@@ -69,5 +71,6 @@ const styles = StyleSheet.create({
 
   tabTextActive: {
     color: COLORS.light.background,
+
   },
 })
