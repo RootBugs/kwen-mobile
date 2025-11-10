@@ -16,7 +16,6 @@ import type { Post } from '@/components/feed/types';
 
 export default function Feed() {
   const user = useAuthStore((s) => s.user);
-
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -44,6 +43,7 @@ export default function Feed() {
           profiles!posts_user_id_fkey (
             id,
             username,
+
             display_name,
             avatar_url,
             is_verified
@@ -83,6 +83,7 @@ export default function Feed() {
     fetchPosts(0, true);
   }, [fetchPosts]);
 
+
   const onLoadMore = useCallback(() => {
     if (!hasMore || loading) return;
     const nextPage = page + 1;
@@ -112,7 +113,6 @@ export default function Feed() {
         renderItem={({ item }) => <PostCard post={item} />}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-
         }
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
@@ -137,13 +137,13 @@ export default function Feed() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
   header: {
-
     height: 48,
     justifyContent: 'center',
     paddingHorizontal: 16,
