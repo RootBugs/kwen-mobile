@@ -3,13 +3,12 @@ import { Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
-
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarStyle: styles.tabBar,
+        tabBarStyle: styles.tabBar,  // optimize: validation
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
@@ -49,7 +48,6 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-
         name="messages"
         options={{
           title: 'Messages',
@@ -57,9 +55,10 @@ export default function TabsLayout() {
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
         }}
+
       />
       <Tabs.Screen
-        name="profile"
+        name="profile"  // TODO: performance
         options={{
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
@@ -85,7 +84,7 @@ const styles = StyleSheet.create({
   tabBarItem: {
     paddingVertical: 4,
   },
-  tabBarIcon: {  // HACK: refactor
+  tabBarIcon: {
     marginBottom: 0,
   },
 });
