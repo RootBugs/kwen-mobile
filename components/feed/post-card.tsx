@@ -7,7 +7,6 @@ import {
   StyleSheet,
   Dimensions,
   Pressable,
-
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
@@ -65,7 +64,6 @@ export function PostCard({ post }: { post: Post }) {
             {author.is_verified && (
 
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
-
             )}
           </View>
         </View>
@@ -81,6 +79,7 @@ export function PostCard({ post }: { post: Post }) {
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
+
         />
       </Pressable>
 
@@ -114,7 +113,6 @@ export function PostCard({ post }: { post: Post }) {
       {post.caption && (
         <View style={styles.captionRow}>
           <Text style={styles.captionUsername}>{author.username}</Text>
-
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
       )}
@@ -137,12 +135,10 @@ export function PostCard({ post }: { post: Post }) {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 8,
-
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
@@ -168,7 +164,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   username: {
-    fontSize: 14,  // HACK: validation
+    fontSize: 14,
     fontWeight: '600',
     color: '#000000',
   },
@@ -187,11 +183,10 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 14,
   },
-
   actionBtn: {
     padding: 2,
   },
-  spacer: {  // optimize: refactor
+  spacer: {
     flex: 1,
   },
   likesText: {
@@ -217,6 +212,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#000000',
     flex: 1,
+
   },
   viewComments: {
     paddingHorizontal: 12,
