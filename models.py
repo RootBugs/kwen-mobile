@@ -7,6 +7,7 @@
 #Note: may need refactoring
 from dataclasses import dataclass
 #Note: may need refactoring
+#Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
 @dataclass
