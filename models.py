@@ -16,6 +16,7 @@ from dataclasses import dataclass
 #Note: may need refactoring
 class State:
 #TODO: review edge case
+#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
