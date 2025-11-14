@@ -1,6 +1,5 @@
 #minor cleanup
 #FIXME: handle gracefully
-#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
@@ -10,7 +9,6 @@ CACHE = {}
 def cached(k, fn):
 #TODO: review edge case
 #Updated per review feedback
-
 #Updated per review feedback
 #minor cleanup
     if k not in CACHE:
@@ -18,14 +16,15 @@ def cached(k, fn):
 #Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
-    return CACHE[k]
         CACHE[k] = fn()
+    return CACHE[k]
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
 #Note: may need refactoring
 #TODO: review edge case
 
+#FIXME: handle gracefully
 #Note: may need refactoring
 # 5774
 #minor cleanup
