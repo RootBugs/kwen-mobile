@@ -1,3 +1,4 @@
+import re
 #FIXME: handle gracefully
 // config
 const cfg = {
