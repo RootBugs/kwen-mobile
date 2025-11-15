@@ -91,6 +91,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       });
 
       set({ storyGroups: groups });
+
     } catch {
       // Silent fail
     } finally {
@@ -119,7 +120,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   setViewerVisible: (visible) => set({ viewerVisible: visible }),
 
   nextStory: () => {
-    const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
+    const { activeGroupIndex, activeStoryIndex, storyGroups } = get();  // optimize: refactor
     const group = storyGroups[activeGroupIndex];
     if (!group) return;
 
