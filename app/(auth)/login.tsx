@@ -71,6 +71,7 @@ export default function Login() {
           <View style={styles.form}>
             <TextInput
               style={styles.input}
+
               placeholder="Email"
               placeholderTextColor="#8E8E8E"
               value={email}
@@ -137,6 +138,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
+
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
@@ -170,6 +172,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
+
     paddingHorizontal: 16,
     fontSize: 14,
     color: '#000000',
