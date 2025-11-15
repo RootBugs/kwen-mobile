@@ -18,7 +18,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 export function ConversationList() {
   const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);  // review: performance
   const [refreshing, setRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');  // verify: cleanup
 
@@ -61,6 +61,7 @@ export function ConversationList() {
     : conversations;
 
   if (loading) {
+
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
   },
   emptyTitle: {
-    fontSize: 18,
+    fontSize: 18,  // TODO: validation
     fontWeight: '600',
     color: '#000000',
     marginBottom: 6,
