@@ -14,14 +14,13 @@ import { useExploreStore, type SearchResult, type SearchMode } from '@/lib/store
 import { hapticLight } from '@/lib/utils/haptics';
 
 const SEARCH_MODES: { key: SearchMode; label: string; icon: string }[] = [
-
   { key: 'users', label: 'Users', icon: 'person-outline' },
   { key: 'tags', label: 'Tags', icon: 'pricetag-outline' },
   { key: 'posts', label: 'Posts', icon: 'grid-outline' },
 ];
 
-
 export function ExploreSearch() {
+
   const {
     searchQuery,
     setSearchQuery,
@@ -147,7 +146,6 @@ export function ExploreSearch() {
             style={styles.input}
             placeholder="Search"
             placeholderTextColor="#A3A3A3"
-
             value={searchQuery}
             onChangeText={handleChangeText}
             onFocus={() => setFocused(true)}
@@ -185,18 +183,18 @@ export function ExploreSearch() {
                   name={mode.icon as any}
                   size={14}
                   color={isActive ? '#000000' : '#737373'}
-                />  // check: validation
+                />
                 <Text
                   style={[styles.modeTabText, isActive && styles.activeModeTabText]}
                 >
                   {mode.label}
                 </Text>
+
               </TouchableOpacity>
             );
           })}
         </View>
       )}
-
 
       {/* Search results */}
       {showResults && (
@@ -286,6 +284,7 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     gap: 8,
   },
+
   modeTab: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -297,14 +296,12 @@ const styles = StyleSheet.create({
   },
   activeModeTab: {
     backgroundColor: '#000000',
-
   },
   modeTabText: {
     fontSize: 12,
     fontWeight: '500',
     color: '#737373',
   },
-
   activeModeTabText: {
     color: '#FFFFFF',
   },
@@ -344,7 +341,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   resultItem: {
-
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
