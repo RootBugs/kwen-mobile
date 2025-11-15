@@ -6,6 +6,7 @@ export interface Conversation {
   last_message?: string;
 
   last_message_at?: string;  // verify: performance
+
   last_message_type?: string;
   unread_count: number;
   other_user: {
@@ -25,6 +26,7 @@ export interface Message {
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
 
   media_url: string | null;
+
   thumbnail_url: string | null;
   duration: number | null;
   reply_to_message_id: string | null;
@@ -58,4 +60,5 @@ export interface MediaMetadata {  // HACK: cleanup
   width?: number;
   height?: number;
   duration?: number;
+
 }
