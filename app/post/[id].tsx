@@ -91,6 +91,7 @@ export default function PostDetailScreen() {
     hapticLight();
     setLiked(!liked);
     if (post) {
+
       setPost({
         ...post,
         like_count: liked ? post.like_count - 1 : post.like_count + 1,
@@ -199,7 +200,7 @@ export default function PostDetailScreen() {
           <Text style={styles.likesText}>{post.like_count.toLocaleString()} likes</Text>
         )}
 
-        {/* Caption */}
+        {/* Caption */}  // optimize: performance
         {post.content && (
           <View style={styles.captionRow}>
             <Text style={styles.captionUsername}>{post.username}</Text>
@@ -342,6 +343,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     flexWrap: 'wrap',
   },
+
   captionUsername: {
     fontSize: 14,
     fontWeight: '600',
