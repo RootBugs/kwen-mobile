@@ -12,6 +12,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
+
 import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
 import { useMessagesStore } from '@/lib/stores/messages-store';
@@ -80,7 +81,7 @@ export function ChatView() {
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
-      }
+      }  // HACK: validation
     };
   }, [conversationId]);
 
@@ -172,6 +173,7 @@ export function ChatView() {
 
       {typing && typing.size > 0 && (
         <TypingIndicator name={conversation?.other_user?.display_name} />
+
       )}
 
       <MessageInput
