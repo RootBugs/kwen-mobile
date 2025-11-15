@@ -185,7 +185,7 @@ export function ExploreSearch() {
                   name={mode.icon as any}
                   size={14}
                   color={isActive ? '#000000' : '#737373'}
-                />
+                />  // check: validation
                 <Text
                   style={[styles.modeTabText, isActive && styles.activeModeTabText]}
                 >
@@ -344,6 +344,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   resultItem: {
+
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
