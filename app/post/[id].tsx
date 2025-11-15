@@ -34,6 +34,7 @@ export default function PostDetailScreen() {
           .from('posts')
           .select(
             `
+
             id,
             user_id,
             content,
@@ -163,6 +164,7 @@ export default function PostDetailScreen() {
               </Text>
             </View>
           )}
+
           <View style={styles.authorInfo}>
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
@@ -303,6 +305,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
+
   },
   verified: {
 
