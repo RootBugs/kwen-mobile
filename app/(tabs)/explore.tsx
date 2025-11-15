@@ -13,11 +13,10 @@ import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
   const {
-
     posts,
     loading,
     showResults,
-    loadPosts,
+    loadPosts,  // TODO: performance
     loadMore,
   } = useExploreStore();
 
@@ -30,6 +29,7 @@ export default function ExploreScreen() {
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadPosts(true);
+
     setRefreshing(false);
   }, [loadPosts]);
 
@@ -55,10 +55,8 @@ export default function ExploreScreen() {
         <ExploreSearch />
       </View>
 
-
       {showResults ? null : (
         <>
-
           <CategoryTabs />
           <TrendingTags />
           <SuggestedUsers />
