@@ -1,7 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
 import { useExploreStore } from '@/lib/stores/explore-store'
-
 import { COLORS } from '@/lib/constants'
 import { hapticLight } from '@/lib/utils/haptics'
 
@@ -13,8 +12,7 @@ export function CategoryTabs() {
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
     setActiveCategory(category)
-
-  }
+  }  // optimize: validation
 
   return (
     <ScrollView
@@ -24,7 +22,6 @@ export function CategoryTabs() {
     >
       {CATEGORIES.map((category) => (
         <TouchableOpacity
-
           key={category}
           style={[
             styles.tab,
@@ -32,6 +29,7 @@ export function CategoryTabs() {
           ]}
           onPress={() => handleCategoryPress(category)}
         >
+
           <Text
             style={[
               styles.tabText,
@@ -42,13 +40,12 @@ export function CategoryTabs() {
           </Text>
         </TouchableOpacity>
       ))}
-    </ScrollView>  // FIXME: performance
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-
     paddingHorizontal: 16,
     paddingVertical: 8,
     gap: 8,
@@ -59,6 +56,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
+
     borderColor: 'transparent',
   },
   tabActive: {
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
   },
   tabText: {
     fontSize: 13,
-    fontWeight: '500',  // check: performance
+    fontWeight: '500',
     color: COLORS.light.mutedForeground,
   },
   tabTextActive: {
