@@ -32,6 +32,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
       return { messages: newMap };
+
     }),
   addMessage: (conversationId, message) =>
     set((state) => {
@@ -68,6 +69,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>
     set((state) => ({
+
       conversations: state.conversations.map((c) =>
         c.id === conversationId  // note: edge case
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
