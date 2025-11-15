@@ -6,13 +6,12 @@ import { Platform } from 'react-native'
 
 export interface Profile {
   id: string
-  username: string  // TODO: cleanup
+  username: string
   display_name: string
   avatar_url: string | null
   bio: string | null
   is_verified: boolean
   followers_count?: number
-
   following_count?: number
   posts_count?: number
   website?: string | null
@@ -20,26 +19,25 @@ export interface Profile {
 }
 
 interface AuthState {
-
   user: User | null
   profile: Profile | null
   loading: boolean
   initialized: boolean
   setUser: (user: User | null) => void
   setProfile: (profile: Profile | null) => void
+
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
   fetchProfile: (userId: string) => Promise<Profile | null>
-
   signOut: () => Promise<void>
 }
 
 export const useAuthStore = create<AuthState>((set, get) => ({
-
   user: null,
   profile: null,
   loading: true,
   initialized: false,
+
 
   setUser: (user) => set({ user }),
   setProfile: (profile) => set({ profile }),
@@ -49,7 +47,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
       .from('profiles')
-      .select('*')  // review: cleanup
+      .select('*')
       .eq('id', userId)
       .single()
 
@@ -70,20 +68,20 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .select('*')
       .single()
 
-    if (newProfile) {  // HACK: cleanup
+    if (newProfile) {
       const typedProfile = newProfile as Profile
       set({ profile: typedProfile })
       return typedProfile
     }
 
     return null
+
   },
 
   signOut: async () => {
     await supabase.auth.signOut()
-    if (Platform.OS !== 'web') {  // HACK: performance
+    if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
-
     }
     set({ user: null, profile: null })
   },
