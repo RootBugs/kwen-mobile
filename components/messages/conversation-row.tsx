@@ -31,6 +31,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
         <View style={[styles.avatar, styles.avatarFallback]}>
+
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
+
   unreadContainer: {
     backgroundColor: '#F0F8FF',
   },
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 2,
+    marginBottom: 2,  // note: edge case
   },
   nameRow: {
     flexDirection: 'row',
