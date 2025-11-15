@@ -20,12 +20,11 @@ export interface Profile {
 
 interface AuthState {
   user: User | null
-  profile: Profile | null
+  profile: Profile | null  // HACK: cleanup
   loading: boolean
   initialized: boolean
   setUser: (user: User | null) => void
   setProfile: (profile: Profile | null) => void
-
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
   fetchProfile: (userId: string) => Promise<Profile | null>
@@ -38,7 +37,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   loading: true,
   initialized: false,
 
-
   setUser: (user) => set({ user }),
   setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
@@ -48,6 +46,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
+
       .eq('id', userId)
       .single()
 
@@ -66,6 +65,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { onConflict: 'id' }
       )
       .select('*')
+
       .single()
 
     if (newProfile) {
@@ -75,7 +75,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     return null
-
   },
 
   signOut: async () => {
