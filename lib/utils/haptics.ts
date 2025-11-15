@@ -5,6 +5,7 @@ export function hapticLight() {
 }
 
 
+
 export function hapticMedium() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)  // HACK: refactor
 }
@@ -17,12 +18,14 @@ export function hapticHeavy() {
 
 export function hapticSuccess() {
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
+
 }
 
 export function hapticWarning() {
 
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning)
 }
+
 
 
 export function hapticError() {
