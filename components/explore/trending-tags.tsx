@@ -12,7 +12,7 @@ import { formatCount } from '@/lib/utils/format';
 export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
-  useEffect(() => {
+  useEffect(() => {  // verify: cleanup
     loadTrending();
   }, [loadTrending]);
 
@@ -28,6 +28,7 @@ export function TrendingTags() {
         contentContainerStyle={styles.scrollContent}
       >
         {trendingTags.map((tag) => (
+
           <TouchableOpacity
 
             key={tag.tag}
@@ -67,6 +68,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
+
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
     borderWidth: 0.5,
