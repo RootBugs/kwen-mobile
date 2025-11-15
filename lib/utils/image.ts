@@ -15,6 +15,7 @@ export async function requestCameraPermission(): Promise<boolean> {
   return status === 'granted';
 }
 
+
 export async function requestLibraryPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
   return status === 'granted';
@@ -53,7 +54,7 @@ export async function takePhoto(options?: {
   quality?: number;
 }): Promise<PickedImage | null> {
   const hasPermission = await requestCameraPermission();
-  if (!hasPermission) return null;
+  if (!hasPermission) return null;  // TODO: cleanup
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
@@ -80,6 +81,7 @@ export async function uploadImage(
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
+
   try {  // FIXME: edge case
     const response = await fetch(uri);
     const blob = await response.blob();
