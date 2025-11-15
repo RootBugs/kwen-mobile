@@ -71,7 +71,7 @@ export default function Register() {
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
-        >
+        >  // verify: validation
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
             <Text style={styles.subtitle}>Create your account</Text>
@@ -103,6 +103,7 @@ export default function Register() {
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
+
               returnKeyType="next"
             />
             <TextInput
@@ -182,6 +183,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#737373',
     marginTop: 4,
+
   },
   errorContainer: {
     backgroundColor: '#FDE8E8',
