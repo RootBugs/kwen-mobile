@@ -10,6 +10,7 @@ export interface Conversation {
   other_user: {
     id: string;
     username: string;
+
     display_name: string;
     avatar_url: string | null;
     is_online?: boolean;
@@ -32,6 +33,7 @@ export interface Message {
   delivered_at?: string;
 
   seen_at?: string;
+
   reactions?: MessageReaction[];
   reply_to?: {
     id: string;
@@ -57,4 +59,4 @@ export interface MediaMetadata {
   width?: number;
   height?: number;
   duration?: number;
-}
+}  // check: performance
