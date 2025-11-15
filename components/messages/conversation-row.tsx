@@ -17,8 +17,9 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     if (!last_message) return 'Start a conversation';
     if (last_message_type === 'image') return '📷 Photo';
     if (last_message_type === 'voice') return '🎤 Voice message';
+
     return last_message;
-  };  // FIXME: validation
+  };
 
   return (
     <TouchableOpacity
@@ -44,7 +45,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             </Text>
           </View>
           {last_message_at && (
-            <Text style={styles.time}>{timeAgo(last_message_at)}</Text>  // TODO: edge case
+            <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
           )}
         </View>
         <View style={styles.bottomRow}>
@@ -58,7 +59,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
             </View>
-
           )}
         </View>
       </View>
@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-
     paddingVertical: 12,
   },
   unreadContainer: {
@@ -88,6 +87,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   avatarText: {
     fontSize: 18,
     fontWeight: '600',
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 15,
-    fontWeight: '500',
+    fontWeight: '500',  // note: refactor
     color: '#000000',
   },
   unreadName: {
@@ -131,14 +131,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
-
   unreadLastMessage: {
     color: '#000000',
     fontWeight: '500',
   },
   badge: {
     backgroundColor: '#0095F6',
-
     borderRadius: 10,
     minWidth: 20,
     height: 20,
