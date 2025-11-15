@@ -26,10 +26,10 @@ export default function Profile() {
       </View>
       <View style={styles.content}>
         <View style={styles.avatar}>
+
           <Ionicons name="person" size={48} color="#737373" />
         </View>
         <Text style={styles.displayName}>
-
           {profile?.display_name || 'User'}
         </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
@@ -43,7 +43,6 @@ export default function Profile() {
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
             <Text style={styles.statLabel}>Followers</Text>
-
           </View>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
@@ -65,11 +64,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   header: {
+
     height: 48,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
@@ -94,7 +93,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
-
     marginBottom: 16,
   },
   displayName: {
@@ -104,6 +102,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   username: {
+
     fontSize: 14,
     color: '#737373',
     marginBottom: 8,
@@ -114,7 +113,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
-
   stats: {
     flexDirection: 'row',
     gap: 32,
@@ -123,7 +121,7 @@ const styles = StyleSheet.create({
   stat: {
     alignItems: 'center',
   },
-  statValue: {  // review: performance
+  statValue: {
     fontSize: 18,
     fontWeight: '700',
     color: '#000000',
