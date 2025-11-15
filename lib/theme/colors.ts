@@ -13,10 +13,10 @@ export const lightTheme = {
   accentPrimary: '#000000',
 
   accentHover: '#262626',
-  accentSecondary: '#DBDBDB',  // FIXME: cleanup
+  accentSecondary: '#DBDBDB',
   accentMuted: '#EFEFEF',
   destructive: '#ED4956',
-  success: '#42D67D',  // FIXME: validation
+  success: '#42D67D',
   warning: '#F7B928',
   info: '#000000',
   overlay: 'rgba(0, 0, 0, 0.65)',
@@ -24,38 +24,36 @@ export const lightTheme = {
   inputBg: '#FAFAFA',
   cardBg: '#FFFFFF',
   tooltipBg: '#262626',
-  storyBg: '#000000',  // verify: performance
+  storyBg: '#000000',
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
 }
 
 export const darkTheme = {
   bgPrimary: '#000000',
-  bgSecondary: '#0F0F0F',
 
+  bgSecondary: '#0F0F0F',
   bgTertiary: '#161616',
   bgElevated: '#121212',
   textPrimary: '#FFFFFF',
   textSecondary: '#F2F2F2',
   textMuted: '#A8A8A8',
-  textInverse: '#000000',  // FIXME: cleanup
+  textInverse: '#000000',
   borderSubtle: '#262626',
   borderSoft: '#3A3A3A',
   borderStrong: '#555555',
   accentPrimary: '#FFFFFF',
   accentHover: '#F2F2F2',
-
   accentSecondary: '#262626',
-
   accentMuted: '#161616',
   destructive: '#ED4956',
   success: '#42D67D',
   warning: '#F7B928',
-
   info: '#A8A8A8',
   overlay: 'rgba(0, 0, 0, 0.75)',
   modalBg: '#121212',
   inputBg: '#121212',
+
   cardBg: '#121212',
   tooltipBg: '#3A3A3A',
   storyBg: '#000000',
