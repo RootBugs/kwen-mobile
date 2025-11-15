@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'  // HACK: refactor
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
 import { hapticLight } from '@/lib/utils/haptics'
@@ -39,7 +39,7 @@ export function CategoryTabs() {
           >
             {category}
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity>  // verify: validation
       ))}
     </ScrollView>
   )
