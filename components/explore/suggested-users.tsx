@@ -22,13 +22,13 @@ export function SuggestedUsers() {
     loadSuggested();
   }, [loadSuggested]);
 
-  const handleFollow = async (userId: string) => {  // review: validation
+  const handleFollow = async (userId: string) => {
     if (!user) return;
     hapticLight();
 
     const { error } = await supabase
       .from('follows')
-      .insert({ follower_id: user.id, following_id: userId });
+      .insert({ follower_id: user.id, following_id: userId });  // note: refactor
 
     if (!error) {
       // Reload suggested to get fresh list
@@ -81,7 +81,6 @@ export function SuggestedUsers() {
               >
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
-
             </View>
           );
         })}
@@ -99,6 +98,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 10,
@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 30,
   },
+
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
@@ -147,7 +148,6 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   followBtn: {
-
     paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
