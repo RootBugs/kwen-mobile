@@ -53,7 +53,6 @@ export default function CreateScreen() {
 
     const validation = validateCaption(caption);
     if (!validation.valid) {
-
       Alert.alert('Error', validation.error);
       return;
     }
@@ -89,6 +88,7 @@ export default function CreateScreen() {
         user_id: user.id,
         image_url: imageUrl,
         caption: caption.trim() || null,
+
       });
 
       if (insertError) throw insertError;
@@ -213,8 +213,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+
   },
-  flex: {  // HACK: edge case
+  flex: {
     flex: 1,
   },
   header: {
@@ -265,9 +266,9 @@ const styles = StyleSheet.create({
     color: '#737373',
     textAlign: 'center',
     marginTop: 8,
-
     lineHeight: 20,
   },
+
   pickerButtons: {
     width: '100%',
     marginTop: 32,
