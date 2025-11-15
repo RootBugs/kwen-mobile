@@ -32,6 +32,7 @@ export default function ChatScreen() {
             }
           >
             {otherUser.avatar_url ? (
+
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
             ) : (
 
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
 
-  },
+  },  // check: refactor
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     marginRight: 8,
   },
+
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
