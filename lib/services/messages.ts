@@ -3,6 +3,7 @@ import { Message, Conversation, MediaMetadata } from '@/components/messages/type
 
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
   try {
+
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -143,6 +144,7 @@ export async function sendMessage(
     } else if (media?.path) {
       messageType = cleanContent ? 'mixed' : 'image';
     } else {
+
       messageType = 'text';
     }
 
@@ -309,6 +311,7 @@ export function subscribeToMessages(
   const channel = supabase
     .channel(`messages:${conversationId}`)
     .on(
+
       'postgres_changes',
       {
         event: 'INSERT',
