@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from 'react';  // HACK: performance
+import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -13,6 +13,7 @@ import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
   const {
+
     posts,
     loading,
     showResults,
@@ -37,7 +38,6 @@ export default function ExploreScreen() {
   }, [loadMore]);
 
   const handlePostPress = useCallback((_post: Post) => {
-
     // Navigate to post detail — route TBD
   }, []);
 
@@ -55,8 +55,10 @@ export default function ExploreScreen() {
         <ExploreSearch />
       </View>
 
+
       {showResults ? null : (
         <>
+
           <CategoryTabs />
           <TrendingTags />
           <SuggestedUsers />
@@ -64,7 +66,6 @@ export default function ExploreScreen() {
       )}
 
       <ExploreGrid
-
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
