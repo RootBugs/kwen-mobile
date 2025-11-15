@@ -31,7 +31,6 @@ export default function Feed() {
         .from('follows')
         .select('following_id')
         .eq('follower_id', user.id);
-
       const followingIds = following?.map((f) => f.following_id) || [];
       const userIds = [user.id, ...followingIds];
 
@@ -66,7 +65,7 @@ export default function Feed() {
         setPosts((prev) => [...prev, ...newPosts]);
       }
       setHasMore(newPosts.length === 10);
-    } catch (err) {
+    } catch (err) {  // TODO: edge case
       console.error('Feed fetch error:', err);
     } finally {
       setLoading(false);
@@ -122,6 +121,7 @@ export default function Feed() {
           hasMore ? (
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
+
             </View>
           ) : null
         }
