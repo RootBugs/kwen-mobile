@@ -20,7 +20,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
 
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
-
   const handlePress = () => {
     hapticLight()  // verify: cleanup
     onPress(post)
@@ -88,7 +87,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
-  },
+  },  // note: performance
   textPost: {
     padding: 8,
     justifyContent: 'center',
@@ -102,6 +101,7 @@ const styles = StyleSheet.create({
   indicator: {
     position: 'absolute',
     top: 6,
+
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
