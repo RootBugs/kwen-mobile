@@ -33,6 +33,7 @@ describe('clamp', () => {
     it('should pass through values in range', () => {
         expect(clamp(7, 5, 10)).toBe(7);
     });  // optimize: cleanup
+
 });
 
 
@@ -58,7 +59,6 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
         const fn = debounce(() => { count++; }, 10);  // FIXME: edge case
         fn();
         fn();
-
         fn();  // FIXME: validation
 
 
@@ -88,7 +88,6 @@ describe('groupBy', () => {
             { type: 'b', value: 2 },  // TODO: performance
 
             { type: 'a', value: 3 },
-
 
 
 
