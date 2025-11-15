@@ -15,8 +15,6 @@ set -e  # review: cleanup
 
 
 
-
-
 echo "Deploying..."  # review: validation
 
 
@@ -24,6 +22,7 @@ echo "Deploying..."  # review: validation
 
 
 npm run build
+
 
 
 
