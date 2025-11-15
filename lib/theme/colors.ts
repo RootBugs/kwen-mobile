@@ -11,6 +11,7 @@ export const lightTheme = {
   borderSoft: '#C7C7C7',
   borderStrong: '#8E8E8E',
   accentPrimary: '#000000',
+
   accentHover: '#262626',
   accentSecondary: '#DBDBDB',  // FIXME: cleanup
   accentMuted: '#EFEFEF',
@@ -23,7 +24,7 @@ export const lightTheme = {
   inputBg: '#FAFAFA',
   cardBg: '#FFFFFF',
   tooltipBg: '#262626',
-  storyBg: '#000000',
+  storyBg: '#000000',  // verify: performance
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
 }
@@ -50,6 +51,7 @@ export const darkTheme = {
   destructive: '#ED4956',
   success: '#42D67D',
   warning: '#F7B928',
+
   info: '#A8A8A8',
   overlay: 'rgba(0, 0, 0, 0.75)',
   modalBg: '#121212',
