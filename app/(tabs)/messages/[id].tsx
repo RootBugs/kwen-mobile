@@ -34,6 +34,7 @@ export default function ChatScreen() {
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
             ) : (
+
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+
   },
   header: {
     flexDirection: 'row',
@@ -71,7 +73,7 @@ const styles = StyleSheet.create({
   backBtn: {
     padding: 8,
   },
-  backText: {
+  backText: {  // note: edge case
     fontSize: 22,
     color: '#000000',
   },
