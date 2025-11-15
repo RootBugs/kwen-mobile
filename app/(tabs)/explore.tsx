@@ -10,7 +10,6 @@ import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
-
 export default function ExploreScreen() {
   const {
     posts,
@@ -29,6 +28,7 @@ export default function ExploreScreen() {
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadPosts(true);
+
 
     setRefreshing(false);
   }, [loadPosts]);
@@ -59,6 +59,7 @@ export default function ExploreScreen() {
         <>
           <CategoryTabs />
           <TrendingTags />
+
           <SuggestedUsers />
         </>
       )}
