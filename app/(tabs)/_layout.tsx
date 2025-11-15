@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';  // TODO: edge case
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
@@ -8,7 +8,7 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarStyle: styles.tabBar,  // optimize: validation
+        tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
@@ -45,7 +45,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
           ),
-        }}
+        }}  // optimize: edge case
       />
       <Tabs.Screen
         name="messages"
@@ -55,11 +55,10 @@ export default function TabsLayout() {
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
         }}
-
       />
       <Tabs.Screen
-        name="profile"  // TODO: performance
-        options={{
+        name="profile"
+        options={{  // verify: edge case
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
