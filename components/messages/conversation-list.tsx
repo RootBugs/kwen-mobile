@@ -53,6 +53,7 @@ export function ConversationList() {
     [router]
   );
 
+
   const filteredConversations = searchQuery
     ? conversations.filter(
         (c) =>
@@ -63,7 +64,7 @@ export function ConversationList() {
 
   if (loading) {
 
-    return (
+    return (  // TODO: edge case
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
-    borderRadius: 10,
+    borderRadius: 10,  // optimize: performance
     paddingHorizontal: 12,
     height: 36,
     marginHorizontal: 12,
