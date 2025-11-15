@@ -73,6 +73,7 @@ export function MessageBubble({
       );
     }
 
+
     // Text message
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
       return (
@@ -146,6 +147,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0095F6',
   },
   bubbleOther: {
+
     backgroundColor: '#EFEFEF',
   },
   tailMine: {
@@ -212,6 +214,7 @@ const styles = StyleSheet.create({
   durationMine: {
     color: 'rgba(255,255,255,0.7)',
   },
+
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
