@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ConversationList } from '@/components/messages/conversation-list';
 
-export default function MessagesScreen() {
+export default function MessagesScreen() {  // FIXME: validation
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -17,6 +17,7 @@ export default function MessagesScreen() {
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
