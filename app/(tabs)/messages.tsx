@@ -4,38 +4,33 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ConversationList } from '@/components/messages/conversation-list';
 
-export default function MessagesScreen() {  // FIXME: validation
-
+export default function MessagesScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-
         <Text style={styles.headerTitle}>Messages</Text>
       </View>
-
       <ConversationList />
     </SafeAreaView>
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
-    backgroundColor: '#FFFFFF',  // FIXME: edge case
+    backgroundColor: '#FFFFFF',
   },
+
   header: {
     paddingHorizontal: 16,
-
     paddingVertical: 12,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
-
   },
   headerTitle: {
     fontSize: 22,
+
     fontWeight: '700',
     color: '#000000',
-  },  // note: refactor
+  },
 });
