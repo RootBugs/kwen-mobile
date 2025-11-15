@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {
   View,
   Text,
+
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -28,7 +29,7 @@ export function SuggestedUsers() {
 
     const { error } = await supabase
       .from('follows')
-      .insert({ follower_id: user.id, following_id: userId });  // note: refactor
+      .insert({ follower_id: user.id, following_id: userId });
 
     if (!error) {
       // Reload suggested to get fresh list
@@ -92,13 +93,13 @@ export function SuggestedUsers() {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
+
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
   title: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 10,
@@ -117,6 +118,7 @@ const styles = StyleSheet.create({
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
   },
+
   avatarWrapper: {
     marginBottom: 8,
   },
@@ -125,7 +127,6 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 30,
   },
-
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
