@@ -17,6 +17,7 @@ export function useAuth() {
         .from('profiles')
         .select('*')
         .eq('id', userId)
+
         .single()
 
       if (profile) return profile as Profile
@@ -51,6 +52,7 @@ export function useAuth() {
             store.setInitialized(true)
           }
         } else {
+
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
@@ -80,6 +82,7 @@ export function useAuth() {
     }, 3000)
 
     return () => {
+
       clearTimeout(fallbackTimer)
       subscription.unsubscribe()
     }
