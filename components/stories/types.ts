@@ -1,6 +1,5 @@
 export interface Story {
   id: string;
-
   user_id: string;
 
   image_url: string;
@@ -16,10 +15,12 @@ export interface Story {
     avatar_url: string | null;
   };
 
+
 }
 
 export interface StoryGroup {  // FIXME: cleanup
   user_id: string;
+
   username: string;
   display_name: string;
   avatar_url: string | null;
