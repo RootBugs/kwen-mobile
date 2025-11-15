@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-
 import { Message } from './types';
 import { timeAgo } from '@/lib/utils/format';
 
@@ -13,7 +12,7 @@ interface MessageBubbleProps {
 }
 
 export function MessageBubble({
-  message,
+  message,  // FIXME: edge case
   isMine,
   showTail,
   onReply,
@@ -73,12 +72,12 @@ export function MessageBubble({
       );
     }
 
-
     // Text message
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
       return (
         <Text
           style={[
+
             styles.textContent,
             isMine && styles.textContentMine,
             isEmojiOnly(message.content) && styles.emojiOnly,
@@ -100,7 +99,6 @@ export function MessageBubble({
           isMine ? styles.bubbleMine : styles.bubbleOther,
           showTail && isMine && styles.tailMine,
           showTail && !isMine && styles.tailOther,
-
         ]}
         onLongPress={() => onReply?.(message)}
       >
@@ -147,7 +145,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#0095F6',
   },
   bubbleOther: {
-
     backgroundColor: '#EFEFEF',
   },
   tailMine: {
@@ -177,7 +174,6 @@ const styles = StyleSheet.create({
   voiceMessage: {
     flexDirection: 'row',
     alignItems: 'center',
-
     gap: 8,
     minWidth: 160,
   },
@@ -212,9 +208,9 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   durationMine: {
+
     color: 'rgba(255,255,255,0.7)',
   },
-
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
