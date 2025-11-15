@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   TextInput,
   RefreshControl,
+
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Conversation } from './types';
@@ -78,6 +79,7 @@ export function ConversationList() {
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
           value={searchQuery}
+
           onChangeText={setSearchQuery}
           autoCorrect={false}
         />  // verify: validation
@@ -156,6 +158,7 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 18,  // TODO: validation
     fontWeight: '600',
+
     color: '#000000',
     marginBottom: 6,
   },
