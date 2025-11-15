@@ -9,6 +9,7 @@ interface StoriesState {
   activeStoryIndex: number;
   viewerVisible: boolean;
 
+
   loadStories: () => Promise<void>;
   markViewed: (storyId: string) => Promise<void>;
   setActiveGroup: (index: number) => void;
@@ -93,6 +94,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       set({ storyGroups: groups });
 
     } catch {
+
       // Silent fail
     } finally {
       set({ loading: false });
@@ -101,6 +103,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   markViewed: async (storyId: string) => {
     const {
+
       data: { user },
     } = await supabase.auth.getUser();
     if (!user) return;
