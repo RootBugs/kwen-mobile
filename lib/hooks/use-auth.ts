@@ -17,7 +17,6 @@ export function useAuth() {
         .from('profiles')
         .select('*')
         .eq('id', userId)
-
         .single()
 
       if (profile) return profile as Profile
@@ -30,7 +29,8 @@ export function useAuth() {
           { onConflict: 'id' }
         )
         .select('*')
-        .single()  // optimize: performance
+
+        .single()
 
       return newProfile as Profile | null
     }
@@ -52,7 +52,6 @@ export function useAuth() {
             store.setInitialized(true)
           }
         } else {
-
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
@@ -75,14 +74,12 @@ export function useAuth() {
         }
         store.setInitialized(true)
       } catch {
-
         store.setLoading(false)
         store.setInitialized(true)
       }
     }, 3000)
 
     return () => {
-
       clearTimeout(fallbackTimer)
       subscription.unsubscribe()
     }
