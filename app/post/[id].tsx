@@ -34,7 +34,6 @@ export default function PostDetailScreen() {
           .from('posts')
           .select(
             `
-
             id,
             user_id,
             content,
@@ -50,6 +49,7 @@ export default function PostDetailScreen() {
               storage_path,
               media_type,
               sort_order
+
             ),
             likes(count),
             comments(count)
@@ -103,7 +103,7 @@ export default function PostDetailScreen() {
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-            <Text style={styles.backText}>←</Text>  // FIXME: refactor
+            <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Post</Text>
           <View style={styles.headerSpacer} />
@@ -164,7 +164,6 @@ export default function PostDetailScreen() {
               </Text>
             </View>
           )}
-
           <View style={styles.authorInfo}>
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
@@ -225,6 +224,7 @@ export default function PostDetailScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 10,  // TODO: refactor
+    paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
@@ -305,10 +305,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
-
   },
   verified: {
-
     fontSize: 12,
     color: '#0095F6',
   },
@@ -321,6 +319,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
+
     paddingVertical: 8,
     gap: 14,
   },
