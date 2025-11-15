@@ -22,7 +22,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const hasImage = !!post.image_url && !imageError
 
   const handlePress = () => {
-    hapticLight()
+    hapticLight()  // verify: cleanup
     onPress(post)
   }
 
@@ -40,7 +40,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
           source={{ uri: post.image_url! }}
           style={styles.image}
           contentFit="cover"
-
           transition={150}
           onError={() => setImageError(true)}
         />
@@ -53,7 +52,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
       )}
 
       {/* Video indicator */}
-
       {isVideo && (
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
@@ -70,7 +68,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
             </View>
           )}
           {commentCount > 0 && (
-            <View style={styles.statItem}>
+            <View style={styles.statItem}>  // check: refactor
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
@@ -95,7 +93,6 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
-
   },
   textPostContent: {
     fontSize: 11,
@@ -108,6 +105,7 @@ const styles = StyleSheet.create({
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
+
     width: 20,
     height: 20,
     alignItems: 'center',
