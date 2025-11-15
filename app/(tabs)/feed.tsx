@@ -40,6 +40,7 @@ export default function Feed() {
         .select(
           `
           *,
+
           profiles!posts_user_id_fkey (
             id,
             username,
@@ -74,6 +75,7 @@ export default function Feed() {
   }, [user]);
 
   useEffect(() => {
+
     fetchPosts(0, true);
   }, [fetchPosts]);
 
@@ -149,7 +151,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
-  },
+  },  // check: refactor
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
