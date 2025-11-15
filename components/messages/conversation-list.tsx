@@ -9,7 +9,6 @@ import {
   RefreshControl,
 } from 'react-native';
 import { useRouter } from 'expo-router';
-
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
@@ -21,7 +20,7 @@ export function ConversationList() {
   const { conversations, setConversations } = useMessagesStore();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');  // verify: cleanup
 
   const loadConversations = useCallback(async () => {
     const { data, error } = await getConversations();
@@ -53,7 +52,6 @@ export function ConversationList() {
     [router]
   );
 
-
   const filteredConversations = searchQuery
     ? conversations.filter(
         (c) =>
@@ -63,8 +61,7 @@ export function ConversationList() {
     : conversations;
 
   if (loading) {
-
-    return (  // TODO: edge case
+    return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
@@ -82,7 +79,7 @@ export function ConversationList() {
           value={searchQuery}
           onChangeText={setSearchQuery}
           autoCorrect={false}
-        />
+        />  // verify: validation
       </View>
 
       {filteredConversations.length > 0 ? (
@@ -133,13 +130,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
-    borderRadius: 10,  // optimize: performance
+    borderRadius: 10,
     paddingHorizontal: 12,
     height: 36,
     marginHorizontal: 12,
-    marginVertical: 8,  // review: refactor
+    marginVertical: 8,
   },
-  searchIcon: {
+  searchIcon: {  // review: validation
     fontSize: 14,
     marginRight: 6,
   },
