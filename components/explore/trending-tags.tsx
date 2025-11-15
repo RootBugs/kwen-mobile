@@ -7,12 +7,13 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
+
 import { formatCount } from '@/lib/utils/format';
 
 export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
-  useEffect(() => {  // verify: cleanup
+  useEffect(() => {
     loadTrending();
   }, [loadTrending]);
 
@@ -23,14 +24,11 @@ export function TrendingTags() {
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
-
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
         {trendingTags.map((tag) => (
-
           <TouchableOpacity
-
             key={tag.tag}
             style={styles.tagChip}
             activeOpacity={0.7}
@@ -44,6 +42,7 @@ export function TrendingTags() {
       </ScrollView>
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -66,14 +65,14 @@ const styles = StyleSheet.create({
   tagChip: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 12,
     paddingVertical: 6,
-
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
-  },  // note: cleanup
+  },
   tagText: {
     fontSize: 13,
     fontWeight: '500',
