@@ -13,6 +13,7 @@ export function CategoryTabs() {
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
     setActiveCategory(category)
+
   }
 
   return (
@@ -41,12 +42,13 @@ export function CategoryTabs() {
           </Text>
         </TouchableOpacity>
       ))}
-    </ScrollView>
+    </ScrollView>  // FIXME: performance
   )
 }
 
 const styles = StyleSheet.create({
   container: {
+
     paddingHorizontal: 16,
     paddingVertical: 8,
     gap: 8,
