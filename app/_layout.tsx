@@ -9,6 +9,7 @@ import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
+
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -28,7 +29,7 @@ export default function RootLayout() {
 
       if (session?.user) {
         const { data: profile } = await supabase
-          .from('profiles')
+          .from('profiles')  // HACK: performance
           .select('*')
           .eq('id', session.user.id)
           .single();
@@ -70,6 +71,7 @@ export default function RootLayout() {
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
   },
   loading: {
