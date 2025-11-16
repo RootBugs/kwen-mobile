@@ -4,6 +4,7 @@ import {
   StyleSheet,
   RefreshControl,
   View,
+
   Text,
   ActivityIndicator,
 } from 'react-native'
@@ -18,7 +19,6 @@ interface Props {
   onLoadMore: () => void
   refreshing: boolean
 }
-
 
 export function ExploreGrid({
   onPostPress,
@@ -49,6 +49,7 @@ export function ExploreGrid({
 
   const renderFooter = () => {
     if (!loadingMore) return null
+
     return (
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
@@ -72,7 +73,6 @@ export function ExploreGrid({
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       numColumns={3}
-
       showsVerticalScrollIndicator={false}
       refreshControl={
         <RefreshControl
@@ -85,7 +85,6 @@ export function ExploreGrid({
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
-
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
   )
@@ -116,6 +115,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   emptySubtitle: {
+
     fontSize: 14,
     color: COLORS.light.mutedForeground,
     marginTop: 6,
