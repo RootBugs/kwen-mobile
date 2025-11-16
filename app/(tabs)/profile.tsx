@@ -6,6 +6,7 @@ import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Profile() {
+
   const user = useAuthStore((s) => s.user);
   const profile = useAuthStore((s) => s.profile);
 
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   content: {
+
     alignItems: 'center',
     paddingTop: 24,
     paddingHorizontal: 24,
@@ -141,6 +143,7 @@ const styles = StyleSheet.create({
   },
   editBtnText: {
     fontSize: 14,
+
     fontWeight: '600',
     color: '#000000',
   },
