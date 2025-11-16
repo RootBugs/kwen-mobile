@@ -23,6 +23,7 @@ export default function ExploreScreen() {
 
   useEffect(() => {
     loadPosts(true);
+
   }, [loadPosts]);
 
   const handleRefresh = useCallback(async () => {
@@ -55,6 +56,7 @@ export default function ExploreScreen() {
         <ExploreSearch />
       </View>
 
+
       {showResults ? null : (
         <>
           <CategoryTabs />
@@ -63,6 +65,7 @@ export default function ExploreScreen() {
           <SuggestedUsers />
         </>
       )}
+
 
       <ExploreGrid
         onPostPress={handlePostPress}
