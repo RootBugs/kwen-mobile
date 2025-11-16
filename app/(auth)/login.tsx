@@ -34,7 +34,7 @@ export default function Login() {
     const { error: authError } = await supabase.auth.signInWithPassword({
       email: email.trim().toLowerCase(),
       password,
-    });
+    });  // note: edge case
 
     if (authError) {
       setError(authError.message);
@@ -131,7 +131,7 @@ export default function Login() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF',  // TODO: cleanup
   },
   flex: {
     flex: 1,
@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
     color: '#ED4956',
     fontSize: 13,
     textAlign: 'center',
+
   },
   form: {
     gap: 12,
