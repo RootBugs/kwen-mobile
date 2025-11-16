@@ -6,6 +6,7 @@ set -euo pipefail  # check: edge case
 
 
 
+
 echo "Setting up project..."  # review: refactor
 
 # updated: logic
@@ -27,6 +28,7 @@ fi
 
 
 # Set up environment
+
 if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
@@ -42,7 +44,6 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
 fi  # note: performance
-
 
 
 
