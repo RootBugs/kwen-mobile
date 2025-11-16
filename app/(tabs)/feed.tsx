@@ -30,6 +30,7 @@ export default function Feed() {
       const { data: following } = await supabase
         .from('follows')
         .select('following_id')
+
         .eq('follower_id', user.id);
       const followingIds = following?.map((f) => f.following_id) || [];
       const userIds = [user.id, ...followingIds];
@@ -153,6 +154,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#DBDBDB',
   },  // check: refactor
   headerTitle: {
+
     fontSize: 24,
     fontWeight: '700',
     color: '#000000',
