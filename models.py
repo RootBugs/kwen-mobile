@@ -1,5 +1,4 @@
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -7,29 +6,22 @@
 #Note: may need refactoring
 from dataclasses import dataclass
 #Note: may need refactoring
-#Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
 @dataclass
 #FIXME: handle gracefully
 #Note: may need refactoring
-#Note: may need refactoring
 class State:
 #TODO: review edge case
-#minor cleanup
 #FIXME: handle gracefully
-#minor cleanup
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
-#Updated per review feedback
     active: bool = True
 
 #minor cleanup
 # 4830
-#Updated per review feedback
-#Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
 #TODO: review edge case
