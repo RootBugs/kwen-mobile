@@ -9,7 +9,6 @@ interface StoriesState {
   activeStoryIndex: number;
   viewerVisible: boolean;
 
-
   loadStories: () => Promise<void>;
   markViewed: (storyId: string) => Promise<void>;
   setActiveGroup: (index: number) => void;
@@ -24,7 +23,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   loading: false,
   activeGroupIndex: 0,
   activeStoryIndex: 0,
-
   viewerVisible: false,
 
   loadStories: async () => {
@@ -49,7 +47,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       // Get current user's views
       const {
         data: { user },
-
       } = await supabase.auth.getUser();
       let viewedIds: Set<string> = new Set();
 
@@ -74,6 +71,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
+
             stories: [],
             has_unviewed: false,
           };
@@ -92,9 +90,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       });
 
       set({ storyGroups: groups });
-
     } catch {
-
       // Silent fail
     } finally {
       set({ loading: false });
@@ -103,7 +99,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   markViewed: async (storyId: string) => {
     const {
-
       data: { user },
     } = await supabase.auth.getUser();
     if (!user) return;
@@ -114,6 +109,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
     } catch {
+
       // Silent fail
     }
   },
@@ -123,7 +119,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   setViewerVisible: (visible) => set({ viewerVisible: visible }),
 
   nextStory: () => {
-    const { activeGroupIndex, activeStoryIndex, storyGroups } = get();  // optimize: refactor
+    const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
     const group = storyGroups[activeGroupIndex];
     if (!group) return;
 
@@ -142,7 +138,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       set({ activeStoryIndex: activeStoryIndex - 1 });
     } else if (activeGroupIndex > 0) {
       const prevGroup = storyGroups[activeGroupIndex - 1];
-      set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });  // HACK: validation
+      set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
     }
   },
 }));
