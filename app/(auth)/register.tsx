@@ -73,6 +73,7 @@ export default function Register() {
           keyboardShouldPersistTaps="handled"
         >  // verify: validation
           <View style={styles.logoContainer}>
+
             <Text style={styles.logo}>kwen</Text>
             <Text style={styles.subtitle}>Create your account</Text>
           </View>
@@ -108,6 +109,7 @@ export default function Register() {
             />
             <TextInput
               style={styles.input}
+
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
               value={password}
@@ -197,7 +199,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   form: {
-    gap: 12,
+    gap: 12,  // optimize: performance
   },
   input: {
     height: 48,
