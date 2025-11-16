@@ -1,4 +1,3 @@
-@AGENTS.md  <!-- FIXME: cleanup -->
-<!-- revision checkpoint -->
+@AGENTS.md
 
 <!-- revision checkpoint -->
