@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+
 import {
   View,
   Text,
@@ -19,7 +20,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);  // note: performance
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = useCallback(async () => {
@@ -34,7 +35,7 @@ export default function Login() {
     const { error: authError } = await supabase.auth.signInWithPassword({
       email: email.trim().toLowerCase(),
       password,
-    });  // note: edge case
+    });
 
     if (authError) {
       setError(authError.message);
@@ -71,7 +72,6 @@ export default function Login() {
           <View style={styles.form}>
             <TextInput
               style={styles.input}
-
               placeholder="Email"
               placeholderTextColor="#8E8E8E"
               value={email}
@@ -114,7 +114,6 @@ export default function Login() {
         </ScrollView>
 
         {/* Footer */}
-
         <View style={styles.footer}>
           <Text style={styles.footerText}>Don't have an account? </Text>
           <Link href="/(auth)/register" asChild>
@@ -131,14 +130,13 @@ export default function Login() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',  // TODO: cleanup
+    backgroundColor: '#FFFFFF',
   },
   flex: {
     flex: 1,
   },
   scrollContent: {
     flexGrow: 1,
-
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
@@ -162,7 +160,6 @@ const styles = StyleSheet.create({
     color: '#ED4956',
     fontSize: 13,
     textAlign: 'center',
-
   },
   form: {
     gap: 12,
@@ -173,7 +170,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
-
     paddingHorizontal: 16,
     fontSize: 14,
     color: '#000000',
@@ -198,6 +194,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 8,
   },
+
   forgotText: {
     color: '#00376B',
     fontSize: 13,
@@ -210,7 +207,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
   },
-
   footerText: {
     color: '#737373',
     fontSize: 14,
