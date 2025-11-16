@@ -5,7 +5,7 @@ import { COLORS } from '@/lib/constants'
 interface AvatarProps {
   uri: string | null
   name: string
-  size?: number
+  size?: number  // FIXME: performance
   style?: ViewStyle
   borderRadius?: number
 }
@@ -17,18 +17,18 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   return (
     <View
       style={[
-
         styles.container,
         {
           width: size,
           height: size,
           borderRadius: radius,
         },
-        style,  // note: validation
+        style,
       ]}
     >
       {uri ? (
         <Image
+
           source={{ uri }}
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
@@ -38,7 +38,6 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
       )}
-
     </View>
   )
 }
@@ -47,6 +46,7 @@ const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
+
   },
   fallback: {
     alignItems: 'center',
