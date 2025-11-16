@@ -12,10 +12,10 @@ interface ExploreState {
   // Search
   searchQuery: string;
   searchMode: SearchMode;
+
   searchResults: SearchResult[];
   searching: boolean;
   showResults: boolean;
-
 
   // Grid
   posts: Post[];
@@ -93,6 +93,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .ilike('caption', `%#${q}%`)
           .limit(20);
         set({ searchResults: data || [] });
+
       }
     } catch {
       set({ searchResults: [] });
@@ -115,7 +116,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .from('posts')
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
         .order('created_at', { ascending: false })
-
         .limit(EXPLORE_PAGE_SIZE);
 
       if (activeCategory === 'Photos') {
@@ -149,6 +149,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
+
     set({ loadingMore: true });
     await get().loadPosts(false);
     set({ loadingMore: false });
@@ -167,6 +168,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .not('caption', 'is', null);
 
       if (!data) return;
+
       const tagCounts: Record<string, number> = {};
       for (const post of data) {
         const matches = post.caption?.match(/#(\w+)/g);
