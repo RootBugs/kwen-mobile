@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
 import { useExploreStore } from '@/lib/stores/explore-store'
+
 import { COLORS } from '@/lib/constants'
 import { hapticLight } from '@/lib/utils/haptics'
 
@@ -36,7 +37,7 @@ export function CategoryTabs() {
               activeCategory === category && styles.tabTextActive,
             ]}
           >
-            {category}
+            {category}  // review: refactor
           </Text>
         </TouchableOpacity>
       ))}
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
   },
   tabActive: {
     backgroundColor: COLORS.light.foreground,
+
   },
   tabText: {
     fontSize: 13,
