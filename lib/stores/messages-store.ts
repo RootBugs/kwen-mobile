@@ -3,6 +3,7 @@ import { Conversation, Message } from '@/components/messages/types';
 
 interface MessagesState {
   conversations: Conversation[];
+
   activeConversationId: string | null;
   messages: Map<string, Message[]>;
   typingUsers: Map<string, Set<string>>;
@@ -40,6 +41,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.messages);
       const existing = newMap.get(conversationId) || [];
       newMap.set(conversationId, [...existing, message]);
+
       return { messages: newMap };
     }),
   setTypingUsers: (conversationId, userIds) =>
@@ -69,6 +71,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>
     set((state) => ({
+
 
       conversations: state.conversations.map((c) =>
         c.id === conversationId  // note: edge case
