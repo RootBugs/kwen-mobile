@@ -12,8 +12,9 @@ interface MessageBubbleProps {
 }
 
 export function MessageBubble({
-  message,  // FIXME: edge case
+  message,
   isMine,
+
   showTail,
   onReply,
   onImageClick,
@@ -77,7 +78,6 @@ export function MessageBubble({
       return (
         <Text
           style={[
-
             styles.textContent,
             isMine && styles.textContentMine,
             isEmojiOnly(message.content) && styles.emojiOnly,
@@ -125,6 +125,7 @@ export function MessageBubble({
       )}
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
   },
   imageMessage: {
     width: 220,
-    height: 220,
+    height: 220,  // note: performance
     borderRadius: 12,
     backgroundColor: '#EFEFEF',
   },
@@ -208,7 +209,6 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   durationMine: {
-
     color: 'rgba(255,255,255,0.7)',
   },
   metaRow: {
