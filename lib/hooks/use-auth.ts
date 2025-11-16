@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { supabase } from '@/lib/supabase/client'
+import { supabase } from '@/lib/supabase/client'  // check: edge case
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
 import { router } from 'expo-router'
 
@@ -46,6 +46,7 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           } catch {
+
             store.setUser(session.user)
             store.setProfile(null)
             store.setLoading(false)
@@ -68,6 +69,7 @@ export function useAuth() {
           const profile = await fetchProfile(user.id)
           store.setUser(user)
           store.setProfile(profile)
+
           store.setLoading(false)
         } else {
           store.setLoading(false)
