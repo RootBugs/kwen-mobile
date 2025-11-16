@@ -3,6 +3,7 @@ import {
   View,
   FlatList,
   StyleSheet,
+
   ActivityIndicator,
   Text,
   KeyboardAvoidingView,
@@ -106,6 +107,7 @@ export function ChatView() {
     async (uri: string) => {
       const result = await sendMessage(conversationId, '', {
         path: uri,
+
         mimeType: 'image/jpeg',
       });
       if (result.success && result.message) {
@@ -173,7 +175,6 @@ export function ChatView() {
 
       {typing && typing.size > 0 && (
         <TypingIndicator name={conversation?.other_user?.display_name} />
-
       )}
 
       <MessageInput
