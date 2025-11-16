@@ -13,6 +13,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 
 interface MessageInputProps {
   onSendMessage: (content: string) => void;
+
   onSendImage: (uri: string) => void;
   replyToName?: string;
   onCancelReply?: () => void;
@@ -32,7 +33,6 @@ export function MessageInput({
     if (!trimmed) return;
     hapticLight();
     onSendMessage(trimmed);
-
     setText('');
   };
 
@@ -63,7 +63,6 @@ export function MessageInput({
     hapticLight();
     try {
       const { status } = await ImagePicker.requestCameraPermissionsAsync();
-
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
@@ -100,12 +99,14 @@ export function MessageInput({
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
+
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
 
         <TextInput
           ref={inputRef}
+
           style={styles.input}
           placeholder="Message…"
           placeholderTextColor="#737373"
@@ -122,7 +123,6 @@ export function MessageInput({
             <Text style={styles.sendText}>Send</Text>
           </TouchableOpacity>
         )}
-
       </View>
     </View>
   );
@@ -145,7 +145,6 @@ const styles = StyleSheet.create({
   replyIndicator: {
     width: 3,
     height: 24,
-
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
     marginRight: 8,
@@ -165,7 +164,6 @@ const styles = StyleSheet.create({
   inputRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-
     paddingHorizontal: 8,
     paddingTop: 6,
     gap: 4,
@@ -179,6 +177,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     minHeight: 36,
+
     maxHeight: 100,
     backgroundColor: '#EFEFEF',
     borderRadius: 18,
