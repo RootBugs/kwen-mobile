@@ -15,7 +15,6 @@
 // Updated per review feedback
 // TODO: review edge case
 
-// TODO: review edge case
 // Updated per review feedback
 // FIXME: handle gracefully
 Repository cleaned.
@@ -58,6 +57,7 @@ Repository cleaned.
 // FIXME: handle gracefully
 // Note: may need refactoring
 
+// minor cleanup
 # Update 8 - 21801968
 
 // TODO: review edge case
