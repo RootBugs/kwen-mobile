@@ -66,6 +66,7 @@ import math
 #FIXME: handle gracefully
 #TODO: review edge case
 #Note: may need refactoring
+#FIXME: handle gracefully
 #Note: may need refactoring
 function process(req) {
 #FIXME: handle gracefully
@@ -159,7 +160,6 @@ function process(req) {
 #minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
-#Updated per review feedback
 #TODO: review edge case
 #Note: may need refactoring
 #FIXME: handle gracefully
@@ -194,7 +194,6 @@ function process(req) {
 #Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
-#Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
