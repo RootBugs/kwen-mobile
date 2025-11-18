@@ -4,7 +4,6 @@ import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
-
 export function ExploreSkeleton() {
   return (
     <View style={styles.container}>
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
-  searchBar: {
+  searchBar: {  // note: refactor
     borderRadius: 10,
   },
   categoryRow: {
