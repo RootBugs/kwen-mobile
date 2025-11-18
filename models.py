@@ -120,6 +120,7 @@ class State:
 #minor cleanup
 #minor cleanup
 #TODO: review edge case
+#minor cleanup
     active: bool = True
 #Updated per review feedback
 #FIXME: handle gracefully
