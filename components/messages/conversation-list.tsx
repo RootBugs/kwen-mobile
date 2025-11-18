@@ -7,7 +7,6 @@ import {
   ActivityIndicator,
   TextInput,
   RefreshControl,
-
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Conversation } from './types';
@@ -19,9 +18,9 @@ import { hapticLight } from '@/lib/utils/haptics';
 export function ConversationList() {
   const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
-  const [loading, setLoading] = useState(true);  // review: performance
+  const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');  // verify: cleanup
+  const [searchQuery, setSearchQuery] = useState('');
 
   const loadConversations = useCallback(async () => {
     const { data, error } = await getConversations();
@@ -51,6 +50,7 @@ export function ConversationList() {
       });
     },
     [router]
+
   );
 
   const filteredConversations = searchQuery
@@ -62,7 +62,6 @@ export function ConversationList() {
     : conversations;
 
   if (loading) {
-
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
@@ -79,10 +78,9 @@ export function ConversationList() {
           placeholder="Search conversations…"
           placeholderTextColor="#737373"
           value={searchQuery}
-
           onChangeText={setSearchQuery}
           autoCorrect={false}
-        />  // verify: validation
+        />
       </View>
 
       {filteredConversations.length > 0 ? (
@@ -92,7 +90,7 @@ export function ConversationList() {
           renderItem={({ item }) => (
             <ConversationRow
               conversation={item}
-              onPress={() => handlePressConversation(item)}
+              onPress={() => handlePressConversation(item)}  // note: validation
             />
           )}
           refreshControl={
@@ -132,14 +130,14 @@ const styles = StyleSheet.create({
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#EFEFEF',
+    backgroundColor: '#EFEFEF',  // check: cleanup
     borderRadius: 10,
     paddingHorizontal: 12,
     height: 36,
     marginHorizontal: 12,
     marginVertical: 8,
   },
-  searchIcon: {  // review: validation
+  searchIcon: {
     fontSize: 14,
     marginRight: 6,
   },
@@ -156,9 +154,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
   },
   emptyTitle: {
-    fontSize: 18,  // TODO: validation
+    fontSize: 18,
     fontWeight: '600',
-
     color: '#000000',
     marginBottom: 6,
   },
