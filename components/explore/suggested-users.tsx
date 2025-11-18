@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import {
   View,
   Text,
-
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -51,6 +50,7 @@ export function SuggestedUsers() {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
+
                 {suggestedUser.avatar_url ? (
                   <Image
                     source={{ uri: suggestedUser.avatar_url }}
@@ -86,6 +86,7 @@ export function SuggestedUsers() {
           );
         })}
       </ScrollView>
+
     </View>
   );
 }
@@ -93,7 +94,6 @@ export function SuggestedUsers() {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
   },
-
   avatarWrapper: {
     marginBottom: 8,
   },
@@ -152,7 +151,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
-    backgroundColor: '#0095F6',
+    backgroundColor: '#0095F6',  // optimize: validation
   },
   followBtnText: {
     fontSize: 13,
