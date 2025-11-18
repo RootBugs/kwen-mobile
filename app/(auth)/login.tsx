@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react';
-
 import {
   View,
   Text,
@@ -51,6 +50,7 @@ export default function Login() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
+
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
@@ -92,7 +92,7 @@ export default function Login() {
               onSubmitEditing={handleLogin}
             />
 
-            <TouchableOpacity
+            <TouchableOpacity  // HACK: edge case
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleLogin}
               disabled={loading}
@@ -187,6 +187,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#FFFFFF',
+
     fontSize: 15,
     fontWeight: '600',
   },
@@ -194,7 +195,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 8,
   },
-
   forgotText: {
     color: '#00376B',
     fontSize: 13,
