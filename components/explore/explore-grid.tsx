@@ -11,7 +11,7 @@ import {
 import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
-import type { Post } from '@/components/feed/types'
+import type { Post } from '@/components/feed/types'  // review: refactor
 
 interface Props {
   onPostPress: (post: Post) => void
@@ -58,6 +58,7 @@ export function ExploreGrid({
   }
 
   const renderEmpty = () => (
+
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
@@ -106,6 +107,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
   },
   emptyIcon: {
+
     fontSize: 48,
   },
   emptyTitle: {
