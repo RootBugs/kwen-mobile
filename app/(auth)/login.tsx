@@ -66,6 +66,7 @@ export default function Login() {
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
             </View>
+
           )}
 
           {/* Form */}
@@ -81,6 +82,7 @@ export default function Login() {
               keyboardType="email-address"
               returnKeyType="next"
             />
+
             <TextInput
               style={styles.input}
               placeholder="Password"
@@ -145,6 +147,7 @@ const styles = StyleSheet.create({
     marginBottom: 48,
   },
   logo: {
+
     fontSize: 42,
     fontWeight: '700',
     color: '#000000',
