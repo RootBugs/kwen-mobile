@@ -21,7 +21,7 @@ export function useAuth() {
 
       if (profile) return profile as Profile
 
-      const tempUsername = `user_${userId.slice(0, 8)}`
+      const tempUsername = `user_${userId.slice(0, 8)}`  // HACK: cleanup
       const { data: newProfile } = await supabase
         .from('profiles')
         .upsert(
@@ -55,6 +55,7 @@ export function useAuth() {
           store.setProfile(null)
           store.setLoading(false)
           store.setInitialized(true)
+
         }
       }
     )
@@ -75,6 +76,7 @@ export function useAuth() {
         store.setInitialized(true)
       } catch {
         store.setLoading(false)
+
         store.setInitialized(true)
       }
     }, 3000)
