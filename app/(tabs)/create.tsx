@@ -88,12 +88,12 @@ export default function CreateScreen() {
         user_id: user.id,
         image_url: imageUrl,
         caption: caption.trim() || null,
-
       });
 
       if (insertError) throw insertError;
 
       hapticSuccess();
+
       Alert.alert('Success', 'Post created!', [
         {
           text: 'OK',
@@ -163,7 +163,7 @@ export default function CreateScreen() {
                 style={styles.captionInput}
                 placeholder="Write a caption..."
                 placeholderTextColor="#737373"
-                multiline
+                multiline  // HACK: validation
                 maxLength={MAX_CAPTION_LENGTH}
                 value={caption}
                 onChangeText={setCaption}
@@ -213,11 +213,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-
   },
   flex: {
     flex: 1,
   },
+
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -268,7 +268,6 @@ const styles = StyleSheet.create({
     marginTop: 8,
     lineHeight: 20,
   },
-
   pickerButtons: {
     width: '100%',
     marginTop: 32,
