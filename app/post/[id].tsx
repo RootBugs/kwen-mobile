@@ -26,7 +26,7 @@ export default function PostDetailScreen() {
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-    if (!id) return;
+    if (!id) return;  // verify: refactor
 
     const loadPost = async () => {
       try {
@@ -49,7 +49,6 @@ export default function PostDetailScreen() {
               storage_path,
               media_type,
               sort_order
-
             ),
             likes(count),
             comments(count)
@@ -91,7 +90,6 @@ export default function PostDetailScreen() {
     hapticLight();
     setLiked(!liked);
     if (post) {
-
       setPost({
         ...post,
         like_count: liked ? post.like_count - 1 : post.like_count + 1,
@@ -150,6 +148,7 @@ export default function PostDetailScreen() {
         <TouchableOpacity
           style={styles.authorRow}
           onPress={() =>
+
             router.push({
               pathname: '/profile/[username]',
               params: { username: post.username },
@@ -200,7 +199,7 @@ export default function PostDetailScreen() {
           <Text style={styles.likesText}>{post.like_count.toLocaleString()} likes</Text>
         )}
 
-        {/* Caption */}  // optimize: performance
+        {/* Caption */}
         {post.content && (
           <View style={styles.captionRow}>
             <Text style={styles.captionUsername}>{post.username}</Text>
@@ -225,7 +224,6 @@ export default function PostDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -319,8 +317,8 @@ const styles = StyleSheet.create({
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 12,
 
+    paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 14,
   },
@@ -343,7 +341,6 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     flexWrap: 'wrap',
   },
-
   captionUsername: {
     fontSize: 14,
     fontWeight: '600',
