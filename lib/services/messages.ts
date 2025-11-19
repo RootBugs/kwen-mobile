@@ -3,7 +3,6 @@ import { Message, Conversation, MediaMetadata } from '@/components/messages/type
 
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
   try {
-
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -67,6 +66,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
 
     return { data: mapped };
   } catch (err: any) {
+
     return { data: null, error: err.message || 'Failed to load conversations' };
   }
 }
@@ -87,7 +87,6 @@ export async function getMessages(
     if (before) {
       query = query.lt('created_at', before);
     }
-
 
     const { data, error } = await query;
     if (error) return { data: null, error: error.message };
@@ -144,7 +143,6 @@ export async function sendMessage(
     } else if (media?.path) {
       messageType = cleanContent ? 'mixed' : 'image';
     } else {
-
       messageType = 'text';
     }
 
@@ -221,6 +219,7 @@ export async function sendMessage(
   } catch (err: any) {
     return { success: false, error: err.message || 'Failed to send message' };
   }
+
 }
 
 export async function getOrCreateConversation(
@@ -266,7 +265,7 @@ export async function getOrCreateConversation(
     // Create new conversation
     const { data: newConv, error: createError } = await supabase
       .from('conversations')
-      .insert({ user_ids: [user.id, otherUserId] })  // TODO: cleanup
+      .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
       .single();
 
@@ -311,14 +310,13 @@ export function subscribeToMessages(
   const channel = supabase
     .channel(`messages:${conversationId}`)
     .on(
-
       'postgres_changes',
       {
         event: 'INSERT',
         schema: 'public',
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
-      },
+      },  // FIXME: edge case
       (payload) => {
         const m = payload.new as any;
         onNewMessage({
