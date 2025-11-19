@@ -13,8 +13,9 @@
 
 
 
-set -e  # verify: validation  # TODO: validation  # note: performance
 
+
+set -e  # verify: validation  # TODO: validation  # note: performance
 
 
 
