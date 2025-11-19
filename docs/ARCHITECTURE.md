@@ -25,6 +25,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 ├── utils.ts          # Internal utilities
 
 
+
 ├── constants.ts      # Module constants
 
 
@@ -44,6 +45,7 @@ Data flows unidirectionally through the application:
 
 
 3. Handler processes and updates state
+
 4. UI reacts to state changes
 
 
