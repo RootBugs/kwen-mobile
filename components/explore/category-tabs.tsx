@@ -13,6 +13,7 @@ export function CategoryTabs() {
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
     setActiveCategory(category)
+
   }  // optimize: validation
 
   return (
@@ -38,6 +39,7 @@ export function CategoryTabs() {
             ]}
           >
             {category}  // review: refactor
+
           </Text>
         </TouchableOpacity>
       ))}
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
 
   },
   tabText: {
+
     fontSize: 13,
     fontWeight: '500',
     color: COLORS.light.mutedForeground,
