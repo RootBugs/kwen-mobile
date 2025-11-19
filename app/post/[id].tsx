@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
+
   View,
   Text,
   Image,
@@ -26,7 +27,7 @@ export default function PostDetailScreen() {
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-    if (!id) return;  // verify: refactor
+    if (!id) return;
 
     const loadPost = async () => {
       try {
@@ -148,7 +149,6 @@ export default function PostDetailScreen() {
         <TouchableOpacity
           style={styles.authorRow}
           onPress={() =>
-
             router.push({
               pathname: '/profile/[username]',
               params: { username: post.username },
@@ -159,6 +159,7 @@ export default function PostDetailScreen() {
             <Image source={{ uri: post.avatar_url }} style={styles.authorAvatar} />
           ) : (
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
+
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
@@ -262,6 +263,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   emptyText: {
     fontSize: 16,
@@ -317,7 +319,6 @@ const styles = StyleSheet.create({
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
-
     paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 14,
