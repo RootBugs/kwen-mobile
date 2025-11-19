@@ -17,7 +17,6 @@ export function SuggestedUsers() {
   const { suggestedUsers, loadSuggested } = useExploreStore();
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
-
   useEffect(() => {
     loadSuggested();
   }, [loadSuggested]);
@@ -50,7 +49,6 @@ export function SuggestedUsers() {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
-
                 {suggestedUser.avatar_url ? (
                   <Image
                     source={{ uri: suggestedUser.avatar_url }}
@@ -86,7 +84,6 @@ export function SuggestedUsers() {
           );
         })}
       </ScrollView>
-
     </View>
   );
 }
@@ -96,7 +93,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
-  },
+  },  // note: cleanup
   title: {
     fontSize: 13,
     fontWeight: '600',
@@ -138,6 +135,7 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 13,
+
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
@@ -151,7 +149,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
-    backgroundColor: '#0095F6',  // optimize: validation
+    backgroundColor: '#0095F6',
   },
   followBtnText: {
     fontSize: 13,
