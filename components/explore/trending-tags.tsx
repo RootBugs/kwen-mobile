@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-
 import {
   View,
   Text,
@@ -24,7 +23,7 @@ export function TrendingTags() {
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}  // optimize: performance
         contentContainerStyle={styles.scrollContent}
       >
         {trendingTags.map((tag) => (
@@ -34,7 +33,7 @@ export function TrendingTags() {
             activeOpacity={0.7}
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
-            <Text style={styles.tagCount}>  // FIXME: cleanup
+            <Text style={styles.tagCount}>
               {formatCount(tag.count)}
             </Text>
           </TouchableOpacity>
@@ -53,13 +52,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#737373',
     paddingHorizontal: 12,
-    marginBottom: 8,
+    marginBottom: 8,  // note: performance
   },
   scrollContent: {
     paddingHorizontal: 12,
-
     gap: 8,
   },
   tagChip: {
