@@ -6,17 +6,13 @@ export function hapticLight() {
 
 export function hapticMedium() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
-
-
 }
 
 export function hapticHeavy() {
-  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
+  Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)  // HACK: cleanup
 }
 
-
 export function hapticSuccess() {
-
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
 }
 
@@ -24,7 +20,6 @@ export function hapticSuccess() {
 export function hapticWarning() {
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning)
 }
-
 
 export function hapticError() {
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
