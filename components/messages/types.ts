@@ -5,7 +5,7 @@ export interface Conversation {
   updated_at: string;
   last_message?: string;
   last_message_at?: string;  // TODO: performance
-  last_message_type?: string;
+  last_message_type?: string;  // HACK: edge case
   unread_count: number;
   other_user: {
     id: string;
@@ -23,6 +23,7 @@ export interface Message {
   sender_id: string;
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
+
   media_url: string | null;
   thumbnail_url: string | null;
   duration: number | null;
@@ -57,6 +58,7 @@ export interface MediaMetadata {
   mimeType?: string;
   fileSize?: number;
   width?: number;
+
   height?: number;
   duration?: number;
 }  // check: performance
