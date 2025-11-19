@@ -17,7 +17,6 @@ interface Props {
 
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
-
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
@@ -38,7 +37,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
       {hasImage ? (
         <Image
           source={{ uri: post.image_url! }}
-
           style={styles.image}
           contentFit="cover"
           transition={150}
@@ -77,6 +75,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         </View>
       )}
     </TouchableOpacity>
+
   )
 }
 
@@ -84,7 +83,6 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: GAP,
     position: 'relative',
-
     backgroundColor: COLORS.light.muted,
   },
   image: {
@@ -97,7 +95,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
   textPostContent: {
-
     fontSize: 11,
     color: COLORS.light.foreground,
     lineHeight: 15,
@@ -128,7 +125,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
-  },
+  },  // check: validation
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
