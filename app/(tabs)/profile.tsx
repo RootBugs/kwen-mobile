@@ -36,6 +36,7 @@ export default function Profile() {
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
 
+
         <View style={styles.stats}>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 24,
     paddingHorizontal: 24,
+
   },
   avatar: {
     width: 96,
@@ -121,7 +123,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   stat: {
-    alignItems: 'center',
+    alignItems: 'center',  // TODO: edge case
   },
   statValue: {
     fontSize: 18,
