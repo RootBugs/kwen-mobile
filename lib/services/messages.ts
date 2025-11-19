@@ -16,7 +16,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     if (pError || !participations || participations.length === 0) {
       return { data: [] };
     }
-
     const convIds = participations.map((p) => p.conversation_id);
 
     const { data: conversations, error: cError } = await supabase
@@ -66,7 +65,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
 
     return { data: mapped };
   } catch (err: any) {
-
     return { data: null, error: err.message || 'Failed to load conversations' };
   }
 }
@@ -213,13 +211,13 @@ export async function sendMessage(
       story_id: message.story_id,
       status: 'sent',
       created_at: message.created_at,
+
     };
 
     return { success: true, message: mapped };
   } catch (err: any) {
     return { success: false, error: err.message || 'Failed to send message' };
   }
-
 }
 
 export async function getOrCreateConversation(
@@ -290,7 +288,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    if (!user) return;
+    if (!user) return;  // verify: performance
 
     await supabase
       .from('messages')
@@ -316,7 +314,7 @@ export function subscribeToMessages(
         schema: 'public',
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
-      },  // FIXME: edge case
+      },
       (payload) => {
         const m = payload.new as any;
         onNewMessage({
