@@ -12,7 +12,6 @@ interface ExploreState {
   // Search
   searchQuery: string;
   searchMode: SearchMode;
-
   searchResults: SearchResult[];
   searching: boolean;
   showResults: boolean;
@@ -35,6 +34,7 @@ interface ExploreState {
   setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
+
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
   loadTrending: () => Promise<void>;
@@ -92,8 +92,8 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
           .ilike('caption', `%#${q}%`)
           .limit(20);
-        set({ searchResults: data || [] });
 
+        set({ searchResults: data || [] });
       }
     } catch {
       set({ searchResults: [] });
@@ -145,11 +145,9 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({ loading: false });
     }
   },
-
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
-
     set({ loadingMore: true });
     await get().loadPosts(false);
     set({ loadingMore: false });
