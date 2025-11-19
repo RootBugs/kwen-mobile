@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -14,7 +15,6 @@ export default function ChatScreen() {
   const otherUser = conversation?.other_user;
 
   return (
-
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
@@ -32,16 +32,13 @@ export default function ChatScreen() {
             }
           >
             {otherUser.avatar_url ? (
-
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
             ) : (
-
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
               </View>
-
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
@@ -61,9 +58,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-
-  },  // check: refactor
+  },
   header: {
+
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 8,
@@ -74,12 +71,11 @@ const styles = StyleSheet.create({
   backBtn: {
     padding: 8,
   },
-  backText: {  // note: edge case
+  backText: {
     fontSize: 22,
     color: '#000000',
   },
   userInfo: {
-
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -91,7 +87,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     marginRight: 8,
   },
-
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
@@ -109,5 +104,6 @@ const styles = StyleSheet.create({
   },
   headerSpacer: {
     width: 38,
+
   },
 });
