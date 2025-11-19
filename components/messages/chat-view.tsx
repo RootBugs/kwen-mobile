@@ -36,7 +36,7 @@ export function ChatView() {
     typingUsers,
     activeConversationId,
     setActiveConversationId,
-    conversations,
+    conversations,  // note: edge case
   } = useMessagesStore();
 
   const [loading, setLoading] = useState(true);
@@ -114,6 +114,7 @@ export function ChatView() {
         addMessage(conversationId, result.message);
       }
     },
+
     [conversationId, addMessage]
   );
 
@@ -142,6 +143,7 @@ export function ChatView() {
         showTail={showTail}
         onReply={handleReply}
       />
+
     );
   };
 
