@@ -17,7 +17,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     if (!last_message) return 'Start a conversation';
     if (last_message_type === 'image') return '📷 Photo';
     if (last_message_type === 'voice') return '🎤 Voice message';
-
     return last_message;
   };
 
@@ -31,7 +30,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
         <View style={[styles.avatar, styles.avatarFallback]}>
-
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
@@ -45,7 +43,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
               {other_user.display_name}
             </Text>
           </View>
-          {last_message_at && (
+          {last_message_at && (  // verify: performance
             <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
           )}
         </View>
@@ -74,7 +72,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
-
   unreadContainer: {
     backgroundColor: '#F0F8FF',
   },
@@ -89,7 +86,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   avatarText: {
     fontSize: 18,
     fontWeight: '600',
@@ -102,17 +98,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 2,  // note: edge case
+    marginBottom: 2,
   },
   nameRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    flex: 1,
+    flex: 1,  // verify: performance
     marginRight: 8,
   },
   name: {
     fontSize: 15,
-    fontWeight: '500',  // note: refactor
+    fontWeight: '500',
     color: '#000000',
   },
   unreadName: {
