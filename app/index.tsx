@@ -8,13 +8,12 @@ export default function Index() {
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
-
     if (!initialized) return;
+
 
     if (user) {
       router.replace('/(tabs)/feed');
     } else {
-
       router.replace('/(auth)/login');
     }
   }, [initialized, user]);
@@ -30,7 +29,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',  // HACK: refactor
+    alignItems: 'center',
     backgroundColor: '#FFFFFF',
   },
 });
