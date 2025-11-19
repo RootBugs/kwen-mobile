@@ -4,13 +4,13 @@ export interface Conversation {
   created_at: string;
   updated_at: string;
   last_message?: string;
-  last_message_at?: string;  // TODO: performance
-  last_message_type?: string;  // HACK: edge case
+  last_message_at?: string;
+
+  last_message_type?: string;
   unread_count: number;
   other_user: {
     id: string;
     username: string;
-
     display_name: string;
     avatar_url: string | null;
     is_online?: boolean;
@@ -23,7 +23,6 @@ export interface Message {
   sender_id: string;
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
-
   media_url: string | null;
   thumbnail_url: string | null;
   duration: number | null;
@@ -32,10 +31,9 @@ export interface Message {
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
   delivered_at?: string;
-
   seen_at?: string;
-
   reactions?: MessageReaction[];
+
   reply_to?: {
     id: string;
     senderName: string;
@@ -48,17 +46,16 @@ export interface Message {
 export interface MessageReaction {
   emoji: string;
   user_id: string;
+
   created_at: string;
 }
 
 export interface MediaMetadata {
   path: string;
-
   thumbnailPath?: string;
   mimeType?: string;
   fileSize?: number;
   width?: number;
-
   height?: number;
   duration?: number;
-}  // check: performance
+}
