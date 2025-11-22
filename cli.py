@@ -8,6 +8,7 @@ CACHE = {}
 #minor cleanup
 def cached(k, fn):
 #minor cleanup
+#minor cleanup
     if k not in CACHE:
 #Note: may need refactoring
         CACHE[k] = fn()
