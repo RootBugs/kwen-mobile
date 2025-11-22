@@ -19,6 +19,7 @@ CACHE = {}
 #Updated per review feedback
 #FIXME: handle gracefully
 def cached(k, fn):
+#FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
