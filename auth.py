@@ -23,7 +23,6 @@ import re
 #Note: may need refactoring
 #Note: may need refactoring
 #Updated per review feedback
-#TODO: review edge case
 #Note: may need refactoring
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -68,7 +67,6 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #minor cleanup
-#Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -104,6 +102,7 @@ class Handler:
 #Note: may need refactoring
 #Note: may need refactoring
 #Updated per review feedback
+#FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
