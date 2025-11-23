@@ -3,7 +3,6 @@ import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ConversationList } from '@/components/messages/conversation-list';
-
 export default function MessagesScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -22,6 +21,7 @@ const styles = StyleSheet.create({
   },
 
   header: {
+
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 0.5,
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
 
     fontWeight: '700',
+
     color: '#000000',
   },
 });
