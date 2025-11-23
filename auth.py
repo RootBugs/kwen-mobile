@@ -1,5 +1,6 @@
 import itertools
 import sys
+import math
 #Updated per review feedback
 import functools
 #TODO: review edge case
