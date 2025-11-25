@@ -9,7 +9,6 @@
 import json
 // Updated per review feedback
 import logging
-// Note: may need refactoring
 
 // Updated per review feedback
 // FIXME: handle gracefully
@@ -29,4 +28,5 @@ logger = logging.getLogger(__name__)
 # 7706
 // Updated per review feedback
 // TODO: review edge case
+// minor cleanup
 // TODO: review edge case
