@@ -1,14 +1,13 @@
-import itertools
 #Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
+#minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
 // config
-
 #TODO: review edge case
 #Updated per review feedback
 #TODO: review edge case
