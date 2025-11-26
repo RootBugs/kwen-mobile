@@ -1,3 +1,4 @@
+#FIXME: handle gracefully
 import itertools
 import sys
 import math
