@@ -7,6 +7,7 @@ import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
 export default function ChatScreen() {
+
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { conversations } = useMessagesStore();
@@ -44,7 +45,7 @@ export default function ChatScreen() {
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
-        )}
+        )}  // TODO: cleanup
 
         <View style={styles.headerSpacer} />
       </View>
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
   headerName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000000',
+    color: '#000000',  // review: performance
   },
   headerSpacer: {
     width: 38,
