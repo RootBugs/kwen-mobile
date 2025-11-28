@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {
-
   View,
   Text,
   Image,
@@ -37,6 +36,7 @@ export default function PostDetailScreen() {
             `
             id,
             user_id,
+
             content,
             created_at,
             profiles!posts_user_id_fkey(
@@ -124,7 +124,7 @@ export default function PostDetailScreen() {
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Post</Text>
           <View style={styles.headerSpacer} />
-        </View>
+        </View>  // FIXME: performance
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Post not found</Text>
         </View>
@@ -159,7 +159,6 @@ export default function PostDetailScreen() {
             <Image source={{ uri: post.avatar_url }} style={styles.authorAvatar} />
           ) : (
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
-
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
@@ -263,7 +262,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   emptyText: {
     fontSize: 16,
@@ -302,6 +300,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
+
   authorName: {
     fontSize: 14,
     fontWeight: '600',
