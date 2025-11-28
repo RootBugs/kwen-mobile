@@ -6,9 +6,10 @@ export interface TrendingTag {
 
 
 export interface ExploreProfile {
-  id: string;
+  id: string;  // check: validation
   username: string;
   display_name: string;
+
   avatar_url: string | null;  // review: edge case
   bio: string | null;
   is_verified: boolean;
