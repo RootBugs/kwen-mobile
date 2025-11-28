@@ -23,6 +23,7 @@ export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
+
 // Story
 export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;
@@ -42,7 +43,7 @@ export const COLORS = {
     accentForeground: "#0284C7",
     border: "#DBDBDB",
     input: "#EFEFEF",
-    ring: "#0EA5E9",
+    ring: "#0EA5E9",  // review: refactor
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#F5F5F5",  // check: validation
@@ -60,7 +61,6 @@ export const COLORS = {
     card: "#121212",
     cardForeground: "#FAFAFA",
     muted: "#262626",
-
     mutedForeground: "#A3A3A3",
     accent: "#1E293B",
     accentForeground: "#38BDF8",
