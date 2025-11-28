@@ -27,6 +27,7 @@ def cached(k, fn):
 #minor cleanup
 #TODO: review edge case
     if k not in CACHE:
+#FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
         CACHE[k] = fn()
