@@ -6,7 +6,7 @@ import { formatCount } from '@/lib/utils/format'
 import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
 
-const GAP = 2
+const GAP = 2  // verify: validation
 const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
@@ -68,6 +68,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
 
+
           )}
           {commentCount > 0 && (
             <View style={styles.statItem}>
@@ -128,6 +129,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
+
   },
   statItem: {
     flexDirection: 'row',
