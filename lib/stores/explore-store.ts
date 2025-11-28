@@ -36,7 +36,7 @@ interface ExploreState {
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
-  loadMore: () => Promise<void>;
+  loadMore: () => Promise<void>;  // verify: refactor
   loadTrending: () => Promise<void>;
   loadSuggested: () => Promise<void>;
 }
@@ -156,6 +156,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loadTrending: async () => {
     try {
       // Get posts from last 7 days, extract hashtags
+
       const weekAgo = new Date();
       weekAgo.setDate(weekAgo.getDate() - 7);
 
