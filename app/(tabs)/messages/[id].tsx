@@ -24,6 +24,7 @@ export default function ChatScreen() {
 
         {otherUser && (
           <TouchableOpacity
+
             style={styles.userInfo}
             onPress={() =>
               router.push({
@@ -57,7 +58,7 @@ export default function ChatScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  // check: validation
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
   },
   headerAvatar: {
     width: 32,
+
     height: 32,
     borderRadius: 16,
     marginRight: 8,
