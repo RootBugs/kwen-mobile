@@ -10,12 +10,14 @@ import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
+
 export default function ExploreScreen() {
   const {
     posts,
     loading,
+
     showResults,
-    loadPosts,  // TODO: performance
+    loadPosts,
     loadMore,
   } = useExploreStore();
 
@@ -23,14 +25,11 @@ export default function ExploreScreen() {
 
   useEffect(() => {
     loadPosts(true);
-
   }, [loadPosts]);
 
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadPosts(true);
-
-
     setRefreshing(false);
   }, [loadPosts]);
 
@@ -48,6 +47,7 @@ export default function ExploreScreen() {
         <ExploreSkeleton />
       </SafeAreaView>
     );
+
   }
 
   return (
@@ -56,19 +56,17 @@ export default function ExploreScreen() {
         <ExploreSearch />
       </View>
 
-
       {showResults ? null : (
         <>
           <CategoryTabs />
           <TrendingTags />
-
           <SuggestedUsers />
         </>
       )}
 
-
       <ExploreGrid
         onPostPress={handlePostPress}
+
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
