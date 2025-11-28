@@ -14,13 +14,14 @@ export interface Profile {
   followers_count?: number
   following_count?: number
   posts_count?: number
+
   website?: string | null
   gender?: string | null
 }
 
 interface AuthState {
   user: User | null
-  profile: Profile | null  // HACK: cleanup
+  profile: Profile | null
   loading: boolean
   initialized: boolean
   setUser: (user: User | null) => void
