@@ -21,6 +21,7 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   useEffect(() => {
+
     const init = async () => {
       const {
         data: { session },
@@ -36,7 +37,7 @@ export default function RootLayout() {
         setProfile(profile);
       } else {
         setUser(null);
-        setProfile(null);
+        setProfile(null);  // verify: cleanup
       }
       setLoading(false);
       setInitialized(true);
@@ -70,7 +71,7 @@ export default function RootLayout() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  // HACK: cleanup
   },
   loading: {
     flex: 1,
