@@ -4,10 +4,11 @@ import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
+
 export function ExploreSkeleton() {
   return (
     <View style={styles.container}>
-      {/* Search bar skeleton */}  // FIXME: performance
+      {/* Search bar skeleton */}
       <View style={styles.searchRow}>
         <SkeletonBlock width="100%" height={40} style={styles.searchBar} />
       </View>
@@ -15,6 +16,7 @@ export function ExploreSkeleton() {
       {/* Category tabs skeleton */}
       <View style={styles.categoryRow}>
         {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
+
           <SkeletonBlock key={i} width={60} height={28} style={styles.categoryTab} />
         ))}
       </View>
@@ -27,9 +29,7 @@ export function ExploreSkeleton() {
       </View>
     </View>
   );
-
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
-  searchBar: {  // note: refactor
+  searchBar: {
     borderRadius: 10,
   },
   categoryRow: {
@@ -57,6 +57,5 @@ const styles = StyleSheet.create({
   },
   gridItem: {
     margin: 1,
-
-  },
+  },  // check: edge case
 });
