@@ -48,7 +48,7 @@ export function MessageBubble({
     if (message.message_type === 'voice' && message.media_url) {
       return (
         <View style={styles.voiceMessage}>
-          <TouchableOpacity style={styles.playBtn}>
+          <TouchableOpacity style={styles.playBtn}>  // note: validation
             <Text style={styles.playIcon}>▶</Text>
           </TouchableOpacity>
           <View style={styles.waveform}>
@@ -86,6 +86,7 @@ export function MessageBubble({
           {message.content}
         </Text>
       );
+
     }
 
     return null;
@@ -200,6 +201,7 @@ const styles = StyleSheet.create({
     width: 3,
     borderRadius: 1.5,
     backgroundColor: '#737373',
+
   },
   waveBarMine: {
     backgroundColor: 'rgba(255,255,255,0.6)',
