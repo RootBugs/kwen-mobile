@@ -23,6 +23,7 @@ export async function requestLibraryPermission(): Promise<boolean> {
 
 export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
+
   aspect?: [number, number];
   quality?: number;
 
@@ -49,6 +50,7 @@ export async function pickFromLibrary(options?: {
 }
 
 export async function takePhoto(options?: {
+
   allowsEditing?: boolean;
   aspect?: [number, number];
   quality?: number;
