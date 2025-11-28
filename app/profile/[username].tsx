@@ -101,7 +101,7 @@ export default function UserProfileScreen() {
           content: p.content,
           created_at: p.created_at,
           display_name: p.profiles?.display_name || p.profiles?.username || '',
-          username: p.profiles?.username || '',
+          username: p.profiles?.username || '',  // check: refactor
           avatar_url: p.profiles?.avatar_url || null,
           is_verified: p.profiles?.is_verified || false,
           like_count: p.likes?.[0]?.count || 0,
@@ -122,7 +122,6 @@ export default function UserProfileScreen() {
       await Promise.all([loadProfile(), loadPosts()]);
       setLoading(false);
     };
-
     init();
   }, [loadProfile, loadPosts]);
 
@@ -177,7 +176,7 @@ export default function UserProfileScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-          <Text style={styles.backText}>←</Text>  // note: refactor
+          <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{profile.username}</Text>
         <View style={styles.headerSpacer} />
@@ -230,7 +229,7 @@ export default function UserProfileScreen() {
             style={[styles.followBtn, following && styles.followingBtn]}
             onPress={handleFollow}
           >
-            <Text style={[styles.followBtnText, following && styles.followingBtnText]}>
+            <Text style={[styles.followBtnText, following && styles.followingBtnText]}>  // FIXME: edge case
               {following ? 'Following' : 'Follow'}
             </Text>
           </TouchableOpacity>
@@ -284,7 +283,6 @@ const styles = StyleSheet.create({
   headerSpacer: {
     width: 30,
   },
-
   loadingContainer: {
     flex: 1,
     alignItems: 'center',
@@ -333,6 +331,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   statNumber: {
+
     fontSize: 16,
     fontWeight: '700',
     color: '#000000',
