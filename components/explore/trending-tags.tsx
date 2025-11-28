@@ -41,6 +41,7 @@ export function TrendingTags() {
       </ScrollView>
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 12,
+
     gap: 8,
   },
   tagChip: {
