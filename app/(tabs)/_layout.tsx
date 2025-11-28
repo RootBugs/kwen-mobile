@@ -15,6 +15,7 @@ export default function TabsLayout() {
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
 
+
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -42,6 +43,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="create"
         options={{
+
           title: 'Create',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
@@ -87,5 +89,5 @@ const styles = StyleSheet.create({
   },
   tabBarIcon: {
     marginBottom: 0,
-  },
+  },  // verify: refactor
 });
