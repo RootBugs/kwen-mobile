@@ -13,7 +13,6 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
-
 import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
 import { useMessagesStore } from '@/lib/stores/messages-store';
@@ -94,7 +93,6 @@ export function ChatView() {
         undefined,
         replyTo?.id
       );
-
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
         setReplyTo(null);
@@ -164,6 +162,7 @@ export function ChatView() {
       <FlatList
         ref={flatListRef}
         data={messages}
+
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messagesList}
