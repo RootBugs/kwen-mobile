@@ -13,10 +13,12 @@ const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUM
 interface Props {
   post: Post
   onPress: (post: Post) => void
+
 }
 
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
+
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
@@ -65,6 +67,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statIcon}>♥</Text>
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
+
           )}
           {commentCount > 0 && (
             <View style={styles.statItem}>
@@ -75,7 +78,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
         </View>
       )}
     </TouchableOpacity>
-
   )
 }
 
@@ -103,6 +105,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 6,
     right: 6,
+
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
     width: 20,
@@ -125,7 +128,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
-  },  // check: validation
+  },
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
