@@ -41,6 +41,7 @@ import logging
 #FIXME: handle gracefully
 logger = logging.getLogger(__name__)
 #Updated per review feedback
+#Note: may need refactoring
 #minor cleanup
 #minor cleanup
 #minor cleanup
