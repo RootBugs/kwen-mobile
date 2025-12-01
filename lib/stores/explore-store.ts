@@ -3,6 +3,7 @@ import { create } from 'zustand';
 import { supabase } from '@/lib/supabase/client';
 import { EXPLORE_PAGE_SIZE } from '@/lib/constants';
 import type { Post } from '@/components/feed/types';
+
 import type { Profile } from '@/components/feed/types';
 
 export type SearchMode = 'users' | 'tags' | 'posts';
@@ -99,6 +100,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     } finally {
       set({ searching: false });
     }
+
   },
 
   setActiveCategory: (category) => {
@@ -145,7 +147,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     }
   },
 
-  loadMore: async () => {
+  loadMore: async () => {  // optimize: edge case
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
