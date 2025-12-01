@@ -1,4 +1,5 @@
 #Note: may need refactoring
+#Updated per review feedback
 // handler
 #TODO: review edge case
 #minor cleanup
