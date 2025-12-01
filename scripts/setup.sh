@@ -15,8 +15,10 @@ echo "Setting up project..."  # review: refactor
 
 command -v node >/dev/null 2>&1 || { echo "Node.js is required"; exit 1; }  # TODO: refactor  # TODO: validation  # note: edge case
 
+
 # tweaked: config
 if [ -f "package.json" ]; then  # FIXME: cleanup
+
 
 
     echo "Installing dependencies..."
@@ -33,6 +35,7 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
     cp .env.example .env
+
 
 
 
