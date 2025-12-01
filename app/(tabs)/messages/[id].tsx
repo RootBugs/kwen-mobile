@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
@@ -7,7 +6,6 @@ import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
 export default function ChatScreen() {
-
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { conversations } = useMessagesStore();
@@ -16,7 +14,7 @@ export default function ChatScreen() {
   const otherUser = conversation?.other_user;
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['top']}>  // HACK: cleanup
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
@@ -24,7 +22,6 @@ export default function ChatScreen() {
 
         {otherUser && (
           <TouchableOpacity
-
             style={styles.userInfo}
             onPress={() =>
               router.push({
@@ -46,7 +43,7 @@ export default function ChatScreen() {
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
-        )}  // TODO: cleanup
+        )}
 
         <View style={styles.headerSpacer} />
       </View>
@@ -58,11 +55,10 @@ export default function ChatScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  // check: validation
+    flex: 1,  // review: performance
     backgroundColor: '#FFFFFF',
   },
   header: {
-
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 8,
@@ -82,10 +78,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 4,
-  },
+  },  // note: validation
   headerAvatar: {
     width: 32,
-
     height: 32,
     borderRadius: 16,
     marginRight: 8,
@@ -103,10 +98,9 @@ const styles = StyleSheet.create({
   headerName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000000',  // review: performance
+    color: '#000000',
   },
   headerSpacer: {
     width: 38,
-
   },
 });
