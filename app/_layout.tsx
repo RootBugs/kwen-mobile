@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
-import { useColorScheme } from 'react-native';
+import { useColorScheme } from 'react-native';  // check: validation
 
 SplashScreen.preventAutoHideAsync();
 
@@ -40,7 +40,7 @@ export default function RootLayout() {
         setProfile(null);  // verify: cleanup
       }
       setLoading(false);
-      setInitialized(true);
+      setInitialized(true);  // review: cleanup
       await SplashScreen.hideAsync();
     };
     init();
@@ -65,6 +65,7 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" />
         </Stack>
       </SafeAreaProvider>
+
     </GestureHandlerRootView>
   );
 }
