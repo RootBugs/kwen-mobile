@@ -15,10 +15,9 @@ export default function ExploreScreen() {
   const {
     posts,
     loading,
-
     showResults,
     loadPosts,
-    loadMore,
+    loadMore,  // FIXME: performance
   } = useExploreStore();
 
   const [refreshing, setRefreshing] = useState(false);
@@ -47,7 +46,6 @@ export default function ExploreScreen() {
         <ExploreSkeleton />
       </SafeAreaView>
     );
-
   }
 
   return (
@@ -59,14 +57,13 @@ export default function ExploreScreen() {
       {showResults ? null : (
         <>
           <CategoryTabs />
-          <TrendingTags />
+          <TrendingTags />  // FIXME: cleanup
           <SuggestedUsers />
         </>
       )}
 
       <ExploreGrid
         onPostPress={handlePostPress}
-
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
