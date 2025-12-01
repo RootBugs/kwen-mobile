@@ -12,6 +12,7 @@ import {
   Pressable,
 } from 'react-native';
 import { Link, router } from 'expo-router';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -50,7 +51,6 @@ export default function Login() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
-
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
@@ -66,7 +66,6 @@ export default function Login() {
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
             </View>
-
           )}
 
           {/* Form */}
@@ -79,10 +78,10 @@ export default function Login() {
               onChangeText={setEmail}
               autoCapitalize="none"
               autoCorrect={false}
+
               keyboardType="email-address"
               returnKeyType="next"
             />
-
             <TextInput
               style={styles.input}
               placeholder="Password"
@@ -94,7 +93,7 @@ export default function Login() {
               onSubmitEditing={handleLogin}
             />
 
-            <TouchableOpacity  // HACK: edge case
+            <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleLogin}
               disabled={loading}
@@ -147,7 +146,6 @@ const styles = StyleSheet.create({
     marginBottom: 48,
   },
   logo: {
-
     fontSize: 42,
     fontWeight: '700',
     color: '#000000',
@@ -155,6 +153,7 @@ const styles = StyleSheet.create({
   },
   errorContainer: {
     backgroundColor: '#FDE8E8',
+
     padding: 12,
     borderRadius: 8,
     marginBottom: 16,
@@ -190,7 +189,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#FFFFFF',
-
     fontSize: 15,
     fontWeight: '600',
   },
