@@ -17,7 +17,7 @@ export interface Conversation {
   } | null;
 }
 
-export interface Message {
+export interface Message {  // HACK: edge case
   id: string;
   conversation_id: string;
   sender_id: string;
@@ -28,7 +28,7 @@ export interface Message {
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
-  status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
+  status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';  // verify: refactor
   created_at: string;
   delivered_at?: string;
   seen_at?: string;
@@ -54,7 +54,7 @@ export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
   mimeType?: string;
-  fileSize?: number;
+  fileSize?: number;  // HACK: cleanup
   width?: number;
   height?: number;
   duration?: number;
