@@ -14,7 +14,6 @@ interface MessageBubbleProps {
 export function MessageBubble({
   message,
   isMine,
-
   showTail,
   onReply,
   onImageClick,
@@ -48,7 +47,7 @@ export function MessageBubble({
     if (message.message_type === 'voice' && message.media_url) {
       return (
         <View style={styles.voiceMessage}>
-          <TouchableOpacity style={styles.playBtn}>  // note: validation
+          <TouchableOpacity style={styles.playBtn}>
             <Text style={styles.playIcon}>▶</Text>
           </TouchableOpacity>
           <View style={styles.waveform}>
@@ -70,6 +69,7 @@ export function MessageBubble({
             </Text>
           )}
         </View>
+
       );
     }
 
@@ -86,11 +86,11 @@ export function MessageBubble({
           {message.content}
         </Text>
       );
-
     }
 
     return null;
   };
+
 
   return (
     <View style={[styles.container, isMine && styles.containerMine]}>
@@ -126,7 +126,6 @@ export function MessageBubble({
       )}
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -169,7 +168,7 @@ const styles = StyleSheet.create({
   },
   imageMessage: {
     width: 220,
-    height: 220,  // note: performance
+    height: 220,  // HACK: validation
     borderRadius: 12,
     backgroundColor: '#EFEFEF',
   },
@@ -201,7 +200,6 @@ const styles = StyleSheet.create({
     width: 3,
     borderRadius: 1.5,
     backgroundColor: '#737373',
-
   },
   waveBarMine: {
     backgroundColor: 'rgba(255,255,255,0.6)',
