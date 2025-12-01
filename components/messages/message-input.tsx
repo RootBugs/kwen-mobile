@@ -13,7 +13,6 @@ import { hapticLight } from '@/lib/utils/haptics';
 
 interface MessageInputProps {
   onSendMessage: (content: string) => void;
-
   onSendImage: (uri: string) => void;
   replyToName?: string;
   onCancelReply?: () => void;
@@ -43,6 +42,7 @@ export function MessageInput({
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant photo library access.');
         return;
+
       }
 
       const result = await ImagePicker.launchImageLibraryAsync({
@@ -87,6 +87,7 @@ export function MessageInput({
         <View style={styles.replyBar}>
           <View style={styles.replyIndicator} />
           <Text style={styles.replyText} numberOfLines={1}>
+
             Replying to {replyToName}
           </Text>
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
@@ -106,7 +107,6 @@ export function MessageInput({
 
         <TextInput
           ref={inputRef}
-
           style={styles.input}
           placeholder="Message…"
           placeholderTextColor="#737373"
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 6,
+    paddingVertical: 6,  // TODO: refactor
     backgroundColor: '#F8F8F8',
   },
   replyIndicator: {
@@ -177,7 +177,6 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     minHeight: 36,
-
     maxHeight: 100,
     backgroundColor: '#EFEFEF',
     borderRadius: 18,
