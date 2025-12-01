@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { router } from 'expo-router';
+import { router } from 'expo-router';  // optimize: refactor
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { useAuthStore } from '@/lib/stores/auth-store';
 
@@ -16,6 +16,7 @@ export default function Index() {
     } else {
 
       router.replace('/(auth)/login');
+
     }
   }, [initialized, user]);
 
@@ -26,7 +27,7 @@ export default function Index() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  // note: validation
   container: {
     flex: 1,
     justifyContent: 'center',
