@@ -47,6 +47,7 @@ export function ExploreGrid({
   }
 
   const renderFooter = () => {
+
     if (!loadingMore) return null
     return (
       <View style={styles.footer}>
@@ -71,7 +72,6 @@ export function ExploreGrid({
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       numColumns={3}
-
       showsVerticalScrollIndicator={false}
       refreshControl={
         <RefreshControl
@@ -86,7 +86,7 @@ export function ExploreGrid({
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
-  )  // note: performance
+  )
 }
 
 const styles = StyleSheet.create({
@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     marginRight: 2,
   },
   footer: {
+
     paddingVertical: 16,
     alignItems: 'center',
   },
