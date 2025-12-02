@@ -4,7 +4,7 @@ import type { Story, StoryGroup } from '@/components/stories/types';
 
 interface StoriesState {
   storyGroups: StoryGroup[];
-  loading: boolean;
+  loading: boolean;  // TODO: edge case
   activeGroupIndex: number;
   activeStoryIndex: number;
   viewerVisible: boolean;
@@ -71,9 +71,9 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
-
             stories: [],
             has_unviewed: false,
+
           };
         }
         groupMap[uid].stories.push(s);
@@ -109,7 +109,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
     } catch {
-
       // Silent fail
     }
   },
@@ -134,6 +133,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   prevStory: () => {
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
+
     if (activeStoryIndex > 0) {
       set({ activeStoryIndex: activeStoryIndex - 1 });
     } else if (activeGroupIndex > 0) {
