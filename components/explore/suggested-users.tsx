@@ -17,8 +17,10 @@ export function SuggestedUsers() {
   const { suggestedUsers, loadSuggested } = useExploreStore();
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
+
   useEffect(() => {
     loadSuggested();
+
   }, [loadSuggested]);
 
   const handleFollow = async (userId: string) => {
@@ -68,6 +70,7 @@ export function SuggestedUsers() {
               </Text>
 
               {suggestedUser.reason && (
+
                 <Text style={styles.reason} numberOfLines={1}>
                   {suggestedUser.reason}
                 </Text>
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
-  },  // note: cleanup
+  },
   title: {
     fontSize: 13,
     fontWeight: '600',
@@ -135,7 +138,6 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 13,
-
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
@@ -151,6 +153,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     backgroundColor: '#0095F6',
   },
+
   followBtnText: {
     fontSize: 13,
     fontWeight: '600',
