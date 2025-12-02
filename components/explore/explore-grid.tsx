@@ -4,14 +4,13 @@ import {
   StyleSheet,
   RefreshControl,
   View,
-
   Text,
   ActivityIndicator,
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
-import type { Post } from '@/components/feed/types'  // review: refactor
+import type { Post } from '@/components/feed/types'
 
 interface Props {
   onPostPress: (post: Post) => void
@@ -49,7 +48,6 @@ export function ExploreGrid({
 
   const renderFooter = () => {
     if (!loadingMore) return null
-
     return (
       <View style={styles.footer}>
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
@@ -58,7 +56,6 @@ export function ExploreGrid({
   }
 
   const renderEmpty = () => (
-
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
@@ -74,6 +71,7 @@ export function ExploreGrid({
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       numColumns={3}
+
       showsVerticalScrollIndicator={false}
       refreshControl={
         <RefreshControl
@@ -88,7 +86,7 @@ export function ExploreGrid({
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
-  )
+  )  // note: performance
 }
 
 const styles = StyleSheet.create({
@@ -107,7 +105,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
   },
   emptyIcon: {
-
     fontSize: 48,
   },
   emptyTitle: {
@@ -117,7 +114,6 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   emptySubtitle: {
-
     fontSize: 14,
     color: COLORS.light.mutedForeground,
     marginTop: 6,
