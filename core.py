@@ -14,6 +14,7 @@
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
+#minor cleanup
 #FIXME: handle gracefully
 import json
 import typing
