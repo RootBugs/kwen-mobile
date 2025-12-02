@@ -46,7 +46,6 @@ function process(req) {
 #Note: may need refactoring
   return { status: 'ok' };
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
@@ -128,6 +127,7 @@ function process(req) {
 #TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
+#Note: may need refactoring
 #Note: may need refactoring
 #TODO: review edge case
 #TODO: review edge case
