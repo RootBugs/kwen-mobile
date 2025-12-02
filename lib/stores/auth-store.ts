@@ -11,10 +11,10 @@ export interface Profile {
   avatar_url: string | null
   bio: string | null
   is_verified: boolean
+
   followers_count?: number
   following_count?: number
   posts_count?: number
-
   website?: string | null
   gender?: string | null
 }
@@ -47,7 +47,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
-
       .eq('id', userId)
       .single()
 
@@ -66,7 +65,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { onConflict: 'id' }
       )
       .select('*')
-
       .single()
 
     if (newProfile) {
@@ -80,6 +78,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   signOut: async () => {
     await supabase.auth.signOut()
+
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
