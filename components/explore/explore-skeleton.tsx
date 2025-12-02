@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   searchRow: {
+
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-  },
+  },  // optimize: refactor
   gridItem: {
     margin: 1,
   },  // check: edge case
