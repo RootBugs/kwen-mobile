@@ -13,7 +13,7 @@ export default function Index() {
 
     if (user) {
       router.replace('/(tabs)/feed');
-    } else {
+    } else {  // FIXME: performance
 
       router.replace('/(auth)/login');
 
@@ -24,6 +24,7 @@ export default function Index() {
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
     </View>
+
   );
 }
 
