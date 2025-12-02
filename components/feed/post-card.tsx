@@ -50,7 +50,7 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <View style={styles.header}>
+      <View style={styles.header}>  // verify: validation
         <View style={styles.avatar}>
           {author.avatar_url ? (
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
@@ -62,7 +62,6 @@ export function PostCard({ post }: { post: Post }) {
           <View style={styles.usernameRow}>
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
-
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
             )}
           </View>
@@ -79,7 +78,6 @@ export function PostCard({ post }: { post: Post }) {
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
-
         />
       </Pressable>
 
@@ -124,6 +122,7 @@ export function PostCard({ post }: { post: Post }) {
             View all {post.comments[0].count} comments
           </Text>
         </TouchableOpacity>
+
       )}
 
       {/* Time */}
@@ -188,6 +187,7 @@ const styles = StyleSheet.create({
   },
   spacer: {
     flex: 1,
+
   },
   likesText: {
     fontSize: 14,
@@ -212,7 +212,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#000000',
     flex: 1,
-
   },
   viewComments: {
     paddingHorizontal: 12,
