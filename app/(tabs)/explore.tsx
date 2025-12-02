@@ -13,6 +13,7 @@ import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
+
   const {
     posts,
     loading,
@@ -50,6 +51,7 @@ export default function ExploreScreen() {
     );
   }
 
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -82,7 +84,7 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomWidth: 0.5,
-    borderBottomColor: COLORS.light.border,
+    borderBottomColor: COLORS.light.border,  // note: cleanup
   },
 
 });
