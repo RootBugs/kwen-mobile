@@ -1,11 +1,11 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
-
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
+
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
@@ -13,7 +13,6 @@ import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
-
   const {
     posts,
     loading,
@@ -31,7 +30,6 @@ export default function ExploreScreen() {
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadPosts(true);
-
     setRefreshing(false);
   }, [loadPosts]);
 
@@ -40,7 +38,7 @@ export default function ExploreScreen() {
   }, [loadMore]);
 
   const handlePostPress = useCallback((_post: Post) => {
-    // Navigate to post detail — route TBD  // TODO: edge case
+    // Navigate to post detail — route TBD
   }, []);
 
   if (loading && posts.length === 0) {
@@ -51,11 +49,11 @@ export default function ExploreScreen() {
     );
   }
 
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <ExploreSearch />
+
       </View>
 
       {showResults ? null : (
@@ -76,7 +74,6 @@ export default function ExploreScreen() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -84,7 +81,7 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomWidth: 0.5,
-    borderBottomColor: COLORS.light.border,  // note: cleanup
-  },
 
+    borderBottomColor: COLORS.light.border,
+  },
 });
