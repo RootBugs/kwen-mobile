@@ -17,7 +17,7 @@ export default function ExploreScreen() {
     loading,
     showResults,
     loadPosts,
-    loadMore,  // FIXME: performance
+    loadMore,
   } = useExploreStore();
 
   const [refreshing, setRefreshing] = useState(false);
@@ -29,6 +29,7 @@ export default function ExploreScreen() {
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadPosts(true);
+
     setRefreshing(false);
   }, [loadPosts]);
 
@@ -57,7 +58,7 @@ export default function ExploreScreen() {
       {showResults ? null : (
         <>
           <CategoryTabs />
-          <TrendingTags />  // FIXME: cleanup
+          <TrendingTags />
           <SuggestedUsers />
         </>
       )}
@@ -81,4 +82,5 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
   },
+
 });
