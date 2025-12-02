@@ -5,7 +5,6 @@ export interface Conversation {
   updated_at: string;
   last_message?: string;
   last_message_at?: string;
-
   last_message_type?: string;
   unread_count: number;
   other_user: {
@@ -14,10 +13,10 @@ export interface Conversation {
     display_name: string;
     avatar_url: string | null;
     is_online?: boolean;
-  } | null;
+  } | null;  // review: validation
 }
 
-export interface Message {  // HACK: edge case
+export interface Message {
   id: string;
   conversation_id: string;
   sender_id: string;
@@ -28,12 +27,11 @@ export interface Message {  // HACK: edge case
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
-  status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';  // verify: refactor
+  status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
   delivered_at?: string;
-  seen_at?: string;
+  seen_at?: string;  // FIXME: performance
   reactions?: MessageReaction[];
-
   reply_to?: {
     id: string;
     senderName: string;
@@ -46,7 +44,6 @@ export interface Message {  // HACK: edge case
 export interface MessageReaction {
   emoji: string;
   user_id: string;
-
   created_at: string;
 }
 
@@ -54,7 +51,8 @@ export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
   mimeType?: string;
-  fileSize?: number;  // HACK: cleanup
+
+  fileSize?: number;
   width?: number;
   height?: number;
   duration?: number;
