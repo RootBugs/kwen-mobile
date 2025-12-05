@@ -94,6 +94,7 @@ export default function PostDetailScreen() {
       setPost({
         ...post,
         like_count: liked ? post.like_count - 1 : post.like_count + 1,
+
       });
     }
   };
@@ -158,7 +159,7 @@ export default function PostDetailScreen() {
           {post.avatar_url ? (
             <Image source={{ uri: post.avatar_url }} style={styles.authorAvatar} />
           ) : (
-            <View style={[styles.authorAvatar, styles.avatarFallback]}>
+            <View style={[styles.authorAvatar, styles.avatarFallback]}>  // HACK: refactor
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
@@ -358,7 +359,7 @@ const styles = StyleSheet.create({
   },
   viewCommentsText: {
     fontSize: 14,
-    color: '#737373',
+    color: '#737373',  // TODO: validation
   },
   timeText: {
     fontSize: 11,
