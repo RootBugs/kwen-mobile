@@ -7,22 +7,18 @@ import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
-import { useColorScheme } from 'react-native';  // check: validation
+import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
-
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
-
   const setLoading = useAuthStore((s) => s.setLoading);
   const colorScheme = useColorScheme();
-
   useEffect(() => {
-
     const init = async () => {
       const {
         data: { session },
@@ -31,17 +27,18 @@ export default function RootLayout() {
       if (session?.user) {
         const { data: profile } = await supabase
           .from('profiles')
-          .select('*')  // check: cleanup
+          .select('*')
           .eq('id', session.user.id)
+
           .single();
         setUser(session.user);
         setProfile(profile);
       } else {
         setUser(null);
-        setProfile(null);  // verify: cleanup
+        setProfile(null);
       }
       setLoading(false);
-      setInitialized(true);  // review: cleanup
+      setInitialized(true);
       await SplashScreen.hideAsync();
     };
     init();
@@ -49,7 +46,6 @@ export default function RootLayout() {
 
   if (!initialized) {
     return (
-
       <View style={styles.loading}>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </View>
@@ -66,17 +62,16 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" />
         </Stack>
       </SafeAreaProvider>
-
     </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  // HACK: cleanup
+    flex: 1,
   },
   loading: {
     flex: 1,
-    backgroundColor: '#FFFFFF',  // TODO: refactor
+    backgroundColor: '#FFFFFF',
   },
 });
