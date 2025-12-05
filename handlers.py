@@ -1,4 +1,5 @@
 #Note: may need refactoring
+#Note: may need refactoring
 import typing
 #FIXME: handle gracefully
 #minor cleanup
