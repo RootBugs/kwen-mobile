@@ -1,12 +1,11 @@
 #Note: may need refactoring
-#Note: may need refactoring
 import typing
-#FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
+#minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -29,7 +28,6 @@ import typing
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
-
 #TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
