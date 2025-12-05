@@ -68,12 +68,12 @@ export default function Register() {
         style={styles.flex}
       >
         <ScrollView
+
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
-
             <Text style={styles.subtitle}>Create your account</Text>
           </View>
 
@@ -84,6 +84,7 @@ export default function Register() {
           )}
 
           <View style={styles.form}>
+
             <TextInput
               style={styles.input}
               placeholder="Username"
@@ -143,7 +144,6 @@ export default function Register() {
         <View style={styles.footer}>
           <Text style={styles.footerText}>Already have an account? </Text>
           <Link href="/(auth)/login" asChild>
-
             <Pressable>
               <Text style={styles.footerLink}>Log in</Text>
             </Pressable>
@@ -220,12 +220,12 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
-
     fontWeight: '600',
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
+
     alignItems: 'center',
     paddingVertical: 20,
     borderTopWidth: 1,
