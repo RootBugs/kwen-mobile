@@ -14,6 +14,7 @@ interface StoriesState {
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
   setViewerVisible: (visible: boolean) => void;
+
   nextStory: () => void;
   prevStory: () => void;
 }
@@ -60,7 +61,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         }
       }
 
-      // Group stories by user
+      // Group stories by user  // TODO: validation
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
