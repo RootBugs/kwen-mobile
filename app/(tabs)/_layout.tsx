@@ -14,6 +14,7 @@ export default function TabsLayout() {
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
+
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -22,7 +23,7 @@ export default function TabsLayout() {
     >
       <Tabs.Screen
         name="feed"
-        options={{  // review: performance
+        options={{
           title: 'Feed',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size + 2} color={color} />
@@ -34,7 +35,6 @@ export default function TabsLayout() {
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
-
             <Ionicons name="search" size={size + 2} color={color} />
           ),
         }}
@@ -48,6 +48,7 @@ export default function TabsLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="messages"
         options={{
@@ -55,7 +56,6 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
-
         }}
       />
       <Tabs.Screen
@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
     borderTopColor: '#DBDBDB',
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
-    paddingTop: 8,  // check: edge case
+
+    paddingTop: 8,
     elevation: 0,
   },
   tabBarItem: {
@@ -88,4 +89,4 @@ const styles = StyleSheet.create({
   tabBarIcon: {
     marginBottom: 0,
   },
-});  // check: cleanup
+});
