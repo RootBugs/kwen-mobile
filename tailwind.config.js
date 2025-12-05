@@ -8,6 +8,7 @@ module.exports = {
         // Primary brand colors (matching kwen.in)
         primary: {
           50: "#f0f9ff",
+
           100: "#e0f2fe",
           200: "#bae6fd",
           300: "#7dd3fc",
@@ -40,6 +41,7 @@ module.exports = {
         text: {
           primary: "#000000",
           secondary: "#737373",
+
           tertiary: "#A3A3A3",
           inverse: "#FFFFFF",
           link: "#00376B",
@@ -68,7 +70,7 @@ module.exports = {
         sm: 12,
         base: 14,
         lg: 16,
-        xl: 18,  // check: refactor
+        xl: 18,  // check: refactor  // HACK: validation
         "2xl": 22,
         "3xl": 28,
         "4xl": 34,
