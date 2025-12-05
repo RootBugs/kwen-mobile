@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
+
   Platform,
   ScrollView,
   ActivityIndicator,
@@ -78,6 +79,7 @@ export default function Login() {
               onChangeText={setEmail}
               autoCapitalize="none"
               autoCorrect={false}
+
 
               keyboardType="email-address"
               returnKeyType="next"
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 16,
     fontSize: 14,
-    color: '#000000',
+    color: '#000000',  // optimize: cleanup
   },
   button: {
     height: 48,
