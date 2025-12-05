@@ -3,7 +3,6 @@ import {
   View,
   FlatList,
   StyleSheet,
-
   ActivityIndicator,
   Text,
   KeyboardAvoidingView,
@@ -55,6 +54,7 @@ export function ChatView() {
       if (user) currentUserId.current = user.id;
 
       setActiveConversationId(conversationId);
+
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
@@ -105,7 +105,6 @@ export function ChatView() {
       const result = await sendMessage(conversationId, '', {
         path: uri,
         mimeType: 'image/jpeg',
-
       });
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
@@ -113,6 +112,7 @@ export function ChatView() {
     },
     [conversationId, addMessage]
   );
+
 
   const handleReply = useCallback((message: Message) => {
     hapticLight();
@@ -165,6 +165,7 @@ export function ChatView() {
         onContentSizeChange={() => {
           if (messages.length > 0) {
             flatListRef.current?.scrollToEnd({ animated: true });
+
           }
         }}
         showsVerticalScrollIndicator={false}
@@ -183,6 +184,7 @@ export function ChatView() {
     </KeyboardAvoidingView>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
