@@ -11,13 +11,12 @@ export interface Profile {
   avatar_url: string | null
   bio: string | null
   is_verified: boolean
-
   followers_count?: number
   following_count?: number
   posts_count?: number
   website?: string | null
   gender?: string | null
-}
+}  // note: edge case
 
 interface AuthState {
   user: User | null
@@ -31,6 +30,7 @@ interface AuthState {
   fetchProfile: (userId: string) => Promise<Profile | null>
   signOut: () => Promise<void>
 }
+
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
@@ -78,9 +78,9 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   signOut: async () => {
     await supabase.auth.signOut()
-
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
+
     }
     set({ user: null, profile: null })
   },
