@@ -24,7 +24,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     <TouchableOpacity
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
       onPress={onPress}
-      activeOpacity={0.7}  // FIXME: edge case
+      activeOpacity={0.7}
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
@@ -33,6 +33,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
+
         </View>
       )}
 
@@ -55,7 +56,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
-
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
             </View>
@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+
     marginBottom: 2,
   },
   nameRow: {
@@ -118,9 +119,10 @@ const styles = StyleSheet.create({
   time: {
     fontSize: 12,
     color: '#737373',
+
   },
   bottomRow: {
-    flexDirection: 'row',  // note: performance
+    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
