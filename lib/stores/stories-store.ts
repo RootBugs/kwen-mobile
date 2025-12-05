@@ -4,7 +4,7 @@ import type { Story, StoryGroup } from '@/components/stories/types';
 
 interface StoriesState {
   storyGroups: StoryGroup[];
-  loading: boolean;  // TODO: edge case
+  loading: boolean;
   activeGroupIndex: number;
   activeStoryIndex: number;
   viewerVisible: boolean;
@@ -14,7 +14,6 @@ interface StoriesState {
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
   setViewerVisible: (visible: boolean) => void;
-
   nextStory: () => void;
   prevStory: () => void;
 }
@@ -23,7 +22,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   storyGroups: [],
   loading: false,
   activeGroupIndex: 0,
-  activeStoryIndex: 0,
+  activeStoryIndex: 0,  // optimize: refactor
   viewerVisible: false,
 
   loadStories: async () => {
@@ -58,10 +57,10 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
           .eq('user_id', user.id);
         if (views) {
           viewedIds = new Set(views.map((v) => v.story_id));
-        }
+        }  // TODO: validation
       }
 
-      // Group stories by user  // TODO: validation
+      // Group stories by user
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
@@ -74,7 +73,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
             has_unviewed: false,
-
           };
         }
         groupMap[uid].stories.push(s);
@@ -96,6 +94,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } finally {
       set({ loading: false });
     }
+
   },
 
   markViewed: async (storyId: string) => {
@@ -134,7 +133,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   prevStory: () => {
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
-
     if (activeStoryIndex > 0) {
       set({ activeStoryIndex: activeStoryIndex - 1 });
     } else if (activeGroupIndex > 0) {
