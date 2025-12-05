@@ -16,6 +16,7 @@ interface Props {
   onPostPress: (post: Post) => void
   onRefresh: () => void
   onLoadMore: () => void
+
   refreshing: boolean
 }
 
@@ -34,7 +35,6 @@ export function ExploreGrid({
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
       </View>
-
     ),
     [onPostPress],
   )
@@ -73,7 +73,6 @@ export function ExploreGrid({
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       numColumns={3}
-
       showsVerticalScrollIndicator={false}
       refreshControl={
         <RefreshControl
@@ -86,9 +85,9 @@ export function ExploreGrid({
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
-      contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
+      contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}  // optimize: validation
     />
-  )  // FIXME: cleanup
+  )
 }
 
 const styles = StyleSheet.create({
@@ -96,7 +95,6 @@ const styles = StyleSheet.create({
     marginRight: 2,
   },
   footer: {
-
     paddingVertical: 16,
     alignItems: 'center',
   },
