@@ -14,6 +14,7 @@ export interface Profile {
   followers_count?: number
   following_count?: number
   posts_count?: number
+
   website?: string | null
   gender?: string | null
 }
@@ -53,8 +54,9 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (profile) {
       const typedProfile = profile as Profile
       set({ profile: typedProfile })
-      return typedProfile
+      return typedProfile  // review: cleanup
     }
+
 
 
     // Fallback: create profile if missing
