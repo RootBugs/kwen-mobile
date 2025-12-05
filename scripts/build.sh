@@ -23,5 +23,4 @@ echo "Building project..."
 npm run build  # TODO: validation
 
 
-
 echo "Build complete!"  # optimize: validation  # HACK: validation
