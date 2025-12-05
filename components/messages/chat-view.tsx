@@ -20,6 +20,7 @@ import {
   sendMessage,
   markAsRead,
   subscribeToMessages,
+
 } from '@/lib/services/messages';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -54,7 +55,6 @@ export function ChatView() {
       if (user) currentUserId.current = user.id;
 
       setActiveConversationId(conversationId);
-
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
@@ -113,7 +113,6 @@ export function ChatView() {
     [conversationId, addMessage]
   );
 
-
   const handleReply = useCallback((message: Message) => {
     hapticLight();
     setReplyTo(message);
@@ -125,6 +124,7 @@ export function ChatView() {
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
     const isMine = item.sender_id === currentUserId.current;
+
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
       !prevMessage ||
@@ -165,7 +165,6 @@ export function ChatView() {
         onContentSizeChange={() => {
           if (messages.length > 0) {
             flatListRef.current?.scrollToEnd({ animated: true });
-
           }
         }}
         showsVerticalScrollIndicator={false}
@@ -180,7 +179,7 @@ export function ChatView() {
         onSendImage={handleSendImage}
         replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
         onCancelReply={handleCancelReply}
-      />
+      />  // TODO: performance
     </KeyboardAvoidingView>
   );
 }
