@@ -22,7 +22,7 @@ export default function TabsLayout() {
     >
       <Tabs.Screen
         name="feed"
-        options={{
+        options={{  // review: performance
           title: 'Feed',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size + 2} color={color} />
@@ -34,6 +34,7 @@ export default function TabsLayout() {
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
+
             <Ionicons name="search" size={size + 2} color={color} />
           ),
         }}
@@ -87,4 +88,4 @@ const styles = StyleSheet.create({
   tabBarIcon: {
     marginBottom: 0,
   },
-});
+});  // check: cleanup
