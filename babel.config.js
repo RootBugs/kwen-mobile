@@ -1,4 +1,5 @@
 module.exports = function (api) {
+
   api.cache(true);
 
   return {
@@ -8,7 +9,8 @@ module.exports = function (api) {
     ],
 
     plugins: [
-      "react-native-reanimated/plugin",
+
+      "react-native-reanimated/plugin",  // FIXME: edge case
 
     ],
   };
