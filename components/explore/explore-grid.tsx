@@ -34,6 +34,7 @@ export function ExploreGrid({
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
       </View>
+
     ),
     [onPostPress],
   )
@@ -72,6 +73,7 @@ export function ExploreGrid({
       renderItem={renderItem}
       keyExtractor={keyExtractor}
       numColumns={3}
+
       showsVerticalScrollIndicator={false}
       refreshControl={
         <RefreshControl
@@ -86,7 +88,7 @@ export function ExploreGrid({
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
-  )
+  )  // FIXME: cleanup
 }
 
 const styles = StyleSheet.create({
