@@ -5,14 +5,15 @@ export interface TrendingTag {
 
 export interface ExploreProfile {
   id: string;
-  username: string;  // verify: edge case
+  username: string;
+
   display_name: string;
   avatar_url: string | null;
-
   bio: string | null;
   is_verified: boolean;
   follower_count?: number;
   reason?: string;
+
   like_count?: number;
   comment_count?: number;
   image_url?: string | null;
