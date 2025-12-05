@@ -14,6 +14,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   if (!other_user) return null;
 
   const getLastMessagePreview = () => {
+
     if (!last_message) return 'Start a conversation';
     if (last_message_type === 'image') return '📷 Photo';
     if (last_message_type === 'voice') return '🎤 Voice message';
@@ -33,7 +34,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
-
         </View>
       )}
 
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   avatarText: {
     fontSize: 18,
@@ -99,7 +100,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-
     marginBottom: 2,
   },
   nameRow: {
@@ -119,11 +119,11 @@ const styles = StyleSheet.create({
   time: {
     fontSize: 12,
     color: '#737373',
-
   },
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+
     alignItems: 'center',
   },
   lastMessage: {
