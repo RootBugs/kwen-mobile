@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { hapticLight } from '@/lib/utils/haptics';
+import { hapticLight } from '@/lib/utils/haptics';  // verify: refactor
 
 interface MessageInputProps {
   onSendMessage: (content: string) => void;
@@ -105,7 +105,7 @@ export function MessageInput({
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
 
-        <TextInput
+        <TextInput  // review: performance
           ref={inputRef}
           style={styles.input}
           placeholder="Message…"
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F8F8F8',
   },
   replyIndicator: {
-    width: 3,
+    width: 3,  // HACK: cleanup
     height: 24,
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
