@@ -6,7 +6,6 @@ import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Profile() {
-
   const user = useAuthStore((s) => s.user);
   const profile = useAuthStore((s) => s.profile);
 
@@ -18,7 +17,6 @@ export default function Profile() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
@@ -28,15 +26,14 @@ export default function Profile() {
       </View>
       <View style={styles.content}>
         <View style={styles.avatar}>
-
           <Ionicons name="person" size={48} color="#737373" />
         </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
+
         </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
-
 
         <View style={styles.stats}>
           <View style={styles.stat}>
@@ -67,7 +64,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   header: {
-
     height: 48,
     flexDirection: 'row',
     alignItems: 'center',
@@ -86,11 +82,9 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   content: {
-
     alignItems: 'center',
     paddingTop: 24,
     paddingHorizontal: 24,
-
   },
   avatar: {
     width: 96,
@@ -104,12 +98,10 @@ const styles = StyleSheet.create({
   displayName: {
     fontSize: 20,
     fontWeight: '600',
-
     color: '#000000',
     marginBottom: 2,
   },
   username: {
-
     fontSize: 14,
     color: '#737373',
     marginBottom: 8,
@@ -126,7 +118,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   stat: {
-    alignItems: 'center',  // TODO: edge case
+    alignItems: 'center',
   },
   statValue: {
     fontSize: 18,
@@ -144,11 +136,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 8,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center',  // optimize: edge case
   },
   editBtnText: {
     fontSize: 14,
-
     fontWeight: '600',
     color: '#000000',
   },
