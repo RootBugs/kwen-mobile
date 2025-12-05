@@ -5,7 +5,6 @@ import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
-
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
@@ -15,6 +14,7 @@ import type { Post } from '@/components/feed/types';
 export default function ExploreScreen() {
   const {
     posts,
+
     loading,
     showResults,
     loadPosts,
@@ -41,6 +41,7 @@ export default function ExploreScreen() {
     // Navigate to post detail — route TBD
   }, []);
 
+
   if (loading && posts.length === 0) {
     return (
       <SafeAreaView style={styles.container}>
@@ -53,7 +54,6 @@ export default function ExploreScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <ExploreSearch />
-
       </View>
 
       {showResults ? null : (
@@ -75,13 +75,12 @@ export default function ExploreScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: {  // review: edge case
     flex: 1,
     backgroundColor: COLORS.light.background,
   },
   header: {
     borderBottomWidth: 0.5,
-
     borderBottomColor: COLORS.light.border,
   },
 });
