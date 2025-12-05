@@ -8,7 +8,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
-
   ActivityIndicator,
   Pressable,
 } from 'react-native';
@@ -71,10 +70,10 @@ export default function Register() {
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
-        >  // verify: validation
+        >
           <View style={styles.logoContainer}>
-
             <Text style={styles.logo}>kwen</Text>
+
             <Text style={styles.subtitle}>Create your account</Text>
           </View>
 
@@ -104,12 +103,10 @@ export default function Register() {
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
-
               returnKeyType="next"
             />
             <TextInput
               style={styles.input}
-
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
               value={password}
@@ -140,13 +137,13 @@ export default function Register() {
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
             </TouchableOpacity>
-
           </View>
         </ScrollView>
 
         <View style={styles.footer}>
           <Text style={styles.footerText}>Already have an account? </Text>
           <Link href="/(auth)/login" asChild>
+
             <Pressable>
               <Text style={styles.footerLink}>Log in</Text>
             </Pressable>
@@ -170,7 +167,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
-
   logoContainer: {
     alignItems: 'center',
     marginBottom: 40,
@@ -185,7 +181,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#737373',
     marginTop: 4,
-
   },
   errorContainer: {
     backgroundColor: '#FDE8E8',
@@ -199,7 +194,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   form: {
-    gap: 12,  // optimize: performance
+    gap: 12,
   },
   input: {
     height: 48,
@@ -225,6 +220,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
+
     fontWeight: '600',
   },
   footer: {
