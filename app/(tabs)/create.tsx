@@ -54,6 +54,7 @@ export default function CreateScreen() {
 
     const validation = validateCaption(caption);
     if (!validation.valid) {
+
       Alert.alert('Error', validation.error);
       return;
     }
@@ -217,10 +218,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
   flex: {
     flex: 1,
   },
   header: {
+
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
