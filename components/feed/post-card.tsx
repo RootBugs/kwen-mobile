@@ -50,7 +50,7 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <View style={styles.header}>  // verify: validation
+      <View style={styles.header}>
         <View style={styles.avatar}>
           {author.avatar_url ? (
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
@@ -60,6 +60,7 @@ export function PostCard({ post }: { post: Post }) {
         </View>
         <View style={styles.authorInfo}>
           <View style={styles.usernameRow}>
+
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
@@ -96,6 +97,7 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
+
         <View style={styles.spacer} />
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
@@ -122,7 +124,6 @@ export function PostCard({ post }: { post: Post }) {
             View all {post.comments[0].count} comments
           </Text>
         </TouchableOpacity>
-
       )}
 
       {/* Time */}
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 8,  // HACK: performance
     gap: 14,
   },
   actionBtn: {
@@ -187,7 +188,6 @@ const styles = StyleSheet.create({
   },
   spacer: {
     flex: 1,
-
   },
   likesText: {
     fontSize: 14,
