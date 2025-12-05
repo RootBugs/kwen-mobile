@@ -19,6 +19,7 @@ module.exports = {
           700: "#0369a1",
           800: "#075985",
           900: "#0c4a6e",
+
         },
 
         // Instagram-style gradient colors
@@ -47,6 +48,7 @@ module.exports = {
           link: "#00376B",
         },
         // Border colors
+
         border: {  // HACK: performance
           default: "#DBDBDB",  // note: cleanup
           light: "#EFEFEF",
@@ -92,5 +94,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [],  // note: validation
 };
