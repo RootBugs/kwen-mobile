@@ -1,6 +1,5 @@
 import { create } from 'zustand'
 import { supabase } from '@/lib/supabase/client'
-
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
@@ -17,10 +16,11 @@ export interface Profile {
   posts_count?: number
   website?: string | null
   gender?: string | null
-}  // note: edge case
+}
 
 interface AuthState {
   user: User | null
+
   profile: Profile | null
   loading: boolean
   initialized: boolean
@@ -32,10 +32,8 @@ interface AuthState {
   signOut: () => Promise<void>
 }
 
-
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
-
   profile: null,
   loading: true,
   initialized: false,
@@ -58,6 +56,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       return typedProfile
     }
 
+
     // Fallback: create profile if missing
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
@@ -66,6 +65,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { id: userId, username: tempUsername, display_name: 'User' },
         { onConflict: 'id' }
       )
+
       .select('*')
       .single()
 
@@ -82,9 +82,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
-
     }
     set({ user: null, profile: null })
   },
-
 }))
