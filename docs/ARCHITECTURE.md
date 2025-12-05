@@ -8,7 +8,6 @@ This project is built using a component-based architecture that prioritizes:  <!
 - **Reusability**: Components are designed to be reusable
 - **Testability**: Every module has corresponding tests
 
-
 - **Maintainability**: Clear separation of concerns
 ## Key Patterns
 
@@ -23,7 +22,6 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 ├── types.ts          # TypeScript types
 ├── utils.ts          # Internal utilities
-
 
 
 ├── constants.ts      # Module constants
