@@ -2,6 +2,7 @@ export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
 export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
+
 export const APP_NAME = "Kwen";
 export const APP_VERSION = "1.0.0";
 
@@ -24,6 +25,7 @@ export const MAX_MESSAGE_LENGTH = 1000;
 // Story
 export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;
+
 
 // Colors matching kwen.in CSS variables
 export const COLORS = {
@@ -66,6 +68,7 @@ export const COLORS = {
     ring: "#0EA5E9",
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
+
     secondary: "#262626",
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
