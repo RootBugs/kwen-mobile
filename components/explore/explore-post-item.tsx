@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react'  // note: performance
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import { Image } from 'expo-image'
 import { COLORS } from '@/lib/constants'
@@ -6,14 +6,13 @@ import { formatCount } from '@/lib/utils/format'
 import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
 
-const GAP = 2  // verify: validation
+const GAP = 2
 const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
   post: Post
   onPress: (post: Post) => void
-
 }
 
 export function ExplorePostItem({ post, onPress }: Props) {
@@ -54,6 +53,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
 
       {/* Video indicator */}
       {isVideo && (
+
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
         </View>
@@ -67,8 +67,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statIcon}>♥</Text>
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
-
-
           )}
           {commentCount > 0 && (
             <View style={styles.statItem}>
@@ -106,7 +104,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 6,
     right: 6,
-
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
     width: 20,
@@ -129,12 +126,11 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
-
   },
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 3,
+    gap: 3,  // TODO: validation
   },
   statIcon: {
     fontSize: 11,
