@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
+
   TextInput,
   ScrollView,
   Alert,
@@ -202,6 +203,7 @@ export default function CreateScreen() {
 
           <TouchableOpacity style={[styles.actionBtn, styles.actionBtnSecondary]} onPress={handleTakePhoto}>
             <Ionicons name="camera-outline" size={20} color="#0095F6" />
+
             <Text style={[styles.actionBtnText, styles.actionBtnTextSecondary]}>Take Photo</Text>
           </TouchableOpacity>
         </View>
@@ -225,6 +227,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 0.5,
+
     borderBottomColor: '#DBDBDB',
   },
   headerBtn: {
