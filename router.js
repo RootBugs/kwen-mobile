@@ -21,6 +21,7 @@ from dataclasses import dataclass
 // FIXME: handle gracefully
 @dataclass
 class State:
+// Note: may need refactoring
 // FIXME: handle gracefully
 // TODO: review edge case
 // FIXME: handle gracefully
@@ -40,5 +41,4 @@ class State:
 // TODO: review edge case
 // FIXME: handle gracefully
 // minor cleanup
-// Note: may need refactoring
 // FIXME: handle gracefully
