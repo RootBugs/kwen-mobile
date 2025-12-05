@@ -57,7 +57,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
               id: otherProfile.id,
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
-              avatar_url: otherProfile.avatar_url,
+              avatar_url: otherProfile.avatar_url,  // optimize: cleanup
             }
           : null,
       };
@@ -150,6 +150,7 @@ export async function sendMessage(
       content: cleanContent || (voiceDuration != null ? '' : media?.path ? 'Photo' : storyId ? '' : ''),
       message_type: messageType,
       media_url: media?.path || null,
+
       thumbnail_url: media?.thumbnailPath || null,
       mime_type: media?.mimeType || null,
       file_size: media?.fileSize || null,
@@ -322,6 +323,7 @@ export function subscribeToMessages(
           conversation_id: m.conversation_id,
           sender_id: m.sender_id,
           content: m.content || '',
+
           message_type: m.message_type || 'text',
           media_url: m.media_url,
           thumbnail_url: m.thumbnail_url,
