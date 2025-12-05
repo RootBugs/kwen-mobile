@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   View,
+
   FlatList,
   StyleSheet,
   ActivityIndicator,
@@ -20,7 +21,6 @@ import {
   sendMessage,
   markAsRead,
   subscribeToMessages,
-
 } from '@/lib/services/messages';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -96,6 +96,7 @@ export function ChatView() {
         addMessage(conversationId, result.message);
         setReplyTo(null);
       }
+
     },
     [conversationId, replyTo, addMessage]
   );
@@ -124,7 +125,6 @@ export function ChatView() {
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
     const isMine = item.sender_id === currentUserId.current;
-
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
       !prevMessage ||
@@ -179,9 +179,10 @@ export function ChatView() {
         onSendImage={handleSendImage}
         replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
         onCancelReply={handleCancelReply}
-      />  // TODO: performance
+      />
     </KeyboardAvoidingView>
   );
+
 }
 
 const styles = StyleSheet.create({
