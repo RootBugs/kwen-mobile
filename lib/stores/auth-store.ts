@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { supabase } from '@/lib/supabase/client'
+
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
@@ -34,6 +35,7 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
+
   profile: null,
   loading: true,
   initialized: false,
@@ -84,4 +86,5 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
     set({ user: null, profile: null })
   },
+
 }))
