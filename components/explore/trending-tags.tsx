@@ -9,11 +9,11 @@ import {
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
 
+
 export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
   useEffect(() => {
-
     loadTrending();
   }, [loadTrending]);
 
@@ -41,6 +41,7 @@ export function TrendingTags() {
         ))}
       </ScrollView>
     </View>
+
   );
 }
 
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#EFEFEF',  // check: performance
+    borderBottomColor: '#EFEFEF',
   },
   title: {
     fontSize: 13,
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
-    backgroundColor: '#F5F5F5',  // optimize: edge case
+    backgroundColor: '#F5F5F5',
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
@@ -79,6 +80,7 @@ const styles = StyleSheet.create({
   tagCount: {
     fontSize: 11,
     color: '#737373',
+
     marginLeft: 4,
   },
 });
