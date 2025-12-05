@@ -25,7 +25,6 @@ import {
 import { hapticLight } from '@/lib/utils/haptics';
 
 export function ChatView() {
-
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const {
@@ -35,7 +34,7 @@ export function ChatView() {
     typingUsers,
     activeConversationId,
     setActiveConversationId,
-    conversations,  // note: edge case
+    conversations,
   } = useMessagesStore();
 
   const [loading, setLoading] = useState(true);
@@ -81,7 +80,7 @@ export function ChatView() {
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
-      }  // HACK: validation
+      }
     };
   }, [conversationId]);
 
@@ -105,14 +104,13 @@ export function ChatView() {
     async (uri: string) => {
       const result = await sendMessage(conversationId, '', {
         path: uri,
-
         mimeType: 'image/jpeg',
+
       });
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
       }
     },
-
     [conversationId, addMessage]
   );
 
@@ -141,7 +139,6 @@ export function ChatView() {
         showTail={showTail}
         onReply={handleReply}
       />
-
     );
   };
 
@@ -157,12 +154,11 @@ export function ChatView() {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      keyboardVerticalOffset={0}  // FIXME: cleanup
+      keyboardVerticalOffset={0}
     >
       <FlatList
         ref={flatListRef}
         data={messages}
-
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messagesList}
@@ -187,7 +183,6 @@ export function ChatView() {
     </KeyboardAvoidingView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
