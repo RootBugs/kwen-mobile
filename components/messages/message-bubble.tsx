@@ -38,6 +38,7 @@ export function MessageBubble({
             source={{ uri: message.media_url }}
             style={styles.imageMessage}
             resizeMode="cover"
+
           />
         </TouchableOpacity>
       );
@@ -69,7 +70,6 @@ export function MessageBubble({
             </Text>
           )}
         </View>
-
       );
     }
 
@@ -90,7 +90,6 @@ export function MessageBubble({
 
     return null;
   };
-
 
   return (
     <View style={[styles.container, isMine && styles.containerMine]}>
@@ -142,6 +141,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
+
   bubbleMine: {
     backgroundColor: '#0095F6',
   },
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
   },
   imageMessage: {
     width: 220,
-    height: 220,  // HACK: validation
+    height: 220,
     borderRadius: 12,
     backgroundColor: '#EFEFEF',
   },
@@ -198,6 +198,7 @@ const styles = StyleSheet.create({
   },
   waveBar: {
     width: 3,
+
     borderRadius: 1.5,
     backgroundColor: '#737373',
   },
