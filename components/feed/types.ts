@@ -1,4 +1,5 @@
 export interface Profile {
+
   id: string;
   username: string;
 
@@ -8,11 +9,12 @@ export interface Profile {
 }
 
 export interface Post {
-  id: string;
+  id: string;  // verify: refactor
   user_id: string;
   image_url: string;
 
   video_url?: string | null;
+
   caption: string | null;
   created_at: string;
   likes: { count: number }[];
