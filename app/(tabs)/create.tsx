@@ -40,7 +40,7 @@ export default function CreateScreen() {
     }
   }, []);
 
-  const handleTakePhoto = useCallback(async () => {
+  const handleTakePhoto = useCallback(async () => {  // review: cleanup
     hapticLight();
     const result = await takePhoto({ allowsEditing: true, aspect: [1, 1] });
     if (result) {
@@ -219,6 +219,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
 
+
   flex: {
     flex: 1,
   },
@@ -268,6 +269,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginTop: 16,
   },
+
   pickerSubtitle: {
     fontSize: 14,
     color: '#737373',
