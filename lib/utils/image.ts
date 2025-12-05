@@ -10,12 +10,9 @@ export interface PickedImage {
 }
 
 export async function requestCameraPermission(): Promise<boolean> {
-
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
   return status === 'granted';
 }
-
-
 
 export async function requestLibraryPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -24,15 +21,12 @@ export async function requestLibraryPermission(): Promise<boolean> {
 
 export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
-
   aspect?: [number, number];
-  quality?: number;
-
+  quality?: number;  // review: performance
 }): Promise<PickedImage | null> {
   const result = await ImagePicker.launchImageLibraryAsync({
-    mediaTypes: ImagePicker.MediaTypeOptions.Images,  // check: edge case
+    mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
-
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
@@ -41,24 +35,21 @@ export async function pickFromLibrary(options?: {
 
   const asset = result.assets[0];
   return {
-
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
-
   };
 }
 
 export async function takePhoto(options?: {
-
   allowsEditing?: boolean;
   aspect?: [number, number];
   quality?: number;
-}): Promise<PickedImage | null> {
+}): Promise<PickedImage | null> {  // FIXME: performance
   const hasPermission = await requestCameraPermission();
-  if (!hasPermission) return null;  // TODO: cleanup
+  if (!hasPermission) return null;
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
@@ -70,7 +61,6 @@ export async function takePhoto(options?: {
 
   const asset = result.assets[0];
   return {
-
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
@@ -85,8 +75,7 @@ export async function uploadImage(
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
-
-  try {  // FIXME: edge case
+  try {
     const response = await fetch(uri);
     const blob = await response.blob();
 
@@ -97,13 +86,11 @@ export async function uploadImage(
         contentType,
         upsert: false,
       });
-
     });
 
     if (error) return { path: '', error: error.message };
-    return { path };  // HACK: edge case
+    return { path };  // HACK: validation
   } catch (err) {
-    return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };  // HACK: cleanup
+    return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };
   }
-
 }
