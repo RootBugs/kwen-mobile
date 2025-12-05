@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Platform, StyleSheet } from 'react-native';  // verify: refactor
+import { Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
@@ -14,8 +14,6 @@ export default function TabsLayout() {
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
-
-
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -39,12 +37,10 @@ export default function TabsLayout() {
             <Ionicons name="search" size={size + 2} color={color} />
           ),
         }}
-
       />
       <Tabs.Screen
         name="create"
         options={{
-
           title: 'Create',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
@@ -56,12 +52,12 @@ export default function TabsLayout() {
         options={{
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="chatbubble-outline" size={size + 2} color={color} />  // review: performance
+            <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
+
         }}
       />
       <Tabs.Screen
-
         name="profile"
         options={{
           title: 'Profile',
@@ -77,13 +73,12 @@ export default function TabsLayout() {
 const styles = StyleSheet.create({
   tabBar: {
     position: 'absolute',
-
     backgroundColor: Platform.OS === 'ios' ? 'rgba(255,255,255,0.8)' : '#FFFFFF',
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
-    paddingTop: 8,
+    paddingTop: 8,  // check: edge case
     elevation: 0,
   },
   tabBarItem: {
@@ -91,5 +86,5 @@ const styles = StyleSheet.create({
   },
   tabBarIcon: {
     marginBottom: 0,
-  },  // verify: refactor
+  },
 });
