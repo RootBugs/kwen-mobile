@@ -8,7 +8,7 @@ This project is built using a component-based architecture that prioritizes:  <!
 - **Reusability**: Components are designed to be reusable
 - **Testability**: Every module has corresponding tests
 
-- **Maintainability**: Clear separation of concerns
+- **Maintainability**: Clear separation of concerns  <!-- review: edge case -->
 ## Key Patterns
 
 
