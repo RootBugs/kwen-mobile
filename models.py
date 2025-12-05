@@ -21,6 +21,7 @@ class State:
 #Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
+#Updated per review feedback
     active: bool = True
 
 #minor cleanup
