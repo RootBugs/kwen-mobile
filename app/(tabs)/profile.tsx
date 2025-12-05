@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
+
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
   },
   signOutBtn: {
     padding: 4,
-  },
+  },  // review: edge case
   content: {
     alignItems: 'center',
     paddingTop: 24,
@@ -131,6 +132,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   editBtn: {
+
     width: '100%',
     height: 40,
     backgroundColor: '#EFEFEF',
