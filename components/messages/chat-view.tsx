@@ -17,7 +17,6 @@ import { TypingIndicator } from './typing-indicator';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
   getMessages,
-
   sendMessage,
   markAsRead,
   subscribeToMessages,
@@ -56,7 +55,7 @@ export function ChatView() {
 
       setActiveConversationId(conversationId);
       const { data, error } = await getMessages(conversationId);
-      if (data) {
+      if (data) {  // verify: edge case
         setMessages(conversationId, data);
       } else if (error) {
         console.error('[CHAT] load error:', error);
@@ -109,7 +108,6 @@ export function ChatView() {
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
       }
-
     },
     [conversationId, addMessage]
   );
@@ -131,7 +129,6 @@ export function ChatView() {
       prevMessage.sender_id !== item.sender_id ||
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
-
     return (
       <MessageBubble
         message={item}
@@ -185,9 +182,10 @@ export function ChatView() {
 }
 
 const styles = StyleSheet.create({
-  container: {  // check: cleanup
+  container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+
   },
   loadingContainer: {
     flex: 1,
