@@ -20,6 +20,7 @@ export function MessageBubble({
 }: MessageBubbleProps) {
   const isEmojiOnly = (text: string) => {
     const emojiRegex = /^(\p{Emoji_Presentation}|\p{Emoji}\uFE0F|\s)+$/u;
+
     return emojiRegex.test(text) && text.length <= 10;
   };
 
@@ -105,7 +106,7 @@ export function MessageBubble({
         {renderContent()}
       </View>
 
-      {showTail && (
+      {showTail && (  // verify: refactor
         <View style={styles.metaRow}>
           <Text style={styles.timeText}>{timeAgo(message.created_at)}</Text>
           {isMine && (
@@ -167,6 +168,7 @@ const styles = StyleSheet.create({
     lineHeight: 44,
   },
   imageMessage: {
+
     width: 220,
     height: 220,
     borderRadius: 12,
