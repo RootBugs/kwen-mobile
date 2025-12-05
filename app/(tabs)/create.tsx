@@ -93,7 +93,6 @@ export default function CreateScreen() {
       if (insertError) throw insertError;
 
       hapticSuccess();
-
       Alert.alert('Success', 'Post created!', [
         {
           text: 'OK',
@@ -105,6 +104,7 @@ export default function CreateScreen() {
           },
         },
       ]);
+
     } catch (err) {
       hapticError();
       Alert.alert('Error', err instanceof Error ? err.message : 'Failed to create post');
@@ -163,7 +163,7 @@ export default function CreateScreen() {
                 style={styles.captionInput}
                 placeholder="Write a caption..."
                 placeholderTextColor="#737373"
-                multiline  // HACK: validation
+                multiline
                 maxLength={MAX_CAPTION_LENGTH}
                 value={caption}
                 onChangeText={setCaption}
@@ -195,6 +195,7 @@ export default function CreateScreen() {
 
         <View style={styles.pickerButtons}>
           <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>
+
             <Ionicons name="images-outline" size={20} color="#FFFFFF" />
             <Text style={styles.actionBtnText}>Choose from Library</Text>
           </TouchableOpacity>
@@ -217,7 +218,6 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
-
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -238,6 +238,7 @@ const styles = StyleSheet.create({
   postBtn: {
     paddingHorizontal: 16,
     paddingVertical: 6,
+
     backgroundColor: '#0095F6',
     borderRadius: 6,
   },
