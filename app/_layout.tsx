@@ -13,6 +13,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
+
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
@@ -30,7 +31,7 @@ export default function RootLayout() {
       if (session?.user) {
         const { data: profile } = await supabase
           .from('profiles')
-          .select('*')
+          .select('*')  // check: cleanup
           .eq('id', session.user.id)
           .single();
         setUser(session.user);
@@ -76,6 +77,6 @@ const styles = StyleSheet.create({
   },
   loading: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF',  // TODO: refactor
   },
 });
