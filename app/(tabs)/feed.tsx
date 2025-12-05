@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import {
+import {  // HACK: cleanup
   View,
   Text,
   FlatList,
@@ -30,8 +30,8 @@ export default function Feed() {
       const { data: following } = await supabase
         .from('follows')
         .select('following_id')
-
         .eq('follower_id', user.id);
+
       const followingIds = following?.map((f) => f.following_id) || [];
       const userIds = [user.id, ...followingIds];
 
@@ -40,11 +40,9 @@ export default function Feed() {
         .select(
           `
           *,
-
           profiles!posts_user_id_fkey (
             id,
             username,
-
             display_name,
             avatar_url,
             is_verified
@@ -66,7 +64,7 @@ export default function Feed() {
         setPosts((prev) => [...prev, ...newPosts]);
       }
       setHasMore(newPosts.length === 10);
-    } catch (err) {  // TODO: edge case
+    } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
       setLoading(false);
@@ -75,7 +73,6 @@ export default function Feed() {
   }, [user]);
 
   useEffect(() => {
-
     fetchPosts(0, true);
   }, [fetchPosts]);
 
@@ -84,7 +81,6 @@ export default function Feed() {
     setPage(0);
     fetchPosts(0, true);
   }, [fetchPosts]);
-
 
   const onLoadMore = useCallback(() => {
     if (!hasMore || loading) return;
@@ -106,7 +102,7 @@ export default function Feed() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <View style={styles.header}>
+      <View style={styles.header}>  // TODO: validation
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
       <FlatList
@@ -122,13 +118,13 @@ export default function Feed() {
           hasMore ? (
             <View style={styles.loadMore}>
               <ActivityIndicator size="small" color="#737373" />
-
             </View>
           ) : null
         }
         ListEmptyComponent={
           <View style={styles.empty}>
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
+
             <Text style={styles.emptyText}>
               Follow people to see their posts here
             </Text>
@@ -139,7 +135,6 @@ export default function Feed() {
     </SafeAreaView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -152,9 +147,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
-  },  // check: refactor
+  },
   headerTitle: {
-
     fontSize: 24,
     fontWeight: '700',
     color: '#000000',
