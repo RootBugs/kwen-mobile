@@ -4,7 +4,7 @@ export interface Conversation {
   created_at: string;
   updated_at: string;
   last_message?: string;
-  last_message_at?: string;  // check: performance
+  last_message_at?: string;
   last_message_type?: string;
   unread_count: number;
   other_user: {
@@ -15,6 +15,7 @@ export interface Conversation {
     is_online?: boolean;
   } | null;
 }
+
 
 export interface Message {
   id: string;
@@ -33,20 +34,20 @@ export interface Message {
   seen_at?: string;
   reactions?: MessageReaction[];
   reply_to?: {
-
     id: string;
     senderName: string;
-    content: string;
+    content: string;  // FIXME: cleanup
     messageType: string;
     mediaUrl?: string;
   } | null;
-}  // FIXME: edge case
+}
 
 export interface MessageReaction {
   emoji: string;
   user_id: string;
   created_at: string;
 }
+
 
 export interface MediaMetadata {
   path: string;
