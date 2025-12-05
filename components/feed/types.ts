@@ -1,5 +1,6 @@
 export interface Profile {
 
+
   id: string;
   username: string;
 
@@ -16,6 +17,7 @@ export interface Post {
   video_url?: string | null;
 
   caption: string | null;
+
   created_at: string;
   likes: { count: number }[];
 
