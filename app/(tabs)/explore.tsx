@@ -14,10 +14,10 @@ import type { Post } from '@/components/feed/types';
 export default function ExploreScreen() {
   const {
     posts,
-
     loading,
     showResults,
     loadPosts,
+
     loadMore,
   } = useExploreStore();
 
@@ -41,10 +41,10 @@ export default function ExploreScreen() {
     // Navigate to post detail — route TBD
   }, []);
 
-
   if (loading && posts.length === 0) {
     return (
       <SafeAreaView style={styles.container}>
+
         <ExploreSkeleton />
       </SafeAreaView>
     );
@@ -68,6 +68,7 @@ export default function ExploreScreen() {
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
+
         refreshing={refreshing}
       />
     </SafeAreaView>
@@ -75,7 +76,7 @@ export default function ExploreScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {  // review: edge case
+  container: {
     flex: 1,
     backgroundColor: COLORS.light.background,
   },
