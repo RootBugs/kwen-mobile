@@ -25,6 +25,7 @@ export default function ChatScreen() {
             style={styles.userInfo}
             onPress={() =>
               router.push({
+
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
               })
@@ -56,6 +57,7 @@ export default function ChatScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,  // review: performance
+
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -71,6 +73,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     fontSize: 22,
+
     color: '#000000',
   },
   userInfo: {
