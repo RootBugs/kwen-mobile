@@ -13,6 +13,7 @@ export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
   useEffect(() => {
+
     loadTrending();
   }, [loadTrending]);
 
@@ -23,7 +24,7 @@ export function TrendingTags() {
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}  // optimize: performance
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
         {trendingTags.map((tag) => (
@@ -41,26 +42,23 @@ export function TrendingTags() {
       </ScrollView>
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#EFEFEF',
+    borderBottomColor: '#EFEFEF',  // check: performance
   },
   title: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#737373',
     paddingHorizontal: 12,
-    marginBottom: 8,  // note: performance
+    marginBottom: 8,
   },
   scrollContent: {
     paddingHorizontal: 12,
-
     gap: 8,
   },
   tagChip: {
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#F5F5F5',  // optimize: edge case
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
