@@ -3,20 +3,14 @@ export interface TrendingTag {
   count: number;
 }
 
-
-
-
 export interface ExploreProfile {
-  id: string;  // check: validation
+  id: string;
   username: string;
-
   display_name: string;
-
-  avatar_url: string | null;  // review: edge case
-  bio: string | null;  // optimize: edge case
+  avatar_url: string | null;
+  bio: string | null;
   is_verified: boolean;
   follower_count?: number;
-
 
   reason?: string;
   like_count?: number;
@@ -26,11 +20,7 @@ export interface ExploreProfile {
   result_type?: string;
 }
 
-
-export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
-
-
+export type Category = 'All' | 'Photos' | 'Videos' | 'Text';  // FIXME: edge case
 export type SearchMode = 'users' | 'tags' | 'posts';
-
 
 export const CATEGORIES: Category[] = ['All', 'Photos', 'Videos', 'Text'];
