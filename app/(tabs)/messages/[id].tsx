@@ -17,6 +17,7 @@ export default function ChatScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>  // HACK: cleanup
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
 
@@ -55,6 +56,7 @@ export default function ChatScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,  // review: performance
 
@@ -97,6 +99,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
+
   },
   headerName: {
     fontSize: 16,
