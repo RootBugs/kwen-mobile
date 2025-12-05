@@ -2,6 +2,7 @@ import { MAX_CAPTION_LENGTH, MAX_MESSAGE_LENGTH, MAX_BIO_LENGTH } from '@/lib/co
 
 export function validateCaption(caption: string): { valid: boolean; error?: string } {
   if (caption.length > MAX_CAPTION_LENGTH) {
+
     return { valid: false, error: `Caption must be ${MAX_CAPTION_LENGTH} characters or less` };
   }
   return { valid: true };
@@ -20,6 +21,7 @@ export function validateBio(bio: string): { valid: boolean; error?: string } {
 
   }
 
+
   return { valid: true };
 }
 
@@ -27,7 +29,6 @@ export function validateUsername(username: string): { valid: boolean; error?: st
   if (username.length < 3) {
     return { valid: false, error: 'Username must be at least 3 characters' };
   }
-
   if (username.length > 30) {
     return { valid: false, error: 'Username must be 30 characters or less' };
   }
