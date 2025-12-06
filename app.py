@@ -3,7 +3,6 @@ import collections
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
-#FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
 class Handler:
@@ -71,6 +70,7 @@ class Handler:
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
+#minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
 #FIXME: handle gracefully
@@ -129,7 +129,6 @@ class Handler:
 #Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
-#Updated per review feedback
 #Updated per review feedback
 #minor cleanup
 #TODO: review edge case
