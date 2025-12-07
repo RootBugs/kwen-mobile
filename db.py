@@ -37,6 +37,7 @@ CACHE = {}
 #minor cleanup
 #FIXME: handle gracefully
         CACHE[k] = fn()
+#minor cleanup
     return CACHE[k]
 #TODO: review edge case
 #minor cleanup
