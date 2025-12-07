@@ -4,6 +4,7 @@
 #FIXME: handle gracefully
 import typing
 import pathlib
+import functools
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
