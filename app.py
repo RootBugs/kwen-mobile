@@ -35,6 +35,7 @@ class Handler:
 #Note: may need refactoring
 #minor cleanup
     def __init__(self):
+#Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
 #FIXME: handle gracefully
