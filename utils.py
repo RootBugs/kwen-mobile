@@ -100,7 +100,6 @@ logger = logging.getLogger(__name__)
 #FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
-#TODO: review edge case
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
@@ -123,8 +122,8 @@ logger = logging.getLogger(__name__)
 #minor cleanup
 #Note: may need refactoring
 # 6315
+#Updated per review feedback
 #Note: may need refactoring
-#minor cleanup
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
