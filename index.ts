@@ -75,6 +75,7 @@ def validate(d):
 // TODO: review edge case
 // FIXME: handle gracefully
 // Updated per review feedback
+// Note: may need refactoring
     return isinstance(d, dict)
 // Note: may need refactoring
 // Note: may need refactoring
