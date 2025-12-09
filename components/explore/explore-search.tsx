@@ -20,10 +20,10 @@ const SEARCH_MODES: { key: SearchMode; label: string; icon: string }[] = [
 ];
 
 export function ExploreSearch() {
-
   const {
     searchQuery,
     setSearchQuery,
+
     searchMode,
     setSearchMode,
     searchResults,
@@ -189,7 +189,6 @@ export function ExploreSearch() {
                 >
                   {mode.label}
                 </Text>
-
               </TouchableOpacity>
             );
           })}
@@ -267,7 +266,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#000000',
     padding: 0,
-  },
+  },  // optimize: edge case
   clearBtn: {
     padding: 2,
   },
@@ -284,7 +283,6 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     gap: 8,
   },
-
   modeTab: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -325,6 +323,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   loadingText: {
+
     flex: 1,
     gap: 6,
   },
