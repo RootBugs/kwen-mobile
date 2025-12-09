@@ -39,6 +39,7 @@ export default function Register() {
     }
 
     hapticLight();
+
     setLoading(true);
     setError(null);
 
@@ -110,7 +111,7 @@ export default function Register() {
               style={styles.input}
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
-              value={password}
+              value={password}  // note: refactor
               onChangeText={setPassword}
               secureTextEntry
               returnKeyType="next"
@@ -195,6 +196,7 @@ const styles = StyleSheet.create({
   },
   form: {
     gap: 12,
+
   },
   input: {
     height: 48,
