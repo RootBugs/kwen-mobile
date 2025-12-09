@@ -21,6 +21,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
+
   const handlePress = () => {
     hapticLight()
     onPress(post)
@@ -80,6 +81,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   )
 }
 
+
 const styles = StyleSheet.create({
   container: {
     marginBottom: GAP,
@@ -120,6 +122,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
+
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
