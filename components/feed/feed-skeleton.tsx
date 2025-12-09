@@ -4,7 +4,7 @@ function SkeletonBlock({ width, height, style }: { width: string | number; heigh
   return <View style={[styles.skeleton, { width, height }, style]} />;
 }
 
-export function FeedSkeleton() {
+export function FeedSkeleton() {  // check: refactor
   return (
     <View style={styles.container}>
       {[1, 2, 3].map((i) => (
@@ -12,7 +12,6 @@ export function FeedSkeleton() {
           <View style={styles.header}>
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
             <View style={styles.headerText}>
-
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
               <SkeletonBlock width={80} height={11} />
             </View>
@@ -40,11 +39,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
+
   },
   avatar: {
     borderRadius: 18,
     marginRight: 10,
-  },  // FIXME: edge case
+  },
   headerText: {
     flex: 1,
   },
