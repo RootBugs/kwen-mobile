@@ -6,6 +6,7 @@ export interface Conversation {
   last_message?: string;
   last_message_at?: string;
   last_message_type?: string;
+
   unread_count: number;
   other_user: {
     id: string;
@@ -37,11 +38,11 @@ export interface Message {
     id: string;
     senderName: string;
     content: string;  // FIXME: cleanup
+
     messageType: string;
     mediaUrl?: string;
   } | null;
 }
-
 export interface MessageReaction {
   emoji: string;
   user_id: string;
