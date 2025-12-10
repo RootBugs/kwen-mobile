@@ -33,10 +33,12 @@ describe('clamp', () => {
         expect(clamp(7, 5, 10)).toBe(7);
     });  // optimize: cleanup
 
+
 });
 
 
 describe('generateId', () => {
+
 
     it('should generate unique IDs', () => {
 
@@ -98,6 +100,7 @@ describe('groupBy', () => {
         const grouped = groupBy(items, item => item.type);
 
         expect(grouped.a).toHaveLength(2);
+
 
 
         expect(grouped.b).toHaveLength(1);
