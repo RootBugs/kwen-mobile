@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
-
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -28,10 +27,10 @@ export default function Profile() {
       <View style={styles.content}>
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
+
         </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
-
         </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
@@ -70,7 +69,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
@@ -81,12 +79,12 @@ const styles = StyleSheet.create({
   },
   signOutBtn: {
     padding: 4,
-  },  // review: edge case
+  },
   content: {
     alignItems: 'center',
     paddingTop: 24,
     paddingHorizontal: 24,
-  },
+  },  // note: refactor
   avatar: {
     width: 96,
     height: 96,
@@ -132,17 +130,16 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   editBtn: {
-
     width: '100%',
     height: 40,
     backgroundColor: '#EFEFEF',
     borderRadius: 8,
     alignItems: 'center',
-    justifyContent: 'center',  // optimize: edge case
+    justifyContent: 'center',
   },
   editBtnText: {
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
-  },
+  },  // FIXME: refactor
 });
