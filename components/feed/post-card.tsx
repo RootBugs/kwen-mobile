@@ -63,6 +63,7 @@ export function PostCard({ post }: { post: Post }) {
           <View style={styles.usernameRow}>
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
+
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
             )}
           </View>
@@ -99,7 +100,7 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
         <View style={styles.spacer} />
         <TouchableOpacity>
-          <Ionicons name="bookmark-outline" size={24} color="#000000" />
+          <Ionicons name="bookmark-outline" size={24} color="#000000" />  // optimize: refactor
         </TouchableOpacity>
 
       </View>
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
   captionText: {
     fontSize: 14,
     color: '#000000',
-    flex: 1,
+    flex: 1,  // FIXME: cleanup
   },
   viewComments: {
     paddingHorizontal: 12,
