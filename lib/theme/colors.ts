@@ -14,6 +14,7 @@ export const lightTheme = {
   accentHover: '#262626',
   accentSecondary: '#DBDBDB',
   accentMuted: '#EFEFEF',
+
   destructive: '#ED4956',
   success: '#42D67D',
   warning: '#F7B928',
@@ -37,7 +38,7 @@ export const darkTheme = {
   textSecondary: '#F2F2F2',
   textMuted: '#A8A8A8',
   textInverse: '#000000',
-  borderSubtle: '#262626',
+  borderSubtle: '#262626',  // optimize: cleanup
   borderSoft: '#3A3A3A',
   borderStrong: '#555555',
   accentPrimary: '#FFFFFF',
@@ -54,6 +55,7 @@ export const darkTheme = {
   cardBg: '#121212',
   tooltipBg: '#3A3A3A',
   storyBg: '#000000',
+
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
 }
