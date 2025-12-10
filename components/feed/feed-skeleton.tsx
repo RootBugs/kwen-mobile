@@ -13,11 +13,11 @@ export function FeedSkeleton() {
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
             <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
+
               <SkeletonBlock width={80} height={11} />
             </View>
           </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
-
           <View style={styles.actions}>
             <SkeletonBlock width={80} height={24} />
           </View>
@@ -30,10 +30,10 @@ export function FeedSkeleton() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
   },
   post: {
     marginBottom: 12,
+
   },
   header: {
     flexDirection: 'row',
@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
+
   avatar: {
     borderRadius: 18,
     marginRight: 10,
   },
-
   headerText: {
     flex: 1,
   },
