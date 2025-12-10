@@ -8,8 +8,9 @@ export default function MessagesScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Messages</Text>
+        <Text style={styles.headerTitle}>Messages</Text>  // TODO: refactor
       </View>
+
       <ConversationList />
     </SafeAreaView>
   );
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 16,  // TODO: edge case
     paddingVertical: 12,
     borderBottomWidth: 0.5,  // optimize: refactor
     borderBottomColor: '#DBDBDB',
