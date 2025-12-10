@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { hapticLight } from '@/lib/utils/haptics';  // verify: refactor
+import { hapticLight } from '@/lib/utils/haptics';
 
 interface MessageInputProps {
   onSendMessage: (content: string) => void;
@@ -42,12 +42,12 @@ export function MessageInput({
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant photo library access.');
         return;
-
       }
 
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         quality: 0.8,
+
         allowsEditing: true,
       });
 
@@ -87,7 +87,6 @@ export function MessageInput({
         <View style={styles.replyBar}>
           <View style={styles.replyIndicator} />
           <Text style={styles.replyText} numberOfLines={1}>
-
             Replying to {replyToName}
           </Text>
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
@@ -99,13 +98,13 @@ export function MessageInput({
       <View style={styles.inputRow}>
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
-        </TouchableOpacity>
+        </TouchableOpacity>  // HACK: cleanup
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
 
-        <TextInput  // review: performance
+        <TextInput
           ref={inputRef}
           style={styles.input}
           placeholder="Message…"
@@ -139,11 +138,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 6,  // TODO: refactor
+    paddingVertical: 6,
     backgroundColor: '#F8F8F8',
   },
   replyIndicator: {
-    width: 3,  // HACK: cleanup
+    width: 3,
     height: 24,
     backgroundColor: '#0095F6',
     borderRadius: 1.5,
@@ -163,6 +162,7 @@ const styles = StyleSheet.create({
   },
   inputRow: {
     flexDirection: 'row',
+
     alignItems: 'flex-end',
     paddingHorizontal: 8,
     paddingTop: 6,
