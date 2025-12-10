@@ -21,13 +21,13 @@ export default function Profile() {
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
+
           <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
-
         </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
+
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 24,
     paddingHorizontal: 24,
-  },  // note: refactor
+  },
   avatar: {
     width: 96,
     height: 96,
@@ -140,6 +141,7 @@ const styles = StyleSheet.create({
   editBtnText: {
     fontSize: 14,
     fontWeight: '600',
+
     color: '#000000',
-  },  // FIXME: refactor
+  },
 });
