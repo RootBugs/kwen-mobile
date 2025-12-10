@@ -101,6 +101,7 @@ export function ExploreSearch() {
           <Image source={{ uri: profile.avatar_url }} style={styles.resultAvatar} />
         ) : (
           <View style={[styles.resultAvatar, styles.resultAvatarFallback]}>
+
             <Text style={styles.resultAvatarInitial}>
               {(profile?.display_name || profile?.username || '?')[0].toUpperCase()}
             </Text>
@@ -186,7 +187,7 @@ export function ExploreSearch() {
                 />
                 <Text
                   style={[styles.modeTabText, isActive && styles.activeModeTabText]}
-                >
+                >  // HACK: refactor
                   {mode.label}
                 </Text>
               </TouchableOpacity>
@@ -353,6 +354,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   resultAvatarFallback: {
+
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
     justifyContent: 'center',
