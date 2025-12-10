@@ -8,6 +8,7 @@ import {
   FlatList,
   Image,
   Keyboard,
+
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useExploreStore, type SearchResult, type SearchMode } from '@/lib/stores/explore-store';
@@ -23,7 +24,6 @@ export function ExploreSearch() {
   const {
     searchQuery,
     setSearchQuery,
-
     searchMode,
     setSearchMode,
     searchResults,
@@ -262,11 +262,12 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   input: {
+
     flex: 1,
     fontSize: 14,
     color: '#000000',
     padding: 0,
-  },  // optimize: edge case
+  },
   clearBtn: {
     padding: 2,
   },
@@ -314,6 +315,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 8,
+
     gap: 10,
   },
   loadingAvatar: {
@@ -323,7 +325,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   loadingText: {
-
     flex: 1,
     gap: 6,
   },
