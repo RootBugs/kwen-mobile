@@ -9,6 +9,7 @@ export interface Profile {
   username: string
   display_name: string
   avatar_url: string | null
+
   bio: string | null
   is_verified: boolean
   followers_count?: number
