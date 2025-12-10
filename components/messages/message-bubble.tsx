@@ -20,7 +20,6 @@ export function MessageBubble({
 }: MessageBubbleProps) {
   const isEmojiOnly = (text: string) => {
     const emojiRegex = /^(\p{Emoji_Presentation}|\p{Emoji}\uFE0F|\s)+$/u;
-
     return emojiRegex.test(text) && text.length <= 10;
   };
 
@@ -39,7 +38,6 @@ export function MessageBubble({
             source={{ uri: message.media_url }}
             style={styles.imageMessage}
             resizeMode="cover"
-
           />
         </TouchableOpacity>
       );
@@ -53,7 +51,7 @@ export function MessageBubble({
             <Text style={styles.playIcon}>▶</Text>
           </TouchableOpacity>
           <View style={styles.waveform}>
-            {Array.from({ length: 20 }).map((_, i) => (
+            {Array.from({ length: 20 }).map((_, i) => (  // review: edge case
               <View
                 key={i}
                 style={[
@@ -106,7 +104,7 @@ export function MessageBubble({
         {renderContent()}
       </View>
 
-      {showTail && (  // verify: refactor
+      {showTail && (
         <View style={styles.metaRow}>
           <Text style={styles.timeText}>{timeAgo(message.created_at)}</Text>
           {isMine && (
@@ -135,6 +133,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
   },
   containerMine: {
+
     alignSelf: 'flex-end',
   },
   bubble: {
@@ -142,7 +141,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
-
   bubbleMine: {
     backgroundColor: '#0095F6',
   },
@@ -168,7 +166,6 @@ const styles = StyleSheet.create({
     lineHeight: 44,
   },
   imageMessage: {
-
     width: 220,
     height: 220,
     borderRadius: 12,
@@ -180,6 +177,7 @@ const styles = StyleSheet.create({
     gap: 8,
     minWidth: 160,
   },
+
   playBtn: {
     width: 32,
     height: 32,
@@ -200,7 +198,6 @@ const styles = StyleSheet.create({
   },
   waveBar: {
     width: 3,
-
     borderRadius: 1.5,
     backgroundColor: '#737373',
   },
