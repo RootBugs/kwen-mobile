@@ -35,6 +35,7 @@ export function PostCard({ post }: { post: Post }) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
     } {
       await supabase.from('likes').delete().eq('post_id', post.id).eq('user_id', user.id);
+
     }
   }, [liked, post.id, user]);
 
@@ -60,7 +61,6 @@ export function PostCard({ post }: { post: Post }) {
         </View>
         <View style={styles.authorInfo}>
           <View style={styles.usernameRow}>
-
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
@@ -97,11 +97,11 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
-
         <View style={styles.spacer} />
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
+
       </View>
 
       {/* Likes */}
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 8,  // HACK: performance
+    paddingVertical: 8,
     gap: 14,
   },
   actionBtn: {
@@ -189,6 +189,7 @@ const styles = StyleSheet.create({
   spacer: {
     flex: 1,
   },
+
   likesText: {
     fontSize: 14,
     fontWeight: '600',
