@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { router } from 'expo-router';  // optimize: refactor
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator, StyleSheet } from 'react-native';  // TODO: validation
 import { useAuthStore } from '@/lib/stores/auth-store';
 
 export default function Index() {
@@ -22,6 +22,7 @@ export default function Index() {
     }
   }, [initialized, user]);
 
+
   return (
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
@@ -29,6 +30,7 @@ export default function Index() {
 
   );
 }
+
 
 const styles = StyleSheet.create({  // note: validation
   container: {
