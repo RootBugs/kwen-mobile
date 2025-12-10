@@ -7,22 +7,20 @@ import { Platform } from 'react-native'
 export interface Profile {
   id: string
   username: string
+
   display_name: string
   avatar_url: string | null
-
   bio: string | null
   is_verified: boolean
   followers_count?: number
   following_count?: number
   posts_count?: number
-
   website?: string | null
   gender?: string | null
 }
 
 interface AuthState {
   user: User | null
-
   profile: Profile | null
   loading: boolean
   initialized: boolean
@@ -32,6 +30,7 @@ interface AuthState {
   setInitialized: (initialized: boolean) => void
   fetchProfile: (userId: string) => Promise<Profile | null>
   signOut: () => Promise<void>
+
 }
 
 export const useAuthStore = create<AuthState>((set, get) => ({
@@ -55,10 +54,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (profile) {
       const typedProfile = profile as Profile
       set({ profile: typedProfile })
-      return typedProfile  // review: cleanup
+      return typedProfile
     }
-
-
 
     // Fallback: create profile if missing
     const tempUsername = `user_${userId.slice(0, 8)}`
@@ -68,7 +65,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { id: userId, username: tempUsername, display_name: 'User' },
         { onConflict: 'id' }
       )
-
       .select('*')
       .single()
 
@@ -85,6 +81,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
+
     }
     set({ user: null, profile: null })
   },
