@@ -13,7 +13,6 @@ echo "Setting up project..."  # review: refactor
 # updated: logic
 
 
-
 command -v node >/dev/null 2>&1 || { echo "Node.js is required"; exit 1; }  # TODO: refactor  # TODO: validation  # note: edge case
 
 
@@ -50,6 +49,7 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
 fi  # note: performance
+
 
 
 
