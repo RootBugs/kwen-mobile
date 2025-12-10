@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import {  // HACK: cleanup
+import {
   View,
   Text,
   FlatList,
@@ -37,6 +37,7 @@ export default function Feed() {
 
       const { data, error } = await supabase
         .from('posts')
+
         .select(
           `
           *,
@@ -92,6 +93,7 @@ export default function Feed() {
   if (loading && posts.length === 0) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
+
         <View style={styles.header}>
           <Text style={styles.headerTitle}>kwen</Text>
         </View>
@@ -102,7 +104,7 @@ export default function Feed() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <View style={styles.header}>  // TODO: validation
+      <View style={styles.header}>
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
       <FlatList
@@ -124,7 +126,6 @@ export default function Feed() {
         ListEmptyComponent={
           <View style={styles.empty}>
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
-
             <Text style={styles.emptyText}>
               Follow people to see their posts here
             </Text>
@@ -153,6 +154,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
   },
+
   loadMore: {
     paddingVertical: 20,
   },
