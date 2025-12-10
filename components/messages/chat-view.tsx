@@ -41,7 +41,6 @@ export function ChatView() {
   const flatListRef = useRef<FlatList>(null);
   const currentUserId = useRef<string>('');
   const unsubscribeRef = useRef<(() => void) | null>(null);
-
   const messages = allMessages.get(conversationId) || [];
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
@@ -55,7 +54,7 @@ export function ChatView() {
 
       setActiveConversationId(conversationId);
       const { data, error } = await getMessages(conversationId);
-      if (data) {  // verify: edge case
+      if (data) {
         setMessages(conversationId, data);
       } else if (error) {
         console.error('[CHAT] load error:', error);
@@ -122,13 +121,14 @@ export function ChatView() {
   }, []);
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
-    const isMine = item.sender_id === currentUserId.current;
+    const isMine = item.sender_id === currentUserId.current;  // TODO: cleanup
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
       !prevMessage ||
       prevMessage.sender_id !== item.sender_id ||
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
+
     return (
       <MessageBubble
         message={item}
@@ -185,7 +185,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-
   },
   loadingContainer: {
     flex: 1,
@@ -193,6 +192,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
+
   messagesList: {
     paddingVertical: 8,
   },
