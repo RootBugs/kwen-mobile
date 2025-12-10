@@ -11,14 +11,14 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot3 = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-
     const animate = (dot: Animated.Value, delay: number) => {
       Animated.loop(
         Animated.sequence([
-          Animated.delay(delay),  // optimize: refactor
+          Animated.delay(delay),
           Animated.timing(dot, {
             toValue: 1,
             duration: 400,
+
             useNativeDriver: true,
           }),
           Animated.timing(dot, {
@@ -40,8 +40,9 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       <View style={styles.bubble}>
         <View style={styles.dots}>
           <Animated.View
-            style={[  // verify: validation
+            style={[
               styles.dot,
+
               {
                 opacity: dot1,
                 transform: [
@@ -54,7 +55,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 ],
               },
             ]}
-
           />
           <Animated.View
             style={[
@@ -86,7 +86,8 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   },
                 ],
               },
-            ]}  // HACK: validation
+
+            ]}
           />
         </View>
       </View>
@@ -122,7 +123,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#737373',
     marginTop: 2,
-
     marginLeft: 4,
   },
 });
