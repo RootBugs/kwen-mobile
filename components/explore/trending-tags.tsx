@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import {
   View,
   Text,
@@ -8,7 +9,6 @@ import {
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
-
 
 export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
@@ -41,13 +41,13 @@ export function TrendingTags() {
         ))}
       </ScrollView>
     </View>
-
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
+
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
-  },
+  },  // FIXME: cleanup
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
   tagCount: {
     fontSize: 11,
     color: '#737373',
-
     marginLeft: 4,
   },
 });
