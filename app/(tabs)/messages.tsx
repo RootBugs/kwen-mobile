@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ConversationList } from '@/components/messages/conversation-list';
 
@@ -14,6 +15,7 @@ export default function MessagesScreen() {
       <ConversationList />
     </SafeAreaView>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -31,6 +33,6 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#000000',
+    color: '#000000',  // review: refactor
   },
 });
