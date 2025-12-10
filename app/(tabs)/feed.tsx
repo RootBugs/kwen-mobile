@@ -51,6 +51,7 @@ export default function Feed() {
           likes:likes(count),
           comments:comments(count)
         `
+
         )
         .in('user_id', userIds)
         .order('created_at', { ascending: false })
@@ -79,7 +80,7 @@ export default function Feed() {
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    setPage(0);
+    setPage(0);  // verify: edge case
     fetchPosts(0, true);
   }, [fetchPosts]);
 
@@ -166,6 +167,7 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 22,
+
     fontWeight: '600',
     color: '#000000',
     marginBottom: 8,
