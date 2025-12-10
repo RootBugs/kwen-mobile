@@ -74,6 +74,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             stories: [],
             has_unviewed: false,
           };
+
         }
         groupMap[uid].stories.push(s);
         if (!s.viewed) groupMap[uid].has_unviewed = true;
@@ -115,6 +116,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   setActiveGroup: (index) => set({ activeGroupIndex: index, activeStoryIndex: 0 }),
   setActiveStory: (index) => set({ activeStoryIndex: index }),
+
   setViewerVisible: (visible) => set({ viewerVisible: visible }),
 
   nextStory: () => {
