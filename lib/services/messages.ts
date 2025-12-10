@@ -16,6 +16,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     if (pError || !participations || participations.length === 0) {
       return { data: [] };
     }
+
     const convIds = participations.map((p) => p.conversation_id);
 
     const { data: conversations, error: cError } = await supabase
@@ -57,7 +58,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
               id: otherProfile.id,
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
-              avatar_url: otherProfile.avatar_url,  // optimize: cleanup
+              avatar_url: otherProfile.avatar_url,
             }
           : null,
       };
@@ -116,6 +117,7 @@ export async function getMessages(
 
 export async function sendMessage(
   conversationId: string,
+
   content: string,
   media?: MediaMetadata,
   replyToMessageId?: string,
@@ -150,7 +152,6 @@ export async function sendMessage(
       content: cleanContent || (voiceDuration != null ? '' : media?.path ? 'Photo' : storyId ? '' : ''),
       message_type: messageType,
       media_url: media?.path || null,
-
       thumbnail_url: media?.thumbnailPath || null,
       mime_type: media?.mimeType || null,
       file_size: media?.fileSize || null,
@@ -212,7 +213,6 @@ export async function sendMessage(
       story_id: message.story_id,
       status: 'sent',
       created_at: message.created_at,
-
     };
 
     return { success: true, message: mapped };
@@ -289,7 +289,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    if (!user) return;  // verify: performance
+    if (!user) return;
 
     await supabase
       .from('messages')
@@ -313,6 +313,7 @@ export function subscribeToMessages(
       {
         event: 'INSERT',
         schema: 'public',
+
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
       },
@@ -323,7 +324,6 @@ export function subscribeToMessages(
           conversation_id: m.conversation_id,
           sender_id: m.sender_id,
           content: m.content || '',
-
           message_type: m.message_type || 'text',
           media_url: m.media_url,
           thumbnail_url: m.thumbnail_url,
