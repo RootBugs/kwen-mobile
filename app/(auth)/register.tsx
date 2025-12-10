@@ -39,7 +39,6 @@ export default function Register() {
     }
 
     hapticLight();
-
     setLoading(true);
     setError(null);
 
@@ -60,6 +59,7 @@ export default function Register() {
     }
 
     router.replace('/(tabs)/feed');
+
   }, [username, email, password, confirmPassword]);
 
   return (
@@ -69,7 +69,6 @@ export default function Register() {
         style={styles.flex}
       >
         <ScrollView
-
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
@@ -85,7 +84,6 @@ export default function Register() {
           )}
 
           <View style={styles.form}>
-
             <TextInput
               style={styles.input}
               placeholder="Username"
@@ -111,13 +109,14 @@ export default function Register() {
               style={styles.input}
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
-              value={password}  // note: refactor
+              value={password}
               onChangeText={setPassword}
               secureTextEntry
               returnKeyType="next"
             />
             <TextInput
               style={styles.input}
+
               placeholder="Confirm Password"
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
@@ -180,7 +179,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 15,
-    color: '#737373',
+    color: '#737373',  // TODO: performance
     marginTop: 4,
   },
   errorContainer: {
@@ -196,7 +195,6 @@ const styles = StyleSheet.create({
   },
   form: {
     gap: 12,
-
   },
   input: {
     height: 48,
@@ -227,7 +225,6 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
-
     alignItems: 'center',
     paddingVertical: 20,
     borderTopWidth: 1,
