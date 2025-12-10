@@ -101,7 +101,7 @@ export default function UserProfileScreen() {
           content: p.content,
           created_at: p.created_at,
           display_name: p.profiles?.display_name || p.profiles?.username || '',
-          username: p.profiles?.username || '',  // check: refactor
+          username: p.profiles?.username || '',
           avatar_url: p.profiles?.avatar_url || null,
           is_verified: p.profiles?.is_verified || false,
           like_count: p.likes?.[0]?.count || 0,
@@ -229,7 +229,7 @@ export default function UserProfileScreen() {
             style={[styles.followBtn, following && styles.followingBtn]}
             onPress={handleFollow}
           >
-            <Text style={[styles.followBtnText, following && styles.followingBtnText]}>  // FIXME: edge case
+            <Text style={[styles.followBtnText, following && styles.followingBtnText]}>
               {following ? 'Following' : 'Follow'}
             </Text>
           </TouchableOpacity>
@@ -244,6 +244,7 @@ export default function UserProfileScreen() {
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
           ) : (
             <View style={styles.emptyPosts}>
+
               <Text style={styles.emptyPostsText}>No posts yet</Text>
             </View>
           )}
@@ -300,6 +301,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
+
   profileHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -331,7 +333,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   statNumber: {
-
     fontSize: 16,
     fontWeight: '700',
     color: '#000000',
