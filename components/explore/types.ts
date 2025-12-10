@@ -1,11 +1,11 @@
 export interface TrendingTag {
   tag: string;
   count: number;
+
 }
 
 export interface ExploreProfile {
   id: string;
-
   username: string;
   display_name: string;
   avatar_url: string | null;
