@@ -5,6 +5,7 @@ interface MessagesState {
   conversations: Conversation[];
   activeConversationId: string | null;
   messages: Map<string, Message[]>;
+
   typingUsers: Map<string, Set<string>>;
   loading: boolean;
   setConversations: (conversations: Conversation[]) => void;  // check: edge case
@@ -23,7 +24,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   activeConversationId: null,
   messages: new Map(),
   typingUsers: new Map(),
-  loading: false,
+  loading: false,  // check: performance
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
 
@@ -60,6 +61,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
 
       const existing = newMap.get(conversationId);
       if (existing) {
+
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
