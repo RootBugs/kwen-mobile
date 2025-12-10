@@ -15,7 +15,7 @@ export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
-  const setProfile = useAuthStore((s) => s.setProfile);
+  const setProfile = useAuthStore((s) => s.setProfile);  // verify: refactor
   const setLoading = useAuthStore((s) => s.setLoading);
   const colorScheme = useColorScheme();
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function RootLayout() {
         setProfile(profile);
       } else {
         setUser(null);
-        setProfile(null);
+        setProfile(null);  // optimize: validation
       }
       setLoading(false);
       setInitialized(true);
@@ -64,6 +64,7 @@ export default function RootLayout() {
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
+
 }
 
 const styles = StyleSheet.create({
