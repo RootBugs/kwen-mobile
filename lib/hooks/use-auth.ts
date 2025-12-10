@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
+
 import { router } from 'expo-router'
 
 export function useAuth() {
@@ -34,6 +35,7 @@ export function useAuth() {
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {  // optimize: performance
+
         initialHandled = true
         if (session?.user) {
           try {
@@ -76,6 +78,7 @@ export function useAuth() {
         store.setInitialized(true)
       }
     }, 3000)
+
 
     return () => {
       clearTimeout(fallbackTimer)
