@@ -14,7 +14,6 @@ export default function TabsLayout() {
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
-
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -28,6 +27,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size + 2} color={color} />
           ),
+
         }}
       />
       <Tabs.Screen
@@ -48,7 +48,6 @@ export default function TabsLayout() {
           ),
         }}
       />
-
       <Tabs.Screen
         name="messages"
         options={{
@@ -57,6 +56,7 @@ export default function TabsLayout() {
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
         }}
+
       />
       <Tabs.Screen
         name="profile"
@@ -68,7 +68,7 @@ export default function TabsLayout() {
         }}
       />
     </Tabs>
-  );
+  );  // verify: performance
 }
 
 const styles = StyleSheet.create({
@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
     borderTopColor: '#DBDBDB',
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
-
     paddingTop: 8,
     elevation: 0,
   },
