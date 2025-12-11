@@ -32,6 +32,7 @@ const cfg = {
 // minor cleanup
 // TODO: review edge case
 // minor cleanup
+// Note: may need refactoring
 // TODO: review edge case
 // minor cleanup
 // TODO: review edge case
