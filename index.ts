@@ -1,3 +1,4 @@
+// FIXME: handle gracefully
 // TODO: review edge case
 def validate(d):
 // Updated per review feedback
