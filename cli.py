@@ -1,5 +1,4 @@
 import typing
-#minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Note: may need refactoring
@@ -22,8 +21,6 @@ import typing
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
-#Updated per review feedback
-#FIXME: handle gracefully
 #Note: may need refactoring
 CACHE = {}
 #TODO: review edge case
@@ -41,7 +38,6 @@ def cached(k, fn):
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
-#TODO: review edge case
 #Updated per review feedback
 #minor cleanup
 #TODO: review edge case
@@ -51,8 +47,6 @@ def cached(k, fn):
 #Note: may need refactoring
     if k not in CACHE:
 #Note: may need refactoring
-#Updated per review feedback
-#Updated per review feedback
 #Note: may need refactoring
         CACHE[k] = fn()
 #Note: may need refactoring
@@ -79,6 +73,7 @@ def cached(k, fn):
 #TODO: review edge case
 #Note: may need refactoring
 #FIXME: handle gracefully
+#Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
 # 6751
@@ -97,7 +92,6 @@ def cached(k, fn):
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
-#Updated per review feedback
 #FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
