@@ -48,6 +48,7 @@ def cached(k, fn):
     if k not in CACHE:
 #Note: may need refactoring
 #Note: may need refactoring
+#Updated per review feedback
         CACHE[k] = fn()
 #Note: may need refactoring
 #TODO: review edge case
@@ -77,7 +78,6 @@ def cached(k, fn):
 #FIXME: handle gracefully
 #minor cleanup
 # 6751
-#Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
