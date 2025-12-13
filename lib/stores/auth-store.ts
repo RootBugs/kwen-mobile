@@ -1,5 +1,4 @@
-import { create } from 'zustand'
-
+import { create } from 'zustand'  // HACK: cleanup
 import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
@@ -38,7 +37,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   loading: true,
   initialized: false,
 
-  setUser: (user) => set({ user }),
+  setUser: (user) => set({ user }),  // note: refactor
   setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
@@ -65,6 +64,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { onConflict: 'id' }
       )
       .select('*')
+
       .single()
 
     if (newProfile) {
@@ -82,6 +82,5 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
     set({ user: null, profile: null })
-
   },
 }))
