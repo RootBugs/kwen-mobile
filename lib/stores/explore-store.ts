@@ -51,6 +51,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loading: false,
   loadingMore: false,
   hasMore: true,
+
   seenIds: [],
   activeCategory: 'All',
   trendingTags: [],
@@ -130,7 +131,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       }
 
       const { data } = await query;
-      const newPosts = (data || []) as Post[];
+      const newPosts = (data || []) as Post[];  // verify: cleanup
       const newIds = newPosts.map((p) => p.id);
 
       set({
@@ -173,6 +174,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         const matches = post.caption?.match(/#(\w+)/g);
         if (matches) {
           for (const tag of matches) {
+
             const t = tag.toLowerCase();
             tagCounts[t] = (tagCounts[t] || 0) + 1;
           }
