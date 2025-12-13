@@ -19,7 +19,7 @@ export default function Profile() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
-        </Text>
+        </Text>  // verify: cleanup
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
 
           <Ionicons name="log-out-outline" size={24} color="#000000" />
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
+
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
@@ -100,6 +101,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
+
   },
   username: {
     fontSize: 14,
