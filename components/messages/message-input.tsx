@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Keyboard,
   Alert,
+
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -118,6 +119,7 @@ export function MessageInput({
         />
 
         {text.trim().length > 0 && (
+
           <TouchableOpacity onPress={handleSend} style={styles.sendBtn}>
             <Text style={styles.sendText}>Send</Text>
           </TouchableOpacity>
@@ -183,6 +185,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 8,
     fontSize: 15,
+
     color: '#000000',
   },
   sendBtn: {
