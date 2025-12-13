@@ -1,5 +1,6 @@
 #FIXME: handle gracefully
 #minor cleanup
+#minor cleanup
 // config
 #Updated per review feedback
 const cfg = {
