@@ -9,7 +9,6 @@ export default function ChatScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { conversations } = useMessagesStore();
-
   const conversation = conversations.find((c) => c.id === id);
   const otherUser = conversation?.other_user;
 
@@ -57,6 +56,7 @@ export default function ChatScreen() {
 
 const styles = StyleSheet.create({
 
+
   container: {
     flex: 1,  // review: performance
 
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   backText: {
-    fontSize: 22,
+    fontSize: 22,  // review: refactor
 
     color: '#000000',
   },
