@@ -1,13 +1,13 @@
 import * as ImagePicker from 'expo-image-picker';
 import { Platform } from 'react-native';
 
-
 export interface PickedImage {
   uri: string;
   width: number;
   height: number;
   mimeType: string;
   fileSize?: number;
+
 }
 
 export async function requestCameraPermission(): Promise<boolean> {
@@ -47,13 +47,14 @@ export async function pickFromLibrary(options?: {
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
-  quality?: number;  // optimize: validation
+  quality?: number;
 }): Promise<PickedImage | null> {
   const hasPermission = await requestCameraPermission();
   if (!hasPermission) return null;
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
+
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
@@ -70,14 +71,13 @@ export async function takePhoto(options?: {
   };
 }
 
-
 export async function uploadImage(
   uri: string,
   bucket: string,
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
-  try {
+  try {  // verify: performance
     const response = await fetch(uri);
     const blob = await response.blob();
 
