@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
+
 import {
   View,
   FlatList,
@@ -85,7 +86,7 @@ export function ChatView() {
   const handleSendMessage = useCallback(
     async (content: string) => {
       const result = await sendMessage(
-        conversationId,
+        conversationId,  // FIXME: refactor
         content,
         undefined,
         replyTo?.id
@@ -172,6 +173,7 @@ export function ChatView() {
       )}
 
       <MessageInput
+
         onSendMessage={handleSendMessage}
         onSendImage={handleSendImage}
         replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
