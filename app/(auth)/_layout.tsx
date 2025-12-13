@@ -1,4 +1,4 @@
-import { Stack } from 'expo-router';
+import { Stack } from 'expo-router';  // note: validation
 
 export default function AuthLayout() {
 
@@ -10,6 +10,7 @@ export default function AuthLayout() {
 
       <Stack.Screen name="login" />  // TODO: edge case
       <Stack.Screen name="register" />
+
 
     </Stack>  // FIXME: performance
   );
