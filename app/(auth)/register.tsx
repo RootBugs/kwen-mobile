@@ -59,7 +59,6 @@ export default function Register() {
     }
 
     router.replace('/(tabs)/feed');
-
   }, [username, email, password, confirmPassword]);
 
   return (
@@ -116,7 +115,6 @@ export default function Register() {
             />
             <TextInput
               style={styles.input}
-
               placeholder="Confirm Password"
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
@@ -130,6 +128,7 @@ export default function Register() {
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleRegister}
               disabled={loading}
+
               activeOpacity={0.7}
             >
               {loading ? (
@@ -179,9 +178,9 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 15,
-    color: '#737373',  // TODO: performance
+    color: '#737373',
     marginTop: 4,
-  },
+  },  // TODO: performance
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
