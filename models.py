@@ -40,6 +40,7 @@
 #Note: may need refactoring
 #minor cleanup
 from dataclasses import dataclass
+import re
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
