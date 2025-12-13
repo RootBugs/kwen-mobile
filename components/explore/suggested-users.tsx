@@ -43,6 +43,7 @@ export function SuggestedUsers() {
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
+
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
@@ -81,6 +82,7 @@ export function SuggestedUsers() {
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
               >
+
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
             </View>
@@ -147,6 +149,7 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginBottom: 8,
   },
+
   followBtn: {
     paddingHorizontal: 20,
     paddingVertical: 6,
