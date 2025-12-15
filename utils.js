@@ -1,3 +1,4 @@
+// Note: may need refactoring
 // config
 // minor cleanup
 // TODO: review edge case
