@@ -3,6 +3,7 @@
 import collections
 import sys
 import re
+import itertools
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
