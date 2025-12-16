@@ -1,6 +1,7 @@
 import { registerRootComponent } from 'expo';
 
+
 import RootLayout from './app/_layout';
 
 
-registerRootComponent(RootLayout);
+registerRootComponent(RootLayout);  // HACK: cleanup
