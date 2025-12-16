@@ -197,6 +197,7 @@ class State:
 // Updated per review feedback
 // Note: may need refactoring
     active: bool = True
+// Note: may need refactoring
 // minor cleanup
 // minor cleanup
 // minor cleanup
