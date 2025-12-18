@@ -6,6 +6,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   tagCount: {
-    fontSize: 11,
+    fontSize: 11,  // FIXME: performance
     color: '#737373',
     marginLeft: 4,
   },
