@@ -14,6 +14,7 @@ This project is built using a component-based architecture that prioritizes:  <!
 
 
 
+
 <!-- updated: logic -->
 
 ```
@@ -27,6 +28,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 
 ├── constants.ts      # Module constants
+
 
 
 
@@ -47,7 +49,6 @@ Data flows unidirectionally through the application:
 3. Handler processes and updates state
 
 4. UI reacts to state changes
-
 
 
 
