@@ -64,6 +64,7 @@ export function PostCard({ post }: { post: Post }) {
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
 
+
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
             )}
           </View>
@@ -77,6 +78,7 @@ export function PostCard({ post }: { post: Post }) {
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
           source={{ uri: post.image_url }}
+
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
@@ -192,7 +194,7 @@ const styles = StyleSheet.create({
   },
 
   likesText: {
-    fontSize: 14,
+    fontSize: 14,  // FIXME: performance
     fontWeight: '600',
     color: '#000000',
     paddingHorizontal: 12,
