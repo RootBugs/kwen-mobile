@@ -93,7 +93,6 @@ export default function UserProfileScreen() {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-
       setPosts(
         (data || []).map((p: any) => ({
           id: p.id,
@@ -216,6 +215,7 @@ export default function UserProfileScreen() {
 
         {/* Bio */}
         <View style={styles.bioSection}>
+
           <View style={styles.nameRow}>
             <Text style={styles.displayName}>{profile.display_name}</Text>
             {profile.is_verified && <Text style={styles.verified}>✓</Text>}
@@ -338,6 +338,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   statLabel: {
+
     fontSize: 12,
     color: '#737373',
     marginTop: 2,
