@@ -12,6 +12,7 @@ import { useRouter } from 'expo-router';
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
+
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -86,6 +87,7 @@ export function ConversationList() {
       {filteredConversations.length > 0 ? (
         <FlatList
           data={filteredConversations}
+
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <ConversationRow
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   searchIcon: {
+
     fontSize: 14,
     marginRight: 6,
   },
