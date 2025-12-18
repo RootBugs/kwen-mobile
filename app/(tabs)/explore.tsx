@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
+
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
@@ -39,6 +40,7 @@ export default function ExploreScreen() {
   }, [loadMore]);
 
   const handlePostPress = useCallback((_post: Post) => {
+
     // Navigate to post detail — route TBD
   }, []);
 
@@ -71,6 +73,7 @@ export default function ExploreScreen() {
         refreshing={refreshing}
       />
     </SafeAreaView>
+
   );
 }
 
