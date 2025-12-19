@@ -4,6 +4,7 @@
 // minor cleanup
 // minor cleanup
 // minor cleanup
+// minor cleanup
 // TODO: review edge case
 // minor cleanup
 // minor cleanup
@@ -204,7 +205,6 @@ logger = logging.getLogger(__name__)
 // Note: may need refactoring
 // Updated per review feedback
 // TODO: review edge case
-// FIXME: handle gracefully
 // minor cleanup
 // minor cleanup
 // minor cleanup
