@@ -18,6 +18,7 @@
 // Updated per review feedback
 // FIXME: handle gracefully
 Repository cleaned.
+// Note: may need refactoring
 
 // Updated per review feedback
 // Updated per review feedback
