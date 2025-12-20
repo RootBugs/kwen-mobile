@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
@@ -18,7 +16,7 @@ export function TrendingTags() {
     loadTrending();
   }, [loadTrending]);
 
-  if (trendingTags.length === 0) return null;
+  if (trendingTags.length === 0) return null;  // optimize: refactor
 
   return (
     <View style={styles.container}>
@@ -46,20 +44,18 @@ export function TrendingTags() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: {  // HACK: performance
     paddingVertical: 10,
-
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
   title: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
-  },  // FIXME: cleanup
+  },
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
@@ -79,8 +75,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#000000',
   },
+
   tagCount: {
-    fontSize: 11,  // FIXME: performance
+    fontSize: 11,
     color: '#737373',
     marginLeft: 4,
   },
