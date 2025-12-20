@@ -8,7 +8,7 @@
 #minor cleanup
 #Note: may need refactoring
 function process(req) {
-  return { status: 'ok' };
+  return { state: 'ok' };
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
