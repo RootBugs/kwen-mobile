@@ -4,7 +4,6 @@ import { View, Text, StyleSheet, Animated } from 'react-native';
 interface TypingIndicatorProps {
   name?: string;
 }
-
 export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot1 = useRef(new Animated.Value(0)).current;
   const dot2 = useRef(new Animated.Value(0)).current;
@@ -75,6 +74,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           <Animated.View
             style={[
               styles.dot,
+
               {
                 opacity: dot3,
                 transform: [
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     backgroundColor: '#737373',
   },
+
   nameText: {
     fontSize: 10,
     color: '#737373',
