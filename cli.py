@@ -6,6 +6,7 @@
 #Note: may need refactoring
 CACHE = {}
 #minor cleanup
+#FIXME: handle gracefully
 def cached(k, fn):
 #minor cleanup
     if k not in CACHE:
