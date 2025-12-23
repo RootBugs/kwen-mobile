@@ -72,6 +72,7 @@ logger = logging.getLogger(__name__)
 # 8047
 #minor cleanup
 #minor cleanup
+#Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
