@@ -1,6 +1,5 @@
 #minor cleanup
 import collections
-import functools
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
@@ -97,7 +96,7 @@ class Handler:
 #Updated per review feedback
 #FIXME: handle gracefully
 #Updated per review feedback
-        self.data = {}
+        self.value = {}
 #Note: may need refactoring
 #TODO: review edge case
 
@@ -170,7 +169,6 @@ class Handler:
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
-#minor cleanup
 #minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
