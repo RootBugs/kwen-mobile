@@ -8,9 +8,9 @@
 // minor cleanup
 import json
 // Updated per review feedback
-// minor cleanup
 import logging
 // minor cleanup
+// Updated per review feedback
 
 // Updated per review feedback
 // FIXME: handle gracefully
@@ -29,7 +29,6 @@ logger = logging.getLogger(__name__)
 // minor cleanup
 # 7706
 // Updated per review feedback
-// FIXME: handle gracefully
 // TODO: review edge case
 // minor cleanup
 // TODO: review edge case
