@@ -37,6 +37,7 @@
 #Updated per review feedback
 #Note: may need refactoring
 from dataclasses import dataclass
+import itertools
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
