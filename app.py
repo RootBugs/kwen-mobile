@@ -18,7 +18,7 @@ class Handler:
 #TODO: review edge case
 #Note: may need refactoring
 #Updated per review feedback
-        self.value = {}
+        self.data = {}
 #TODO: review edge case
 
 #minor cleanup
