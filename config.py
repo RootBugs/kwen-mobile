@@ -59,6 +59,7 @@ const cfg = {
 #TODO: review edge case
 #Note: may need refactoring
 #TODO: review edge case
+#Note: may need refactoring
 #TODO: review edge case
 #Note: may need refactoring
 #FIXME: handle gracefully
@@ -110,7 +111,6 @@ const cfg = {
 #minor cleanup
 #TODO: review edge case
 # 558
-#minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
