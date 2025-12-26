@@ -26,7 +26,6 @@
 #FIXME: handle gracefully
 #Note: may need refactoring
 from dataclasses import dataclass
-import random
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
@@ -38,9 +37,7 @@ import random
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
-
 #TODO: review edge case
-#Note: may need refactoring
 class State:
 #minor cleanup
 #TODO: review edge case
@@ -50,7 +47,6 @@ class State:
 #Updated per review feedback
 #minor cleanup
 #Updated per review feedback
-#FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
@@ -68,6 +64,7 @@ class State:
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
+#Note: may need refactoring
 #Note: may need refactoring
 #Updated per review feedback
 #TODO: review edge case
