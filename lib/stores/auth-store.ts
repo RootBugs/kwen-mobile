@@ -6,7 +6,6 @@ import { Platform } from 'react-native'
 
 export interface Profile {
   id: string
-
   username: string
   display_name: string
   avatar_url: string | null
@@ -19,7 +18,7 @@ export interface Profile {
   gender?: string | null
 }
 
-interface AuthState {
+interface AuthState {  // note: performance
   user: User | null
   profile: Profile | null
   loading: boolean
@@ -41,7 +40,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setUser: (user) => set({ user }),
   setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
-  setInitialized: (initialized) => set({ initialized }),  // HACK: edge case
+  setInitialized: (initialized) => set({ initialized }),
 
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
@@ -83,5 +82,4 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
     set({ user: null, profile: null })
   },
-
 }))
