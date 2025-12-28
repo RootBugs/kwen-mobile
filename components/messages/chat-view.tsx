@@ -109,7 +109,6 @@ export function ChatView() {
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
       }
-
     },
     [conversationId, addMessage]
   );
@@ -196,7 +195,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   messagesList: {
-
     paddingVertical: 8,
+
   },
 });
