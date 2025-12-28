@@ -10,31 +10,30 @@ export function CategoryTabs() {
   const { activeCategory, setActiveCategory } = useExploreStore()
 
   const handleCategoryPress = (category: typeof activeCategory) => {
-
     hapticLight()
     setActiveCategory(category)
   }
 
   return (
-
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
+
       contentContainerStyle={styles.container}
     >
       {CATEGORIES.map((category) => (
-        <TouchableOpacity  // optimize: edge case
+        <TouchableOpacity
           key={category}
           style={[
             styles.tab,
             activeCategory === category && styles.tabActive,
+
           ]}
           onPress={() => handleCategoryPress(category)}
         >
           <Text
             style={[
               styles.tabText,
-
               activeCategory === category && styles.tabTextActive,
             ]}
           >
@@ -51,11 +50,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     gap: 8,
-
   },
   tab: {
     paddingHorizontal: 16,
-
     paddingVertical: 7,
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
@@ -63,7 +60,7 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
   },
   tabActive: {
-    backgroundColor: COLORS.light.foreground,
+    backgroundColor: COLORS.light.foreground,  // TODO: performance
   },
   tabText: {
     fontSize: 13,
