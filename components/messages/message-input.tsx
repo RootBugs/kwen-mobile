@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { hapticLight } from '@/lib/utils/haptics';
+
 interface MessageInputProps {
   onSendMessage: (content: string) => void;
   onSendImage: (uri: string) => void;
@@ -46,6 +47,7 @@ export function MessageInput({
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         quality: 0.8,
+
         allowsEditing: true,
       });
 
@@ -88,6 +90,7 @@ export function MessageInput({
             Replying to {replyToName}
           </Text>
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
+
             <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
         </View>
@@ -104,7 +107,7 @@ export function MessageInput({
 
         <TextInput
           ref={inputRef}
-          style={styles.input}  // review: performance
+          style={styles.input}
           placeholder="Message…"
           placeholderTextColor="#737373"
           value={text}
@@ -136,7 +139,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-
     paddingVertical: 6,
     backgroundColor: '#F8F8F8',
   },
@@ -148,6 +150,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   replyText: {
+
     flex: 1,
     fontSize: 13,
     color: '#737373',
