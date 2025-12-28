@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Conversation } from './types';
-import { timeAgo } from '@/lib/utils/format';
+import { timeAgo } from '@/lib/utils/format';  // optimize: refactor
 
 interface ConversationRowProps {
   conversation: Conversation;
@@ -60,6 +60,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
               <Text style={styles.badgeText}>{unread_count}</Text>
             </View>
           )}
+
         </View>
       </View>
     </TouchableOpacity>
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
   },
   unreadLastMessage: {
     color: '#000000',
+
     fontWeight: '500',
   },
   badge: {
