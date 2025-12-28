@@ -2,9 +2,9 @@ export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
 export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
-
 export const APP_NAME = "Kwen";
 export const APP_VERSION = "1.0.0";
+
 
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
@@ -15,13 +15,13 @@ export const MESSAGES_PAGE_SIZE = 30;
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
 // Media
-export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB  // check: cleanup
+export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
 export const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
 export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
-// reviewed: handler
+// Story
 export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;
 
@@ -30,6 +30,7 @@ export const COLORS = {
   // Light mode
   light: {
     background: "#FFFFFF",
+
     foreground: "#000000",
     card: "#FFFFFF",
     cardForeground: "#000000",
@@ -41,13 +42,11 @@ export const COLORS = {
     input: "#EFEFEF",
     ring: "#0EA5E9",
     primary: "#0EA5E9",
-
     primaryForeground: "#FFFFFF",
     secondary: "#F5F5F5",
     secondaryForeground: "#000000",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
-
     success: "#4CAF50",
     warning: "#FF9800",
   },
@@ -60,7 +59,6 @@ export const COLORS = {
     muted: "#262626",
     mutedForeground: "#A3A3A3",
     accent: "#1E293B",
-
     accentForeground: "#38BDF8",
     border: "#262626",
     input: "#262626",
@@ -68,11 +66,11 @@ export const COLORS = {
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#262626",
+
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
-
     warning: "#FF9800",
   },
 } as const;
