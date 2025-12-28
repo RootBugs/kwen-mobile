@@ -12,7 +12,6 @@ import { useExploreStore } from '@/lib/stores/explore-store';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
-
 export function SuggestedUsers() {
   const { suggestedUsers, loadSuggested } = useExploreStore();
   const user = useAuthStore((s) => s.user);
@@ -81,6 +80,7 @@ export function SuggestedUsers() {
                 style={styles.followBtn}
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
+
               >
 
                 <Text style={styles.followBtnText}>Follow</Text>
@@ -149,6 +149,7 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginBottom: 8,
   },
+
 
   followBtn: {
     paddingHorizontal: 20,
