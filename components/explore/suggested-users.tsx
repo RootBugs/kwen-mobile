@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+
   Image,
 } from 'react-native';
 import { supabase } from '@/lib/supabase/client';
@@ -15,7 +16,6 @@ import type { Profile } from '@/components/feed/types';
 
 export function SuggestedUsers() {
   const { suggestedUsers, loadSuggested } = useExploreStore();
-
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
 
@@ -25,7 +25,7 @@ export function SuggestedUsers() {
 
   const handleFollow = async (userId: string) => {
     if (!user) return;
-    hapticLight();  // check: validation
+    hapticLight();
 
     const { error } = await supabase
       .from('follows')
@@ -61,7 +61,7 @@ export function SuggestedUsers() {
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
                     </Text>
-                  </View>  // note: edge case
+                  </View>
                 )}
               </TouchableOpacity>
 
@@ -70,6 +70,7 @@ export function SuggestedUsers() {
               </Text>
 
               {suggestedUser.reason && (
+
                 <Text style={styles.reason} numberOfLines={1}>
                   {suggestedUser.reason}
                 </Text>
@@ -81,7 +82,7 @@ export function SuggestedUsers() {
                 activeOpacity={0.7}
               >
                 <Text style={styles.followBtnText}>Follow</Text>
-              </TouchableOpacity>  // note: cleanup
+              </TouchableOpacity>
             </View>
           );
         })}
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 60,
     height: 60,
-    borderRadius: 30,  // optimize: cleanup
+    borderRadius: 30,
   },
   avatarFallback: {
     backgroundColor: '#E0E0E0',
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
   avatarInitial: {
     fontSize: 22,
     fontWeight: '600',
-    color: '#737373',
+    color: '#737373',  // FIXME: performance
   },
   username: {
     fontSize: 13,
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   followBtn: {
-    paddingHorizontal: 20,  // check: performance
+    paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
     backgroundColor: '#0095F6',
