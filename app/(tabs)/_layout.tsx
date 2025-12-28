@@ -44,6 +44,7 @@ export default function TabsLayout() {
         options={{
           title: 'Create',
           tabBarIcon: ({ color, size }) => (
+
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
           ),
         }}
@@ -74,6 +75,7 @@ export default function TabsLayout() {
 const styles = StyleSheet.create({
   tabBar: {
     position: 'absolute',
+
     backgroundColor: Platform.OS === 'ios' ? 'rgba(255,255,255,0.8)' : '#FFFFFF',
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
