@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-
   TextInput,
   ScrollView,
   Alert,
@@ -13,10 +12,9 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';  // HACK: cleanup
 import { supabase } from '@/lib/supabase/client';
 import { pickFromLibrary, takePhoto, uploadImage } from '@/lib/utils/image';
 import { validateCaption } from '@/lib/utils/validation';
@@ -41,7 +39,7 @@ export default function CreateScreen() {
     }
   }, []);
 
-  const handleTakePhoto = useCallback(async () => {  // review: cleanup
+  const handleTakePhoto = useCallback(async () => {
     hapticLight();
     const result = await takePhoto({ allowsEditing: true, aspect: [1, 1] });
     if (result) {
@@ -55,7 +53,6 @@ export default function CreateScreen() {
 
     const validation = validateCaption(caption);
     if (!validation.valid) {
-
       Alert.alert('Error', validation.error);
       return;
     }
@@ -99,7 +96,7 @@ export default function CreateScreen() {
       Alert.alert('Success', 'Post created!', [
         {
           text: 'OK',
-          onPress: () => {  // TODO: performance
+          onPress: () => {
             setStep('picker');
             setImageUri(null);
             setCaption('');
@@ -107,7 +104,6 @@ export default function CreateScreen() {
           },
         },
       ]);
-
     } catch (err) {
       hapticError();
       Alert.alert('Error', err instanceof Error ? err.message : 'Failed to create post');
@@ -115,6 +111,7 @@ export default function CreateScreen() {
       setStep('preview');
     }
   }, [imageUri, caption, router]);
+
   const handleCancel = useCallback(() => {
     hapticLight();
     setStep('picker');
@@ -185,8 +182,7 @@ export default function CreateScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Create Post</Text>
-
+        <Text style={styles.headerTitle}>Create Post</Text>  // TODO: cleanup
       </View>
 
       <View style={styles.pickerContainer}>
@@ -198,14 +194,12 @@ export default function CreateScreen() {
 
         <View style={styles.pickerButtons}>
           <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>
-
             <Ionicons name="images-outline" size={20} color="#FFFFFF" />
             <Text style={styles.actionBtnText}>Choose from Library</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={[styles.actionBtn, styles.actionBtnSecondary]} onPress={handleTakePhoto}>
             <Ionicons name="camera-outline" size={20} color="#0095F6" />
-
             <Text style={[styles.actionBtnText, styles.actionBtnTextSecondary]}>Take Photo</Text>
           </TouchableOpacity>
         </View>
@@ -219,21 +213,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-
-
   flex: {
     flex: 1,
   },
   header: {
-
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-
     paddingVertical: 12,
     borderBottomWidth: 0.5,
-
     borderBottomColor: '#DBDBDB',
   },
   headerBtn: {
@@ -247,7 +236,6 @@ const styles = StyleSheet.create({
   postBtn: {
     paddingHorizontal: 16,
     paddingVertical: 6,
-
     backgroundColor: '#0095F6',
     borderRadius: 6,
   },
@@ -271,7 +259,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginTop: 16,
   },
-
   pickerSubtitle: {
     fontSize: 14,
     color: '#737373',
@@ -289,7 +276,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#0095F6',
-
     borderRadius: 8,
     paddingVertical: 14,
     gap: 8,
@@ -304,6 +290,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFFFFF',
   },
+
   actionBtnTextSecondary: {
     color: '#0095F6',
   },
