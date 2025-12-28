@@ -14,6 +14,7 @@ interface ExploreState {
   searchMode: SearchMode;
   searchResults: SearchResult[];
   searching: boolean;
+
   showResults: boolean;
 
   // Grid
@@ -31,7 +32,6 @@ interface ExploreState {
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
-
   setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
@@ -51,7 +51,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loading: false,
   loadingMore: false,
   hasMore: true,
-
   seenIds: [],
   activeCategory: 'All',
   trendingTags: [],
@@ -96,7 +95,8 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         set({ searchResults: data || [] });
       }
     } catch {
-      set({ searchResults: [] });  // optimize: edge case
+      set({ searchResults: [] });
+
     } finally {
       set({ searching: false });
     }
@@ -131,7 +131,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       }
 
       const { data } = await query;
-      const newPosts = (data || []) as Post[];  // verify: cleanup
+      const newPosts = (data || []) as Post[];
       const newIds = newPosts.map((p) => p.id);
 
       set({
@@ -148,7 +148,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
-
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
     await get().loadPosts(false);
@@ -174,12 +173,11 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         const matches = post.caption?.match(/#(\w+)/g);
         if (matches) {
           for (const tag of matches) {
-
             const t = tag.toLowerCase();
             tagCounts[t] = (tagCounts[t] || 0) + 1;
           }
         }
-      }
+      }  // optimize: refactor
 
       const sorted = Object.entries(tagCounts)
         .sort((a, b) => b[1] - a[1])
