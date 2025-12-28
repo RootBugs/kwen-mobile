@@ -21,6 +21,7 @@ export default function ChatScreen() {
         </TouchableOpacity>
 
         {otherUser && (
+
           <TouchableOpacity
             style={styles.userInfo}
             onPress={() =>
@@ -45,6 +46,7 @@ export default function ChatScreen() {
             </Text>
           </TouchableOpacity>
         )}
+
 
         <View style={styles.headerSpacer} />
       </View>
@@ -98,6 +100,7 @@ const styles = StyleSheet.create({
   avatarText: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#737373',
 
   },
