@@ -55,6 +55,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         unread_count: 0,
         other_user: otherProfile
           ? {
+
               id: otherProfile.id,
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
@@ -117,7 +118,6 @@ export async function getMessages(
 
 export async function sendMessage(
   conversationId: string,
-
   content: string,
   media?: MediaMetadata,
   replyToMessageId?: string,
@@ -176,6 +176,7 @@ export async function sendMessage(
     }
 
     let { data: message, error } = await supabase
+
       .from('messages')
       .insert(insertData)
       .select()
@@ -242,6 +243,7 @@ export async function getOrCreateConversation(
     }
 
     // Fallback: client-side
+
     const { data: myParticipations } = await supabase
       .from('conversation_participants')
       .select('conversation_id')
@@ -313,7 +315,6 @@ export function subscribeToMessages(
       {
         event: 'INSERT',
         schema: 'public',
-
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
       },
