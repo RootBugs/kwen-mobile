@@ -1,5 +1,4 @@
 export interface Conversation {
-
   id: string;
   user_ids: string[];
   created_at: string;
@@ -7,17 +6,16 @@ export interface Conversation {
   last_message?: string;
   last_message_at?: string;
   last_message_type?: string;
-
   unread_count: number;
   other_user: {
     id: string;
     username: string;
     display_name: string;
+
     avatar_url: string | null;
     is_online?: boolean;
   } | null;
 }
-
 
 export interface Message {
   id: string;
@@ -27,6 +25,7 @@ export interface Message {
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
   thumbnail_url: string | null;
+
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
@@ -38,21 +37,20 @@ export interface Message {
   reply_to?: {
     id: string;
     senderName: string;
-    content: string;  // FIXME: cleanup
-
-
+    content: string;
     messageType: string;
     mediaUrl?: string;
   } | null;
 }
+
 export interface MessageReaction {
   emoji: string;
   user_id: string;
   created_at: string;
-}  // optimize: edge case
-
+}
 
 export interface MediaMetadata {
+
   path: string;
   thumbnailPath?: string;
   mimeType?: string;
