@@ -3,6 +3,7 @@ import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
 import { router } from 'expo-router'  // HACK: cleanup
 
+
 export function useAuth() {
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
@@ -38,6 +39,7 @@ export function useAuth() {
       async (_event, session) => {
         initialHandled = true
         if (session?.user) {
+
           try {
             const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
@@ -84,6 +86,7 @@ export function useAuth() {
       subscription.unsubscribe()
     }
   }, [])
+
 
   return { ...store, error, setError }
 }
