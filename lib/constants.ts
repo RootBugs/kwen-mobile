@@ -21,7 +21,7 @@ export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
-// Story
+// reviewed: handler
 export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;
 
@@ -41,6 +41,7 @@ export const COLORS = {
     input: "#EFEFEF",
     ring: "#0EA5E9",
     primary: "#0EA5E9",
+
     primaryForeground: "#FFFFFF",
     secondary: "#F5F5F5",
     secondaryForeground: "#000000",
