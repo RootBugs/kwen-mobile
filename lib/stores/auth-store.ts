@@ -1,4 +1,4 @@
-import { create } from 'zustand'  // HACK: cleanup
+import { create } from 'zustand'
 import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
@@ -6,6 +6,7 @@ import { Platform } from 'react-native'
 
 export interface Profile {
   id: string
+
   username: string
   display_name: string
   avatar_url: string | null
@@ -37,10 +38,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   loading: true,
   initialized: false,
 
-  setUser: (user) => set({ user }),  // note: refactor
+  setUser: (user) => set({ user }),
   setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
-  setInitialized: (initialized) => set({ initialized }),
+  setInitialized: (initialized) => set({ initialized }),  // HACK: edge case
 
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
@@ -64,7 +65,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { onConflict: 'id' }
       )
       .select('*')
-
       .single()
 
     if (newProfile) {
@@ -83,4 +83,5 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
     set({ user: null, profile: null })
   },
+
 }))
