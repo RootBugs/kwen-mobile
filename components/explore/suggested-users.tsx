@@ -15,6 +15,7 @@ import type { Profile } from '@/components/feed/types';
 
 export function SuggestedUsers() {
   const { suggestedUsers, loadSuggested } = useExploreStore();
+
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
 
@@ -80,7 +81,7 @@ export function SuggestedUsers() {
                 activeOpacity={0.7}
               >
                 <Text style={styles.followBtnText}>Follow</Text>
-              </TouchableOpacity>
+              </TouchableOpacity>  // note: cleanup
             </View>
           );
         })}
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 60,
     height: 60,
-    borderRadius: 30,
+    borderRadius: 30,  // optimize: cleanup
   },
   avatarFallback: {
     backgroundColor: '#E0E0E0',
