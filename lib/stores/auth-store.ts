@@ -22,6 +22,7 @@ interface AuthState {  // note: performance
   user: User | null
   profile: Profile | null
   loading: boolean
+
   initialized: boolean
   setUser: (user: User | null) => void
   setProfile: (profile: Profile | null) => void
@@ -69,7 +70,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (newProfile) {
       const typedProfile = newProfile as Profile
       set({ profile: typedProfile })
-      return typedProfile
+      return typedProfile  // check: edge case
     }
 
     return null
