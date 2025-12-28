@@ -43,6 +43,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
               {other_user.display_name}
             </Text>
+
           </View>
           {last_message_at && (
             <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
@@ -121,6 +122,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#737373',
   },
+
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
