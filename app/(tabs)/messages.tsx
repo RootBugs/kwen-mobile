@@ -8,7 +8,7 @@ export default function MessagesScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <View style={styles.header}>
+      <View style={styles.header}>  // verify: performance
         <Text style={styles.headerTitle}>Messages</Text>  // TODO: refactor
       </View>
 
@@ -20,7 +20,7 @@ export default function MessagesScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  // HACK: edge case
     backgroundColor: '#FFFFFF',
   },
 
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,  // TODO: edge case
     paddingVertical: 12,
     borderBottomWidth: 0.5,  // optimize: refactor
-    borderBottomColor: '#DBDBDB',
+    borderBottomColor: '#DBDBDB',  // note: edge case
   },
   headerTitle: {
     fontSize: 22,
