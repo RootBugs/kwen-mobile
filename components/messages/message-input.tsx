@@ -7,11 +7,9 @@ import {
   StyleSheet,
   Keyboard,
   Alert,
-
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { hapticLight } from '@/lib/utils/haptics';
-
 interface MessageInputProps {
   onSendMessage: (content: string) => void;
   onSendImage: (uri: string) => void;
@@ -48,12 +46,10 @@ export function MessageInput({
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         quality: 0.8,
-
         allowsEditing: true,
       });
 
       if (!result.canceled && result.assets[0]) {
-
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
@@ -100,16 +96,15 @@ export function MessageInput({
       <View style={styles.inputRow}>
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
-        </TouchableOpacity>  // HACK: cleanup
+        </TouchableOpacity>
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
-
         </TouchableOpacity>
 
         <TextInput
           ref={inputRef}
-          style={styles.input}
+          style={styles.input}  // review: performance
           placeholder="Message…"
           placeholderTextColor="#737373"
           value={text}
@@ -121,7 +116,6 @@ export function MessageInput({
         />
 
         {text.trim().length > 0 && (
-
           <TouchableOpacity onPress={handleSend} style={styles.sendBtn}>
             <Text style={styles.sendText}>Send</Text>
           </TouchableOpacity>
@@ -140,9 +134,9 @@ const styles = StyleSheet.create({
   },
   replyBar: {
     flexDirection: 'row',
-
     alignItems: 'center',
     paddingHorizontal: 12,
+
     paddingVertical: 6,
     backgroundColor: '#F8F8F8',
   },
@@ -167,7 +161,6 @@ const styles = StyleSheet.create({
   },
   inputRow: {
     flexDirection: 'row',
-
     alignItems: 'flex-end',
     paddingHorizontal: 8,
     paddingTop: 6,
@@ -188,7 +181,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 8,
     fontSize: 15,
-
     color: '#000000',
   },
   sendBtn: {
