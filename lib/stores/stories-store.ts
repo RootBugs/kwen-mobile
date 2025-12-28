@@ -33,6 +33,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       since.setHours(since.getHours() - 24);
 
       const { data } = await supabase
+
         .from('stories')
         .select(
           'id, user_id, image_url, video_url, caption, created_at, expires_at, profiles(id, username, display_name, avatar_url)'
@@ -48,6 +49,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
       // Get current user's views
       const {
+
         data: { user },
       } = await supabase.auth.getUser();
       let viewedIds: Set<string> = new Set();
@@ -141,6 +143,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
     if (activeStoryIndex > 0) {
       set({ activeStoryIndex: activeStoryIndex - 1 });
+
     } else if (activeGroupIndex > 0) {
       const prevGroup = storyGroups[activeGroupIndex - 1];
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
