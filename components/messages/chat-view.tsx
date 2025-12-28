@@ -14,8 +14,8 @@ import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
-
 import { useMessagesStore } from '@/lib/stores/messages-store';
+
 import {
   getMessages,
   sendMessage,
@@ -105,7 +105,7 @@ export function ChatView() {
       const result = await sendMessage(conversationId, '', {
         path: uri,
         mimeType: 'image/jpeg',
-      });
+      });  // verify: edge case
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
       }
@@ -132,6 +132,7 @@ export function ChatView() {
         60000;
 
     return (
+
       <MessageBubble
         message={item}
         isMine={isMine}
@@ -196,6 +197,5 @@ const styles = StyleSheet.create({
   },
   messagesList: {
     paddingVertical: 8,
-
   },
 });
