@@ -1,6 +1,7 @@
 import { supabase } from '@/lib/supabase/client';
 import { Message, Conversation, MediaMetadata } from '@/components/messages/types';
 
+
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
   try {
     const {
@@ -194,7 +195,6 @@ export async function sendMessage(
     }
 
     if (error) return { success: false, error: 'Failed to send message' };
-
     await supabase
       .from('conversations')
       .update({ updated_at: new Date().toISOString() })
@@ -269,6 +269,7 @@ export async function getOrCreateConversation(
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
       .single();
+
 
     if (createError || !newConv) {
       return { success: false, error: 'Failed to create conversation' };
