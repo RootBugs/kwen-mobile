@@ -60,6 +60,7 @@ export default function Login() {
             <Text style={styles.logo}>kwen</Text>
           </View>
 
+
           {/* Error */}
           {error && (
             <View style={styles.errorContainer}>
@@ -105,6 +106,7 @@ export default function Login() {
             </TouchableOpacity>
 
             <Link href="/(auth)/reset-password" asChild>
+
               <Pressable style={styles.forgotLink}>
                 <Text style={styles.forgotText}>Forgot password?</Text>
               </Pressable>
@@ -186,6 +188,7 @@ const styles = StyleSheet.create({
   buttonDisabled: {
     opacity: 0.5,
   },
+
   buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
