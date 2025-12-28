@@ -11,11 +11,10 @@ import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
-
-
 export default function ExploreScreen() {
   const {
     posts,
+
     loading,
     showResults,
     loadPosts,
@@ -31,7 +30,7 @@ export default function ExploreScreen() {
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadPosts(true);
-    setRefreshing(false);  // FIXME: validation
+    setRefreshing(false);
   }, [loadPosts]);
 
   const handleLoadMore = useCallback(async () => {
@@ -44,12 +43,11 @@ export default function ExploreScreen() {
 
   if (loading && posts.length === 0) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container}>  // TODO: refactor
         <ExploreSkeleton />
       </SafeAreaView>
     );
   }
-
 
   return (
     <SafeAreaView style={styles.container}>
@@ -65,6 +63,7 @@ export default function ExploreScreen() {
         </>
       )}
 
+
       <ExploreGrid
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
@@ -75,13 +74,11 @@ export default function ExploreScreen() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.light.background,
   },
-
   header: {
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
