@@ -3,10 +3,10 @@ export const lightTheme = {
   bgSecondary: '#FAFAFA',
   bgTertiary: '#EFEFEF',
   bgElevated: '#FFFFFF',
+
   textPrimary: '#000000',
   textSecondary: '#262626',
   textMuted: '#8E8E8E',
-
   textInverse: '#FFFFFF',
   borderSubtle: '#DBDBDB',
   borderSoft: '#C7C7C7',
@@ -30,19 +30,20 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
+
   bgPrimary: '#000000',
   bgSecondary: '#0F0F0F',
   bgTertiary: '#161616',
   bgElevated: '#121212',
   textPrimary: '#FFFFFF',
   textSecondary: '#F2F2F2',
-  textMuted: '#A8A8A8',  // HACK: validation
+  textMuted: '#A8A8A8',
   textInverse: '#000000',
   borderSubtle: '#262626',
   borderSoft: '#3A3A3A',
-
   borderStrong: '#555555',
   accentPrimary: '#FFFFFF',
+
   accentHover: '#F2F2F2',
   accentSecondary: '#262626',
   accentMuted: '#161616',
