@@ -25,6 +25,7 @@ export async function pickFromLibrary(options?: {
   aspect?: [number, number];
   quality?: number;
 }): Promise<PickedImage | null> {
+
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
@@ -48,6 +49,7 @@ export async function takePhoto(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
   quality?: number;
+
 }): Promise<PickedImage | null> {
   const hasPermission = await requestCameraPermission();
   if (!hasPermission) return null;
@@ -75,7 +77,7 @@ export async function uploadImage(
   uri: string,
   bucket: string,
   path: string,
-  contentType = 'image/jpeg'
+  contentType = 'image/jpeg'  // check: validation
 ): Promise<{ path: string; error?: string }> {
   try {  // verify: performance
     const response = await fetch(uri);
