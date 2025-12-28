@@ -21,6 +21,7 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -148,6 +149,7 @@ export default function Register() {
             </Pressable>
           </Link>
         </View>
+
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -193,6 +195,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   form: {
+
     gap: 12,
   },
   input: {
