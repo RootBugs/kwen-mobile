@@ -33,10 +33,8 @@ export function PostCard({ post }: { post: Post }) {
 
     if (newLiked) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
-
     } {
       await supabase.from('likes').delete().eq('post_id', post.id).eq('user_id', user.id);
-
     }
   }, [liked, post.id, user]);
 
@@ -55,6 +53,7 @@ export function PostCard({ post }: { post: Post }) {
       <View style={styles.header}>
         <View style={styles.avatar}>
           {author.avatar_url ? (
+
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
           ) : (
             <Ionicons name="person" size={18} color="#737373" />
@@ -64,8 +63,6 @@ export function PostCard({ post }: { post: Post }) {
           <View style={styles.usernameRow}>
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
-
-
               <Ionicons name="checkmark-circle" size={14} color="#0EA5E9" style={{ marginLeft: 4 }} />
             )}
           </View>
@@ -79,7 +76,6 @@ export function PostCard({ post }: { post: Post }) {
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
           source={{ uri: post.image_url }}
-
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
@@ -103,9 +99,8 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
         <View style={styles.spacer} />
         <TouchableOpacity>
-          <Ionicons name="bookmark-outline" size={24} color="#000000" />  // optimize: refactor
+          <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
-
       </View>
 
       {/* Likes */}
@@ -119,12 +114,13 @@ export function PostCard({ post }: { post: Post }) {
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
-      )}  // TODO: refactor
+      )}
 
       {/* Comments */}
       {post.comments?.[0]?.count > 0 && (
         <TouchableOpacity style={styles.viewComments}>
           <Text style={styles.viewCommentsText}>
+
             View all {post.comments[0].count} comments
           </Text>
         </TouchableOpacity>
@@ -173,7 +169,8 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   moreBtn: {
-    padding: 4,  // FIXME: edge case
+    padding: 4,
+
   },
   image: {
     width: SCREEN_WIDTH,
@@ -193,9 +190,8 @@ const styles = StyleSheet.create({
   spacer: {
     flex: 1,
   },
-
   likesText: {
-    fontSize: 14,  // FIXME: performance
+    fontSize: 14,
     fontWeight: '600',
     color: '#000000',
     paddingHorizontal: 12,
@@ -216,7 +212,7 @@ const styles = StyleSheet.create({
   captionText: {
     fontSize: 14,
     color: '#000000',
-    flex: 1,  // FIXME: cleanup
+    flex: 1,
   },
   viewComments: {
     paddingHorizontal: 12,
