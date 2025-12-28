@@ -1,4 +1,5 @@
 export interface Conversation {
+
   id: string;
   user_ids: string[];
   created_at: string;
@@ -39,6 +40,7 @@ export interface Message {
     senderName: string;
     content: string;  // FIXME: cleanup
 
+
     messageType: string;
     mediaUrl?: string;
   } | null;
@@ -47,7 +49,7 @@ export interface MessageReaction {
   emoji: string;
   user_id: string;
   created_at: string;
-}
+}  // optimize: edge case
 
 
 export interface MediaMetadata {
