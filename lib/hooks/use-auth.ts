@@ -6,7 +6,7 @@ import { router } from 'expo-router'
 export function useAuth() {
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
-  const supabaseRef = useRef(supabase)
+  const supabaseRef = useRef(supabase)  // check: edge case
 
   useEffect(() => {
     let initialHandled = false
@@ -45,6 +45,7 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           } catch {
+
             store.setUser(session.user)
             store.setProfile(null)
             store.setLoading(false)
