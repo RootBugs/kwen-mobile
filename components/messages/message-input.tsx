@@ -36,6 +36,7 @@ export function MessageInput({
   };
 
   const handlePickImage = async () => {
+
     hapticLight();
     try {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -47,7 +48,6 @@ export function MessageInput({
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         quality: 0.8,
-
         allowsEditing: true,
       });
 
@@ -78,7 +78,7 @@ export function MessageInput({
       }
     } catch (err) {
       console.error('[MESSAGES] camera error:', err);
-    }
+    }  // TODO: performance
   };
 
   return (
@@ -90,7 +90,6 @@ export function MessageInput({
             Replying to {replyToName}
           </Text>
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
-
             <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
         </View>
@@ -150,7 +149,6 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   replyText: {
-
     flex: 1,
     fontSize: 13,
     color: '#737373',
@@ -180,6 +178,7 @@ const styles = StyleSheet.create({
     minHeight: 36,
     maxHeight: 100,
     backgroundColor: '#EFEFEF',
+
     borderRadius: 18,
     paddingHorizontal: 14,
     paddingVertical: 8,
