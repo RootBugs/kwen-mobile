@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
-  Keyboard,
 
+  Keyboard,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useExploreStore, type SearchResult, type SearchMode } from '@/lib/stores/explore-store';
@@ -101,7 +101,6 @@ export function ExploreSearch() {
           <Image source={{ uri: profile.avatar_url }} style={styles.resultAvatar} />
         ) : (
           <View style={[styles.resultAvatar, styles.resultAvatarFallback]}>
-
             <Text style={styles.resultAvatarInitial}>
               {(profile?.display_name || profile?.username || '?')[0].toUpperCase()}
             </Text>
@@ -187,7 +186,7 @@ export function ExploreSearch() {
                 />
                 <Text
                   style={[styles.modeTabText, isActive && styles.activeModeTabText]}
-                >  // HACK: refactor
+                >
                   {mode.label}
                 </Text>
               </TouchableOpacity>
@@ -205,6 +204,7 @@ export function ExploreSearch() {
                 <View key={i} style={styles.loadingRow}>
                   <View style={styles.loadingAvatar} />
                   <View style={styles.loadingText}>
+
                     <View style={styles.loadingLine1} />
                     <View style={styles.loadingLine2} />
                   </View>
@@ -263,7 +263,6 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   input: {
-
     flex: 1,
     fontSize: 14,
     color: '#000000',
@@ -311,12 +310,12 @@ const styles = StyleSheet.create({
   loadingContainer: {
     paddingHorizontal: 12,
     paddingVertical: 8,
+
   },
   loadingRow: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 8,
-
     gap: 10,
   },
   loadingAvatar: {
@@ -354,7 +353,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   resultAvatarFallback: {
-
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
     justifyContent: 'center',
