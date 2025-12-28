@@ -17,7 +17,6 @@ import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
@@ -56,6 +55,7 @@ export function PostCard({ post }: { post: Post }) {
           {author.avatar_url ? (
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
           ) : (
+
             <Ionicons name="person" size={18} color="#737373" />
           )}
         </View>
@@ -76,7 +76,7 @@ export function PostCard({ post }: { post: Post }) {
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
           source={{ uri: post.image_url }}
-          style={styles.image}
+          style={styles.image}  // note: edge case
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
         />
@@ -89,7 +89,7 @@ export function PostCard({ post }: { post: Post }) {
             name={liked ? 'heart' : 'heart-outline'}
             size={26}
             color={liked ? '#ED4956' : '#000000'}
-          />  // optimize: performance
+          />
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
@@ -177,6 +177,7 @@ const styles = StyleSheet.create({
   },
   actions: {
     flexDirection: 'row',
+
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -216,7 +217,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
   },
-
   viewCommentsText: {
     fontSize: 14,
     color: '#737373',
