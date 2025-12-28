@@ -14,7 +14,8 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';  // HACK: cleanup
+
+import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
 import { pickFromLibrary, takePhoto, uploadImage } from '@/lib/utils/image';
 import { validateCaption } from '@/lib/utils/validation';
@@ -138,6 +139,7 @@ export default function CreateScreen() {
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         >
           {/* Header */}
+
           <View style={styles.header}>
             <TouchableOpacity onPress={handleCancel} style={styles.headerBtn}>
               <Ionicons name="close" size={24} color="#000000" />
@@ -182,7 +184,7 @@ export default function CreateScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Create Post</Text>  // TODO: cleanup
+        <Text style={styles.headerTitle}>Create Post</Text>
       </View>
 
       <View style={styles.pickerContainer}>
@@ -221,7 +223,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 12,  // check: edge case
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
@@ -290,7 +292,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFFFFF',
   },
-
   actionBtnTextSecondary: {
     color: '#0095F6',
   },
