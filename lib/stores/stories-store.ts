@@ -16,6 +16,7 @@ interface StoriesState {
   setViewerVisible: (visible: boolean) => void;
   nextStory: () => void;
   prevStory: () => void;
+
 }
 
 export const useStoriesStore = create<StoriesState>((set, get) => ({
@@ -123,6 +124,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
     const group = storyGroups[activeGroupIndex];
     if (!group) return;
+
 
     if (activeStoryIndex < group.stories.length - 1) {
       set({ activeStoryIndex: activeStoryIndex + 1 });
