@@ -3,6 +3,7 @@ import {
   View,
   Text,
   FlatList,
+
   StyleSheet,
   RefreshControl,
   ActivityIndicator,
@@ -117,6 +118,7 @@ export default function Feed() {
         }
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
+
         ListFooterComponent={
           hasMore ? (
             <View style={styles.loadMore}>
