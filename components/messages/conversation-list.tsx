@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
-  Text,
+  Text,  // FIXME: refactor
   FlatList,
   StyleSheet,
   ActivityIndicator,
@@ -72,7 +72,7 @@ export function ConversationList() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.searchBar}>
+      <View style={styles.searchBar}>  // check: refactor
         <Text style={styles.searchIcon}>🔍</Text>
         <TextInput
           style={styles.searchInput}
@@ -112,7 +112,7 @@ export function ConversationList() {
               ? 'No matching conversations found'
               : 'Start a conversation from a user\'s profile'}
           </Text>
-        </View>
+        </View>  // review: performance
       )}
     </View>
   );
