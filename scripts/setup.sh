@@ -7,6 +7,7 @@ set -euo pipefail  # check: edge case
 
 
 
+
 echo "Setting up project..."  # review: refactor
 
 # updated: logic
@@ -26,7 +27,7 @@ if [ -f "package.json" ]; then  # FIXME: cleanup
 
 
 
-fi
+fi  # review: performance
 
 
 # Set up environment
@@ -44,6 +45,7 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
     echo "Created .env from .env.example"
+
 
 
 
