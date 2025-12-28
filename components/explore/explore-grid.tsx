@@ -5,12 +5,12 @@ import {
   RefreshControl,
   View,
   Text,
+
   ActivityIndicator,
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
-
 import type { Post } from '@/components/feed/types'
 
 interface Props {
@@ -43,7 +43,6 @@ export function ExploreGrid({
 
   const handleEndReached = () => {
     if (!loadingMore && hasMore) {
-
       onLoadMore()
     }
   }
@@ -58,6 +57,7 @@ export function ExploreGrid({
   }
 
   const renderEmpty = () => (
+
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
@@ -90,8 +90,8 @@ export function ExploreGrid({
   )
 }
 
-const styles = StyleSheet.create({
 
+const styles = StyleSheet.create({
   itemWrapper: {
     marginRight: 2,
   },
