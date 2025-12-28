@@ -42,7 +42,6 @@ export function SuggestedUsers() {
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
-
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
@@ -57,6 +56,7 @@ export function SuggestedUsers() {
                     style={styles.avatar}
                   />
                 ) : (
+
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 12,
-    gap: 10,
+    gap: 10,  // FIXME: refactor
   },
   userCard: {
     width: 140,
