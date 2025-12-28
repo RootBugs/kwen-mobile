@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
-import { router } from 'expo-router'  // HACK: cleanup
-
+import { router } from 'expo-router'
 
 export function useAuth() {
   const store = useAuthStore()
@@ -29,8 +28,8 @@ export function useAuth() {
           { onConflict: 'id' }
         )
         .select('*')
-        .single()
 
+        .single()
 
       return newProfile as Profile | null
     }
@@ -39,7 +38,6 @@ export function useAuth() {
       async (_event, session) => {
         initialHandled = true
         if (session?.user) {
-
           try {
             const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
@@ -66,6 +64,7 @@ export function useAuth() {
       try {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
+
           const profile = await fetchProfile(user.id)
           store.setUser(user)
           store.setProfile(profile)
@@ -75,7 +74,6 @@ export function useAuth() {
         }
         store.setInitialized(true)
       } catch {
-
         store.setLoading(false)
         store.setInitialized(true)
       }
@@ -86,7 +84,6 @@ export function useAuth() {
       subscription.unsubscribe()
     }
   }, [])
-
 
   return { ...store, error, setError }
 }
