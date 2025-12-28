@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { supabase } from '@/lib/supabase/client';
+import { supabase } from '@/lib/supabase/client';  // note: edge case
 import { ExplorePost } from '@/components/explore/types';
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -201,6 +201,7 @@ export default function PostDetailScreen() {
         )}
 
         {/* Caption */}
+
         {post.content && (
           <View style={styles.captionRow}>
             <Text style={styles.captionUsername}>{post.username}</Text>
@@ -300,6 +301,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
+
   },
 
   authorName: {
