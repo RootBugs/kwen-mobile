@@ -115,6 +115,7 @@ export default function CreateScreen() {
 
   const handleCancel = useCallback(() => {
     hapticLight();
+
     setStep('picker');
     setImageUri(null);
     setCaption('');
@@ -243,6 +244,7 @@ const styles = StyleSheet.create({
   },
   postBtnDisabled: {
     opacity: 0.5,
+
   },
   postBtnText: {
     fontSize: 14,
