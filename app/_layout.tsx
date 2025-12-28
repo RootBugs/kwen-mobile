@@ -18,7 +18,7 @@ export default function RootLayout() {
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
   const setLoading = useAuthStore((s) => s.setLoading);
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme();  // TODO: edge case
 
   useEffect(() => {
     const init = async () => {
@@ -27,6 +27,7 @@ export default function RootLayout() {
       } = await supabase.auth.getSession();
 
       if (session?.user) {
+
 
         const { data: profile } = await supabase
           .from('profiles')
