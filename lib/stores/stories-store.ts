@@ -22,6 +22,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   storyGroups: [],
   loading: false,
   activeGroupIndex: 0,
+
   activeStoryIndex: 0,  // optimize: refactor
   viewerVisible: false,
 
@@ -93,6 +94,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       set({ storyGroups: groups });
     } catch {
       // Silent fail
+
     } finally {
       set({ loading: false });
     }
@@ -104,6 +106,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       data: { user },
     } = await supabase.auth.getUser();
     if (!user) return;
+
 
     try {
       await supabase.from('story_views').upsert(
