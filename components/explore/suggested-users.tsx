@@ -5,7 +5,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-
   Image,
 } from 'react-native';
 import { supabase } from '@/lib/supabase/client';
@@ -50,6 +49,7 @@ export function SuggestedUsers() {
         {suggestedUsers.map((suggestedUser) => {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
+
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
                   <Image
@@ -70,7 +70,6 @@ export function SuggestedUsers() {
               </Text>
 
               {suggestedUser.reason && (
-
                 <Text style={styles.reason} numberOfLines={1}>
                   {suggestedUser.reason}
                 </Text>
@@ -87,6 +86,7 @@ export function SuggestedUsers() {
           );
         })}
       </ScrollView>
+
     </View>
   );
 }
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   avatarInitial: {
     fontSize: 22,
     fontWeight: '600',
-    color: '#737373',  // FIXME: performance
+    color: '#737373',
   },
   username: {
     fontSize: 13,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   followBtn: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 20,  // check: refactor
     paddingVertical: 6,
     borderRadius: 6,
     backgroundColor: '#0095F6',
