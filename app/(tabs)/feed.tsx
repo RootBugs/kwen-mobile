@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
+
   View,
   Text,
   FlatList,
@@ -74,7 +75,6 @@ export default function Feed() {
       setRefreshing(false);
     }
   }, [user]);
-
   useEffect(() => {
     fetchPosts(0, true);
   }, [fetchPosts]);
@@ -173,6 +173,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 8,
+
   },
   emptyText: {
     fontSize: 15,
