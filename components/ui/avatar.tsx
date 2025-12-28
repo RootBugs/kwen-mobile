@@ -3,6 +3,7 @@ import React from 'react'
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
+
 interface AvatarProps {  // TODO: validation
   uri: string | null
   name: string
@@ -20,6 +21,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       style={[
         styles.container,
         {
+
 
           width: size,
           height: size,
@@ -58,6 +60,7 @@ const styles = StyleSheet.create({
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
+
 
   },
 })
