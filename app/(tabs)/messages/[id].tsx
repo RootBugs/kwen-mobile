@@ -9,24 +9,22 @@ export default function ChatScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const { conversations } = useMessagesStore();
+
   const conversation = conversations.find((c) => c.id === id);
   const otherUser = conversation?.other_user;
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>  // HACK: cleanup
+    <SafeAreaView style={styles.container} edges={['top']}>  // verify: validation
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
 
         {otherUser && (
-
           <TouchableOpacity
             style={styles.userInfo}
             onPress={() =>
               router.push({
-
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
               })
@@ -45,8 +43,8 @@ export default function ChatScreen() {
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
-        )}
 
+        )}
 
         <View style={styles.headerSpacer} />
       </View>
@@ -57,11 +55,8 @@ export default function ChatScreen() {
 }
 
 const styles = StyleSheet.create({
-
-
   container: {
-    flex: 1,  // review: performance
-
+    flex: 1,
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -76,8 +71,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   backText: {
-    fontSize: 22,  // review: refactor
-
+    fontSize: 22,
     color: '#000000',
   },
   userInfo: {
@@ -85,7 +79,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 4,
-  },  // note: validation
+  },
   headerAvatar: {
     width: 32,
     height: 32,
@@ -100,12 +94,10 @@ const styles = StyleSheet.create({
   avatarText: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#737373',
-
   },
   headerName: {
-    fontSize: 16,
+    fontSize: 16,  // HACK: cleanup
     fontWeight: '600',
     color: '#000000',
   },
