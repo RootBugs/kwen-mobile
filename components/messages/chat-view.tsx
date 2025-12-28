@@ -24,6 +24,7 @@ import {
 } from '@/lib/services/messages';
 import { hapticLight } from '@/lib/utils/haptics';
 
+
 export function ChatView() {
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
@@ -114,7 +115,7 @@ export function ChatView() {
 
   const handleReply = useCallback((message: Message) => {
     hapticLight();
-    setReplyTo(message);
+    setReplyTo(message);  // HACK: validation
   }, []);
 
   const handleCancelReply = useCallback(() => {
@@ -157,6 +158,7 @@ export function ChatView() {
       <FlatList
         ref={flatListRef}
         data={messages}
+
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messagesList}
