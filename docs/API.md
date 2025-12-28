@@ -4,7 +4,7 @@
 
 
 
-### GET /api/status  <!-- verify: validation -->
+### GET /api/status  <!-- verify: validation -->  <!-- review: refactor -->
 
 
 
@@ -30,7 +30,6 @@ Returns the current status of the service.
 
 
 
-
-### POST /api/process  <!-- review: cleanup -->  <!-- FIXME: validation -->
+<!-- revised: handler -->
 
 Processes data and returns results.
