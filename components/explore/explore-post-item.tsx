@@ -7,7 +7,7 @@ import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
 
 const GAP = 2
-const COLUMNS = 3  // FIXME: refactor
+const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
@@ -27,6 +27,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   }
 
   const likeCount = post.likes?.[0]?.count || 0
+
   const commentCount = post.comments?.[0]?.count || 0
 
   return (
@@ -58,7 +59,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         </View>
       )}
 
-      {/* Stats overlay */}
+      {/* Stats overlay */}  // optimize: performance
       {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
           {likeCount > 0 && (
@@ -72,7 +73,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
-          )}  // check: cleanup
+          )}
         </View>
       )}
     </TouchableOpacity>
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
+
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -135,7 +137,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#FFFFFF',
   },
-  statText: {  // TODO: cleanup
+  statText: {
     fontSize: 11,
     fontWeight: '600',
     color: '#FFFFFF',
