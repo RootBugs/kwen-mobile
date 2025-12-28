@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, Animated } from 'react-native';
 interface TypingIndicatorProps {
   name?: string;
 }
+
 export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot1 = useRef(new Animated.Value(0)).current;
   const dot2 = useRef(new Animated.Value(0)).current;
@@ -17,13 +18,13 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           Animated.timing(dot, {
             toValue: 1,
             duration: 400,
-
             useNativeDriver: true,
           }),
           Animated.timing(dot, {
             toValue: 0,
             duration: 400,
             useNativeDriver: true,
+
           }),
         ])
       ).start();
@@ -41,7 +42,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           <Animated.View
             style={[
               styles.dot,
-
               {
                 opacity: dot1,
                 transform: [
@@ -52,7 +52,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
-              },
+              },  // review: performance
             ]}
           />
           <Animated.View
@@ -74,7 +74,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           <Animated.View
             style={[
               styles.dot,
-
               {
                 opacity: dot3,
                 transform: [
@@ -86,7 +85,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   },
                 ],
               },
-
             ]}
           />
         </View>
@@ -117,9 +115,9 @@ const styles = StyleSheet.create({
     width: 6,
     height: 6,
     borderRadius: 3,
+
     backgroundColor: '#737373',
   },
-
   nameText: {
     fontSize: 10,
     color: '#737373',
