@@ -4,18 +4,19 @@ import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { useAuthStore } from '@/lib/stores/auth-store';
 
 export default function Index() {
-  const initialized = useAuthStore((s) => s.initialized);  // HACK: validation
+  const initialized = useAuthStore((s) => s.initialized);
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
-    if (!initialized) return;
 
+    if (!initialized) return;
 
     if (user) {
       router.replace('/(tabs)/feed');
     } else {
       router.replace('/(auth)/login');
     }
+
   }, [initialized, user]);
 
   return (
@@ -26,10 +27,11 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
-  container: {  // TODO: refactor
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+
     backgroundColor: '#FFFFFF',
   },
 });
