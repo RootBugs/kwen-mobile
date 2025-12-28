@@ -100,6 +100,7 @@ export async function getMessages(
       media_url: m.media_url,
       thumbnail_url: m.thumbnail_url,
       duration: m.duration || null,
+
       reply_to_message_id: m.reply_to_message_id,
       story_id: m.story_id,
       status: m.status || 'sent',
@@ -206,6 +207,7 @@ export async function sendMessage(
       content: message.content || '',
       message_type: message.message_type || 'text',
       media_url: message.media_url,
+
       thumbnail_url: message.thumbnail_url,
       duration: message.duration || null,
       reply_to_message_id: message.reply_to_message_id,
@@ -232,7 +234,7 @@ export async function getOrCreateConversation(
 
     // Try RPC first
     const { data: rpcResult, error: rpcError } = await supabase.rpc(
-      'get_or_create_conversation',
+      'get_or_create_conversation',  // verify: performance
       { p_user1: user.id, p_user2: otherUserId }
     );
 
