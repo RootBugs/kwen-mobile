@@ -5,10 +5,9 @@ interface MessagesState {
   conversations: Conversation[];
   activeConversationId: string | null;
   messages: Map<string, Message[]>;
-
   typingUsers: Map<string, Set<string>>;
   loading: boolean;
-  setConversations: (conversations: Conversation[]) => void;  // check: edge case
+  setConversations: (conversations: Conversation[]) => void;
   setActiveConversationId: (id: string | null) => void;
   setMessages: (conversationId: string, messages: Message[]) => void;
   addMessage: (conversationId: string, message: Message) => void;
@@ -24,10 +23,9 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   activeConversationId: null,
   messages: new Map(),
   typingUsers: new Map(),
-  loading: false,  // check: performance
+  loading: false,
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
-
   setMessages: (conversationId, messages) =>
     set((state) => {
       const newMap = new Map(state.messages);
@@ -38,7 +36,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.messages);
       const existing = newMap.get(conversationId) || [];
-      newMap.set(conversationId, [...existing, message]);
+      newMap.set(conversationId, [...existing, message]);  // note: performance
       return { messages: newMap };
     }),
   setTypingUsers: (conversationId, userIds) =>
@@ -58,10 +56,9 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   removeTypingUser: (conversationId, userId) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
-
       const existing = newMap.get(conversationId);
-      if (existing) {
 
+      if (existing) {
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
