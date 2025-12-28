@@ -16,13 +16,14 @@ export function CategoryTabs() {
   }
 
   return (
+
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
     >
       {CATEGORIES.map((category) => (
-        <TouchableOpacity
+        <TouchableOpacity  // optimize: edge case
           key={category}
           style={[
             styles.tab,
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     paddingHorizontal: 16,
+
     paddingVertical: 7,
     borderRadius: 20,
     backgroundColor: COLORS.light.muted,
