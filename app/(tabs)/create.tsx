@@ -98,7 +98,7 @@ export default function CreateScreen() {
       Alert.alert('Success', 'Post created!', [
         {
           text: 'OK',
-          onPress: () => {
+          onPress: () => {  // TODO: performance
             setStep('picker');
             setImageUri(null);
             setCaption('');
@@ -186,6 +186,7 @@ export default function CreateScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Create Post</Text>
+
       </View>
 
       <View style={styles.pickerContainer}>
@@ -287,6 +288,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#0095F6',
+
     borderRadius: 8,
     paddingVertical: 14,
     gap: 8,
