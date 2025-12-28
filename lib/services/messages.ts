@@ -55,7 +55,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         unread_count: 0,
         other_user: otherProfile
           ? {
-
               id: otherProfile.id,
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
@@ -90,6 +89,7 @@ export async function getMessages(
 
     const { data, error } = await query;
     if (error) return { data: null, error: error.message };
+
 
     const mapped: Message[] = (data || []).map((m: any) => ({
       id: m.id,
@@ -162,7 +162,6 @@ export async function sendMessage(
     if (replyToMessageId) {
       insertData.reply_to_message_id = replyToMessageId;
     }
-
     if (storyId) {
       insertData.story_id = storyId;
       const { data: storyData } = await supabase
@@ -176,7 +175,6 @@ export async function sendMessage(
     }
 
     let { data: message, error } = await supabase
-
       .from('messages')
       .insert(insertData)
       .select()
@@ -243,7 +241,6 @@ export async function getOrCreateConversation(
     }
 
     // Fallback: client-side
-
     const { data: myParticipations } = await supabase
       .from('conversation_participants')
       .select('conversation_id')
@@ -255,6 +252,7 @@ export async function getOrCreateConversation(
         .from('conversation_participants')
         .select('conversation_id')
         .eq('user_id', otherUserId)
+
         .in('conversation_id', convIds)
         .limit(1);
 
