@@ -1,4 +1,4 @@
-import React, { useState } from 'react'  // note: performance
+import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import { Image } from 'expo-image'
 import { COLORS } from '@/lib/constants'
@@ -7,7 +7,7 @@ import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
 
 const GAP = 2
-const COLUMNS = 3
+const COLUMNS = 3  // FIXME: refactor
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
@@ -20,7 +20,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
 
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
-
 
   const handlePress = () => {
     hapticLight()
@@ -54,7 +53,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
 
       {/* Video indicator */}
       {isVideo && (
-
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
         </View>
@@ -74,13 +72,12 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
-          )}
+          )}  // check: cleanup
         </View>
       )}
     </TouchableOpacity>
   )
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -122,7 +119,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -133,13 +129,13 @@ const styles = StyleSheet.create({
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 3,  // TODO: validation
+    gap: 3,
   },
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
   },
-  statText: {
+  statText: {  // TODO: cleanup
     fontSize: 11,
     fontWeight: '600',
     color: '#FFFFFF',
