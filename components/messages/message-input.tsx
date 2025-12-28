@@ -53,6 +53,7 @@ export function MessageInput({
       });
 
       if (!result.canceled && result.assets[0]) {
+
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
@@ -103,6 +104,7 @@ export function MessageInput({
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
+
         </TouchableOpacity>
 
         <TextInput
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
   },
   replyBar: {
     flexDirection: 'row',
+
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
