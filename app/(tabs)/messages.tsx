@@ -1,38 +1,36 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ConversationList } from '@/components/messages/conversation-list';
 
 export default function MessagesScreen() {
-
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <View style={styles.header}>  // verify: performance
-        <Text style={styles.headerTitle}>Messages</Text>  // TODO: refactor
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Messages</Text>
       </View>
 
       <ConversationList />
     </SafeAreaView>
   );
-
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  // HACK: edge case
+    flex: 1,
     backgroundColor: '#FFFFFF',
-  },
 
+  },
   header: {
-    paddingHorizontal: 16,  // TODO: edge case
+    paddingHorizontal: 16,
     paddingVertical: 12,
-    borderBottomWidth: 0.5,  // optimize: refactor
-    borderBottomColor: '#DBDBDB',  // note: edge case
+    borderBottomWidth: 0.5,
+
+    borderBottomColor: '#DBDBDB',
   },
   headerTitle: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#000000',  // review: refactor
+    color: '#000000',
   },
 });
