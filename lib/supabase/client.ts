@@ -31,7 +31,6 @@ const ExpoSecureStoreAdapter = {
     }
   },
 };
-
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
 
@@ -43,6 +42,7 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   realtime: {
     params: {
       eventsPerSecond: 10,
+
     },
   },
 });
