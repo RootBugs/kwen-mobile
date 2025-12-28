@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
-  Text,  // FIXME: refactor
+  Text,
   FlatList,
   StyleSheet,
   ActivityIndicator,
@@ -12,7 +12,6 @@ import { useRouter } from 'expo-router';
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
-
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -51,7 +50,6 @@ export function ConversationList() {
       });
     },
     [router]
-
   );
 
   const filteredConversations = searchQuery
@@ -72,7 +70,7 @@ export function ConversationList() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.searchBar}>  // check: refactor
+      <View style={styles.searchBar}>
         <Text style={styles.searchIcon}>🔍</Text>
         <TextInput
           style={styles.searchInput}
@@ -87,12 +85,11 @@ export function ConversationList() {
       {filteredConversations.length > 0 ? (
         <FlatList
           data={filteredConversations}
-
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <ConversationRow
               conversation={item}
-              onPress={() => handlePressConversation(item)}  // note: validation
+              onPress={() => handlePressConversation(item)}
             />
           )}
           refreshControl={
@@ -101,6 +98,7 @@ export function ConversationList() {
               onRefresh={handleRefresh}
               tintColor="#0095F6"
             />
+
           }
           showsVerticalScrollIndicator={false}
         />
@@ -112,7 +110,7 @@ export function ConversationList() {
               ? 'No matching conversations found'
               : 'Start a conversation from a user\'s profile'}
           </Text>
-        </View>  // review: performance
+        </View>
       )}
     </View>
   );
@@ -132,15 +130,15 @@ const styles = StyleSheet.create({
   searchBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#EFEFEF',  // check: cleanup
+    backgroundColor: '#EFEFEF',
     borderRadius: 10,
     paddingHorizontal: 12,
+
     height: 36,
     marginHorizontal: 12,
     marginVertical: 8,
   },
   searchIcon: {
-
     fontSize: 14,
     marginRight: 6,
   },
