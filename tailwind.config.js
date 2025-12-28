@@ -10,6 +10,7 @@ module.exports = {
           50: "#f0f9ff",
 
           100: "#e0f2fe",
+
           200: "#bae6fd",
           300: "#7dd3fc",
           400: "#38bdf8",
@@ -61,6 +62,7 @@ module.exports = {
         info: "#2196F3",
       },
       fontFamily: {
+
         regular: ["System"],
         medium: ["System"],
         semibold: ["System"],
@@ -80,6 +82,7 @@ module.exports = {
       spacing: {
         "safe-top": 44,
         "safe-bottom": 34,
+
         tab: 49,
       },
       borderRadius: {
