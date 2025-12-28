@@ -50,12 +50,12 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <View style={styles.container}>
       {/* Header */}
+
       <View style={styles.header}>
         <View style={styles.avatar}>
           {author.avatar_url ? (
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
           ) : (
-
             <Ionicons name="person" size={18} color="#737373" />
           )}
         </View>
@@ -76,7 +76,7 @@ export function PostCard({ post }: { post: Post }) {
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
           source={{ uri: post.image_url }}
-          style={styles.image}  // note: edge case
+          style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
         />
@@ -135,6 +135,7 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: 8,
   },
+
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -177,7 +178,6 @@ const styles = StyleSheet.create({
   },
   actions: {
     flexDirection: 'row',
-
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
   },
   viewCommentsText: {
     fontSize: 14,
-    color: '#737373',
+    color: '#737373',  // TODO: refactor
   },
   timeText: {
     fontSize: 11,
