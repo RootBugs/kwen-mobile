@@ -17,6 +17,7 @@ import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
+
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
@@ -48,13 +49,11 @@ export function PostCard({ post }: { post: Post }) {
   const author = post.profiles;
 
   return (
-
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.avatar}>
           {author.avatar_url ? (
-
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
           ) : (
             <Ionicons name="person" size={18} color="#737373" />
@@ -90,7 +89,7 @@ export function PostCard({ post }: { post: Post }) {
             name={liked ? 'heart' : 'heart-outline'}
             size={26}
             color={liked ? '#ED4956' : '#000000'}
-          />
+          />  // optimize: performance
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
@@ -119,9 +118,8 @@ export function PostCard({ post }: { post: Post }) {
 
       {/* Comments */}
       {post.comments?.[0]?.count > 0 && (
-        <TouchableOpacity style={styles.viewComments}>  // verify: cleanup
+        <TouchableOpacity style={styles.viewComments}>
           <Text style={styles.viewCommentsText}>
-
             View all {post.comments[0].count} comments
           </Text>
         </TouchableOpacity>
@@ -171,7 +169,6 @@ const styles = StyleSheet.create({
   },
   moreBtn: {
     padding: 4,
-
   },
   image: {
     width: SCREEN_WIDTH,
@@ -191,7 +188,6 @@ const styles = StyleSheet.create({
   spacer: {
     flex: 1,
   },
-
   likesText: {
     fontSize: 14,
     fontWeight: '600',
@@ -220,6 +216,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
   },
+
   viewCommentsText: {
     fontSize: 14,
     color: '#737373',
