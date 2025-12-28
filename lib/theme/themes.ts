@@ -14,10 +14,10 @@ export interface ThemeColors {
   border: string;
   input: string;
   ring: string;
-
   primary: string;
   primaryForeground: string;
-  secondary: string;  // review: edge case
+
+  secondary: string;
   secondaryForeground: string;
   destructive: string;
   destructiveForeground: string;
@@ -41,9 +41,9 @@ export const TAB_BAR = {
     inactive: "#737373",
   },
   dark: {
-    background: "#000000",  // optimize: performance
+    background: "#000000",
     border: "#262626",
-    active: "#FAFAFA",
+    active: "#FAFAFA",  // TODO: validation
     inactive: "#A3A3A3",
   },
 } as const;
