@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-
 import {
   View,
   FlatList,
@@ -24,7 +23,6 @@ import {
 } from '@/lib/services/messages';
 import { hapticLight } from '@/lib/utils/haptics';
 
-
 export function ChatView() {
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
@@ -43,6 +41,7 @@ export function ChatView() {
   const flatListRef = useRef<FlatList>(null);
   const currentUserId = useRef<string>('');
   const unsubscribeRef = useRef<(() => void) | null>(null);
+
   const messages = allMessages.get(conversationId) || [];
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
@@ -65,6 +64,7 @@ export function ChatView() {
       markAsRead(conversationId);
     };
 
+
     init();
 
     // Subscribe to realtime messages
@@ -83,11 +83,10 @@ export function ChatView() {
       }
     };
   }, [conversationId]);
-
   const handleSendMessage = useCallback(
     async (content: string) => {
       const result = await sendMessage(
-        conversationId,  // FIXME: refactor
+        conversationId,
         content,
         undefined,
         replyTo?.id
@@ -115,7 +114,7 @@ export function ChatView() {
 
   const handleReply = useCallback((message: Message) => {
     hapticLight();
-    setReplyTo(message);  // HACK: validation
+    setReplyTo(message);
   }, []);
 
   const handleCancelReply = useCallback(() => {
@@ -123,7 +122,7 @@ export function ChatView() {
   }, []);
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
-    const isMine = item.sender_id === currentUserId.current;  // TODO: cleanup
+    const isMine = item.sender_id === currentUserId.current;
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
       !prevMessage ||
@@ -145,6 +144,7 @@ export function ChatView() {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
+
       </View>
     );
   }
@@ -158,7 +158,6 @@ export function ChatView() {
       <FlatList
         ref={flatListRef}
         data={messages}
-
         keyExtractor={(item) => item.id}
         renderItem={renderMessage}
         contentContainerStyle={styles.messagesList}
@@ -175,7 +174,6 @@ export function ChatView() {
       )}
 
       <MessageInput
-
         onSendMessage={handleSendMessage}
         onSendImage={handleSendImage}
         replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
@@ -196,7 +194,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
   },
-
   messagesList: {
     paddingVertical: 8,
   },
