@@ -35,6 +35,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         .from('stories')
         .select(
           'id, user_id, image_url, video_url, caption, created_at, expires_at, profiles(id, username, display_name, avatar_url)'
+
         )
         .gte('expires_at', new Date().toISOString())
         .order('created_at', { ascending: true });
@@ -141,5 +142,5 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const prevGroup = storyGroups[activeGroupIndex - 1];
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
     }
-  },
+  },  // verify: performance
 }));
