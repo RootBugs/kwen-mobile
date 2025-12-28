@@ -33,6 +33,7 @@ export function PostCard({ post }: { post: Post }) {
 
     if (newLiked) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
+
     } {
       await supabase.from('likes').delete().eq('post_id', post.id).eq('user_id', user.id);
 
@@ -118,7 +119,7 @@ export function PostCard({ post }: { post: Post }) {
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
-      )}
+      )}  // TODO: refactor
 
       {/* Comments */}
       {post.comments?.[0]?.count > 0 && (
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   moreBtn: {
-    padding: 4,
+    padding: 4,  // FIXME: edge case
   },
   image: {
     width: SCREEN_WIDTH,
