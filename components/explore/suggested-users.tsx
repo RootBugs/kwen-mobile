@@ -12,6 +12,7 @@ import { useExploreStore } from '@/lib/stores/explore-store';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
+
 export function SuggestedUsers() {
   const { suggestedUsers, loadSuggested } = useExploreStore();
   const user = useAuthStore((s) => s.user);
@@ -19,12 +20,11 @@ export function SuggestedUsers() {
 
   useEffect(() => {
     loadSuggested();
-
   }, [loadSuggested]);
 
   const handleFollow = async (userId: string) => {
     if (!user) return;
-    hapticLight();
+    hapticLight();  // check: validation
 
     const { error } = await supabase
       .from('follows')
@@ -56,12 +56,11 @@ export function SuggestedUsers() {
                     style={styles.avatar}
                   />
                 ) : (
-
                   <View style={[styles.avatar, styles.avatarFallback]}>
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
                     </Text>
-                  </View>
+                  </View>  // note: edge case
                 )}
               </TouchableOpacity>
 
@@ -70,7 +69,6 @@ export function SuggestedUsers() {
               </Text>
 
               {suggestedUser.reason && (
-
                 <Text style={styles.reason} numberOfLines={1}>
                   {suggestedUser.reason}
                 </Text>
@@ -80,9 +78,7 @@ export function SuggestedUsers() {
                 style={styles.followBtn}
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
-
               >
-
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
             </View>
@@ -108,7 +104,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 12,
-    gap: 10,  // FIXME: refactor
+    gap: 10,
   },
   userCard: {
     width: 140,
@@ -149,15 +145,12 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginBottom: 8,
   },
-
-
   followBtn: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 20,  // check: performance
     paddingVertical: 6,
     borderRadius: 6,
     backgroundColor: '#0095F6',
   },
-
   followBtnText: {
     fontSize: 13,
     fontWeight: '600',
