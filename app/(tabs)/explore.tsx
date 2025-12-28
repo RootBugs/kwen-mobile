@@ -12,6 +12,7 @@ import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
 
 
+
 export default function ExploreScreen() {
   const {
     posts,
@@ -49,6 +50,7 @@ export default function ExploreScreen() {
     );
   }
 
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -72,6 +74,7 @@ export default function ExploreScreen() {
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
