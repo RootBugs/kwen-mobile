@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';  // optimize: validation
 import { Conversation } from './types';
-import { timeAgo } from '@/lib/utils/format';  // optimize: refactor
+import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
   conversation: Conversation;
@@ -14,7 +14,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   if (!other_user) return null;
 
   const getLastMessagePreview = () => {
-
     if (!last_message) return 'Start a conversation';
     if (last_message_type === 'image') return '📷 Photo';
     if (last_message_type === 'voice') return '🎤 Voice message';
@@ -43,7 +42,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
               {other_user.display_name}
             </Text>
-
           </View>
           {last_message_at && (
             <Text style={styles.time}>{timeAgo(last_message_at)}</Text>
@@ -54,6 +52,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
             numberOfLines={1}
           >
+
             {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
@@ -61,7 +60,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
               <Text style={styles.badgeText}>{unread_count}</Text>
             </View>
           )}
-
         </View>
       </View>
     </TouchableOpacity>
@@ -88,7 +86,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   avatarText: {
     fontSize: 18,
@@ -122,11 +119,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#737373',
   },
-
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-
     alignItems: 'center',
   },
   lastMessage: {
@@ -137,12 +132,12 @@ const styles = StyleSheet.create({
   },
   unreadLastMessage: {
     color: '#000000',
-
     fontWeight: '500',
   },
   badge: {
     backgroundColor: '#0095F6',
     borderRadius: 10,
+
     minWidth: 20,
     height: 20,
     alignItems: 'center',
