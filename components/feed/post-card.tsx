@@ -48,6 +48,7 @@ export function PostCard({ post }: { post: Post }) {
   const author = post.profiles;
 
   return (
+
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
@@ -118,7 +119,7 @@ export function PostCard({ post }: { post: Post }) {
 
       {/* Comments */}
       {post.comments?.[0]?.count > 0 && (
-        <TouchableOpacity style={styles.viewComments}>
+        <TouchableOpacity style={styles.viewComments}>  // verify: cleanup
           <Text style={styles.viewCommentsText}>
 
             View all {post.comments[0].count} comments
@@ -190,6 +191,7 @@ const styles = StyleSheet.create({
   spacer: {
     flex: 1,
   },
+
   likesText: {
     fontSize: 14,
     fontWeight: '600',
