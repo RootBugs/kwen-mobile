@@ -14,7 +14,6 @@ interface ExploreState {
   searchMode: SearchMode;
   searchResults: SearchResult[];
   searching: boolean;
-
   showResults: boolean;
 
   // Grid
@@ -28,13 +27,11 @@ interface ExploreState {
   // Trending
   trendingTags: { tag: string; count: number }[];
   suggestedUsers: Profile[];
-
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
   setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
-
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
@@ -97,7 +94,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       }
     } catch {
       set({ searchResults: [] });
-
     } finally {
       set({ searching: false });
     }
@@ -105,6 +101,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
+
     get().loadPosts(true);
   },
 
@@ -121,7 +118,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       if (activeCategory === 'Photos') {
         query = query.not('image_url', 'is', null);
-
       } else if (activeCategory === 'Videos') {
         query = query.not('video_url', 'is', null);
       } else if (activeCategory === 'Text') {
@@ -138,7 +134,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       set({
         posts: refresh ? newPosts : [...get().posts, ...newPosts],
-
         seenIds: refresh ? newIds : [...seenIds, ...newIds],
         hasMore: newPosts.length === EXPLORE_PAGE_SIZE,
       });
@@ -180,7 +175,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
             tagCounts[t] = (tagCounts[t] || 0) + 1;
           }
         }
-      }  // optimize: refactor
+      }
 
       const sorted = Object.entries(tagCounts)
         .sort((a, b) => b[1] - a[1])
@@ -189,6 +184,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       set({ trendingTags: sorted });
     } catch {
+
       // Silent fail
     }
   },
