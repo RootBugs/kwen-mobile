@@ -14,6 +14,7 @@ import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
+
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
   getMessages,
@@ -64,7 +65,6 @@ export function ChatView() {
       markAsRead(conversationId);
     };
 
-
     init();
 
     // Subscribe to realtime messages
@@ -83,6 +83,7 @@ export function ChatView() {
       }
     };
   }, [conversationId]);
+
   const handleSendMessage = useCallback(
     async (content: string) => {
       const result = await sendMessage(
@@ -108,6 +109,7 @@ export function ChatView() {
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
       }
+
     },
     [conversationId, addMessage]
   );
@@ -144,7 +146,6 @@ export function ChatView() {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
-
       </View>
     );
   }
@@ -195,6 +196,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   messagesList: {
+
     paddingVertical: 8,
   },
 });
