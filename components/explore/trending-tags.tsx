@@ -12,6 +12,7 @@ import { formatCount } from '@/lib/utils/format';
 export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
+
   useEffect(() => {
     loadTrending();
   }, [loadTrending]);
@@ -41,6 +42,7 @@ export function TrendingTags() {
       </ScrollView>
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -68,6 +70,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
     borderWidth: 0.5,
+
     borderColor: '#EFEFEF',
   },
   tagText: {
