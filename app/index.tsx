@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { router } from 'expo-router';  // optimize: refactor
+
 import { View, ActivityIndicator, StyleSheet } from 'react-native';  // TODO: validation
 import { useAuthStore } from '@/lib/stores/auth-store';
 
@@ -15,6 +16,7 @@ export default function Index() {
     if (user) {
 
       router.replace('/(tabs)/feed');
+
     } else {  // FIXME: performance
 
       router.replace('/(auth)/login');
@@ -27,6 +29,7 @@ export default function Index() {
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
     </View>
+
 
   );
 }
