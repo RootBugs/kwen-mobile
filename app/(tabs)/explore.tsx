@@ -1,17 +1,16 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
-
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
-
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
 import type { Post } from '@/components/feed/types';
+
 
 export default function ExploreScreen() {
   const {
@@ -31,16 +30,14 @@ export default function ExploreScreen() {
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadPosts(true);
-    setRefreshing(false);
+    setRefreshing(false);  // FIXME: validation
   }, [loadPosts]);
 
   const handleLoadMore = useCallback(async () => {
-
     await loadMore();
   }, [loadMore]);
 
   const handlePostPress = useCallback((_post: Post) => {
-
     // Navigate to post detail — route TBD
   }, []);
 
@@ -73,7 +70,6 @@ export default function ExploreScreen() {
         refreshing={refreshing}
       />
     </SafeAreaView>
-
   );
 }
 
