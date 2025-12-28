@@ -13,6 +13,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -114,7 +115,6 @@ export default function CreateScreen() {
       setStep('preview');
     }
   }, [imageUri, caption, router]);
-
   const handleCancel = useCallback(() => {
     hapticLight();
     setStep('picker');
@@ -230,6 +230,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
+
     paddingVertical: 12,
     borderBottomWidth: 0.5,
 
