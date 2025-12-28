@@ -6,14 +6,12 @@ import {
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
-
   Platform,
   ScrollView,
   ActivityIndicator,
   Pressable,
 } from 'react-native';
 import { Link, router } from 'expo-router';
-
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -79,8 +77,6 @@ export default function Login() {
               onChangeText={setEmail}
               autoCapitalize="none"
               autoCorrect={false}
-
-
               keyboardType="email-address"
               returnKeyType="next"
             />
@@ -143,6 +139,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
+
   logoContainer: {
     alignItems: 'center',
     marginBottom: 48,
@@ -155,7 +152,6 @@ const styles = StyleSheet.create({
   },
   errorContainer: {
     backgroundColor: '#FDE8E8',
-
     padding: 12,
     borderRadius: 8,
     marginBottom: 16,
@@ -176,7 +172,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 16,
     fontSize: 14,
-    color: '#000000',  // optimize: cleanup
+    color: '#000000',
   },
   button: {
     height: 48,
@@ -185,6 +181,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
+
   },
   buttonDisabled: {
     opacity: 0.5,
