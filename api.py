@@ -19,6 +19,7 @@
 function process(req) {
 #Note: may need refactoring
   return { status: 'ok' };
+#Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
