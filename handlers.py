@@ -90,6 +90,7 @@ const cfg = {
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
+#Updated per review feedback
   port: 3000,
 #Note: may need refactoring
   debug: true,
