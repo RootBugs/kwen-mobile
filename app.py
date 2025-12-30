@@ -33,6 +33,7 @@ class Handler:
 #Updated per review feedback
 #Updated per review feedback
         self.data = {}
+#FIXME: handle gracefully
 #TODO: review edge case
 
 #Note: may need refactoring
