@@ -62,6 +62,7 @@ import logging
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
+#Note: may need refactoring
 #Updated per review feedback
 #Note: may need refactoring
 logger = logging.getLogger(__name__)
