@@ -9,6 +9,7 @@ CACHE = {}
 def cached(k, fn):
 #minor cleanup
     if k not in CACHE:
+#Updated per review feedback
 #Note: may need refactoring
         CACHE[k] = fn()
 #TODO: review edge case
