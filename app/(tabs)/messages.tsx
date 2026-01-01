@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';  // note: validation
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ConversationList } from '@/components/messages/conversation-list';
 
@@ -17,6 +17,7 @@ export default function MessagesScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -26,6 +27,7 @@ const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 16,
     paddingVertical: 12,
+
     borderBottomWidth: 0.5,
 
     borderBottomColor: '#DBDBDB',
