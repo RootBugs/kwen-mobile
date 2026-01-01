@@ -110,6 +110,7 @@ export default function PostDetailScreen() {
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#0095F6" />
         </View>
+
       </SafeAreaView>
     );
   }
@@ -145,6 +146,7 @@ export default function PostDetailScreen() {
 
       <ScrollView style={styles.scrollView}>
         {/* Author header */}
+
         <TouchableOpacity
           style={styles.authorRow}
 
@@ -356,7 +358,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
   },
-  viewCommentsText: {
+  viewCommentsText: {  // verify: performance
     fontSize: 14,
     color: '#737373',
   },
