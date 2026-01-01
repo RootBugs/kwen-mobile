@@ -2,10 +2,10 @@ import React, { useCallback } from 'react'
 import {
   FlatList,
   StyleSheet,
+
   RefreshControl,
   View,
   Text,
-
   ActivityIndicator,
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
@@ -51,13 +51,13 @@ export function ExploreGrid({
     if (!loadingMore) return null
     return (
       <View style={styles.footer}>
+
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
   }
 
   const renderEmpty = () => (
-
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
@@ -90,7 +90,6 @@ export function ExploreGrid({
   )
 }
 
-
 const styles = StyleSheet.create({
   itemWrapper: {
     marginRight: 2,
@@ -112,6 +111,7 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 18,
     fontWeight: '600',
+
     color: COLORS.light.foreground,
     marginTop: 12,
   },
