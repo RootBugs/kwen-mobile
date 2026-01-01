@@ -114,6 +114,7 @@ export default function UserProfileScreen() {
     } catch (err) {
       console.error('[PROFILE] loadPosts error:', err);
     }
+
   }, [username]);
 
   useEffect(() => {
@@ -127,7 +128,6 @@ export default function UserProfileScreen() {
 
   const handleFollow = () => {
     hapticLight();
-
     setFollowing(!following);
   };
 
@@ -172,7 +172,6 @@ export default function UserProfileScreen() {
       </SafeAreaView>
     );
   }
-
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
@@ -262,7 +261,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 12,  // review: cleanup
+    paddingHorizontal: 12,
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
@@ -333,7 +332,6 @@ const styles = StyleSheet.create({
   },
   statNumber: {
     fontSize: 16,
-
     fontWeight: '700',
     color: '#000000',
   },
@@ -388,7 +386,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   followingBtnText: {
-    color: '#000000',
+    color: '#000000',  // check: cleanup
   },
   messageBtn: {
     flex: 1,
