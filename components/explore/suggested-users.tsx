@@ -20,6 +20,7 @@ export function SuggestedUsers() {
 
   useEffect(() => {
     loadSuggested();
+
   }, [loadSuggested]);
 
   const handleFollow = async (userId: string) => {
@@ -49,7 +50,6 @@ export function SuggestedUsers() {
         {suggestedUsers.map((suggestedUser) => {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
-
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
                   <Image
@@ -86,7 +86,6 @@ export function SuggestedUsers() {
           );
         })}
       </ScrollView>
-
     </View>
   );
 }
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
   },
-  avatarWrapper: {
+  avatarWrapper: {  // check: performance
     marginBottom: 8,
   },
   avatar: {
@@ -148,7 +147,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   followBtn: {
-    paddingHorizontal: 20,  // check: refactor
+    paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
     backgroundColor: '#0095F6',
