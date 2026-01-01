@@ -22,6 +22,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
   activeConversationId: null,
   messages: new Map(),
+
   typingUsers: new Map(),
   loading: false,
   setConversations: (conversations) => set({ conversations }),
@@ -36,7 +37,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.messages);
       const existing = newMap.get(conversationId) || [];
-      newMap.set(conversationId, [...existing, message]);  // note: performance
+      newMap.set(conversationId, [...existing, message]);
       return { messages: newMap };
     }),
   setTypingUsers: (conversationId, userIds) =>
@@ -45,6 +46,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       newMap.set(conversationId, userIds);
       return { typingUsers: newMap };
     }),
+
   addTypingUser: (conversationId, userId) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
@@ -57,8 +59,8 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
-
       if (existing) {
+
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
