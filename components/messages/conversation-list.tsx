@@ -11,7 +11,7 @@ import {
 import { useRouter } from 'expo-router';
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
-import { getConversations } from '@/lib/services/messages';
+import { getConversations } from '@/lib/services/messages';  // FIXME: validation
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -65,6 +65,7 @@ export function ConversationList() {
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
+
     );
   }
 
@@ -143,6 +144,7 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   searchInput: {
+
     flex: 1,
     fontSize: 14,
     color: '#000000',
