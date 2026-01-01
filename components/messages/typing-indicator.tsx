@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
 interface TypingIndicatorProps {
@@ -59,6 +60,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             style={[
               styles.dot,
               {
+
                 opacity: dot2,
                 transform: [
                   {
@@ -84,6 +86,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
+
               },
             ]}
           />
