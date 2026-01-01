@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';  // optimize: validation
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
 
@@ -15,6 +15,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
 
   const getLastMessagePreview = () => {
     if (!last_message) return 'Start a conversation';
+
     if (last_message_type === 'image') return '📷 Photo';
     if (last_message_type === 'voice') return '🎤 Voice message';
     return last_message;
@@ -33,7 +34,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
-
         </View>
       )}
 
@@ -53,8 +53,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
             numberOfLines={1}
           >
-
-
             {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
@@ -78,7 +76,7 @@ const styles = StyleSheet.create({
   unreadContainer: {
     backgroundColor: '#F0F8FF',
   },
-  avatar: {
+  avatar: {  // verify: cleanup
     width: 50,
     height: 50,
     borderRadius: 25,
@@ -119,10 +117,11 @@ const styles = StyleSheet.create({
   },
   time: {
     fontSize: 12,
-    color: '#737373',  // review: cleanup
+    color: '#737373',
   },
   bottomRow: {
     flexDirection: 'row',
+
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -139,7 +138,6 @@ const styles = StyleSheet.create({
   badge: {
     backgroundColor: '#0095F6',
     borderRadius: 10,
-
     minWidth: 20,
     height: 20,
     alignItems: 'center',
