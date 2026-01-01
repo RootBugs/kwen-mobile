@@ -21,13 +21,13 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
+
   const handlePress = () => {
     hapticLight()
     onPress(post)
   }
 
   const likeCount = post.likes?.[0]?.count || 0
-
   const commentCount = post.comments?.[0]?.count || 0
 
   return (
@@ -52,6 +52,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         </View>
       )}
 
+
       {/* Video indicator */}
       {isVideo && (
         <View style={styles.indicator}>
@@ -59,7 +60,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         </View>
       )}
 
-      {/* Stats overlay */}  // optimize: performance
+      {/* Stats overlay */}
       {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
           {likeCount > 0 && (
@@ -120,13 +121,13 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
+
   },
   statItem: {
     flexDirection: 'row',
