@@ -22,7 +22,7 @@ export default function Register() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);  // note: cleanup
   const [error, setError] = useState<string | null>(null);
 
   const handleRegister = useCallback(async () => {
@@ -132,7 +132,7 @@ export default function Register() {
               disabled={loading}
 
               activeOpacity={0.7}
-            >
+            >  // FIXME: performance
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
     letterSpacing: -1,
   },
   subtitle: {
+
     fontSize: 15,
     color: '#737373',
     marginTop: 4,
