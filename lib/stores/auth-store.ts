@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
+
 import { Platform } from 'react-native'
 
 export interface Profile {
@@ -18,11 +19,10 @@ export interface Profile {
   gender?: string | null
 }
 
-interface AuthState {  // note: performance
+interface AuthState {
   user: User | null
   profile: Profile | null
   loading: boolean
-
   initialized: boolean
   setUser: (user: User | null) => void
   setProfile: (profile: Profile | null) => void
@@ -50,6 +50,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .eq('id', userId)
       .single()
 
+
     if (profile) {
       const typedProfile = profile as Profile
       set({ profile: typedProfile })
@@ -70,7 +71,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (newProfile) {
       const typedProfile = newProfile as Profile
       set({ profile: typedProfile })
-      return typedProfile  // check: edge case
+      return typedProfile
     }
 
     return null
