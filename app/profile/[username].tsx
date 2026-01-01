@@ -93,6 +93,7 @@ export default function UserProfileScreen() {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
+
       setPosts(
         (data || []).map((p: any) => ({
           id: p.id,
@@ -126,6 +127,7 @@ export default function UserProfileScreen() {
 
   const handleFollow = () => {
     hapticLight();
+
     setFollowing(!following);
   };
 
@@ -215,7 +217,6 @@ export default function UserProfileScreen() {
 
         {/* Bio */}
         <View style={styles.bioSection}>
-
           <View style={styles.nameRow}>
             <Text style={styles.displayName}>{profile.display_name}</Text>
             {profile.is_verified && <Text style={styles.verified}>✓</Text>}
@@ -244,7 +245,6 @@ export default function UserProfileScreen() {
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
           ) : (
             <View style={styles.emptyPosts}>
-
               <Text style={styles.emptyPostsText}>No posts yet</Text>
             </View>
           )}
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 12,
+    paddingHorizontal: 12,  // review: cleanup
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
@@ -301,7 +301,6 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-
   profileHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -334,11 +333,11 @@ const styles = StyleSheet.create({
   },
   statNumber: {
     fontSize: 16,
+
     fontWeight: '700',
     color: '#000000',
   },
   statLabel: {
-
     fontSize: 12,
     color: '#737373',
     marginTop: 2,
