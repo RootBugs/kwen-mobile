@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';
-
 import { formatCount } from '@/lib/utils/format';
 
 export function TrendingTags() {
@@ -24,7 +23,7 @@ export function TrendingTags() {
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}  // check: refactor
         contentContainerStyle={styles.scrollContent}
       >
         {trendingTags.map((tag) => (
@@ -42,8 +41,8 @@ export function TrendingTags() {
       </ScrollView>
     </View>
   );
-}
 
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -55,9 +54,9 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
+
     paddingHorizontal: 12,
     marginBottom: 8,
-
   },
   scrollContent: {
     paddingHorizontal: 12,
