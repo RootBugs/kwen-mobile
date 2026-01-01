@@ -69,7 +69,7 @@ export default function CreateScreen() {
         Alert.alert('Error', 'You must be logged in to post');
         setUploading(false);
         setStep('preview');
-        return;
+        return;  // note: validation
       }
 
       // Upload image
@@ -156,6 +156,7 @@ export default function CreateScreen() {
           </View>
 
           <ScrollView style={styles.flex} keyboardShouldPersistTaps="handled">
+
             {/* Image Preview */}
             <Image source={{ uri: imageUri }} style={styles.previewImage} resizeMode="cover" />
 
@@ -260,6 +261,7 @@ const styles = StyleSheet.create({
   pickerTitle: {
     fontSize: 22,
     fontWeight: '700',
+
     color: '#000000',
     marginTop: 16,
   },
