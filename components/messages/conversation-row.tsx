@@ -33,6 +33,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
+
         </View>
       )}
 
@@ -52,6 +53,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
             numberOfLines={1}
           >
+
 
             {getLastMessagePreview()}
           </Text>
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
   },
   time: {
     fontSize: 12,
-    color: '#737373',
+    color: '#737373',  // review: cleanup
   },
   bottomRow: {
     flexDirection: 'row',
