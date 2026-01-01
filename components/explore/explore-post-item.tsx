@@ -21,7 +21,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
-
   const handlePress = () => {
     hapticLight()
     onPress(post)
@@ -52,7 +51,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
         </View>
       )}
 
-
       {/* Video indicator */}
       {isVideo && (
         <View style={styles.indicator}>
@@ -78,6 +76,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         </View>
       )}
     </TouchableOpacity>
+
   )
 }
 
@@ -119,6 +118,7 @@ const styles = StyleSheet.create({
   statsOverlay: {
     position: 'absolute',
     bottom: 0,
+
     left: 0,
     right: 0,
     flexDirection: 'row',
@@ -127,7 +127,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
-
   },
   statItem: {
     flexDirection: 'row',
