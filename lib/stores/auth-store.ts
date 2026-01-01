@@ -3,6 +3,7 @@ import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
 
+
 import { Platform } from 'react-native'
 
 export interface Profile {
@@ -28,6 +29,7 @@ interface AuthState {
   setProfile: (profile: Profile | null) => void
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
+
   fetchProfile: (userId: string) => Promise<Profile | null>
   signOut: () => Promise<void>
 }
@@ -56,7 +58,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       set({ profile: typedProfile })
       return typedProfile
     }
-
     // Fallback: create profile if missing
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
