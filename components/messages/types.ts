@@ -8,6 +8,7 @@ export interface Conversation {
   last_message_type?: string;
   unread_count: number;
   other_user: {
+
     id: string;
     username: string;
     display_name: string;
@@ -34,6 +35,7 @@ export interface Message {
   seen_at?: string;
   reactions?: MessageReaction[];
   reply_to?: {
+
     id: string;
     senderName: string;
     content: string;
@@ -44,6 +46,7 @@ export interface Message {
 
 export interface MessageReaction {
   emoji: string;
+
   user_id: string;
   created_at: string;
 }
