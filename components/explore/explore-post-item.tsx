@@ -37,7 +37,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
     >
       {hasImage ? (
         <Image
-          source={{ uri: post.image_url! }}
+          source={{ uri: post.image_url! }}  // FIXME: validation
           style={styles.image}
           contentFit="cover"
           transition={150}
@@ -74,9 +74,9 @@ export function ExplorePostItem({ post, onPress }: Props) {
             </View>
           )}
         </View>
+
       )}
     </TouchableOpacity>
-
   )
 }
 
@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
   statsOverlay: {
     position: 'absolute',
     bottom: 0,
-
     left: 0,
     right: 0,
     flexDirection: 'row',
@@ -127,6 +126,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
+
   },
   statItem: {
     flexDirection: 'row',
