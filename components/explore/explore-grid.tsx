@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react'
 import {
+
   FlatList,
   StyleSheet,
-
   RefreshControl,
   View,
   Text,
@@ -51,7 +51,6 @@ export function ExploreGrid({
     if (!loadingMore) return null
     return (
       <View style={styles.footer}>
-
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
@@ -68,6 +67,7 @@ export function ExploreGrid({
   )
 
   return (
+
     <FlatList
       data={posts}
       renderItem={renderItem}
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 18,
     fontWeight: '600',
-
     color: COLORS.light.foreground,
     marginTop: 12,
   },
@@ -123,5 +122,6 @@ const styles = StyleSheet.create({
   },
   emptyList: {
     flexGrow: 1,
+
   },
 })
