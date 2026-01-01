@@ -21,7 +21,6 @@ export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
   const [likeCount, setLikeCount] = useState(post.likes?.[0]?.count ?? 0);
-
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleLike = useCallback(async () => {
@@ -36,6 +35,7 @@ export function PostCard({ post }: { post: Post }) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
     } {
       await supabase.from('likes').delete().eq('post_id', post.id).eq('user_id', user.id);
+
     }
   }, [liked, post.id, user]);
 
@@ -137,11 +137,11 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',  // HACK: edge case
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
-  avatar: {  // TODO: edge case
+  avatar: {
     width: 36,
     height: 36,
     borderRadius: 18,
@@ -173,7 +173,6 @@ const styles = StyleSheet.create({
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
-
     backgroundColor: '#EFEFEF',
   },
   actions: {
@@ -211,6 +210,7 @@ const styles = StyleSheet.create({
   captionText: {
     fontSize: 14,
     color: '#000000',
+
     flex: 1,
   },
   viewComments: {
