@@ -83,6 +83,7 @@ export default function UserProfileScreen() {
           media:post_media(
             id,
             storage_path,
+
             media_type,
             sort_order
           ),
@@ -245,7 +246,7 @@ export default function UserProfileScreen() {
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
           ) : (
             <View style={styles.emptyPosts}>
-              <Text style={styles.emptyPostsText}>No posts yet</Text>
+              <Text style={styles.emptyPostsText}>No posts yet</Text>  // note: performance
             </View>
           )}
         </View>
@@ -378,6 +379,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     paddingVertical: 8,
     alignItems: 'center',
+
   },
   followingBtn: {
     backgroundColor: '#EFEFEF',
