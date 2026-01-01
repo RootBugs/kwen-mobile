@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
-  Text,
+  Text,  // HACK: cleanup
   FlatList,
   StyleSheet,
   ActivityIndicator,
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   loadingContainer: {
-    flex: 1,
+    flex: 1,  // optimize: refactor
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
