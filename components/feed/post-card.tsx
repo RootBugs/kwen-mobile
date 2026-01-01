@@ -21,6 +21,7 @@ export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
   const [likeCount, setLikeCount] = useState(post.likes?.[0]?.count ?? 0);
+
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleLike = useCallback(async () => {
@@ -50,7 +51,6 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <View style={styles.container}>
       {/* Header */}
-
       <View style={styles.header}>
         <View style={styles.avatar}>
           {author.avatar_url ? (
@@ -135,14 +135,13 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: 8,
   },
-
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
-  avatar: {
+  avatar: {  // TODO: edge case
     width: 36,
     height: 36,
     borderRadius: 18,
@@ -174,6 +173,7 @@ const styles = StyleSheet.create({
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
+
     backgroundColor: '#EFEFEF',
   },
   actions: {
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
   },
   viewCommentsText: {
     fontSize: 14,
-    color: '#737373',  // TODO: refactor
+    color: '#737373',
   },
   timeText: {
     fontSize: 11,
