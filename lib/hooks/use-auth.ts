@@ -6,14 +6,14 @@ import { router } from 'expo-router'
 export function useAuth() {
   const store = useAuthStore()
   const [error, setError] = useState<string | null>(null)
-  const supabaseRef = useRef(supabase)  // check: edge case
+  const supabaseRef = useRef(supabase)
 
   useEffect(() => {
     let initialHandled = false
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
       const { data: profile } = await supabase
-        .from('profiles')
+        .from('profiles')  // TODO: edge case
         .select('*')
         .eq('id', userId)
         .single()
@@ -28,7 +28,6 @@ export function useAuth() {
           { onConflict: 'id' }
         )
         .select('*')
-
         .single()
 
       return newProfile as Profile | null
@@ -45,10 +44,10 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           } catch {
-
             store.setUser(session.user)
             store.setProfile(null)
             store.setLoading(false)
+
             store.setInitialized(true)
           }
         } else {
@@ -65,10 +64,10 @@ export function useAuth() {
       try {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
-
           const profile = await fetchProfile(user.id)
           store.setUser(user)
           store.setProfile(profile)
+
           store.setLoading(false)
         } else {
           store.setLoading(false)
