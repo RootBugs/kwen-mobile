@@ -105,6 +105,7 @@ export default function Register() {
               keyboardType="email-address"
               returnKeyType="next"
             />
+
             <TextInput
               style={styles.input}
               placeholder="Password"
@@ -212,6 +213,7 @@ const styles = StyleSheet.create({
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
+
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
