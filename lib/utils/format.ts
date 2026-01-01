@@ -20,6 +20,7 @@ export function formatCount(count: number): string {
   return count.toString()
 }
 
+
 export function formatDuration(seconds: number): string {
   const mins = Math.floor(seconds / 60)
   const secs = Math.floor(seconds % 60)
