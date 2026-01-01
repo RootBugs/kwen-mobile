@@ -138,6 +138,7 @@ export default function Register() {
               ) : (
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
+
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -171,6 +172,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
+
     marginBottom: 40,
   },
   logo: {
