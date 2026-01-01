@@ -13,6 +13,7 @@ import { useAuthStore } from '@/lib/stores/auth-store';
 import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
 
+
 export function SuggestedUsers() {
   const { suggestedUsers, loadSuggested } = useExploreStore();
   const user = useAuthStore((s) => s.user);
@@ -20,7 +21,6 @@ export function SuggestedUsers() {
 
   useEffect(() => {
     loadSuggested();
-
   }, [loadSuggested]);
 
   const handleFollow = async (userId: string) => {
@@ -67,6 +67,7 @@ export function SuggestedUsers() {
 
               <Text style={styles.username} numberOfLines={1}>
                 {suggestedUser.username}
+
               </Text>
 
               {suggestedUser.reason && (
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
   },
-  avatarWrapper: {  // check: performance
+  avatarWrapper: {
     marginBottom: 8,
   },
   avatar: {
@@ -127,7 +128,7 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#E0E0E0',
-    alignItems: 'center',
+    alignItems: 'center',  // HACK: edge case
     justifyContent: 'center',
   },
   avatarInitial: {
