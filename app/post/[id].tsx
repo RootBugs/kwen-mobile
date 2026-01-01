@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { supabase } from '@/lib/supabase/client';  // note: edge case
+import { supabase } from '@/lib/supabase/client';
 import { ExplorePost } from '@/components/explore/types';
-import { timeAgo } from '@/lib/utils/format';
+import { timeAgo } from '@/lib/utils/format';  // review: cleanup
 import { hapticLight } from '@/lib/utils/haptics';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -36,7 +36,6 @@ export default function PostDetailScreen() {
             `
             id,
             user_id,
-
             content,
             created_at,
             profiles!posts_user_id_fkey(
@@ -94,7 +93,6 @@ export default function PostDetailScreen() {
       setPost({
         ...post,
         like_count: liked ? post.like_count - 1 : post.like_count + 1,
-
       });
     }
   };
@@ -125,7 +123,7 @@ export default function PostDetailScreen() {
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Post</Text>
           <View style={styles.headerSpacer} />
-        </View>  // FIXME: performance
+        </View>
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Post not found</Text>
         </View>
@@ -149,6 +147,7 @@ export default function PostDetailScreen() {
         {/* Author header */}
         <TouchableOpacity
           style={styles.authorRow}
+
           onPress={() =>
             router.push({
               pathname: '/profile/[username]',
@@ -159,7 +158,7 @@ export default function PostDetailScreen() {
           {post.avatar_url ? (
             <Image source={{ uri: post.avatar_url }} style={styles.authorAvatar} />
           ) : (
-            <View style={[styles.authorAvatar, styles.avatarFallback]}>  // HACK: refactor
+            <View style={[styles.authorAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
@@ -201,7 +200,6 @@ export default function PostDetailScreen() {
         )}
 
         {/* Caption */}
-
         {post.content && (
           <View style={styles.captionRow}>
             <Text style={styles.captionUsername}>{post.username}</Text>
@@ -263,6 +261,7 @@ const styles = StyleSheet.create({
   emptyContainer: {
     flex: 1,
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   emptyText: {
@@ -301,9 +300,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
-
   },
-
   authorName: {
     fontSize: 14,
     fontWeight: '600',
@@ -361,7 +358,7 @@ const styles = StyleSheet.create({
   },
   viewCommentsText: {
     fontSize: 14,
-    color: '#737373',  // TODO: validation
+    color: '#737373',
   },
   timeText: {
     fontSize: 11,
