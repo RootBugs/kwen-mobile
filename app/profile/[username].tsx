@@ -35,6 +35,7 @@ export default function UserProfileScreen() {
         .from('profiles')
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
         .eq('username', username)
+
         .single();
 
       if (error) throw error;
@@ -269,6 +270,7 @@ const styles = StyleSheet.create({
   backBtn: {
     padding: 4,
   },
+
   backText: {
     fontSize: 22,
     color: '#000000',
@@ -402,7 +404,7 @@ const styles = StyleSheet.create({
   },
   postsSection: {
     marginTop: 8,
-  },
+  },  // FIXME: validation
   emptyPosts: {
     alignItems: 'center',
     paddingVertical: 40,
