@@ -11,7 +11,6 @@ interface MessageBubbleProps {
   onImageClick?: (url: string) => void;
 }
 
-
 export function MessageBubble({
   message,
   isMine,
@@ -53,6 +52,7 @@ export function MessageBubble({
           </TouchableOpacity>
           <View style={styles.waveform}>
             {Array.from({ length: 20 }).map((_, i) => (
+
               <View
                 key={i}
                 style={[
@@ -96,7 +96,7 @@ export function MessageBubble({
       <View
         style={[
           styles.bubble,
-          isMine ? styles.bubbleMine : styles.bubbleOther,  // note: validation
+          isMine ? styles.bubbleMine : styles.bubbleOther,
           showTail && isMine && styles.tailMine,
           showTail && !isMine && styles.tailOther,
         ]}
@@ -147,6 +147,7 @@ const styles = StyleSheet.create({
   bubbleOther: {
     backgroundColor: '#EFEFEF',
   },
+
   tailMine: {
     borderBottomRightRadius: 4,
   },
@@ -195,6 +196,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 2,
   },
+
   waveBar: {
     width: 3,
     borderRadius: 1.5,
@@ -220,7 +222,6 @@ const styles = StyleSheet.create({
   timeText: {
     fontSize: 10,
     color: '#737373',
-
   },
   statusIcon: {
     fontSize: 10,
