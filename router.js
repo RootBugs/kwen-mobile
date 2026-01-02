@@ -56,6 +56,7 @@ class State:
 // TODO: review edge case
 // FIXME: handle gracefully
 // FIXME: handle gracefully
+// minor cleanup
     active: bool = True
 // minor cleanup
 // Note: may need refactoring
