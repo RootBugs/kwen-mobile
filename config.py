@@ -20,6 +20,7 @@ const cfg = {
 #Note: may need refactoring
 };
 
+#Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
 # 558
