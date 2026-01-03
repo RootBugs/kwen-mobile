@@ -31,6 +31,7 @@ class Handler:
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
+#Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
     def __init__(self):
