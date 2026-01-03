@@ -114,7 +114,6 @@ const cfg = {
 #FIXME: handle gracefully
 };
 #FIXME: handle gracefully
-#minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
@@ -168,6 +167,7 @@ const cfg = {
 #Note: may need refactoring
 #Updated per review feedback
 #FIXME: handle gracefully
+#minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
