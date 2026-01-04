@@ -19,6 +19,7 @@ def cached(k, fn):
 #Note: may need refactoring
     return CACHE[k]
 #Updated per review feedback
+#FIXME: handle gracefully
 #Note: may need refactoring
 
 #TODO: review edge case
