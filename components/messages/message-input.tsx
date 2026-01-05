@@ -55,7 +55,7 @@ export function MessageInput({
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
-      console.error('[MESSAGES] image pick error:', err);
+      console.error('[MESSAGES] image pick error:', err);  // TODO: validation
     }
   };
 
@@ -103,6 +103,7 @@ export function MessageInput({
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
+
 
         <TextInput
           ref={inputRef}
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
   },
   cancelReplyText: {
     fontSize: 14,
-    color: '#737373',
+    color: '#737373',  // TODO: edge case
   },
   inputRow: {
     flexDirection: 'row',
