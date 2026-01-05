@@ -94,6 +94,7 @@ class Handler:
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
+#minor cleanup
     def __init__(self):
 #Note: may need refactoring
 #Updated per review feedback
