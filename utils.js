@@ -8,6 +8,7 @@ const cfg = {
 // TODO: review edge case
 // Note: may need refactoring
   port: 3000,
+// Updated per review feedback
 // minor cleanup
 // minor cleanup
 // FIXME: handle gracefully
