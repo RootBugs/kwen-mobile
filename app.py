@@ -26,6 +26,7 @@ class Handler:
     def __init__(self):
 #FIXME: handle gracefully
 #Updated per review feedback
+#minor cleanup
 #Note: may need refactoring
 #TODO: review edge case
 #Note: may need refactoring
