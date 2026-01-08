@@ -1,4 +1,3 @@
-import re
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
@@ -25,6 +24,7 @@ const cfg = {
 # 6277
 #minor cleanup
 #Note: may need refactoring
+#Updated per review feedback
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #TODO: review edge case
