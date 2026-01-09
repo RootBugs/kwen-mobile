@@ -1,7 +1,6 @@
 import { supabase } from '@/lib/supabase/client';
 import { Message, Conversation, MediaMetadata } from '@/components/messages/types';
 
-
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
   try {
     const {
@@ -13,6 +12,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       .from('conversation_participants')
       .select('conversation_id')
       .eq('user_id', user.id);
+
 
     if (pError || !participations || participations.length === 0) {
       return { data: [] };
@@ -91,7 +91,6 @@ export async function getMessages(
     const { data, error } = await query;
     if (error) return { data: null, error: error.message };
 
-
     const mapped: Message[] = (data || []).map((m: any) => ({
       id: m.id,
       conversation_id: m.conversation_id,
@@ -101,7 +100,6 @@ export async function getMessages(
       media_url: m.media_url,
       thumbnail_url: m.thumbnail_url,
       duration: m.duration || null,
-
       reply_to_message_id: m.reply_to_message_id,
       story_id: m.story_id,
       status: m.status || 'sent',
@@ -164,6 +162,7 @@ export async function sendMessage(
     if (replyToMessageId) {
       insertData.reply_to_message_id = replyToMessageId;
     }
+
     if (storyId) {
       insertData.story_id = storyId;
       const { data: storyData } = await supabase
@@ -195,6 +194,7 @@ export async function sendMessage(
     }
 
     if (error) return { success: false, error: 'Failed to send message' };
+
     await supabase
       .from('conversations')
       .update({ updated_at: new Date().toISOString() })
@@ -234,7 +234,7 @@ export async function getOrCreateConversation(
 
     // Try RPC first
     const { data: rpcResult, error: rpcError } = await supabase.rpc(
-      'get_or_create_conversation',  // verify: performance
+      'get_or_create_conversation',
       { p_user1: user.id, p_user2: otherUserId }
     );
 
@@ -254,7 +254,6 @@ export async function getOrCreateConversation(
         .from('conversation_participants')
         .select('conversation_id')
         .eq('user_id', otherUserId)
-
         .in('conversation_id', convIds)
         .limit(1);
 
@@ -269,7 +268,6 @@ export async function getOrCreateConversation(
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
       .single();
-
 
     if (createError || !newConv) {
       return { success: false, error: 'Failed to create conversation' };
@@ -325,6 +323,7 @@ export function subscribeToMessages(
           id: m.id,
           conversation_id: m.conversation_id,
           sender_id: m.sender_id,
+
           content: m.content || '',
           message_type: m.message_type || 'text',
           media_url: m.media_url,
