@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
-
   Keyboard,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -108,6 +107,7 @@ export function ExploreSearch() {
         )}
 
         <View style={styles.resultInfo}>
+
           <View style={styles.resultNameRow}>
             <Text style={styles.resultUsername} numberOfLines={1}>
               {profile?.username || ''}
@@ -189,6 +189,7 @@ export function ExploreSearch() {
                 >
                   {mode.label}
                 </Text>
+
               </TouchableOpacity>
             );
           })}
@@ -204,7 +205,6 @@ export function ExploreSearch() {
                 <View key={i} style={styles.loadingRow}>
                   <View style={styles.loadingAvatar} />
                   <View style={styles.loadingText}>
-
                     <View style={styles.loadingLine1} />
                     <View style={styles.loadingLine2} />
                   </View>
@@ -310,7 +310,6 @@ const styles = StyleSheet.create({
   loadingContainer: {
     paddingHorizontal: 12,
     paddingVertical: 8,
-
   },
   loadingRow: {
     flexDirection: 'row',
@@ -373,6 +372,7 @@ const styles = StyleSheet.create({
   },
   resultNameRow: {
     flexDirection: 'row',
+
     alignItems: 'center',
     gap: 4,
   },
