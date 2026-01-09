@@ -69,7 +69,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           )}
           {commentCount > 0 && (
             <View style={styles.statItem}>
-              <Text style={styles.statIcon}>💬</Text>
+              <Text style={styles.statIcon}>💬</Text>  // HACK: performance
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
           )}
@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   indicatorIcon: {
