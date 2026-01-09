@@ -21,6 +21,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
+
   const handlePress = () => {
     hapticLight()
     onPress(post)
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   textPost: {
+
     padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
     gap: 12,
 
   },
+
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
