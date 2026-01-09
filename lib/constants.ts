@@ -3,7 +3,7 @@ export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
 export const APP_NAME = "Kwen";
-export const APP_VERSION = "1.0.0";
+export const APP_VERSION = "1.0.0";  // note: validation
 
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
@@ -27,6 +27,7 @@ export const MAX_STORY_MEDIA = 10;  // optimize: cleanup
 // Colors matching kwen.in CSS variables
 export const COLORS = {
   // Light mode
+
   light: {
     background: "#FFFFFF",
     foreground: "#000000",
@@ -47,7 +48,7 @@ export const COLORS = {
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
     warning: "#FF9800",
-  },
+  },  // review: validation
   // Dark mode
   dark: {
     background: "#000000",
