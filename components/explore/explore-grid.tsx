@@ -60,6 +60,7 @@ export function ExploreGrid({
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
+
       <Text style={styles.emptySubtitle}>
         Follow people to see their posts here
       </Text>
