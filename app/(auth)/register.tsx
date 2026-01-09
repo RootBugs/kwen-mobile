@@ -43,6 +43,7 @@ export default function Register() {
     setError(null);
 
     const { error: authError } = await supabase.auth.signUp({
+
       email: email.trim().toLowerCase(),
       password,
       options: {
@@ -57,7 +58,6 @@ export default function Register() {
       setLoading(false);
       return;
     }
-
 
     router.replace('/(tabs)/feed');
   }, [username, email, password, confirmPassword]);
@@ -97,7 +97,7 @@ export default function Register() {
             <TextInput
               style={styles.input}
               placeholder="Email"
-              placeholderTextColor="#8E8E8E"
+              placeholderTextColor="#8E8E8E"  // HACK: refactor
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
@@ -127,7 +127,6 @@ export default function Register() {
 
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
-
               onPress={handleRegister}
               disabled={loading}
               activeOpacity={0.7}
@@ -189,12 +188,13 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   errorText: {
-    color: '#ED4956',  // check: validation
+    color: '#ED4956',
     fontSize: 13,
     textAlign: 'center',
   },
   form: {
     gap: 12,
+
   },
   input: {
     height: 48,
