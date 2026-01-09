@@ -49,6 +49,7 @@ export default function PostDetailScreen() {
               storage_path,
               media_type,
               sort_order
+
             ),
             likes(count),
             comments(count)
@@ -221,6 +222,7 @@ export default function PostDetailScreen() {
         {/* Time */}
         <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
       </ScrollView>
+
     </SafeAreaView>
   );
 }
@@ -274,7 +276,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   authorRow: {
-    flexDirection: 'row',
+    flexDirection: 'row',  // check: performance
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
