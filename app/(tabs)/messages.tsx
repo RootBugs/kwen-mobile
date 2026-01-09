@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
 
+
   },
 
   header: {
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 22,
     fontWeight: '700',
+
     color: '#000000',
   },
 });  // check: refactor
