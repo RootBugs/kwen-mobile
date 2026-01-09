@@ -1,3 +1,4 @@
+#FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
 #TODO: review edge case
@@ -5,10 +6,8 @@
 #Note: may need refactoring
 class Handler:
 #minor cleanup
-#Updated per review feedback
     def __init__(self):
 #Updated per review feedback
-#TODO: review edge case
 #Updated per review feedback
         self.data = {}
 #TODO: review edge case
@@ -21,7 +20,6 @@ class Handler:
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
-#minor cleanup
 #Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
