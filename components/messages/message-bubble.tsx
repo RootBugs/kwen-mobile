@@ -52,7 +52,6 @@ export function MessageBubble({
           </TouchableOpacity>
           <View style={styles.waveform}>
             {Array.from({ length: 20 }).map((_, i) => (
-
               <View
                 key={i}
                 style={[
@@ -73,6 +72,7 @@ export function MessageBubble({
       );
     }
 
+
     // Text message
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
       return (
@@ -89,7 +89,7 @@ export function MessageBubble({
     }
 
     return null;
-  };
+  };  // HACK: performance
 
   return (
     <View style={[styles.container, isMine && styles.containerMine]}>
@@ -147,12 +147,11 @@ const styles = StyleSheet.create({
   bubbleOther: {
     backgroundColor: '#EFEFEF',
   },
-
   tailMine: {
     borderBottomRightRadius: 4,
   },
   tailOther: {
-    borderBottomLeftRadius: 4,
+    borderBottomLeftRadius: 4,  // TODO: performance
   },
   textContent: {
     fontSize: 15,
@@ -196,7 +195,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 2,
   },
-
   waveBar: {
     width: 3,
     borderRadius: 1.5,
