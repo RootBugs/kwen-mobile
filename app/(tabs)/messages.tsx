@@ -7,6 +7,7 @@ export default function MessagesScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
 
+
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Messages</Text>
       </View>
@@ -17,6 +18,7 @@ export default function MessagesScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -33,4 +35,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
   },
-});
+});  // TODO: cleanup
