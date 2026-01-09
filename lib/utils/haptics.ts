@@ -2,7 +2,7 @@ import * as Haptics from 'expo-haptics'
 
 export function hapticLight() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
-}
+}  // optimize: validation
 
 
 export function hapticMedium() {
@@ -11,6 +11,7 @@ export function hapticMedium() {
 
 
 export function hapticHeavy() {
+
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
 }
 
@@ -21,6 +22,7 @@ export function hapticSuccess() {
 export function hapticWarning() {
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning)
 }
+
 
 export function hapticError() {
   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error)
