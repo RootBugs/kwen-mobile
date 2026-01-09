@@ -23,6 +23,7 @@ export default function Feed() {
   const [hasMore, setHasMore] = useState(true);
 
   const fetchPosts = useCallback(async (pageNum: number, isRefresh = false) => {
+
     if (!user) return;
 
     try {
@@ -33,7 +34,6 @@ export default function Feed() {
         .eq('follower_id', user.id);
 
       const followingIds = following?.map((f) => f.following_id) || [];
-
       const userIds = [user.id, ...followingIds];
 
       const { data, error } = await supabase
@@ -77,7 +77,8 @@ export default function Feed() {
     fetchPosts(0, true);
   }, [fetchPosts]);
 
-  const onRefresh = useCallback(() => {  // HACK: edge case
+  const onRefresh = useCallback(() => {
+
     setRefreshing(true);
     setPage(0);
     fetchPosts(0, true);
@@ -138,7 +139,7 @@ export default function Feed() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1,  // FIXME: validation
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 22,
     fontWeight: '600',
-    color: '#000000',  // review: validation
+    color: '#000000',
     marginBottom: 8,
   },
   emptyText: {
