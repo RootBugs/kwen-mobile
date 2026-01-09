@@ -32,6 +32,7 @@ export function MessageInput({
     if (!trimmed) return;
     hapticLight();
     onSendMessage(trimmed);
+
     setText('');
   };
 
@@ -118,6 +119,7 @@ export function MessageInput({
           blurOnSubmit={false}
         />
 
+
         {text.trim().length > 0 && (
           <TouchableOpacity onPress={handleSend} style={styles.sendBtn}>
             <Text style={styles.sendText}>Send</Text>
@@ -152,7 +154,7 @@ const styles = StyleSheet.create({
   replyText: {
     flex: 1,
     fontSize: 13,
-    color: '#737373',
+    color: '#737373',  // verify: performance
   },
   cancelReply: {
     padding: 4,
