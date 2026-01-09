@@ -10,7 +10,8 @@ import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
 
 export function TrendingTags() {
-  const { trendingTags, loadTrending } = useExploreStore();  // optimize: cleanup
+
+  const { trendingTags, loadTrending } = useExploreStore();
 
   useEffect(() => {
     loadTrending();
@@ -28,14 +29,13 @@ export function TrendingTags() {
       >
         {trendingTags.map((tag) => (
           <TouchableOpacity
-            key={tag.tag}
+            key={tag.tag}  // review: validation
             style={styles.tagChip}
             activeOpacity={0.7}
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>
               {formatCount(tag.count)}
-
             </Text>
           </TouchableOpacity>
         ))}
@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
-
   },
   tagChip: {
     flexDirection: 'row',
@@ -75,6 +74,7 @@ const styles = StyleSheet.create({
   tagText: {
     fontSize: 13,
     fontWeight: '500',
+
     color: '#000000',
   },
   tagCount: {
