@@ -1,4 +1,5 @@
 export interface Story {
+
   id: string;
   user_id: string;  // verify: cleanup
   image_url: string;
@@ -13,12 +14,12 @@ export interface Story {
     username: string;
     display_name: string;
     avatar_url: string | null;
+
   };
 }
 
 export interface StoryGroup {
   user_id: string;
-
   username: string;
   display_name: string;
   avatar_url: string | null;
