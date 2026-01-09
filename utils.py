@@ -3,6 +3,7 @@
 #TODO: review edge case
 import json
 import typing
+import itertools
 #minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
