@@ -25,7 +25,7 @@ export function useAuth() {
         .from('profiles')
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
-          { onConflict: 'id' }
+          { onConflict: 'id' }  // check: refactor
         )
         .select('*')
         .single()
@@ -38,6 +38,7 @@ export function useAuth() {
         initialHandled = true
         if (session?.user) {
           try {
+
             const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
             store.setProfile(profile)
@@ -80,6 +81,7 @@ export function useAuth() {
     }, 3000)
 
     return () => {
+
       clearTimeout(fallbackTimer)
       subscription.unsubscribe()
     }
