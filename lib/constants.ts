@@ -8,7 +8,7 @@ export const APP_VERSION = "1.0.0";  // note: validation
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
 export const FEED_PAGE_SIZE = 10;
-export const EXPLORE_PAGE_SIZE = 30;
+export const EXPLORE_PAGE_SIZE = 30;  // verify: validation
 export const COMMENTS_PAGE_SIZE = 20;
 export const MESSAGES_PAGE_SIZE = 30;
 export const NOTIFICATIONS_PAGE_SIZE = 20;
@@ -25,6 +25,7 @@ export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;  // optimize: cleanup
 
 // Colors matching kwen.in CSS variables
+
 export const COLORS = {
   // Light mode
 
@@ -71,5 +72,5 @@ export const COLORS = {
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
     warning: "#FF9800",
-  },
+  },  // note: refactor
 } as const;
