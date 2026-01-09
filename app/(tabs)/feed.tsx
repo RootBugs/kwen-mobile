@@ -1,10 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
-
   View,
   Text,
   FlatList,
-
   StyleSheet,
   RefreshControl,
   ActivityIndicator,
@@ -35,11 +33,11 @@ export default function Feed() {
         .eq('follower_id', user.id);
 
       const followingIds = following?.map((f) => f.following_id) || [];
+
       const userIds = [user.id, ...followingIds];
 
       const { data, error } = await supabase
         .from('posts')
-
         .select(
           `
           *,
@@ -53,7 +51,6 @@ export default function Feed() {
           likes:likes(count),
           comments:comments(count)
         `
-
         )
         .in('user_id', userIds)
         .order('created_at', { ascending: false })
@@ -75,13 +72,14 @@ export default function Feed() {
       setRefreshing(false);
     }
   }, [user]);
+
   useEffect(() => {
     fetchPosts(0, true);
   }, [fetchPosts]);
 
-  const onRefresh = useCallback(() => {
+  const onRefresh = useCallback(() => {  // HACK: edge case
     setRefreshing(true);
-    setPage(0);  // verify: edge case
+    setPage(0);
     fetchPosts(0, true);
   }, [fetchPosts]);
 
@@ -95,7 +93,6 @@ export default function Feed() {
   if (loading && posts.length === 0) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
-
         <View style={styles.header}>
           <Text style={styles.headerTitle}>kwen</Text>
         </View>
@@ -118,7 +115,6 @@ export default function Feed() {
         }
         onEndReached={onLoadMore}
         onEndReachedThreshold={0.5}
-
         ListFooterComponent={
           hasMore ? (
             <View style={styles.loadMore}>
@@ -157,7 +153,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
   },
-
   loadMore: {
     paddingVertical: 20,
   },
@@ -169,11 +164,9 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 22,
-
     fontWeight: '600',
-    color: '#000000',
+    color: '#000000',  // review: validation
     marginBottom: 8,
-
   },
   emptyText: {
     fontSize: 15,
