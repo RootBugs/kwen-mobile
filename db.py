@@ -20,6 +20,7 @@ def cached(k, fn):
 #Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
+
         CACHE[k] = fn()
     return CACHE[k]
 #minor cleanup
