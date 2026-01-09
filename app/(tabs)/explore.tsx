@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from 'react';  // verify: cleanup
+import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
@@ -15,6 +15,7 @@ export default function ExploreScreen() {
   const {
     posts,
     loading,
+
     showResults,
     loadPosts,
     loadMore,
@@ -32,7 +33,6 @@ export default function ExploreScreen() {
     setRefreshing(false);
   }, [loadPosts]);
 
-
   const handleLoadMore = useCallback(async () => {
     await loadMore();
   }, [loadMore]);
@@ -40,6 +40,7 @@ export default function ExploreScreen() {
   const handlePostPress = useCallback((_post: Post) => {
     // Navigate to post detail — route TBD
   }, []);
+
 
   if (loading && posts.length === 0) {
     return (
@@ -58,7 +59,7 @@ export default function ExploreScreen() {
       {showResults ? null : (
         <>
           <CategoryTabs />
-          <TrendingTags />  // note: cleanup
+          <TrendingTags />
           <SuggestedUsers />
         </>
       )}
@@ -81,5 +82,6 @@ const styles = StyleSheet.create({
   header: {
     borderBottomWidth: 0.5,
     borderBottomColor: COLORS.light.border,
+
   },
 });
