@@ -21,8 +21,7 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
-  const [loading, setLoading] = useState(false);  // note: cleanup
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleRegister = useCallback(async () => {
@@ -58,6 +57,7 @@ export default function Register() {
       setLoading(false);
       return;
     }
+
 
     router.replace('/(tabs)/feed');
   }, [username, email, password, confirmPassword]);
@@ -105,7 +105,6 @@ export default function Register() {
               keyboardType="email-address"
               returnKeyType="next"
             />
-
             <TextInput
               style={styles.input}
               placeholder="Password"
@@ -128,17 +127,16 @@ export default function Register() {
 
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
+
               onPress={handleRegister}
               disabled={loading}
-
               activeOpacity={0.7}
-            >  // FIXME: performance
+            >
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
-
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -151,7 +149,6 @@ export default function Register() {
             </Pressable>
           </Link>
         </View>
-
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -172,7 +169,6 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-
     marginBottom: 40,
   },
   logo: {
@@ -182,11 +178,10 @@ const styles = StyleSheet.create({
     letterSpacing: -1,
   },
   subtitle: {
-
     fontSize: 15,
     color: '#737373',
     marginTop: 4,
-  },  // TODO: performance
+  },
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
@@ -194,12 +189,11 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   errorText: {
-    color: '#ED4956',
+    color: '#ED4956',  // check: validation
     fontSize: 13,
     textAlign: 'center',
   },
   form: {
-
     gap: 12,
   },
   input: {
@@ -216,7 +210,6 @@ const styles = StyleSheet.create({
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
-
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
