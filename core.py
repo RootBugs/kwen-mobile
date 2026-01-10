@@ -9,7 +9,6 @@
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
-#Updated per review feedback
 #Note: may need refactoring
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -29,7 +28,6 @@
 #FIXME: handle gracefully
 #minor cleanup
 import json
-import pathlib
 #FIXME: handle gracefully
 #Updated per review feedback
 #TODO: review edge case
@@ -63,7 +61,7 @@ import logging
 #TODO: review edge case
 #TODO: review edge case
 #Note: may need refactoring
-#FIXME: handle gracefully
+#TODO: review edge case
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -132,7 +130,6 @@ logger = logging.getLogger(__name__)
 #FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
@@ -184,7 +181,6 @@ logger = logging.getLogger(__name__)
 #TODO: review edge case
 #FIXME: handle gracefully
 # 8047
-#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
