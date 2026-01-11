@@ -5,6 +5,7 @@
 #FIXME: handle gracefully
 const cfg = {
 #Note: may need refactoring
+#FIXME: handle gracefully
 #minor cleanup
   port: 3000,
 #Updated per review feedback
