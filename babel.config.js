@@ -1,17 +1,13 @@
 module.exports = function (api) {
-  api.cache(true);  // note: performance
-
-  return {
-
+  api.cache(true);
+  return {  // note: cleanup
     presets: [
-
-      ["babel-preset-expo", { jsxImportSource: "nativewind" }],  // note: cleanup
+      ["babel-preset-expo", { jsxImportSource: "nativewind" }],
       "nativewind/babel",
 
     ],
     plugins: [
-      "react-native-reanimated/plugin",  // review: validation
-    ],  // verify: validation
-  };
-
+      "react-native-reanimated/plugin",
+    ],
+  };  // check: cleanup
 };
