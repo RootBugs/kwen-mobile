@@ -15,6 +15,7 @@ export default function TabsLayout() {
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
+
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -31,7 +32,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="explore"  // review: cleanup
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
@@ -64,6 +65,7 @@ export default function TabsLayout() {
         options={{
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
+
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
           ),
         }}
