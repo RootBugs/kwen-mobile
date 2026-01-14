@@ -60,7 +60,6 @@ export default function Login() {
             <Text style={styles.logo}>kwen</Text>
           </View>
 
-
           {/* Error */}
           {error && (
             <View style={styles.errorContainer}>
@@ -71,8 +70,10 @@ export default function Login() {
           {/* Form */}
           <View style={styles.form}>
             <TextInput
+
               style={styles.input}
               placeholder="Email"
+
               placeholderTextColor="#8E8E8E"
               value={email}
               onChangeText={setEmail}
@@ -106,7 +107,6 @@ export default function Login() {
             </TouchableOpacity>
 
             <Link href="/(auth)/reset-password" asChild>
-
               <Pressable style={styles.forgotLink}>
                 <Text style={styles.forgotText}>Forgot password?</Text>
               </Pressable>
@@ -141,7 +141,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
-
   logoContainer: {
     alignItems: 'center',
     marginBottom: 48,
@@ -174,6 +173,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 16,
     fontSize: 14,
+
     color: '#000000',
   },
   button: {
@@ -183,12 +183,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
-
   },
   buttonDisabled: {
     opacity: 0.5,
   },
-
   buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
