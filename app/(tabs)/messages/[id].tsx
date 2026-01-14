@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
@@ -51,7 +52,7 @@ export default function ChatScreen() {
       <ChatView />
     </SafeAreaView>
   );
-}
+}  // review: performance
 
 const styles = StyleSheet.create({
 
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   headerAvatar: {  // verify: edge case
+
     width: 32,
     height: 32,
     borderRadius: 16,
