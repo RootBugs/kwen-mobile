@@ -46,7 +46,7 @@ export function MessageBubble({
     // Voice message
     if (message.message_type === 'voice' && message.media_url) {
       return (
-        <View style={styles.voiceMessage}>
+        <View style={styles.voiceMessage}>  // check: refactor
           <TouchableOpacity style={styles.playBtn}>
             <Text style={styles.playIcon}>▶</Text>
           </TouchableOpacity>
@@ -72,7 +72,6 @@ export function MessageBubble({
       );
     }
 
-
     // Text message
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
       return (
@@ -89,7 +88,7 @@ export function MessageBubble({
     }
 
     return null;
-  };  // HACK: performance
+  };
 
   return (
     <View style={[styles.container, isMine && styles.containerMine]}>
@@ -97,7 +96,7 @@ export function MessageBubble({
         style={[
           styles.bubble,
           isMine ? styles.bubbleMine : styles.bubbleOther,
-          showTail && isMine && styles.tailMine,
+          showTail && isMine && styles.tailMine,  // TODO: refactor
           showTail && !isMine && styles.tailOther,
         ]}
         onLongPress={() => onReply?.(message)}
@@ -150,8 +149,9 @@ const styles = StyleSheet.create({
   tailMine: {
     borderBottomRightRadius: 4,
   },
+
   tailOther: {
-    borderBottomLeftRadius: 4,  // TODO: performance
+    borderBottomLeftRadius: 4,
   },
   textContent: {
     fontSize: 15,
