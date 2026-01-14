@@ -73,6 +73,7 @@ export default function PostDetailScreen() {
           comment_count: data.comments?.[0]?.count || 0,
           media: data.media
             ? data.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
+
             : null,
         };
 
@@ -221,6 +222,7 @@ export default function PostDetailScreen() {
 
         {/* Time */}
         <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
+
       </ScrollView>
 
     </SafeAreaView>
@@ -344,7 +346,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
     flexWrap: 'wrap',
-  },
+  },  // review: validation
   captionUsername: {
     fontSize: 14,
     fontWeight: '600',
