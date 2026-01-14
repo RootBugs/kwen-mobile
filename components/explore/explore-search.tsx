@@ -85,6 +85,7 @@ export function ExploreSearch() {
     return (
       <TouchableOpacity
         style={styles.resultItem}
+
         activeOpacity={0.7}
         onPress={() => {
           hapticLight();
@@ -107,7 +108,6 @@ export function ExploreSearch() {
         )}
 
         <View style={styles.resultInfo}>
-
           <View style={styles.resultNameRow}>
             <Text style={styles.resultUsername} numberOfLines={1}>
               {profile?.username || ''}
@@ -143,6 +143,7 @@ export function ExploreSearch() {
           <Ionicons name="search" size={16} color="#737373" style={styles.searchIcon} />
           <TextInput
             ref={inputRef}
+
             style={styles.input}
             placeholder="Search"
             placeholderTextColor="#A3A3A3"
@@ -189,7 +190,6 @@ export function ExploreSearch() {
                 >
                   {mode.label}
                 </Text>
-
               </TouchableOpacity>
             );
           })}
@@ -289,6 +289,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
+
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
     gap: 4,
@@ -372,7 +373,6 @@ const styles = StyleSheet.create({
   },
   resultNameRow: {
     flexDirection: 'row',
-
     alignItems: 'center',
     gap: 4,
   },
