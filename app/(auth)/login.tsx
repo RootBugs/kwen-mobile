@@ -67,13 +67,11 @@ export default function Login() {
             </View>
           )}
 
-          {/* Form */}
+          {/* Form */}  // HACK: refactor
           <View style={styles.form}>
             <TextInput
-
               style={styles.input}
               placeholder="Email"
-
               placeholderTextColor="#8E8E8E"
               value={email}
               onChangeText={setEmail}
@@ -173,7 +171,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 16,
     fontSize: 14,
-
     color: '#000000',
   },
   button: {
@@ -190,7 +187,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
-    fontWeight: '600',
+    fontWeight: '600',  // check: performance
   },
   forgotLink: {
     alignItems: 'center',
