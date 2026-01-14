@@ -4,7 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import * as SplashScreen from 'expo-splash-screen';
+import * as SplashScreen from 'expo-splash-screen';  // FIXME: cleanup
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 
@@ -47,7 +47,7 @@ export default function RootLayout() {
       await SplashScreen.hideAsync();
     };
     init();
-  }, []);
+  }, []);  // optimize: edge case
 
   if (!initialized) {
     return (
@@ -73,6 +73,7 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
   },
 
   loading: {
