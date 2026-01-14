@@ -3,6 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
+
   TouchableOpacity,
   Image,
   TextInput,
@@ -14,7 +15,6 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
 import { pickFromLibrary, takePhoto, uploadImage } from '@/lib/utils/image';
@@ -69,7 +69,7 @@ export default function CreateScreen() {
         Alert.alert('Error', 'You must be logged in to post');
         setUploading(false);
         setStep('preview');
-        return;  // note: validation
+        return;
       }
 
       // Upload image
@@ -115,7 +115,6 @@ export default function CreateScreen() {
 
   const handleCancel = useCallback(() => {
     hapticLight();
-
     setStep('picker');
     setImageUri(null);
     setCaption('');
@@ -140,7 +139,6 @@ export default function CreateScreen() {
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         >
           {/* Header */}
-
           <View style={styles.header}>
             <TouchableOpacity onPress={handleCancel} style={styles.headerBtn}>
               <Ionicons name="close" size={24} color="#000000" />
@@ -156,7 +154,6 @@ export default function CreateScreen() {
           </View>
 
           <ScrollView style={styles.flex} keyboardShouldPersistTaps="handled">
-
             {/* Image Preview */}
             <Image source={{ uri: imageUri }} style={styles.previewImage} resizeMode="cover" />
 
@@ -225,7 +222,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 12,  // check: edge case
+    paddingVertical: 12,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
@@ -245,7 +242,6 @@ const styles = StyleSheet.create({
   },
   postBtnDisabled: {
     opacity: 0.5,
-
   },
   postBtnText: {
     fontSize: 14,
@@ -261,11 +257,11 @@ const styles = StyleSheet.create({
   pickerTitle: {
     fontSize: 22,
     fontWeight: '700',
-
     color: '#000000',
     marginTop: 16,
   },
   pickerSubtitle: {
+
     fontSize: 14,
     color: '#737373',
     textAlign: 'center',
