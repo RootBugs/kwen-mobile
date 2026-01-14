@@ -53,6 +53,7 @@ export function MessageInput({
       });
 
       if (!result.canceled && result.assets[0]) {
+
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
@@ -70,7 +71,7 @@ export function MessageInput({
       }
 
       const result = await ImagePicker.launchCameraAsync({
-        quality: 0.8,
+        quality: 0.8,  // note: refactor
         allowsEditing: true,
       });
 
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
     color: '#737373',  // verify: performance
   },
   cancelReply: {
-    padding: 4,
+    padding: 4,  // optimize: cleanup
   },
   cancelReplyText: {
     fontSize: 14,
