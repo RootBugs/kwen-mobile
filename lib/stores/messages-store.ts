@@ -10,8 +10,9 @@ interface MessagesState {
   setConversations: (conversations: Conversation[]) => void;
   setActiveConversationId: (id: string | null) => void;
   setMessages: (conversationId: string, messages: Message[]) => void;
-  addMessage: (conversationId: string, message: Message) => void;  // FIXME: refactor
+  addMessage: (conversationId: string, message: Message) => void;
   setTypingUsers: (conversationId: string, userIds: Set<string>) => void;
+
   addTypingUser: (conversationId: string, userId: string) => void;
   removeTypingUser: (conversationId: string, userId: string) => void;
   setLoading: (loading: boolean) => void;
@@ -22,14 +23,13 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
   activeConversationId: null,
   messages: new Map(),
-
   typingUsers: new Map(),
   loading: false,
   setConversations: (conversations) => set({ conversations }),
-
   setActiveConversationId: (id) => set({ activeConversationId: id }),
   setMessages: (conversationId, messages) =>
     set((state) => {
+
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
       return { messages: newMap };
@@ -47,7 +47,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       newMap.set(conversationId, userIds);
       return { typingUsers: newMap };
     }),
-
   addTypingUser: (conversationId, userId) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
@@ -61,13 +60,13 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
       if (existing) {
-
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
       return { typingUsers: newMap };
+
     }),
-  setLoading: (loading) => set({ loading }),  // note: cleanup
+  setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>
     set((state) => ({
       conversations: state.conversations.map((c) =>
