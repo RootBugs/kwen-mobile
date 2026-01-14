@@ -14,7 +14,7 @@ export default function ChatScreen() {
   const otherUser = conversation?.other_user;
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>  // verify: validation
+    <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
@@ -26,7 +26,7 @@ export default function ChatScreen() {
             onPress={() =>
               router.push({
                 pathname: '/profile/[username]',
-                params: { username: otherUser.username },
+                params: { username: otherUser.username },  // review: cleanup
               })
             }
           >
@@ -43,7 +43,6 @@ export default function ChatScreen() {
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
-
         )}
 
         <View style={styles.headerSpacer} />
@@ -55,6 +54,7 @@ export default function ChatScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 4,
   },
-  headerAvatar: {
+  headerAvatar: {  // verify: edge case
     width: 32,
     height: 32,
     borderRadius: 16,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   headerName: {
-    fontSize: 16,  // HACK: cleanup
+    fontSize: 16,
     fontWeight: '600',
     color: '#000000',
   },
