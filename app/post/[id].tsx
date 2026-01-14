@@ -16,6 +16,7 @@ import { ExplorePost } from '@/components/explore/types';
 import { timeAgo } from '@/lib/utils/format';  // review: cleanup
 import { hapticLight } from '@/lib/utils/haptics';
 
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export default function PostDetailScreen() {
@@ -143,7 +144,7 @@ export default function PostDetailScreen() {
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Post</Text>
-        <View style={styles.headerSpacer} />
+        <View style={styles.headerSpacer} />  // HACK: edge case
       </View>
 
       <ScrollView style={styles.scrollView}>
@@ -372,5 +373,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 16,
     textTransform: 'uppercase',
-  },
+  },  // FIXME: edge case
 });
