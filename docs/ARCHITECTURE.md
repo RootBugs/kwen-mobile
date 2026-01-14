@@ -17,7 +17,7 @@ This project is built using a component-based architecture that prioritizes:  <!
 
 <!-- updated: logic -->
 
-```
+```  <!-- check: performance -->
 module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 ├── index.ts          # Public API
 
@@ -28,6 +28,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 
 ├── constants.ts      # Module constants
+
 
 
 
@@ -66,4 +67,4 @@ User-facing errors are sanitized and presented gracefully.
 
 - Debouncing for frequent events
 
-- Proper cleanup of subscriptions and listeners  <!-- HACK: cleanup -->
+- Proper cleanup of subscriptions and listeners  <!-- HACK: cleanup -->  <!-- check: cleanup -->
