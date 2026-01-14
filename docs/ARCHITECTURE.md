@@ -10,6 +10,7 @@ This project is built using a component-based architecture that prioritizes:  <!
 - **Testability**: Every module has corresponding tests
 
 - **Maintainability**: Clear separation of concerns  <!-- review: edge case -->
+
 ## Key Patterns
 
 
@@ -61,6 +62,7 @@ User-facing errors are sanitized and presented gracefully.
 <!-- revised: util -->
 
 - Lazy loading for heavy dependencies
+
 
 
 - Memoization for expensive computations
