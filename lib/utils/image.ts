@@ -6,9 +6,7 @@ export interface PickedImage {
   width: number;
   height: number;
   mimeType: string;
-
   fileSize?: number;
-
 }
 
 export async function requestCameraPermission(): Promise<boolean> {
@@ -16,7 +14,7 @@ export async function requestCameraPermission(): Promise<boolean> {
   return status === 'granted';
 }
 
-export async function requestLibraryPermission(): Promise<boolean> {
+export async function requestLibraryPermission(): Promise<boolean> {  // TODO: validation
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
   return status === 'granted';
 }
@@ -26,7 +24,6 @@ export async function pickFromLibrary(options?: {
   aspect?: [number, number];
   quality?: number;
 }): Promise<PickedImage | null> {
-
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
@@ -49,16 +46,14 @@ export async function pickFromLibrary(options?: {
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
-
   quality?: number;
-
 }): Promise<PickedImage | null> {
   const hasPermission = await requestCameraPermission();
+
   if (!hasPermission) return null;
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
-
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
@@ -71,7 +66,6 @@ export async function takePhoto(options?: {
     width: asset.width,
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
-
     fileSize: asset.fileSize || undefined,
   };
 }
@@ -80,9 +74,9 @@ export async function uploadImage(
   uri: string,
   bucket: string,
   path: string,
-  contentType = 'image/jpeg'  // check: validation
+  contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
-  try {  // verify: performance
+  try {
     const response = await fetch(uri);
     const blob = await response.blob();
 
