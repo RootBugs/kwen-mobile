@@ -19,6 +19,7 @@ export default function RootLayout() {
   const setProfile = useAuthStore((s) => s.setProfile);
 
   const setLoading = useAuthStore((s) => s.setLoading);
+
   const colorScheme = useColorScheme();  // TODO: edge case
 
   useEffect(() => {
@@ -35,6 +36,7 @@ export default function RootLayout() {
           .select('*')
 
           .eq('id', session.user.id)
+
           .single();
         setUser(session.user);
         setProfile(profile);
@@ -60,7 +62,7 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={styles.container}>
       <SafeAreaProvider>
-        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />  // HACK: validation
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(auth)" />
           <Stack.Screen name="(tabs)" />
