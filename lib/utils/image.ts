@@ -6,6 +6,7 @@ export interface PickedImage {
   width: number;
   height: number;
   mimeType: string;
+
   fileSize?: number;
 
 }
@@ -48,6 +49,7 @@ export async function pickFromLibrary(options?: {
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
+
   quality?: number;
 
 }): Promise<PickedImage | null> {
@@ -69,6 +71,7 @@ export async function takePhoto(options?: {
     width: asset.width,
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
+
     fileSize: asset.fileSize || undefined,
   };
 }
