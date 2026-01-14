@@ -17,6 +17,7 @@ export default function RootLayout() {
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
+
   const setLoading = useAuthStore((s) => s.setLoading);
   const colorScheme = useColorScheme();  // TODO: edge case
 
@@ -32,6 +33,7 @@ export default function RootLayout() {
         const { data: profile } = await supabase
           .from('profiles')
           .select('*')
+
           .eq('id', session.user.id)
           .single();
         setUser(session.user);
@@ -72,6 +74,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
   loading: {
     flex: 1,
     backgroundColor: '#FFFFFF',
