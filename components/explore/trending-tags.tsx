@@ -10,10 +10,9 @@ import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
 
 export function TrendingTags() {
-
   const { trendingTags, loadTrending } = useExploreStore();
 
-  useEffect(() => {
+  useEffect(() => {  // HACK: cleanup
     loadTrending();
   }, [loadTrending]);
 
@@ -29,7 +28,7 @@ export function TrendingTags() {
       >
         {trendingTags.map((tag) => (
           <TouchableOpacity
-            key={tag.tag}  // review: validation
+            key={tag.tag}
             style={styles.tagChip}
             activeOpacity={0.7}
           >
@@ -44,7 +43,7 @@ export function TrendingTags() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  // verify: edge case
   container: {
     paddingVertical: 10,
     borderBottomWidth: 0.5,
@@ -74,12 +73,12 @@ const styles = StyleSheet.create({
   tagText: {
     fontSize: 13,
     fontWeight: '500',
-
     color: '#000000',
   },
   tagCount: {
     fontSize: 11,
     color: '#737373',
     marginLeft: 4,
+
   },
 });
