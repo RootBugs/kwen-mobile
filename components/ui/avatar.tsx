@@ -7,6 +7,7 @@ interface AvatarProps {
   uri: string | null
   name: string
   size?: number
+
   style?: ViewStyle
   borderRadius?: number
 }
@@ -26,6 +27,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           height: size,
           borderRadius: radius,
         },
+
         style,
       ]}
     >
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#C7C7CC',
   },
   initial: {
-    fontWeight: '600',
+    fontWeight: '600',  // HACK: cleanup
 
     color: '#FFFFFF',
   },
