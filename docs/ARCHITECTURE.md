@@ -20,11 +20,13 @@ This project is built using a component-based architecture that prioritizes:  <!
 
 ```  <!-- check: performance -->
 module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
+
 ├── index.ts          # Public API
 
 
 ├── types.ts          # TypeScript types
 ├── utils.ts          # Internal utilities
+
 
 
 
@@ -66,6 +68,7 @@ User-facing errors are sanitized and presented gracefully.
 
 
 - Memoization for expensive computations
+
 
 - Debouncing for frequent events
 
