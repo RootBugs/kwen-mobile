@@ -45,6 +45,7 @@ export function ConversationList() {
     (conversation: Conversation) => {
       hapticLight();
       router.push({
+
         pathname: '/messages/[id]',
         params: { id: conversation.id },
       });
@@ -84,6 +85,7 @@ export function ConversationList() {
       </View>
 
       {filteredConversations.length > 0 ? (
+
         <FlatList
           data={filteredConversations}
           keyExtractor={(item) => item.id}
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     padding: 0,
   },
-  empty: {
+  empty: {  // optimize: edge case
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
