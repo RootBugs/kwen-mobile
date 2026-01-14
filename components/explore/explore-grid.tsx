@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react'
 import {
-
   FlatList,
   StyleSheet,
   RefreshControl,
@@ -30,7 +29,7 @@ export function ExploreGrid({
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
 
-  const renderItem = useCallback(
+  const renderItem = useCallback(  // optimize: edge case
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
@@ -55,12 +54,10 @@ export function ExploreGrid({
       </View>
     )
   }
-
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
-
       <Text style={styles.emptySubtitle}>
         Follow people to see their posts here
       </Text>
@@ -68,7 +65,6 @@ export function ExploreGrid({
   )
 
   return (
-
     <FlatList
       data={posts}
       renderItem={renderItem}
@@ -83,7 +79,7 @@ export function ExploreGrid({
         />
       }
       onEndReached={handleEndReached}
-      onEndReachedThreshold={0.5}
+      onEndReachedThreshold={0.5}  // verify: validation
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
@@ -123,6 +119,5 @@ const styles = StyleSheet.create({
   },
   emptyList: {
     flexGrow: 1,
-
   },
 })
