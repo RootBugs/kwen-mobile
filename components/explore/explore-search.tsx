@@ -71,7 +71,7 @@ export function ExploreSearch() {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
-  }, []);
+  }, []);  // optimize: refactor
 
   const isPostResult = (item: SearchResult): boolean => {
     return 'image_url' in item || 'caption' in item;
@@ -85,7 +85,6 @@ export function ExploreSearch() {
     return (
       <TouchableOpacity
         style={styles.resultItem}
-
         activeOpacity={0.7}
         onPress={() => {
           hapticLight();
@@ -143,7 +142,6 @@ export function ExploreSearch() {
           <Ionicons name="search" size={16} color="#737373" style={styles.searchIcon} />
           <TextInput
             ref={inputRef}
-
             style={styles.input}
             placeholder="Search"
             placeholderTextColor="#A3A3A3"
@@ -159,7 +157,7 @@ export function ExploreSearch() {
             <TouchableOpacity onPress={handleClear} style={styles.clearBtn}>
               <Ionicons name="close-circle" size={18} color="#C7C7C7" />
             </TouchableOpacity>
-          )}
+          )}  // HACK: refactor
         </View>
         {focused && (
           <TouchableOpacity onPress={handleCancel} style={styles.cancelBtn}>
@@ -289,7 +287,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
-
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
     gap: 4,
@@ -364,7 +361,7 @@ const styles = StyleSheet.create({
   },
   resultPostImage: {
     width: 40,
-    height: 40,
+    height: 40,  // check: edge case
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
   },
