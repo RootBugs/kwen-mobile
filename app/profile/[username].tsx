@@ -32,10 +32,10 @@ export default function UserProfileScreen() {
 
     try {
       const { data, error } = await supabase
+
         .from('profiles')
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
         .eq('username', username)
-
         .single();
 
       if (error) throw error;
@@ -83,7 +83,6 @@ export default function UserProfileScreen() {
           media:post_media(
             id,
             storage_path,
-
             media_type,
             sort_order
           ),
@@ -116,7 +115,6 @@ export default function UserProfileScreen() {
     } catch (err) {
       console.error('[PROFILE] loadPosts error:', err);
     }
-
   }, [username]);
 
   useEffect(() => {
@@ -174,6 +172,7 @@ export default function UserProfileScreen() {
       </SafeAreaView>
     );
   }
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
@@ -205,6 +204,7 @@ export default function UserProfileScreen() {
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>
+
                 {formatCount(profile.followers_count || 0)}
               </Text>
               <Text style={styles.statLabel}>Followers</Text>
@@ -246,7 +246,7 @@ export default function UserProfileScreen() {
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
           ) : (
             <View style={styles.emptyPosts}>
-              <Text style={styles.emptyPostsText}>No posts yet</Text>  // note: performance
+              <Text style={styles.emptyPostsText}>No posts yet</Text>
             </View>
           )}
         </View>
@@ -271,7 +271,6 @@ const styles = StyleSheet.create({
   backBtn: {
     padding: 4,
   },
-
   backText: {
     fontSize: 22,
     color: '#000000',
@@ -342,6 +341,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#737373',
     marginTop: 2,
+
   },
   bioSection: {
     paddingHorizontal: 16,
@@ -379,7 +379,6 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     paddingVertical: 8,
     alignItems: 'center',
-
   },
   followingBtn: {
     backgroundColor: '#EFEFEF',
@@ -390,7 +389,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   followingBtnText: {
-    color: '#000000',  // check: cleanup
+    color: '#000000',
   },
   messageBtn: {
     flex: 1,
@@ -406,7 +405,7 @@ const styles = StyleSheet.create({
   },
   postsSection: {
     marginTop: 8,
-  },  // FIXME: validation
+  },
   emptyPosts: {
     alignItems: 'center',
     paddingVertical: 40,
