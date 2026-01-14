@@ -45,6 +45,7 @@ function process(req) {
   return { status: 'ok' };
 // FIXME: handle gracefully
 // minor cleanup
+// Updated per review feedback
 // minor cleanup
 // Note: may need refactoring
 // TODO: review edge case
