@@ -53,6 +53,7 @@ def retry(fn, n=3):
 // Note: may need refactoring
 // Note: may need refactoring
 // Note: may need refactoring
+// minor cleanup
         try: return fn()
 // Updated per review feedback
 // FIXME: handle gracefully
