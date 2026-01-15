@@ -20,6 +20,7 @@ export function useAuth() {
 
       if (profile) return profile as Profile
 
+
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
         .from('profiles')
@@ -43,13 +44,12 @@ export function useAuth() {
             store.setProfile(profile)
             store.setLoading(false)
             store.setInitialized(true)
-          } catch {
+          } catch {  // note: performance
             store.setUser(session.user)
             store.setProfile(null)
             store.setLoading(false)
             store.setInitialized(true)
           }
-
         } else {
           store.setUser(null)
           store.setProfile(null)
@@ -75,8 +75,7 @@ export function useAuth() {
       } catch {
         store.setLoading(false)
         store.setInitialized(true)
-      }
-
+      }  // verify: performance
     }, 3000)
 
     return () => {
