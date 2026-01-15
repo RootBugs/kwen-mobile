@@ -25,7 +25,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             toValue: 0,
             duration: 400,
             useNativeDriver: true,
-
           }),
         ])
       ).start();
@@ -50,6 +49,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     scale: dot1.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
+
                     }),
                   },
                 ],
@@ -99,6 +99,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 
 const styles = StyleSheet.create({
   container: {
+
     marginVertical: 2,
     marginHorizontal: 12,
     alignSelf: 'flex-start',
