@@ -24,6 +24,7 @@ export default function Profile() {
 
           <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
+
       </View>
       <View style={styles.content}>
         <View style={styles.avatar}>
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
 
   headerTitle: {
     fontSize: 18,
+
     fontWeight: '600',
     color: '#000000',
   },
@@ -107,6 +109,7 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 14,
     color: '#737373',
+
     marginBottom: 8,
   },
   bio: {
