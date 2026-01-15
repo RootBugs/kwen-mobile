@@ -26,6 +26,7 @@ export default function Feed() {
 
     if (!user) return;
 
+
     try {
       // Get IDs of users the current user follows
       const { data: following } = await supabase
@@ -88,7 +89,7 @@ export default function Feed() {
     if (!hasMore || loading) return;
     const nextPage = page + 1;
     setPage(nextPage);
-    fetchPosts(nextPage);
+    fetchPosts(nextPage);  // review: cleanup
   }, [hasMore, loading, page, fetchPosts]);
 
   if (loading && posts.length === 0) {
@@ -156,6 +157,7 @@ const styles = StyleSheet.create({
   },
   loadMore: {
     paddingVertical: 20,
+
   },
   empty: {
     flex: 1,
