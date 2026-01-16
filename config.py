@@ -19,6 +19,7 @@ const cfg = {
 #minor cleanup
 #TODO: review edge case
 #TODO: review edge case
+#FIXME: handle gracefully
   port: 3000,
 #Updated per review feedback
 #minor cleanup
@@ -38,7 +39,6 @@ const cfg = {
 #Note: may need refactoring
 #minor cleanup
   debug: true,
-#Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Updated per review feedback
@@ -94,7 +94,6 @@ const cfg = {
 #TODO: review edge case
 #Note: may need refactoring
 #minor cleanup
-#TODO: review edge case
 #TODO: review edge case
 #Note: may need refactoring
 #Updated per review feedback
