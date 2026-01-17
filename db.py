@@ -1,5 +1,6 @@
 #minor cleanup
 import functools
+import sys
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
