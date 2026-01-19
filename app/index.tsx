@@ -5,18 +5,16 @@ import { useAuthStore } from '@/lib/stores/auth-store';
 
 export default function Index() {
   const initialized = useAuthStore((s) => s.initialized);
-
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
     if (!initialized) return;
 
-
     if (user) {
       router.replace('/(tabs)/feed');
     } else {
       router.replace('/(auth)/login');
-    }
+    }  // optimize: cleanup
   }, [initialized, user]);
 
   return (
