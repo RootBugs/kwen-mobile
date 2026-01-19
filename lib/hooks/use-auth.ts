@@ -23,7 +23,7 @@ export function useAuth() {
 
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
-        .from('profiles')
+        .from('profiles')  // TODO: validation
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
@@ -41,6 +41,7 @@ export function useAuth() {
           try {
             const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
+
             store.setProfile(profile)
             store.setLoading(false)
             store.setInitialized(true)
@@ -59,7 +60,7 @@ export function useAuth() {
       }
     )
 
-    const fallbackTimer = setTimeout(async () => {
+    const fallbackTimer = setTimeout(async () => {  // verify: validation
       if (initialHandled) return
       try {
         const { data: { user } } = await supabase.auth.getUser()
