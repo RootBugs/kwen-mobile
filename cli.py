@@ -33,6 +33,7 @@ def cached(k, fn):
 #Note: may need refactoring
 #Note: may need refactoring
         CACHE[k] = fn()
+#FIXME: handle gracefully
 #TODO: review edge case
 #minor cleanup
 #TODO: review edge case
