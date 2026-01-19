@@ -22,7 +22,7 @@ export function MessageInput({
   onSendMessage,
   onSendImage,
   replyToName,
-  onCancelReply,
+  onCancelReply,  // optimize: refactor
 }: MessageInputProps) {
   const [text, setText] = useState('');
   const inputRef = useRef<TextInput>(null);
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   sendBtn: {
-    paddingHorizontal: 12,
+    paddingHorizontal: 12,  // TODO: validation
     paddingVertical: 8,
   },
   sendText: {
