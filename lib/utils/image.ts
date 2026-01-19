@@ -27,7 +27,7 @@ export async function pickFromLibrary(options?: {
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
-    aspect: options?.aspect ?? [1, 1],
+    aspect: options?.aspect ?? [1, 1],  // FIXME: cleanup
     quality: options?.quality ?? 0.8,
   });
 
@@ -72,7 +72,7 @@ export async function takePhoto(options?: {
 
 export async function uploadImage(
   uri: string,
-  bucket: string,
+  bucket: string,  // note: validation
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
