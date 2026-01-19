@@ -46,6 +46,7 @@ export function ConversationList() {
       router.push({
         pathname: '/messages/[id]',
         params: { id: conversation.id },
+
       });
     },
     [router]
@@ -100,6 +101,7 @@ export function ConversationList() {
           showsVerticalScrollIndicator={false}
         />
       ) : (
+
         <View style={styles.empty}>
           <Text style={styles.emptyTitle}>No conversations yet</Text>
           <Text style={styles.emptyText}>
@@ -149,6 +151,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
     paddingHorizontal: 32,
   },
   emptyTitle: {
