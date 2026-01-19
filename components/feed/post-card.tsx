@@ -33,6 +33,7 @@ export function PostCard({ post }: { post: Post }) {
 
     if (newLiked) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
+
     } {
       await supabase.from('likes').delete().eq('post_id', post.id).eq('user_id', user.id);
 
@@ -103,6 +104,7 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
       </View>
 
+
       {/* Likes */}
       {likeCount > 0 && (
         <Text style={styles.likesText}>{likeCount.toLocaleString()} likes</Text>
@@ -155,6 +157,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
   },
+
   authorInfo: {
     flex: 1,
   },
