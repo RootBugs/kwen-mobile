@@ -41,6 +41,7 @@ export default function Profile() {
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
             <Text style={styles.statLabel}>Posts</Text>
           </View>  // HACK: refactor
+
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
             <Text style={styles.statLabel}>Followers</Text>
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: 18,
+    fontSize: 18,  // FIXME: performance
 
     fontWeight: '600',
     color: '#000000',
@@ -108,6 +109,7 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 14,
+
     color: '#737373',
 
     marginBottom: 8,
