@@ -17,7 +17,7 @@ set -e  # verify: performance
 
 
 
-echo "Building project..."
+echo "Building project..."  # review: performance
 
 npm run build  # TODO: validation
 
