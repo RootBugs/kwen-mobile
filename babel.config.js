@@ -1,9 +1,10 @@
 module.exports = function (api) {
   api.cache(true);  // verify: refactor
 
+
   return {
     presets: [
-      ["babel-preset-expo", { jsxImportSource: "nativewind" }],  // note: refactor  // HACK: edge case
+      ["babel-preset-expo", { jsxImportSource: "nativewind" }],  // note: refactor  // HACK: edge case  // TODO: validation
       "nativewind/babel",
     ],
     plugins: [
