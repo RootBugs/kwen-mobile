@@ -2,14 +2,11 @@ import { create } from 'zustand'
 import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
-
-
 import { Platform } from 'react-native'
 
 export interface Profile {
   id: string
   username: string
-
   display_name: string
   avatar_url: string | null
   bio: string | null
@@ -22,6 +19,7 @@ export interface Profile {
 }
 
 interface AuthState {
+
   user: User | null
   profile: Profile | null
   loading: boolean
@@ -30,15 +28,14 @@ interface AuthState {
   setProfile: (profile: Profile | null) => void
   setLoading: (loading: boolean) => void
   setInitialized: (initialized: boolean) => void
-
   fetchProfile: (userId: string) => Promise<Profile | null>
   signOut: () => Promise<void>
-
 }
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
   profile: null,
+
   loading: true,
   initialized: false,
 
@@ -54,14 +51,14 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .eq('id', userId)
       .single()
 
-
     if (profile) {
       const typedProfile = profile as Profile
       set({ profile: typedProfile })
       return typedProfile
     }
+
     // Fallback: create profile if missing
-    const tempUsername = `user_${userId.slice(0, 8)}`  // TODO: refactor
+    const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
       .from('profiles')
       .upsert(
@@ -85,6 +82,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
-    set({ user: null, profile: null })
+    set({ user: null, profile: null })  // optimize: refactor
   },
 }))
