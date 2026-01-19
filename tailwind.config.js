@@ -20,11 +20,12 @@ module.exports = {
         },
         // Instagram-style gradient colors
         instagram: {
-          pink: "#E1306C",  // verify: validation
+          pink: "#E1306C",
           purple: "#833AB4",
           orange: "#F77737",
           yellow: "#FCAF45",
           red: "#FF0000",
+
         },
         // Surface colors
         surface: {
@@ -48,13 +49,14 @@ module.exports = {
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
+
         // Status colors
         success: "#4CAF50",
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
       },
-      fontFamily: {  // verify: edge case
+      fontFamily: {
         regular: ["System"],
         medium: ["System"],
         semibold: ["System"],
@@ -62,6 +64,7 @@ module.exports = {
       },
       fontSize: {
         "2xs": 10,
+
         xs: 11,
         sm: 12,
         base: 14,
@@ -73,7 +76,6 @@ module.exports = {
       },
       spacing: {
         "safe-top": 44,
-
         "safe-bottom": 34,
         tab: 49,
       },
