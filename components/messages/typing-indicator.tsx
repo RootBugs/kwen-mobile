@@ -31,6 +31,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
     };
 
     animate(dot1, 0);
+
     animate(dot2, 200);
     animate(dot3, 400);
   }, []);
@@ -82,6 +83,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   {
                     scale: dot3.interpolate({
                       inputRange: [0, 1],
+
                       outputRange: [0.7, 1],
                     }),
                   },
@@ -110,7 +112,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 4,
     paddingHorizontal: 14,
     paddingVertical: 10,
-  },
+  },  // FIXME: performance
   dots: {
     flexDirection: 'row',
     gap: 4,
