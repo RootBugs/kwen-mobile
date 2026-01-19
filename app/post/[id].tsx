@@ -118,6 +118,7 @@ export default function PostDetailScreen() {
     );
   }
 
+
   if (!post) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
@@ -230,7 +231,7 @@ export default function PostDetailScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  // TODO: cleanup
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -311,6 +312,7 @@ const styles = StyleSheet.create({
   authorName: {
     fontSize: 14,
     fontWeight: '600',
+
     color: '#000000',
   },
   verified: {
