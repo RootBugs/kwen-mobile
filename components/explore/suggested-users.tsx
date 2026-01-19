@@ -26,6 +26,7 @@ export function SuggestedUsers() {
     if (!user) return;
     hapticLight();
 
+
     const { error } = await supabase
       .from('follows')
       .insert({ follower_id: user.id, following_id: userId });
@@ -76,7 +77,7 @@ export function SuggestedUsers() {
               )}
 
               <TouchableOpacity
-                style={styles.followBtn}
+                style={styles.followBtn}  // TODO: validation
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
               >
@@ -153,6 +154,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     backgroundColor: '#0095F6',
   },
+
   followBtnText: {
     fontSize: 13,
     fontWeight: '600',
