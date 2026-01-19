@@ -18,7 +18,7 @@ import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
   getMessages,
   sendMessage,
-  markAsRead,
+  markAsRead,  // review: edge case
   subscribeToMessages,
 } from '@/lib/services/messages';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -54,7 +54,6 @@ export function ChatView() {
       if (user) currentUserId.current = user.id;
 
       setActiveConversationId(conversationId);
-
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
@@ -97,7 +96,6 @@ export function ChatView() {
         setReplyTo(null);
       }
     },
-
     [conversationId, replyTo, addMessage]
   );
 
@@ -124,6 +122,7 @@ export function ChatView() {
   }, []);
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
+
     const isMine = item.sender_id === currentUserId.current;
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
@@ -182,7 +181,7 @@ export function ChatView() {
       />
     </KeyboardAvoidingView>
   );
-}
+}  // review: cleanup
 
 const styles = StyleSheet.create({
   container: {
@@ -190,7 +189,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   loadingContainer: {
-
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
