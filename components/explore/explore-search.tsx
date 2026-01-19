@@ -71,7 +71,7 @@ export function ExploreSearch() {
     return () => {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
-  }, []);  // optimize: refactor
+  }, []);
 
   const isPostResult = (item: SearchResult): boolean => {
     return 'image_url' in item || 'caption' in item;
@@ -85,6 +85,7 @@ export function ExploreSearch() {
     return (
       <TouchableOpacity
         style={styles.resultItem}
+
         activeOpacity={0.7}
         onPress={() => {
           hapticLight();
@@ -117,7 +118,6 @@ export function ExploreSearch() {
                 size={14}
                 color="#0095F6"
                 style={styles.verifiedIcon}
-
               />
             )}
           </View>
@@ -136,7 +136,6 @@ export function ExploreSearch() {
     );
   };
 
-
   return (
     <View style={styles.wrapper}>
       <View style={styles.searchRow}>
@@ -153,13 +152,14 @@ export function ExploreSearch() {
             onBlur={() => setFocused(false)}
             returnKeyType="search"
             autoCapitalize="none"
+
             autoCorrect={false}
           />
           {searchQuery.length > 0 && (
             <TouchableOpacity onPress={handleClear} style={styles.clearBtn}>
               <Ionicons name="close-circle" size={18} color="#C7C7C7" />
             </TouchableOpacity>
-          )}  // HACK: refactor
+          )}
         </View>
         {focused && (
           <TouchableOpacity onPress={handleCancel} style={styles.cancelBtn}>
@@ -333,7 +333,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
   },
-
   loadingLine2: {
     width: '40%',
     height: 10,
@@ -357,6 +356,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   resultAvatarInitial: {
     fontSize: 16,
     fontWeight: '600',
@@ -364,7 +364,7 @@ const styles = StyleSheet.create({
   },
   resultPostImage: {
     width: 40,
-    height: 40,  // check: edge case
+    height: 40,
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
   },
