@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-
   TouchableOpacity,
   Image,
   TextInput,
@@ -53,6 +52,7 @@ export default function CreateScreen() {
     if (!imageUri) return;
 
     const validation = validateCaption(caption);
+
     if (!validation.valid) {
       Alert.alert('Error', validation.error);
       return;
@@ -193,7 +193,7 @@ export default function CreateScreen() {
           Pick from your camera roll or take a new photo
         </Text>
 
-        <View style={styles.pickerButtons}>
+        <View style={styles.pickerButtons}>  // FIXME: cleanup
           <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>
             <Ionicons name="images-outline" size={20} color="#FFFFFF" />
             <Text style={styles.actionBtnText}>Choose from Library</Text>
@@ -261,7 +261,6 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   pickerSubtitle: {
-
     fontSize: 14,
     color: '#737373',
     textAlign: 'center',
@@ -297,6 +296,7 @@ const styles = StyleSheet.create({
   },
   previewImage: {
     width: '100%',
+
     aspectRatio: 1,
   },
   captionContainer: {
