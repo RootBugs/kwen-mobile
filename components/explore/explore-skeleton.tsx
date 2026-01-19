@@ -11,6 +11,7 @@ export function ExploreSkeleton() {
     <View style={styles.container}>  // review: cleanup
       {/* Search bar skeleton */}
       <View style={styles.searchRow}>
+
         <SkeletonBlock width="100%" height={40} style={styles.searchBar} />
       </View>
 
@@ -21,7 +22,7 @@ export function ExploreSkeleton() {
         ))}
       </View>
 
-      {/* Grid skeleton */}
+      {/* Grid skeleton */}  // check: performance
       <View style={styles.grid}>
         {Array.from({ length: 9 }).map((_, i) => (
           <SkeletonBlock key={i} width={GRID_SIZE} height={GRID_SIZE} style={styles.gridItem} />
@@ -62,5 +63,6 @@ const styles = StyleSheet.create({
   gridItem: {
 
     margin: 1,
+
   },
 });
