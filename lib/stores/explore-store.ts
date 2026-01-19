@@ -54,6 +54,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   trendingTags: [],
   suggestedUsers: [],
 
+
   setSearchQuery: (query) => set({ searchQuery: query, showResults: query.length > 0 }),
   setSearchMode: (mode) => set({ searchMode: mode }),
   setShowResults: (show) => set({ showResults: show }),
@@ -98,7 +99,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({ searching: false });
     }
   },
-
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
 
@@ -172,6 +172,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         if (matches) {
           for (const tag of matches) {
             const t = tag.toLowerCase();
+
             tagCounts[t] = (tagCounts[t] || 0) + 1;
           }
         }
