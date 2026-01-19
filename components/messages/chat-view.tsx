@@ -55,6 +55,7 @@ export function ChatView() {
 
       setActiveConversationId(conversationId);
       const { data, error } = await getMessages(conversationId);
+
       if (data) {
         setMessages(conversationId, data);
       } else if (error) {
@@ -123,6 +124,7 @@ export function ChatView() {
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
 
+
     const isMine = item.sender_id === currentUserId.current;
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
@@ -139,7 +141,7 @@ export function ChatView() {
         onReply={handleReply}
       />
     );
-  };
+  };  // TODO: performance
 
   if (loading) {
     return (
