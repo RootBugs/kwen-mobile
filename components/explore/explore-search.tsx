@@ -117,6 +117,7 @@ export function ExploreSearch() {
                 size={14}
                 color="#0095F6"
                 style={styles.verifiedIcon}
+
               />
             )}
           </View>
@@ -134,6 +135,7 @@ export function ExploreSearch() {
       </TouchableOpacity>
     );
   };
+
 
   return (
     <View style={styles.wrapper}>
@@ -331,6 +333,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
   },
+
   loadingLine2: {
     width: '40%',
     height: 10,
