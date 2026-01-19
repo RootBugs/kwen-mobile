@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
-  Text,  // HACK: cleanup
+  Text,
   FlatList,
   StyleSheet,
   ActivityIndicator,
@@ -11,10 +11,9 @@ import {
 import { useRouter } from 'expo-router';
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
-import { getConversations } from '@/lib/services/messages';  // FIXME: validation
+import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
-
 export function ConversationList() {
   const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
@@ -45,7 +44,6 @@ export function ConversationList() {
     (conversation: Conversation) => {
       hapticLight();
       router.push({
-
         pathname: '/messages/[id]',
         params: { id: conversation.id },
       });
@@ -66,10 +64,8 @@ export function ConversationList() {
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
-
     );
   }
-
   return (
     <View style={styles.container}>
       <View style={styles.searchBar}>
@@ -85,7 +81,6 @@ export function ConversationList() {
       </View>
 
       {filteredConversations.length > 0 ? (
-
         <FlatList
           data={filteredConversations}
           keyExtractor={(item) => item.id}
@@ -101,7 +96,6 @@ export function ConversationList() {
               onRefresh={handleRefresh}
               tintColor="#0095F6"
             />
-
           }
           showsVerticalScrollIndicator={false}
         />
@@ -125,7 +119,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   loadingContainer: {
-    flex: 1,  // optimize: refactor
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
@@ -136,7 +130,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 10,
     paddingHorizontal: 12,
-
     height: 36,
     marginHorizontal: 12,
     marginVertical: 8,
@@ -146,13 +139,13 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   searchInput: {
-
     flex: 1,
+
     fontSize: 14,
     color: '#000000',
     padding: 0,
   },
-  empty: {  // optimize: edge case
+  empty: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
