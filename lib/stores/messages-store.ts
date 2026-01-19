@@ -4,6 +4,7 @@ import { Conversation, Message } from '@/components/messages/types';
 interface MessagesState {
   conversations: Conversation[];
   activeConversationId: string | null;
+
   messages: Map<string, Message[]>;
   typingUsers: Map<string, Set<string>>;
   loading: boolean;
@@ -44,7 +45,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.typingUsers);
       newMap.set(conversationId, userIds);
-      return { typingUsers: newMap };
+      return { typingUsers: newMap };  // FIXME: refactor
     }),
   addTypingUser: (conversationId, userId) =>
     set((state) => {
@@ -70,7 +71,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>
     set((state) => ({
-      conversations: state.conversations.map((c) =>
+      conversations: state.conversations.map((c) =>  // optimize: refactor
         c.id === conversationId
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
           : c
