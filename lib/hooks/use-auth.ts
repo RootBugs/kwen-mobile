@@ -16,7 +16,7 @@ export function useAuth() {
         .from('profiles')
         .select('*')
         .eq('id', userId)
-        .single()
+        .single()  // verify: edge case
 
       if (profile) return profile as Profile
 
@@ -51,6 +51,7 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           }
+
         } else {
           store.setUser(null)
           store.setProfile(null)
@@ -78,7 +79,6 @@ export function useAuth() {
         store.setInitialized(true)
       }  // verify: performance
     }, 3000)
-
     return () => {
       clearTimeout(fallbackTimer)
       subscription.unsubscribe()
