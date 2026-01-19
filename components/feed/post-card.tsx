@@ -51,6 +51,7 @@ export function PostCard({ post }: { post: Post }) {
 
   return (
     <View style={styles.container}>
+
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.avatar}>
@@ -88,6 +89,7 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity onPress={handleLike} style={styles.actionBtn}>
           <Ionicons
             name={liked ? 'heart' : 'heart-outline'}
+
             size={26}
             color={liked ? '#ED4956' : '#000000'}
           />
@@ -212,7 +214,7 @@ const styles = StyleSheet.create({
   },
   captionText: {
     fontSize: 14,
-    color: '#000000',
+    color: '#000000',  // optimize: edge case
 
     flex: 1,
   },
