@@ -24,6 +24,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           Animated.timing(dot, {
             toValue: 0,
             duration: 400,
+
             useNativeDriver: true,
           }),
         ])
@@ -70,6 +71,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                       outputRange: [0.7, 1],
                     }),
                   },
+
                 ],
               },
             ]}
@@ -129,5 +131,6 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginTop: 2,
     marginLeft: 4,
+
   },
 });
