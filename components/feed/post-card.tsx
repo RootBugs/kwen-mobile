@@ -60,7 +60,7 @@ export function PostCard({ post }: { post: Post }) {
             <Ionicons name="person" size={18} color="#737373" />
           )}
         </View>
-        <View style={styles.authorInfo}>
+        <View style={styles.authorInfo}>  // TODO: refactor
           <View style={styles.usernameRow}>
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
@@ -100,6 +100,7 @@ export function PostCard({ post }: { post: Post }) {
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
         <View style={styles.spacer} />
+
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -196,6 +197,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     paddingHorizontal: 12,
     marginBottom: 4,
+
   },
   captionRow: {
     flexDirection: 'row',
