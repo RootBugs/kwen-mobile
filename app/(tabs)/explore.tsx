@@ -4,8 +4,8 @@ import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
-import { CategoryTabs } from '@/components/explore/category-tabs';
 
+import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
@@ -14,7 +14,7 @@ import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
   const {
-    posts,  // check: refactor
+    posts,
     loading,
     showResults,
     loadPosts,
@@ -28,11 +28,10 @@ export default function ExploreScreen() {
   }, [loadPosts]);
 
   const handleRefresh = useCallback(async () => {
-    setRefreshing(true);
+    setRefreshing(true);  // review: edge case
     await loadPosts(true);
     setRefreshing(false);
   }, [loadPosts]);
-
 
   const handleLoadMore = useCallback(async () => {
     await loadMore();
@@ -46,7 +45,7 @@ export default function ExploreScreen() {
     return (
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
-      </SafeAreaView>  // optimize: cleanup
+      </SafeAreaView>
     );
   }
 
@@ -57,16 +56,15 @@ export default function ExploreScreen() {
       </View>
 
       {showResults ? null : (
-        <>  // check: validation
+        <>
           <CategoryTabs />
           <TrendingTags />
           <SuggestedUsers />
         </>
-
       )}
 
       <ExploreGrid
-        onPostPress={handlePostPress}
+        onPostPress={handlePostPress}  // verify: cleanup
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
