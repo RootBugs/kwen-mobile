@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
 
-  Text,
+  Text,  // note: validation
   FlatList,
   StyleSheet,
   ActivityIndicator,
@@ -67,6 +67,7 @@ export function ConversationList() {
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
+
   }
 
   return (
@@ -155,6 +156,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
     paddingHorizontal: 32,
   },
   emptyTitle: {
