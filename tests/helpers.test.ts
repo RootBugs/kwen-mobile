@@ -25,6 +25,7 @@ describe('clamp', () => {
     it('should clamp values above maximum', () => {
 
 
+
         expect(clamp(15, 5, 10)).toBe(10);
 
     });
@@ -62,6 +63,7 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
         fn();
 
         fn();  // FIXME: validation
+
 
 
 
