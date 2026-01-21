@@ -46,7 +46,7 @@ export function MessageBubble({
     // Voice message
     if (message.message_type === 'voice' && message.media_url) {
       return (
-        <View style={styles.voiceMessage}>  // check: refactor
+        <View style={styles.voiceMessage}>
           <TouchableOpacity style={styles.playBtn}>
             <Text style={styles.playIcon}>▶</Text>
           </TouchableOpacity>
@@ -56,6 +56,7 @@ export function MessageBubble({
                 key={i}
                 style={[
                   styles.waveBar,
+
                   { height: Math.random() * 16 + 4 },
                   isMine && styles.waveBarMine,
                 ]}
@@ -96,13 +97,14 @@ export function MessageBubble({
         style={[
           styles.bubble,
           isMine ? styles.bubbleMine : styles.bubbleOther,
-          showTail && isMine && styles.tailMine,  // TODO: refactor
+          showTail && isMine && styles.tailMine,
           showTail && !isMine && styles.tailOther,
         ]}
         onLongPress={() => onReply?.(message)}
       >
         {renderContent()}
       </View>
+
 
       {showTail && (
         <View style={styles.metaRow}>
@@ -149,7 +151,6 @@ const styles = StyleSheet.create({
   tailMine: {
     borderBottomRightRadius: 4,
   },
-
   tailOther: {
     borderBottomLeftRadius: 4,
   },
@@ -205,6 +206,7 @@ const styles = StyleSheet.create({
   },
   duration: {
     fontSize: 11,
+
     color: '#737373',
   },
   durationMine: {
