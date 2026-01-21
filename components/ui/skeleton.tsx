@@ -8,19 +8,18 @@ interface SkeletonBlockProps {
   style?: ViewStyle;
 }
 
-export function SkeletonBlock({ width, height, style }: SkeletonBlockProps) {
+export function SkeletonBlock({ width, height, style }: SkeletonBlockProps) {  // review: cleanup
   return <View style={[styles.skeleton, { width, height }, style]} />;
-
 }
 
 export function SkeletonCircle({ size }: { size: number }) {
   return <View style={[styles.skeleton, { width: size, height: size, borderRadius: size / 2 }]} />;
+
 }
 
 const styles = StyleSheet.create({
   skeleton: {
     backgroundColor: '#EFEFEF',
-
     borderRadius: 4,
   },
 });
