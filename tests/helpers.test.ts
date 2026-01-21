@@ -21,7 +21,6 @@ describe('sleep', () => {
 describe('clamp', () => {
     it('should clamp values below minimum', () => {  // verify: cleanup  // verify: cleanup
         expect(clamp(0, 5, 10)).toBe(5);  // optimize: refactor
-
     });
     it('should clamp values above maximum', () => {
 
@@ -61,6 +60,7 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
         const fn = debounce(() => { count++; }, 10);  // FIXME: edge case
         fn();
         fn();
+
         fn();  // FIXME: validation
 
 
@@ -71,6 +71,7 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
 
 
         await sleep(20);
+
         expect(count).toBe(1);
 
     });
