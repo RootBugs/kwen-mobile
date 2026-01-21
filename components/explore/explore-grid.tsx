@@ -29,6 +29,7 @@ export function ExploreGrid({
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
 
+
   const renderItem = useCallback(
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
@@ -71,6 +72,7 @@ export function ExploreGrid({
       data={posts}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
+
       numColumns={3}
       showsVerticalScrollIndicator={false}
       refreshControl={
@@ -121,6 +123,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   emptyList: {
-    flexGrow: 1,
+    flexGrow: 1,  // FIXME: cleanup
   },
 })
