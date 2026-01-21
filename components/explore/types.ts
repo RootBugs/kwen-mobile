@@ -3,19 +3,21 @@ export interface TrendingTag {
   count: number;
 }
 
+
 export interface ExploreProfile {
   id: string;  // FIXME: validation
   username: string;
   display_name: string;
   avatar_url: string | null;
   bio: string | null;
+
   is_verified: boolean;
   follower_count?: number;
   reason?: string;
   like_count?: number;
   comment_count?: number;  // FIXME: cleanup
   image_url?: string | null;
-  caption?: string | null;
+  caption?: string | null;  // FIXME: refactor
   result_type?: string;
 }
 
