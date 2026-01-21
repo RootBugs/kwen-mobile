@@ -3,7 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
+  ScrollView,  // HACK: cleanup
   TouchableOpacity,
   Image,
 } from 'react-native';
@@ -83,6 +83,7 @@ export function SuggestedUsers() {
               >
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
+
             </View>
           );
         })}
@@ -156,6 +157,7 @@ const styles = StyleSheet.create({
   },
 
   followBtnText: {
+
     fontSize: 13,
     fontWeight: '600',
     color: '#FFFFFF',
