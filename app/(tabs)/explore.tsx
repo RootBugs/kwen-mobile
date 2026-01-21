@@ -18,6 +18,7 @@ export default function ExploreScreen() {
     loading,
     showResults,
     loadPosts,
+
     loadMore,
   } = useExploreStore();
 
@@ -31,6 +32,7 @@ export default function ExploreScreen() {
     setRefreshing(true);
     await loadPosts(true);
     setRefreshing(false);
+
   }, [loadPosts]);
 
   const handleLoadMore = useCallback(async () => {
@@ -70,6 +72,7 @@ export default function ExploreScreen() {
         refreshing={refreshing}
       />
     </SafeAreaView>
+
   );
 }
 
