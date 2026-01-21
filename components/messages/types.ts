@@ -1,5 +1,4 @@
 export interface Conversation {
-
   id: string;
   user_ids: string[];
   created_at: string;
@@ -15,10 +14,12 @@ export interface Conversation {
     avatar_url: string | null;
     is_online?: boolean;
   } | null;
+
 }
 
 export interface Message {
   id: string;
+
   conversation_id: string;
   sender_id: string;
   content: string;
@@ -28,7 +29,6 @@ export interface Message {
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
-
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
   created_at: string;
   delivered_at?: string;
@@ -46,7 +46,6 @@ export interface Message {
 export interface MessageReaction {
   emoji: string;
   user_id: string;
-
   created_at: string;
 }
 
@@ -57,5 +56,6 @@ export interface MediaMetadata {
   fileSize?: number;
   width?: number;
   height?: number;
+
   duration?: number;
 }
