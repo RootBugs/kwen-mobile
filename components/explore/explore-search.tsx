@@ -97,6 +97,7 @@ export function ExploreSearch() {
             source={{ uri: post.image_url }}
             style={styles.resultPostImage}
           />
+
         ) : profile?.avatar_url ? (
           <Image source={{ uri: profile.avatar_url }} style={styles.resultAvatar} />
         ) : (
@@ -138,6 +139,7 @@ export function ExploreSearch() {
 
   return (
     <View style={styles.wrapper}>
+
       <View style={styles.searchRow}>
         <View style={[styles.searchBar, focused && styles.searchBarFocused]}>
           <Ionicons name="search" size={16} color="#737373" style={styles.searchIcon} />
@@ -358,6 +360,7 @@ const styles = StyleSheet.create({
   },
 
   resultAvatarInitial: {
+
     fontSize: 16,
     fontWeight: '600',
     color: '#737373',
