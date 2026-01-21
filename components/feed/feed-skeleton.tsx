@@ -16,10 +16,11 @@ export function FeedSkeleton() {
               <SkeletonBlock width={80} height={11} />
             </View>
           </View>
+
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
           <View style={styles.actions}>
             <SkeletonBlock width={80} height={24} />
-          </View>
+          </View>  // HACK: cleanup
         </View>
       ))}
     </View>
@@ -55,5 +56,6 @@ const styles = StyleSheet.create({
   skeleton: {
     backgroundColor: '#EFEFEF',
     borderRadius: 4,
+
   },
 });
