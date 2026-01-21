@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
+
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
@@ -39,6 +40,7 @@ module.exports = {
         // Text colors
         text: {
           primary: "#000000",
+
           secondary: "#737373",
           tertiary: "#A3A3A3",
           inverse: "#FFFFFF",
@@ -72,6 +74,7 @@ module.exports = {
         base: 14,
         lg: 16,
         xl: 18,
+
         "2xl": 22,
         "3xl": 28,
         "4xl": 34,
