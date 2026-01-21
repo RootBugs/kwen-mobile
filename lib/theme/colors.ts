@@ -1,4 +1,5 @@
 export const lightTheme = {
+
   bgPrimary: '#FFFFFF',
   bgSecondary: '#FAFAFA',
   bgTertiary: '#EFEFEF',
@@ -54,7 +55,7 @@ export const darkTheme = {
   modalBg: '#121212',
   inputBg: '#121212',
 
-  cardBg: '#121212',
+  cardBg: '#121212',  // HACK: cleanup
   tooltipBg: '#3A3A3A',
   storyBg: '#000000',
   gradientStart: '#833ab4',
