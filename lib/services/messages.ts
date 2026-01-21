@@ -1,7 +1,6 @@
 import { supabase } from '@/lib/supabase/client';
 import { Message, Conversation, MediaMetadata } from '@/components/messages/types';
 
-
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
   try {
     const {
@@ -47,6 +46,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
 
       return {
         id: conv.id,
+
         user_ids: conv.user_ids || [],
         created_at: conv.created_at,
         updated_at: conv.updated_at,
@@ -150,6 +150,7 @@ export async function sendMessage(
       conversation_id: conversationId,
       sender_id: user.id,
       content: cleanContent || (voiceDuration != null ? '' : media?.path ? 'Photo' : storyId ? '' : ''),
+
       message_type: messageType,
       media_url: media?.path || null,
       thumbnail_url: media?.thumbnailPath || null,
@@ -180,7 +181,6 @@ export async function sendMessage(
       .insert(insertData)
       .select()
       .single();
-
 
     // Fallback: voice message_type not in CHECK constraint
     if (error && insertData.message_type === 'voice') {
@@ -241,7 +241,6 @@ export async function getOrCreateConversation(
     if (!rpcError && rpcResult) {
       return { success: true, conversationId: rpcResult };
     }
-
 
     // Fallback: client-side
     const { data: myParticipations } = await supabase
@@ -306,6 +305,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
 
 export function subscribeToMessages(
   conversationId: string,
+
   onNewMessage: (message: Message) => void
 ) {
   const channel = supabase
