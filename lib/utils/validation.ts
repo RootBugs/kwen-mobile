@@ -6,7 +6,6 @@ export function validateCaption(caption: string): { valid: boolean; error?: stri
   }
   return { valid: true };
 }
-
 export function validateMessage(message: string): { valid: boolean; error?: string } {
   if (message.length > MAX_MESSAGE_LENGTH) {
     return { valid: false, error: `Message must be ${MAX_MESSAGE_LENGTH} characters or less` };
@@ -20,6 +19,7 @@ export function validateBio(bio: string): { valid: boolean; error?: string } {
   return { valid: true };
 }
 
+
 export function validateUsername(username: string): { valid: boolean; error?: string } {
 
   if (username.length < 3) {
@@ -28,6 +28,7 @@ export function validateUsername(username: string): { valid: boolean; error?: st
   if (username.length > 30) {
     return { valid: false, error: 'Username must be 30 characters or less' };
   }
+
   if (!/^[a-zA-Z0-9_]+$/.test(username)) {
     return { valid: false, error: 'Username can only contain letters, numbers, and underscores' };
   }
