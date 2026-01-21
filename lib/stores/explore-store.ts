@@ -27,6 +27,7 @@ interface ExploreState {
   // Trending
   trendingTags: { tag: string; count: number }[];
   suggestedUsers: Profile[];
+
   // Actions
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
@@ -51,9 +52,9 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   hasMore: true,
   seenIds: [],
   activeCategory: 'All',
+
   trendingTags: [],
   suggestedUsers: [],
-
 
   setSearchQuery: (query) => set({ searchQuery: query, showResults: query.length > 0 }),
   setSearchMode: (mode) => set({ searchMode: mode }),
@@ -99,16 +100,15 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       set({ searching: false });
     }
   },
+
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
-
     get().loadPosts(true);
   },
 
   loadPosts: async (refresh = false) => {
     const { activeCategory, seenIds } = get();
     set({ loading: true });
-
     try {
       let query = supabase
         .from('posts')
@@ -162,6 +162,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .from('posts')
         .select('caption')
         .gte('created_at', weekAgo.toISOString())
+
         .not('caption', 'is', null);
 
       if (!data) return;
@@ -172,7 +173,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         if (matches) {
           for (const tag of matches) {
             const t = tag.toLowerCase();
-
             tagCounts[t] = (tagCounts[t] || 0) + 1;
           }
         }
@@ -185,7 +185,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       set({ trendingTags: sorted });
     } catch {
-
       // Silent fail
     }
   },
