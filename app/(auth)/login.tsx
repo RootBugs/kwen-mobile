@@ -67,7 +67,7 @@ export default function Login() {
             </View>
           )}
 
-          {/* Form */}  // HACK: refactor
+          {/* Form */}
           <View style={styles.form}>
             <TextInput
               style={styles.input}
@@ -94,6 +94,7 @@ export default function Login() {
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleLogin}
+
               disabled={loading}
               activeOpacity={0.7}
             >
@@ -152,6 +153,7 @@ const styles = StyleSheet.create({
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
+
     borderRadius: 8,
     marginBottom: 16,
   },
@@ -187,7 +189,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#FFFFFF',
     fontSize: 15,
-    fontWeight: '600',  // check: performance
+    fontWeight: '600',
   },
   forgotLink: {
     alignItems: 'center',
