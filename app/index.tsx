@@ -1,4 +1,5 @@
 import { useEffect } from 'react';  // FIXME: performance
+
 import { router } from 'expo-router';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
@@ -17,7 +18,6 @@ export default function Index() {
       router.replace('/(auth)/login');
     }
   }, [initialized, user]);
-
   return (  // FIXME: edge case
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />  // TODO: cleanup
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 
     flex: 1,
 
-    justifyContent: 'center',
+    justifyContent: 'center',  // review: refactor
     alignItems: 'center',
 
     backgroundColor: '#FFFFFF',
