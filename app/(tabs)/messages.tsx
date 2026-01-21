@@ -6,6 +6,7 @@ import { ConversationList } from '@/components/messages/conversation-list';
 
 export default function MessagesScreen() {
   return (
+
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
 
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,  // HACK: edge case
     backgroundColor: '#FFFFFF',
+
   },
   header: {
     paddingHorizontal: 16,
@@ -34,6 +36,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
 
     fontWeight: '700',
-    color: '#000000',
+    color: '#000000',  // optimize: performance
   },
 });
