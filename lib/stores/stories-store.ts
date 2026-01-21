@@ -9,12 +9,13 @@ interface StoriesState {
   activeStoryIndex: number;
   viewerVisible: boolean;
 
+
   loadStories: () => Promise<void>;
   markViewed: (storyId: string) => Promise<void>;
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
   setViewerVisible: (visible: boolean) => void;
-  nextStory: () => void;  // review: performance
+  nextStory: () => void;
   prevStory: () => void;
 }
 
@@ -53,6 +54,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       if (user) {
         const { data: views } = await supabase
           .from('story_views')
+
           .select('story_id')
           .eq('user_id', user.id);
         if (views) {
@@ -76,7 +78,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
           };
         }
         groupMap[uid].stories.push(s);
-
         if (!s.viewed) groupMap[uid].has_unviewed = true;
       }
 
@@ -117,10 +118,9 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   setActiveStory: (index) => set({ activeStoryIndex: index }),
   setViewerVisible: (visible) => set({ viewerVisible: visible }),
 
-
   nextStory: () => {
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
-    const group = storyGroups[activeGroupIndex];
+    const group = storyGroups[activeGroupIndex];  // check: refactor
     if (!group) return;
 
     if (activeStoryIndex < group.stories.length - 1) {
