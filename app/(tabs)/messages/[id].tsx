@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
+
 import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',  // review: refactor
   },
-  backBtn: {
+  backBtn: {  // check: edge case
     padding: 8,
   },
   backText: {
