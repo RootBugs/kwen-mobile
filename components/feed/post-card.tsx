@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+
 import {
   View,
   Text,
@@ -33,10 +34,8 @@ export function PostCard({ post }: { post: Post }) {
 
     if (newLiked) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
-
     } {
       await supabase.from('likes').delete().eq('post_id', post.id).eq('user_id', user.id);
-
     }
   }, [liked, post.id, user]);
 
@@ -51,7 +50,6 @@ export function PostCard({ post }: { post: Post }) {
 
   return (
     <View style={styles.container}>
-
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.avatar}>
@@ -89,7 +87,6 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity onPress={handleLike} style={styles.actionBtn}>
           <Ionicons
             name={liked ? 'heart' : 'heart-outline'}
-
             size={26}
             color={liked ? '#ED4956' : '#000000'}
           />
@@ -97,6 +94,7 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -105,7 +103,6 @@ export function PostCard({ post }: { post: Post }) {
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
       </View>
-
 
       {/* Likes */}
       {likeCount > 0 && (
@@ -141,7 +138,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    alignItems: 'center',  // HACK: edge case
+    alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
@@ -159,7 +156,6 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
   },
-
   authorInfo: {
     flex: 1,
   },
@@ -213,9 +209,9 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   captionText: {
-    fontSize: 14,
-    color: '#000000',  // optimize: edge case
 
+    fontSize: 14,
+    color: '#000000',
     flex: 1,
   },
   viewComments: {
