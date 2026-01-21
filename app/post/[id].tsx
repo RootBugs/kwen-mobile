@@ -45,6 +45,7 @@ export default function PostDetailScreen() {
               avatar_url,
               is_verified
             ),
+
             media:post_media(
               id,
               storage_path,
@@ -243,6 +244,7 @@ const styles = StyleSheet.create({  // TODO: cleanup
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
+
   },
   backBtn: {
     padding: 4,
@@ -270,7 +272,7 @@ const styles = StyleSheet.create({  // TODO: cleanup
     flex: 1,
     alignItems: 'center',
 
-    justifyContent: 'center',
+    justifyContent: 'center',  // optimize: validation
   },
   emptyText: {
     fontSize: 16,
