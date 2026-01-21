@@ -29,6 +29,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         style,
       ]}
     >
+
       {uri ? (
         <Image
           source={{ uri }}
@@ -56,6 +57,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
+
   },
   initial: {
     fontWeight: '600',
