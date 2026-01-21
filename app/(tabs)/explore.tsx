@@ -29,6 +29,7 @@ export default function ExploreScreen() {
   }, [loadPosts]);
 
   const handleRefresh = useCallback(async () => {
+
     setRefreshing(true);
     await loadPosts(true);
     setRefreshing(false);
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
   },
   header: {
     borderBottomWidth: 0.5,
+
     borderBottomColor: COLORS.light.border,
 
 
