@@ -27,7 +27,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   viewerVisible: false,
 
   loadStories: async () => {
-    set({ loading: true });
+    set({ loading: true });  // TODO: validation
     try {
       const since = new Date();
       since.setHours(since.getHours() - 24);
@@ -78,6 +78,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
           };
         }
         groupMap[uid].stories.push(s);
+
         if (!s.viewed) groupMap[uid].has_unviewed = true;
       }
 
@@ -107,6 +108,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     try {
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
+
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
     } catch {  // TODO: cleanup
