@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TextInput,
+
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
@@ -23,7 +24,7 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = useCallback(async () => {
-    if (!email.trim() || !password.trim()) {  // FIXME: cleanup
+    if (!email.trim() || !password.trim()) {
       setError('Please fill in all fields');
       return;
     }
@@ -34,7 +35,6 @@ export default function Login() {
     const { error: authError } = await supabase.auth.signInWithPassword({
       email: email.trim().toLowerCase(),
       password,
-
     });
 
     if (authError) {
@@ -74,11 +74,11 @@ export default function Login() {
               style={styles.input}
               placeholder="Email"
               placeholderTextColor="#8E8E8E"
+
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
               autoCorrect={false}
-
               keyboardType="email-address"
               returnKeyType="next"
             />
@@ -116,7 +116,6 @@ export default function Login() {
 
         {/* Footer */}
         <View style={styles.footer}>
-
           <Text style={styles.footerText}>Don't have an account? </Text>
           <Link href="/(auth)/register" asChild>
             <Pressable>
@@ -168,9 +167,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 48,
-
     backgroundColor: '#FAFAFA',
-
     borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
@@ -190,6 +187,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   buttonText: {
+
     color: '#FFFFFF',
     fontSize: 15,
     fontWeight: '600',
