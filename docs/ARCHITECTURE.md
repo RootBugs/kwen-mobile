@@ -1,6 +1,7 @@
 <!-- checked: handler -->
 
 
+
 ## System Design  <!-- review: validation -->  <!-- FIXME: edge case -->
 This project is built using a component-based architecture that prioritizes:  <!-- check: edge case -->
 
