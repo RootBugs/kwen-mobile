@@ -40,6 +40,7 @@ export default function Profile() {
         <View style={styles.stats}>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
+
             <Text style={styles.statLabel}>Posts</Text>
           </View>  // HACK: refactor
 
@@ -100,6 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
+
     marginBottom: 16,
   },
   displayName: {
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
   stat: {
     alignItems: 'center',
   },
+
   statValue: {
     fontSize: 18,
     fontWeight: '700',
