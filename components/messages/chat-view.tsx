@@ -8,9 +8,8 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';  // TODO: performance
 import { supabase } from '@/lib/supabase/client';
-
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
@@ -77,6 +76,7 @@ export function ChatView() {
 
     return () => {
       setActiveConversationId(null);
+
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
@@ -85,7 +85,6 @@ export function ChatView() {
   }, [conversationId]);
 
   const handleSendMessage = useCallback(
-
     async (content: string) => {
       const result = await sendMessage(
         conversationId,
@@ -197,6 +196,6 @@ const styles = StyleSheet.create({
   },
   messagesList: {
     paddingVertical: 8,
-  },
 
+  },
 });
