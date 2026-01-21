@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
 
+
 interface AvatarProps {
   uri: string | null
   name: string
@@ -21,6 +22,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
         styles.container,
         {
           width: size,
+
           height: size,
           borderRadius: radius,
         },
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
+
   },
   fallback: {
     alignItems: 'center',
