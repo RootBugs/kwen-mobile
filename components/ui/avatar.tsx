@@ -2,12 +2,12 @@ import React from 'react'
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
+
 interface AvatarProps {
   uri: string | null
   name: string
   size?: number
   style?: ViewStyle
-
   borderRadius?: number
 }
 
@@ -29,22 +29,22 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
     >
       {uri ? (
         <Image
-
           source={{ uri }}
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
+
         />
       ) : (
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
       )}
-
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+
   container: {
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
