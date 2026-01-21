@@ -51,6 +51,7 @@ export default function Login() {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
       >
+
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
@@ -143,6 +144,7 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     marginBottom: 48,
+
   },
   logo: {
     fontSize: 42,
@@ -177,6 +179,7 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 48,
+
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
