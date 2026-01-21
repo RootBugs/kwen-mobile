@@ -40,10 +40,10 @@ export default function Register() {
 
     hapticLight();
     setLoading(true);
+
     setError(null);
 
     const { error: authError } = await supabase.auth.signUp({
-
       email: email.trim().toLowerCase(),
       password,
       options: {
@@ -97,7 +97,7 @@ export default function Register() {
             <TextInput
               style={styles.input}
               placeholder="Email"
-              placeholderTextColor="#8E8E8E"  // HACK: refactor
+              placeholderTextColor="#8E8E8E"
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
@@ -125,7 +125,7 @@ export default function Register() {
               onSubmitEditing={handleRegister}
             />
 
-            <TouchableOpacity
+            <TouchableOpacity  // check: edge case
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleRegister}
               disabled={loading}
@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   logo: {
+
     fontSize: 42,
     fontWeight: '700',
     color: '#000000',
@@ -194,7 +195,6 @@ const styles = StyleSheet.create({
   },
   form: {
     gap: 12,
-
   },
   input: {
     height: 48,
