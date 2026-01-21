@@ -123,6 +123,7 @@ export default function UserProfileScreen() {
       await Promise.all([loadProfile(), loadPosts()]);
       setLoading(false);
     };
+
     init();
   }, [loadProfile, loadPosts]);
 
@@ -217,6 +218,7 @@ export default function UserProfileScreen() {
         </View>
 
         {/* Bio */}
+
         <View style={styles.bioSection}>
           <View style={styles.nameRow}>
             <Text style={styles.displayName}>{profile.display_name}</Text>
@@ -401,6 +403,7 @@ const styles = StyleSheet.create({
   messageBtnText: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#000000',
   },
   postsSection: {
