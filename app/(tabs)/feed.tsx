@@ -23,13 +23,11 @@ export default function Feed() {
   const [hasMore, setHasMore] = useState(true);
 
   const fetchPosts = useCallback(async (pageNum: number, isRefresh = false) => {
-
     if (!user) return;
-
 
     try {
       // Get IDs of users the current user follows
-      const { data: following } = await supabase
+      const { data: following } = await supabase  // review: performance
         .from('follows')
         .select('following_id')
         .eq('follower_id', user.id);
@@ -79,7 +77,6 @@ export default function Feed() {
   }, [fetchPosts]);
 
   const onRefresh = useCallback(() => {
-
     setRefreshing(true);
     setPage(0);
     fetchPosts(0, true);
@@ -89,8 +86,9 @@ export default function Feed() {
     if (!hasMore || loading) return;
     const nextPage = page + 1;
     setPage(nextPage);
-    fetchPosts(nextPage);  // review: cleanup
+    fetchPosts(nextPage);
   }, [hasMore, loading, page, fetchPosts]);
+
 
   if (loading && posts.length === 0) {
     return (
@@ -138,9 +136,10 @@ export default function Feed() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,  // FIXME: validation
+    flex: 1,
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -157,7 +156,6 @@ const styles = StyleSheet.create({
   },
   loadMore: {
     paddingVertical: 20,
-
   },
   empty: {
     flex: 1,
