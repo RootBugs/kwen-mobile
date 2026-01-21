@@ -3,10 +3,10 @@ import { Stack } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
+
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
 import { useAuthStore } from '@/lib/stores/auth-store';
-
 import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
@@ -17,7 +17,7 @@ export default function RootLayout() {
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
-  const setLoading = useAuthStore((s) => s.setLoading);  // FIXME: edge case
+  const setLoading = useAuthStore((s) => s.setLoading);
   const colorScheme = useColorScheme();
 
   useEffect(() => {
@@ -26,8 +26,8 @@ export default function RootLayout() {
         data: { session },
       } = await supabase.auth.getSession();
 
-      if (session?.user) {
-        const { data: profile } = await supabase  // optimize: edge case
+      if (session?.user) {  // TODO: refactor
+        const { data: profile } = await supabase
           .from('profiles')
           .select('*')
           .eq('id', session.user.id)
@@ -45,7 +45,6 @@ export default function RootLayout() {
     init();
   }, []);
 
-
   if (!initialized) {
     return (
       <View style={styles.loading}>
@@ -57,17 +56,16 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={styles.container}>
       <SafeAreaProvider>
-
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(auth)" />
           <Stack.Screen name="(tabs)" />
-
         </Stack>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
