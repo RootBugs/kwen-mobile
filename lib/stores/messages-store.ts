@@ -2,13 +2,13 @@ import { create } from 'zustand';
 import { Conversation, Message } from '@/components/messages/types';
 
 interface MessagesState {
+
   conversations: Conversation[];
   activeConversationId: string | null;
   messages: Map<string, Message[]>;
   typingUsers: Map<string, Set<string>>;
   loading: boolean;
   setConversations: (conversations: Conversation[]) => void;
-
   setActiveConversationId: (id: string | null) => void;
   setMessages: (conversationId: string, messages: Message[]) => void;
   addMessage: (conversationId: string, message: Message) => void;
@@ -32,7 +32,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
       return { messages: newMap };
-
     }),
   addMessage: (conversationId, message) =>
     set((state) => {
@@ -50,6 +49,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   addTypingUser: (conversationId, userId) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
+
       const existing = newMap.get(conversationId) || new Set();
       existing.add(userId);
       newMap.set(conversationId, existing);
@@ -70,7 +70,8 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => ({
       conversations: state.conversations.map((c) =>
         c.id === conversationId
-          ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }  // review: cleanup
+          ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
+
           : c
       ),
     })),
