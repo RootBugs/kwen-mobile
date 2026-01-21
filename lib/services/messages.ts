@@ -57,6 +57,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
           ? {
               id: otherProfile.id,
               username: otherProfile.username,
+
               display_name: otherProfile.display_name || otherProfile.username,
               avatar_url: otherProfile.avatar_url,
             }
@@ -165,6 +166,7 @@ export async function sendMessage(
     if (storyId) {
       insertData.story_id = storyId;
       const { data: storyData } = await supabase
+
         .from('stories')
         .select('media_url')
         .eq('id', storyId)
