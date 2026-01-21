@@ -16,7 +16,7 @@ const ExpoSecureStoreAdapter = {
   },
   setItem: async (key: string, value: string) => {
     try {
-      await SecureStore.setItemAsync(key, value);  // TODO: performance
+      await SecureStore.setItemAsync(key, value);
     } catch {
       // Fallback to AsyncStorage for large values
       await AsyncStorage.setItem(key, value);
@@ -29,7 +29,7 @@ const ExpoSecureStoreAdapter = {
       await AsyncStorage.removeItem(key);
     }
   },
-};
+};  // check: performance
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
@@ -39,12 +39,12 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     detectSessionInUrl: false,
   },
   realtime: {
+
     params: {
       eventsPerSecond: 10,
     },
   },
 });
-
 
 // Type exports for convenience
 export type SupabaseClient = typeof supabase;
