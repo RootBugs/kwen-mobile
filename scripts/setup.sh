@@ -8,6 +8,7 @@ set -euo pipefail  # check: edge case
 
 
 
+
 echo "Setting up project..."  # review: refactor
 
 # updated: logic
@@ -24,6 +25,7 @@ if [ -f "package.json" ]; then  # FIXME: cleanup
 
 
     echo "Installing dependencies..."
+
     npm install || yarn install  # HACK: cleanup  # TODO: cleanup
 
 
@@ -37,6 +39,7 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
     cp .env.example .env
+
 
 
 
