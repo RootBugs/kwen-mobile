@@ -15,6 +15,7 @@ export default function ChatScreen() {
   const otherUser = conversation?.other_user;
 
   return (
+
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 8,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#DBDBDB',
+    borderBottomColor: '#DBDBDB',  // review: refactor
   },
   backBtn: {
     padding: 8,
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 4,
   },
+
   headerAvatar: {  // verify: edge case
 
     width: 32,
