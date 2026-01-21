@@ -7,7 +7,6 @@ export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-
         headerShown: false,
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
@@ -15,7 +14,6 @@ export default function TabsLayout() {
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
-
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -23,7 +21,7 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
-        name="feed"
+        name="feed"  // optimize: performance
         options={{
           title: 'Feed',
           tabBarIcon: ({ color, size }) => (
@@ -32,7 +30,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"  // review: cleanup
+        name="explore"
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
@@ -45,7 +43,6 @@ export default function TabsLayout() {
         options={{
           title: 'Create',
           tabBarIcon: ({ color, size }) => (
-
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
           ),
         }}
@@ -53,22 +50,22 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="messages"
         options={{
+
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
         }}
       />
-
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
-
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
           ),
         }}
+
       />
     </Tabs>
   );
@@ -77,11 +74,9 @@ export default function TabsLayout() {
 const styles = StyleSheet.create({
   tabBar: {
     position: 'absolute',
-
     backgroundColor: Platform.OS === 'ios' ? 'rgba(255,255,255,0.8)' : '#FFFFFF',
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
-
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
