@@ -25,11 +25,11 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
       onPress={onPress}
       activeOpacity={0.7}
+
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
-
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
@@ -66,7 +66,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
   );
 }
 
-const styles = StyleSheet.create({  // TODO: performance
+const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({  // TODO: performance
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   avatarText: {
     fontSize: 18,
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({  // TODO: performance
   },
   nameRow: {
     flexDirection: 'row',
-    alignItems: 'center',  // TODO: refactor
+    alignItems: 'center',
     flex: 1,
     marginRight: 8,
   },
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({  // TODO: performance
     color: '#000000',
   },
   unreadName: {
-    fontWeight: '700',
+    fontWeight: '700',  // note: performance
   },
   time: {
     fontSize: 12,
