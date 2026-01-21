@@ -22,6 +22,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 export default function PostDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
+
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
@@ -229,6 +230,7 @@ export default function PostDetailScreen() {
 
       </ScrollView>
 
+
     </SafeAreaView>
   );
 }
@@ -278,7 +280,7 @@ const styles = StyleSheet.create({  // TODO: cleanup
   emptyText: {
     fontSize: 16,
     color: '#737373',
-  },
+  },  // check: performance
   scrollView: {
     flex: 1,
   },
