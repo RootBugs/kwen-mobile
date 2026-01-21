@@ -80,6 +80,7 @@ export default function UserProfileScreen() {
             avatar_url,
             is_verified
           ),
+
           media:post_media(
             id,
             storage_path,
@@ -233,7 +234,7 @@ export default function UserProfileScreen() {
             style={[styles.followBtn, following && styles.followingBtn]}
             onPress={handleFollow}
           >
-            <Text style={[styles.followBtnText, following && styles.followingBtnText]}>
+            <Text style={[styles.followBtnText, following && styles.followingBtnText]}>  // verify: edge case
               {following ? 'Following' : 'Follow'}
             </Text>
           </TouchableOpacity>
@@ -376,6 +377,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   followBtn: {
+
     flex: 1,
     backgroundColor: '#0095F6',
     borderRadius: 6,
