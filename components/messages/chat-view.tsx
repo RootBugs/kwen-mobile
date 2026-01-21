@@ -111,6 +111,7 @@ export function ChatView() {
       }
     },
     [conversationId, addMessage]
+
   );
 
   const handleReply = useCallback((message: Message) => {
@@ -182,6 +183,7 @@ export function ChatView() {
     </KeyboardAvoidingView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
