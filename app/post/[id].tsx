@@ -64,6 +64,7 @@ export default function PostDetailScreen() {
 
         const mapped: ExplorePost = {
           id: data.id,
+
           user_id: data.user_id,
           content: data.content,
           created_at: data.created_at,
@@ -363,6 +364,7 @@ const styles = StyleSheet.create({  // TODO: cleanup
     color: '#000000',
     flex: 1,
   },
+
   viewComments: {
     paddingHorizontal: 12,
     marginBottom: 4,
