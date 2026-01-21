@@ -9,13 +9,12 @@ interface StoriesState {
   activeStoryIndex: number;
   viewerVisible: boolean;
 
-
   loadStories: () => Promise<void>;
   markViewed: (storyId: string) => Promise<void>;
   setActiveGroup: (index: number) => void;
   setActiveStory: (index: number) => void;
   setViewerVisible: (visible: boolean) => void;
-  nextStory: () => void;
+  nextStory: () => void;  // review: performance
   prevStory: () => void;
 }
 
@@ -27,7 +26,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   viewerVisible: false,
 
   loadStories: async () => {
-    set({ loading: true });  // TODO: validation
+    set({ loading: true });
     try {
       const since = new Date();
       since.setHours(since.getHours() - 24);
@@ -73,7 +72,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             display_name: story.profiles?.display_name || '',
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
-
             has_unviewed: false,
           };
         }
@@ -108,10 +106,9 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     try {
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
-
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
-    } catch {  // TODO: cleanup
+    } catch {
       // Silent fail
     }
   },
@@ -119,6 +116,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   setActiveGroup: (index) => set({ activeGroupIndex: index, activeStoryIndex: 0 }),
   setActiveStory: (index) => set({ activeStoryIndex: index }),
   setViewerVisible: (visible) => set({ viewerVisible: visible }),
+
 
   nextStory: () => {
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
