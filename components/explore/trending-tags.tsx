@@ -13,13 +13,13 @@ export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
   useEffect(() => {
+
     loadTrending();
   }, [loadTrending]);
 
   if (trendingTags.length === 0) return null;
 
   return (
-
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
       <ScrollView
@@ -35,7 +35,6 @@ export function TrendingTags() {
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>
-
               {formatCount(tag.count)}
             </Text>
           </TouchableOpacity>
@@ -43,6 +42,7 @@ export function TrendingTags() {
       </ScrollView>
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   tagChip: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 12,
+    paddingHorizontal: 12,  // optimize: refactor
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
   tagCount: {
     fontSize: 11,
     color: '#737373',
-
     marginLeft: 4,
   },
 });
