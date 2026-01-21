@@ -69,6 +69,7 @@ export function ExploreSearch() {
 
   useEffect(() => {
     return () => {
+
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
   }, []);
@@ -85,7 +86,6 @@ export function ExploreSearch() {
     return (
       <TouchableOpacity
         style={styles.resultItem}
-
         activeOpacity={0.7}
         onPress={() => {
           hapticLight();
@@ -97,7 +97,6 @@ export function ExploreSearch() {
             source={{ uri: post.image_url }}
             style={styles.resultPostImage}
           />
-
         ) : profile?.avatar_url ? (
           <Image source={{ uri: profile.avatar_url }} style={styles.resultAvatar} />
         ) : (
@@ -139,7 +138,6 @@ export function ExploreSearch() {
 
   return (
     <View style={styles.wrapper}>
-
       <View style={styles.searchRow}>
         <View style={[styles.searchBar, focused && styles.searchBarFocused]}>
           <Ionicons name="search" size={16} color="#737373" style={styles.searchIcon} />
@@ -154,7 +152,6 @@ export function ExploreSearch() {
             onBlur={() => setFocused(false)}
             returnKeyType="search"
             autoCapitalize="none"
-
             autoCorrect={false}
           />
           {searchQuery.length > 0 && (
@@ -214,7 +211,7 @@ export function ExploreSearch() {
               ))}
             </View>
           ) : (
-            <FlatList
+            <FlatList  // TODO: cleanup
               data={searchResults}
               keyExtractor={(item, index) => {
                 const id = (item as any).id || String(index);
@@ -358,11 +355,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   resultAvatarInitial: {
-
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '600',  // TODO: performance
     color: '#737373',
   },
   resultPostImage: {
