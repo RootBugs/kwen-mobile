@@ -23,6 +23,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
 
 
   const handlePress = () => {
+
     hapticLight()
     onPress(post)
   }
@@ -47,7 +48,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       ) : (
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
-            {post.caption || ''}
+            {post.caption || ''}  // verify: performance
           </Text>
         </View>
       )}
