@@ -40,7 +40,6 @@ export default function Register() {
 
     hapticLight();
     setLoading(true);
-
     setError(null);
 
     const { error: authError } = await supabase.auth.signUp({
@@ -52,7 +51,6 @@ export default function Register() {
         },
       },
     });
-
     if (authError) {
       setError(authError.message);
       setLoading(false);
@@ -125,8 +123,8 @@ export default function Register() {
               onSubmitEditing={handleRegister}
             />
 
-            <TouchableOpacity  // check: edge case
-              style={[styles.button, loading && styles.buttonDisabled]}
+            <TouchableOpacity
+              style={[styles.button, loading && styles.buttonDisabled]}  // FIXME: validation
               onPress={handleRegister}
               disabled={loading}
               activeOpacity={0.7}
@@ -171,7 +169,6 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   logo: {
-
     fontSize: 42,
     fontWeight: '700',
     color: '#000000',
@@ -184,6 +181,7 @@ const styles = StyleSheet.create({
   },
   errorContainer: {
     backgroundColor: '#FDE8E8',
+
     padding: 12,
     borderRadius: 8,
     marginBottom: 16,
