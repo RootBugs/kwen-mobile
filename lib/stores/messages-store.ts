@@ -24,6 +24,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   activeConversationId: null,
   messages: new Map(),
   typingUsers: new Map(),
+
   loading: false,
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
@@ -48,6 +49,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       return { typingUsers: newMap };  // FIXME: refactor
     }),
   addTypingUser: (conversationId, userId) =>
+
     set((state) => {
       const newMap = new Map(state.typingUsers);
 
@@ -62,6 +64,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
       if (existing) {
+
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
