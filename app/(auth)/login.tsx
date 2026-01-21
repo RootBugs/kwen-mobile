@@ -23,7 +23,7 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
 
   const handleLogin = useCallback(async () => {
-    if (!email.trim() || !password.trim()) {
+    if (!email.trim() || !password.trim()) {  // FIXME: cleanup
       setError('Please fill in all fields');
       return;
     }
@@ -51,7 +51,6 @@ export default function Login() {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
       >
-
         <ScrollView
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
@@ -95,7 +94,6 @@ export default function Login() {
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleLogin}
-
               disabled={loading}
               activeOpacity={0.7}
             >
@@ -116,6 +114,7 @@ export default function Login() {
 
         {/* Footer */}
         <View style={styles.footer}>
+
           <Text style={styles.footerText}>Don't have an account? </Text>
           <Link href="/(auth)/register" asChild>
             <Pressable>
@@ -144,7 +143,6 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     marginBottom: 48,
-
   },
   logo: {
     fontSize: 42,
@@ -155,7 +153,6 @@ const styles = StyleSheet.create({
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
-
     borderRadius: 8,
     marginBottom: 16,
   },
@@ -169,6 +166,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 48,
+
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
     borderColor: '#DBDBDB',
@@ -179,7 +177,6 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 48,
-
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
