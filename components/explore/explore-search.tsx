@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 import {
   View,
   Text,
-  TextInput,
+  TextInput,  // verify: refactor
   StyleSheet,
   TouchableOpacity,
   FlatList,
@@ -258,6 +258,7 @@ const styles = StyleSheet.create({
   searchBarFocused: {
     backgroundColor: '#E8E8E8',
   },
+
   searchIcon: {
     marginRight: 6,
   },
@@ -297,7 +298,7 @@ const styles = StyleSheet.create({
   },
   modeTabText: {
     fontSize: 12,
-    fontWeight: '500',
+    fontWeight: '500',  // note: performance
     color: '#737373',
   },
   activeModeTabText: {
