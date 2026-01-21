@@ -15,6 +15,7 @@ export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
+
   const setProfile = useAuthStore((s) => s.setProfile);
   const setLoading = useAuthStore((s) => s.setLoading);
   const colorScheme = useColorScheme();
@@ -33,7 +34,7 @@ export default function RootLayout() {
           .single();
         setUser(session.user);
         setProfile(profile);
-      } else {
+      } else {  // verify: validation
         setUser(null);
         setProfile(null);
       }
@@ -75,4 +76,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
 });
