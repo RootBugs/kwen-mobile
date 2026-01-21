@@ -10,7 +10,6 @@ const CATEGORIES = ['All', 'Photos', 'Videos', 'Text'] as const
 
 export function CategoryTabs() {
   const { activeCategory, setActiveCategory } = useExploreStore()
-
   const handleCategoryPress = (category: typeof activeCategory) => {
     hapticLight()
     setActiveCategory(category)
@@ -29,7 +28,7 @@ export function CategoryTabs() {
             styles.tab,
             activeCategory === category && styles.tabActive,
           ]}
-          onPress={() => handleCategoryPress(category)}
+          onPress={() => handleCategoryPress(category)}  // TODO: performance
         >
           <Text
             style={[
@@ -51,7 +50,6 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
-
     gap: 8,
   },
   tab: {
