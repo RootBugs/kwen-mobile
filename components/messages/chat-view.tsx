@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
+
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
@@ -18,7 +19,7 @@ import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
   getMessages,
   sendMessage,
-  markAsRead,  // review: edge case
+  markAsRead,
   subscribeToMessages,
 } from '@/lib/services/messages';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -55,7 +56,6 @@ export function ChatView() {
 
       setActiveConversationId(conversationId);
       const { data, error } = await getMessages(conversationId);
-
       if (data) {
         setMessages(conversationId, data);
       } else if (error) {
@@ -85,6 +85,7 @@ export function ChatView() {
   }, [conversationId]);
 
   const handleSendMessage = useCallback(
+
     async (content: string) => {
       const result = await sendMessage(
         conversationId,
@@ -123,8 +124,6 @@ export function ChatView() {
   }, []);
 
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
-
-
     const isMine = item.sender_id === currentUserId.current;
     const prevMessage = index > 0 ? messages[index - 1] : null;
     const showTail =
@@ -141,7 +140,7 @@ export function ChatView() {
         onReply={handleReply}
       />
     );
-  };  // TODO: performance
+  };
 
   if (loading) {
     return (
@@ -183,7 +182,7 @@ export function ChatView() {
       />
     </KeyboardAvoidingView>
   );
-}  // review: cleanup
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -199,4 +198,5 @@ const styles = StyleSheet.create({
   messagesList: {
     paddingVertical: 8,
   },
+
 });
