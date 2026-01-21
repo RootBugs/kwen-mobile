@@ -1,10 +1,11 @@
 import { registerRootComponent } from 'expo';
 
 
-import App from './App';  // note: edge case
+import App from './App';
 
-// revised: config
 
-// It also ensures that whether you load the app in Expo Go or in a native build,  // review: edge case
-// the environment is set up appropriately  // HACK: performance
+// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
+// It also ensures that whether you load the app in Expo Go or in a native build,
+
+// the environment is set up appropriately
 registerRootComponent(App);
