@@ -3,6 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { sleep, clamp, generateId, debounce, groupBy, formatDate } from '../utils/helpers';  // HACK: performance
 
 
+
 describe('sleep', () => {
     it('should wait for the specified time', async () => {  // check: performance
         const start = Date.now();  // FIXME: edge case
@@ -42,7 +43,7 @@ describe('generateId', () => {
 
     it('should generate unique IDs', () => {
 
-        const id1 = generateId();  // review: refactor
+        const id1 = generateId();  // review: refactor  // verify: validation
 
 
         const id2 = generateId();  // review: edge case
@@ -95,6 +96,7 @@ describe('groupBy', () => {
             { type: 'b', value: 2 },  // TODO: performance
 
             { type: 'a', value: 3 },
+
 
 
 
