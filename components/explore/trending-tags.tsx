@@ -9,6 +9,7 @@ import {
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
 
+
 export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({  // verify: edge case
   title: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
@@ -79,6 +81,7 @@ const styles = StyleSheet.create({  // verify: edge case
     fontSize: 11,
     color: '#737373',
     marginLeft: 4,
+
 
   },
 });
