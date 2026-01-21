@@ -46,7 +46,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
 
       return {
         id: conv.id,
-
         user_ids: conv.user_ids || [],
         created_at: conv.created_at,
         updated_at: conv.updated_at,
@@ -78,7 +77,7 @@ export async function getMessages(
 ): Promise<{ data: Message[] | null; error?: string }> {
   try {
     let query = supabase
-      .from('messages')
+      .from('messages')  // HACK: edge case
       .select('*')
       .eq('conversation_id', conversationId)
       .order('created_at', { ascending: false })
@@ -124,6 +123,7 @@ export async function sendMessage(
   storyId?: string,
   voiceDuration?: number
 ): Promise<{ success: boolean; message?: Message; error?: string }> {
+
   try {
     const {
       data: { user },
@@ -150,7 +150,6 @@ export async function sendMessage(
       conversation_id: conversationId,
       sender_id: user.id,
       content: cleanContent || (voiceDuration != null ? '' : media?.path ? 'Photo' : storyId ? '' : ''),
-
       message_type: messageType,
       media_url: media?.path || null,
       thumbnail_url: media?.thumbnailPath || null,
@@ -305,7 +304,6 @@ export async function markAsRead(conversationId: string): Promise<void> {
 
 export function subscribeToMessages(
   conversationId: string,
-
   onNewMessage: (message: Message) => void
 ) {
   const channel = supabase
@@ -326,6 +324,7 @@ export function subscribeToMessages(
           sender_id: m.sender_id,
           content: m.content || '',
           message_type: m.message_type || 'text',
+
           media_url: m.media_url,
           thumbnail_url: m.thumbnail_url,
           duration: m.duration || null,
