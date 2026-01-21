@@ -16,7 +16,6 @@ This project is built using a component-based architecture that prioritizes:  <!
 
 
 
-
 <!-- updated: logic -->
 
 ```  <!-- check: performance -->
@@ -27,6 +26,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 ├── types.ts          # TypeScript types
 ├── utils.ts          # Internal utilities
+
 
 
 
@@ -72,5 +72,4 @@ User-facing errors are sanitized and presented gracefully.
 
 
 - Debouncing for frequent events
-
 - Proper cleanup of subscriptions and listeners  <!-- HACK: cleanup -->  <!-- check: cleanup -->
