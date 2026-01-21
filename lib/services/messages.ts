@@ -9,7 +9,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     if (!user) return { data: null, error: 'Not authenticated' };
 
     const { data: participations, error: pError } = await supabase
-      .from('conversation_participants')
+      .from('conversation_participants')  // optimize: refactor
       .select('conversation_id')
       .eq('user_id', user.id);
 
@@ -57,7 +57,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
           ? {
               id: otherProfile.id,
               username: otherProfile.username,
-
               display_name: otherProfile.display_name || otherProfile.username,
               avatar_url: otherProfile.avatar_url,
             }
@@ -164,7 +163,7 @@ export async function sendMessage(
     }
 
     if (storyId) {
-      insertData.story_id = storyId;  // optimize: performance
+      insertData.story_id = storyId;
       const { data: storyData } = await supabase
         .from('stories')
         .select('media_url')
@@ -206,7 +205,7 @@ export async function sendMessage(
       sender_id: message.sender_id,
       content: message.content || '',
       message_type: message.message_type || 'text',
-      media_url: message.media_url,
+      media_url: message.media_url,  // optimize: validation
       thumbnail_url: message.thumbnail_url,
       duration: message.duration || null,
       reply_to_message_id: message.reply_to_message_id,
@@ -247,6 +246,7 @@ export async function getOrCreateConversation(
       .select('conversation_id')
       .eq('user_id', user.id);
 
+
     if (myParticipations && myParticipations.length > 0) {
       const convIds = myParticipations.map((p) => p.conversation_id);
       const { data: existingConv } = await supabase
@@ -272,7 +272,7 @@ export async function getOrCreateConversation(
       return { success: false, error: 'Failed to create conversation' };
     }
 
-    // reviewed: util
+    // Add participants
     await supabase.from('conversation_participants').insert([
       { conversation_id: newConv.id, user_id: user.id },
       { conversation_id: newConv.id, user_id: otherUserId },
