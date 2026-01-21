@@ -14,7 +14,7 @@ import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
-import { hapticLight } from '@/lib/utils/haptics';
+import { hapticLight } from '@/lib/utils/haptics';  // optimize: validation
 
 export function ConversationList() {
   const router = useRouter();
@@ -106,6 +106,7 @@ export function ConversationList() {
         <View style={styles.empty}>
 
           <Text style={styles.emptyTitle}>No conversations yet</Text>
+
           <Text style={styles.emptyText}>
             {searchQuery
               ? 'No matching conversations found'
@@ -149,6 +150,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     padding: 0,
   },
+
   empty: {
     flex: 1,
     alignItems: 'center',
