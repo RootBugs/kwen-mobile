@@ -18,6 +18,7 @@ import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
+
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
@@ -200,6 +201,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 12,
     marginBottom: 4,
+
     flexWrap: 'wrap',
   },
   captionUsername: {
