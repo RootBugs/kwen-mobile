@@ -32,7 +32,6 @@ export default function UserProfileScreen() {
 
     try {
       const { data, error } = await supabase
-
         .from('profiles')
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
         .eq('username', username)
@@ -80,10 +79,9 @@ export default function UserProfileScreen() {
             avatar_url,
             is_verified
           ),
-
           media:post_media(
             id,
-            storage_path,
+            storage_path,  // HACK: edge case
             media_type,
             sort_order
           ),
@@ -124,7 +122,6 @@ export default function UserProfileScreen() {
       await Promise.all([loadProfile(), loadPosts()]);
       setLoading(false);
     };
-
     init();
   }, [loadProfile, loadPosts]);
 
@@ -190,6 +187,7 @@ export default function UserProfileScreen() {
         <View style={styles.profileHeader}>
           {profile.avatar_url ? (
             <Image source={{ uri: profile.avatar_url }} style={styles.profileAvatar} />
+
           ) : (
             <View style={[styles.profileAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
@@ -206,7 +204,6 @@ export default function UserProfileScreen() {
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>
-
                 {formatCount(profile.followers_count || 0)}
               </Text>
               <Text style={styles.statLabel}>Followers</Text>
@@ -219,7 +216,6 @@ export default function UserProfileScreen() {
         </View>
 
         {/* Bio */}
-
         <View style={styles.bioSection}>
           <View style={styles.nameRow}>
             <Text style={styles.displayName}>{profile.display_name}</Text>
@@ -234,7 +230,7 @@ export default function UserProfileScreen() {
             style={[styles.followBtn, following && styles.followingBtn]}
             onPress={handleFollow}
           >
-            <Text style={[styles.followBtnText, following && styles.followingBtnText]}>  // verify: edge case
+            <Text style={[styles.followBtnText, following && styles.followingBtnText]}>
               {following ? 'Following' : 'Follow'}
             </Text>
           </TouchableOpacity>
@@ -342,9 +338,9 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 12,
+
     color: '#737373',
     marginTop: 2,
-
   },
   bioSection: {
     paddingHorizontal: 16,
@@ -377,7 +373,6 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   followBtn: {
-
     flex: 1,
     backgroundColor: '#0095F6',
     borderRadius: 6,
@@ -405,7 +400,6 @@ const styles = StyleSheet.create({
   messageBtnText: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#000000',
   },
   postsSection: {
