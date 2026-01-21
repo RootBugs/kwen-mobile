@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
-
-  Text,  // note: validation
+  Text,
   FlatList,
   StyleSheet,
   ActivityIndicator,
@@ -14,7 +13,7 @@ import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
-import { hapticLight } from '@/lib/utils/haptics';  // optimize: validation
+import { hapticLight } from '@/lib/utils/haptics';
 
 export function ConversationList() {
   const router = useRouter();
@@ -33,6 +32,7 @@ export function ConversationList() {
   }, [setConversations]);
 
   useEffect(() => {
+
     loadConversations().finally(() => setLoading(false));
   }, [loadConversations]);
 
@@ -56,6 +56,7 @@ export function ConversationList() {
   const filteredConversations = searchQuery
     ? conversations.filter(
         (c) =>
+
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
       )
@@ -67,7 +68,6 @@ export function ConversationList() {
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
-
   }
 
   return (
@@ -105,15 +105,12 @@ export function ConversationList() {
         />
       ) : (
         <View style={styles.empty}>
-
           <Text style={styles.emptyTitle}>No conversations yet</Text>
-
           <Text style={styles.emptyText}>
             {searchQuery
               ? 'No matching conversations found'
               : 'Start a conversation from a user\'s profile'}
           </Text>
-
         </View>
       )}
     </View>
@@ -123,6 +120,7 @@ export function ConversationList() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
   loadingContainer: {
@@ -151,12 +149,10 @@ const styles = StyleSheet.create({
     color: '#000000',
     padding: 0,
   },
-
   empty: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
     paddingHorizontal: 32,
   },
   emptyTitle: {
