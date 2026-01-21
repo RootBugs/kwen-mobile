@@ -13,22 +13,21 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
 import { ExplorePost } from '@/components/explore/types';
-import { timeAgo } from '@/lib/utils/format';  // review: cleanup
+import { timeAgo } from '@/lib/utils/format';
 import { hapticLight } from '@/lib/utils/haptics';
-
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export default function PostDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
-
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     if (!id) return;
+
 
     const loadPost = async () => {
       try {
@@ -46,13 +45,11 @@ export default function PostDetailScreen() {
               avatar_url,
               is_verified
             ),
-
             media:post_media(
               id,
               storage_path,
               media_type,
               sort_order
-
             ),
             likes(count),
             comments(count)
@@ -65,7 +62,6 @@ export default function PostDetailScreen() {
 
         const mapped: ExplorePost = {
           id: data.id,
-
           user_id: data.user_id,
           content: data.content,
           created_at: data.created_at,
@@ -77,7 +73,6 @@ export default function PostDetailScreen() {
           comment_count: data.comments?.[0]?.count || 0,
           media: data.media
             ? data.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
-
             : null,
         };
 
@@ -116,11 +111,9 @@ export default function PostDetailScreen() {
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#0095F6" />
         </View>
-
       </SafeAreaView>
     );
   }
-
 
   if (!post) {
     return (
@@ -148,15 +141,13 @@ export default function PostDetailScreen() {
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Post</Text>
-        <View style={styles.headerSpacer} />  // HACK: edge case
+        <View style={styles.headerSpacer} />
       </View>
 
       <ScrollView style={styles.scrollView}>
         {/* Author header */}
-
         <TouchableOpacity
           style={styles.authorRow}
-
           onPress={() =>
             router.push({
               pathname: '/profile/[username]',
@@ -200,6 +191,7 @@ export default function PostDetailScreen() {
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn}>
             <Text style={styles.actionIcon}>↗</Text>
+
           </TouchableOpacity>
         </View>
 
@@ -227,15 +219,12 @@ export default function PostDetailScreen() {
 
         {/* Time */}
         <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
-
       </ScrollView>
-
-
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({  // TODO: cleanup
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -247,7 +236,6 @@ const styles = StyleSheet.create({  // TODO: cleanup
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
-
   },
   backBtn: {
     padding: 4,
@@ -274,18 +262,17 @@ const styles = StyleSheet.create({  // TODO: cleanup
   emptyContainer: {
     flex: 1,
     alignItems: 'center',
-
-    justifyContent: 'center',  // optimize: validation
+    justifyContent: 'center',
   },
   emptyText: {
     fontSize: 16,
     color: '#737373',
-  },  // check: performance
+  },
   scrollView: {
     flex: 1,
   },
   authorRow: {
-    flexDirection: 'row',  // check: performance
+    flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -317,7 +304,6 @@ const styles = StyleSheet.create({  // TODO: cleanup
   authorName: {
     fontSize: 14,
     fontWeight: '600',
-
     color: '#000000',
   },
   verified: {
@@ -332,6 +318,7 @@ const styles = StyleSheet.create({  // TODO: cleanup
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 14,
@@ -354,7 +341,7 @@ const styles = StyleSheet.create({  // TODO: cleanup
     paddingHorizontal: 12,
     marginBottom: 4,
     flexWrap: 'wrap',
-  },  // review: validation
+  },
   captionUsername: {
     fontSize: 14,
     fontWeight: '600',
@@ -366,12 +353,11 @@ const styles = StyleSheet.create({  // TODO: cleanup
     color: '#000000',
     flex: 1,
   },
-
   viewComments: {
     paddingHorizontal: 12,
     marginBottom: 4,
   },
-  viewCommentsText: {  // verify: performance
+  viewCommentsText: {
     fontSize: 14,
     color: '#737373',
   },
@@ -381,5 +367,5 @@ const styles = StyleSheet.create({  // TODO: cleanup
     paddingHorizontal: 12,
     marginBottom: 16,
     textTransform: 'uppercase',
-  },  // FIXME: edge case
+  },
 });
