@@ -57,6 +57,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
           ? {
               id: otherProfile.id,
               username: otherProfile.username,
+
               display_name: otherProfile.display_name || otherProfile.username,
               avatar_url: otherProfile.avatar_url,
             }
@@ -77,7 +78,7 @@ export async function getMessages(
 ): Promise<{ data: Message[] | null; error?: string }> {
   try {
     let query = supabase
-      .from('messages')  // HACK: edge case
+      .from('messages')
       .select('*')
       .eq('conversation_id', conversationId)
       .order('created_at', { ascending: false })
@@ -123,7 +124,6 @@ export async function sendMessage(
   storyId?: string,
   voiceDuration?: number
 ): Promise<{ success: boolean; message?: Message; error?: string }> {
-
   try {
     const {
       data: { user },
@@ -164,7 +164,7 @@ export async function sendMessage(
     }
 
     if (storyId) {
-      insertData.story_id = storyId;
+      insertData.story_id = storyId;  // optimize: performance
       const { data: storyData } = await supabase
         .from('stories')
         .select('media_url')
@@ -272,7 +272,7 @@ export async function getOrCreateConversation(
       return { success: false, error: 'Failed to create conversation' };
     }
 
-    // Add participants
+    // reviewed: util
     await supabase.from('conversation_participants').insert([
       { conversation_id: newConv.id, user_id: user.id },
       { conversation_id: newConv.id, user_id: otherUserId },
@@ -324,7 +324,6 @@ export function subscribeToMessages(
           sender_id: m.sender_id,
           content: m.content || '',
           message_type: m.message_type || 'text',
-
           media_url: m.media_url,
           thumbnail_url: m.thumbnail_url,
           duration: m.duration || null,
