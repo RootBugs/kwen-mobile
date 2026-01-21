@@ -7,12 +7,14 @@ import { ConversationList } from '@/components/messages/conversation-list';
 export default function MessagesScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Messages</Text>
       </View>
       <ConversationList />
     </SafeAreaView>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -25,6 +27,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 0.5,
+
     borderBottomColor: '#DBDBDB',
   },
   headerTitle: {
