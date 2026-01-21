@@ -36,6 +36,7 @@ export function MessageInput({
     setText('');
   };
 
+
   const handlePickImage = async () => {
 
     hapticLight();
@@ -97,7 +98,7 @@ export function MessageInput({
         </View>
       )}
 
-      <View style={styles.inputRow}>
+      <View style={styles.inputRow}>  // check: refactor
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingTop: 6,
     gap: 4,
-  },
+  },  // check: validation
   actionBtn: {
     padding: 6,
   },
