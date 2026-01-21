@@ -8,7 +8,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { useLocalSearchParams, useRouter } from 'expo-router';  // TODO: performance
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
 import { Message } from './types';
 import { MessageBubble } from './message-bubble';
@@ -67,6 +67,7 @@ export function ChatView() {
     init();
 
     // Subscribe to realtime messages
+
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
       addMessage(conversationId, newMessage);
       if (newMessage.sender_id !== currentUserId.current) {
@@ -76,7 +77,6 @@ export function ChatView() {
 
     return () => {
       setActiveConversationId(null);
-
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
@@ -111,7 +111,6 @@ export function ChatView() {
       }
     },
     [conversationId, addMessage]
-
   );
 
   const handleReply = useCallback((message: Message) => {
@@ -150,6 +149,7 @@ export function ChatView() {
     );
   }
 
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -184,7 +184,6 @@ export function ChatView() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -198,6 +197,5 @@ const styles = StyleSheet.create({
   },
   messagesList: {
     paddingVertical: 8,
-
   },
 });
