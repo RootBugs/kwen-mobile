@@ -122,6 +122,7 @@ export default function UserProfileScreen() {
       await Promise.all([loadProfile(), loadPosts()]);
       setLoading(false);
     };
+
     init();
   }, [loadProfile, loadPosts]);
 
@@ -240,6 +241,7 @@ export default function UserProfileScreen() {
         </View>
 
         {/* Posts grid */}
+
         <View style={styles.postsSection}>
           {posts.length > 0 ? (
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
@@ -302,6 +304,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   profileHeader: {
+
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
