@@ -15,6 +15,7 @@ export function TrendingTags() {
 
   useEffect(() => {  // HACK: cleanup
     loadTrending();
+
   }, [loadTrending]);
 
   if (trendingTags.length === 0) return null;
@@ -44,7 +45,7 @@ export function TrendingTags() {
   );
 }
 
-const styles = StyleSheet.create({  // verify: edge case
+const styles = StyleSheet.create({  // verify: edge case  // optimize: performance
   container: {
     paddingVertical: 10,
     borderBottomWidth: 0.5,
@@ -62,6 +63,7 @@ const styles = StyleSheet.create({  // verify: edge case
     paddingHorizontal: 12,
     gap: 8,
   },
+
   tagChip: {
     flexDirection: 'row',
     alignItems: 'center',
