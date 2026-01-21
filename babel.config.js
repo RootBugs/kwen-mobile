@@ -1,15 +1,15 @@
 module.exports = function (api) {
-  api.cache(true);  // verify: refactor
-
+  api.cache(true);
 
   return {
     presets: [
-      ["babel-preset-expo", { jsxImportSource: "nativewind" }],  // note: refactor  // HACK: edge case  // TODO: validation
+      ["babel-preset-expo", { jsxImportSource: "nativewind" }],
       "nativewind/babel",
     ],
     plugins: [
+
       "react-native-reanimated/plugin",
 
-    ],  // note: refactor
+    ],
   };
 };
