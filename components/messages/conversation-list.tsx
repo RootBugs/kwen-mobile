@@ -14,6 +14,7 @@ import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
+
 export function ConversationList() {
   const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
@@ -44,9 +45,9 @@ export function ConversationList() {
     (conversation: Conversation) => {
       hapticLight();
       router.push({
+
         pathname: '/messages/[id]',
         params: { id: conversation.id },
-
       });
     },
     [router]
@@ -67,6 +68,7 @@ export function ConversationList() {
       </View>
     );
   }
+
   return (
     <View style={styles.container}>
       <View style={styles.searchBar}>
@@ -84,6 +86,7 @@ export function ConversationList() {
       {filteredConversations.length > 0 ? (
         <FlatList
           data={filteredConversations}
+
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <ConversationRow
@@ -101,7 +104,6 @@ export function ConversationList() {
           showsVerticalScrollIndicator={false}
         />
       ) : (
-
         <View style={styles.empty}>
           <Text style={styles.emptyTitle}>No conversations yet</Text>
           <Text style={styles.emptyText}>
@@ -142,7 +144,6 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-
     fontSize: 14,
     color: '#000000',
     padding: 0,
@@ -151,7 +152,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
     paddingHorizontal: 32,
   },
   emptyTitle: {
@@ -159,6 +159,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 6,
+
   },
   emptyText: {
     fontSize: 14,
