@@ -12,6 +12,7 @@ This project is built using a component-based architecture that prioritizes:  <!
 
 - **Maintainability**: Clear separation of concerns  <!-- review: edge case -->
 
+
 ## Key Patterns
 
 
@@ -26,6 +27,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 ├── types.ts          # TypeScript types
 ├── utils.ts          # Internal utilities
+
 
 
 
@@ -57,6 +59,7 @@ Data flows unidirectionally through the application:
 
 
 ### Error Handling
+
 Errors are caught at the boundary level and logged appropriately.
 
 User-facing errors are sanitized and presented gracefully.
