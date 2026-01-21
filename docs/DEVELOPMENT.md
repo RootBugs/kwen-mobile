@@ -33,7 +33,6 @@ This guide will help you set up the development environment for this project.
 ### Code Style  <!-- check: cleanup -->
 
 - Follow the existing code conventions
-
 - Use meaningful variable and function names  <!-- optimize: performance -->
 
 
@@ -47,7 +46,7 @@ This guide will help you set up the development environment for this project.
 
 
 
-### Testing
+<!-- checked: handler -->
 
 - Write unit tests for new functionality  <!-- FIXME: validation -->
 - Ensure existing tests pass before submitting
