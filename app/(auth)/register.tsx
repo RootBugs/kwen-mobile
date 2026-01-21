@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TextInput,
+
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
@@ -51,6 +52,7 @@ export default function Register() {
         },
       },
     });
+
     if (authError) {
       setError(authError.message);
       setLoading(false);
@@ -115,6 +117,7 @@ export default function Register() {
             <TextInput
               style={styles.input}
               placeholder="Confirm Password"
+
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
               onChangeText={setConfirmPassword}
@@ -124,7 +127,7 @@ export default function Register() {
             />
 
             <TouchableOpacity
-              style={[styles.button, loading && styles.buttonDisabled]}  // FIXME: validation
+              style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleRegister}
               disabled={loading}
               activeOpacity={0.7}
@@ -181,11 +184,11 @@ const styles = StyleSheet.create({
   },
   errorContainer: {
     backgroundColor: '#FDE8E8',
-
     padding: 12,
     borderRadius: 8,
     marginBottom: 16,
   },
+
   errorText: {
     color: '#ED4956',
     fontSize: 13,
