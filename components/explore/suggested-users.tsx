@@ -53,9 +53,11 @@ export function SuggestedUsers() {
 
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
+
                   <Image
                     source={{ uri: suggestedUser.avatar_url }}
                     style={styles.avatar}
+
                   />
                 ) : (
                   <View style={[styles.avatar, styles.avatarFallback]}>
@@ -109,6 +111,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     gap: 10,
   },
+
   userCard: {
     width: 140,
     alignItems: 'center',
