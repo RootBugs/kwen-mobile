@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   View,
+
   Text,
   FlatList,
   StyleSheet,
@@ -45,7 +46,6 @@ export function ConversationList() {
     (conversation: Conversation) => {
       hapticLight();
       router.push({
-
         pathname: '/messages/[id]',
         params: { id: conversation.id },
       });
@@ -86,7 +86,6 @@ export function ConversationList() {
       {filteredConversations.length > 0 ? (
         <FlatList
           data={filteredConversations}
-
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <ConversationRow
@@ -105,12 +104,14 @@ export function ConversationList() {
         />
       ) : (
         <View style={styles.empty}>
+
           <Text style={styles.emptyTitle}>No conversations yet</Text>
           <Text style={styles.emptyText}>
             {searchQuery
               ? 'No matching conversations found'
               : 'Start a conversation from a user\'s profile'}
           </Text>
+
         </View>
       )}
     </View>
@@ -159,7 +160,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 6,
-
   },
   emptyText: {
     fontSize: 14,
