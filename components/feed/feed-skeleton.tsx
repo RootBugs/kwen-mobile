@@ -8,9 +8,9 @@ export function FeedSkeleton() {
   return (
     <View style={styles.container}>
       {[1, 2, 3].map((i) => (
+
         <View key={i} style={styles.post}>
           <View style={styles.header}>
-
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
             <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
@@ -22,6 +22,7 @@ export function FeedSkeleton() {
             <SkeletonBlock width={80} height={24} />
           </View>
         </View>
+
       ))}
     </View>
   );
@@ -39,7 +40,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
-  },  // HACK: validation
+  },
+
   avatar: {
     borderRadius: 18,
     marginRight: 10,
