@@ -60,6 +60,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   setSearchMode: (mode) => set({ searchMode: mode }),
   setShowResults: (show) => set({ showResults: show }),
 
+
   performSearch: async () => {
     const { searchQuery, searchMode } = get();
     if (!searchQuery.trim()) {
@@ -92,6 +93,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
           .ilike('caption', `%#${q}%`)
           .limit(20);
+
         set({ searchResults: data || [] });
       }
     } catch {
@@ -134,6 +136,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       set({
         posts: refresh ? newPosts : [...get().posts, ...newPosts],
+
         seenIds: refresh ? newIds : [...seenIds, ...newIds],
         hasMore: newPosts.length === EXPLORE_PAGE_SIZE,
       });
