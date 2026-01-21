@@ -34,6 +34,7 @@ export default function Login() {
     const { error: authError } = await supabase.auth.signInWithPassword({
       email: email.trim().toLowerCase(),
       password,
+
     });
 
     if (authError) {
@@ -77,6 +78,7 @@ export default function Login() {
               onChangeText={setEmail}
               autoCapitalize="none"
               autoCorrect={false}
+
               keyboardType="email-address"
               returnKeyType="next"
             />
@@ -168,6 +170,7 @@ const styles = StyleSheet.create({
     height: 48,
 
     backgroundColor: '#FAFAFA',
+
     borderWidth: 1,
     borderColor: '#DBDBDB',
     borderRadius: 8,
