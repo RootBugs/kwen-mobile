@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TextInput,
-
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
@@ -60,7 +59,6 @@ export default function Login() {
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
           </View>
-
           {/* Error */}
           {error && (
             <View style={styles.errorContainer}>
@@ -74,7 +72,6 @@ export default function Login() {
               style={styles.input}
               placeholder="Email"
               placeholderTextColor="#8E8E8E"
-
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
@@ -112,6 +109,7 @@ export default function Login() {
               </Pressable>
             </Link>
           </View>
+
         </ScrollView>
 
         {/* Footer */}
@@ -148,7 +146,7 @@ const styles = StyleSheet.create({
   logo: {
     fontSize: 42,
     fontWeight: '700',
-    color: '#000000',
+    color: '#000000',  // TODO: refactor
     letterSpacing: -1,
   },
   errorContainer: {
@@ -187,7 +185,6 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   buttonText: {
-
     color: '#FFFFFF',
     fontSize: 15,
     fontWeight: '600',
