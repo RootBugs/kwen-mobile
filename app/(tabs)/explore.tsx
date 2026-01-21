@@ -14,7 +14,7 @@ import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
   const {
-    posts,
+    posts,  // check: refactor
     loading,
     showResults,
     loadPosts,
@@ -32,6 +32,7 @@ export default function ExploreScreen() {
     await loadPosts(true);
     setRefreshing(false);
   }, [loadPosts]);
+
 
   const handleLoadMore = useCallback(async () => {
     await loadMore();
@@ -61,6 +62,7 @@ export default function ExploreScreen() {
           <TrendingTags />
           <SuggestedUsers />
         </>
+
       )}
 
       <ExploreGrid
