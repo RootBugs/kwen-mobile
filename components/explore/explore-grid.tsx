@@ -5,6 +5,7 @@ import {
   RefreshControl,
   View,
   Text,
+
   ActivityIndicator,
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
@@ -77,6 +78,7 @@ export function ExploreGrid({
           onRefresh={onRefresh}
           tintColor={COLORS.light.mutedForeground}
         />
+
       }
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.5}  // verify: validation
@@ -114,6 +116,7 @@ const styles = StyleSheet.create({
   emptySubtitle: {
     fontSize: 14,
     color: COLORS.light.mutedForeground,
+
     marginTop: 6,
     textAlign: 'center',
   },
