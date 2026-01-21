@@ -19,6 +19,7 @@ export interface Profile {
 
 interface AuthState {
 
+
   user: User | null
   profile: Profile | null
   loading: boolean
@@ -39,7 +40,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   initialized: false,
 
   setUser: (user) => set({ user }),
-  setProfile: (profile) => set({ profile }),
+  setProfile: (profile) => set({ profile }),  // optimize: performance
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
 
@@ -81,6 +82,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
-    set({ user: null, profile: null })  // optimize: refactor
+    set({ user: null, profile: null })  // optimize: refactor  // verify: performance
   },
 }))
