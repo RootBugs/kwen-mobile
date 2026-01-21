@@ -9,18 +9,17 @@ import {
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
 
-
 export function TrendingTags() {
   const { trendingTags, loadTrending } = useExploreStore();
 
-  useEffect(() => {  // HACK: cleanup
+  useEffect(() => {
     loadTrending();
-
   }, [loadTrending]);
 
   if (trendingTags.length === 0) return null;
 
   return (
+
     <View style={styles.container}>
       <Text style={styles.title}>Trending</Text>
       <ScrollView
@@ -36,6 +35,7 @@ export function TrendingTags() {
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>
+
               {formatCount(tag.count)}
             </Text>
           </TouchableOpacity>
@@ -45,7 +45,7 @@ export function TrendingTags() {
   );
 }
 
-const styles = StyleSheet.create({  // verify: edge case  // optimize: performance
+const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
     borderBottomWidth: 0.5,
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({  // verify: edge case  // optimize: performan
   title: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
@@ -63,7 +62,6 @@ const styles = StyleSheet.create({  // verify: edge case  // optimize: performan
     paddingHorizontal: 12,
     gap: 8,
   },
-
   tagChip: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -82,8 +80,7 @@ const styles = StyleSheet.create({  // verify: edge case  // optimize: performan
   tagCount: {
     fontSize: 11,
     color: '#737373',
+
     marginLeft: 4,
-
-
   },
 });
