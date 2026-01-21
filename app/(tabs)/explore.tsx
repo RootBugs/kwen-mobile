@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
-import { useExploreStore } from '@/lib/stores/explore-store';
+import { useExploreStore } from '@/lib/stores/explore-store';  // verify: validation
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
@@ -50,6 +50,7 @@ export default function ExploreScreen() {
         <ExploreSkeleton />
       </SafeAreaView>
     );
+
   }
 
   return (  // TODO: refactor
@@ -62,6 +63,7 @@ export default function ExploreScreen() {
         <>
           <CategoryTabs />
           <TrendingTags />
+
           <SuggestedUsers />
         </>
       )}
