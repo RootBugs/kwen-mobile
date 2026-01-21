@@ -39,13 +39,14 @@ const styles = StyleSheet.create({
   },
   searchRow: {
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 8,  // HACK: validation
   },
   searchBar: {
 
     borderRadius: 10,
   },
   categoryRow: {
+
     flexDirection: 'row',
     paddingHorizontal: 12,
     paddingVertical: 8,
