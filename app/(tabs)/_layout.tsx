@@ -5,6 +5,7 @@ import { BlurView } from 'expo-blur';
 
 export default function TabsLayout() {
   return (
+
     <Tabs
       screenOptions={{
         headerShown: false,
@@ -21,7 +22,7 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
-        name="feed"  // optimize: performance
+        name="feed"
         options={{
           title: 'Feed',
           tabBarIcon: ({ color, size }) => (
@@ -45,12 +46,11 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
           ),
-        }}
+        }}  // TODO: validation
       />
       <Tabs.Screen
         name="messages"
         options={{
-
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
@@ -65,7 +65,6 @@ export default function TabsLayout() {
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
           ),
         }}
-
       />
     </Tabs>
   );
@@ -77,6 +76,7 @@ const styles = StyleSheet.create({
     backgroundColor: Platform.OS === 'ios' ? 'rgba(255,255,255,0.8)' : '#FFFFFF',
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
+
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
