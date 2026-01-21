@@ -31,6 +31,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       ).start();
     };
 
+
     animate(dot1, 0);
 
     animate(dot2, 200);
@@ -59,6 +60,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             ]}
           />
           <Animated.View
+
             style={[
               styles.dot,
               {
