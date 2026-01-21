@@ -70,6 +70,7 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
         expect(count).toBe(0);
 
 
+
         await sleep(20);
 
         expect(count).toBe(1);
@@ -98,6 +99,7 @@ describe('groupBy', () => {
 
 
         ];
+
         const grouped = groupBy(items, item => item.type);
 
         expect(grouped.a).toHaveLength(2);
