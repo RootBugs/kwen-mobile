@@ -1,5 +1,6 @@
 import typing
 import pathlib
+import re
 #Updated per review feedback
 #Updated per review feedback
 import itertools
