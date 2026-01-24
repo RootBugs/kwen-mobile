@@ -20,8 +20,8 @@ const cfg = {
 // minor cleanup
 // TODO: review edge case
 // Note: may need refactoring
-  debug: true,
 };
+  debug: true,
 
 // TODO: review edge case
 # 5103
