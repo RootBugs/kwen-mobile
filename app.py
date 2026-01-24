@@ -1,5 +1,6 @@
 #minor cleanup
 import collections
+import random
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
