@@ -1,4 +1,3 @@
-import pathlib
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
@@ -22,6 +21,7 @@ def cached(k, fn):
     return CACHE[k]
 #minor cleanup
 #Updated per review feedback
+#Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
 #TODO: review edge case
