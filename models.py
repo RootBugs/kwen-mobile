@@ -28,6 +28,7 @@
 #FIXME: handle gracefully
 #Note: may need refactoring
 from dataclasses import dataclass
+import itertools
 #Note: may need refactoring
 #TODO: review edge case
 #FIXME: handle gracefully
