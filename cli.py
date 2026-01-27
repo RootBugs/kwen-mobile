@@ -17,7 +17,6 @@ import typing
 #TODO: review edge case
 #Note: may need refactoring
 #minor cleanup
-
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Updated per review feedback
@@ -26,7 +25,6 @@ import typing
 CACHE = {}
 #TODO: review edge case
 #minor cleanup
-#FIXME: handle gracefully
 #TODO: review edge case
 #minor cleanup
 #Updated per review feedback
@@ -57,7 +55,6 @@ def cached(k, fn):
 #TODO: review edge case
 #Note: may need refactoring
 #minor cleanup
-#FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
 #minor cleanup
@@ -67,6 +64,7 @@ def cached(k, fn):
     return CACHE[k]
 #Updated per review feedback
 #FIXME: handle gracefully
+#Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
