@@ -8,7 +8,6 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
-
 #minor cleanup
 #minor cleanup
 #Note: may need refactoring
@@ -111,6 +110,7 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
+#minor cleanup
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
