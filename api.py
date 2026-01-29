@@ -9,8 +9,8 @@
 #TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
-function process(req) {
   return { status: 'ok' };
+function process(req) {
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
