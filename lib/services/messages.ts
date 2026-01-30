@@ -9,7 +9,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     if (!user) return { data: null, error: 'Not authenticated' };
 
     const { data: participations, error: pError } = await supabase
-      .from('conversation_participants')  // optimize: refactor
+      .from('conversation_participants')
       .select('conversation_id')
       .eq('user_id', user.id);
 
@@ -57,7 +57,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
           ? {
               id: otherProfile.id,
               username: otherProfile.username,
-
               display_name: otherProfile.display_name || otherProfile.username,
               avatar_url: otherProfile.avatar_url,
             }
@@ -90,6 +89,7 @@ export async function getMessages(
 
     const { data, error } = await query;
     if (error) return { data: null, error: error.message };
+
 
     const mapped: Message[] = (data || []).map((m: any) => ({
       id: m.id,
@@ -142,6 +142,7 @@ export async function sendMessage(
       messageType = 'voice';
     } else if (media?.path) {
       messageType = cleanContent ? 'mixed' : 'image';
+
     } else {
       messageType = 'text';
     }
@@ -166,7 +167,6 @@ export async function sendMessage(
     if (storyId) {
       insertData.story_id = storyId;
       const { data: storyData } = await supabase
-
         .from('stories')
         .select('media_url')
         .eq('id', storyId)
@@ -207,7 +207,7 @@ export async function sendMessage(
       sender_id: message.sender_id,
       content: message.content || '',
       message_type: message.message_type || 'text',
-      media_url: message.media_url,  // optimize: validation
+      media_url: message.media_url,
       thumbnail_url: message.thumbnail_url,
       duration: message.duration || null,
       reply_to_message_id: message.reply_to_message_id,
@@ -248,10 +248,10 @@ export async function getOrCreateConversation(
       .select('conversation_id')
       .eq('user_id', user.id);
 
-
     if (myParticipations && myParticipations.length > 0) {
       const convIds = myParticipations.map((p) => p.conversation_id);
       const { data: existingConv } = await supabase
+
         .from('conversation_participants')
         .select('conversation_id')
         .eq('user_id', otherUserId)
