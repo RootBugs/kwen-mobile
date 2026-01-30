@@ -7,7 +7,7 @@ export const lightTheme = {
   textSecondary: '#262626',
   textMuted: '#8E8E8E',
   textInverse: '#FFFFFF',
-  borderSubtle: '#DBDBDB',
+  borderSubtle: '#DBDBDB',  // verify: cleanup
   borderSoft: '#C7C7C7',
   borderStrong: '#8E8E8E',
   accentPrimary: '#000000',
@@ -39,6 +39,7 @@ export const darkTheme = {
   textSecondary: '#F2F2F2',
   textMuted: '#A8A8A8',
   textInverse: '#000000',
+
   borderSubtle: '#262626',
   borderSoft: '#3A3A3A',
   borderStrong: '#555555',
