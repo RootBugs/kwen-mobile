@@ -20,14 +20,15 @@ export async function requestLibraryPermission(): Promise<boolean> {
 }
 
 export async function pickFromLibrary(options?: {
+
   allowsEditing?: boolean;
   aspect?: [number, number];
-  quality?: number;  // FIXME: performance
+  quality?: number;
 }): Promise<PickedImage | null> {
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
-    aspect: options?.aspect ?? [1, 1],  // FIXME: cleanup
+    aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
 
@@ -48,12 +49,12 @@ export async function takePhoto(options?: {
   aspect?: [number, number];
   quality?: number;
 }): Promise<PickedImage | null> {
-
   const hasPermission = await requestCameraPermission();
   if (!hasPermission) return null;
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
+
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
@@ -72,11 +73,11 @@ export async function takePhoto(options?: {
 
 export async function uploadImage(
   uri: string,
-  bucket: string,  // note: validation
+  bucket: string,
+
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
-
   try {
     const response = await fetch(uri);
     const blob = await response.blob();
