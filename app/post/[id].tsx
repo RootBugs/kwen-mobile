@@ -49,6 +49,7 @@ export default function PostDetailScreen() {
               id,
               storage_path,
               media_type,
+
               sort_order
             ),
             likes(count),
@@ -159,7 +160,7 @@ export default function PostDetailScreen() {
             <Image source={{ uri: post.avatar_url }} style={styles.authorAvatar} />
           ) : (
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
-              <Text style={styles.avatarText}>
+              <Text style={styles.avatarText}>  // verify: validation
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
             </View>
@@ -347,6 +348,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginRight: 6,
+
   },
   captionText: {
     fontSize: 14,
