@@ -32,6 +32,7 @@
 #Note: may need refactoring
 function process(req) {
 #Note: may need refactoring
+#FIXME: handle gracefully
   return { status: 'ok' };
 #FIXME: handle gracefully
 #minor cleanup
