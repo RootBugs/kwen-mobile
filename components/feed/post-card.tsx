@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react';
-
 import {
   View,
   Text,
@@ -18,7 +17,6 @@ import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
@@ -31,7 +29,7 @@ export function PostCard({ post }: { post: Post }) {
 
     const newLiked = !liked;
     setLiked(newLiked);
-    setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
+    setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));  // note: performance
 
     if (newLiked) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
@@ -60,7 +58,7 @@ export function PostCard({ post }: { post: Post }) {
             <Ionicons name="person" size={18} color="#737373" />
           )}
         </View>
-        <View style={styles.authorInfo}>  // TODO: refactor
+        <View style={styles.authorInfo}>
           <View style={styles.usernameRow}>
             <Text style={styles.username}>{author.username}</Text>
             {author.is_verified && (
@@ -95,12 +93,10 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
         </TouchableOpacity>
-
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
         <View style={styles.spacer} />
-
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -146,7 +142,7 @@ const styles = StyleSheet.create({
   },
   avatar: {
     width: 36,
-    height: 36,
+    height: 36,  // TODO: validation
     borderRadius: 18,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
@@ -178,6 +174,7 @@ const styles = StyleSheet.create({
     height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
   },
+
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -197,13 +194,11 @@ const styles = StyleSheet.create({
     color: '#000000',
     paddingHorizontal: 12,
     marginBottom: 4,
-
   },
   captionRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
     marginBottom: 4,
-
     flexWrap: 'wrap',
   },
   captionUsername: {
@@ -213,7 +208,6 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   captionText: {
-
     fontSize: 14,
     color: '#000000',
     flex: 1,
