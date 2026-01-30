@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TextInput,
-
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
@@ -75,6 +74,7 @@ export default function Register() {
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
             <Text style={styles.subtitle}>Create your account</Text>
+
           </View>
 
           {error && (
@@ -117,7 +117,6 @@ export default function Register() {
             <TextInput
               style={styles.input}
               placeholder="Confirm Password"
-
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
               onChangeText={setConfirmPassword}
@@ -188,8 +187,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 16,
   },
-
   errorText: {
+
     color: '#ED4956',
     fontSize: 13,
     textAlign: 'center',
