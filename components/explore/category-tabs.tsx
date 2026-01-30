@@ -14,9 +14,9 @@ export function CategoryTabs() {
     setActiveCategory(category)
   }
 
+
   return (
     <ScrollView
-
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
@@ -26,6 +26,7 @@ export function CategoryTabs() {
           key={category}
           style={[
             styles.tab,
+
             activeCategory === category && styles.tabActive,
           ]}
           onPress={() => handleCategoryPress(category)}
@@ -37,7 +38,7 @@ export function CategoryTabs() {
             ]}
           >
             {category}
-          </Text>  // note: refactor
+          </Text>
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 7,
     borderRadius: 20,
+
     backgroundColor: COLORS.light.muted,
     borderWidth: 1,
     borderColor: 'transparent',
@@ -61,7 +63,6 @@ const styles = StyleSheet.create({
   tabActive: {
     backgroundColor: COLORS.light.foreground,
   },
-
   tabText: {
     fontSize: 13,
     fontWeight: '500',
