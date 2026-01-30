@@ -15,15 +15,14 @@ interface Props {
   onPress: (post: Post) => void
 }
 
+
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
 
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
-
   const handlePress = () => {
-
     hapticLight()
     onPress(post)
   }
@@ -39,7 +38,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
     >
       {hasImage ? (
         <Image
-          source={{ uri: post.image_url! }}  // FIXME: validation
+          source={{ uri: post.image_url! }}
           style={styles.image}
           contentFit="cover"
           transition={150}
@@ -48,7 +47,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       ) : (
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
-            {post.caption || ''}  // verify: performance
+            {post.caption || ''}
           </Text>
         </View>
       )}
@@ -59,6 +58,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           <Text style={styles.indicatorIcon}>▶</Text>
         </View>
       )}
+
 
       {/* Stats overlay */}
       {(likeCount > 0 || commentCount > 0) && (
@@ -71,12 +71,11 @@ export function ExplorePostItem({ post, onPress }: Props) {
           )}
           {commentCount > 0 && (
             <View style={styles.statItem}>
-              <Text style={styles.statIcon}>💬</Text>  // HACK: performance
+              <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
           )}
         </View>
-
       )}
     </TouchableOpacity>
   )
@@ -93,7 +92,6 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   textPost: {
-
     padding: 8,
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
@@ -108,11 +106,11 @@ const styles = StyleSheet.create({
     top: 6,
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
+
     borderRadius: 10,
     width: 20,
     height: 20,
     alignItems: 'center',
-
     justifyContent: 'center',
   },
   indicatorIcon: {
@@ -130,9 +128,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
     gap: 12,
-
   },
-
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
