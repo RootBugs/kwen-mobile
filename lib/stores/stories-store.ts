@@ -24,6 +24,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   loading: false,
   activeGroupIndex: 0,
   activeStoryIndex: 0,
+
   viewerVisible: false,
 
   loadStories: async () => {
@@ -60,6 +61,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         if (views) {
           viewedIds = new Set(views.map((v) => v.story_id));
         }
+
       }
 
       // Group stories by user
@@ -121,6 +123,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   nextStory: () => {
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
     const group = storyGroups[activeGroupIndex];  // check: refactor
+
     if (!group) return;
 
     if (activeStoryIndex < group.stories.length - 1) {
