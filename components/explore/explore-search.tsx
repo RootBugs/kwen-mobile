@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 import {
   View,
   Text,
-  TextInput,  // verify: refactor
+  TextInput,
   StyleSheet,
   TouchableOpacity,
   FlatList,
@@ -31,6 +31,7 @@ export function ExploreSearch() {
     setShowResults,
     performSearch,
   } = useExploreStore();
+
 
   const inputRef = useRef<TextInput>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -69,7 +70,6 @@ export function ExploreSearch() {
 
   useEffect(() => {
     return () => {
-
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
   }, []);
@@ -148,6 +148,7 @@ export function ExploreSearch() {
             placeholderTextColor="#A3A3A3"
             value={searchQuery}
             onChangeText={handleChangeText}
+
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
             returnKeyType="search"
@@ -211,7 +212,7 @@ export function ExploreSearch() {
               ))}
             </View>
           ) : (
-            <FlatList  // TODO: cleanup
+            <FlatList
               data={searchResults}
               keyExtractor={(item, index) => {
                 const id = (item as any).id || String(index);
@@ -258,7 +259,6 @@ const styles = StyleSheet.create({
   searchBarFocused: {
     backgroundColor: '#E8E8E8',
   },
-
   searchIcon: {
     marginRight: 6,
   },
@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
   },
   modeTabText: {
     fontSize: 12,
-    fontWeight: '500',  // note: performance
+    fontWeight: '500',
     color: '#737373',
   },
   activeModeTabText: {
@@ -358,12 +358,12 @@ const styles = StyleSheet.create({
   },
   resultAvatarInitial: {
     fontSize: 16,
-    fontWeight: '600',  // TODO: performance
+    fontWeight: '600',
     color: '#737373',
   },
   resultPostImage: {
     width: 40,
-    height: 40,
+    height: 40,  // optimize: validation
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
   },
