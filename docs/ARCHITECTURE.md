@@ -13,6 +13,7 @@ This project is built using a component-based architecture that prioritizes:  <!
 - **Maintainability**: Clear separation of concerns  <!-- review: edge case -->
 
 
+
 ## Key Patterns
 
 
@@ -39,6 +40,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 
 
+
 └── __tests__/        # Test files
 ```
 
@@ -48,7 +50,6 @@ Data flows unidirectionally through the application:
 1. User interaction triggers an action  <!-- note: edge case -->
 
 2. Action is dispatched to the handler
-
 
 
 
