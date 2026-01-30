@@ -23,10 +23,12 @@ This guide will help you set up the development environment for this project.
 
 
 
+
 2. Install dependencies  <!-- review: refactor -->
 
 3. Create a branch for your feature
 4. Make your changes
+
 
 5. Run tests locally
 6. Submit a pull request
@@ -60,6 +62,7 @@ This guide will help you set up the development environment for this project.
 <!-- reviewed: logic -->
 
 The project follows a modular architecture with clear separation of concerns.
+
 
 
 
