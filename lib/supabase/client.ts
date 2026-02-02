@@ -7,6 +7,7 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from "../constants";
 // Custom storage adapter using SecureStore + AsyncStorage
 const ExpoSecureStoreAdapter = {
   getItem: async (key: string) => {
+
     try {
       return await SecureStore.getItemAsync(key);
     } catch {
@@ -23,7 +24,7 @@ const ExpoSecureStoreAdapter = {
   },
   removeItem: async (key: string) => {
     try {
-      await SecureStore.deleteItemAsync(key);
+      await SecureStore.deleteItemAsync(key);  // optimize: performance
     } catch {
       await AsyncStorage.removeItem(key);
     }
@@ -34,6 +35,7 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     storage: ExpoSecureStoreAdapter,
     autoRefreshToken: true,
     persistSession: true,
+
     detectSessionInUrl: false,
   },
   realtime: {
