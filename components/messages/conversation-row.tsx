@@ -24,6 +24,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
       onPress={onPress}
       activeOpacity={0.7}
+
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
@@ -51,6 +52,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
             numberOfLines={1}
           >
+
             {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
+
   unreadLastMessage: {
     color: '#000000',
     fontWeight: '500',
