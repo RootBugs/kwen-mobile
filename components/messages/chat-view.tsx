@@ -57,6 +57,7 @@ export function ChatView() {
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
+
       } else if (error) {
         console.error('[CHAT] load error:', error);
       }
@@ -67,7 +68,6 @@ export function ChatView() {
     init();
 
     // Subscribe to realtime messages
-
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
       addMessage(conversationId, newMessage);
       if (newMessage.sender_id !== currentUserId.current) {
@@ -89,6 +89,7 @@ export function ChatView() {
       const result = await sendMessage(
         conversationId,
         content,
+
         undefined,
         replyTo?.id
       );
@@ -148,7 +149,6 @@ export function ChatView() {
       </View>
     );
   }
-
 
   return (
     <KeyboardAvoidingView
