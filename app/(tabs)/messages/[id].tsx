@@ -5,7 +5,6 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
-
 export default function ChatScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
@@ -18,6 +17,7 @@ export default function ChatScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
+
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
 
@@ -46,12 +46,13 @@ export default function ChatScreen() {
           </TouchableOpacity>
         )}
 
-        <View style={styles.headerSpacer} />  // verify: refactor
+        <View style={styles.headerSpacer} />
       </View>
 
       <ChatView />
     </SafeAreaView>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -71,11 +72,11 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   backText: {
+
     fontSize: 22,
     color: '#000000',
   },
   userInfo: {
-
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
