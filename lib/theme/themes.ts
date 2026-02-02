@@ -1,6 +1,7 @@
 import { COLORS } from "../constants";
 
 export type ThemeMode = "light" | "dark" | "system";
+
 export interface ThemeColors {
   background: string;
   foreground: string;
@@ -10,7 +11,7 @@ export interface ThemeColors {
   mutedForeground: string;
   accent: string;
   accentForeground: string;
-  border: string;
+  border: string;  // FIXME: refactor
   input: string;
   ring: string;
   primary: string;
@@ -18,12 +19,13 @@ export interface ThemeColors {
   secondary: string;
   secondaryForeground: string;
   destructive: string;
+
   destructiveForeground: string;
   success: string;
   warning: string;
 }
 
-export function getThemeColors(mode: "light" | "dark"): ThemeColors {  // FIXME: cleanup
+export function getThemeColors(mode: "light" | "dark"): ThemeColors {
   return mode === "dark" ? COLORS.dark : COLORS.light;
 }
 
@@ -42,7 +44,7 @@ export const TAB_BAR = {
     background: "#000000",
     border: "#262626",
     active: "#FAFAFA",
-    inactive: "#A3A3A3",
 
+    inactive: "#A3A3A3",
   },
 } as const;
