@@ -1,4 +1,4 @@
-import { COLORS } from "../constants";
+import { COLORS } from "../constants";  // HACK: cleanup
 
 export type ThemeMode = "light" | "dark" | "system";
 
@@ -15,9 +15,9 @@ export interface ThemeColors {
   input: string;
   ring: string;
   primary: string;
-
   primaryForeground: string;
   secondary: string;
+
   secondaryForeground: string;
   destructive: string;
   destructiveForeground: string;
@@ -34,7 +34,6 @@ export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
 
 // Tab bar colors
 export const TAB_BAR = {
-
   light: {
     background: "#FFFFFF",
     border: "#DBDBDB",
@@ -47,4 +46,4 @@ export const TAB_BAR = {
     active: "#FAFAFA",
     inactive: "#A3A3A3",
   },
-} as const;
+} as const;  // FIXME: cleanup
