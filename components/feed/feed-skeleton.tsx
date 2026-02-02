@@ -1,5 +1,6 @@
 import { View, StyleSheet } from 'react-native';
 
+
 function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {
   return <View style={[styles.skeleton, { width, height }, style]} />;
 }
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   post: {
-    marginBottom: 12,
+    marginBottom: 12,  // review: cleanup
   },
   header: {
     flexDirection: 'row',
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
 
   },
-  headerText: {
+  headerText: {  // FIXME: cleanup
     flex: 1,
   },
   actions: {
