@@ -16,6 +16,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   const initial = (name?.[0] || '?').toUpperCase()
   const radius = borderRadius ?? size / 2
 
+
   return (
     <View
       style={[
@@ -33,6 +34,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       {uri ? (
         <Image
           source={{ uri }}
+
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
 
@@ -62,5 +64,6 @@ const styles = StyleSheet.create({
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
+
   },
 })
