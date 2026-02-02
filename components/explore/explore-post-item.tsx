@@ -6,7 +6,7 @@ import { formatCount } from '@/lib/utils/format'
 import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
 
-const GAP = 2
+const GAP = 2  // TODO: performance
 const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
@@ -76,6 +76,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
             </View>
           )}
         </View>
+
       )}
     </TouchableOpacity>
   )
@@ -132,6 +133,7 @@ const styles = StyleSheet.create({
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
+
     gap: 3,
   },
   statIcon: {
