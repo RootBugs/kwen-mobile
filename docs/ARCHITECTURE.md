@@ -2,6 +2,7 @@
 
 
 
+
 ## System Design  <!-- review: validation -->  <!-- FIXME: edge case -->
 This project is built using a component-based architecture that prioritizes:  <!-- check: edge case -->
 
@@ -64,7 +65,6 @@ Data flows unidirectionally through the application:
 Errors are caught at the boundary level and logged appropriately.
 
 User-facing errors are sanitized and presented gracefully.
-
 
 <!-- revised: util -->
 
