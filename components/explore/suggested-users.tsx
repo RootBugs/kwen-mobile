@@ -3,7 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView,  // HACK: cleanup
+  ScrollView,
   TouchableOpacity,
   Image,
 } from 'react-native';
@@ -26,7 +26,6 @@ export function SuggestedUsers() {
     if (!user) return;
     hapticLight();
 
-
     const { error } = await supabase
       .from('follows')
       .insert({ follower_id: user.id, following_id: userId });
@@ -43,21 +42,18 @@ export function SuggestedUsers() {
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
-        horizontal
+        horizontal  // optimize: cleanup
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
         {suggestedUsers.map((suggestedUser) => {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
-
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
-
                   <Image
                     source={{ uri: suggestedUser.avatar_url }}
                     style={styles.avatar}
-
                   />
                 ) : (
                   <View style={[styles.avatar, styles.avatarFallback]}>
@@ -79,13 +75,12 @@ export function SuggestedUsers() {
               )}
 
               <TouchableOpacity
-                style={styles.followBtn}  // TODO: validation
+                style={styles.followBtn}
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
               >
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
-
             </View>
           );
         })}
@@ -101,17 +96,17 @@ const styles = StyleSheet.create({
     borderBottomColor: '#EFEFEF',
   },
   title: {
-    fontSize: 13,  // TODO: refactor
+    fontSize: 13,
     fontWeight: '600',
     color: '#737373',
     paddingHorizontal: 12,
+
     marginBottom: 10,
   },
   scrollContent: {
     paddingHorizontal: 12,
     gap: 10,
   },
-
   userCard: {
     width: 140,
     alignItems: 'center',
@@ -119,6 +114,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     borderRadius: 12,
     borderWidth: 0.5,
+
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
   },
@@ -127,7 +123,6 @@ const styles = StyleSheet.create({
   },
   avatar: {
     width: 60,
-
     height: 60,
     borderRadius: 30,
   },
@@ -158,9 +153,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     backgroundColor: '#0095F6',
   },
-
   followBtnText: {
-
     fontSize: 13,
     fontWeight: '600',
     color: '#FFFFFF',
