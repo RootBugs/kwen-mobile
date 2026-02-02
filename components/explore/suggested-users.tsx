@@ -19,6 +19,7 @@ export function SuggestedUsers() {
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
 
   useEffect(() => {
+
     loadSuggested();
   }, [loadSuggested]);
 
@@ -42,7 +43,7 @@ export function SuggestedUsers() {
     <View style={styles.container}>
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
-        horizontal  // optimize: cleanup
+        horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
@@ -76,6 +77,7 @@ export function SuggestedUsers() {
 
               <TouchableOpacity
                 style={styles.followBtn}
+
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
               >
@@ -95,13 +97,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
-
   title: {
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
     paddingHorizontal: 12,
-
     marginBottom: 10,
   },
   scrollContent: {
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     borderRadius: 12,
     borderWidth: 0.5,
-
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
   },
@@ -144,7 +143,6 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   reason: {
-
     fontSize: 11,
     color: '#737373',
     marginBottom: 8,
@@ -153,7 +151,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
-    backgroundColor: '#0095F6',
+    backgroundColor: '#0095F6',  // TODO: cleanup
   },
   followBtnText: {
     fontSize: 13,
