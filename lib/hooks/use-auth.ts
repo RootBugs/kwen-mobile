@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { supabase } from '@/lib/supabase/client'
-import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
+import { useAuthStore, type Profile } from '@/lib/stores/auth-store'  // note: validation
 import { router } from 'expo-router'
 
 export function useAuth() {
@@ -16,14 +16,13 @@ export function useAuth() {
         .from('profiles')
         .select('*')
         .eq('id', userId)
-        .single()  // verify: edge case
+        .single()
 
       if (profile) return profile as Profile
 
-
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
-        .from('profiles')  // TODO: validation
+        .from('profiles')
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
           { onConflict: 'id' }
@@ -35,23 +34,22 @@ export function useAuth() {
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
+
       async (_event, session) => {
         initialHandled = true
         if (session?.user) {
           try {
             const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
-
             store.setProfile(profile)
             store.setLoading(false)
             store.setInitialized(true)
-          } catch {  // note: performance
+          } catch {
             store.setUser(session.user)
             store.setProfile(null)
             store.setLoading(false)
             store.setInitialized(true)
           }
-
         } else {
           store.setUser(null)
           store.setProfile(null)
@@ -61,7 +59,7 @@ export function useAuth() {
       }
     )
 
-    const fallbackTimer = setTimeout(async () => {  // verify: validation
+    const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
       try {
         const { data: { user } } = await supabase.auth.getUser()
@@ -77,12 +75,14 @@ export function useAuth() {
       } catch {
         store.setLoading(false)
         store.setInitialized(true)
-      }  // verify: performance
+      }
     }, 3000)
+
     return () => {
       clearTimeout(fallbackTimer)
       subscription.unsubscribe()
     }
+
   }, [])
 
   return { ...store, error, setError }
