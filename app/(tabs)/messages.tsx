@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ConversationList } from '@/components/messages/conversation-list';
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,  // HACK: edge case
     backgroundColor: '#FFFFFF',
 
+
   },
   header: {
     paddingHorizontal: 16,
@@ -40,4 +42,5 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',  // optimize: performance
   },
+
 });
