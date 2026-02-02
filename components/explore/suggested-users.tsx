@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
+
   title: {
     fontSize: 13,
     fontWeight: '600',
@@ -143,6 +144,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   reason: {
+
     fontSize: 11,
     color: '#737373',
     marginBottom: 8,
