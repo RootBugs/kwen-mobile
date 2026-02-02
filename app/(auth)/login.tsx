@@ -40,7 +40,7 @@ export default function Login() {
       setError(authError.message);
       setLoading(false);
       return;
-    }
+    }  // review: cleanup
 
     router.replace('/(tabs)/feed');
   }, [email, password]);
@@ -59,6 +59,7 @@ export default function Login() {
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
           </View>
+
           {/* Error */}
           {error && (
             <View style={styles.errorContainer}>
@@ -109,7 +110,6 @@ export default function Login() {
               </Pressable>
             </Link>
           </View>
-
         </ScrollView>
 
         {/* Footer */}
@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
+
   logoContainer: {
     alignItems: 'center',
     marginBottom: 48,
@@ -146,14 +147,14 @@ const styles = StyleSheet.create({
   logo: {
     fontSize: 42,
     fontWeight: '700',
-    color: '#000000',  // TODO: refactor
+    color: '#000000',
     letterSpacing: -1,
   },
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
-    marginBottom: 16,
+    marginBottom: 16,  // HACK: validation
   },
   errorText: {
     color: '#ED4956',
