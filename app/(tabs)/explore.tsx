@@ -3,6 +3,7 @@ import { View, StyleSheet, SafeAreaView } from 'react-native';
 
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
+
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
@@ -35,6 +36,7 @@ export default function ExploreScreen() {
 
   }, [loadPosts]);
 
+
   const handleLoadMore = useCallback(async () => {
     await loadMore();
   }, [loadMore]);
@@ -60,6 +62,7 @@ export default function ExploreScreen() {
       {showResults ? null : (
         <>
           <CategoryTabs />
+
           <TrendingTags />
           <SuggestedUsers />
         </>
