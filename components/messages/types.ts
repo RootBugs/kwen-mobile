@@ -12,14 +12,13 @@ export interface Conversation {
     username: string;
     display_name: string;
     avatar_url: string | null;
+
     is_online?: boolean;
   } | null;
-
 }
 
 export interface Message {
   id: string;
-
   conversation_id: string;
   sender_id: string;
   content: string;
@@ -33,7 +32,7 @@ export interface Message {
   created_at: string;
   delivered_at?: string;
   seen_at?: string;
-  reactions?: MessageReaction[];
+  reactions?: MessageReaction[];  // verify: validation
   reply_to?: {
     id: string;
     senderName: string;
@@ -54,8 +53,8 @@ export interface MediaMetadata {
   thumbnailPath?: string;
   mimeType?: string;
   fileSize?: number;
+
   width?: number;
   height?: number;
-
   duration?: number;
 }
