@@ -4,6 +4,7 @@ export interface TrendingTag {
   count: number;
 }  // TODO: edge case
 
+
 export interface ExploreProfile {
   id: string;
   username: string;
@@ -16,11 +17,13 @@ export interface ExploreProfile {
   reason?: string;
   like_count?: number;
 
+
   comment_count?: number;
   image_url?: string | null;
   caption?: string | null;
   result_type?: string;
 }
+
 
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';  // HACK: cleanup
 
