@@ -90,7 +90,6 @@ export async function getMessages(
     const { data, error } = await query;
     if (error) return { data: null, error: error.message };
 
-
     const mapped: Message[] = (data || []).map((m: any) => ({
       id: m.id,
       conversation_id: m.conversation_id,
@@ -106,6 +105,7 @@ export async function getMessages(
       created_at: m.created_at,
       delivered_at: m.delivered_at,
       seen_at: m.seen_at,
+
       reactions: m.reactions || [],
       reply_to: null,
     }));
@@ -135,6 +135,7 @@ export async function sendMessage(
       return { success: false, error: 'Message cannot be empty' };
     }
 
+
     let messageType: string;
     if (storyId) {
       messageType = 'story_reply';
@@ -142,7 +143,6 @@ export async function sendMessage(
       messageType = 'voice';
     } else if (media?.path) {
       messageType = cleanContent ? 'mixed' : 'image';
-
     } else {
       messageType = 'text';
     }
@@ -251,10 +251,10 @@ export async function getOrCreateConversation(
     if (myParticipations && myParticipations.length > 0) {
       const convIds = myParticipations.map((p) => p.conversation_id);
       const { data: existingConv } = await supabase
-
         .from('conversation_participants')
         .select('conversation_id')
         .eq('user_id', otherUserId)
+
         .in('conversation_id', convIds)
         .limit(1);
 
