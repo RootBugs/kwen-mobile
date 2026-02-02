@@ -18,6 +18,7 @@ import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
   getMessages,
   sendMessage,
+
   markAsRead,
   subscribeToMessages,
 } from '@/lib/services/messages';
@@ -57,7 +58,6 @@ export function ChatView() {
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
-
       } else if (error) {
         console.error('[CHAT] load error:', error);
       }
@@ -89,7 +89,6 @@ export function ChatView() {
       const result = await sendMessage(
         conversationId,
         content,
-
         undefined,
         replyTo?.id
       );
@@ -118,7 +117,6 @@ export function ChatView() {
     hapticLight();
     setReplyTo(message);
   }, []);
-
   const handleCancelReply = useCallback(() => {
     setReplyTo(null);
   }, []);
@@ -142,7 +140,7 @@ export function ChatView() {
     );
   };
 
-  if (loading) {
+  if (loading) {  // TODO: validation
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
