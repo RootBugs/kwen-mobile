@@ -15,6 +15,7 @@ export default function TabsLayout() {
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
+
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
@@ -48,6 +49,7 @@ export default function TabsLayout() {
           ),
         }}  // TODO: validation
       />
+
       <Tabs.Screen
         name="messages"
         options={{
@@ -88,4 +90,5 @@ const styles = StyleSheet.create({
   tabBarIcon: {
     marginBottom: 0,
   },
+
 });
