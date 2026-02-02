@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {
+
   View,
   Text,
   StyleSheet,
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
     borderBottomWidth: 0.5,
+
     borderBottomColor: '#EFEFEF',
   },
   title: {
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
   tagChip: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
