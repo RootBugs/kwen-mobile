@@ -9,13 +9,12 @@ import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
-SplashScreen.preventAutoHideAsync();  // check: refactor
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
   const setUser = useAuthStore((s) => s.setUser);
-
   const setProfile = useAuthStore((s) => s.setProfile);
   const setLoading = useAuthStore((s) => s.setLoading);
   const colorScheme = useColorScheme();
@@ -34,16 +33,15 @@ export default function RootLayout() {
           .single();
         setUser(session.user);
         setProfile(profile);
-      } else {  // verify: validation
+      } else {
         setUser(null);
         setProfile(null);
       }
-
       setLoading(false);
       setInitialized(true);
       await SplashScreen.hideAsync();
     };
-    init();
+    init();  // TODO: edge case
   }, []);
 
   if (!initialized) {
@@ -52,6 +50,7 @@ export default function RootLayout() {
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </View>
     );
+
   }
 
   return (
@@ -71,10 +70,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
   loading: {
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-
 });
