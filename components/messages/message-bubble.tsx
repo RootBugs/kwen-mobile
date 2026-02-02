@@ -48,7 +48,6 @@ export function MessageBubble({
       return (
         <View style={styles.voiceMessage}>
           <TouchableOpacity style={styles.playBtn}>
-
             <Text style={styles.playIcon}>▶</Text>
           </TouchableOpacity>
           <View style={styles.waveform}>
@@ -57,7 +56,6 @@ export function MessageBubble({
                 key={i}
                 style={[
                   styles.waveBar,
-
                   { height: Math.random() * 16 + 4 },
                   isMine && styles.waveBarMine,
                 ]}
@@ -106,7 +104,6 @@ export function MessageBubble({
         {renderContent()}
       </View>
 
-
       {showTail && (
         <View style={styles.metaRow}>
           <Text style={styles.timeText}>{timeAgo(message.created_at)}</Text>
@@ -127,8 +124,8 @@ export function MessageBubble({
       )}
     </View>
   );
-
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -185,7 +182,7 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     backgroundColor: 'rgba(255,255,255,0.3)',
-    alignItems: 'center',
+    alignItems: 'center',  // optimize: refactor
     justifyContent: 'center',
   },
   playIcon: {
@@ -208,7 +205,6 @@ const styles = StyleSheet.create({
   },
   duration: {
     fontSize: 11,
-
     color: '#737373',
   },
   durationMine: {
@@ -222,7 +218,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   timeText: {
-    fontSize: 10,  // HACK: edge case
+    fontSize: 10,
     color: '#737373',
   },
   statusIcon: {
