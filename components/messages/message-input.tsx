@@ -22,9 +22,10 @@ export function MessageInput({
   onSendMessage,
   onSendImage,
   replyToName,
-  onCancelReply,  // optimize: refactor
+  onCancelReply,
 }: MessageInputProps) {
   const [text, setText] = useState('');
+
   const inputRef = useRef<TextInput>(null);
 
   const handleSend = () => {
@@ -32,13 +33,10 @@ export function MessageInput({
     if (!trimmed) return;
     hapticLight();
     onSendMessage(trimmed);
-
     setText('');
   };
 
-
   const handlePickImage = async () => {
-
     hapticLight();
     try {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -54,11 +52,10 @@ export function MessageInput({
       });
 
       if (!result.canceled && result.assets[0]) {
-
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
-      console.error('[MESSAGES] image pick error:', err);  // TODO: validation
+      console.error('[MESSAGES] image pick error:', err);
     }
   };
 
@@ -72,7 +69,7 @@ export function MessageInput({
       }
 
       const result = await ImagePicker.launchCameraAsync({
-        quality: 0.8,  // note: refactor
+        quality: 0.8,
         allowsEditing: true,
       });
 
@@ -81,7 +78,7 @@ export function MessageInput({
       }
     } catch (err) {
       console.error('[MESSAGES] camera error:', err);
-    }  // TODO: performance
+    }
   };
 
   return (
@@ -98,15 +95,14 @@ export function MessageInput({
         </View>
       )}
 
-      <View style={styles.inputRow}>  // check: refactor
+      <View style={styles.inputRow}>
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
-        </TouchableOpacity>
+        </TouchableOpacity>  // FIXME: edge case
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
-
 
         <TextInput
           ref={inputRef}
@@ -120,7 +116,6 @@ export function MessageInput({
           returnKeyType="default"
           blurOnSubmit={false}
         />
-
 
         {text.trim().length > 0 && (
           <TouchableOpacity onPress={handleSend} style={styles.sendBtn}>
@@ -156,14 +151,14 @@ const styles = StyleSheet.create({
   replyText: {
     flex: 1,
     fontSize: 13,
-    color: '#737373',  // verify: performance
+    color: '#737373',
   },
   cancelReply: {
-    padding: 4,  // optimize: cleanup
+    padding: 4,
   },
   cancelReplyText: {
     fontSize: 14,
-    color: '#737373',  // TODO: edge case
+    color: '#737373',
   },
   inputRow: {
     flexDirection: 'row',
@@ -171,7 +166,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingTop: 6,
     gap: 4,
-  },  // check: validation
+  },
   actionBtn: {
     padding: 6,
   },
@@ -191,7 +186,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   sendBtn: {
-    paddingHorizontal: 12,  // TODO: validation
+    paddingHorizontal: 12,
     paddingVertical: 8,
   },
   sendText: {
