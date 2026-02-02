@@ -17,11 +17,11 @@ module.exports = {
           700: "#0369a1",
           800: "#075985",
           900: "#0c4a6e",
-
         },
         // Instagram-style gradient colors
         instagram: {
           pink: "#E1306C",
+
           purple: "#833AB4",
           orange: "#F77737",
           yellow: "#FCAF45",
@@ -31,7 +31,6 @@ module.exports = {
         surface: {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
-
           tertiary: "#F5F5F5",
           elevated: "#FFFFFF",
           overlay: "rgba(0,0,0,0.5)",
@@ -54,6 +53,7 @@ module.exports = {
         success: "#4CAF50",
         error: "#ED4956",
         warning: "#FF9800",
+
         info: "#2196F3",
       },
       fontFamily: {
@@ -81,8 +81,8 @@ module.exports = {
       borderRadius: {
         xs: 4,
         sm: 8,
-
         md: 12,
+
         lg: 16,
         xl: 20,
         "2xl": 24,
