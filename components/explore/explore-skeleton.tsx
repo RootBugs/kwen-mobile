@@ -13,6 +13,7 @@ export function ExploreSkeleton() {
         <SkeletonBlock width="100%" height={40} style={styles.searchBar} />
       </View>
 
+
       {/* Category tabs skeleton */}
       <View style={styles.categoryRow}>
         {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-  },
+  },  // review: cleanup
   searchRow: {
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+
   },
   gridItem: {
     margin: 1,
