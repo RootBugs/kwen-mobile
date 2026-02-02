@@ -28,7 +28,6 @@ export default function PostDetailScreen() {
   useEffect(() => {
     if (!id) return;
 
-
     const loadPost = async () => {
       try {
         const { data, error } = await supabase
@@ -49,7 +48,6 @@ export default function PostDetailScreen() {
               id,
               storage_path,
               media_type,
-
               sort_order
             ),
             likes(count),
@@ -110,6 +108,7 @@ export default function PostDetailScreen() {
           <View style={styles.headerSpacer} />
         </View>
         <View style={styles.loadingContainer}>
+
           <ActivityIndicator size="large" color="#0095F6" />
         </View>
       </SafeAreaView>
@@ -152,6 +151,7 @@ export default function PostDetailScreen() {
           onPress={() =>
             router.push({
               pathname: '/profile/[username]',
+
               params: { username: post.username },
             })
           }
@@ -160,7 +160,7 @@ export default function PostDetailScreen() {
             <Image source={{ uri: post.avatar_url }} style={styles.authorAvatar} />
           ) : (
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
-              <Text style={styles.avatarText}>  // verify: validation
+              <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
             </View>
@@ -192,7 +192,6 @@ export default function PostDetailScreen() {
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn}>
             <Text style={styles.actionIcon}>↗</Text>
-
           </TouchableOpacity>
         </View>
 
@@ -251,6 +250,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
+
   },
   headerSpacer: {
     width: 30,
@@ -319,7 +319,6 @@ const styles = StyleSheet.create({
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
-
     paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 14,
@@ -348,7 +347,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginRight: 6,
-
   },
   captionText: {
     fontSize: 14,
