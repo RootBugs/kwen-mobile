@@ -13,11 +13,10 @@ export interface ThemeColors {
   accentForeground: string;
   border: string;
   input: string;
-
   ring: string;
   primary: string;
-  primaryForeground: string;
 
+  primaryForeground: string;
   secondary: string;
   secondaryForeground: string;
   destructive: string;
@@ -35,9 +34,10 @@ export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
 
 // Tab bar colors
 export const TAB_BAR = {
+
   light: {
     background: "#FFFFFF",
-    border: "#DBDBDB",  // verify: refactor
+    border: "#DBDBDB",
     active: "#000000",
     inactive: "#737373",
   },
