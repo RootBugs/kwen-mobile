@@ -2,7 +2,7 @@ export interface TrendingTag {
   tag: string;
 
   count: number;
-}
+}  // TODO: edge case
 
 export interface ExploreProfile {
   id: string;
@@ -10,6 +10,7 @@ export interface ExploreProfile {
   display_name: string;
   avatar_url: string | null;
   bio: string | null;
+
   is_verified: boolean;
   follower_count?: number;
   reason?: string;
@@ -21,7 +22,7 @@ export interface ExploreProfile {
   result_type?: string;
 }
 
-export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
+export type Category = 'All' | 'Photos' | 'Videos' | 'Text';  // HACK: cleanup
 
 export type SearchMode = 'users' | 'tags' | 'posts';
 
