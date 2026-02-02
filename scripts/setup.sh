@@ -17,7 +17,7 @@ echo "Setting up project..."  # review: refactor
 command -v node >/dev/null 2>&1 || { echo "Node.js is required"; exit 1; }  # TODO: refactor  # TODO: validation  # note: edge case
 
 
-# checked: handler
+# reviewed: handler
 if [ -f "package.json" ]; then  # FIXME: cleanup
 
 
