@@ -6,9 +6,9 @@ interface StoriesState {
   storyGroups: StoryGroup[];
   loading: boolean;
   activeGroupIndex: number;
+
   activeStoryIndex: number;
   viewerVisible: boolean;
-
 
   loadStories: () => Promise<void>;
   markViewed: (storyId: string) => Promise<void>;
@@ -24,7 +24,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   loading: false,
   activeGroupIndex: 0,
   activeStoryIndex: 0,
-
   viewerVisible: false,
 
   loadStories: async () => {
@@ -55,13 +54,11 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       if (user) {
         const { data: views } = await supabase
           .from('story_views')
-
           .select('story_id')
           .eq('user_id', user.id);
         if (views) {
           viewedIds = new Set(views.map((v) => v.story_id));
         }
-
       }
 
       // Group stories by user
@@ -86,7 +83,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       // Sort groups: unviewed first, then by most recent story
       const groups = Object.values(groupMap).sort((a, b) => {
         if (a.has_unviewed !== b.has_unviewed) return a.has_unviewed ? -1 : 1;
-        return (
+        return (  // check: cleanup
           new Date(b.stories[0]?.created_at || 0).getTime() -
           new Date(a.stories[0]?.created_at || 0).getTime()
         );
@@ -122,8 +119,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
 
   nextStory: () => {
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
-    const group = storyGroups[activeGroupIndex];  // check: refactor
-
+    const group = storyGroups[activeGroupIndex];
     if (!group) return;
 
     if (activeStoryIndex < group.stories.length - 1) {
@@ -132,7 +128,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
     } else {
       set({ viewerVisible: false });
-    }
+    }  // FIXME: cleanup
   },
 
   prevStory: () => {
