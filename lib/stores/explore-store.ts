@@ -12,6 +12,7 @@ interface ExploreState {
   // Search
   searchQuery: string;
   searchMode: SearchMode;
+
   searchResults: SearchResult[];
   searching: boolean;
   showResults: boolean;
@@ -52,14 +53,12 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   hasMore: true,
   seenIds: [],
   activeCategory: 'All',
-
   trendingTags: [],
   suggestedUsers: [],
 
   setSearchQuery: (query) => set({ searchQuery: query, showResults: query.length > 0 }),
   setSearchMode: (mode) => set({ searchMode: mode }),
   setShowResults: (show) => set({ showResults: show }),
-
 
   performSearch: async () => {
     const { searchQuery, searchMode } = get();
@@ -70,6 +69,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
     set({ searching: true, showResults: true });
     const q = searchQuery.trim().toLowerCase();
+
 
     try {
       if (searchMode === 'users') {
@@ -93,7 +93,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
           .ilike('caption', `%#${q}%`)
           .limit(20);
-
         set({ searchResults: data || [] });
       }
     } catch {
@@ -111,6 +110,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loadPosts: async (refresh = false) => {
     const { activeCategory, seenIds } = get();
     set({ loading: true });
+
     try {
       let query = supabase
         .from('posts')
@@ -136,7 +136,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       set({
         posts: refresh ? newPosts : [...get().posts, ...newPosts],
-
         seenIds: refresh ? newIds : [...seenIds, ...newIds],
         hasMore: newPosts.length === EXPLORE_PAGE_SIZE,
       });
@@ -159,13 +158,13 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     try {
       // Get posts from last 7 days, extract hashtags
       const weekAgo = new Date();
+
       weekAgo.setDate(weekAgo.getDate() - 7);
 
       const { data } = await supabase
         .from('posts')
         .select('caption')
         .gte('created_at', weekAgo.toISOString())
-
         .not('caption', 'is', null);
 
       if (!data) return;
