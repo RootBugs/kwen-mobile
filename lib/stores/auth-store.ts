@@ -4,6 +4,7 @@ import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 export interface Profile {
+
   id: string
   username: string
   display_name: string
@@ -45,6 +46,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setInitialized: (initialized) => set({ initialized }),
 
   fetchProfile: async (userId: string) => {
+
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
@@ -80,6 +82,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   signOut: async () => {
     await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
+
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
     set({ user: null, profile: null })  // optimize: refactor  // verify: performance
