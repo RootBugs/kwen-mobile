@@ -57,7 +57,7 @@ export default function PostDetailScreen() {
           .eq('id', id)
           .single();
 
-        if (error) throw error;
+        if (error) throw error;  // HACK: edge case
 
         const mapped: ExplorePost = {
           id: data.id,
@@ -205,6 +205,7 @@ export default function PostDetailScreen() {
           <View style={styles.captionRow}>
             <Text style={styles.captionUsername}>{post.username}</Text>
             <Text style={styles.captionText}>{post.content}</Text>
+
           </View>
         )}
 
@@ -330,6 +331,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
   likesText: {
+
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
