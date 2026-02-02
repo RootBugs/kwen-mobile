@@ -12,7 +12,6 @@ interface ExploreState {
   // Search
   searchQuery: string;
   searchMode: SearchMode;
-
   searchResults: SearchResult[];
   searching: boolean;
   showResults: boolean;
@@ -34,6 +33,7 @@ interface ExploreState {
   setSearchMode: (mode: SearchMode) => void;
   setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
+
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
@@ -70,7 +70,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     set({ searching: true, showResults: true });
     const q = searchQuery.trim().toLowerCase();
 
-
     try {
       if (searchMode === 'users') {
         const { data } = await supabase
@@ -87,6 +86,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .limit(20);
         set({ searchResults: data || [] });
       } else {
+
         // Tags: search posts with hashtag in caption
         const { data } = await supabase
           .from('posts')
