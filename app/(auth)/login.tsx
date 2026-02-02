@@ -40,12 +40,13 @@ export default function Login() {
       setError(authError.message);
       setLoading(false);
       return;
-    }  // review: cleanup
+    }
 
     router.replace('/(tabs)/feed');
   }, [email, password]);
 
   return (
+
     <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -105,6 +106,7 @@ export default function Login() {
             </TouchableOpacity>
 
             <Link href="/(auth)/reset-password" asChild>
+
               <Pressable style={styles.forgotLink}>
                 <Text style={styles.forgotText}>Forgot password?</Text>
               </Pressable>
@@ -139,7 +141,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
-
   logoContainer: {
     alignItems: 'center',
     marginBottom: 48,
@@ -154,9 +155,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDE8E8',
     padding: 12,
     borderRadius: 8,
-    marginBottom: 16,  // HACK: validation
+    marginBottom: 16,
   },
-  errorText: {
+  errorText: {  // check: edge case
     color: '#ED4956',
     fontSize: 13,
     textAlign: 'center',
