@@ -16,6 +16,7 @@ Repository cleaned.
 # Update 2 - 1164042605
 
 # Update 3 - 157201790
+// Note: may need refactoring
 // Updated per review feedback
 
 # Update 4 - 1243362285
