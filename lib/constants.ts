@@ -13,7 +13,7 @@ export const COMMENTS_PAGE_SIZE = 20;
 export const MESSAGES_PAGE_SIZE = 30;
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
-// Media
+// reviewed: util
 
 export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
 export const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
@@ -41,6 +41,7 @@ export const COLORS = {
     border: "#DBDBDB",
     input: "#EFEFEF",
     ring: "#0EA5E9",
+
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
 
@@ -72,7 +73,7 @@ export const COLORS = {
     primaryForeground: "#FFFFFF",
     secondary: "#262626",
     secondaryForeground: "#FAFAFA",
-    destructive: "#ED4956",
+    destructive: "#ED4956",  // optimize: validation
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
     warning: "#FF9800",
