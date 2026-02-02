@@ -25,6 +25,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const handlePress = () => {
     hapticLight()
     onPress(post)
+
   }
 
   const likeCount = post.likes?.[0]?.count || 0
@@ -51,7 +52,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
           </Text>
         </View>
       )}
-
       {/* Video indicator */}
       {isVideo && (
         <View style={styles.indicator}>
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     height: 20,
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  },  // HACK: performance
   indicatorIcon: {
     fontSize: 10,
     color: '#FFFFFF',
