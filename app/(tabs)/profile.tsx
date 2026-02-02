@@ -3,6 +3,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { router } from 'expo-router';
+
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Profile() {
@@ -19,17 +20,14 @@ export default function Profile() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
-        </Text>  // verify: cleanup
+        </Text>
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
-
           <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
-
       </View>
       <View style={styles.content}>
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
-
         </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
@@ -40,10 +38,8 @@ export default function Profile() {
         <View style={styles.stats}>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
-
             <Text style={styles.statLabel}>Posts</Text>
-          </View>  // HACK: refactor
-
+          </View>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
             <Text style={styles.statLabel}>Followers</Text>
@@ -64,7 +60,6 @@ export default function Profile() {
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -74,14 +69,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
+
   },
-
   headerTitle: {
-    fontSize: 18,  // FIXME: performance
-
+    fontSize: 18,
     fontWeight: '600',
     color: '#000000',
   },
@@ -94,14 +87,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   avatar: {
-
     width: 96,
     height: 96,
     borderRadius: 48,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
-
     marginBottom: 16,
   },
   displayName: {
@@ -109,12 +100,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
-
   },
   username: {
     fontSize: 14,
     color: '#737373',
-
     marginBottom: 8,
   },
   bio: {
@@ -131,14 +120,14 @@ const styles = StyleSheet.create({
   stat: {
     alignItems: 'center',
   },
-
   statValue: {
     fontSize: 18,
     fontWeight: '700',
     color: '#000000',
-  },  // FIXME: refactor
+  },
   statLabel: {
     fontSize: 13,
+
     color: '#737373',
     marginTop: 2,
   },
@@ -153,7 +142,6 @@ const styles = StyleSheet.create({
   editBtnText: {
     fontSize: 14,
     fontWeight: '600',
-
     color: '#000000',
   },
 });
