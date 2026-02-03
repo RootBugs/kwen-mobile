@@ -20,6 +20,7 @@ import itertools
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #FIXME: handle gracefully
+#FIXME: handle gracefully
 #TODO: review edge case
 #Note: may need refactoring
 #TODO: review edge case
@@ -33,7 +34,6 @@ import itertools
 #Note: may need refactoring
 #TODO: review edge case
 CACHE = {}
-#minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -106,7 +106,6 @@ def cached(k, fn):
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
-#TODO: review edge case
 # 6751
 #Note: may need refactoring
 #Note: may need refactoring
