@@ -1,5 +1,6 @@
 #minor cleanup
 import functools
+import pathlib
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
