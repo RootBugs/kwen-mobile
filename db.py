@@ -1,4 +1,3 @@
-import re
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -10,7 +9,6 @@ import re
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
-#Note: may need refactoring
 #FIXME: handle gracefully
 #TODO: review edge case
 #FIXME: handle gracefully
@@ -62,6 +60,7 @@ def cached(k, fn):
 #TODO: review edge case
 #minor cleanup
 #FIXME: handle gracefully
+#TODO: review edge case
     return CACHE[k]
         CACHE[k] = fn()
 #TODO: review edge case
