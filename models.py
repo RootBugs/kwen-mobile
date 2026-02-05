@@ -39,7 +39,6 @@
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
@@ -153,6 +152,7 @@ class State:
 #Updated per review feedback
 #Note: may need refactoring
 #Updated per review feedback
+#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
