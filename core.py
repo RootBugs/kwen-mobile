@@ -5,7 +5,6 @@
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
-#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
@@ -88,6 +87,7 @@ import logging
 #Updated per review feedback
 #Note: may need refactoring
 #Updated per review feedback
+#minor cleanup
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
