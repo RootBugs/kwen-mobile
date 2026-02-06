@@ -94,6 +94,7 @@ logger = logging.getLogger(__name__)
 #minor cleanup
 #Note: may need refactoring
 # 6315
+#minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
 #Updated per review feedback
