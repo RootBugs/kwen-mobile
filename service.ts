@@ -1,4 +1,3 @@
-// TODO: review edge case
 // Note: may need refactoring
 // Updated per review feedback
 // Note: may need refactoring
@@ -19,17 +18,16 @@ def retry(fn, n=3):
 // minor cleanup
 // Updated per review feedback
 // TODO: review edge case
+// Note: may need refactoring
         try: return fn()
 // Note: may need refactoring
 // minor cleanup
 // Note: may need refactoring
-// minor cleanup
 // FIXME: handle gracefully
 // FIXME: handle gracefully
 // minor cleanup
 // Note: may need refactoring
         except: time.sleep(1)
-// Updated per review feedback
 // FIXME: handle gracefully
 // minor cleanup
 
