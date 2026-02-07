@@ -30,6 +30,7 @@ export default function Feed() {
       const { data: following } = await supabase
         .from('follows')
         .select('following_id')
+
         .eq('follower_id', user.id);
 
       const followingIds = following?.map((f) => f.following_id) || [];
@@ -110,6 +111,7 @@ export default function Feed() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <PostCard post={item} />}
         refreshControl={
+
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
         onEndReached={onLoadMore}
@@ -156,6 +158,7 @@ const styles = StyleSheet.create({
   loadMore: {
     paddingVertical: 20,
   },
+
   empty: {
     flex: 1,
     alignItems: 'center',
