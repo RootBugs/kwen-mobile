@@ -15,15 +15,14 @@ export function CategoryTabs() {
   }
 
   return (
-
     <ScrollView
       horizontal
-      showsHorizontalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}  // HACK: edge case
       contentContainerStyle={styles.container}
     >
       {CATEGORIES.map((category) => (
         <TouchableOpacity
-          key={category}  // check: cleanup
+          key={category}
           style={[
             styles.tab,
             activeCategory === category && styles.tabActive,
@@ -33,16 +32,15 @@ export function CategoryTabs() {
           <Text
             style={[
               styles.tabText,
-
               activeCategory === category && styles.tabTextActive,
             ]}
           >
             {category}
           </Text>
         </TouchableOpacity>
-
       ))}
     </ScrollView>
+
   )
 }
 
@@ -50,9 +48,9 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
     paddingVertical: 8,
+
     gap: 8,
   },
-
   tab: {
     paddingHorizontal: 16,
     paddingVertical: 7,
@@ -65,8 +63,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.foreground,
   },
   tabText: {
-
-
     fontSize: 13,
     fontWeight: '500',
     color: COLORS.light.mutedForeground,
