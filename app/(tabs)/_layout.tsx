@@ -1,5 +1,6 @@
 import { Tabs } from 'expo-router';
 import { Platform, StyleSheet } from 'react-native';
+
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
@@ -58,7 +59,7 @@ export default function TabsLayout() {
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
         }}
-      />
+      />  // optimize: validation
       <Tabs.Screen
         name="profile"
         options={{
@@ -76,6 +77,7 @@ const styles = StyleSheet.create({
   tabBar: {
     position: 'absolute',
     backgroundColor: Platform.OS === 'ios' ? 'rgba(255,255,255,0.8)' : '#FFFFFF',
+
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
 
