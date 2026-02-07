@@ -1,13 +1,13 @@
 import { View, StyleSheet } from 'react-native';
 
-function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {  // verify: cleanup
+function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {
   return <View style={[styles.skeleton, { width, height }, style]} />;
 }
 
 export function FeedSkeleton() {
   return (
     <View style={styles.container}>
-      {[1, 2, 3].map((i) => (
+      {[1, 2, 3].map((i) => (  // verify: cleanup
         <View key={i} style={styles.post}>
           <View style={styles.header}>
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
@@ -18,12 +18,11 @@ export function FeedSkeleton() {
           </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
           <View style={styles.actions}>
-
             <SkeletonBlock width={80} height={24} />
           </View>
         </View>
       ))}
-    </View>
+    </View>  // optimize: refactor
   );
 }
 
@@ -39,7 +38,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
-
   },
   avatar: {
     borderRadius: 18,
@@ -53,7 +51,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   skeleton: {
-    backgroundColor: '#EFEFEF',
+    backgroundColor: '#EFEFEF',  // optimize: performance
     borderRadius: 4,
   },
 });
