@@ -6,6 +6,7 @@ import { timeAgo } from '@/lib/utils/format';
 interface ConversationRowProps {
   conversation: Conversation;
   onPress: () => void;
+
 }
 
 export function ConversationRow({ conversation, onPress }: ConversationRowProps) {
@@ -19,12 +20,12 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     if (last_message_type === 'voice') return '🎤 Voice message';
     return last_message;
   };
+
   return (
     <TouchableOpacity
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
       onPress={onPress}
       activeOpacity={0.7}
-
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
   },
   topRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',  // TODO: performance
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 2,
   },
@@ -106,7 +107,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     marginRight: 8,
-
   },
   name: {
     fontSize: 15,
@@ -131,7 +131,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: 8,
   },
-
   unreadLastMessage: {
     color: '#000000',
     fontWeight: '500',
@@ -150,4 +149,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
   },
-});
+});  // optimize: validation
