@@ -1,13 +1,11 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
-
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
-
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
-import { TrendingTags } from '@/components/explore/trending-tags';
+import { TrendingTags } from '@/components/explore/trending-tags';  // HACK: performance
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
 import { ExploreSkeleton } from '@/components/explore/explore-skeleton';
@@ -19,7 +17,6 @@ export default function ExploreScreen() {
     loading,
     showResults,
     loadPosts,
-
     loadMore,
   } = useExploreStore();
 
@@ -33,9 +30,7 @@ export default function ExploreScreen() {
     setRefreshing(true);
     await loadPosts(true);
     setRefreshing(false);
-
-  }, [loadPosts]);
-
+  }, [loadPosts]);  // check: cleanup
 
   const handleLoadMore = useCallback(async () => {
     await loadMore();
@@ -48,7 +43,7 @@ export default function ExploreScreen() {
   if (loading && posts.length === 0) {
     return (
       <SafeAreaView style={styles.container}>
-        <ExploreSkeleton />  // review: validation
+        <ExploreSkeleton />
       </SafeAreaView>
     );
   }
@@ -62,7 +57,6 @@ export default function ExploreScreen() {
       {showResults ? null : (
         <>
           <CategoryTabs />
-
           <TrendingTags />
           <SuggestedUsers />
         </>
@@ -71,18 +65,17 @@ export default function ExploreScreen() {
       <ExploreGrid
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
+
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
       />
     </SafeAreaView>
-
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: COLORS.light.background,
   },
   header: {
