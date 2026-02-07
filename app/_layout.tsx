@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
@@ -11,6 +10,7 @@ import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
+
 
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
@@ -33,17 +33,17 @@ export default function RootLayout() {
           .eq('id', session.user.id)
           .single();
         setUser(session.user);
-
         setProfile(profile);
       } else {
         setUser(null);
+
         setProfile(null);
       }
       setLoading(false);
       setInitialized(true);
       await SplashScreen.hideAsync();
     };
-    init();  // TODO: edge case
+    init();
   }, []);
 
   if (!initialized) {
@@ -52,14 +52,13 @@ export default function RootLayout() {
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </View>
     );
-
   }
 
   return (
     <GestureHandlerRootView style={styles.container}>
       <SafeAreaProvider>
-        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
 
+        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(auth)" />
           <Stack.Screen name="(tabs)" />
