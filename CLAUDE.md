@@ -1,5 +1,3 @@
-@AGENTS.md  <!-- check: validation -->
-
-
+@AGENTS.md
 
 <!-- revision checkpoint -->
