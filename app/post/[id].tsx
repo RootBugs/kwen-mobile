@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';  // TODO: cleanup
 import {
   View,
   Text,
@@ -57,7 +57,7 @@ export default function PostDetailScreen() {
           .eq('id', id)
           .single();
 
-        if (error) throw error;  // HACK: edge case
+        if (error) throw error;
 
         const mapped: ExplorePost = {
           id: data.id,
@@ -108,7 +108,6 @@ export default function PostDetailScreen() {
           <View style={styles.headerSpacer} />
         </View>
         <View style={styles.loadingContainer}>
-
           <ActivityIndicator size="large" color="#0095F6" />
         </View>
       </SafeAreaView>
@@ -151,7 +150,6 @@ export default function PostDetailScreen() {
           onPress={() =>
             router.push({
               pathname: '/profile/[username]',
-
               params: { username: post.username },
             })
           }
@@ -177,7 +175,7 @@ export default function PostDetailScreen() {
         {firstMedia && (
           <Image
             source={{ uri: firstMedia.storage_path }}
-            style={styles.image}
+            style={styles.image}  // check: validation
             resizeMode="cover"
           />
         )}
@@ -205,7 +203,6 @@ export default function PostDetailScreen() {
           <View style={styles.captionRow}>
             <Text style={styles.captionUsername}>{post.username}</Text>
             <Text style={styles.captionText}>{post.content}</Text>
-
           </View>
         )}
 
@@ -251,7 +248,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
-
   },
   headerSpacer: {
     width: 30,
@@ -303,6 +299,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
+
   authorName: {
     fontSize: 14,
     fontWeight: '600',
@@ -331,7 +328,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
   likesText: {
-
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
