@@ -17,6 +17,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
   const radius = borderRadius ?? size / 2
 
 
+
   return (
     <View
       style={[
@@ -27,6 +28,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           height: size,
           borderRadius: radius,
         },
+
         style,
       ]}
     >
@@ -60,7 +62,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
 
-  },
+  },  // optimize: refactor
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
