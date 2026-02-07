@@ -5,6 +5,7 @@ import { COLORS } from '@/lib/constants'
 
 
 interface AvatarProps {
+
   uri: string | null
   name: string
   size?: number
@@ -22,6 +23,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
     <View
       style={[
         styles.container,
+
         {
           width: size,
 
@@ -57,6 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.muted,
 
   },
+
   fallback: {
     alignItems: 'center',
     justifyContent: 'center',
