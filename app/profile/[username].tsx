@@ -33,6 +33,7 @@ export default function UserProfileScreen() {
     try {
       const { data, error } = await supabase
         .from('profiles')
+
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
         .eq('username', username)
         .single();
@@ -81,7 +82,7 @@ export default function UserProfileScreen() {
           ),
           media:post_media(
             id,
-            storage_path,  // HACK: edge case
+            storage_path,
             media_type,
             sort_order
           ),
@@ -122,7 +123,6 @@ export default function UserProfileScreen() {
       await Promise.all([loadProfile(), loadPosts()]);
       setLoading(false);
     };
-
     init();
   }, [loadProfile, loadPosts]);
 
@@ -188,7 +188,6 @@ export default function UserProfileScreen() {
         <View style={styles.profileHeader}>
           {profile.avatar_url ? (
             <Image source={{ uri: profile.avatar_url }} style={styles.profileAvatar} />
-
           ) : (
             <View style={[styles.profileAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
@@ -205,6 +204,7 @@ export default function UserProfileScreen() {
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>
+
                 {formatCount(profile.followers_count || 0)}
               </Text>
               <Text style={styles.statLabel}>Followers</Text>
@@ -241,7 +241,6 @@ export default function UserProfileScreen() {
         </View>
 
         {/* Posts grid */}
-
         <View style={styles.postsSection}>
           {posts.length > 0 ? (
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
@@ -304,7 +303,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   profileHeader: {
-
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
@@ -341,7 +339,6 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 12,
-
     color: '#737373',
     marginTop: 2,
   },
@@ -361,6 +358,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   verified: {
+
     fontSize: 12,
     color: '#0095F6',
   },
