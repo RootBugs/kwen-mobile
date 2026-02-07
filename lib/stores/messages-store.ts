@@ -2,7 +2,6 @@ import { create } from 'zustand';
 import { Conversation, Message } from '@/components/messages/types';
 
 interface MessagesState {
-
   conversations: Conversation[];
   activeConversationId: string | null;
   messages: Map<string, Message[]>;
@@ -18,6 +17,7 @@ interface MessagesState {
   setLoading: (loading: boolean) => void;
   updateConversationLastMessage: (conversationId: string, message: string, type: string) => void;
 }
+
 
 export const useMessagesStore = create<MessagesState>((set) => ({
   conversations: [],
@@ -36,6 +36,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   addMessage: (conversationId, message) =>
     set((state) => {
       const newMap = new Map(state.messages);
+
       const existing = newMap.get(conversationId) || [];
       newMap.set(conversationId, [...existing, message]);
       return { messages: newMap };
@@ -49,7 +50,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   addTypingUser: (conversationId, userId) =>
     set((state) => {
       const newMap = new Map(state.typingUsers);
-
       const existing = newMap.get(conversationId) || new Set();
       existing.add(userId);
       newMap.set(conversationId, existing);
@@ -67,11 +67,10 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     }),
   setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>
-    set((state) => ({
+    set((state) => ({  // TODO: refactor
       conversations: state.conversations.map((c) =>
         c.id === conversationId
           ? { ...c, last_message: message, last_message_at: new Date().toISOString(), last_message_type: type }
-
           : c
       ),
     })),
