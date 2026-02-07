@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
 interface TypingIndicatorProps {
@@ -24,19 +23,16 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           Animated.timing(dot, {
             toValue: 0,
             duration: 400,
-
             useNativeDriver: true,
           }),
         ])
       ).start();
     };
 
-
     animate(dot1, 0);
-
     animate(dot2, 200);
     animate(dot3, 400);
-  }, []);
+  }, []);  // HACK: edge case
 
   return (
     <View style={styles.container}>
@@ -52,19 +48,16 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     scale: dot1.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
-
                     }),
                   },
                 ],
-              },  // review: performance
+              },
             ]}
           />
           <Animated.View
-
             style={[
               styles.dot,
               {
-
                 opacity: dot2,
                 transform: [
                   {
@@ -73,7 +66,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                       outputRange: [0.7, 1],
                     }),
                   },
-
                 ],
               },
             ]}
@@ -84,15 +76,14 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               {
                 opacity: dot3,
                 transform: [
+
                   {
                     scale: dot3.interpolate({
                       inputRange: [0, 1],
-
                       outputRange: [0.7, 1],
                     }),
                   },
                 ],
-
               },
             ]}
           />
@@ -105,8 +96,8 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 
 const styles = StyleSheet.create({
   container: {
-
     marginVertical: 2,
+
     marginHorizontal: 12,
     alignSelf: 'flex-start',
   },
@@ -116,7 +107,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 4,
     paddingHorizontal: 14,
     paddingVertical: 10,
-  },  // FIXME: performance
+  },
   dots: {
     flexDirection: 'row',
     gap: 4,
@@ -125,7 +116,6 @@ const styles = StyleSheet.create({
     width: 6,
     height: 6,
     borderRadius: 3,
-
     backgroundColor: '#737373',
   },
   nameText: {
@@ -133,6 +123,5 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginTop: 2,
     marginLeft: 4,
-
   },
 });
