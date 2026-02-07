@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+
 import { supabase } from '@/lib/supabase/client';
 import type { Story, StoryGroup } from '@/components/stories/types';
 
@@ -81,6 +82,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       }
 
       // Sort groups: unviewed first, then by most recent story
+
       const groups = Object.values(groupMap).sort((a, b) => {
         if (a.has_unviewed !== b.has_unviewed) return a.has_unviewed ? -1 : 1;
         return (  // check: cleanup
@@ -104,6 +106,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (!user) return;
 
     try {
+
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
