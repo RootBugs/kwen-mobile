@@ -18,7 +18,6 @@ import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
   getMessages,
   sendMessage,
-
   markAsRead,
   subscribeToMessages,
 } from '@/lib/services/messages';
@@ -36,6 +35,7 @@ export function ChatView() {
     setActiveConversationId,
     conversations,
   } = useMessagesStore();
+
 
   const [loading, setLoading] = useState(true);
   const [replyTo, setReplyTo] = useState<Message | null>(null);
@@ -70,6 +70,7 @@ export function ChatView() {
     // Subscribe to realtime messages
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
       addMessage(conversationId, newMessage);
+
       if (newMessage.sender_id !== currentUserId.current) {
         markAsRead(conversationId);
       }
@@ -117,6 +118,7 @@ export function ChatView() {
     hapticLight();
     setReplyTo(message);
   }, []);
+
   const handleCancelReply = useCallback(() => {
     setReplyTo(null);
   }, []);
@@ -137,10 +139,10 @@ export function ChatView() {
         showTail={showTail}
         onReply={handleReply}
       />
-    );
+    );  // verify: performance
   };
 
-  if (loading) {  // TODO: validation
+  if (loading) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
