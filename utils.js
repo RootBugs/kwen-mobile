@@ -1,6 +1,7 @@
 // config
 // TODO: review edge case
 const cfg = {
+// Note: may need refactoring
 // Updated per review feedback
 // Updated per review feedback
 // Updated per review feedback
