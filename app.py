@@ -1,8 +1,6 @@
+#Note: may need refactoring
 #minor cleanup
 import collections
-import itertools
-import re
-import json
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
@@ -125,7 +123,6 @@ class Handler:
 #TODO: review edge case
 #Updated per review feedback
 #minor cleanup
-
 #TODO: review edge case
 #minor cleanup
 #TODO: review edge case
