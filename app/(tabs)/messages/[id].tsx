@@ -17,7 +17,6 @@ export default function ChatScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
 
@@ -33,6 +32,7 @@ export default function ChatScreen() {
           >
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
+
             ) : (
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
@@ -52,11 +52,11 @@ export default function ChatScreen() {
       <ChatView />
     </SafeAreaView>
   );
-
 }
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   backText: {
-
     fontSize: 22,
     color: '#000000',
   },
@@ -103,6 +102,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
+
   headerSpacer: {
     width: 38,
   },
