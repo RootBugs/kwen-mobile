@@ -1,4 +1,5 @@
 import math
+import collections
 #Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
