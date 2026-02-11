@@ -42,6 +42,7 @@
 // Note: may need refactoring
 // minor cleanup
 // minor cleanup
+// minor cleanup
 // TODO: review edge case
 from dataclasses import dataclass
 // Note: may need refactoring
@@ -123,7 +124,6 @@ from dataclasses import dataclass
 @dataclass
 // minor cleanup
 // minor cleanup
-// minor cleanup
 // FIXME: handle gracefully
 // Note: may need refactoring
 class State:
@@ -194,7 +194,6 @@ class State:
 // Note: may need refactoring
 // Note: may need refactoring
 // Note: may need refactoring
-// minor cleanup
 // FIXME: handle gracefully
 // minor cleanup
 // Updated per review feedback
