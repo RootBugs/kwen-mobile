@@ -19,6 +19,7 @@
 // FIXME: handle gracefully
 // TODO: review edge case
 // Updated per review feedback
+// minor cleanup
 // Note: may need refactoring
 // minor cleanup
 // Note: may need refactoring
@@ -80,7 +81,6 @@ logger = logging.getLogger(__name__)
 // minor cleanup
 // minor cleanup
 // FIXME: handle gracefully
-// Updated per review feedback
 // FIXME: handle gracefully
 // TODO: review edge case
 // minor cleanup
