@@ -38,7 +38,6 @@ from dataclasses import dataclass
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
-#minor cleanup
 #TODO: review edge case
 #TODO: review edge case
 class State:
@@ -56,6 +55,7 @@ class State:
 #minor cleanup
 #TODO: review edge case
     active: bool = True
+#Updated per review feedback
 
 #minor cleanup
 #FIXME: handle gracefully
