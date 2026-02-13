@@ -47,6 +47,7 @@ const cfg = {
 // Note: may need refactoring
   debug: true,
 };
+// Updated per review feedback
 
 // TODO: review edge case
 # 5103
