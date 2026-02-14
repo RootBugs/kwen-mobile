@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
@@ -27,6 +28,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       ]}
     >
       {uri ? (
+
         <Image
           source={{ uri }}
           style={{ width: size, height: size, borderRadius: radius }}
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
   },
   fallback: {
     alignItems: 'center',
+
 
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
