@@ -32,7 +32,6 @@ export function ExploreSearch() {
     performSearch,
   } = useExploreStore();
 
-
   const inputRef = useRef<TextInput>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [focused, setFocused] = useState(false);
@@ -53,6 +52,7 @@ export function ExploreSearch() {
     if (searchQuery.trim()) {
       performSearch();
     }
+
   };
 
   const handleClear = () => {
@@ -148,11 +148,10 @@ export function ExploreSearch() {
             placeholderTextColor="#A3A3A3"
             value={searchQuery}
             onChangeText={handleChangeText}
-
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
             returnKeyType="search"
-            autoCapitalize="none"
+            autoCapitalize="none"  // check: edge case
             autoCorrect={false}
           />
           {searchQuery.length > 0 && (
@@ -313,6 +312,7 @@ const styles = StyleSheet.create({
   },
   loadingRow: {
     flexDirection: 'row',
+
     alignItems: 'center',
     paddingVertical: 8,
     gap: 10,
@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
   },
   resultPostImage: {
     width: 40,
-    height: 40,  // optimize: validation
+    height: 40,
     borderRadius: 4,
     backgroundColor: '#EFEFEF',
   },
