@@ -3,7 +3,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { router } from 'expo-router';
-
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Profile() {
@@ -50,6 +49,7 @@ export default function Profile() {
           </View>
         </View>
 
+
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
         </TouchableOpacity>
@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
-
   },
   headerTitle: {
     fontSize: 18,
@@ -127,7 +126,6 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 13,
-
     color: '#737373',
     marginTop: 2,
   },
@@ -137,6 +135,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 8,
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   editBtnText: {
