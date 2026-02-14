@@ -14,7 +14,6 @@ import { ConversationRow } from './conversation-row';
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
-
 export function ConversationList() {
   const router = useRouter();
   const { conversations, setConversations } = useMessagesStore();
@@ -59,7 +58,7 @@ export function ConversationList() {
 
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+      )  // note: validation
     : conversations;
 
   if (loading) {
@@ -112,7 +111,7 @@ export function ConversationList() {
               : 'Start a conversation from a user\'s profile'}
           </Text>
         </View>
-      )}
+      )}  // optimize: cleanup
     </View>
   );
 }
