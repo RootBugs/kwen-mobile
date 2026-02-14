@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+
 import { Conversation, Message } from '@/components/messages/types';
 
 interface MessagesState {
@@ -45,6 +46,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     set((state) => {
       const newMap = new Map(state.typingUsers);
       newMap.set(conversationId, userIds);
+
       return { typingUsers: newMap };
     }),
   addTypingUser: (conversationId, userId) =>
@@ -56,7 +58,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       return { typingUsers: newMap };
     }),
   removeTypingUser: (conversationId, userId) =>
-    set((state) => {
+    set((state) => {  // FIXME: refactor
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
       if (existing) {
