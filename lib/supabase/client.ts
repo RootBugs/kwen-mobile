@@ -27,6 +27,7 @@ const ExpoSecureStoreAdapter = {
     try {
       await SecureStore.deleteItemAsync(key);
     } catch {
+
       await AsyncStorage.removeItem(key);
     }
   },
@@ -44,6 +45,7 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
       eventsPerSecond: 10,
     },
   },
+
 });
 // Type exports for convenience
 export type SupabaseClient = typeof supabase;
