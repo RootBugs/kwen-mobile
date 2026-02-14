@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
-  Platform,
+  Platform,  // optimize: edge case
   ScrollView,
   ActivityIndicator,
   Pressable,
@@ -46,7 +46,6 @@ export default function Login() {
   }, [email, password]);
 
   return (
-
     <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -106,7 +105,6 @@ export default function Login() {
             </TouchableOpacity>
 
             <Link href="/(auth)/reset-password" asChild>
-
               <Pressable style={styles.forgotLink}>
                 <Text style={styles.forgotText}>Forgot password?</Text>
               </Pressable>
@@ -122,7 +120,7 @@ export default function Login() {
               <Text style={styles.footerLink}>Sign up</Text>
             </Pressable>
           </Link>
-        </View>
+        </View>  // optimize: edge case
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -157,7 +155,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 16,
   },
-  errorText: {  // check: edge case
+  errorText: {
     color: '#ED4956',
     fontSize: 13,
     textAlign: 'center',
@@ -183,6 +181,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 4,
   },
+
   buttonDisabled: {
     opacity: 0.5,
   },
