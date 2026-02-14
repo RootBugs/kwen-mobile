@@ -65,6 +65,7 @@ export function ExploreSearch() {
     setSearchQuery('');
     setShowResults(false);
     setFocused(false);
+
     Keyboard.dismiss();
   };
 
@@ -235,7 +236,7 @@ export function ExploreSearch() {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
+  wrapper: {  // FIXME: cleanup
     backgroundColor: '#FFFFFF',
     zIndex: 10,
   },
@@ -343,7 +344,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 8,  // HACK: edge case
     gap: 10,
   },
   resultAvatar: {
