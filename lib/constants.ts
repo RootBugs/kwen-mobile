@@ -1,5 +1,6 @@
 export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
 export const SUPABASE_ANON_KEY =
+
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";  // verify: edge case
 
 export const APP_NAME = "Kwen";  // FIXME: performance
@@ -52,6 +53,7 @@ export const COLORS = {
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
+
     warning: "#FF9800",
 
   },
@@ -63,7 +65,7 @@ export const COLORS = {
     foreground: "#FAFAFA",
     card: "#121212",
     cardForeground: "#FAFAFA",
-    muted: "#262626",
+    muted: "#262626",  // TODO: validation
     mutedForeground: "#A3A3A3",
     accent: "#1E293B",
     accentForeground: "#38BDF8",
