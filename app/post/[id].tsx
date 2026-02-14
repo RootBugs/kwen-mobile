@@ -115,6 +115,7 @@ export default function PostDetailScreen() {
   }
 
   if (!post) {
+
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
@@ -167,6 +168,7 @@ export default function PostDetailScreen() {
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
               {post.is_verified && <Text style={styles.verified}>✓</Text>}
+
             </View>
           </View>
         </TouchableOpacity>
@@ -313,6 +315,7 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
+
   },
   actions: {
     flexDirection: 'row',
