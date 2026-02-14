@@ -32,6 +32,7 @@ export default function Profile() {
           {profile?.display_name || 'User'}
         </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
+
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
 
         <View style={styles.stats}>
@@ -48,7 +49,6 @@ export default function Profile() {
             <Text style={styles.statLabel}>Following</Text>
           </View>
         </View>
-
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   signOutBtn: {
+
     padding: 4,
   },
   content: {
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
     marginBottom: 8,
+
   },
   bio: {
     fontSize: 14,
@@ -135,7 +137,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 8,
     alignItems: 'center',
-
     justifyContent: 'center',
   },
   editBtnText: {
