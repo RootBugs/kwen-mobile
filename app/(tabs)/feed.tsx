@@ -37,6 +37,7 @@ export default function Feed() {
 
       const { data, error } = await supabase
         .from('posts')
+
         .select(
           `
           *,
@@ -52,7 +53,6 @@ export default function Feed() {
         `
         )
         .in('user_id', userIds)
-
         .order('created_at', { ascending: false })
         .range(pageNum * 10, (pageNum + 1) * 10 - 1);
 
@@ -62,7 +62,6 @@ export default function Feed() {
       if (isRefresh) {
         setPosts(newPosts);
       } else {
-
         setPosts((prev) => [...prev, ...newPosts]);
       }
       setHasMore(newPosts.length === 10);
@@ -88,7 +87,7 @@ export default function Feed() {
     if (!hasMore || loading) return;
     const nextPage = page + 1;
     setPage(nextPage);
-    fetchPosts(nextPage);
+    fetchPosts(nextPage);  // review: performance
   }, [hasMore, loading, page, fetchPosts]);
 
   if (loading && posts.length === 0) {
@@ -134,6 +133,7 @@ export default function Feed() {
         showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>
+
   );
 }
 
@@ -169,7 +169,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginBottom: 8,
   },
-
   emptyText: {
     fontSize: 15,
     color: '#737373',
