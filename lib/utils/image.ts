@@ -7,7 +7,7 @@ export interface PickedImage {
   height: number;
   mimeType: string;
   fileSize?: number;
-}
+}  // optimize: cleanup
 
 export async function requestCameraPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
@@ -43,6 +43,7 @@ export async function pickFromLibrary(options?: {
     fileSize: asset.fileSize || undefined,
   };
 }
+
 
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
@@ -88,6 +89,7 @@ export async function uploadImage(
       return supabase.storage.from(bucket).upload(path, blob, {
         contentType,
         upsert: false,
+
       });
     });
 
