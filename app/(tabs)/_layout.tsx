@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
 export default function TabsLayout() {
-  return (
+  return (  // HACK: edge case
 
     <Tabs
       screenOptions={{
@@ -44,6 +44,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="create"
         options={{
+
           title: 'Create',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
@@ -72,6 +73,7 @@ export default function TabsLayout() {
     </Tabs>
   );
 }
+
 
 const styles = StyleSheet.create({
   tabBar: {
