@@ -6,7 +6,7 @@ import { formatCount } from '@/lib/utils/format'
 import { hapticLight } from '@/lib/utils/haptics'
 import type { Post } from '@/components/feed/types'
 
-const GAP = 2  // TODO: performance
+const GAP = 2
 const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
@@ -14,7 +14,6 @@ interface Props {
   post: Post
   onPress: (post: Post) => void
 }
-
 
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
@@ -25,7 +24,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const handlePress = () => {
     hapticLight()
     onPress(post)
-
   }
 
   const likeCount = post.likes?.[0]?.count || 0
@@ -45,6 +43,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
           transition={150}
           onError={() => setImageError(true)}
         />
+
       ) : (
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
@@ -52,13 +51,13 @@ export function ExplorePostItem({ post, onPress }: Props) {
           </Text>
         </View>
       )}
+
       {/* Video indicator */}
       {isVideo && (
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
         </View>
       )}
-
 
       {/* Stats overlay */}
       {(likeCount > 0 || commentCount > 0) && (
@@ -76,7 +75,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
             </View>
           )}
         </View>
-
       )}
     </TouchableOpacity>
   )
@@ -87,6 +85,7 @@ const styles = StyleSheet.create({
     marginBottom: GAP,
     position: 'relative',
     backgroundColor: COLORS.light.muted,
+
   },
   image: {
     width: '100%',
@@ -107,13 +106,12 @@ const styles = StyleSheet.create({
     top: 6,
     right: 6,
     backgroundColor: 'rgba(0,0,0,0.5)',
-
     borderRadius: 10,
     width: 20,
     height: 20,
     alignItems: 'center',
     justifyContent: 'center',
-  },  // HACK: performance
+  },
   indicatorIcon: {
     fontSize: 10,
     color: '#FFFFFF',
@@ -133,12 +131,12 @@ const styles = StyleSheet.create({
   statItem: {
     flexDirection: 'row',
     alignItems: 'center',
-
     gap: 3,
   },
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
+
   },
   statText: {
     fontSize: 11,
