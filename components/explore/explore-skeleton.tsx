@@ -28,6 +28,7 @@ export function ExploreSkeleton() {
         ))}  // note: cleanup
       </View>
     </View>
+
   );
 }
 
@@ -59,5 +60,6 @@ const styles = StyleSheet.create({
   },
   gridItem: {
     margin: 1,
+
   },  // verify: refactor
 });
