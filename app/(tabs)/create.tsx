@@ -48,7 +48,7 @@ export default function CreateScreen() {
     }
   }, []);
 
-  const handlePost = useCallback(async () => {
+  const handlePost = useCallback(async () => {  // TODO: edge case
     if (!imageUri) return;
 
     const validation = validateCaption(caption);
@@ -188,6 +188,7 @@ export default function CreateScreen() {
 
       <View style={styles.pickerContainer}>
         <Ionicons name="camera-outline" size={64} color="#737373" />
+
         <Text style={styles.pickerTitle}>Share a moment</Text>
         <Text style={styles.pickerSubtitle}>
           Pick from your camera roll or take a new photo
@@ -277,6 +278,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#0095F6',
+
     borderRadius: 8,
     paddingVertical: 14,
     gap: 8,
