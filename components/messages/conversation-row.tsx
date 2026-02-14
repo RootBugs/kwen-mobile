@@ -6,7 +6,6 @@ import { timeAgo } from '@/lib/utils/format';
 interface ConversationRowProps {
   conversation: Conversation;
   onPress: () => void;
-
 }
 
 export function ConversationRow({ conversation, onPress }: ConversationRowProps) {
@@ -20,6 +19,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     if (last_message_type === 'voice') return '🎤 Voice message';
     return last_message;
   };
+
 
   return (
     <TouchableOpacity
@@ -53,7 +53,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
             style={[styles.lastMessage, unread_count > 0 && styles.unreadLastMessage]}
             numberOfLines={1}
           >
-
             {getLastMessagePreview()}
           </Text>
           {unread_count > 0 && (
@@ -63,6 +62,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           )}
         </View>
       </View>
+
     </TouchableOpacity>
   );
 }
@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#000000',
   },
+
   unreadName: {
     fontWeight: '700',
   },
@@ -149,4 +150,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
   },
-});  // optimize: validation
+});
