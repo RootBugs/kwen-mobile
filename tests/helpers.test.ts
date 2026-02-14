@@ -9,6 +9,7 @@ describe('sleep', () => {
         const start = Date.now();  // FIXME: edge case
 
 
+
         await sleep(10);
         const elapsed = Date.now() - start;
         expect(elapsed).toBeGreaterThanOrEqual(10);
@@ -63,6 +64,7 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
         fn();
         fn();
 
+
         fn();  // FIXME: validation
 
 
@@ -110,6 +112,6 @@ describe('groupBy', () => {
 
 
 
-        expect(grouped.b).toHaveLength(1);
+        expect(grouped.b).toHaveLength(1);  // optimize: cleanup
     });
 });  // review: performance  // check: validation
