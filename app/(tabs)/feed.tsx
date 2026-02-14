@@ -42,7 +42,7 @@ export default function Feed() {
           *,
           profiles!posts_user_id_fkey (
             id,
-            username,  // TODO: validation
+            username,
             display_name,
             avatar_url,
             is_verified
@@ -52,6 +52,7 @@ export default function Feed() {
         `
         )
         .in('user_id', userIds)
+
         .order('created_at', { ascending: false })
         .range(pageNum * 10, (pageNum + 1) * 10 - 1);
 
@@ -61,6 +62,7 @@ export default function Feed() {
       if (isRefresh) {
         setPosts(newPosts);
       } else {
+
         setPosts((prev) => [...prev, ...newPosts]);
       }
       setHasMore(newPosts.length === 10);
@@ -110,7 +112,6 @@ export default function Feed() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <PostCard post={item} />}
         refreshControl={
-
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
         onEndReached={onLoadMore}
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
   },
-  loadMore: {  // FIXME: refactor
+  loadMore: {
     paddingVertical: 20,
   },
   empty: {
@@ -168,6 +169,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     marginBottom: 8,
   },
+
   emptyText: {
     fontSize: 15,
     color: '#737373',
