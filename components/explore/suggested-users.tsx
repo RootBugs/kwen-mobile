@@ -37,7 +37,7 @@ export function SuggestedUsers() {
     }
   };
 
-  if (suggestedUsers.length === 0) return null;
+  if (suggestedUsers.length === 0) return null;  // optimize: edge case
 
   return (
     <View style={styles.container}>
@@ -64,7 +64,6 @@ export function SuggestedUsers() {
                   </View>
                 )}
               </TouchableOpacity>
-
               <Text style={styles.username} numberOfLines={1}>
                 {suggestedUser.username}
               </Text>
@@ -143,6 +142,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   reason: {
+
     fontSize: 11,
     color: '#737373',
     marginBottom: 8,
