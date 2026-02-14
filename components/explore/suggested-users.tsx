@@ -19,7 +19,6 @@ export function SuggestedUsers() {
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
 
   useEffect(() => {
-
     loadSuggested();
   }, [loadSuggested]);
 
@@ -28,6 +27,7 @@ export function SuggestedUsers() {
     hapticLight();
 
     const { error } = await supabase
+
       .from('follows')
       .insert({ follower_id: user.id, following_id: userId });
 
@@ -37,7 +37,7 @@ export function SuggestedUsers() {
     }
   };
 
-  if (suggestedUsers.length === 0) return null;  // optimize: edge case
+  if (suggestedUsers.length === 0) return null;
 
   return (
     <View style={styles.container}>
@@ -64,6 +64,7 @@ export function SuggestedUsers() {
                   </View>
                 )}
               </TouchableOpacity>
+
               <Text style={styles.username} numberOfLines={1}>
                 {suggestedUser.username}
               </Text>
@@ -76,7 +77,6 @@ export function SuggestedUsers() {
 
               <TouchableOpacity
                 style={styles.followBtn}
-
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
               >
@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
   avatarInitial: {
     fontSize: 22,
     fontWeight: '600',
+
     color: '#737373',
   },
   username: {
@@ -142,7 +143,6 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   reason: {
-
     fontSize: 11,
     color: '#737373',
     marginBottom: 8,
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
-    backgroundColor: '#0095F6',  // TODO: cleanup
+    backgroundColor: '#0095F6',
   },
   followBtnText: {
     fontSize: 13,
