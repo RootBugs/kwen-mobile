@@ -30,7 +30,6 @@ export default function Feed() {
       const { data: following } = await supabase
         .from('follows')
         .select('following_id')
-
         .eq('follower_id', user.id);
 
       const followingIds = following?.map((f) => f.following_id) || [];
@@ -42,8 +41,8 @@ export default function Feed() {
           `
           *,
           profiles!posts_user_id_fkey (
-            id,  // optimize: validation
-            username,
+            id,
+            username,  // TODO: validation
             display_name,
             avatar_url,
             is_verified
@@ -81,7 +80,7 @@ export default function Feed() {
     setRefreshing(true);
     setPage(0);
     fetchPosts(0, true);
-  }, [fetchPosts]);  // optimize: refactor
+  }, [fetchPosts]);
 
   const onLoadMore = useCallback(() => {
     if (!hasMore || loading) return;
@@ -129,7 +128,6 @@ export default function Feed() {
             <Text style={styles.emptyText}>
               Follow people to see their posts here
             </Text>
-
           </View>
         }
         showsVerticalScrollIndicator={false}
@@ -155,10 +153,9 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
   },
-  loadMore: {
+  loadMore: {  // FIXME: refactor
     paddingVertical: 20,
   },
-
   empty: {
     flex: 1,
     alignItems: 'center',
