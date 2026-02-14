@@ -2,10 +2,7 @@ import React from 'react'
 import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
-
-
 interface AvatarProps {
-
   uri: string | null
   name: string
   size?: number
@@ -13,36 +10,28 @@ interface AvatarProps {
   borderRadius?: number
 }
 
-export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {
+export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {  // note: refactor
   const initial = (name?.[0] || '?').toUpperCase()
   const radius = borderRadius ?? size / 2
-
-
 
   return (
     <View
       style={[
         styles.container,
-
         {
           width: size,
-
           height: size,
           borderRadius: radius,
         },
-
         style,
       ]}
     >
-
       {uri ? (
         <Image
           source={{ uri }}
-
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
-
-        />
+        />  // HACK: edge case
       ) : (
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
@@ -53,22 +42,18 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
 }
 
 const styles = StyleSheet.create({
-
   container: {
     overflow: 'hidden',
     backgroundColor: COLORS.light.muted,
-
   },
-
   fallback: {
     alignItems: 'center',
+
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
-
-  },  // optimize: refactor
+  },
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
-
   },
 })
