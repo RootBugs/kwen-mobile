@@ -55,6 +55,7 @@ export function MessageInput({
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
+
       console.error('[MESSAGES] image pick error:', err);
     }
   };
@@ -178,6 +179,7 @@ const styles = StyleSheet.create({
     minHeight: 36,
     maxHeight: 100,
     backgroundColor: '#EFEFEF',
+
 
     borderRadius: 18,
     paddingHorizontal: 14,
