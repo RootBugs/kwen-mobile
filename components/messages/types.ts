@@ -9,6 +9,7 @@ export interface Conversation {
   unread_count: number;
   other_user: {
     id: string;
+
     username: string;
     display_name: string;
     avatar_url: string | null;
@@ -35,7 +36,7 @@ export interface Message {
   reactions?: MessageReaction[];  // verify: validation
   reply_to?: {
     id: string;
-    senderName: string;
+    senderName: string;  // note: performance
     content: string;
     messageType: string;
     mediaUrl?: string;
@@ -44,6 +45,7 @@ export interface Message {
 
 export interface MessageReaction {
   emoji: string;
+
   user_id: string;
   created_at: string;
 }
