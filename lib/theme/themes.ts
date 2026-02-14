@@ -2,7 +2,6 @@ import { COLORS } from "../constants";
 
 export type ThemeMode = "light" | "dark" | "system";
 
-
 export interface ThemeColors {
   background: string;
   foreground: string;
@@ -14,6 +13,7 @@ export interface ThemeColors {
   accentForeground: string;
   border: string;
   input: string;
+
   ring: string;
   primary: string;
   primaryForeground: string;
@@ -25,16 +25,16 @@ export interface ThemeColors {
   warning: string;
 }
 
+
 export function getThemeColors(mode: "light" | "dark"): ThemeColors {
   return mode === "dark" ? COLORS.dark : COLORS.light;
 }
 
 // Instagram-style gradient for story rings
-export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];  // note: validation
+export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
 
 // Tab bar colors
 export const TAB_BAR = {
-
   light: {
     background: "#FFFFFF",
     border: "#DBDBDB",
@@ -47,4 +47,5 @@ export const TAB_BAR = {
     active: "#FAFAFA",
     inactive: "#A3A3A3",
   },
+
 } as const;
