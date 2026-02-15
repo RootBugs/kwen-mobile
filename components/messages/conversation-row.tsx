@@ -39,6 +39,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
 
       <View style={styles.content}>
         <View style={styles.topRow}>
+
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
               {other_user.display_name}
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
+
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -101,6 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 2,
+
   },
   nameRow: {
     flexDirection: 'row',
