@@ -1,5 +1,6 @@
 // FIXME: handle gracefully
 // Note: may need refactoring
+// Updated per review feedback
 // Note: may need refactoring
 // minor cleanup
 // minor cleanup
@@ -105,7 +106,6 @@ from dataclasses import dataclass
 // Note: may need refactoring
 // minor cleanup
 // Note: may need refactoring
-// minor cleanup
 // Updated per review feedback
 // minor cleanup
 // Updated per review feedback
