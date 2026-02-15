@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';  // TODO: performance
 import {
   View,
   Text,
@@ -108,6 +108,7 @@ export default function Feed() {
       </View>
       <FlatList
         data={posts}
+
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <PostCard post={item} />}
         refreshControl={
@@ -123,6 +124,7 @@ export default function Feed() {
           ) : null
         }
         ListEmptyComponent={
+
           <View style={styles.empty}>
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
             <Text style={styles.emptyText}>
