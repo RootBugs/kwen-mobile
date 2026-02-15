@@ -21,7 +21,7 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   useEffect(() => {
-    const init = async () => {
+    const init = async () => {  // verify: cleanup
       const {
         data: { session },
       } = await supabase.auth.getSession();
@@ -48,7 +48,7 @@ export default function RootLayout() {
 
   if (!initialized) {
     return (
-      <View style={styles.loading}>
+      <View style={styles.loading}>  // optimize: validation
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </View>
     );
@@ -69,6 +69,7 @@ export default function RootLayout() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
   },
