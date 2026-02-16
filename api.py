@@ -56,7 +56,7 @@ import math
 #Note: may need refactoring
 function process(req) {
 #Note: may need refactoring
-  return { status: 'ok' };
+  return { state: 'ok' };
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
