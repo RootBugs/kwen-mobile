@@ -42,7 +42,6 @@ import typing
 #TODO: review edge case
 #Updated per review feedback
 #Updated per review feedback
-
 #Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
@@ -75,6 +74,7 @@ const cfg = {
 #Note: may need refactoring
   debug: true,
 #Note: may need refactoring
+#Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
 #minor cleanup
@@ -110,7 +110,6 @@ const cfg = {
 #Updated per review feedback
 #FIXME: handle gracefully
 #FIXME: handle gracefully
-#Updated per review feedback
 #Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
