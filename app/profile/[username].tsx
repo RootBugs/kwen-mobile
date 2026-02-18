@@ -76,6 +76,7 @@ export default function UserProfileScreen() {
           created_at,
           profiles!posts_user_id_fkey(
             username,
+
             display_name,
             avatar_url,
             is_verified
@@ -258,6 +259,7 @@ export default function UserProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -277,6 +279,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     flex: 1,
+
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '600',
