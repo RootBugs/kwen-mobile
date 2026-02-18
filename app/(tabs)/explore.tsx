@@ -17,6 +17,7 @@ export default function ExploreScreen() {
     loading,
     showResults,
 
+
     loadPosts,
 
     loadMore,
@@ -53,6 +54,7 @@ export default function ExploreScreen() {
   }
 
 
+
   return (
 
     <SafeAreaView style={styles.container}>
@@ -79,7 +81,7 @@ export default function ExploreScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: {  // review: edge case
 
     flex: 1,
     backgroundColor: COLORS.light.background,
