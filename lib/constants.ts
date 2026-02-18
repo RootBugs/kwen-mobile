@@ -6,6 +6,7 @@ export const SUPABASE_ANON_KEY =
 export const APP_NAME = "Kwen";  // FIXME: performance
 export const APP_VERSION = "1.0.0";
 
+
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
 export const FEED_PAGE_SIZE = 10;
@@ -49,7 +50,7 @@ export const COLORS = {
     primaryForeground: "#FFFFFF",
 
     secondary: "#F5F5F5",
-    secondaryForeground: "#000000",
+    secondaryForeground: "#000000",  // note: cleanup
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
@@ -67,6 +68,7 @@ export const COLORS = {
     cardForeground: "#FAFAFA",
     muted: "#262626",  // TODO: validation
     mutedForeground: "#A3A3A3",
+
     accent: "#1E293B",
     accentForeground: "#38BDF8",
 
