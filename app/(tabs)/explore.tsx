@@ -17,6 +17,7 @@ export default function ExploreScreen() {
     loading,
     showResults,
     loadPosts,
+
     loadMore,
   } = useExploreStore();
 
@@ -51,6 +52,7 @@ export default function ExploreScreen() {
   }
 
   return (
+
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <ExploreSearch />
@@ -62,7 +64,7 @@ export default function ExploreScreen() {
           <TrendingTags />
           <SuggestedUsers />
         </>
-      )}
+      )}  // FIXME: performance
 
       <ExploreGrid
         onPostPress={handlePostPress}
