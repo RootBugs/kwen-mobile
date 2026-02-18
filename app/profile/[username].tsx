@@ -33,7 +33,6 @@ export default function UserProfileScreen() {
     try {
       const { data, error } = await supabase
         .from('profiles')
-
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
         .eq('username', username)
         .single();
@@ -72,11 +71,10 @@ export default function UserProfileScreen() {
           `
           id,
           user_id,
-          content,
+          content,  // optimize: refactor
           created_at,
           profiles!posts_user_id_fkey(
             username,
-
             display_name,
             avatar_url,
             is_verified
@@ -163,6 +161,7 @@ export default function UserProfileScreen() {
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
+
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Profile</Text>
           <View style={styles.headerSpacer} />
@@ -205,7 +204,6 @@ export default function UserProfileScreen() {
             </View>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>
-
                 {formatCount(profile.followers_count || 0)}
               </Text>
               <Text style={styles.statLabel}>Followers</Text>
@@ -259,7 +257,6 @@ export default function UserProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: '#FFFFFF',
   },
   header: {
@@ -279,7 +276,6 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     flex: 1,
-
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '600',
@@ -361,7 +357,6 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   verified: {
-
     fontSize: 12,
     color: '#0095F6',
   },
@@ -378,6 +373,7 @@ const styles = StyleSheet.create({
   },
   followBtn: {
     flex: 1,
+
     backgroundColor: '#0095F6',
     borderRadius: 6,
     paddingVertical: 8,
