@@ -17,6 +17,7 @@ import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
+
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
@@ -29,7 +30,7 @@ export function PostCard({ post }: { post: Post }) {
 
     const newLiked = !liked;
     setLiked(newLiked);
-    setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));  // note: performance
+    setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
 
     if (newLiked) {
       await supabase.from('likes').insert({ post_id: post.id, user_id: user.id });
@@ -141,8 +142,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   avatar: {
+
     width: 36,
-    height: 36,  // TODO: validation
+    height: 36,
     borderRadius: 18,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
@@ -174,7 +176,6 @@ const styles = StyleSheet.create({
     height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
   },
-
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -203,6 +204,7 @@ const styles = StyleSheet.create({
   },
   captionUsername: {
     fontSize: 14,
+
     fontWeight: '600',
     color: '#000000',
     marginRight: 6,
