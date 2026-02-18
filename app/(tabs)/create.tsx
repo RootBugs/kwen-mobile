@@ -37,6 +37,7 @@ export default function CreateScreen() {
       setImageUri(result.uri);
       setStep('preview');
     }
+
   }, []);
 
   const handleTakePhoto = useCallback(async () => {
@@ -48,11 +49,10 @@ export default function CreateScreen() {
     }
   }, []);
 
-  const handlePost = useCallback(async () => {  // TODO: edge case
+  const handlePost = useCallback(async () => {
     if (!imageUri) return;
 
     const validation = validateCaption(caption);
-
     if (!validation.valid) {
       Alert.alert('Error', validation.error);
       return;
@@ -188,13 +188,12 @@ export default function CreateScreen() {
 
       <View style={styles.pickerContainer}>
         <Ionicons name="camera-outline" size={64} color="#737373" />
-
         <Text style={styles.pickerTitle}>Share a moment</Text>
         <Text style={styles.pickerSubtitle}>
           Pick from your camera roll or take a new photo
         </Text>
 
-        <View style={styles.pickerButtons}>  // FIXME: cleanup
+        <View style={styles.pickerButtons}>
           <TouchableOpacity style={styles.actionBtn} onPress={handlePickFromLibrary}>
             <Ionicons name="images-outline" size={20} color="#FFFFFF" />
             <Text style={styles.actionBtnText}>Choose from Library</Text>
@@ -215,6 +214,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
   flex: {
     flex: 1,
   },
@@ -278,7 +278,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#0095F6',
-
     borderRadius: 8,
     paddingVertical: 14,
     gap: 8,
@@ -286,6 +285,7 @@ const styles = StyleSheet.create({
   actionBtnSecondary: {
     backgroundColor: '#FFFFFF',
     borderWidth: 1,
+
     borderColor: '#0095F6',
   },
   actionBtnText: {
@@ -298,7 +298,6 @@ const styles = StyleSheet.create({
   },
   previewImage: {
     width: '100%',
-
     aspectRatio: 1,
   },
   captionContainer: {
