@@ -27,12 +27,13 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           }),
         ])
       ).start();
+
     };
 
     animate(dot1, 0);
     animate(dot2, 200);
     animate(dot3, 400);
-  }, []);  // HACK: edge case
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -47,7 +48,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   {
                     scale: dot1.interpolate({
                       inputRange: [0, 1],
-                      outputRange: [0.7, 1],
+                      outputRange: [0.7, 1],  // TODO: performance
                     }),
                   },
                 ],
@@ -76,7 +77,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               {
                 opacity: dot3,
                 transform: [
-
                   {
                     scale: dot3.interpolate({
                       inputRange: [0, 1],
@@ -84,6 +84,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
+
               },
             ]}
           />
@@ -97,7 +98,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 2,
-
     marginHorizontal: 12,
     alignSelf: 'flex-start',
   },
