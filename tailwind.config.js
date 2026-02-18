@@ -22,6 +22,7 @@ module.exports = {
         instagram: {
           pink: "#E1306C",
 
+
           purple: "#833AB4",
           orange: "#F77737",
           yellow: "#FCAF45",
@@ -51,6 +52,7 @@ module.exports = {
         },
         // Status colors
         success: "#4CAF50",
+
         error: "#ED4956",
         warning: "#FF9800",
 
@@ -64,6 +66,7 @@ module.exports = {
       },
       fontSize: {
         "2xs": 10,
+
         xs: 11,
         sm: 12,
         base: 14,
