@@ -8,6 +8,7 @@ export function useAuth() {
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
 
+
   useEffect(() => {
     let initialHandled = false
 
@@ -37,6 +38,7 @@ export function useAuth() {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         initialHandled = true
+
         if (session?.user) {
           try {
             const profile = await fetchProfile(session.user.id)
@@ -81,6 +83,7 @@ export function useAuth() {
 
     return () => {
       clearTimeout(fallbackTimer)
+
       subscription.unsubscribe()
     }
   }, [])
