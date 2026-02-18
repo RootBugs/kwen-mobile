@@ -1,6 +1,7 @@
 export interface TrendingTag {
   tag: string;
 
+
   count: number;
 }  // TODO: edge case
 
@@ -15,12 +16,13 @@ export interface ExploreProfile {
   is_verified: boolean;
   follower_count?: number;
   reason?: string;
+
   like_count?: number;
 
 
   comment_count?: number;
   image_url?: string | null;
-  caption?: string | null;
+  caption?: string | null;  // HACK: edge case
   result_type?: string;
 }
 
