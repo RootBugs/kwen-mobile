@@ -26,16 +26,17 @@ export default function ChatScreen() {
             onPress={() =>
               router.push({
                 pathname: '/profile/[username]',
+
                 params: { username: otherUser.username },
               })
             }
           >
             {otherUser.avatar_url ? (
               <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
-
             ) : (
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
+
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
               </View>
@@ -56,7 +57,6 @@ export default function ChatScreen() {
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
+
     marginRight: 8,
   },
   avatarFallback: {
@@ -102,7 +103,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-
   headerSpacer: {
     width: 38,
   },
