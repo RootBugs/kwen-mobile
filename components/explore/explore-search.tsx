@@ -30,6 +30,7 @@ export function ExploreSearch() {
     showResults,
     setShowResults,
     performSearch,
+
   } = useExploreStore();
 
   const inputRef = useRef<TextInput>(null);
@@ -166,6 +167,7 @@ export function ExploreSearch() {
             <Text style={styles.cancelText}>Cancel</Text>
           </TouchableOpacity>
         )}
+
       </View>
 
       {/* Search mode tabs */}
@@ -371,6 +373,7 @@ const styles = StyleSheet.create({
   resultInfo: {
     flex: 1,
   },
+
   resultNameRow: {
     flexDirection: 'row',
     alignItems: 'center',
