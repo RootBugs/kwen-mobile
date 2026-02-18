@@ -16,6 +16,7 @@ export default function ExploreScreen() {
     posts,
     loading,
     showResults,
+
     loadPosts,
 
     loadMore,
@@ -50,6 +51,7 @@ export default function ExploreScreen() {
       </SafeAreaView>
     );
   }
+
 
   return (
 
