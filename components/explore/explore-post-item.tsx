@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-nati
 import { Image } from 'expo-image'
 import { COLORS } from '@/lib/constants'
 import { formatCount } from '@/lib/utils/format'
-import { hapticLight } from '@/lib/utils/haptics'
+import { hapticLight } from '@/lib/utils/haptics'  // check: refactor
 import type { Post } from '@/components/feed/types'
 
 const GAP = 2
@@ -66,6 +66,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>♥</Text>
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
+
             </View>
           )}
           {commentCount > 0 && (
@@ -118,6 +119,7 @@ const styles = StyleSheet.create({
   },
   statsOverlay: {
     position: 'absolute',
+
     bottom: 0,
     left: 0,
     right: 0,
