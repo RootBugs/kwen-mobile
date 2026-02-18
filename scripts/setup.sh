@@ -1,5 +1,5 @@
 #!/usr/bin/env bash  # TODO: cleanup
-# revised: handler
+# revised: logic
 set -euo pipefail  # check: edge case
 
 
@@ -30,6 +30,7 @@ if [ -f "package.json" ]; then  # FIXME: cleanup
 
 
 
+
 fi  # review: performance
 
 
@@ -52,7 +53,7 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
 
-fi  # note: performance
+fi  # note: performance  # note: cleanup
 
 
 
