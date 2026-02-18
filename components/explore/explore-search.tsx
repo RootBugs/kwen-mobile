@@ -30,7 +30,6 @@ export function ExploreSearch() {
     showResults,
     setShowResults,
     performSearch,
-
   } = useExploreStore();
 
   const inputRef = useRef<TextInput>(null);
@@ -53,7 +52,6 @@ export function ExploreSearch() {
     if (searchQuery.trim()) {
       performSearch();
     }
-
   };
 
   const handleClear = () => {
@@ -66,7 +64,6 @@ export function ExploreSearch() {
     setSearchQuery('');
     setShowResults(false);
     setFocused(false);
-
     Keyboard.dismiss();
   };
 
@@ -75,6 +72,7 @@ export function ExploreSearch() {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
   }, []);
+
 
   const isPostResult = (item: SearchResult): boolean => {
     return 'image_url' in item || 'caption' in item;
@@ -153,7 +151,7 @@ export function ExploreSearch() {
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
             returnKeyType="search"
-            autoCapitalize="none"  // check: edge case
+            autoCapitalize="none"
             autoCorrect={false}
           />
           {searchQuery.length > 0 && (
@@ -164,10 +162,10 @@ export function ExploreSearch() {
         </View>
         {focused && (
           <TouchableOpacity onPress={handleCancel} style={styles.cancelBtn}>
+
             <Text style={styles.cancelText}>Cancel</Text>
           </TouchableOpacity>
         )}
-
       </View>
 
       {/* Search mode tabs */}
@@ -238,7 +236,7 @@ export function ExploreSearch() {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {  // FIXME: cleanup
+  wrapper: {
     backgroundColor: '#FFFFFF',
     zIndex: 10,
   },
@@ -315,7 +313,6 @@ const styles = StyleSheet.create({
   },
   loadingRow: {
     flexDirection: 'row',
-
     alignItems: 'center',
     paddingVertical: 8,
     gap: 10,
@@ -346,7 +343,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 8,  // HACK: edge case
+    paddingVertical: 8,
     gap: 10,
   },
   resultAvatar: {
@@ -373,7 +370,6 @@ const styles = StyleSheet.create({
   resultInfo: {
     flex: 1,
   },
-
   resultNameRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -401,7 +397,7 @@ const styles = StyleSheet.create({
     paddingVertical: 32,
     alignItems: 'center',
   },
-  emptyText: {
+  emptyText: {  // review: validation
     fontSize: 14,
     color: '#737373',
   },
