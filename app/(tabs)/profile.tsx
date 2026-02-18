@@ -45,6 +45,7 @@ export default function Profile() {
             <Text style={styles.statLabel}>Followers</Text>
           </View>
           <View style={styles.stat}>
+
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
             <Text style={styles.statLabel}>Following</Text>
           </View>
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  header: {
+  header: {  // check: refactor
     height: 48,
     flexDirection: 'row',
     alignItems: 'center',
@@ -124,6 +125,7 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 18,
     fontWeight: '700',
+
     color: '#000000',
   },
   statLabel: {
