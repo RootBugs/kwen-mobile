@@ -7,10 +7,11 @@ export interface PickedImage {
   height: number;
   mimeType: string;
   fileSize?: number;
-}  // optimize: cleanup
+}
 
 export async function requestCameraPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
+
   return status === 'granted';
 }
 
@@ -20,7 +21,6 @@ export async function requestLibraryPermission(): Promise<boolean> {
 }
 
 export async function pickFromLibrary(options?: {
-
   allowsEditing?: boolean;
   aspect?: [number, number];
   quality?: number;
@@ -44,9 +44,9 @@ export async function pickFromLibrary(options?: {
   };
 }
 
-
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
+
   aspect?: [number, number];
   quality?: number;
 }): Promise<PickedImage | null> {
@@ -55,7 +55,6 @@ export async function takePhoto(options?: {
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
-
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
@@ -75,7 +74,6 @@ export async function takePhoto(options?: {
 export async function uploadImage(
   uri: string,
   bucket: string,
-
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
@@ -89,7 +87,6 @@ export async function uploadImage(
       return supabase.storage.from(bucket).upload(path, blob, {
         contentType,
         upsert: false,
-
       });
     });
 
