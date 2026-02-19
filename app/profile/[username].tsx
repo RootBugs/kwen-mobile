@@ -56,6 +56,7 @@ export default function UserProfileScreen() {
   const loadPosts = useCallback(async () => {
     if (!username) return;
 
+
     try {
       const { data: profileData } = await supabase
         .from('profiles')
@@ -71,7 +72,7 @@ export default function UserProfileScreen() {
           `
           id,
           user_id,
-          content,  // optimize: refactor
+          content,
           created_at,
           profiles!posts_user_id_fkey(
             username,
@@ -161,7 +162,6 @@ export default function UserProfileScreen() {
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
-
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Profile</Text>
           <View style={styles.headerSpacer} />
@@ -246,6 +246,7 @@ export default function UserProfileScreen() {
           ) : (
             <View style={styles.emptyPosts}>
               <Text style={styles.emptyPostsText}>No posts yet</Text>
+
             </View>
           )}
         </View>
@@ -314,6 +315,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   avatarFallback: {
+
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -373,7 +375,6 @@ const styles = StyleSheet.create({
   },
   followBtn: {
     flex: 1,
-
     backgroundColor: '#0095F6',
     borderRadius: 6,
     paddingVertical: 8,
