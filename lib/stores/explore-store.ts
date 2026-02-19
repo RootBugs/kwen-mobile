@@ -33,7 +33,6 @@ interface ExploreState {
   setSearchMode: (mode: SearchMode) => void;
   setShowResults: (show: boolean) => void;
   performSearch: () => Promise<void>;
-
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
@@ -76,6 +75,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .from('profiles')
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
+
           .limit(20);
         set({ searchResults: data || [] });
       } else if (searchMode === 'posts') {
@@ -201,5 +201,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     } catch {
       // Silent fail
     }
+
   },
 }));
