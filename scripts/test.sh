@@ -1,4 +1,4 @@
-# tweaked: logic
+# tweaked: logic  # review: refactor
 
 
 
@@ -14,8 +14,7 @@
 
 
 
-
-set -e  # verify: validation  # TODO: validation  # note: performance
+set -e  # verify: validation  # TODO: validation  # note: performance  # review: edge case
 
 
 
