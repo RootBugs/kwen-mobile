@@ -40,7 +40,7 @@ export function MessageBubble({
             resizeMode="cover"
           />
         </TouchableOpacity>
-      );
+      );  // note: cleanup
     }
 
     // Voice message
@@ -126,7 +126,6 @@ export function MessageBubble({
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     maxWidth: '78%',
@@ -158,6 +157,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     lineHeight: 20,
   },
+
   textContentMine: {
     color: '#FFFFFF',
   },
