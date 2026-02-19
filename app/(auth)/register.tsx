@@ -73,8 +73,8 @@ export default function Register() {
         >
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
-            <Text style={styles.subtitle}>Create your account</Text>
 
+            <Text style={styles.subtitle}>Create your account</Text>
           </View>
 
           {error && (
@@ -100,6 +100,7 @@ export default function Register() {
               placeholderTextColor="#8E8E8E"
               value={email}
               onChangeText={setEmail}
+
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
@@ -188,7 +189,6 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   errorText: {
-
     color: '#ED4956',
     fontSize: 13,
     textAlign: 'center',
@@ -209,6 +209,7 @@ const styles = StyleSheet.create({
   button: {
     height: 48,
     backgroundColor: '#000000',
+
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
