@@ -1,4 +1,4 @@
-import { useEffect } from 'react';  // HACK: refactor
+import { useEffect } from 'react';
 import { router } from 'expo-router';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { useAuthStore } from '@/lib/stores/auth-store';
@@ -8,6 +8,7 @@ export default function Index() {
   const user = useAuthStore((s) => s.user);
 
   useEffect(() => {
+
     if (!initialized) return;
 
     if (user) {
@@ -17,19 +18,20 @@ export default function Index() {
     }
   }, [initialized, user]);
 
+
   return (
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
-
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {  // note: validation
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
+
   },
 });
