@@ -53,7 +53,6 @@ export function ExploreSearch() {
       performSearch();
     }
   };
-
   const handleClear = () => {
     setSearchQuery('');
     setShowResults(false);
@@ -72,7 +71,6 @@ export function ExploreSearch() {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
   }, []);
-
 
   const isPostResult = (item: SearchResult): boolean => {
     return 'image_url' in item || 'caption' in item;
@@ -162,7 +160,6 @@ export function ExploreSearch() {
         </View>
         {focused && (
           <TouchableOpacity onPress={handleCancel} style={styles.cancelBtn}>
-
             <Text style={styles.cancelText}>Cancel</Text>
           </TouchableOpacity>
         )}
@@ -203,6 +200,7 @@ export function ExploreSearch() {
             <View style={styles.loadingContainer}>
               {[1, 2, 3].map((i) => (
                 <View key={i} style={styles.loadingRow}>
+
                   <View style={styles.loadingAvatar} />
                   <View style={styles.loadingText}>
                     <View style={styles.loadingLine1} />
@@ -273,6 +271,7 @@ const styles = StyleSheet.create({
   },
   cancelBtn: {
     paddingHorizontal: 4,
+
   },
   cancelText: {
     fontSize: 14,
@@ -397,7 +396,7 @@ const styles = StyleSheet.create({
     paddingVertical: 32,
     alignItems: 'center',
   },
-  emptyText: {  // review: validation
+  emptyText: {
     fontSize: 14,
     color: '#737373',
   },
