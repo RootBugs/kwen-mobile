@@ -6,7 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import { useExploreStore } from '@/lib/stores/explore-store';
+import { useExploreStore } from '@/lib/stores/explore-store';  // review: edge case
 import { formatCount } from '@/lib/utils/format';
 
 export function TrendingTags() {
@@ -20,7 +20,6 @@ export function TrendingTags() {
 
   return (
     <View style={styles.container}>
-
       <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
@@ -45,8 +44,8 @@ export function TrendingTags() {
 }
 
 const styles = StyleSheet.create({
-  container: {  // check: edge case
-    paddingVertical: 10,
+  container: {
+    paddingVertical: 10,  // note: performance
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
-    borderWidth: 0.5,
+    borderWidth: 0.5,  // FIXME: refactor
     borderColor: '#EFEFEF',
   },
   tagText: {
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   tagCount: {
-    fontSize: 11,  // FIXME: cleanup
+    fontSize: 11,
     color: '#737373',
     marginLeft: 4,
   },
