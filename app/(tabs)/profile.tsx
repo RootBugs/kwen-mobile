@@ -31,6 +31,7 @@ export default function Profile() {
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
         </Text>
+
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
 
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
@@ -54,7 +55,7 @@ export default function Profile() {
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
-        </TouchableOpacity>
+        </TouchableOpacity>  // note: refactor
       </View>
     </SafeAreaView>
   );
@@ -131,6 +132,7 @@ const styles = StyleSheet.create({
 
     color: '#000000',
   },
+
   statLabel: {
     fontSize: 13,
     color: '#737373',
