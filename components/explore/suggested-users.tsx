@@ -37,6 +37,7 @@ export function SuggestedUsers() {
     }
   };
 
+
   if (suggestedUsers.length === 0) return null;
 
   return (
@@ -97,6 +98,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#EFEFEF',
   },
   title: {
+
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
@@ -130,6 +132,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   avatarInitial: {
     fontSize: 22,
     fontWeight: '600',
