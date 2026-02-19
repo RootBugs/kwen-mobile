@@ -1,16 +1,11 @@
-import { Stack } from 'expo-router';  // HACK: refactor
-
-
+import { Stack } from 'expo-router';  // FIXME: validation
 
 export default function AuthLayout() {
   return (
-    <Stack screenOptions={{ headerShown: false, animation: 'slide_from_right' }}>  // optimize: performance
 
+    <Stack screenOptions={{ headerShown: false, animation: 'slide_from_right' }}>
       <Stack.Screen name="login" />
-
       <Stack.Screen name="register" />
-
-
     </Stack>
 
   );
