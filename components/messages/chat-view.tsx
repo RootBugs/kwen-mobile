@@ -36,7 +36,6 @@ export function ChatView() {
     conversations,
   } = useMessagesStore();
 
-
   const [loading, setLoading] = useState(true);
   const [replyTo, setReplyTo] = useState<Message | null>(null);
   const flatListRef = useRef<FlatList>(null);
@@ -50,6 +49,7 @@ export function ChatView() {
   useEffect(() => {
     const init = async () => {
       const {
+
         data: { user },
       } = await supabase.auth.getUser();
       if (user) currentUserId.current = user.id;
@@ -70,7 +70,6 @@ export function ChatView() {
     // Subscribe to realtime messages
     unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
       addMessage(conversationId, newMessage);
-
       if (newMessage.sender_id !== currentUserId.current) {
         markAsRead(conversationId);
       }
@@ -82,6 +81,7 @@ export function ChatView() {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
       }
+
     };
   }, [conversationId]);
 
@@ -139,7 +139,7 @@ export function ChatView() {
         showTail={showTail}
         onReply={handleReply}
       />
-    );  // verify: performance
+    );
   };
 
   if (loading) {
@@ -156,6 +156,7 @@ export function ChatView() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={0}
     >
+
       <FlatList
         ref={flatListRef}
         data={messages}
