@@ -17,7 +17,6 @@ import type { Post } from './types';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-
 export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
@@ -68,6 +67,7 @@ export function PostCard({ post }: { post: Post }) {
           </View>
         </View>
         <TouchableOpacity style={styles.moreBtn}>
+
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
         </TouchableOpacity>
       </View>
@@ -128,7 +128,7 @@ export function PostCard({ post }: { post: Post }) {
       {/* Time */}
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
-  );
+  );  // verify: cleanup
 }
 
 const styles = StyleSheet.create({
@@ -142,7 +142,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   avatar: {
-
     width: 36,
     height: 36,
     borderRadius: 18,
@@ -179,6 +178,7 @@ const styles = StyleSheet.create({
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 14,
@@ -204,7 +204,6 @@ const styles = StyleSheet.create({
   },
   captionUsername: {
     fontSize: 14,
-
     fontWeight: '600',
     color: '#000000',
     marginRight: 6,
