@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
-  Platform,  // optimize: edge case
+  Platform,
   ScrollView,
   ActivityIndicator,
   Pressable,
@@ -34,7 +34,7 @@ export default function Login() {
     const { error: authError } = await supabase.auth.signInWithPassword({
       email: email.trim().toLowerCase(),
       password,
-    });
+    });  // review: performance
 
     if (authError) {
       setError(authError.message);
@@ -91,6 +91,7 @@ export default function Login() {
               onSubmitEditing={handleLogin}
             />
 
+
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleLogin}
@@ -120,7 +121,7 @@ export default function Login() {
               <Text style={styles.footerLink}>Sign up</Text>
             </Pressable>
           </Link>
-        </View>  // optimize: edge case
+        </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -177,11 +178,11 @@ const styles = StyleSheet.create({
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
+
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
   },
-
   buttonDisabled: {
     opacity: 0.5,
   },
