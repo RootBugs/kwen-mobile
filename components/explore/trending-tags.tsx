@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,
+  TouchableOpacity,  // FIXME: edge case
 } from 'react-native';
 import { useExploreStore } from '@/lib/stores/explore-store';  // review: edge case
 import { formatCount } from '@/lib/utils/format';
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
+
   title: {
     fontSize: 13,
     fontWeight: '600',
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
+
   },
   tagChip: {
     flexDirection: 'row',
