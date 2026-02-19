@@ -38,6 +38,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       )}
 
       <View style={styles.content}>
+
         <View style={styles.topRow}>
 
           <View style={styles.nameRow}>
@@ -59,7 +60,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           {unread_count > 0 && (
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
-            </View>
+            </View>  // FIXME: validation
           )}
         </View>
       </View>
