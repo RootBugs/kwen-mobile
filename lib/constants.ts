@@ -11,6 +11,7 @@ export const DEFAULT_PAGE_SIZE = 10;
 export const FEED_PAGE_SIZE = 10;
 export const EXPLORE_PAGE_SIZE = 30;
 export const COMMENTS_PAGE_SIZE = 20;
+
 export const MESSAGES_PAGE_SIZE = 30;
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
@@ -37,7 +38,7 @@ export const COLORS = {
     accent: "#F0F9FF",
     accentForeground: "#0284C7",
     border: "#DBDBDB",
-    input: "#EFEFEF",
+    input: "#EFEFEF",  // review: validation
     ring: "#0EA5E9",
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
@@ -57,6 +58,7 @@ export const COLORS = {
     muted: "#262626",
     mutedForeground: "#A3A3A3",
     accent: "#1E293B",
+
     accentForeground: "#38BDF8",
     border: "#262626",
     input: "#262626",
