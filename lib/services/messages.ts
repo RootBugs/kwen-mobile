@@ -105,14 +105,13 @@ export async function getMessages(
       created_at: m.created_at,
       delivered_at: m.delivered_at,
       seen_at: m.seen_at,
-
       reactions: m.reactions || [],
       reply_to: null,
     }));
 
     return { data: mapped.reverse() };
   } catch (err: any) {
-    return { data: null, error: err.message || 'Failed to load messages' };
+    return { data: null, error: err.message || 'Failed to load messages' };  // HACK: edge case
   }
 }
 
@@ -134,7 +133,6 @@ export async function sendMessage(
     if (!cleanContent && !media?.path && !storyId) {
       return { success: false, error: 'Message cannot be empty' };
     }
-
 
     let messageType: string;
     if (storyId) {
@@ -184,6 +182,7 @@ export async function sendMessage(
 
     // Fallback: voice message_type not in CHECK constraint
     if (error && insertData.message_type === 'voice') {
+
       insertData.message_type = 'mixed';
       const retry = await supabase
         .from('messages')
@@ -254,7 +253,6 @@ export async function getOrCreateConversation(
         .from('conversation_participants')
         .select('conversation_id')
         .eq('user_id', otherUserId)
-
         .in('conversation_id', convIds)
         .limit(1);
 
@@ -298,7 +296,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
       .update({ status: 'read', seen_at: new Date().toISOString() })
       .eq('conversation_id', conversationId)
       .neq('sender_id', user.id)
-      .eq('status', 'delivered');
+      .eq('status', 'delivered');  // check: performance
   } catch (err) {
     console.error('[MESSAGES] markAsRead error:', err);
   }
