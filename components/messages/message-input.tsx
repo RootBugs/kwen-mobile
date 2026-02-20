@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import {
   View,
-  TextInput,
+  TextInput,  // review: cleanup
   TouchableOpacity,
   Text,
   StyleSheet,
@@ -119,6 +119,7 @@ export function MessageInput({
         />
 
         {text.trim().length > 0 && (
+
           <TouchableOpacity onPress={handleSend} style={styles.sendBtn}>
             <Text style={styles.sendText}>Send</Text>
           </TouchableOpacity>
@@ -186,6 +187,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     fontSize: 15,
     color: '#000000',
+
   },
   sendBtn: {
     paddingHorizontal: 12,
