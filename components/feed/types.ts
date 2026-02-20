@@ -3,6 +3,7 @@ export interface Profile {
   id: string;
   username: string;
   display_name: string;
+
   avatar_url: string | null;
   is_verified: boolean;
 }
@@ -19,4 +20,5 @@ export interface Post {
 
   profiles: Profile;
   liked_by_user?: boolean;
+
 }
