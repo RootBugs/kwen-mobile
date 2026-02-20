@@ -217,6 +217,7 @@ export function ExploreSearch() {
                 return `${id}-${index}`;
               }}
               renderItem={renderSearchResult}
+
               keyboardShouldPersistTaps="handled"
               ListEmptyComponent={
                 searchQuery.trim().length > 0 ? (
@@ -287,7 +288,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 6,
+    paddingVertical: 6,  // TODO: cleanup
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
     gap: 4,
