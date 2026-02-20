@@ -4,6 +4,7 @@ import { Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
+
 export default function TabsLayout() {
   return (  // HACK: edge case
 
@@ -53,7 +54,7 @@ export default function TabsLayout() {
       />
 
       <Tabs.Screen
-        name="messages"
+        name="messages"  // review: validation
         options={{
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
@@ -64,6 +65,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="profile"
         options={{
+
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
