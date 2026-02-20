@@ -66,6 +66,7 @@ export default function Register() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
+
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
@@ -138,6 +139,7 @@ export default function Register() {
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
             </TouchableOpacity>
+
           </View>
         </ScrollView>
 
@@ -232,6 +234,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#DBDBDB',
   },
   footerText: {
+
     color: '#737373',
     fontSize: 14,
   },
