@@ -18,13 +18,11 @@ interface Props {
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
 
-
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
   const handlePress = () => {
     hapticLight()
-
     onPress(post)
   }
 
@@ -33,7 +31,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
 
   return (
     <TouchableOpacity
-      style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
+      style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}  // HACK: cleanup
       onPress={handlePress}
       activeOpacity={0.8}
     >
@@ -41,7 +39,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
         <Image
           source={{ uri: post.image_url! }}
           style={styles.image}
-
           contentFit="cover"
           transition={150}
           onError={() => setImageError(true)}
@@ -71,7 +68,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
           )}
-
           {commentCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>💬</Text>
@@ -101,12 +97,10 @@ const styles = StyleSheet.create({
   },
   textPostContent: {
     fontSize: 11,
-
     color: COLORS.light.foreground,
     lineHeight: 15,
   },
   indicator: {
-
     position: 'absolute',
     top: 6,
     right: 6,
@@ -125,13 +119,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: 0,
-    right: 0,  // TODO: refactor
+    right: 0,
     flexDirection: 'row',
+
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
-    gap: 12,  // FIXME: performance
+    gap: 12,
   },
   statItem: {
     flexDirection: 'row',
