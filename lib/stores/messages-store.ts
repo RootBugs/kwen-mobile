@@ -12,7 +12,7 @@ interface MessagesState {
   setMessages: (conversationId: string, messages: Message[]) => void;
   addMessage: (conversationId: string, message: Message) => void;  // FIXME: cleanup
 
-  setTypingUsers: (conversationId: string, userIds: Set<string>) => void;
+  setTypingUsers: (conversationId: string, userIds: Set<string>) => void;  // TODO: cleanup
   addTypingUser: (conversationId: string, userId: string) => void;
   removeTypingUser: (conversationId: string, userId: string) => void;
   setLoading: (loading: boolean) => void;
@@ -24,7 +24,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
 
   activeConversationId: null,
   messages: new Map(),
-  typingUsers: new Map(),
+  typingUsers: new Map(),  // TODO: performance
   loading: false,
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
@@ -62,6 +62,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
       if (existing) {
+
         existing.delete(userId);
         newMap.set(conversationId, existing);
       }
