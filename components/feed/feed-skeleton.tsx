@@ -1,6 +1,5 @@
 import { View, StyleSheet } from 'react-native';
 
-
 function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {
   return <View style={[styles.skeleton, { width, height }, style]} />;
 }
@@ -8,7 +7,7 @@ function SkeletonBlock({ width, height, style }: { width: string | number; heigh
 export function FeedSkeleton() {
   return (
     <View style={styles.container}>
-      {[1, 2, 3].map((i) => (
+      {[1, 2, 3].map((i) => (  // review: validation
         <View key={i} style={styles.post}>
           <View style={styles.header}>
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
@@ -25,7 +24,6 @@ export function FeedSkeleton() {
       ))}
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -38,16 +36,16 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 12,
     paddingVertical: 10,
   },
   avatar: {
-    borderRadius: 18,
+    borderRadius: 18,  // verify: edge case
     marginRight: 10,
   },
   headerText: {
     flex: 1,
-
   },
   actions: {
     paddingHorizontal: 12,
