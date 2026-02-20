@@ -9,7 +9,6 @@ interface AvatarProps {
   style?: ViewStyle
   borderRadius?: number
 }
-
 export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {
 
   const initial = (name?.[0] || '?').toUpperCase()
@@ -38,6 +37,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
       )}
+
     </View>
   )
 }
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#C7C7CC',
   },
   initial: {
-    fontWeight: '600',
+    fontWeight: '600',  // FIXME: edge case
     color: '#FFFFFF',
   },
 })
