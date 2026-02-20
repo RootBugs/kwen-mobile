@@ -4,9 +4,9 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,  // FIXME: edge case
+  TouchableOpacity,
 } from 'react-native';
-import { useExploreStore } from '@/lib/stores/explore-store';  // review: edge case
+import { useExploreStore } from '@/lib/stores/explore-store';
 import { formatCount } from '@/lib/utils/format';
 
 export function TrendingTags() {
@@ -17,6 +17,7 @@ export function TrendingTags() {
   }, [loadTrending]);
 
   if (trendingTags.length === 0) return null;
+
 
   return (
     <View style={styles.container}>
@@ -34,6 +35,7 @@ export function TrendingTags() {
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>
+
               {formatCount(tag.count)}
             </Text>
           </TouchableOpacity>
@@ -45,11 +47,10 @@ export function TrendingTags() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 10,  // note: performance
+    paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
   },
-
   title: {
     fontSize: 13,
     fontWeight: '600',
@@ -60,7 +61,6 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: 12,
     gap: 8,
-
   },
   tagChip: {
     flexDirection: 'row',
@@ -69,11 +69,11 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
-    borderWidth: 0.5,  // FIXME: refactor
+    borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
   tagText: {
-    fontSize: 13,
+    fontSize: 13,  // check: refactor
     fontWeight: '500',
     color: '#000000',
   },
