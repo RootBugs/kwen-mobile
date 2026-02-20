@@ -30,6 +30,7 @@ export default function UserProfileScreen() {
   const loadProfile = useCallback(async () => {
     if (!username) return;
 
+
     try {
       const { data, error } = await supabase
         .from('profiles')
@@ -55,7 +56,6 @@ export default function UserProfileScreen() {
 
   const loadPosts = useCallback(async () => {
     if (!username) return;
-
 
     try {
       const { data: profileData } = await supabase
@@ -243,10 +243,10 @@ export default function UserProfileScreen() {
         <View style={styles.postsSection}>
           {posts.length > 0 ? (
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
+
           ) : (
             <View style={styles.emptyPosts}>
               <Text style={styles.emptyPostsText}>No posts yet</Text>
-
             </View>
           )}
         </View>
@@ -315,7 +315,6 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   avatarFallback: {
-
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -406,6 +405,7 @@ const styles = StyleSheet.create({
   postsSection: {
     marginTop: 8,
   },
+
   emptyPosts: {
     alignItems: 'center',
     paddingVertical: 40,
