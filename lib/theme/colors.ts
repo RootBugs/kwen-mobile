@@ -5,6 +5,7 @@ export const lightTheme = {
   bgElevated: '#FFFFFF',
   textPrimary: '#000000',
   textSecondary: '#262626',
+
   textMuted: '#8E8E8E',
   textInverse: '#FFFFFF',
   borderSubtle: '#DBDBDB',
@@ -27,6 +28,7 @@ export const lightTheme = {
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
 }
+
 
 export const darkTheme = {
   bgPrimary: '#000000',
@@ -57,6 +59,7 @@ export const darkTheme = {
   storyBg: '#000000',
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
+
 }
 
 export type ThemeColors = typeof lightTheme
