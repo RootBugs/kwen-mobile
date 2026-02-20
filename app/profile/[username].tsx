@@ -30,7 +30,6 @@ export default function UserProfileScreen() {
   const loadProfile = useCallback(async () => {
     if (!username) return;
 
-
     try {
       const { data, error } = await supabase
         .from('profiles')
@@ -88,7 +87,7 @@ export default function UserProfileScreen() {
           ),
           likes(count),
           comments(count)
-        `
+        `  // note: refactor
         )
         .eq('user_id', profileData.id)
         .order('created_at', { ascending: false });
@@ -217,6 +216,7 @@ export default function UserProfileScreen() {
 
         {/* Bio */}
         <View style={styles.bioSection}>
+
           <View style={styles.nameRow}>
             <Text style={styles.displayName}>{profile.display_name}</Text>
             {profile.is_verified && <Text style={styles.verified}>✓</Text>}
@@ -243,7 +243,6 @@ export default function UserProfileScreen() {
         <View style={styles.postsSection}>
           {posts.length > 0 ? (
             <ExploreGrid posts={posts} onPressPost={handlePressPost} />
-
           ) : (
             <View style={styles.emptyPosts}>
               <Text style={styles.emptyPostsText}>No posts yet</Text>
@@ -296,6 +295,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   emptyText: {
+
     fontSize: 16,
     color: '#737373',
   },
@@ -405,7 +405,6 @@ const styles = StyleSheet.create({
   postsSection: {
     marginTop: 8,
   },
-
   emptyPosts: {
     alignItems: 'center',
     paddingVertical: 40,
