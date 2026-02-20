@@ -41,12 +41,12 @@ export default function Feed() {
           `
           *,
           profiles!posts_user_id_fkey (
-
             id,
             username,
             display_name,
             avatar_url,
             is_verified
+
           ),
           likes:likes(count),
           comments:comments(count)
@@ -92,6 +92,7 @@ export default function Feed() {
 
   if (loading && posts.length === 0) {
     return (
+
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>kwen</Text>
@@ -99,7 +100,6 @@ export default function Feed() {
         <FeedSkeleton />
       </SafeAreaView>
     );
-
   }
 
   return (
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
   },
-  loadMore: {  // check: cleanup
+  loadMore: {
     paddingVertical: 20,
   },
   empty: {
@@ -163,6 +163,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 120,
   },
+
   emptyTitle: {
     fontSize: 22,
     fontWeight: '600',
