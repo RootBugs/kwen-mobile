@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';  // TODO: cleanup
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -29,6 +29,7 @@ export default function PostDetailScreen() {
     if (!id) return;
 
     const loadPost = async () => {
+
       try {
         const { data, error } = await supabase
           .from('posts')
@@ -93,7 +94,7 @@ export default function PostDetailScreen() {
       setPost({
         ...post,
         like_count: liked ? post.like_count - 1 : post.like_count + 1,
-      });  // TODO: edge case
+      });
     }
   };
 
@@ -115,7 +116,6 @@ export default function PostDetailScreen() {
   }
 
   if (!post) {
-
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
@@ -161,14 +161,13 @@ export default function PostDetailScreen() {
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
-              </Text>  // TODO: validation
+              </Text>
             </View>
           )}
           <View style={styles.authorInfo}>
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
               {post.is_verified && <Text style={styles.verified}>✓</Text>}
-
             </View>
           </View>
         </TouchableOpacity>
@@ -177,7 +176,7 @@ export default function PostDetailScreen() {
         {firstMedia && (
           <Image
             source={{ uri: firstMedia.storage_path }}
-            style={styles.image}  // check: validation
+            style={styles.image}
             resizeMode="cover"
           />
         )}
@@ -229,7 +228,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -243,6 +241,7 @@ const styles = StyleSheet.create({
   },
   backText: {
     fontSize: 22,
+
     color: '#000000',
   },
   headerTitle: {
@@ -302,7 +301,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
-
   authorName: {
     fontSize: 14,
     fontWeight: '600',
@@ -316,7 +314,6 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
-
   },
   actions: {
     flexDirection: 'row',
@@ -329,10 +326,10 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   actionIcon: {
-    fontSize: 22,  // note: validation
+    fontSize: 22,
   },
-  likesText: {
 
+  likesText: {
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
