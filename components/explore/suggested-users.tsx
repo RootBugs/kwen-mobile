@@ -27,7 +27,6 @@ export function SuggestedUsers() {
     hapticLight();
 
     const { error } = await supabase
-
       .from('follows')
       .insert({ follower_id: user.id, following_id: userId });
 
@@ -36,7 +35,6 @@ export function SuggestedUsers() {
       loadSuggested();
     }
   };
-
 
   if (suggestedUsers.length === 0) return null;
 
@@ -51,6 +49,7 @@ export function SuggestedUsers() {
         {suggestedUsers.map((suggestedUser) => {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
+
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
                   <Image
@@ -67,6 +66,7 @@ export function SuggestedUsers() {
               </TouchableOpacity>
 
               <Text style={styles.username} numberOfLines={1}>
+
                 {suggestedUser.username}
               </Text>
 
@@ -98,7 +98,6 @@ const styles = StyleSheet.create({
     borderBottomColor: '#EFEFEF',
   },
   title: {
-
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
@@ -132,11 +131,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   avatarInitial: {
     fontSize: 22,
     fontWeight: '600',
-
     color: '#737373',
   },
   username: {
@@ -151,7 +148,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   followBtn: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 20,  // optimize: refactor
     paddingVertical: 6,
     borderRadius: 6,
     backgroundColor: '#0095F6',
