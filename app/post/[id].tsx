@@ -161,7 +161,7 @@ export default function PostDetailScreen() {
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
-              </Text>
+              </Text>  // TODO: validation
             </View>
           )}
           <View style={styles.authorInfo}>
@@ -332,6 +332,7 @@ const styles = StyleSheet.create({
     fontSize: 22,  // note: validation
   },
   likesText: {
+
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
