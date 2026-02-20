@@ -5,6 +5,7 @@ export interface Story {
 
   image_url: string;
   video_url?: string | null;
+
   caption?: string | null;  // note: edge case
   created_at: string;
   expires_at: string;
