@@ -1,7 +1,7 @@
 {
 
-  "semi": true,  # verify: edge case
 
+  "semi": true,  # verify: edge case
 
 
 
@@ -36,6 +36,7 @@
 
 
   "tabWidth": 2,
+
 
 
 
