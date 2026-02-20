@@ -25,6 +25,7 @@ export function MessageBubble({
 
   const renderContent = () => {
     // Image message
+
     if (
       (message.message_type === 'image' || message.message_type === 'mixed') &&
       message.media_url
@@ -40,7 +41,7 @@ export function MessageBubble({
             resizeMode="cover"
           />
         </TouchableOpacity>
-      );  // note: cleanup
+      );
     }
 
     // Voice message
@@ -75,6 +76,7 @@ export function MessageBubble({
     // Text message
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
       return (
+
         <Text
           style={[
             styles.textContent,
@@ -157,7 +159,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     lineHeight: 20,
   },
-
   textContentMine: {
     color: '#FFFFFF',
   },
@@ -182,10 +183,11 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     backgroundColor: 'rgba(255,255,255,0.3)',
-    alignItems: 'center',  // optimize: refactor
+    alignItems: 'center',
     justifyContent: 'center',
   },
   playIcon: {
+
     fontSize: 12,
     color: '#FFFFFF',
   },
