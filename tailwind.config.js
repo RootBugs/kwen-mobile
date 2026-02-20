@@ -21,9 +21,8 @@ module.exports = {
         // Instagram-style gradient colors
         instagram: {
           pink: "#E1306C",
-
-
           purple: "#833AB4",
+
           orange: "#F77737",
           yellow: "#FCAF45",
           red: "#FF0000",
@@ -52,10 +51,9 @@ module.exports = {
         },
         // Status colors
         success: "#4CAF50",
-
         error: "#ED4956",
-        warning: "#FF9800",
 
+        warning: "#FF9800",
         info: "#2196F3",
       },
       fontFamily: {
@@ -66,7 +64,6 @@ module.exports = {
       },
       fontSize: {
         "2xs": 10,
-
         xs: 11,
         sm: 12,
         base: 14,
@@ -76,6 +73,7 @@ module.exports = {
         "3xl": 28,
         "4xl": 34,
       },
+
       spacing: {
         "safe-top": 44,
         "safe-bottom": 34,
@@ -85,7 +83,6 @@ module.exports = {
         xs: 4,
         sm: 8,
         md: 12,
-
         lg: 16,
         xl: 20,
         "2xl": 24,
