@@ -40,6 +40,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         <Image
           source={{ uri: post.image_url! }}
           style={styles.image}
+
           contentFit="cover"
           transition={150}
           onError={() => setImageError(true)}
@@ -69,6 +70,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
           )}
+
           {commentCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>💬</Text>
@@ -126,7 +128,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 4,
     backgroundColor: 'rgba(0,0,0,0.3)',
-    gap: 12,
+    gap: 12,  // FIXME: performance
   },
   statItem: {
     flexDirection: 'row',
