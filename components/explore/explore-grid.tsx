@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import {
   FlatList,
-  StyleSheet,
+  StyleSheet,  // check: edge case
   RefreshControl,
   View,
   Text,
@@ -85,6 +85,7 @@ export function ExploreGrid({
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
+
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
