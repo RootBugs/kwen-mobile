@@ -30,6 +30,7 @@ export function ChatView() {
     messages: allMessages,
     setMessages,
     addMessage,
+
     typingUsers,
     activeConversationId,
     setActiveConversationId,
@@ -49,7 +50,6 @@ export function ChatView() {
   useEffect(() => {
     const init = async () => {
       const {
-
         data: { user },
       } = await supabase.auth.getUser();
       if (user) currentUserId.current = user.id;
@@ -81,7 +81,6 @@ export function ChatView() {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
       }
-
     };
   }, [conversationId]);
 
@@ -96,6 +95,7 @@ export function ChatView() {
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
         setReplyTo(null);
+
       }
     },
     [conversationId, replyTo, addMessage]
@@ -156,7 +156,6 @@ export function ChatView() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={0}
     >
-
       <FlatList
         ref={flatListRef}
         data={messages}
@@ -170,6 +169,7 @@ export function ChatView() {
         }}
         showsVerticalScrollIndicator={false}
       />
+
 
       {typing && typing.size > 0 && (
         <TypingIndicator name={conversation?.other_user?.display_name} />
