@@ -4,6 +4,7 @@
 
 
 
+
 set -e  # review: cleanup
 
 
@@ -23,7 +24,9 @@ set -e  # review: cleanup
 
 
 
+
 echo "Deploying..."  # review: validation
+
 
 
 
