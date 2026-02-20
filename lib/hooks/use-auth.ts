@@ -19,6 +19,7 @@ export function useAuth() {
         .single()
 
 
+
       if (profile) return profile as Profile
 
       const tempUsername = `user_${userId.slice(0, 8)}`
@@ -38,6 +39,7 @@ export function useAuth() {
       async (_event, session) => {
         initialHandled = true
         if (session?.user) {
+
           try {
 
             const profile = await fetchProfile(session.user.id)
@@ -81,6 +83,7 @@ export function useAuth() {
 
     return () => {
       clearTimeout(fallbackTimer)
+
       subscription.unsubscribe()
     }
   }, [])
