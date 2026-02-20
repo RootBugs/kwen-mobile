@@ -33,6 +33,7 @@ interface ExploreState {
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
   setShowResults: (show: boolean) => void;
+
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
@@ -95,6 +96,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         set({ searchResults: data || [] });
       }
     } catch {
+
       set({ searchResults: [] });
     } finally {
       set({ searching: false });
@@ -152,6 +154,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     await get().loadPosts(false);
     set({ loadingMore: false });
   },
+
 
   loadTrending: async () => {
     try {
