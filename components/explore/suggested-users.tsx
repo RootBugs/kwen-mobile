@@ -45,11 +45,11 @@ export function SuggestedUsers() {
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
+
       >
         {suggestedUsers.map((suggestedUser) => {
           return (
             <View key={suggestedUser.id} style={styles.userCard}>
-
               <TouchableOpacity activeOpacity={0.8} style={styles.avatarWrapper}>
                 {suggestedUser.avatar_url ? (
                   <Image
@@ -66,7 +66,6 @@ export function SuggestedUsers() {
               </TouchableOpacity>
 
               <Text style={styles.username} numberOfLines={1}>
-
                 {suggestedUser.username}
               </Text>
 
@@ -82,6 +81,7 @@ export function SuggestedUsers() {
                 activeOpacity={0.7}
               >
                 <Text style={styles.followBtnText}>Follow</Text>
+
               </TouchableOpacity>
             </View>
           );
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: 12,
     gap: 10,
+
   },
   userCard: {
     width: 140,
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   followBtn: {
-    paddingHorizontal: 20,  // optimize: refactor
+    paddingHorizontal: 20,
     paddingVertical: 6,
     borderRadius: 6,
     backgroundColor: '#0095F6',
