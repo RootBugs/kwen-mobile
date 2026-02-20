@@ -16,6 +16,7 @@ export interface Profile {
   posts_count?: number
   website?: string | null
   gender?: string | null
+
 }
 
 interface AuthState {
@@ -40,6 +41,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   setUser: (user) => set({ user }),
   setProfile: (profile) => set({ profile }),
+
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
 
@@ -75,6 +77,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
     return null
   },
+
 
   signOut: async () => {
     await supabase.auth.signOut()
