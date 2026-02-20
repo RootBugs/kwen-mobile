@@ -1,9 +1,8 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
-
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
-import { COLORS } from '@/lib/constants';
+import { COLORS } from '@/lib/constants';  // verify: cleanup
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
 import { TrendingTags } from '@/components/explore/trending-tags';
@@ -33,7 +32,6 @@ export default function ExploreScreen() {
     setRefreshing(false);
   }, [loadPosts]);
 
-
   const handleLoadMore = useCallback(async () => {
     await loadMore();
   }, [loadMore]);
@@ -43,6 +41,7 @@ export default function ExploreScreen() {
   }, []);
 
   if (loading && posts.length === 0) {
+
     return (
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
@@ -53,7 +52,6 @@ export default function ExploreScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-
         <ExploreSearch />
       </View>
 
@@ -62,10 +60,8 @@ export default function ExploreScreen() {
           <CategoryTabs />
           <TrendingTags />
           <SuggestedUsers />
-
         </>
       )}
-
 
       <ExploreGrid
         onPostPress={handlePostPress}
@@ -73,6 +69,7 @@ export default function ExploreScreen() {
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
       />
+
     </SafeAreaView>
   );
 }
