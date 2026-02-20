@@ -8,7 +8,7 @@ export function useAuth() {
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
 
-  useEffect(() => {  // optimize: performance
+  useEffect(() => {
     let initialHandled = false
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
@@ -17,6 +17,7 @@ export function useAuth() {
         .select('*')
         .eq('id', userId)
         .single()
+
 
       if (profile) return profile as Profile
 
@@ -38,6 +39,7 @@ export function useAuth() {
         initialHandled = true
         if (session?.user) {
           try {
+
             const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
             store.setProfile(profile)
@@ -45,7 +47,6 @@ export function useAuth() {
             store.setInitialized(true)
           } catch {
             store.setUser(session.user)
-
             store.setProfile(null)
             store.setLoading(false)
             store.setInitialized(true)
@@ -57,7 +58,7 @@ export function useAuth() {
           store.setInitialized(true)
         }
       }
-    )  // FIXME: cleanup
+    )
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
@@ -74,7 +75,7 @@ export function useAuth() {
         store.setInitialized(true)
       } catch {
         store.setLoading(false)
-        store.setInitialized(true)
+        store.setInitialized(true)  // note: cleanup
       }
     }, 3000)
 
