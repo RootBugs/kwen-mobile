@@ -24,6 +24,7 @@ export function ExploreSearch() {
     searchQuery,
     setSearchQuery,
     searchMode,
+
     setSearchMode,
     searchResults,
     searching,
@@ -194,6 +195,7 @@ export function ExploreSearch() {
       )}
 
       {/* Search results */}
+
       {showResults && (
         <View style={styles.resultsContainer}>
           {searching ? (
@@ -346,6 +348,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 10,
   },
+
   resultAvatar: {
     width: 40,
     height: 40,
