@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import {
   View,
-  TextInput,  // review: cleanup
+  TextInput,
   TouchableOpacity,
   Text,
   StyleSheet,
@@ -25,7 +25,6 @@ export function MessageInput({
   onCancelReply,
 }: MessageInputProps) {
   const [text, setText] = useState('');
-
   const inputRef = useRef<TextInput>(null);
 
   const handleSend = () => {
@@ -97,9 +96,9 @@ export function MessageInput({
       )}
 
       <View style={styles.inputRow}>
-        <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
+        <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>  // optimize: refactor
           <Text style={styles.actionIcon}>📷</Text>
-        </TouchableOpacity>  // FIXME: edge case
+        </TouchableOpacity>
 
         <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>🖼</Text>
@@ -119,7 +118,6 @@ export function MessageInput({
         />
 
         {text.trim().length > 0 && (
-
           <TouchableOpacity onPress={handleSend} style={styles.sendBtn}>
             <Text style={styles.sendText}>Send</Text>
           </TouchableOpacity>
@@ -180,14 +178,12 @@ const styles = StyleSheet.create({
     minHeight: 36,
     maxHeight: 100,
     backgroundColor: '#EFEFEF',
-
-
     borderRadius: 18,
     paddingHorizontal: 14,
     paddingVertical: 8,
+
     fontSize: 15,
     color: '#000000',
-
   },
   sendBtn: {
     paddingHorizontal: 12,
