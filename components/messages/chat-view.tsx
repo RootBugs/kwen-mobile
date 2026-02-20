@@ -30,10 +30,10 @@ export function ChatView() {
     messages: allMessages,
     setMessages,
     addMessage,
-
     typingUsers,
     activeConversationId,
     setActiveConversationId,
+
     conversations,
   } = useMessagesStore();
 
@@ -95,7 +95,6 @@ export function ChatView() {
       if (result.success && result.message) {
         addMessage(conversationId, result.message);
         setReplyTo(null);
-
       }
     },
     [conversationId, replyTo, addMessage]
@@ -116,6 +115,7 @@ export function ChatView() {
 
   const handleReply = useCallback((message: Message) => {
     hapticLight();
+
     setReplyTo(message);
   }, []);
 
@@ -137,6 +137,7 @@ export function ChatView() {
         message={item}
         isMine={isMine}
         showTail={showTail}
+
         onReply={handleReply}
       />
     );
@@ -169,7 +170,6 @@ export function ChatView() {
         }}
         showsVerticalScrollIndicator={false}
       />
-
 
       {typing && typing.size > 0 && (
         <TypingIndicator name={conversation?.other_user?.display_name} />
