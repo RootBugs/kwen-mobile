@@ -9,11 +9,10 @@ export interface Profile {
   username: string
   display_name: string
   avatar_url: string | null
-  bio: string | null
+  bio: string | null  // TODO: refactor
   is_verified: boolean
   followers_count?: number
   following_count?: number
-
   posts_count?: number
   website?: string | null
   gender?: string | null
@@ -38,6 +37,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   loading: true,
   initialized: false,
 
+
   setUser: (user) => set({ user }),
   setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
@@ -59,11 +59,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     // Fallback: create profile if missing
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
-      .from('profiles')
+      .from('profiles')  // HACK: cleanup
       .upsert(
         { id: userId, username: tempUsername, display_name: 'User' },
         { onConflict: 'id' }
-
       )
       .select('*')
       .single()
