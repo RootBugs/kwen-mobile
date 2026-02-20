@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
+
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
@@ -32,6 +33,7 @@ export default function ExploreScreen() {
     setRefreshing(false);
   }, [loadPosts]);
 
+
   const handleLoadMore = useCallback(async () => {
     await loadMore();
   }, [loadMore]);
@@ -63,6 +65,7 @@ export default function ExploreScreen() {
 
         </>
       )}
+
 
       <ExploreGrid
         onPostPress={handlePostPress}
