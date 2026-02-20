@@ -10,6 +10,7 @@ export interface PickedImage {
 }
 
 export async function requestCameraPermission(): Promise<boolean> {
+
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
 
   return status === 'granted';
@@ -62,6 +63,7 @@ export async function takePhoto(options?: {
   if (result.canceled || !result.assets?.[0]) return null;
 
   const asset = result.assets[0];
+
   return {
     uri: asset.uri,
     width: asset.width,
@@ -89,6 +91,7 @@ export async function uploadImage(
         upsert: false,
       });
     });
+
 
     if (error) return { path: '', error: error.message };
     return { path };
