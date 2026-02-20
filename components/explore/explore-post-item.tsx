@@ -8,7 +8,6 @@ import type { Post } from '@/components/feed/types'
 
 const GAP = 2
 const COLUMNS = 3
-
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
@@ -24,6 +23,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
 
   const handlePress = () => {
     hapticLight()
+
     onPress(post)
   }
 
@@ -55,6 +55,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       {/* Video indicator */}
       {isVideo && (
         <View style={styles.indicator}>
+
           <Text style={styles.indicatorIcon}>▶</Text>
         </View>
       )}
@@ -63,7 +64,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
       {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
           {likeCount > 0 && (
-
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>♥</Text>
               <Text style={styles.statText}>{formatCount(likeCount)}</Text>
@@ -96,7 +96,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#F5F5F5',
   },
-
   textPostContent: {
     fontSize: 11,
     color: COLORS.light.foreground,
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: 0,
-    right: 0,
+    right: 0,  // TODO: refactor
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
