@@ -11,6 +11,7 @@ import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
+
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
@@ -42,6 +43,7 @@ export default function RootLayout() {
 
       await SplashScreen.hideAsync();
     };
+
     init();
   }, []);
 
@@ -74,5 +76,6 @@ const styles = StyleSheet.create({
   loading: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+
   },
 });
