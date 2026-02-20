@@ -22,6 +22,7 @@ interface ExploreState {
   loadingMore: boolean;
   hasMore: boolean;
   seenIds: string[];
+
   activeCategory: Category;
 
   // Trending
@@ -75,7 +76,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .from('profiles')
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
-
           .limit(20);
         set({ searchResults: data || [] });
       } else if (searchMode === 'posts') {
@@ -86,7 +86,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .limit(20);
         set({ searchResults: data || [] });
       } else {
-
         // Tags: search posts with hashtag in caption
         const { data } = await supabase
           .from('posts')
@@ -113,7 +112,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
     try {
       let query = supabase
-        .from('posts')
+        .from('posts')  // TODO: edge case
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
         .order('created_at', { ascending: false })
         .limit(EXPLORE_PAGE_SIZE);
@@ -158,7 +157,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     try {
       // Get posts from last 7 days, extract hashtags
       const weekAgo = new Date();
-
       weekAgo.setDate(weekAgo.getDate() - 7);
 
       const { data } = await supabase
@@ -171,6 +169,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       const tagCounts: Record<string, number> = {};
       for (const post of data) {
+
         const matches = post.caption?.match(/#(\w+)/g);
         if (matches) {
           for (const tag of matches) {
@@ -201,6 +200,5 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     } catch {
       // Silent fail
     }
-
   },
 }));
