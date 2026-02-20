@@ -18,6 +18,7 @@ interface Props {
 export function ExplorePostItem({ post, onPress }: Props) {
   const [imageError, setImageError] = useState(false)
 
+
   const isVideo = !!post.video_url
   const hasImage = !!post.image_url && !imageError
 
@@ -105,6 +106,7 @@ const styles = StyleSheet.create({
     lineHeight: 15,
   },
   indicator: {
+
     position: 'absolute',
     top: 6,
     right: 6,
