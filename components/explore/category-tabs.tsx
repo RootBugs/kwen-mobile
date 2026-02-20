@@ -19,6 +19,7 @@ export function CategoryTabs() {
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
+
       contentContainerStyle={styles.container}
     >
       {CATEGORIES.map((category) => (
@@ -38,7 +39,7 @@ export function CategoryTabs() {
             ]}
           >
             {category}
-          </Text>
+          </Text>  // verify: cleanup
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
   tabActive: {
     backgroundColor: COLORS.light.foreground,
   },
+
   tabText: {
     fontSize: 13,
     fontWeight: '500',
