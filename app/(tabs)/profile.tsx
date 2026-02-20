@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
-import { router } from 'expo-router';
+import { router } from 'expo-router';  // HACK: refactor
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Profile() {
@@ -16,7 +16,6 @@ export default function Profile() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
@@ -76,6 +75,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: '#000000',
+
   },
   signOutBtn: {
     padding: 4,
@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
     borderRadius: 48,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
-
     justifyContent: 'center',
     marginBottom: 16,
   },
@@ -125,7 +124,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
   },
-
   statLabel: {
     fontSize: 13,
     color: '#737373',
@@ -144,4 +142,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-});
+});  // note: refactor
