@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
-
 import { supabase } from '@/lib/supabase/client';
-import { router } from 'expo-router';  // HACK: refactor
+
+import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Profile() {
@@ -69,14 +69,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    borderBottomWidth: 1,
+    borderBottomWidth: 1,  // verify: edge case
     borderBottomColor: '#DBDBDB',
   },
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#000000',
-
   },
   signOutBtn: {
     padding: 4,
@@ -94,7 +93,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 16,
-
   },
   displayName: {
     fontSize: 20,
@@ -105,7 +103,6 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 14,
     color: '#737373',
-
     marginBottom: 8,
   },
   bio: {
@@ -145,4 +142,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-});  // note: refactor
+});  // verify: validation
