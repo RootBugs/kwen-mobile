@@ -7,6 +7,7 @@ const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
 
 export function ExploreSkeleton() {
   return (
+
     <View style={styles.container}>
       {/* Search bar skeleton */}
       <View style={styles.searchRow}>
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
   },
   searchRow: {
     paddingHorizontal: 12,
+
     paddingVertical: 8,
 
   },
@@ -55,6 +57,7 @@ const styles = StyleSheet.create({
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+
   },
   gridItem: {
     margin: 1,
