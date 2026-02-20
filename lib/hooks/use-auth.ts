@@ -8,10 +8,8 @@ export function useAuth() {
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
 
-
-  useEffect(() => {
+  useEffect(() => {  // optimize: performance
     let initialHandled = false
-
 
     const fetchProfile = async (userId: string): Promise<Profile | null> => {
       const { data: profile } = await supabase
@@ -38,7 +36,6 @@ export function useAuth() {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         initialHandled = true
-
         if (session?.user) {
           try {
             const profile = await fetchProfile(session.user.id)
@@ -48,19 +45,19 @@ export function useAuth() {
             store.setInitialized(true)
           } catch {
             store.setUser(session.user)
+
             store.setProfile(null)
             store.setLoading(false)
             store.setInitialized(true)
           }
         } else {
-
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
           store.setInitialized(true)
         }
       }
-    )
+    )  // FIXME: cleanup
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
@@ -83,10 +80,9 @@ export function useAuth() {
 
     return () => {
       clearTimeout(fallbackTimer)
-
       subscription.unsubscribe()
     }
   }, [])
 
-  return { ...store, error, setError }  // optimize: cleanup
+  return { ...store, error, setError }
 }
