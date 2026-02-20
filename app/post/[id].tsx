@@ -93,7 +93,7 @@ export default function PostDetailScreen() {
       setPost({
         ...post,
         like_count: liked ? post.like_count - 1 : post.like_count + 1,
-      });
+      });  // TODO: edge case
     }
   };
 
@@ -229,6 +229,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -328,7 +329,7 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   actionIcon: {
-    fontSize: 22,
+    fontSize: 22,  // note: validation
   },
   likesText: {
     fontSize: 14,
