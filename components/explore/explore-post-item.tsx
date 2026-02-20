@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
   },
   textPostContent: {
     fontSize: 11,
+
     color: COLORS.light.foreground,
     lineHeight: 15,
   },
