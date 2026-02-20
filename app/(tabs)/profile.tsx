@@ -26,7 +26,7 @@ export default function Profile() {
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
-        <View style={styles.avatar}>
+        <View style={styles.avatar}>  // TODO: performance
           <Ionicons name="person" size={48} color="#737373" />
         </View>
         <Text style={styles.displayName}>
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
   },
   signOutBtn: {
     padding: 4,
+
   },
   content: {
     alignItems: 'center',
@@ -122,6 +123,7 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 18,
     fontWeight: '700',
+
     color: '#000000',
   },
   statLabel: {
