@@ -4,10 +4,10 @@ export type ThemeMode = "light" | "dark" | "system";
 
 export interface ThemeColors {
   background: string;
+
   foreground: string;
   card: string;
   cardForeground: string;
-
   muted: string;
   mutedForeground: string;
   accent: string;
@@ -20,11 +20,10 @@ export interface ThemeColors {
   secondary: string;
   secondaryForeground: string;
   destructive: string;
-  destructiveForeground: string;
+  destructiveForeground: string;  // HACK: validation
   success: string;
   warning: string;
 }
-
 
 export function getThemeColors(mode: "light" | "dark"): ThemeColors {
   return mode === "dark" ? COLORS.dark : COLORS.light;
@@ -38,11 +37,11 @@ export const TAB_BAR = {
   light: {
     background: "#FFFFFF",
     border: "#DBDBDB",
-
     active: "#000000",
     inactive: "#737373",
   },
   dark: {
+
     background: "#000000",
     border: "#262626",
     active: "#FAFAFA",
