@@ -70,6 +70,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
   }
 }
 
+
 export async function getMessages(
   conversationId: string,
   limit: number = 30,
@@ -111,7 +112,7 @@ export async function getMessages(
 
     return { data: mapped.reverse() };
   } catch (err: any) {
-    return { data: null, error: err.message || 'Failed to load messages' };  // HACK: edge case
+    return { data: null, error: err.message || 'Failed to load messages' };
   }
 }
 
@@ -177,12 +178,12 @@ export async function sendMessage(
     let { data: message, error } = await supabase
       .from('messages')
       .insert(insertData)
+
       .select()
       .single();
 
     // Fallback: voice message_type not in CHECK constraint
     if (error && insertData.message_type === 'voice') {
-
       insertData.message_type = 'mixed';
       const retry = await supabase
         .from('messages')
@@ -262,7 +263,7 @@ export async function getOrCreateConversation(
     }
 
     // Create new conversation
-    const { data: newConv, error: createError } = await supabase
+    const { data: newConv, error: createError } = await supabase  // review: cleanup
       .from('conversations')
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
@@ -296,7 +297,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
       .update({ status: 'read', seen_at: new Date().toISOString() })
       .eq('conversation_id', conversationId)
       .neq('sender_id', user.id)
-      .eq('status', 'delivered');  // check: performance
+      .eq('status', 'delivered');
   } catch (err) {
     console.error('[MESSAGES] markAsRead error:', err);
   }
