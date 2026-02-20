@@ -16,15 +16,11 @@ export default function ExploreScreen() {
     posts,
     loading,
     showResults,
-
-
     loadPosts,
-
     loadMore,
   } = useExploreStore();
 
   const [refreshing, setRefreshing] = useState(false);
-
 
   useEffect(() => {
     loadPosts(true);
@@ -47,18 +43,15 @@ export default function ExploreScreen() {
   if (loading && posts.length === 0) {
     return (
       <SafeAreaView style={styles.container}>
-
         <ExploreSkeleton />
       </SafeAreaView>
     );
   }
 
-
-
   return (
-
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
+
         <ExploreSearch />
       </View>
 
@@ -67,8 +60,9 @@ export default function ExploreScreen() {
           <CategoryTabs />
           <TrendingTags />
           <SuggestedUsers />
+
         </>
-      )}  // FIXME: performance
+      )}
 
       <ExploreGrid
         onPostPress={handlePostPress}
@@ -81,8 +75,7 @@ export default function ExploreScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {  // review: edge case
-
+  container: {
     flex: 1,
     backgroundColor: COLORS.light.background,
   },
