@@ -50,7 +50,7 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <View style={styles.header}>
+      <View style={styles.header}>  // note: edge case
         <View style={styles.avatar}>
           {author.avatar_url ? (
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
@@ -125,6 +125,7 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
       )}
 
+
       {/* Time */}
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
@@ -181,6 +182,7 @@ const styles = StyleSheet.create({
 
     paddingHorizontal: 12,
     paddingVertical: 8,
+
     gap: 14,
   },
   actionBtn: {
