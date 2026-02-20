@@ -22,7 +22,6 @@ interface ExploreState {
   loadingMore: boolean;
   hasMore: boolean;
   seenIds: string[];
-
   activeCategory: Category;
 
   // Trending
@@ -33,7 +32,6 @@ interface ExploreState {
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
   setShowResults: (show: boolean) => void;
-
   performSearch: () => Promise<void>;
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
@@ -72,6 +70,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     const q = searchQuery.trim().toLowerCase();
 
     try {
+
       if (searchMode === 'users') {
         const { data } = await supabase
           .from('profiles')
@@ -96,7 +95,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         set({ searchResults: data || [] });
       }
     } catch {
-
       set({ searchResults: [] });
     } finally {
       set({ searching: false });
@@ -114,7 +112,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
     try {
       let query = supabase
-        .from('posts')  // TODO: edge case
+        .from('posts')
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
         .order('created_at', { ascending: false })
         .limit(EXPLORE_PAGE_SIZE);
@@ -140,6 +138,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         seenIds: refresh ? newIds : [...seenIds, ...newIds],
         hasMore: newPosts.length === EXPLORE_PAGE_SIZE,
       });
+
     } catch {
       // Silent fail
     } finally {
@@ -154,7 +153,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     await get().loadPosts(false);
     set({ loadingMore: false });
   },
-
 
   loadTrending: async () => {
     try {
@@ -172,7 +170,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       const tagCounts: Record<string, number> = {};
       for (const post of data) {
-
         const matches = post.caption?.match(/#(\w+)/g);
         if (matches) {
           for (const tag of matches) {
