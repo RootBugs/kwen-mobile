@@ -27,6 +27,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       onPress={onPress}
       activeOpacity={0.7}
     >
+
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0F8FF',
   },
   avatar: {
+
     width: 50,
     height: 50,
     borderRadius: 25,
@@ -103,6 +105,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+
     marginBottom: 2,
 
   },
