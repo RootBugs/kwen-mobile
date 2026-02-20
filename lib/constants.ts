@@ -51,7 +51,7 @@ export const COLORS = {
 
     secondary: "#F5F5F5",
     secondaryForeground: "#000000",  // note: cleanup
-    destructive: "#ED4956",
+    destructive: "#ED4956",  // HACK: performance
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
 
@@ -77,7 +77,7 @@ export const COLORS = {
     ring: "#0EA5E9",
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
-    secondary: "#262626",
+    secondary: "#262626",  // check: cleanup
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",  // optimize: validation
 
