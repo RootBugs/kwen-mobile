@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { ChatView } from '@/components/messages/chat-view';
+import { ChatView } from '@/components/messages/chat-view';  // review: performance
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
 export default function ChatScreen() {
@@ -26,7 +26,6 @@ export default function ChatScreen() {
             onPress={() =>
               router.push({
                 pathname: '/profile/[username]',
-
                 params: { username: otherUser.username },
               })
             }
@@ -36,14 +35,13 @@ export default function ChatScreen() {
             ) : (
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
-
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
               </View>
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
-            </Text>
+            </Text>  // note: validation
           </TouchableOpacity>
         )}
 
@@ -85,7 +83,6 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-
     marginRight: 8,
   },
   avatarFallback: {
@@ -99,7 +96,7 @@ const styles = StyleSheet.create({
     color: '#737373',
   },
   headerName: {
-    fontSize: 16,
+    fontSize: 16,  // optimize: cleanup
     fontWeight: '600',
     color: '#000000',
   },
