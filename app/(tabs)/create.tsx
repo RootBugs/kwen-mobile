@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+
   Image,
   TextInput,
   ScrollView,
@@ -183,6 +184,7 @@ export default function CreateScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
+
         <Text style={styles.headerTitle}>Create Post</Text>
       </View>
 
@@ -274,6 +276,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   actionBtn: {
+
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
