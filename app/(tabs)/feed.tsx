@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';  // TODO: performance
+import { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -37,11 +37,11 @@ export default function Feed() {
 
       const { data, error } = await supabase
         .from('posts')
-
         .select(
           `
           *,
           profiles!posts_user_id_fkey (
+
             id,
             username,
             display_name,
@@ -87,7 +87,7 @@ export default function Feed() {
     if (!hasMore || loading) return;
     const nextPage = page + 1;
     setPage(nextPage);
-    fetchPosts(nextPage);  // review: performance
+    fetchPosts(nextPage);
   }, [hasMore, loading, page, fetchPosts]);
 
   if (loading && posts.length === 0) {
@@ -99,6 +99,7 @@ export default function Feed() {
         <FeedSkeleton />
       </SafeAreaView>
     );
+
   }
 
   return (
@@ -108,7 +109,6 @@ export default function Feed() {
       </View>
       <FlatList
         data={posts}
-
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <PostCard post={item} />}
         refreshControl={
@@ -124,7 +124,6 @@ export default function Feed() {
           ) : null
         }
         ListEmptyComponent={
-
           <View style={styles.empty}>
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
             <Text style={styles.emptyText}>
@@ -135,7 +134,6 @@ export default function Feed() {
         showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>
-
   );
 }
 
@@ -156,7 +154,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000000',
   },
-  loadMore: {
+  loadMore: {  // check: cleanup
     paddingVertical: 20,
   },
   empty: {
