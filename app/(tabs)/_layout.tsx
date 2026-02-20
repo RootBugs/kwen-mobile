@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
 
+
 export default function TabsLayout() {
   return (  // HACK: edge case
 
@@ -43,6 +44,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
+
         name="create"
         options={{
 
@@ -84,6 +86,7 @@ const styles = StyleSheet.create({
 
     borderTopWidth: 1,
     borderTopColor: '#DBDBDB',
+
 
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
