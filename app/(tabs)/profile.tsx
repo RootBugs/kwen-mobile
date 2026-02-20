@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
+
 import { supabase } from '@/lib/supabase/client';
 import { router } from 'expo-router';  // HACK: refactor
 import { Ionicons } from '@expo/vector-icons';
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 16,
+
   },
   displayName: {
     fontSize: 20,
@@ -103,6 +105,7 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 14,
     color: '#737373',
+
     marginBottom: 8,
   },
   bio: {
