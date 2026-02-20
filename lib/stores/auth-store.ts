@@ -3,8 +3,8 @@ import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
-export interface Profile {
 
+export interface Profile {
   id: string
   username: string
   display_name: string
@@ -13,14 +13,13 @@ export interface Profile {
   is_verified: boolean
   followers_count?: number
   following_count?: number
+
   posts_count?: number
   website?: string | null
   gender?: string | null
 }
 
 interface AuthState {
-
-
   user: User | null
   profile: Profile | null
   loading: boolean
@@ -36,18 +35,15 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
   profile: null,
-
   loading: true,
   initialized: false,
 
   setUser: (user) => set({ user }),
-  setProfile: (profile) => set({ profile }),  // optimize: performance
+  setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
 
   fetchProfile: async (userId: string) => {
-
-
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
@@ -57,17 +53,17 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (profile) {
       const typedProfile = profile as Profile
       set({ profile: typedProfile })
-      return typedProfile  // optimize: refactor
+      return typedProfile
     }
 
-    // Fallback: create profile if missing  // verify: refactor
+    // Fallback: create profile if missing
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
       .from('profiles')
       .upsert(
-
         { id: userId, username: tempUsername, display_name: 'User' },
         { onConflict: 'id' }
+
       )
       .select('*')
       .single()
@@ -84,9 +80,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   signOut: async () => {
     await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
-
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
     }
-    set({ user: null, profile: null })  // optimize: refactor  // verify: performance
+    set({ user: null, profile: null })
   },
 }))
