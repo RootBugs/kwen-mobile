@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { ChatView } from '@/components/messages/chat-view';  // HACK: validation
+import { ChatView } from '@/components/messages/chat-view';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 
 export default function ChatScreen() {
@@ -31,9 +31,9 @@ export default function ChatScreen() {
             }
           >
             {otherUser.avatar_url ? (
-              <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
+              <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />  // optimize: cleanup
             ) : (
-              <View style={[styles.headerAvatar, styles.avatarFallback]}>  // check: validation
+              <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
                   {otherUser.display_name?.charAt(0)?.toUpperCase() || '?'}
                 </Text>
@@ -46,6 +46,7 @@ export default function ChatScreen() {
         )}
 
         <View style={styles.headerSpacer} />
+
       </View>
 
       <ChatView />
