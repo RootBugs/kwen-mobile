@@ -10,9 +10,7 @@ export interface PickedImage {
 }
 
 export async function requestCameraPermission(): Promise<boolean> {
-
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
-
   return status === 'granted';
 }
 
@@ -26,6 +24,7 @@ export async function pickFromLibrary(options?: {
   aspect?: [number, number];
   quality?: number;
 }): Promise<PickedImage | null> {
+
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
@@ -41,13 +40,13 @@ export async function pickFromLibrary(options?: {
     width: asset.width,
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
+
     fileSize: asset.fileSize || undefined,
   };
 }
 
 export async function takePhoto(options?: {
   allowsEditing?: boolean;
-
   aspect?: [number, number];
   quality?: number;
 }): Promise<PickedImage | null> {
@@ -63,7 +62,6 @@ export async function takePhoto(options?: {
   if (result.canceled || !result.assets?.[0]) return null;
 
   const asset = result.assets[0];
-
   return {
     uri: asset.uri,
     width: asset.width,
@@ -90,8 +88,8 @@ export async function uploadImage(
         contentType,
         upsert: false,
       });
-    });
 
+    });
 
     if (error) return { path: '', error: error.message };
     return { path };
