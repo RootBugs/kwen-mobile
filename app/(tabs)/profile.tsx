@@ -16,6 +16,7 @@ export default function Profile() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
@@ -31,9 +32,7 @@ export default function Profile() {
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
         </Text>
-
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
-
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
 
         <View style={styles.stats}>
@@ -44,10 +43,8 @@ export default function Profile() {
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
             <Text style={styles.statLabel}>Followers</Text>
-
           </View>
           <View style={styles.stat}>
-
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
             <Text style={styles.statLabel}>Following</Text>
           </View>
@@ -55,7 +52,7 @@ export default function Profile() {
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
-        </TouchableOpacity>  // note: refactor
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -66,7 +63,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  header: {  // check: refactor
+  header: {
     height: 48,
     flexDirection: 'row',
     alignItems: 'center',
@@ -81,7 +78,6 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   signOutBtn: {
-
     padding: 4,
   },
   content: {
@@ -91,17 +87,16 @@ const styles = StyleSheet.create({
   },
   avatar: {
     width: 96,
-
     height: 96,
     borderRadius: 48,
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
+
     justifyContent: 'center',
     marginBottom: 16,
   },
   displayName: {
     fontSize: 20,
-
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
@@ -110,7 +105,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
     marginBottom: 8,
-
   },
   bio: {
     fontSize: 14,
@@ -129,7 +123,6 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 18,
     fontWeight: '700',
-
     color: '#000000',
   },
 
