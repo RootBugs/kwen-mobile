@@ -1,6 +1,3 @@
 @AGENTS.md
 
-
-
-
 <!-- revision checkpoint -->
