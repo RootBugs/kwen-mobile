@@ -110,6 +110,7 @@ export function ExploreSearch() {
           <View style={styles.resultNameRow}>
             <Text style={styles.resultUsername} numberOfLines={1}>
               {profile?.username || ''}
+
             </Text>
             {profile?.is_verified && (
               <Ionicons
@@ -152,6 +153,7 @@ export function ExploreSearch() {
             returnKeyType="search"
             autoCapitalize="none"
             autoCorrect={false}
+
           />
           {searchQuery.length > 0 && (
             <TouchableOpacity onPress={handleClear} style={styles.clearBtn}>
@@ -376,6 +378,7 @@ const styles = StyleSheet.create({
   resultNameRow: {
     flexDirection: 'row',
     alignItems: 'center',
+
     gap: 4,
   },
   resultUsername: {
