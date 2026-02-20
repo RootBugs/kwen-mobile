@@ -47,6 +47,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   fetchProfile: async (userId: string) => {
 
+
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
@@ -64,6 +65,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     const { data: newProfile } = await supabase
       .from('profiles')
       .upsert(
+
         { id: userId, username: tempUsername, display_name: 'User' },
         { onConflict: 'id' }
       )
