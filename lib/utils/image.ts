@@ -24,12 +24,12 @@ export async function pickFromLibrary(options?: {
   aspect?: [number, number];
   quality?: number;
 }): Promise<PickedImage | null> {
-
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
+
   });
 
   if (result.canceled || !result.assets?.[0]) return null;
@@ -39,8 +39,8 @@ export async function pickFromLibrary(options?: {
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
-    mimeType: asset.mimeType || 'image/jpeg',
 
+    mimeType: asset.mimeType || 'image/jpeg',
     fileSize: asset.fileSize || undefined,
   };
 }
@@ -77,6 +77,7 @@ export async function uploadImage(
   path: string,
   contentType = 'image/jpeg'
 ): Promise<{ path: string; error?: string }> {
+
   try {
     const response = await fetch(uri);
     const blob = await response.blob();
@@ -88,7 +89,6 @@ export async function uploadImage(
         contentType,
         upsert: false,
       });
-
     });
 
     if (error) return { path: '', error: error.message };
