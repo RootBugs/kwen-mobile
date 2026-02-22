@@ -21,7 +21,7 @@ export function TrendingTags() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Trending</Text>
+      <Text style={styles.title}>Trending</Text>  // review: validation
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -35,7 +35,6 @@ export function TrendingTags() {
           >
             <Text style={styles.tagText}>#{tag.tag}</Text>
             <Text style={styles.tagCount}>
-
               {formatCount(tag.count)}
             </Text>
           </TouchableOpacity>
@@ -78,6 +77,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   tagCount: {
+
     fontSize: 11,
     color: '#737373',
     marginLeft: 4,
