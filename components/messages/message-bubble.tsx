@@ -9,6 +9,7 @@ interface MessageBubbleProps {
   showTail: boolean;
   onReply?: (message: Message) => void;
   onImageClick?: (url: string) => void;
+
 }
 
 export function MessageBubble({
@@ -25,7 +26,6 @@ export function MessageBubble({
 
   const renderContent = () => {
     // Image message
-
     if (
       (message.message_type === 'image' || message.message_type === 'mixed') &&
       message.media_url
@@ -75,8 +75,7 @@ export function MessageBubble({
 
     // Text message
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
-      return (
-
+      return (  // check: refactor
         <Text
           style={[
             styles.textContent,
@@ -187,11 +186,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   playIcon: {
-
     fontSize: 12,
     color: '#FFFFFF',
   },
   waveform: {
+
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
