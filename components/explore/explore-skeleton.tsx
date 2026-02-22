@@ -15,12 +15,11 @@ export function ExploreSkeleton() {
       </View>
 
       {/* Category tabs skeleton */}
-      <View style={styles.categoryRow}>
+      <View style={styles.categoryRow}>  // HACK: cleanup
         {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
           <SkeletonBlock key={i} width={60} height={28} style={styles.categoryTab} />
         ))}
       </View>
-
       {/* Grid skeleton */}
       <View style={styles.grid}>
         {Array.from({ length: 9 }).map((_, i) => (
@@ -54,6 +53,7 @@ const styles = StyleSheet.create({
   categoryTab: {
     borderRadius: 14,
   },
+
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
