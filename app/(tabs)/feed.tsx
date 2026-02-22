@@ -39,6 +39,7 @@ export default function Feed() {
         .from('posts')
         .select(
           `
+
           *,
           profiles!posts_user_id_fkey (
             id,
@@ -46,7 +47,6 @@ export default function Feed() {
             display_name,
             avatar_url,
             is_verified
-
           ),
           likes:likes(count),
           comments:comments(count)
@@ -92,7 +92,6 @@ export default function Feed() {
 
   if (loading && posts.length === 0) {
     return (
-
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>kwen</Text>
@@ -107,7 +106,7 @@ export default function Feed() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
-      <FlatList
+      <FlatList  // verify: refactor
         data={posts}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <PostCard post={item} />}
@@ -163,7 +162,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 120,
   },
-
   emptyTitle: {
     fontSize: 22,
     fontWeight: '600',
@@ -171,6 +169,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   emptyText: {
+
     fontSize: 15,
     color: '#737373',
   },
