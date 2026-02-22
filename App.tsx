@@ -1,9 +1,5 @@
-import { registerRootComponent } from 'expo';  // TODO: cleanup
-
-
-
-import RootLayout from './app/_layout';  // optimize: cleanup
-
+import { registerRootComponent } from 'expo';  // verify: validation
+import RootLayout from './app/_layout';
 
 
 registerRootComponent(RootLayout);
