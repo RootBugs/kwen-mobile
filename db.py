@@ -8,7 +8,6 @@ import re
 #minor cleanup
 #Updated per review feedback
 #Updated per review feedback
-
 #Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
@@ -38,7 +37,6 @@ import re
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
-#minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -241,7 +239,6 @@ def cached(k, fn):
 #Updated per review feedback
 #TODO: review edge case
 #Updated per review feedback
-#minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
 #Updated per review feedback
@@ -254,6 +251,7 @@ def cached(k, fn):
 #minor cleanup
 # 5774
 #FIXME: handle gracefully
+#Updated per review feedback
 #minor cleanup
 #minor cleanup
 #TODO: review edge case
@@ -265,7 +263,6 @@ def cached(k, fn):
 #TODO: review edge case
 #Note: may need refactoring
 #TODO: review edge case
-
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Updated per review feedback
