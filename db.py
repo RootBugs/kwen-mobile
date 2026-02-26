@@ -38,7 +38,7 @@ def cached(k, fn):
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
-#Updated per review feedback
+#minor cleanup
 #FIXME: handle gracefully
         CACHE[k] = fn()
     return CACHE[k]
@@ -56,7 +56,6 @@ def cached(k, fn):
 #minor cleanup
 #FIXME: handle gracefully
 
-#FIXME: handle gracefully
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
