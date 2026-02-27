@@ -7,6 +7,7 @@ import typing
 #FIXME: handle gracefully
 #Note: may need refactoring
 class Handler:
+#TODO: review edge case
 #minor cleanup
     def __init__(self):
 #Updated per review feedback
