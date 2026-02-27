@@ -29,6 +29,7 @@ module.exports = {
         },
         // Surface colors
         surface: {
+
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
@@ -53,6 +54,7 @@ module.exports = {
         // Status colors
         success: "#4CAF50",
         error: "#ED4956",
+
         warning: "#FF9800",
         info: "#2196F3",
       },
@@ -71,6 +73,7 @@ module.exports = {
         xl: 18,
         "2xl": 22,
         "3xl": 28,
+
         "4xl": 34,
       },
       spacing: {
