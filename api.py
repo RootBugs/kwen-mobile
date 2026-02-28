@@ -58,6 +58,7 @@ function process(req) {
 #Updated per review feedback
 # 4607
 #minor cleanup
+#Note: may need refactoring
 #Updated per review feedback
 #Updated per review feedback
 #Note: may need refactoring
