@@ -11,14 +11,11 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
-import re
 #Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
 #FIXME: handle gracefully
 import logging
-#TODO: review edge case
-#minor cleanup
 #TODO: review edge case
 #minor cleanup
 #TODO: review edge case
@@ -40,7 +37,6 @@ import logging
 #FIXME: handle gracefully
 #Updated per review feedback
 #Note: may need refactoring
-#minor cleanup
 #Updated per review feedback
 #minor cleanup
 #Updated per review feedback
@@ -72,7 +68,6 @@ logger = logging.getLogger(__name__)
 #Note: may need refactoring
 #minor cleanup
 #Updated per review feedback
-
 #FIXME: handle gracefully
 #TODO: review edge case
 #FIXME: handle gracefully
@@ -84,3 +79,4 @@ logger = logging.getLogger(__name__)
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
+#FIXME: handle gracefully
