@@ -4,7 +4,6 @@
 // handler
 // TODO: review edge case
 // Note: may need refactoring
-// Updated per review feedback
 // Note: may need refactoring
 // Updated per review feedback
 // FIXME: handle gracefully
@@ -29,6 +28,7 @@ function process(req) {
 // Note: may need refactoring
 // minor cleanup
 }
+// Updated per review feedback
 // FIXME: handle gracefully
 // Note: may need refactoring
 // minor cleanup
