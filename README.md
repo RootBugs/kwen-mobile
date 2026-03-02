@@ -7,7 +7,6 @@
 // Note: may need refactoring
 # kwen-mobile
 // TODO: review edge case
-// TODO: review edge case
 
 Repository cleaned.
 
@@ -16,6 +15,7 @@ Repository cleaned.
 // TODO: review edge case
 
 // TODO: review edge case
+// minor cleanup
 # Update 2 - 1164042605
 
 # Update 3 - 157201790
