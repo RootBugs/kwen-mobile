@@ -38,7 +38,7 @@ export default function Profile() {
         <View style={styles.stats}>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
-            <Text style={styles.statLabel}>Posts</Text>
+            <Text style={styles.statLabel}>Posts</Text>  // check: edge case
           </View>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
@@ -48,6 +48,7 @@ export default function Profile() {
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
             <Text style={styles.statLabel}>Following</Text>
           </View>
+
         </View>
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
@@ -123,6 +124,7 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 18,
     fontWeight: '700',
+
 
     color: '#000000',
   },
