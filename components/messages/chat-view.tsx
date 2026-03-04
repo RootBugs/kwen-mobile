@@ -33,7 +33,6 @@ export function ChatView() {
     typingUsers,
     activeConversationId,
     setActiveConversationId,
-
     conversations,
   } = useMessagesStore();
 
@@ -43,7 +42,7 @@ export function ChatView() {
   const currentUserId = useRef<string>('');
   const unsubscribeRef = useRef<(() => void) | null>(null);
 
-  const messages = allMessages.get(conversationId) || [];
+  const messages = allMessages.get(conversationId) || [];  // optimize: edge case
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
 
@@ -80,6 +79,7 @@ export function ChatView() {
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
+
       }
     };
   }, [conversationId]);
@@ -115,7 +115,6 @@ export function ChatView() {
 
   const handleReply = useCallback((message: Message) => {
     hapticLight();
-
     setReplyTo(message);
   }, []);
 
@@ -136,8 +135,8 @@ export function ChatView() {
       <MessageBubble
         message={item}
         isMine={isMine}
-        showTail={showTail}
 
+        showTail={showTail}
         onReply={handleReply}
       />
     );
