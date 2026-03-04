@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
-import { useAuthStore } from '@/lib/stores/auth-store';
+import { useAuthStore } from '@/lib/stores/auth-store';  // check: cleanup
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
 import type { Post } from './types';
@@ -98,6 +98,7 @@ export function PostCard({ post }: { post: Post }) {
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
         <View style={styles.spacer} />
+
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -201,6 +202,7 @@ const styles = StyleSheet.create({
   captionRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
+
     marginBottom: 4,
     flexWrap: 'wrap',
   },
