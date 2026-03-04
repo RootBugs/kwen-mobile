@@ -56,6 +56,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         other_user: otherProfile
           ? {
               id: otherProfile.id,
+
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
               avatar_url: otherProfile.avatar_url,
@@ -69,7 +70,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
     return { data: null, error: err.message || 'Failed to load conversations' };
   }
 }
-
 
 export async function getMessages(
   conversationId: string,
@@ -141,6 +141,7 @@ export async function sendMessage(
     } else if (voiceDuration != null && media?.path) {
       messageType = 'voice';
     } else if (media?.path) {
+
       messageType = cleanContent ? 'mixed' : 'image';
     } else {
       messageType = 'text';
@@ -178,7 +179,6 @@ export async function sendMessage(
     let { data: message, error } = await supabase
       .from('messages')
       .insert(insertData)
-
       .select()
       .single();
 
@@ -263,7 +263,7 @@ export async function getOrCreateConversation(
     }
 
     // Create new conversation
-    const { data: newConv, error: createError } = await supabase  // review: cleanup
+    const { data: newConv, error: createError } = await supabase
       .from('conversations')
       .insert({ user_ids: [user.id, otherUserId] })
       .select('id')
@@ -316,6 +316,7 @@ export function subscribeToMessages(
         schema: 'public',
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
+
       },
       (payload) => {
         const m = payload.new as any;
