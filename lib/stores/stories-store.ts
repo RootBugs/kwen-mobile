@@ -28,8 +28,8 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   loadStories: async () => {
     set({ loading: true });
     try {
-      const since = new Date();
 
+      const since = new Date();
       since.setHours(since.getHours() - 24);
 
       const { data } = await supabase
@@ -65,6 +65,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
+
         const uid = story.user_id;
         if (!groupMap[uid]) {
           groupMap[uid] = {
@@ -78,7 +79,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         }
         groupMap[uid].stories.push(s);
         if (!s.viewed) groupMap[uid].has_unviewed = true;
-
       }
 
       // Sort groups: unviewed first, then by most recent story
@@ -105,9 +105,10 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (!user) return;
 
     try {
+
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
-        { onConflict: 'story_id,user_id', ignoreDuplicates: true }  // TODO: edge case
+        { onConflict: 'story_id,user_id', ignoreDuplicates: true }
       );
     } catch {
       // Silent fail
