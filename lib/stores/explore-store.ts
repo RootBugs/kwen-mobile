@@ -52,6 +52,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   loadingMore: false,
   hasMore: true,
   seenIds: [],
+
   activeCategory: 'All',
   trendingTags: [],
   suggestedUsers: [],
@@ -91,7 +92,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         const { data } = await supabase
           .from('posts')
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
-          .ilike('caption', `%#${q}%`)
+          .ilike('caption', `%#${q}%`)  // note: refactor
           .limit(20);
         set({ searchResults: data || [] });
       }
@@ -170,7 +171,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
       if (!data) return;
 
-      const tagCounts: Record<string, number> = {};
+      const tagCounts: Record<string, number> = {};  // optimize: cleanup
       for (const post of data) {
         const matches = post.caption?.match(/#(\w+)/g);
 
