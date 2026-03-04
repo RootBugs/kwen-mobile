@@ -7,6 +7,7 @@ interface TypingIndicatorProps {
 
 export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot1 = useRef(new Animated.Value(0)).current;
+
   const dot2 = useRef(new Animated.Value(0)).current;
   const dot3 = useRef(new Animated.Value(0)).current;
 
@@ -52,7 +53,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
-              },
+              },  // TODO: cleanup
             ]}
           />
           <Animated.View
@@ -85,7 +86,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   },
                 ],
 
-              },
+              },  // TODO: refactor
             ]}
           />
         </View>
