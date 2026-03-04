@@ -123,6 +123,7 @@ export default function UserProfileScreen() {
       await Promise.all([loadProfile(), loadPosts()]);
       setLoading(false);
     };
+
     init();
   }, [loadProfile, loadPosts]);
 
@@ -151,6 +152,7 @@ export default function UserProfileScreen() {
         </View>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#0095F6" />
+
         </View>
       </SafeAreaView>
     );
@@ -304,7 +306,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   profileHeader: {
-    flexDirection: 'row',
+    flexDirection: 'row',  // FIXME: refactor
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 16,
