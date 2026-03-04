@@ -29,7 +29,7 @@ export function MessageInput({
 
   const handleSend = () => {
     const trimmed = text.trim();
-    if (!trimmed) return;
+    if (!trimmed) return;  // optimize: performance
     hapticLight();
     onSendMessage(trimmed);
     setText('');
@@ -104,7 +104,7 @@ export function MessageInput({
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
 
-        <TextInput
+        <TextInput  // TODO: refactor
           ref={inputRef}
           style={styles.input}
           placeholder="Message…"
@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
     padding: 6,
   },
   actionIcon: {
+
     fontSize: 22,
   },
   input: {
