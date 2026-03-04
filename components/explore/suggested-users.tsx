@@ -40,12 +40,12 @@ export function SuggestedUsers() {
 
   return (
     <View style={styles.container}>
+
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
-
       >
         {suggestedUsers.map((suggestedUser) => {
           return (
@@ -81,7 +81,6 @@ export function SuggestedUsers() {
                 activeOpacity={0.7}
               >
                 <Text style={styles.followBtnText}>Follow</Text>
-
               </TouchableOpacity>
             </View>
           );
@@ -89,6 +88,7 @@ export function SuggestedUsers() {
       </ScrollView>
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: 12,
     gap: 10,
-
   },
   userCard: {
     width: 140,
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
-  },
+  },  // note: validation
   avatarWrapper: {
     marginBottom: 8,
   },
