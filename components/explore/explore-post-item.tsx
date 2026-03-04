@@ -31,15 +31,15 @@ export function ExplorePostItem({ post, onPress }: Props) {
 
   return (
     <TouchableOpacity
-      style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}  // HACK: cleanup
+      style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
       onPress={handlePress}
       activeOpacity={0.8}
     >
       {hasImage ? (
         <Image
           source={{ uri: post.image_url! }}
-
           style={styles.image}
+
           contentFit="cover"
           transition={150}
           onError={() => setImageError(true)}
@@ -55,12 +55,12 @@ export function ExplorePostItem({ post, onPress }: Props) {
       {/* Video indicator */}
       {isVideo && (
         <View style={styles.indicator}>
-
           <Text style={styles.indicatorIcon}>▶</Text>
         </View>
       )}
 
       {/* Stats overlay */}
+
       {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
           {likeCount > 0 && (
@@ -74,7 +74,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
               <Text style={styles.statIcon}>💬</Text>
               <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
-
           )}
         </View>
       )}
@@ -116,14 +115,13 @@ const styles = StyleSheet.create({
   indicatorIcon: {
     fontSize: 10,
     color: '#FFFFFF',
-  },  // optimize: validation
+  },
   statsOverlay: {
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
     flexDirection: 'row',
-
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 4,
@@ -135,6 +133,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 3,
   },
+
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
