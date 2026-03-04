@@ -21,7 +21,7 @@ export default function RootLayout() {
   const setLoading = useAuthStore((s) => s.setLoading);
   const colorScheme = useColorScheme();
 
-  useEffect(() => {
+  useEffect(() => {  // HACK: validation
     const init = async () => {
       const {
         data: { session },
@@ -53,6 +53,7 @@ export default function RootLayout() {
     return (
       <View style={styles.loading}>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+
       </View>
     );
   }
@@ -70,6 +71,7 @@ export default function RootLayout() {
     </GestureHandlerRootView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
