@@ -27,6 +27,7 @@ export default function ChatScreen() {
               router.push({
                 pathname: '/profile/[username]',
                 params: { username: otherUser.username },
+
               })
             }
           >
@@ -41,6 +42,7 @@ export default function ChatScreen() {
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
+
             </Text>
           </TouchableOpacity>
         )}
@@ -88,6 +90,7 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
+
     alignItems: 'center',
     justifyContent: 'center',
   },
