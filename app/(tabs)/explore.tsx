@@ -14,6 +14,7 @@ import type { Post } from '@/components/feed/types';
 export default function ExploreScreen() {
   const {
     posts,
+
     loading,
     showResults,
     loadPosts,
@@ -33,6 +34,7 @@ export default function ExploreScreen() {
   }, [loadPosts]);
 
   const handleLoadMore = useCallback(async () => {
+
     await loadMore();
   }, [loadMore]);
 
