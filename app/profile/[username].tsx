@@ -85,9 +85,10 @@ export default function UserProfileScreen() {
             media_type,
             sort_order
           ),
+
           likes(count),
           comments(count)
-        `  // note: refactor
+        `
         )
         .eq('user_id', profileData.id)
         .order('created_at', { ascending: false });
@@ -192,6 +193,7 @@ export default function UserProfileScreen() {
               <Text style={styles.avatarText}>
                 {profile.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
+
             </View>
           )}
 
@@ -216,7 +218,6 @@ export default function UserProfileScreen() {
 
         {/* Bio */}
         <View style={styles.bioSection}>
-
           <View style={styles.nameRow}>
             <Text style={styles.displayName}>{profile.display_name}</Text>
             {profile.is_verified && <Text style={styles.verified}>✓</Text>}
@@ -295,8 +296,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   emptyText: {
-
     fontSize: 16,
+
     color: '#737373',
   },
   scrollView: {
