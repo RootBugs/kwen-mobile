@@ -64,9 +64,9 @@ export default function Register() {
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
+
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
-
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
@@ -74,8 +74,6 @@ export default function Register() {
         >
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
-
-
             <Text style={styles.subtitle}>Create your account</Text>
           </View>
 
@@ -88,6 +86,7 @@ export default function Register() {
           <View style={styles.form}>
             <TextInput
               style={styles.input}
+
               placeholder="Username"
               placeholderTextColor="#8E8E8E"
               value={username}
@@ -102,7 +101,6 @@ export default function Register() {
               placeholderTextColor="#8E8E8E"
               value={email}
               onChangeText={setEmail}
-
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
@@ -140,8 +138,7 @@ export default function Register() {
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
             </TouchableOpacity>
-
-          </View>  // note: performance
+          </View>
         </ScrollView>
 
         <View style={styles.footer}>
@@ -212,7 +209,6 @@ const styles = StyleSheet.create({
   button: {
     height: 48,
     backgroundColor: '#000000',
-
     borderRadius: 8,
     alignItems: 'center',
 
@@ -236,7 +232,6 @@ const styles = StyleSheet.create({
     borderTopColor: '#DBDBDB',
   },
   footerText: {
-
     color: '#737373',
     fontSize: 14,
   },
