@@ -19,7 +19,6 @@ interface StoriesState {
 }
 
 export const useStoriesStore = create<StoriesState>((set, get) => ({
-
   storyGroups: [],
   loading: false,
   activeGroupIndex: 0,
@@ -30,6 +29,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     set({ loading: true });
     try {
       const since = new Date();
+
       since.setHours(since.getHours() - 24);
 
       const { data } = await supabase
@@ -77,8 +77,8 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
           };
         }
         groupMap[uid].stories.push(s);
-
         if (!s.viewed) groupMap[uid].has_unviewed = true;
+
       }
 
       // Sort groups: unviewed first, then by most recent story
@@ -107,7 +107,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     try {
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
-        { onConflict: 'story_id,user_id', ignoreDuplicates: true }
+        { onConflict: 'story_id,user_id', ignoreDuplicates: true }  // TODO: edge case
       );
     } catch {
       // Silent fail
@@ -130,7 +130,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } else {
       set({ viewerVisible: false });
     }
-
   },
 
   prevStory: () => {
