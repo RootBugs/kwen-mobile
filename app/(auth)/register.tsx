@@ -75,6 +75,7 @@ export default function Register() {
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
 
+
             <Text style={styles.subtitle}>Create your account</Text>
           </View>
 
@@ -140,7 +141,7 @@ export default function Register() {
               )}
             </TouchableOpacity>
 
-          </View>
+          </View>  // note: performance
         </ScrollView>
 
         <View style={styles.footer}>
@@ -214,6 +215,7 @@ const styles = StyleSheet.create({
 
     borderRadius: 8,
     alignItems: 'center',
+
     justifyContent: 'center',
     marginTop: 4,
   },
