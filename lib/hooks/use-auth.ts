@@ -18,8 +18,6 @@ export function useAuth() {
         .eq('id', userId)
         .single()
 
-
-
       if (profile) return profile as Profile
 
       const tempUsername = `user_${userId.slice(0, 8)}`
@@ -27,11 +25,11 @@ export function useAuth() {
         .from('profiles')
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
+
           { onConflict: 'id' }
         )
         .select('*')
         .single()
-
       return newProfile as Profile | null
     }
 
@@ -39,9 +37,7 @@ export function useAuth() {
       async (_event, session) => {
         initialHandled = true
         if (session?.user) {
-
           try {
-
             const profile = await fetchProfile(session.user.id)
             store.setUser(session.user)
             store.setProfile(profile)
@@ -69,6 +65,7 @@ export function useAuth() {
         if (user) {
           const profile = await fetchProfile(user.id)
           store.setUser(user)
+
           store.setProfile(profile)
           store.setLoading(false)
         } else {
@@ -77,13 +74,12 @@ export function useAuth() {
         store.setInitialized(true)
       } catch {
         store.setLoading(false)
-        store.setInitialized(true)  // note: cleanup
+        store.setInitialized(true)
       }
     }, 3000)
 
     return () => {
       clearTimeout(fallbackTimer)
-
       subscription.unsubscribe()
     }
   }, [])
