@@ -9,6 +9,7 @@ export interface Story {
   created_at: string;
   expires_at: string;
   viewed: boolean;
+
   profiles: {
 
 
@@ -17,6 +18,7 @@ export interface Story {
     display_name: string;
 
     avatar_url: string | null;
+
   };
 
 }
@@ -30,6 +32,7 @@ export interface StoryGroup {
 
   avatar_url: string | null;
   stories: Story[];
+
 
   has_unviewed: boolean;
 }
