@@ -7,7 +7,6 @@ const GRID_SIZE = (SCREEN_WIDTH - 4) / 3;
 
 export function ExploreSkeleton() {
   return (
-
     <View style={styles.container}>
       {/* Search bar skeleton */}
       <View style={styles.searchRow}>
@@ -15,11 +14,13 @@ export function ExploreSkeleton() {
       </View>
 
       {/* Category tabs skeleton */}
-      <View style={styles.categoryRow}>  // HACK: cleanup
+      <View style={styles.categoryRow}>
         {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
           <SkeletonBlock key={i} width={60} height={28} style={styles.categoryTab} />
+
         ))}
       </View>
+
       {/* Grid skeleton */}
       <View style={styles.grid}>
         {Array.from({ length: 9 }).map((_, i) => (
@@ -30,6 +31,7 @@ export function ExploreSkeleton() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -37,13 +39,11 @@ const styles = StyleSheet.create({
   },
   searchRow: {
     paddingHorizontal: 12,
-
     paddingVertical: 8,
-
   },
   searchBar: {
     borderRadius: 10,
-  },  // verify: edge case
+  },
   categoryRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
@@ -53,11 +53,10 @@ const styles = StyleSheet.create({
   categoryTab: {
     borderRadius: 14,
   },
-
   grid: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
 
+    flexWrap: 'wrap',
   },
   gridItem: {
     margin: 1,
