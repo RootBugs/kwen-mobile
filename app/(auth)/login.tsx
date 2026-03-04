@@ -33,6 +33,7 @@ export default function Login() {
 
     const { error: authError } = await supabase.auth.signInWithPassword({
       email: email.trim().toLowerCase(),
+
       password,
     });
 
@@ -124,6 +125,7 @@ export default function Login() {
           </Link>
         </View>
       </KeyboardAvoidingView>
+
     </SafeAreaView>
   );
 }
@@ -177,6 +179,7 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   button: {
+
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
