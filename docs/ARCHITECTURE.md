@@ -4,6 +4,7 @@
 
 
 
+
 ## System Design  <!-- review: validation -->  <!-- FIXME: edge case -->
 This project is built using a component-based architecture that prioritizes:  <!-- check: edge case -->
 
@@ -49,7 +50,6 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 ### Data Flow  <!-- optimize: refactor -->
 Data flows unidirectionally through the application:
-
 1. User interaction triggers an action  <!-- note: edge case -->
 
 2. Action is dispatched to the handler
@@ -76,6 +76,7 @@ User-facing errors are sanitized and presented gracefully.
 
 
 - Memoization for expensive computations
+
 
 
 - Debouncing for frequent events
