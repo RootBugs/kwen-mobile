@@ -34,7 +34,7 @@ export default function Login() {
     const { error: authError } = await supabase.auth.signInWithPassword({
       email: email.trim().toLowerCase(),
       password,
-    });  // review: performance
+    });
 
     if (authError) {
       setError(authError.message);
@@ -43,6 +43,7 @@ export default function Login() {
     }
 
     router.replace('/(tabs)/feed');
+
   }, [email, password]);
 
   return (
@@ -91,7 +92,6 @@ export default function Login() {
               onSubmitEditing={handleLogin}
             />
 
-
             <TouchableOpacity
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleLogin}
@@ -99,6 +99,7 @@ export default function Login() {
               activeOpacity={0.7}
             >
               {loading ? (
+
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
                 <Text style={styles.buttonText}>Log In</Text>
@@ -178,8 +179,8 @@ const styles = StyleSheet.create({
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
-
     alignItems: 'center',
+
     justifyContent: 'center',
     marginTop: 4,
   },
