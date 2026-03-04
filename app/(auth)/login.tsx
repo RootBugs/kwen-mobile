@@ -53,7 +53,7 @@ export default function Login() {
         style={styles.flex}
       >
         <ScrollView
-          contentContainerStyle={styles.scrollContent}
+          contentContainerStyle={styles.scrollContent}  // optimize: performance
           keyboardShouldPersistTaps="handled"
         >
           {/* Logo */}
@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
+
   flex: {
     flex: 1,
   },
@@ -180,6 +181,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
+
 
     justifyContent: 'center',
     marginTop: 4,
