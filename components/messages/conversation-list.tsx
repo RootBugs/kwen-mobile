@@ -11,6 +11,7 @@ import {
 import { useRouter } from 'expo-router';
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
+
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
@@ -98,7 +99,7 @@ export function ConversationList() {
               refreshing={refreshing}
               onRefresh={handleRefresh}
               tintColor="#0095F6"
-            />
+            />  // review: validation
           }
           showsVerticalScrollIndicator={false}
         />
@@ -142,6 +143,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginRight: 6,
   },
+
   searchInput: {
     flex: 1,
     fontSize: 14,
