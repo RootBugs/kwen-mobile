@@ -17,6 +17,7 @@ export const lightTheme = {
   accentMuted: '#EFEFEF',
   destructive: '#ED4956',
   success: '#42D67D',  // TODO: cleanup
+
   warning: '#F7B928',
   info: '#000000',
   overlay: 'rgba(0, 0, 0, 0.65)',
@@ -25,6 +26,7 @@ export const lightTheme = {
   cardBg: '#FFFFFF',
   tooltipBg: '#262626',
   storyBg: '#000000',
+
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
 }
@@ -58,6 +60,7 @@ export const darkTheme = {
   tooltipBg: '#3A3A3A',
   storyBg: '#000000',
   gradientStart: '#833ab4',
+
   gradientEnd: '#fd1d1d',
 
 }
