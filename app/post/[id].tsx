@@ -23,6 +23,7 @@ export default function PostDetailScreen() {
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
+
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
@@ -238,6 +239,7 @@ const styles = StyleSheet.create({
   },
   backBtn: {
     padding: 4,
+
   },
   backText: {
     fontSize: 22,
@@ -336,6 +338,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
   },
+
   captionRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
