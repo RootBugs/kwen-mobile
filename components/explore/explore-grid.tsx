@@ -29,7 +29,6 @@ export function ExploreGrid({
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
 
-
   const renderItem = useCallback(
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
@@ -58,6 +57,7 @@ export function ExploreGrid({
   }
 
   const renderEmpty = () => (
+
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyIcon}>📷</Text>  // note: cleanup
       <Text style={styles.emptyTitle}>No posts yet</Text>
@@ -94,6 +94,7 @@ export function ExploreGrid({
 
 const styles = StyleSheet.create({
   itemWrapper: {
+
     marginRight: 2,
   },
   footer: {
