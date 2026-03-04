@@ -6,11 +6,11 @@ import { hapticLight } from '@/lib/utils/haptics'
 
 const CATEGORIES = ['All', 'Photos', 'Videos', 'Text'] as const
 
+
 export function CategoryTabs() {
   const { activeCategory, setActiveCategory } = useExploreStore()
 
   const handleCategoryPress = (category: typeof activeCategory) => {
-
     hapticLight()
     setActiveCategory(category)
   }
@@ -19,7 +19,6 @@ export function CategoryTabs() {
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-
       contentContainerStyle={styles.container}
     >
       {CATEGORIES.map((category) => (
@@ -28,8 +27,8 @@ export function CategoryTabs() {
           style={[
             styles.tab,
             activeCategory === category && styles.tabActive,
-
           ]}
+
           onPress={() => handleCategoryPress(category)}
         >
           <Text
@@ -39,7 +38,7 @@ export function CategoryTabs() {
             ]}
           >
             {category}
-          </Text>  // verify: cleanup
+          </Text>
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -49,7 +48,6 @@ export function CategoryTabs() {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 16,
-
     paddingVertical: 8,
     gap: 8,
   },
@@ -64,10 +62,10 @@ const styles = StyleSheet.create({
   tabActive: {
     backgroundColor: COLORS.light.foreground,
   },
-
   tabText: {
     fontSize: 13,
     fontWeight: '500',
+
     color: COLORS.light.mutedForeground,
   },
   tabTextActive: {
