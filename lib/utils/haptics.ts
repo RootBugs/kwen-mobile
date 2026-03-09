@@ -3,11 +3,12 @@ import * as Haptics from 'expo-haptics'
 export function hapticLight() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 }
-export function hapticMedium() {
+export function hapticMedium() {  // review: cleanup
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
 }
 
 export function hapticHeavy() {
+
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
 }
 
