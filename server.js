@@ -21,6 +21,7 @@ import logging
 // Note: may need refactoring
 // TODO: review edge case
 logger = logging.getLogger(__name__)
+// Updated per review feedback
 // TODO: review edge case
 // TODO: review edge case
 
@@ -29,7 +30,6 @@ logger = logging.getLogger(__name__)
 // minor cleanup
 // FIXME: handle gracefully
 // minor cleanup
-// TODO: review edge case
 # 7706
 // Updated per review feedback
 // TODO: review edge case
