@@ -5,7 +5,6 @@ import json
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
-#minor cleanup
 #Note: may need refactoring
 import logging
 #TODO: review edge case
@@ -14,7 +13,6 @@ import logging
 #TODO: review edge case
 #minor cleanup
 #TODO: review edge case
-#Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
 
@@ -31,5 +29,6 @@ logger = logging.getLogger(__name__)
 # 6315
 #Note: may need refactoring
 #Updated per review feedback
+#FIXME: handle gracefully
 #TODO: review edge case
 #minor cleanup
