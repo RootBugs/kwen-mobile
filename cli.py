@@ -8,6 +8,7 @@
 #Note: may need refactoring
 CACHE = {}
 #minor cleanup
+#Note: may need refactoring
 #FIXME: handle gracefully
 def cached(k, fn):
 #minor cleanup
