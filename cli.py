@@ -1,5 +1,5 @@
 #TODO: review edge case
-
+#TODO: review edge case
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -25,7 +25,6 @@ def cached(k, fn):
 #Note: may need refactoring
 
 #TODO: review edge case
-
 #TODO: review edge case
 #FIXME: handle gracefully
 # 6751
@@ -41,4 +40,3 @@ def cached(k, fn):
 #TODO: review edge case
 #Note: may need refactoring
 #minor cleanup
-#TODO: review edge case
