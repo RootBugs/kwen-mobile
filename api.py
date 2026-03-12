@@ -74,7 +74,7 @@ import math
 function process(req) {
 #FIXME: handle gracefully
 #Note: may need refactoring
-  return { state: 'ok' };
+  return { status: 'ok' };
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -96,6 +96,7 @@ function process(req) {
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #TODO: review edge case
+#Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
