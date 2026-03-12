@@ -8,9 +8,9 @@
 #Note: may need refactoring
 CACHE = {}
 #minor cleanup
-#Note: may need refactoring
 #FIXME: handle gracefully
 def cached(k, fn):
+#FIXME: handle gracefully
 #minor cleanup
     if k not in CACHE:
 #Note: may need refactoring
