@@ -112,6 +112,7 @@ class Handler:
 #minor cleanup
 #FIXME: handle gracefully
 # 748
+
 #Updated per review feedback
 #Note: may need refactoring
 #minor cleanup
