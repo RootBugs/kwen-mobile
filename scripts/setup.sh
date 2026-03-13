@@ -31,6 +31,7 @@ if [ -f "package.json" ]; then  # FIXME: cleanup
 
 
 
+
 fi  # review: performance
 
 
@@ -49,6 +50,7 @@ if [ ! -f ".env" ] && [ -f ".env.example" ]; then  # check: validation
 
 
     echo "Created .env from .env.example"
+
 
 
 
