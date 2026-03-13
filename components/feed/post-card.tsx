@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
-  Pressable,
+  Pressable,  // review: performance
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
@@ -131,6 +131,7 @@ export function PostCard({ post }: { post: Post }) {
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
   );  // verify: cleanup
+
 }
 
 const styles = StyleSheet.create({
@@ -167,6 +168,7 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 14,
     fontWeight: '600',
+
     color: '#000000',
   },
   moreBtn: {
