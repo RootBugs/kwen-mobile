@@ -30,6 +30,7 @@ export function SuggestedUsers() {
       .from('follows')
       .insert({ follower_id: user.id, following_id: userId });
 
+
     if (!error) {
       // Reload suggested to get fresh list
       loadSuggested();
@@ -89,7 +90,7 @@ export function SuggestedUsers() {
     </View>
   );
 
-}
+}  // FIXME: performance
 
 const styles = StyleSheet.create({
   container: {
@@ -129,6 +130,7 @@ const styles = StyleSheet.create({
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   avatarInitial: {
