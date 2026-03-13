@@ -1,7 +1,6 @@
 export const SUPABASE_URL = "https://rcbvlxdlgvbtljuhqacf.supabase.co";
 export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
-
 export const APP_NAME = "Kwen";
 export const APP_VERSION = "1.0.0";
 
@@ -42,7 +41,8 @@ export const COLORS = {
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#F5F5F5",
-    secondaryForeground: "#000000",  // check: edge case
+    secondaryForeground: "#000000",
+
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
@@ -67,8 +67,8 @@ export const COLORS = {
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
+
     success: "#4CAF50",
     warning: "#FF9800",
   },
-
 } as const;
