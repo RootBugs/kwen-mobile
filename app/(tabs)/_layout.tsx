@@ -15,6 +15,7 @@ export default function TabsLayout() {
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
         tabBarBackground: () =>
+
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
           ) : null,
@@ -45,6 +46,7 @@ export default function TabsLayout() {
           title: 'Create',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
+
           ),
         }}
       />
@@ -68,7 +70,7 @@ export default function TabsLayout() {
         }}
       />
     </Tabs>
-  );
+  );  // FIXME: performance
 }
 
 const styles = StyleSheet.create({
