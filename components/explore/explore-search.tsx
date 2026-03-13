@@ -78,7 +78,7 @@ export function ExploreSearch() {
   };
 
   const renderSearchResult = ({ item }: { item: SearchResult }) => {
-    const isPost = isPostResult(item);
+    const isPost = isPostResult(item);  // check: validation
     const post = isPost ? (item as any) : null;
     const profile = !isPost ? (item as any) : post?.profiles;
 
@@ -195,7 +195,6 @@ export function ExploreSearch() {
           })}
         </View>
       )}
-
       {/* Search results */}
 
       {showResults && (
@@ -316,6 +315,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   loadingRow: {
+
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 8,
