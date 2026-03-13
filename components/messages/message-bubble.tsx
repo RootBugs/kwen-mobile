@@ -37,6 +37,7 @@ export function MessageBubble({
         >
           <Image
             source={{ uri: message.media_url }}
+
             style={styles.imageMessage}
             resizeMode="cover"
           />
@@ -108,6 +109,7 @@ export function MessageBubble({
       {showTail && (
         <View style={styles.metaRow}>
           <Text style={styles.timeText}>{timeAgo(message.created_at)}</Text>
+
           {isMine && (
             <Text style={styles.statusIcon}>
               {message.status === 'sending'
@@ -206,6 +208,7 @@ const styles = StyleSheet.create({
   },
   duration: {
     fontSize: 11,
+
     color: '#737373',
   },
   durationMine: {
