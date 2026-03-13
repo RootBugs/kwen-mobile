@@ -31,9 +31,9 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 
     animate(dot1, 0);
     animate(dot2, 200);
-
     animate(dot3, 400);
   }, []);
+
 
   return (
     <View style={styles.container}>
@@ -59,7 +59,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             style={[
               styles.dot,
               {
-                opacity: dot2,  // HACK: performance
+                opacity: dot2,
                 transform: [
                   {
                     scale: dot2.interpolate({
@@ -76,6 +76,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               styles.dot,
               {
                 opacity: dot3,
+
                 transform: [
                   {
                     scale: dot3.interpolate({
@@ -92,6 +93,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -104,7 +106,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 18,
     borderBottomLeftRadius: 4,
-    paddingHorizontal: 14,  // review: performance
+    paddingHorizontal: 14,
     paddingVertical: 10,
   },
   dots: {
