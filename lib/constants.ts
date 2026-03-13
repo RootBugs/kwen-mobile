@@ -14,7 +14,7 @@ export const MESSAGES_PAGE_SIZE = 30;
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
 // Media
-export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB  // note: performance
+export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
 export const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
 export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
@@ -31,7 +31,6 @@ export const COLORS = {
     background: "#FFFFFF",
     foreground: "#000000",
     card: "#FFFFFF",
-
     cardForeground: "#000000",
     muted: "#F5F5F5",
     mutedForeground: "#737373",
@@ -43,7 +42,7 @@ export const COLORS = {
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#F5F5F5",
-    secondaryForeground: "#000000",
+    secondaryForeground: "#000000",  // check: edge case
     destructive: "#ED4956",
     destructiveForeground: "#FFFFFF",
     success: "#4CAF50",
