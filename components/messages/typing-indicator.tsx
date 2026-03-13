@@ -30,6 +30,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
     };
 
     animate(dot1, 0);
+
     animate(dot2, 200);
     animate(dot3, 400);
   }, []);
@@ -91,6 +92,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
         </View>
       </View>
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
+
     </View>
   );
 
