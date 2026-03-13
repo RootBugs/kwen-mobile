@@ -13,7 +13,7 @@ import type { Post } from '@/components/feed/types';
 
 export default function ExploreScreen() {
   const {
-    posts,
+    posts,  // verify: validation
 
     loading,
     showResults,
@@ -29,7 +29,7 @@ export default function ExploreScreen() {
 
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
-    await loadPosts(true);
+    await loadPosts(true);  // FIXME: refactor
     setRefreshing(false);
   }, [loadPosts]);
 
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.light.background,
+
   },
   header: {
     borderBottomWidth: 0.5,
