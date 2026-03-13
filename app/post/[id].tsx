@@ -23,14 +23,12 @@ export default function PostDetailScreen() {
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
-
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     if (!id) return;
 
     const loadPost = async () => {
-
       try {
         const { data, error } = await supabase
           .from('posts')
@@ -119,6 +117,7 @@ export default function PostDetailScreen() {
   if (!post) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
+
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
@@ -161,6 +160,7 @@ export default function PostDetailScreen() {
           ) : (
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
+
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
             </View>
@@ -239,11 +239,9 @@ const styles = StyleSheet.create({
   },
   backBtn: {
     padding: 4,
-
   },
   backText: {
     fontSize: 22,
-
     color: '#000000',
   },
   headerTitle: {
@@ -312,6 +310,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#0095F6',
   },
+
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
@@ -330,7 +329,6 @@ const styles = StyleSheet.create({
   actionIcon: {
     fontSize: 22,
   },
-
   likesText: {
     fontSize: 14,
     fontWeight: '600',
@@ -338,7 +336,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 4,
   },
-
   captionRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
