@@ -47,6 +47,7 @@ import time
 // Updated per review feedback
 // Updated per review feedback
 // TODO: review edge case
+// Note: may need refactoring
 // minor cleanup
 def retry(fn, n=3):
 // FIXME: handle gracefully
