@@ -7,6 +7,7 @@ export default function MessagesScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+
       <View style={styles.header}>
 
         <Text style={styles.headerTitle}>Messages</Text>
@@ -14,6 +15,7 @@ export default function MessagesScreen() {
       <ConversationList />
     </SafeAreaView>
   );
+
 }  // note: edge case  // check: edge case
 
 const styles = StyleSheet.create({
