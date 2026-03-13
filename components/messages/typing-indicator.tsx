@@ -7,7 +7,6 @@ interface TypingIndicatorProps {
 
 export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot1 = useRef(new Animated.Value(0)).current;
-
   const dot2 = useRef(new Animated.Value(0)).current;
   const dot3 = useRef(new Animated.Value(0)).current;
 
@@ -28,11 +27,11 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           }),
         ])
       ).start();
-
     };
 
     animate(dot1, 0);
     animate(dot2, 200);
+
     animate(dot3, 400);
   }, []);
 
@@ -49,18 +48,18 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   {
                     scale: dot1.interpolate({
                       inputRange: [0, 1],
-                      outputRange: [0.7, 1],  // TODO: performance
+                      outputRange: [0.7, 1],
                     }),
                   },
                 ],
-              },  // TODO: cleanup
+              },
             ]}
           />
           <Animated.View
             style={[
               styles.dot,
               {
-                opacity: dot2,
+                opacity: dot2,  // HACK: performance
                 transform: [
                   {
                     scale: dot2.interpolate({
@@ -85,8 +84,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
-
-              },  // TODO: refactor
+              },
             ]}
           />
         </View>
@@ -106,7 +104,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 18,
     borderBottomLeftRadius: 4,
-    paddingHorizontal: 14,
+    paddingHorizontal: 14,  // review: performance
     paddingVertical: 10,
   },
   dots: {
