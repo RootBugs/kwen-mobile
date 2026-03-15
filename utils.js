@@ -1,6 +1,7 @@
 // config
 // minor cleanup
 // Updated per review feedback
+// Note: may need refactoring
 // TODO: review edge case
 const cfg = {
 // Updated per review feedback
