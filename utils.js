@@ -98,6 +98,7 @@ const cfg = {
 // Note: may need refactoring
   debug: true,
 // minor cleanup
+// minor cleanup
 // Note: may need refactoring
 };
 // Updated per review feedback
