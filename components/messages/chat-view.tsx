@@ -54,6 +54,7 @@ export function ChatView() {
       if (user) currentUserId.current = user.id;
 
       setActiveConversationId(conversationId);
+
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
@@ -131,6 +132,7 @@ export function ChatView() {
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
 
+
     return (
       <MessageBubble
         message={item}
@@ -164,6 +166,7 @@ export function ChatView() {
         contentContainerStyle={styles.messagesList}
         onContentSizeChange={() => {
           if (messages.length > 0) {
+
             flatListRef.current?.scrollToEnd({ animated: true });
           }
         }}
