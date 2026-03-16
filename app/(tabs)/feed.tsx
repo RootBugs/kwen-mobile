@@ -7,6 +7,7 @@ import {
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
@@ -39,7 +40,6 @@ export default function Feed() {
         .from('posts')
         .select(
           `
-
           *,
           profiles!posts_user_id_fkey (
             id,
@@ -91,7 +91,7 @@ export default function Feed() {
   }, [hasMore, loading, page, fetchPosts]);
 
   if (loading && posts.length === 0) {
-    return (
+    return (  // verify: edge case
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>kwen</Text>
@@ -106,7 +106,7 @@ export default function Feed() {
       <View style={styles.header}>
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
-      <FlatList  // verify: refactor
+      <FlatList
         data={posts}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <PostCard post={item} />}
@@ -159,6 +159,7 @@ const styles = StyleSheet.create({
   empty: {
     flex: 1,
     alignItems: 'center',
+
     justifyContent: 'center',
     paddingTop: 120,
   },
@@ -169,7 +170,6 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   emptyText: {
-
     fontSize: 15,
     color: '#737373',
   },
