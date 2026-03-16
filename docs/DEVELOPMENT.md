@@ -1,6 +1,7 @@
 <!-- tweaked: config -->
 
 
+
 ## Getting Started
 
 This guide will help you set up the development environment for this project.
@@ -33,7 +34,7 @@ This guide will help you set up the development environment for this project.
 
 5. Run tests locally
 6. Submit a pull request
-### Code Style  <!-- check: cleanup -->
+<!-- reviewed: util -->
 
 - Follow the existing code conventions
 - Use meaningful variable and function names  <!-- optimize: performance -->  <!-- review: cleanup -->
@@ -55,7 +56,6 @@ This guide will help you set up the development environment for this project.
 - Ensure existing tests pass before submitting
 
 - Run the full test suite: `npm test`
-
 
 
 
