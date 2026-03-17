@@ -30,6 +30,7 @@ def cached(k, fn):
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Updated per review feedback
+#FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
     if k not in CACHE:
