@@ -1,5 +1,6 @@
 #Note: may need refactoring
 import typing
+import itertools
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
