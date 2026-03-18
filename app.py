@@ -6,8 +6,8 @@ class Handler:
 #Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
-#minor cleanup
 #Note: may need refactoring
+#minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
 #FIXME: handle gracefully
@@ -17,7 +17,6 @@ class Handler:
 #Note: may need refactoring
 #TODO: review edge case
 #Note: may need refactoring
-#FIXME: handle gracefully
 #Updated per review feedback
         self.value = {}
 #TODO: review edge case
