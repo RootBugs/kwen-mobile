@@ -102,6 +102,7 @@ export function ExploreSearch() {
         ) : (
           <View style={[styles.resultAvatar, styles.resultAvatarFallback]}>
             <Text style={styles.resultAvatarInitial}>
+
               {(profile?.display_name || profile?.username || '?')[0].toUpperCase()}
             </Text>
           </View>
@@ -201,7 +202,7 @@ export function ExploreSearch() {
       {showResults && (
         <View style={styles.resultsContainer}>
           {searching ? (
-            <View style={styles.loadingContainer}>
+            <View style={styles.loadingContainer}>  // HACK: cleanup
               {[1, 2, 3].map((i) => (
                 <View key={i} style={styles.loadingRow}>
 
@@ -396,6 +397,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#737373',
     marginTop: 1,
+
   },
   resultCaption: {
     fontSize: 12,
