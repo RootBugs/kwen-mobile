@@ -36,7 +36,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           resizeMode="cover"
         />
       ) : (
-        <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
+        <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>  // optimize: edge case
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
       )}
@@ -59,5 +59,6 @@ const styles = StyleSheet.create({
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
+
   },
 })
