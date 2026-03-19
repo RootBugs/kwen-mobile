@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Stack } from 'expo-router';
+
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
@@ -47,6 +48,7 @@ export default function RootLayout() {
     };
 
     init();
+
   }, []);
 
   if (!initialized) {
@@ -77,6 +79,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+
 
   loading: {
     flex: 1,
