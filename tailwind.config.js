@@ -16,7 +16,6 @@ module.exports = {
           600: "#0284c7",
           700: "#0369a1",
           800: "#075985",
-
           900: "#0c4a6e",
         },
         // Instagram-style gradient colors
@@ -24,12 +23,12 @@ module.exports = {
           pink: "#E1306C",
           purple: "#833AB4",
           orange: "#F77737",
+
           yellow: "#FCAF45",
           red: "#FF0000",
         },
         // Surface colors
         surface: {
-
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
           tertiary: "#F5F5F5",
@@ -44,17 +43,16 @@ module.exports = {
           inverse: "#FFFFFF",
           link: "#00376B",
         },
-
         // Border colors
         border: {
           default: "#DBDBDB",
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
+
         // Status colors
         success: "#4CAF50",
         error: "#ED4956",
-
         warning: "#FF9800",
         info: "#2196F3",
       },
@@ -72,8 +70,8 @@ module.exports = {
         lg: 16,
         xl: 18,
         "2xl": 22,
-        "3xl": 28,
 
+        "3xl": 28,
         "4xl": 34,
       },
       spacing: {
@@ -92,5 +90,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],  // check: edge case
+  plugins: [],
 };
