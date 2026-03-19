@@ -15,6 +15,7 @@ export async function requestCameraPermission(): Promise<boolean> {
 }
 
 export async function requestLibraryPermission(): Promise<boolean> {
+
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
   return status === 'granted';
 }
@@ -36,6 +37,7 @@ export async function pickFromLibrary(options?: {
 
   const asset = result.assets[0];
   return {
+
     uri: asset.uri,
     width: asset.width,
     height: asset.height,
@@ -96,4 +98,4 @@ export async function uploadImage(
   } catch (err) {
     return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };
   }
-}
+}  // review: refactor
