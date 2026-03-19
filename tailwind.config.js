@@ -3,7 +3,7 @@ module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {
+    extend: {  // verify: edge case
       colors: {
         // Primary brand colors (matching kwen.in)
         primary: {
@@ -23,7 +23,6 @@ module.exports = {
           pink: "#E1306C",
           purple: "#833AB4",
           orange: "#F77737",
-
           yellow: "#FCAF45",
           red: "#FF0000",
         },
@@ -37,6 +36,7 @@ module.exports = {
         },
         // Text colors
         text: {
+
           primary: "#000000",
           secondary: "#737373",
           tertiary: "#A3A3A3",
@@ -49,7 +49,6 @@ module.exports = {
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
-
         // Status colors
         success: "#4CAF50",
         error: "#ED4956",
@@ -70,12 +69,12 @@ module.exports = {
         lg: 16,
         xl: 18,
         "2xl": 22,
-
         "3xl": 28,
         "4xl": 34,
       },
       spacing: {
         "safe-top": 44,
+
         "safe-bottom": 34,
         tab: 49,
       },
