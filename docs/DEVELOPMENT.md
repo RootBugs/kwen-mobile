@@ -21,6 +21,7 @@ This guide will help you set up the development environment for this project.
 <!-- reviewed: util -->
 
 
+
 1. Fork and clone the repository
 
 
@@ -30,6 +31,7 @@ This guide will help you set up the development environment for this project.
 
 3. Create a branch for your feature
 4. Make your changes
+
 
 
 
@@ -66,7 +68,6 @@ This guide will help you set up the development environment for this project.
 
 
 The project follows a modular architecture with clear separation of concerns.
-
 
 
 Each module is self-contained with its own types, utils, and tests.
