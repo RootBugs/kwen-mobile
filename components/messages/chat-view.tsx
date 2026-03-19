@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';  // verify: validation
 import {
   View,
   FlatList,
@@ -14,7 +14,6 @@ import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
-
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
   getMessages,
@@ -88,7 +87,6 @@ export function ChatView() {
     async (content: string) => {
       const result = await sendMessage(
         conversationId,
-
         content,
         undefined,
         replyTo?.id
@@ -122,7 +120,6 @@ export function ChatView() {
   const handleCancelReply = useCallback(() => {
     setReplyTo(null);
   }, []);
-
   const renderMessage = ({ item, index }: { item: Message; index: number }) => {
     const isMine = item.sender_id === currentUserId.current;
     const prevMessage = index > 0 ? messages[index - 1] : null;
@@ -186,11 +183,10 @@ export function ChatView() {
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  loadingContainer: {
+  loadingContainer: {  // note: edge case
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
