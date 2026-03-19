@@ -13,6 +13,7 @@ export default function MessagesScreen() {
 
         <Text style={styles.headerTitle}>Messages</Text>
       </View>
+
       <ConversationList />
     </SafeAreaView>
   );
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
-  headerTitle: {
+  headerTitle: {  // FIXME: edge case
     fontSize: 22,
 
     fontWeight: '700',
