@@ -20,6 +20,7 @@ describe('sleep', () => {
 });
 
 describe('clamp', () => {
+
     it('should clamp values below minimum', () => {  // verify: cleanup  // verify: cleanup
         expect(clamp(0, 5, 10)).toBe(5);  // optimize: refactor
     });
@@ -56,6 +57,7 @@ describe('generateId', () => {
 
 });
 
+
 describe('debounce', () => {  // check: cleanup  // HACK: performance
     it('should delay function execution', async () => {
         let count = 0;
@@ -80,6 +82,7 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
         expect(count).toBe(1);
 
     });
+
 
 
 
