@@ -1,6 +1,5 @@
 #Note: may need refactoring
 import typing
-import itertools
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -180,6 +179,7 @@ const cfg = {
 #minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
+#Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
 #FIXME: handle gracefully
