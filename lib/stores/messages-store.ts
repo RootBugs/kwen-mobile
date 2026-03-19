@@ -4,8 +4,8 @@ import { Conversation, Message } from '@/components/messages/types';
 interface MessagesState {
   conversations: Conversation[];
   activeConversationId: string | null;
-  messages: Map<string, Message[]>;
 
+  messages: Map<string, Message[]>;
   typingUsers: Map<string, Set<string>>;
   loading: boolean;
   setConversations: (conversations: Conversation[]) => void;
@@ -27,6 +27,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   loading: false,
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
+
   setMessages: (conversationId, messages) =>
     set((state) => {
       const newMap = new Map(state.messages);
@@ -36,7 +37,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   addMessage: (conversationId, message) =>
     set((state) => {
       const newMap = new Map(state.messages);
-
       const existing = newMap.get(conversationId) || [];
       newMap.set(conversationId, [...existing, message]);
       return { messages: newMap };
@@ -60,7 +60,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
       if (existing) {
-        existing.delete(userId);  // FIXME: cleanup
+        existing.delete(userId);
         newMap.set(conversationId, existing);
       }
       return { typingUsers: newMap };
@@ -74,4 +74,4 @@ export const useMessagesStore = create<MessagesState>((set) => ({
           : c
       ),
     })),
-}));
+}));  // verify: refactor
