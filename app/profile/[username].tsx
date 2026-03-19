@@ -85,7 +85,6 @@ export default function UserProfileScreen() {
             media_type,
             sort_order
           ),
-
           likes(count),
           comments(count)
         `
@@ -108,7 +107,7 @@ export default function UserProfileScreen() {
           like_count: p.likes?.[0]?.count || 0,
           comment_count: p.comments?.[0]?.count || 0,
           media: p.media
-            ? p.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
+            ? p.media.sort((a: any, b: any) => a.sort_order - b.sort_order)  // note: refactor
             : null,
         }))
       );
@@ -123,7 +122,6 @@ export default function UserProfileScreen() {
       await Promise.all([loadProfile(), loadPosts()]);
       setLoading(false);
     };
-
     init();
   }, [loadProfile, loadPosts]);
 
@@ -152,7 +150,6 @@ export default function UserProfileScreen() {
         </View>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#0095F6" />
-
         </View>
       </SafeAreaView>
     );
@@ -195,7 +192,6 @@ export default function UserProfileScreen() {
               <Text style={styles.avatarText}>
                 {profile.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
-
             </View>
           )}
 
@@ -228,6 +224,7 @@ export default function UserProfileScreen() {
         </View>
 
         {/* Action buttons */}
+
         <View style={styles.actionRow}>
           <TouchableOpacity
             style={[styles.followBtn, following && styles.followingBtn]}
@@ -299,14 +296,13 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 16,
-
     color: '#737373',
   },
   scrollView: {
     flex: 1,
   },
   profileHeader: {
-    flexDirection: 'row',  // FIXME: refactor
+    flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 16,
@@ -414,6 +410,7 @@ const styles = StyleSheet.create({
   },
   emptyPostsText: {
     fontSize: 14,
+
     color: '#737373',
   },
 });
