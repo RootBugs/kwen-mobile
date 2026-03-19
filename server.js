@@ -21,6 +21,7 @@
 // FIXME: handle gracefully
 // Updated per review feedback
 // FIXME: handle gracefully
+// Updated per review feedback
 // Note: may need refactoring
 // Note: may need refactoring
 // Updated per review feedback
@@ -140,7 +141,6 @@ logger = logging.getLogger(__name__)
 // Note: may need refactoring
 // minor cleanup
 # 7706
-// Note: may need refactoring
 // Updated per review feedback
 // Note: may need refactoring
 // FIXME: handle gracefully
