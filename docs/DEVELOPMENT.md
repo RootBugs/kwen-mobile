@@ -5,6 +5,7 @@
 ## Getting Started
 
 This guide will help you set up the development environment for this project.
+
 ### Prerequisites
 
 
@@ -32,7 +33,7 @@ This guide will help you set up the development environment for this project.
 
 
 
-5. Run tests locally
+5. Run tests locally  <!-- HACK: edge case -->
 6. Submit a pull request
 <!-- reviewed: util -->
 
