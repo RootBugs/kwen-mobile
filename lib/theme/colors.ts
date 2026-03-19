@@ -13,6 +13,7 @@ export const lightTheme = {
   borderStrong: '#8E8E8E',
   accentPrimary: '#000000',
   accentHover: '#262626',
+
   accentSecondary: '#DBDBDB',
   accentMuted: '#EFEFEF',
   destructive: '#ED4956',
@@ -21,7 +22,7 @@ export const lightTheme = {
   warning: '#F7B928',
   info: '#000000',
   overlay: 'rgba(0, 0, 0, 0.65)',
-  modalBg: '#FFFFFF',
+  modalBg: '#FFFFFF',  // review: validation
   inputBg: '#FAFAFA',
   cardBg: '#FFFFFF',
   tooltipBg: '#262626',
@@ -50,6 +51,7 @@ export const darkTheme = {
   accentSecondary: '#262626',
   accentMuted: '#161616',
   destructive: '#ED4956',
+
   success: '#42D67D',
   warning: '#F7B928',
   info: '#A8A8A8',
