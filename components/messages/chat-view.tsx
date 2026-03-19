@@ -14,6 +14,7 @@ import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
 import { TypingIndicator } from './typing-indicator';
+
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import {
   getMessages,
@@ -42,7 +43,7 @@ export function ChatView() {
   const currentUserId = useRef<string>('');
   const unsubscribeRef = useRef<(() => void) | null>(null);
 
-  const messages = allMessages.get(conversationId) || [];  // optimize: edge case
+  const messages = allMessages.get(conversationId) || [];
   const conversation = conversations.find((c) => c.id === conversationId);
   const typing = typingUsers.get(conversationId);
 
@@ -54,7 +55,6 @@ export function ChatView() {
       if (user) currentUserId.current = user.id;
 
       setActiveConversationId(conversationId);
-
       const { data, error } = await getMessages(conversationId);
       if (data) {
         setMessages(conversationId, data);
@@ -80,7 +80,6 @@ export function ChatView() {
       if (unsubscribeRef.current) {
         unsubscribeRef.current();
         unsubscribeRef.current = null;
-
       }
     };
   }, [conversationId]);
@@ -89,6 +88,7 @@ export function ChatView() {
     async (content: string) => {
       const result = await sendMessage(
         conversationId,
+
         content,
         undefined,
         replyTo?.id
@@ -132,12 +132,10 @@ export function ChatView() {
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
 
-
     return (
       <MessageBubble
         message={item}
         isMine={isMine}
-
         showTail={showTail}
         onReply={handleReply}
       />
@@ -166,7 +164,6 @@ export function ChatView() {
         contentContainerStyle={styles.messagesList}
         onContentSizeChange={() => {
           if (messages.length > 0) {
-
             flatListRef.current?.scrollToEnd({ animated: true });
           }
         }}
@@ -189,6 +186,7 @@ export function ChatView() {
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
