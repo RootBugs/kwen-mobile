@@ -23,6 +23,7 @@ export default function ExploreScreen() {
 
   const [refreshing, setRefreshing] = useState(false);
 
+
   useEffect(() => {
     loadPosts(true);
   }, [loadPosts]);
@@ -39,6 +40,7 @@ export default function ExploreScreen() {
   }, [loadMore]);
 
   const handlePostPress = useCallback((_post: Post) => {
+
     // Navigate to post detail — route TBD
   }, []);
 
@@ -68,6 +70,7 @@ export default function ExploreScreen() {
       <ExploreGrid
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
+
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
       />
