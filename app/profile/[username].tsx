@@ -27,6 +27,7 @@ export default function UserProfileScreen() {
   const [loading, setLoading] = useState(true);
   const [following, setFollowing] = useState(false);
 
+
   const loadProfile = useCallback(async () => {
     if (!username) return;
 
@@ -107,7 +108,7 @@ export default function UserProfileScreen() {
           like_count: p.likes?.[0]?.count || 0,
           comment_count: p.comments?.[0]?.count || 0,
           media: p.media
-            ? p.media.sort((a: any, b: any) => a.sort_order - b.sort_order)  // note: refactor
+            ? p.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
             : null,
         }))
       );
@@ -183,6 +184,7 @@ export default function UserProfileScreen() {
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+
         {/* Profile header */}
         <View style={styles.profileHeader}>
           {profile.avatar_url ? (
@@ -224,7 +226,6 @@ export default function UserProfileScreen() {
         </View>
 
         {/* Action buttons */}
-
         <View style={styles.actionRow}>
           <TouchableOpacity
             style={[styles.followBtn, following && styles.followingBtn]}
@@ -278,6 +279,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontSize: 16,
+
     fontWeight: '600',
     color: '#000000',
   },
@@ -410,7 +412,6 @@ const styles = StyleSheet.create({
   },
   emptyPostsText: {
     fontSize: 14,
-
     color: '#737373',
   },
 });
