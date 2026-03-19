@@ -10,6 +10,7 @@ export default function MessagesScreen() {
 
       <View style={styles.header}>
 
+
         <Text style={styles.headerTitle}>Messages</Text>
       </View>
       <ConversationList />
@@ -22,6 +23,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
   header: {
