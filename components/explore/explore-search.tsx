@@ -74,6 +74,7 @@ export function ExploreSearch() {
   }, []);
 
   const isPostResult = (item: SearchResult): boolean => {
+
     return 'image_url' in item || 'caption' in item;
   };
 
@@ -268,6 +269,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     color: '#000000',
+
     padding: 0,
   },
   clearBtn: {
@@ -281,6 +283,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#0095F6',
   },
+
   modeRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
