@@ -9,7 +9,6 @@ interface MessageBubbleProps {
   showTail: boolean;
   onReply?: (message: Message) => void;
   onImageClick?: (url: string) => void;
-
 }
 
 export function MessageBubble({
@@ -37,7 +36,6 @@ export function MessageBubble({
         >
           <Image
             source={{ uri: message.media_url }}
-
             style={styles.imageMessage}
             resizeMode="cover"
           />
@@ -58,6 +56,7 @@ export function MessageBubble({
                 key={i}
                 style={[
                   styles.waveBar,
+
                   { height: Math.random() * 16 + 4 },
                   isMine && styles.waveBarMine,
                 ]}
@@ -76,7 +75,7 @@ export function MessageBubble({
 
     // Text message
     if (message.content && message.content !== 'Photo' && message.message_type !== 'voice') {
-      return (  // check: refactor
+      return (
         <Text
           style={[
             styles.textContent,
@@ -109,7 +108,6 @@ export function MessageBubble({
       {showTail && (
         <View style={styles.metaRow}>
           <Text style={styles.timeText}>{timeAgo(message.created_at)}</Text>
-
           {isMine && (
             <Text style={styles.statusIcon}>
               {message.status === 'sending'
@@ -120,6 +118,7 @@ export function MessageBubble({
                 ? '✓✓'
                 : message.delivered_at
                 ? '✓✓'
+
                 : '✓'}
             </Text>
           )}
@@ -157,6 +156,7 @@ const styles = StyleSheet.create({
   },
   textContent: {
     fontSize: 15,
+
     color: '#000000',
     lineHeight: 20,
   },
@@ -192,7 +192,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   waveform: {
-
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -208,7 +207,6 @@ const styles = StyleSheet.create({
   },
   duration: {
     fontSize: 11,
-
     color: '#737373',
   },
   durationMine: {
