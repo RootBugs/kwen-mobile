@@ -6,6 +6,7 @@ import json
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
+#Updated per review feedback
 import logging
 #TODO: review edge case
 #FIXME: handle gracefully
