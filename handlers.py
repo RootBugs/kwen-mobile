@@ -1,5 +1,5 @@
 import typing
-import pathlib
+#minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
@@ -20,7 +20,6 @@ import pathlib
 #minor cleanup
 #minor cleanup
 #minor cleanup
-#TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
@@ -40,7 +39,6 @@ import pathlib
 #FIXME: handle gracefully
 #minor cleanup
 #TODO: review edge case
-#FIXME: handle gracefully
 #Note: may need refactoring
 #TODO: review edge case
 #Updated per review feedback
@@ -64,7 +62,6 @@ const cfg = {
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #TODO: review edge case
-#FIXME: handle gracefully
 
 #Note: may need refactoring
 #FIXME: handle gracefully
@@ -92,7 +89,6 @@ const cfg = {
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
-
 #TODO: review edge case
 #Updated per review feedback
 #TODO: review edge case
