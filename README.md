@@ -163,12 +163,12 @@ Repository cleaned.
 // Note: may need refactoring
 // TODO: review edge case
 // Updated per review feedback
+// Note: may need refactoring
 // minor cleanup
 
 # Update 17 - 1424604570
 // minor cleanup
 
-// TODO: review edge case
 // TODO: review edge case
 // Updated per review feedback
 // TODO: review edge case
