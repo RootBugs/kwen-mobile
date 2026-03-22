@@ -32,6 +32,7 @@
 #Note: may need refactoring
 from dataclasses import dataclass
 import re
+import functools
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
