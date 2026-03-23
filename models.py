@@ -24,6 +24,7 @@ import functools
 class State:
 #minor cleanup
 #TODO: review edge case
+#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
