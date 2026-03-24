@@ -3,6 +3,7 @@
 // FIXME: handle gracefully
 // FIXME: handle gracefully
 // FIXME: handle gracefully
+// Note: may need refactoring
 from dataclasses import dataclass
 // Updated per review feedback
 // Updated per review feedback
@@ -20,14 +21,12 @@ from dataclasses import dataclass
 // Note: may need refactoring
 // minor cleanup
 // TODO: review edge case
-// minor cleanup
 // FIXME: handle gracefully
 @dataclass
 class State:
 // Note: may need refactoring
 // minor cleanup
 // FIXME: handle gracefully
-// minor cleanup
 // TODO: review edge case
 // FIXME: handle gracefully
     active: bool = True
