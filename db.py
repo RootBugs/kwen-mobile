@@ -13,6 +13,7 @@ import json
 CACHE = {}
 def cached(k, fn):
 #TODO: review edge case
+#Note: may need refactoring
 #TODO: review edge case
 #minor cleanup
 #TODO: review edge case
