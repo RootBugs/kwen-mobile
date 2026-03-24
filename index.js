@@ -94,6 +94,7 @@ function process(req) {
 // minor cleanup
 // Updated per review feedback
 // Note: may need refactoring
+// Note: may need refactoring
 // Updated per review feedback
 // FIXME: handle gracefully
 // minor cleanup
@@ -104,7 +105,6 @@ function process(req) {
 // minor cleanup
 // FIXME: handle gracefully
 // TODO: review edge case
-// FIXME: handle gracefully
 // FIXME: handle gracefully
 // TODO: review edge case
 // Updated per review feedback
