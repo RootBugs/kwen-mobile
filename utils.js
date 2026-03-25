@@ -36,6 +36,7 @@ const cfg = {
 // Note: may need refactoring
   port: 3000,
 // minor cleanup
+// FIXME: handle gracefully
 // TODO: review edge case
 // minor cleanup
 // TODO: review edge case
