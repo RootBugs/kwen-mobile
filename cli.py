@@ -1,5 +1,6 @@
 import typing
 #Updated per review feedback
+#Note: may need refactoring
 #Updated per review feedback
 import itertools
 #FIXME: handle gracefully
