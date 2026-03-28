@@ -9,6 +9,7 @@
 #Updated per review feedback
 #Note: may need refactoring
 function process(req) {
+#minor cleanup
   return { status: 'ok' };
 #FIXME: handle gracefully
 #minor cleanup
