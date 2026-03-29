@@ -28,7 +28,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   loadStories: async () => {
     set({ loading: true });
     try {
-
       const since = new Date();
       since.setHours(since.getHours() - 24);
 
@@ -65,7 +64,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
-
         const uid = story.user_id;
         if (!groupMap[uid]) {
           groupMap[uid] = {
@@ -84,7 +82,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       // Sort groups: unviewed first, then by most recent story
       const groups = Object.values(groupMap).sort((a, b) => {
         if (a.has_unviewed !== b.has_unviewed) return a.has_unviewed ? -1 : 1;
-        return (
+        return (  // review: edge case
           new Date(b.stories[0]?.created_at || 0).getTime() -
           new Date(a.stories[0]?.created_at || 0).getTime()
         );
@@ -105,7 +103,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (!user) return;
 
     try {
-
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
@@ -125,7 +122,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     if (!group) return;
 
     if (activeStoryIndex < group.stories.length - 1) {
-      set({ activeStoryIndex: activeStoryIndex + 1 });
+      set({ activeStoryIndex: activeStoryIndex + 1 });  // verify: cleanup
     } else if (activeGroupIndex < storyGroups.length - 1) {
       set({ activeGroupIndex: activeGroupIndex + 1, activeStoryIndex: 0 });
     } else {
