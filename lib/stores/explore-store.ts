@@ -37,6 +37,7 @@ interface ExploreState {
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
+
   loadTrending: () => Promise<void>;
   loadSuggested: () => Promise<void>;
 }
@@ -87,6 +88,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         set({ searchResults: data || [] });
       } else {
         // Tags: search posts with hashtag in caption
+
         const { data } = await supabase
           .from('posts')
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
@@ -147,6 +149,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadMore: async () => {
+
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
