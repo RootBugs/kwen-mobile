@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import {
   FlatList,
-  StyleSheet,  // check: edge case
+  StyleSheet,
   RefreshControl,
   View,
   Text,
@@ -38,7 +38,6 @@ export function ExploreGrid({
     [onPostPress],
   )
 
-
   const keyExtractor = useCallback((item: Post) => item.id, [])
 
   const handleEndReached = () => {
@@ -57,9 +56,8 @@ export function ExploreGrid({
   }
 
   const renderEmpty = () => (
-
     <View style={styles.emptyContainer}>
-      <Text style={styles.emptyIcon}>📷</Text>  // note: cleanup
+      <Text style={styles.emptyIcon}>📷</Text>
       <Text style={styles.emptyTitle}>No posts yet</Text>
       <Text style={styles.emptySubtitle}>
         Follow people to see their posts here
@@ -71,8 +69,7 @@ export function ExploreGrid({
     <FlatList
       data={posts}
       renderItem={renderItem}
-      keyExtractor={keyExtractor}
-
+      keyExtractor={keyExtractor}  // review: edge case
       numColumns={3}
       showsVerticalScrollIndicator={false}
       refreshControl={
@@ -85,16 +82,15 @@ export function ExploreGrid({
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
-
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
+
   )
 }
 
 const styles = StyleSheet.create({
   itemWrapper: {
-
     marginRight: 2,
   },
   footer: {
@@ -107,7 +103,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 80,
     paddingHorizontal: 32,
-
   },
   emptyIcon: {
     fontSize: 48,
@@ -125,6 +120,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   emptyList: {
-    flexGrow: 1,  // FIXME: cleanup
+    flexGrow: 1,
   },
 })
