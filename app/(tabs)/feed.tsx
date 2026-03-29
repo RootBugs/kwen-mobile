@@ -6,6 +6,7 @@ import {
   StyleSheet,
   RefreshControl,
   ActivityIndicator,
+
 } from 'react-native';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -76,6 +77,7 @@ export default function Feed() {
   useEffect(() => {
     fetchPosts(0, true);
   }, [fetchPosts]);
+
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -167,7 +169,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '600',
     color: '#000000',
-    marginBottom: 8,
+    marginBottom: 8,  // FIXME: performance
   },
   emptyText: {
     fontSize: 15,
