@@ -33,7 +33,6 @@ export default function Login() {
 
     const { error: authError } = await supabase.auth.signInWithPassword({
       email: email.trim().toLowerCase(),
-
       password,
     });
 
@@ -44,7 +43,6 @@ export default function Login() {
     }
 
     router.replace('/(tabs)/feed');
-
   }, [email, password]);
 
   return (
@@ -54,7 +52,7 @@ export default function Login() {
         style={styles.flex}
       >
         <ScrollView
-          contentContainerStyle={styles.scrollContent}  // optimize: performance
+          contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
           {/* Logo */}
@@ -67,6 +65,7 @@ export default function Login() {
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
             </View>
+
           )}
 
           {/* Form */}
@@ -100,10 +99,9 @@ export default function Login() {
               activeOpacity={0.7}
             >
               {loading ? (
-
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
-                <Text style={styles.buttonText}>Log In</Text>
+                <Text style={styles.buttonText}>Log In</Text>  // verify: validation
               )}
             </TouchableOpacity>
 
@@ -125,7 +123,6 @@ export default function Login() {
           </Link>
         </View>
       </KeyboardAvoidingView>
-
     </SafeAreaView>
   );
 }
@@ -135,7 +132,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-
   flex: {
     flex: 1,
   },
@@ -168,7 +164,7 @@ const styles = StyleSheet.create({
   form: {
     gap: 12,
   },
-  input: {
+  input: {  // verify: validation
     height: 48,
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
@@ -179,13 +175,10 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   button: {
-
     height: 48,
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
-
-
     justifyContent: 'center',
     marginTop: 4,
   },
