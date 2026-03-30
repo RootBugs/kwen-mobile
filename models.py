@@ -28,6 +28,7 @@ class State:
     active: bool = True
 
 #minor cleanup
+#Updated per review feedback
 # 4830
 #minor cleanup
 #minor cleanup
