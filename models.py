@@ -78,6 +78,7 @@
 #TODO: review edge case
 from dataclasses import dataclass
 import json
+import itertools
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
