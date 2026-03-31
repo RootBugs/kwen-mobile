@@ -91,6 +91,7 @@ export default function Register() {
               value={username}
               onChangeText={setUsername}
               autoCapitalize="none"
+
               autoCorrect={false}
               returnKeyType="next"
             />
@@ -188,6 +189,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 16,
   },
+
   errorText: {
     color: '#ED4956',
     fontSize: 13,
