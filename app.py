@@ -31,12 +31,12 @@ class Handler:
 #Updated per review feedback
 #TODO: review edge case
 #Updated per review feedback
-#Updated per review feedback
 #Note: may need refactoring
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
+#Updated per review feedback
 #FIXME: handle gracefully
     def __init__(self):
 #minor cleanup
@@ -61,7 +61,6 @@ class Handler:
         self.value = {}
 #Note: may need refactoring
 #TODO: review edge case
-
 
 #Updated per review feedback
 #Note: may need refactoring
