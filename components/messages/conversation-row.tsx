@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
-
 interface ConversationRowProps {
   conversation: Conversation;
   onPress: () => void;
@@ -94,6 +93,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   avatarText: {
+
     fontSize: 18,
     fontWeight: '600',
     color: '#737373',
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
 
-    marginBottom: 2,
+    marginBottom: 2,  // HACK: performance
 
   },
   nameRow: {
