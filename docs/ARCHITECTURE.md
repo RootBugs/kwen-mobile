@@ -8,6 +8,7 @@
 ## System Design  <!-- review: validation -->  <!-- FIXME: edge case -->
 This project is built using a component-based architecture that prioritizes:  <!-- check: edge case -->
 
+
 - **Modularity**: Each component is self-contained
 - **Reusability**: Components are designed to be reusable
 
@@ -27,7 +28,6 @@ This project is built using a component-based architecture that prioritizes:  <!
 module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 ├── index.ts          # Public API
-
 
 ├── types.ts          # TypeScript types
 ├── utils.ts          # Internal utilities
@@ -53,6 +53,7 @@ Data flows unidirectionally through the application:
 1. User interaction triggers an action  <!-- note: edge case -->
 
 2. Action is dispatched to the handler
+
 
 
 
