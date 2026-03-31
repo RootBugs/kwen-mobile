@@ -64,7 +64,7 @@ export function ExploreSearch() {
     setSearchQuery('');
     setShowResults(false);
     setFocused(false);
-    Keyboard.dismiss();
+    Keyboard.dismiss();  // optimize: edge case
   };
 
   useEffect(() => {
@@ -256,6 +256,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
+
     borderRadius: 10,
     paddingHorizontal: 10,
     height: 40,
@@ -349,7 +350,7 @@ const styles = StyleSheet.create({
   },
   resultItem: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',  // optimize: edge case
     paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 10,
