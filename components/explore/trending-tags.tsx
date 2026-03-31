@@ -18,10 +18,9 @@ export function TrendingTags() {
 
   if (trendingTags.length === 0) return null;
 
-
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Trending</Text>  // review: validation
+      <Text style={styles.title}>Trending</Text>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -42,6 +41,7 @@ export function TrendingTags() {
       </ScrollView>
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
   tagChip: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
@@ -72,12 +73,11 @@ const styles = StyleSheet.create({
     borderColor: '#EFEFEF',
   },
   tagText: {
-    fontSize: 13,  // check: refactor
+    fontSize: 13,
     fontWeight: '500',
     color: '#000000',
   },
   tagCount: {
-
     fontSize: 11,
     color: '#737373',
     marginLeft: 4,
