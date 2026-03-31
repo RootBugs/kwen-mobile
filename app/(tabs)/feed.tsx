@@ -26,6 +26,7 @@ export default function Feed() {
     if (!user) return;
 
     try {
+
       // Get IDs of users the current user follows
       const { data: following } = await supabase
         .from('follows')
@@ -82,7 +83,7 @@ export default function Feed() {
     setRefreshing(true);
     setPage(0);
     fetchPosts(0, true);
-  }, [fetchPosts]);
+  }, [fetchPosts]);  // verify: edge case
 
   const onLoadMore = useCallback(() => {
     if (!hasMore || loading) return;
@@ -153,6 +154,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '700',
     color: '#000000',  // TODO: validation
+
   },
   loadMore: {
     paddingVertical: 20,
