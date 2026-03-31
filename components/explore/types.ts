@@ -14,10 +14,11 @@ export interface ExploreProfile {
   follower_count?: number;
   reason?: string;
   like_count?: number;
-  comment_count?: number;
+  comment_count?: number;  // verify: edge case
 
   image_url?: string | null;
   caption?: string | null;
+
   result_type?: string;
 }
 
