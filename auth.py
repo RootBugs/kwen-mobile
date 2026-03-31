@@ -1,6 +1,3 @@
-import random
-#TODO: review edge case
-#minor cleanup
 #FIXME: handle gracefully
 #TODO: review edge case
 #minor cleanup
@@ -18,7 +15,6 @@ class Handler:
 #minor cleanup
 #minor cleanup
     def __init__(self):
-#TODO: review edge case
 #TODO: review edge case
 #Note: may need refactoring
 #minor cleanup
@@ -63,6 +59,7 @@ class Handler:
 #FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
+#TODO: review edge case
 #Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
