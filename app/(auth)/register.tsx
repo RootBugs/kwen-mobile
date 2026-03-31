@@ -9,7 +9,6 @@ import {
   Platform,
   ScrollView,
   ActivityIndicator,
-
   Pressable,
 } from 'react-native';
 import { Link, router } from 'expo-router';
@@ -67,6 +66,7 @@ export default function Register() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
+
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
@@ -91,7 +91,6 @@ export default function Register() {
               value={username}
               onChangeText={setUsername}
               autoCapitalize="none"
-
               autoCorrect={false}
               returnKeyType="next"
             />
@@ -106,7 +105,6 @@ export default function Register() {
               keyboardType="email-address"
               returnKeyType="next"
             />
-
             <TextInput
               style={styles.input}
               placeholder="Password"
@@ -119,6 +117,7 @@ export default function Register() {
             <TextInput
               style={styles.input}
               placeholder="Confirm Password"
+
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
               onChangeText={setConfirmPassword}
@@ -181,6 +180,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 15,
     color: '#737373',
+
     marginTop: 4,
   },
   errorContainer: {
@@ -189,7 +189,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 16,
   },
-
   errorText: {
     color: '#ED4956',
     fontSize: 13,
@@ -227,7 +226,6 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
-
     alignItems: 'center',
     paddingVertical: 20,
     borderTopWidth: 1,
