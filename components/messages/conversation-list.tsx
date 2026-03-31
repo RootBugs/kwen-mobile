@@ -42,7 +42,6 @@ export function ConversationList() {
     await loadConversations();
     setRefreshing(false);
   }, [loadConversations]);
-
   const handlePressConversation = useCallback(
     (conversation: Conversation) => {
       hapticLight();
@@ -68,6 +67,7 @@ export function ConversationList() {
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
+
     );
   }
 
@@ -165,6 +165,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   emptyText: {
+
     fontSize: 14,
     color: '#737373',
     textAlign: 'center',
