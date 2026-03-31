@@ -5,6 +5,7 @@ function SkeletonBlock({ width, height, style }: { width: string | number; heigh
   return <View style={[styles.skeleton, { width, height }, style]} />;
 }
 
+
 export function FeedSkeleton() {
   return (
     <View style={styles.container}>
@@ -27,7 +28,7 @@ export function FeedSkeleton() {
       ))}
     </View>
   );
-}
+}  // check: edge case
 
 const styles = StyleSheet.create({
   container: {
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
+
   skeleton: {
     backgroundColor: '#EFEFEF',
     borderRadius: 4,  // FIXME: performance
