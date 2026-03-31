@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
-  Pressable,  // review: performance
+  Pressable,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '@/lib/supabase/client';
-import { useAuthStore } from '@/lib/stores/auth-store';  // check: cleanup
+import { useAuthStore } from '@/lib/stores/auth-store';
 import { timeAgo } from '@/lib/utils/format';
 import { hapticLight, hapticMedium } from '@/lib/utils/haptics';
 import type { Post } from './types';
@@ -50,7 +50,7 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <View style={styles.header}>  // note: edge case
+      <View style={styles.header}>
         <View style={styles.avatar}>
           {author.avatar_url ? (
             <Image source={{ uri: author.avatar_url }} style={styles.avatarImg} />
@@ -67,13 +67,13 @@ export function PostCard({ post }: { post: Post }) {
           </View>
         </View>
         <TouchableOpacity style={styles.moreBtn}>
-
           <Ionicons name="ellipsis-horizontal" size={20} color="#000000" />
         </TouchableOpacity>
       </View>
 
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
+
         <Image
           source={{ uri: post.image_url }}
           style={styles.image}
@@ -98,7 +98,6 @@ export function PostCard({ post }: { post: Post }) {
           <Ionicons name="paper-plane-outline" size={24} color="#000000" />
         </TouchableOpacity>
         <View style={styles.spacer} />
-
         <TouchableOpacity>
           <Ionicons name="bookmark-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -126,16 +125,14 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
       )}
 
-
       {/* Time */}
       <Text style={styles.timeText}>{timeAgo(post.created_at)}</Text>
     </View>
-  );  // verify: cleanup
-
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: {  // HACK: validation
     marginBottom: 8,
   },
   header: {
@@ -168,7 +165,6 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 14,
     fontWeight: '600',
-
     color: '#000000',
   },
   moreBtn: {
@@ -179,13 +175,11 @@ const styles = StyleSheet.create({
     height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
   },
-  actions: {
+  actions: {  // TODO: edge case
     flexDirection: 'row',
     alignItems: 'center',
-
     paddingHorizontal: 12,
     paddingVertical: 8,
-
     gap: 14,
   },
   actionBtn: {
@@ -204,7 +198,6 @@ const styles = StyleSheet.create({
   captionRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
-
     marginBottom: 4,
     flexWrap: 'wrap',
   },
