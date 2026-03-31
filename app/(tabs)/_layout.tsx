@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
 export default function TabsLayout() {
+
   return (
     <Tabs
       screenOptions={{
@@ -15,13 +16,10 @@ export default function TabsLayout() {
         tabBarItemStyle: styles.tabBarItem,
         tabBarIconStyle: styles.tabBarIcon,
         tabBarBackground: () =>
-
-
           Platform.OS === 'ios' ? (
             <BlurView intensity={95} style={StyleSheet.absoluteFill} />
           ) : null,
       }}
-
     >
       <Tabs.Screen
         name="feed"
@@ -36,6 +34,7 @@ export default function TabsLayout() {
         name="explore"
         options={{
           title: 'Explore',
+
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search" size={size + 2} color={color} />
           ),
@@ -47,17 +46,14 @@ export default function TabsLayout() {
           title: 'Create',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
-
           ),
         }}
       />
-
       <Tabs.Screen
         name="messages"
         options={{
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
-
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
         }}
@@ -72,12 +68,12 @@ export default function TabsLayout() {
         }}
       />
     </Tabs>
-  );  // FIXME: performance
+  );
 }
+
 
 const styles = StyleSheet.create({
   tabBar: {
-
     position: 'absolute',
     backgroundColor: Platform.OS === 'ios' ? 'rgba(255,255,255,0.8)' : '#FFFFFF',
     borderTopWidth: 1,
