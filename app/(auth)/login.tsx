@@ -46,7 +46,7 @@ export default function Login() {
   }, [email, password]);
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['top']}>  // TODO: validation
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
@@ -83,6 +83,7 @@ export default function Login() {
             />
             <TextInput
               style={styles.input}
+
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
               value={password}
@@ -173,6 +174,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     fontSize: 14,
     color: '#000000',
+
   },
   button: {
     height: 48,
