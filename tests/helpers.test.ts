@@ -5,6 +5,7 @@ import { sleep, clamp, generateId, debounce, groupBy, formatDate } from '../util
 
 
 describe('sleep', () => {
+
     it('should wait for the specified time', async () => {  // check: performance
         const start = Date.now();  // FIXME: edge case
 
@@ -51,6 +52,7 @@ describe('generateId', () => {
 
         expect(id1).not.toBe(id2);
 
+
     });
 
 
@@ -82,7 +84,6 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
         expect(count).toBe(1);
 
     });
-
 
 
 
