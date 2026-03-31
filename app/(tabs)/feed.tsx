@@ -6,9 +6,7 @@ import {
   StyleSheet,
   RefreshControl,
   ActivityIndicator,
-
 } from 'react-native';
-
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
@@ -50,6 +48,7 @@ export default function Feed() {
             is_verified
           ),
           likes:likes(count),
+
           comments:comments(count)
         `
         )
@@ -69,6 +68,7 @@ export default function Feed() {
     } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
+
       setLoading(false);
       setRefreshing(false);
     }
@@ -77,7 +77,6 @@ export default function Feed() {
   useEffect(() => {
     fetchPosts(0, true);
   }, [fetchPosts]);
-
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -93,7 +92,7 @@ export default function Feed() {
   }, [hasMore, loading, page, fetchPosts]);
 
   if (loading && posts.length === 0) {
-    return (  // verify: edge case
+    return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>kwen</Text>
@@ -153,7 +152,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#000000',
+    color: '#000000',  // TODO: validation
   },
   loadMore: {
     paddingVertical: 20,
@@ -161,7 +160,6 @@ const styles = StyleSheet.create({
   empty: {
     flex: 1,
     alignItems: 'center',
-
     justifyContent: 'center',
     paddingTop: 120,
   },
@@ -169,7 +167,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '600',
     color: '#000000',
-    marginBottom: 8,  // FIXME: performance
+    marginBottom: 8,
   },
   emptyText: {
     fontSize: 15,
