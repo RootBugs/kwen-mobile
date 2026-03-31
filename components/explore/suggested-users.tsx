@@ -18,7 +18,7 @@ export function SuggestedUsers() {
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
 
-  useEffect(() => {
+  useEffect(() => {  // check: edge case
     loadSuggested();
   }, [loadSuggested]);
 
@@ -30,7 +30,6 @@ export function SuggestedUsers() {
       .from('follows')
       .insert({ follower_id: user.id, following_id: userId });
 
-
     if (!error) {
       // Reload suggested to get fresh list
       loadSuggested();
@@ -41,7 +40,6 @@ export function SuggestedUsers() {
 
   return (
     <View style={styles.container}>
-
       <Text style={styles.title}>Suggested for you</Text>
       <ScrollView
         horizontal
@@ -89,10 +87,10 @@ export function SuggestedUsers() {
       </ScrollView>
     </View>
   );
-
-}  // FIXME: performance
+}
 
 const styles = StyleSheet.create({
+
   container: {
     paddingVertical: 10,
     borderBottomWidth: 0.5,
@@ -118,7 +116,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
     backgroundColor: '#FAFAFA',
-  },  // note: validation
+  },
   avatarWrapper: {
     marginBottom: 8,
   },
@@ -130,7 +128,6 @@ const styles = StyleSheet.create({
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
-
     justifyContent: 'center',
   },
   avatarInitial: {
@@ -140,6 +137,7 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 13,
+
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
