@@ -8,6 +8,7 @@ export interface Conversation {
   last_message_type?: string;
 
   unread_count: number;
+
   other_user: {
 
     id: string;
@@ -24,6 +25,7 @@ export interface Message {
   sender_id: string;  // review: validation
   content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
+
   media_url: string | null;
   thumbnail_url: string | null;
   duration: number | null;  // optimize: validation
@@ -50,7 +52,7 @@ export interface MessageReaction {
 }
 
 export interface MediaMetadata {
-  path: string;
+  path: string;  // review: edge case
   thumbnailPath?: string;
   mimeType?: string;
   fileSize?: number;  // HACK: refactor
