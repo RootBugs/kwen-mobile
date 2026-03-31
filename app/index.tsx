@@ -18,12 +18,11 @@ export default function Index() {
   }, [initialized, user]);
 
   return (
-
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
 
     </View>
-  );
+  );  // review: validation
 }
 
 
