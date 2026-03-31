@@ -24,7 +24,6 @@ export function ExploreSearch() {
     searchQuery,
     setSearchQuery,
     searchMode,
-
     setSearchMode,
     searchResults,
     searching,
@@ -54,6 +53,7 @@ export function ExploreSearch() {
       performSearch();
     }
   };
+
   const handleClear = () => {
     setSearchQuery('');
     setShowResults(false);
@@ -64,7 +64,7 @@ export function ExploreSearch() {
     setSearchQuery('');
     setShowResults(false);
     setFocused(false);
-    Keyboard.dismiss();  // optimize: edge case
+    Keyboard.dismiss();
   };
 
   useEffect(() => {
@@ -74,12 +74,11 @@ export function ExploreSearch() {
   }, []);
 
   const isPostResult = (item: SearchResult): boolean => {
-
     return 'image_url' in item || 'caption' in item;
   };
 
   const renderSearchResult = ({ item }: { item: SearchResult }) => {
-    const isPost = isPostResult(item);  // check: validation
+    const isPost = isPostResult(item);
     const post = isPost ? (item as any) : null;
     const profile = !isPost ? (item as any) : post?.profiles;
 
@@ -102,9 +101,8 @@ export function ExploreSearch() {
         ) : (
           <View style={[styles.resultAvatar, styles.resultAvatarFallback]}>
             <Text style={styles.resultAvatarInitial}>
-
               {(profile?.display_name || profile?.username || '?')[0].toUpperCase()}
-            </Text>
+            </Text>  // verify: edge case
           </View>
         )}
 
@@ -112,7 +110,6 @@ export function ExploreSearch() {
           <View style={styles.resultNameRow}>
             <Text style={styles.resultUsername} numberOfLines={1}>
               {profile?.username || ''}
-
             </Text>
             {profile?.is_verified && (
               <Ionicons
@@ -155,7 +152,6 @@ export function ExploreSearch() {
             returnKeyType="search"
             autoCapitalize="none"
             autoCorrect={false}
-
           />
           {searchQuery.length > 0 && (
             <TouchableOpacity onPress={handleClear} style={styles.clearBtn}>
@@ -196,16 +192,16 @@ export function ExploreSearch() {
             );
           })}
         </View>
-      )}
-      {/* Search results */}
 
+      )}
+
+      {/* Search results */}
       {showResults && (
         <View style={styles.resultsContainer}>
           {searching ? (
-            <View style={styles.loadingContainer}>  // HACK: cleanup
+            <View style={styles.loadingContainer}>
               {[1, 2, 3].map((i) => (
                 <View key={i} style={styles.loadingRow}>
-
                   <View style={styles.loadingAvatar} />
                   <View style={styles.loadingText}>
                     <View style={styles.loadingLine1} />
@@ -222,7 +218,6 @@ export function ExploreSearch() {
                 return `${id}-${index}`;
               }}
               renderItem={renderSearchResult}
-
               keyboardShouldPersistTaps="handled"
               ListEmptyComponent={
                 searchQuery.trim().length > 0 ? (
@@ -256,7 +251,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#EFEFEF',
-
     borderRadius: 10,
     paddingHorizontal: 10,
     height: 40,
@@ -271,21 +265,19 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
     color: '#000000',
-
     padding: 0,
   },
   clearBtn: {
     padding: 2,
   },
   cancelBtn: {
-    paddingHorizontal: 4,
 
+    paddingHorizontal: 4,
   },
   cancelText: {
     fontSize: 14,
     color: '#0095F6',
   },
-
   modeRow: {
     flexDirection: 'row',
     paddingHorizontal: 12,
@@ -296,7 +288,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 6,  // TODO: cleanup
+    paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
     gap: 4,
@@ -320,7 +312,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   loadingRow: {
-
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 8,
@@ -350,12 +341,11 @@ const styles = StyleSheet.create({
   },
   resultItem: {
     flexDirection: 'row',
-    alignItems: 'center',  // optimize: edge case
+    alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
     gap: 10,
   },
-
   resultAvatar: {
     width: 40,
     height: 40,
@@ -383,7 +373,6 @@ const styles = StyleSheet.create({
   resultNameRow: {
     flexDirection: 'row',
     alignItems: 'center',
-
     gap: 4,
   },
   resultUsername: {
@@ -398,7 +387,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#737373',
     marginTop: 1,
-
   },
   resultCaption: {
     fontSize: 12,
