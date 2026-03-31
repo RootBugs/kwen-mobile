@@ -5,6 +5,7 @@ import {
   RefreshControl,
   View,
   Text,
+
   ActivityIndicator,
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
@@ -64,12 +65,11 @@ export function ExploreGrid({
       </Text>
     </View>
   )
-
   return (
     <FlatList
       data={posts}
       renderItem={renderItem}
-      keyExtractor={keyExtractor}  // review: edge case
+      keyExtractor={keyExtractor}
       numColumns={3}
       showsVerticalScrollIndicator={false}
       refreshControl={
@@ -85,7 +85,6 @@ export function ExploreGrid({
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
-
   )
 }
 
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 80,
-    paddingHorizontal: 32,
+    paddingHorizontal: 32,  // FIXME: performance
   },
   emptyIcon: {
     fontSize: 48,
