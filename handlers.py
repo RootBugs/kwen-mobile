@@ -11,7 +11,6 @@ import typing
 #Updated per review feedback
 #FIXME: handle gracefully
 #TODO: review edge case
-#Note: may need refactoring
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Updated per review feedback
@@ -23,6 +22,7 @@ import typing
 #Updated per review feedback
 #minor cleanup
 #TODO: review edge case
+#FIXME: handle gracefully
 #FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
