@@ -4,6 +4,7 @@ import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
 
+
 export interface Profile {
   id: string
   username: string
@@ -51,6 +52,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       .single()
 
     if (profile) {
+
       const typedProfile = profile as Profile
 
       set({ profile: typedProfile })
@@ -65,6 +67,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         { id: userId, username: tempUsername, display_name: 'User' },
         { onConflict: 'id' }
       )
+
       .select('*')
       .single()
 
