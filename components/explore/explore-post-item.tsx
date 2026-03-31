@@ -30,6 +30,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const commentCount = post.comments?.[0]?.count || 0
 
   return (
+
     <TouchableOpacity
       style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
       onPress={handlePress}
@@ -39,7 +40,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
         <Image
           source={{ uri: post.image_url! }}
           style={styles.image}
-
           contentFit="cover"
           transition={150}
           onError={() => setImageError(true)}
@@ -60,7 +60,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
       )}
 
       {/* Stats overlay */}
-
       {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
           {likeCount > 0 && (
@@ -81,7 +80,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   )
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  // FIXME: refactor
   container: {
     marginBottom: GAP,
     position: 'relative',
@@ -133,13 +132,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 3,
   },
-
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
   },
   statText: {
     fontSize: 11,
+
     fontWeight: '600',
     color: '#FFFFFF',
   },
