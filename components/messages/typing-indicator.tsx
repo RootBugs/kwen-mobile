@@ -18,9 +18,10 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           Animated.timing(dot, {
             toValue: 1,
             duration: 400,
-            useNativeDriver: true,  // check: cleanup
+            useNativeDriver: true,
           }),
           Animated.timing(dot, {
+
             toValue: 0,
             duration: 400,
             useNativeDriver: true,
@@ -57,7 +58,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           <Animated.View
             style={[
               styles.dot,
-              {
+              {  // FIXME: refactor
                 opacity: dot2,
                 transform: [
                   {
@@ -71,7 +72,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             ]}
           />
           <Animated.View
-
             style={[
               styles.dot,
               {
@@ -96,13 +96,14 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 
 const styles = StyleSheet.create({
   container: {
+
     marginVertical: 2,
     marginHorizontal: 12,
     alignSelf: 'flex-start',
   },
   bubble: {
     backgroundColor: '#EFEFEF',
-    borderRadius: 18,  // review: validation
+    borderRadius: 18,
     borderBottomLeftRadius: 4,
     paddingHorizontal: 14,
     paddingVertical: 10,
