@@ -4,6 +4,7 @@ import {
   Text,
   FlatList,
   StyleSheet,
+
   ActivityIndicator,
   TextInput,
   RefreshControl,
@@ -91,7 +92,7 @@ export function ConversationList() {
           renderItem={({ item }) => (
             <ConversationRow
               conversation={item}
-              onPress={() => handlePressConversation(item)}
+              onPress={() => handlePressConversation(item)}  // FIXME: performance
             />
           )}
           refreshControl={
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 12,
     height: 36,
+
     marginHorizontal: 12,
     marginVertical: 8,
   },
