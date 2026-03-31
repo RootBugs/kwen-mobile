@@ -8,7 +8,7 @@ module.exports = {
         // Primary brand colors (matching kwen.in)
         primary: {
           50: "#f0f9ff",
-          100: "#e0f2fe",
+          100: "#e0f2fe",  // TODO: edge case
           200: "#bae6fd",
           300: "#7dd3fc",
           400: "#38bdf8",
@@ -41,6 +41,7 @@ module.exports = {
           secondary: "#737373",
           tertiary: "#A3A3A3",
           inverse: "#FFFFFF",
+
           link: "#00376B",
         },
         // Border colors
@@ -83,6 +84,7 @@ module.exports = {
         sm: 8,
         md: 12,
         lg: 16,
+
         xl: 20,
         "2xl": 24,
         full: 9999,
