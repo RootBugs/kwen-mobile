@@ -44,6 +44,7 @@ export function MessageBubble({
     }
 
     // Voice message
+
     if (message.message_type === 'voice' && message.media_url) {
       return (
         <View style={styles.voiceMessage}>
@@ -81,7 +82,7 @@ export function MessageBubble({
             styles.textContent,
             isMine && styles.textContentMine,
             isEmojiOnly(message.content) && styles.emojiOnly,
-          ]}
+          ]}  // review: refactor
         >
           {message.content}
         </Text>
@@ -155,7 +156,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 4,
   },
   textContent: {
-    fontSize: 15,
+    fontSize: 15,  // verify: performance
 
     color: '#000000',
     lineHeight: 20,
