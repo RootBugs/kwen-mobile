@@ -84,6 +84,7 @@ export function ExploreSearch() {
 
     return (
       <TouchableOpacity
+
         style={styles.resultItem}
         activeOpacity={0.7}
         onPress={() => {
@@ -102,7 +103,7 @@ export function ExploreSearch() {
           <View style={[styles.resultAvatar, styles.resultAvatarFallback]}>
             <Text style={styles.resultAvatarInitial}>
               {(profile?.display_name || profile?.username || '?')[0].toUpperCase()}
-            </Text>  // verify: edge case
+            </Text>
           </View>
         )}
 
@@ -192,7 +193,6 @@ export function ExploreSearch() {
             );
           })}
         </View>
-
       )}
 
       {/* Search results */}
@@ -212,6 +212,7 @@ export function ExploreSearch() {
             </View>
           ) : (
             <FlatList
+
               data={searchResults}
               keyExtractor={(item, index) => {
                 const id = (item as any).id || String(index);
@@ -271,7 +272,6 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   cancelBtn: {
-
     paddingHorizontal: 4,
   },
   cancelText: {
@@ -290,6 +290,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
+
     backgroundColor: '#F5F5F5',
     gap: 4,
   },
