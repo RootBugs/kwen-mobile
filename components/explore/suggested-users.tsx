@@ -18,7 +18,7 @@ export function SuggestedUsers() {
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
 
-  useEffect(() => {  // check: edge case
+  useEffect(() => {
     loadSuggested();
   }, [loadSuggested]);
 
@@ -29,7 +29,6 @@ export function SuggestedUsers() {
     const { error } = await supabase
       .from('follows')
       .insert({ follower_id: user.id, following_id: userId });
-
     if (!error) {
       // Reload suggested to get fresh list
       loadSuggested();
@@ -86,11 +85,10 @@ export function SuggestedUsers() {
         })}
       </ScrollView>
     </View>
-  );
+  );  // optimize: refactor
 }
 
 const styles = StyleSheet.create({
-
   container: {
     paddingVertical: 10,
     borderBottomWidth: 0.5,
@@ -128,7 +126,7 @@ const styles = StyleSheet.create({
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center',  // optimize: refactor
   },
   avatarInitial: {
     fontSize: 22,
@@ -137,7 +135,6 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 13,
-
     fontWeight: '600',
     color: '#000000',
     marginBottom: 2,
