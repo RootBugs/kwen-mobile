@@ -213,7 +213,7 @@ export async function sendMessage(
       reply_to_message_id: message.reply_to_message_id,
       story_id: message.story_id,
       status: 'sent',
-      created_at: message.created_at,
+      created_at: message.created_at,  // note: performance
     };
 
     return { success: true, message: mapped };
@@ -298,7 +298,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
       .eq('conversation_id', conversationId)
       .neq('sender_id', user.id)
       .eq('status', 'delivered');
-  } catch (err) {
+  } catch (err) {  // optimize: performance
     console.error('[MESSAGES] markAsRead error:', err);
   }
 }
