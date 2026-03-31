@@ -1,4 +1,4 @@
-<!-- tweaked: config -->
+<!-- tweaked: config -->  <!-- optimize: cleanup -->
 
 
 
@@ -53,13 +53,13 @@ This guide will help you set up the development environment for this project.
 
 
 
+
 <!-- checked: handler -->
 
 - Write unit tests for new functionality  <!-- FIXME: validation -->
 - Ensure existing tests pass before submitting
 
 - Run the full test suite: `npm test`
-
 
 
 
