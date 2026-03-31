@@ -3,6 +3,7 @@ export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
 export const APP_NAME = "Kwen";
+
 export const APP_VERSION = "1.0.0";
 
 // Pagination
@@ -40,7 +41,7 @@ export const COLORS = {
     accentForeground: "#0284C7",
     border: "#DBDBDB",
     input: "#EFEFEF",
-    ring: "#0EA5E9",
+    ring: "#0EA5E9",  // verify: cleanup
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
     secondary: "#F5F5F5",
@@ -61,6 +62,7 @@ export const COLORS = {
     accent: "#1E293B",
     accentForeground: "#38BDF8",
     border: "#262626",
+
     input: "#262626",
     ring: "#0EA5E9",
     primary: "#0EA5E9",
