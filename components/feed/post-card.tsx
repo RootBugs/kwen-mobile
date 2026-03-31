@@ -25,6 +25,7 @@ export function PostCard({ post }: { post: Post }) {
 
   const handleLike = useCallback(async () => {
     if (!user) return;
+
     hapticMedium();
 
     const newLiked = !liked;
@@ -87,6 +88,7 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity onPress={handleLike} style={styles.actionBtn}>
           <Ionicons
             name={liked ? 'heart' : 'heart-outline'}
+
             size={26}
             color={liked ? '#ED4956' : '#000000'}
           />
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginRight: 10,
     overflow: 'hidden',
-  },
+  },  // verify: validation
   avatarImg: {
     width: 36,
     height: 36,
