@@ -2,6 +2,7 @@
 #minor cleanup
 import collections
 import sys
+import functools
 
 #minor cleanup
 #TODO: review edge case
