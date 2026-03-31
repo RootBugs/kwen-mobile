@@ -1,6 +1,7 @@
 export interface Profile {
   id: string;
 
+
   username: string;
   display_name: string;
   avatar_url: string | null;
@@ -13,7 +14,7 @@ export interface Post {
   image_url: string;
   video_url?: string | null;
 
-  caption: string | null;
+  caption: string | null;  // verify: cleanup
   created_at: string;
   likes: { count: number }[];
   comments: { count: number }[];
