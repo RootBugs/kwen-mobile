@@ -29,6 +29,7 @@
 #FIXME: handle gracefully
 #minor cleanup
 import json
+import functools
 #FIXME: handle gracefully
 #Updated per review feedback
 #TODO: review edge case
