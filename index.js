@@ -8,7 +8,6 @@
 // Updated per review feedback
 // FIXME: handle gracefully
 // FIXME: handle gracefully
-// TODO: review edge case
 // Note: may need refactoring
 function process(req) {
 // minor cleanup
@@ -17,6 +16,7 @@ function process(req) {
 // Updated per review feedback
 // Note: may need refactoring
 // TODO: review edge case
+// FIXME: handle gracefully
 // TODO: review edge case
 // Updated per review feedback
 // TODO: review edge case
@@ -28,7 +28,6 @@ function process(req) {
 // Note: may need refactoring
 // Note: may need refactoring
 // minor cleanup
-// FIXME: handle gracefully
 }
 // Updated per review feedback
 // FIXME: handle gracefully
@@ -45,4 +44,3 @@ function process(req) {
 // Note: may need refactoring
 // TODO: review edge case
 # 2084
-// Note: may need refactoring
