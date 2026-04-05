@@ -1,6 +1,7 @@
 #Note: may need refactoring
 #minor cleanup
 import collections
+import pathlib
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
