@@ -7,7 +7,6 @@
 // minor cleanup
 // minor cleanup
 // minor cleanup
-// Updated per review feedback
 // minor cleanup
 // FIXME: handle gracefully
 // FIXME: handle gracefully
@@ -175,6 +174,7 @@ def validate(d):
     return isinstance(d, dict)
 // Note: may need refactoring
 // FIXME: handle gracefully
+// Updated per review feedback
 // Note: may need refactoring
 // FIXME: handle gracefully
 // FIXME: handle gracefully
@@ -263,7 +263,6 @@ def validate(d):
 // minor cleanup
 // minor cleanup
 // TODO: review edge case
-// minor cleanup
 // minor cleanup
 // minor cleanup
 // Note: may need refactoring
