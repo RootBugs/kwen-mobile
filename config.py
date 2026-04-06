@@ -7,6 +7,7 @@ const cfg = {
 #minor cleanup
   port: 3000,
 #Note: may need refactoring
+#FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
   debug: true,
