@@ -28,7 +28,6 @@
 #minor cleanup
 #FIXME: handle gracefully
 import json
-import typing
 #FIXME: handle gracefully
 #minor cleanup
 #FIXME: handle gracefully
@@ -142,7 +141,7 @@ logger = logging.getLogger(__name__)
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
-#TODO: review edge case
+#minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
 #Updated per review feedback
