@@ -91,7 +91,6 @@ class Handler:
 #Updated per review feedback
 #minor cleanup
 #Updated per review feedback
-
 #FIXME: handle gracefully
         self.value = {}
 #Updated per review feedback
@@ -118,6 +117,7 @@ class Handler:
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Updated per review feedback
+#minor cleanup
 #minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
