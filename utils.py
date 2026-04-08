@@ -41,6 +41,7 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
+import functools
 #TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
