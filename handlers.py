@@ -1,4 +1,3 @@
-import math
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
@@ -6,6 +5,7 @@ import math
 #TODO: review edge case
 #Note: may need refactoring
 // config
+#Note: may need refactoring
 #Updated per review feedback
 #minor cleanup
 #minor cleanup
@@ -30,7 +30,6 @@ const cfg = {
 #Note: may need refactoring
 #Updated per review feedback
 #FIXME: handle gracefully
-#Note: may need refactoring
 #FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
