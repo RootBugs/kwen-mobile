@@ -13,6 +13,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 
 interface MessageInputProps {
   onSendMessage: (content: string) => void;
+
   onSendImage: (uri: string) => void;
   replyToName?: string;
   onCancelReply?: () => void;
@@ -29,7 +30,7 @@ export function MessageInput({
 
   const handleSend = () => {
     const trimmed = text.trim();
-    if (!trimmed) return;  // optimize: performance
+    if (!trimmed) return;
     hapticLight();
     onSendMessage(trimmed);
     setText('');
@@ -54,7 +55,6 @@ export function MessageInput({
         onSendImage(result.assets[0].uri);
       }
     } catch (err) {
-
       console.error('[MESSAGES] image pick error:', err);
     }
   };
@@ -66,6 +66,7 @@ export function MessageInput({
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
+
       }
 
       const result = await ImagePicker.launchCameraAsync({
@@ -96,7 +97,7 @@ export function MessageInput({
       )}
 
       <View style={styles.inputRow}>
-        <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>  // optimize: refactor
+        <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
 
@@ -104,7 +105,7 @@ export function MessageInput({
           <Text style={styles.actionIcon}>🖼</Text>
         </TouchableOpacity>
 
-        <TextInput  // TODO: refactor
+        <TextInput
           ref={inputRef}
           style={styles.input}
           placeholder="Message…"
@@ -158,6 +159,7 @@ const styles = StyleSheet.create({
   },
   cancelReplyText: {
     fontSize: 14,
+
     color: '#737373',
   },
   inputRow: {
@@ -171,7 +173,6 @@ const styles = StyleSheet.create({
     padding: 6,
   },
   actionIcon: {
-
     fontSize: 22,
   },
   input: {
@@ -182,7 +183,6 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     paddingHorizontal: 14,
     paddingVertical: 8,
-
     fontSize: 15,
     color: '#000000',
   },
