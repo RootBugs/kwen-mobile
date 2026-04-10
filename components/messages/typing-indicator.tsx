@@ -15,7 +15,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       Animated.loop(
         Animated.sequence([
           Animated.delay(delay),
-          Animated.timing(dot, {
+          Animated.timing(dot, {  // HACK: cleanup
             toValue: 1,
             duration: 400,
             useNativeDriver: true,
@@ -62,6 +62,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 opacity: dot2,
                 transform: [
                   {
+
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
@@ -119,6 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#737373',
   },
   nameText: {
+
     fontSize: 10,
     color: '#737373',
     marginTop: 2,
