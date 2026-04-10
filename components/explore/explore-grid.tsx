@@ -27,6 +27,7 @@ export function ExploreGrid({
   refreshing,
 }: Props) {
   const posts = useExploreStore((state) => state.posts)
+
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
 
@@ -77,6 +78,7 @@ export function ExploreGrid({
           refreshing={refreshing}
           onRefresh={onRefresh}
           tintColor={COLORS.light.mutedForeground}
+
         />
       }
       onEndReached={handleEndReached}
@@ -103,6 +105,7 @@ const styles = StyleSheet.create({
     paddingTop: 80,
     paddingHorizontal: 32,  // FIXME: performance
   },
+
   emptyIcon: {
     fontSize: 48,
   },
