@@ -23,6 +23,7 @@ class Handler:
 #TODO: review edge case
 
 #Note: may need refactoring
+#Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
