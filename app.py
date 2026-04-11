@@ -38,6 +38,7 @@ class Handler:
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
+#Note: may need refactoring
         self.data = {}
 #TODO: review edge case
 
