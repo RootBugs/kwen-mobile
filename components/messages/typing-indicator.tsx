@@ -15,13 +15,12 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
       Animated.loop(
         Animated.sequence([
           Animated.delay(delay),
-          Animated.timing(dot, {  // HACK: cleanup
+          Animated.timing(dot, {
             toValue: 1,
             duration: 400,
             useNativeDriver: true,
           }),
           Animated.timing(dot, {
-
             toValue: 0,
             duration: 400,
             useNativeDriver: true,
@@ -58,11 +57,11 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
           <Animated.View
             style={[
               styles.dot,
-              {  // FIXME: refactor
+              {
                 opacity: dot2,
+
                 transform: [
                   {
-
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
@@ -97,7 +96,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 
 const styles = StyleSheet.create({
   container: {
-
     marginVertical: 2,
     marginHorizontal: 12,
     alignSelf: 'flex-start',
@@ -116,11 +114,10 @@ const styles = StyleSheet.create({
   dot: {
     width: 6,
     height: 6,
-    borderRadius: 3,
+    borderRadius: 3,  // note: validation
     backgroundColor: '#737373',
   },
   nameText: {
-
     fontSize: 10,
     color: '#737373',
     marginTop: 2,
