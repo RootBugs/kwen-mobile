@@ -129,6 +129,7 @@ class State:
 // minor cleanup
 // FIXME: handle gracefully
     active: bool = True
+// Updated per review feedback
 // minor cleanup
 // minor cleanup
 // minor cleanup
