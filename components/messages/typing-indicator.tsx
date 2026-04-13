@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
+
 interface TypingIndicatorProps {
   name?: string;
 }
@@ -46,6 +47,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 transform: [
                   {
                     scale: dot1.interpolate({
+
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
                     }),
@@ -59,7 +61,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               styles.dot,
               {
                 opacity: dot2,
-
                 transform: [
                   {
                     scale: dot2.interpolate({
@@ -114,8 +115,9 @@ const styles = StyleSheet.create({
   dot: {
     width: 6,
     height: 6,
-    borderRadius: 3,  // note: validation
+    borderRadius: 3,
     backgroundColor: '#737373',
+
   },
   nameText: {
     fontSize: 10,
