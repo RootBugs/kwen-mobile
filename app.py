@@ -117,6 +117,7 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #minor cleanup
+#Note: may need refactoring
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
