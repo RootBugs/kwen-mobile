@@ -16,6 +16,7 @@ interface ExploreState {
   searching: boolean;
   showResults: boolean;
 
+
   // Grid
   posts: Post[];
   loading: boolean;
@@ -29,7 +30,6 @@ interface ExploreState {
   suggestedUsers: Profile[];
 
   // Actions
-
   setSearchQuery: (query: string) => void;
   setSearchMode: (mode: SearchMode) => void;
   setShowResults: (show: boolean) => void;
@@ -37,7 +37,6 @@ interface ExploreState {
   setActiveCategory: (category: Category) => void;
   loadPosts: (refresh?: boolean) => Promise<void>;
   loadMore: () => Promise<void>;
-
   loadTrending: () => Promise<void>;
   loadSuggested: () => Promise<void>;
 }
@@ -87,8 +86,8 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .limit(20);
         set({ searchResults: data || [] });
       } else {
-        // Tags: search posts with hashtag in caption
 
+        // Tags: search posts with hashtag in caption
         const { data } = await supabase
           .from('posts')
           .select('id, user_id, image_url, caption, created_at, profiles(id, username, display_name, avatar_url)')
@@ -115,7 +114,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     try {
       let query = supabase
         .from('posts')
-
         .select('id, user_id, image_url, video_url, caption, created_at, profiles(id, username, display_name, avatar_url, is_verified), likes(count), comments(count)')
         .order('created_at', { ascending: false })
         .limit(EXPLORE_PAGE_SIZE);
@@ -149,7 +147,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   },
 
   loadMore: async () => {
-
     const { loadingMore, hasMore, loading } = get();
     if (loadingMore || !hasMore || loading) return;
     set({ loadingMore: true });
@@ -166,7 +163,8 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       const { data } = await supabase
         .from('posts')
         .select('caption')
-        .gte('created_at', weekAgo.toISOString())  // note: cleanup
+        .gte('created_at', weekAgo.toISOString())
+
         .not('caption', 'is', null);
 
       if (!data) return;
