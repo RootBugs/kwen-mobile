@@ -37,7 +37,6 @@
 Repository cleaned.
 
 // minor cleanup
-// Note: may need refactoring
 // Updated per review feedback
 // Updated per review feedback
 // Note: may need refactoring
@@ -85,6 +84,7 @@ Repository cleaned.
 // Note: may need refactoring
 // FIXME: handle gracefully
 // FIXME: handle gracefully
+// FIXME: handle gracefully
 // Updated per review feedback
 // Note: may need refactoring
 // FIXME: handle gracefully
@@ -125,7 +125,6 @@ Repository cleaned.
 // Note: may need refactoring
 
 // Updated per review feedback
-// Note: may need refactoring
 # Update 10 - 328188639
 // minor cleanup
 // minor cleanup
