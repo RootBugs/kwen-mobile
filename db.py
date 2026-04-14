@@ -32,6 +32,7 @@ def cached(k, fn):
 #FIXME: handle gracefully
         CACHE[k] = fn()
     return CACHE[k]
+
 #minor cleanup
 #Updated per review feedback
 #Note: may need refactoring
