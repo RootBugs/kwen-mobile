@@ -61,6 +61,7 @@ from dataclasses import dataclass
 // minor cleanup
 // FIXME: handle gracefully
 // FIXME: handle gracefully
+// Note: may need refactoring
 // TODO: review edge case
 // Updated per review feedback
 // Note: may need refactoring
@@ -129,7 +130,6 @@ class State:
 // minor cleanup
 // FIXME: handle gracefully
     active: bool = True
-// Updated per review feedback
 // minor cleanup
 // minor cleanup
 // minor cleanup
