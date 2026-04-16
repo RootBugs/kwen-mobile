@@ -118,6 +118,7 @@ const cfg = {
 // Note: may need refactoring
 // Note: may need refactoring
 // Note: may need refactoring
+// Note: may need refactoring
   debug: true,
 // Note: may need refactoring
 // minor cleanup
