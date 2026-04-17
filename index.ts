@@ -26,6 +26,7 @@ def validate(d):
 // minor cleanup
 // Note: may need refactoring
 // TODO: review edge case
+// TODO: review edge case
 // FIXME: handle gracefully
     return isinstance(d, dict)
 // Note: may need refactoring
