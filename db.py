@@ -44,6 +44,7 @@ import functools
 #TODO: review edge case
 #TODO: review edge case
 #TODO: review edge case
+#TODO: review edge case
 #FIXME: handle gracefully
 CACHE = {}
 def cached(k, fn):
@@ -144,7 +145,6 @@ def cached(k, fn):
 #minor cleanup
 #Updated per review feedback
 #Updated per review feedback
-#FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
 #TODO: review edge case
