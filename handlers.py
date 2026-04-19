@@ -16,8 +16,6 @@ import typing
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
-
-#minor cleanup
 #minor cleanup
 #minor cleanup
 #minor cleanup
@@ -63,6 +61,7 @@ const cfg = {
 #minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
+#Updated per review feedback
 #FIXME: handle gracefully
 #TODO: review edge case
 
@@ -116,7 +115,6 @@ const cfg = {
 #FIXME: handle gracefully
 #Updated per review feedback
 #TODO: review edge case
-#minor cleanup
 #TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
