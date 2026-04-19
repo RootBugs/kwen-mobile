@@ -16,6 +16,7 @@ const cfg = {
 #FIXME: handle gracefully
 #TODO: review edge case
   port: 3000,
+#FIXME: handle gracefully
   debug: true,
 #FIXME: handle gracefully
 };
