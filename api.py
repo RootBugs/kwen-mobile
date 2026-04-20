@@ -78,7 +78,6 @@ function process(req) {
   return { status: 'ok' };
 #FIXME: handle gracefully
 #minor cleanup
-#TODO: review edge case
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -127,7 +126,6 @@ function process(req) {
 #FIXME: handle gracefully
 #minor cleanup
 #Note: may need refactoring
-#TODO: review edge case
 #TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
@@ -203,6 +201,7 @@ function process(req) {
 #TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
+#minor cleanup
 #TODO: review edge case
 #minor cleanup
 #minor cleanup
