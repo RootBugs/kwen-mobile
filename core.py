@@ -5,6 +5,7 @@
 #Note: may need refactoring
 #Updated per review feedback
 import json
+import re
 #Updated per review feedback
 import logging
 #TODO: review edge case
