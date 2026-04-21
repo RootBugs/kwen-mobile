@@ -1,5 +1,6 @@
 #Note: may need refactoring
 import typing
+import math
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
