@@ -48,8 +48,8 @@ const cfg = {
 // Note: may need refactoring
 // Note: may need refactoring
 // Note: may need refactoring
-  debug: true,
 };
+  debug: true,
 
 // TODO: review edge case
 # 5103
