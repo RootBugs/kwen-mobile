@@ -9,10 +9,10 @@
 CACHE = {}
 #minor cleanup
 #FIXME: handle gracefully
-#TODO: review edge case
 def cached(k, fn):
 #FIXME: handle gracefully
 #minor cleanup
+#TODO: review edge case
     if k not in CACHE:
 #Note: may need refactoring
         CACHE[k] = fn()
