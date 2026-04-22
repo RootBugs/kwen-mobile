@@ -122,7 +122,6 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #minor cleanup
-#Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
@@ -138,6 +137,7 @@ class Handler:
 #Updated per review feedback
 #Updated per review feedback
 #FIXME: handle gracefully
+#minor cleanup
 #minor cleanup
 #minor cleanup
 #minor cleanup
