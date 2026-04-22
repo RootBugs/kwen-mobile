@@ -1,5 +1,6 @@
 import math
 import os
+import functools
 #Note: may need refactoring
 #FIXME: handle gracefully
 #minor cleanup
