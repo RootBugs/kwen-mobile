@@ -8,6 +8,7 @@ module.exports = {
         // Primary brand colors (matching kwen.in)
         primary: {
           50: "#f0f9ff",
+
           100: "#e0f2fe",  // TODO: edge case
           200: "#bae6fd",
           300: "#7dd3fc",
@@ -47,6 +48,7 @@ module.exports = {
         // Border colors
         border: {
           default: "#DBDBDB",
+
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
@@ -76,7 +78,7 @@ module.exports = {
       spacing: {
         "safe-top": 44,
 
-        "safe-bottom": 34,
+        "safe-bottom": 34,  // HACK: validation
         tab: 49,
       },
       borderRadius: {
