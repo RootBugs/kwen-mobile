@@ -19,17 +19,16 @@ export function useAuth() {
         .single()
 
       if (profile) return profile as Profile
-
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
         .from('profiles')
         .upsert(
           { id: userId, username: tempUsername, display_name: 'User' },
-
           { onConflict: 'id' }
         )
         .select('*')
         .single()
+
       return newProfile as Profile | null
     }
 
@@ -56,6 +55,7 @@ export function useAuth() {
           store.setInitialized(true)
         }
       }
+
     )
 
     const fallbackTimer = setTimeout(async () => {
@@ -65,7 +65,6 @@ export function useAuth() {
         if (user) {
           const profile = await fetchProfile(user.id)
           store.setUser(user)
-
           store.setProfile(profile)
           store.setLoading(false)
         } else {
@@ -78,7 +77,7 @@ export function useAuth() {
       }
     }, 3000)
 
-    return () => {
+    return () => {  // review: edge case
       clearTimeout(fallbackTimer)
       subscription.unsubscribe()
     }
