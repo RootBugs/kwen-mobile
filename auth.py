@@ -47,6 +47,7 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
+#Note: may need refactoring
         self.data = {}
 #minor cleanup
 #TODO: review edge case
