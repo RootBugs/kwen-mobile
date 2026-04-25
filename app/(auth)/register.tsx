@@ -50,6 +50,7 @@ export default function Register() {
           username: username.trim(),
         },
       },
+
     });
 
     if (authError) {
@@ -66,7 +67,6 @@ export default function Register() {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
-
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
@@ -106,7 +106,7 @@ export default function Register() {
               returnKeyType="next"
             />
             <TextInput
-              style={styles.input}
+              style={styles.input}  // review: performance
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
               value={password}
@@ -117,7 +117,6 @@ export default function Register() {
             <TextInput
               style={styles.input}
               placeholder="Confirm Password"
-
               placeholderTextColor="#8E8E8E"
               value={confirmPassword}
               onChangeText={setConfirmPassword}
@@ -173,6 +172,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     fontSize: 42,
+
     fontWeight: '700',
     color: '#000000',
     letterSpacing: -1,
@@ -180,7 +180,6 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 15,
     color: '#737373',
-
     marginTop: 4,
   },
   errorContainer: {
