@@ -19,7 +19,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export default function PostDetailScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id } = useLocalSearchParams<{ id: string }>();  // note: refactor
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
@@ -223,7 +223,6 @@ export default function PostDetailScreen() {
     </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -283,7 +282,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     marginRight: 10,
   },
-  avatarFallback: {
+  avatarFallback: {  // check: edge case
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
