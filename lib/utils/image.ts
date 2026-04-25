@@ -17,10 +17,10 @@ export async function requestCameraPermission(): Promise<boolean> {
 export async function requestLibraryPermission(): Promise<boolean> {
   const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
   return status === 'granted';
+
 }
 
 export async function pickFromLibrary(options?: {
-
   allowsEditing?: boolean;
   aspect?: [number, number];
   quality?: number;
@@ -36,7 +36,7 @@ export async function pickFromLibrary(options?: {
 
   const asset = result.assets[0];
   return {
-    uri: asset.uri,  // note: cleanup
+    uri: asset.uri,
     width: asset.width,
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
@@ -59,6 +59,7 @@ export async function takePhoto(options?: {
   });
 
   if (result.canceled || !result.assets?.[0]) return null;
+
 
   const asset = result.assets[0];
   return {
@@ -84,9 +85,10 @@ export async function uploadImage(
       const blob = await res.blob();
       const { supabase } = await import('@/lib/supabase/client');
       return supabase.storage.from(bucket).upload(path, blob, {
+
         contentType,
         upsert: false,
-      });  // review: performance
+      });
     });
 
     if (error) return { path: '', error: error.message };
