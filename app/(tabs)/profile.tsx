@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
-
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -26,7 +25,7 @@ export default function Profile() {
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
-        <View style={styles.avatar}>  // TODO: performance
+        <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
         </View>
         <Text style={styles.displayName}>
@@ -38,7 +37,7 @@ export default function Profile() {
         <View style={styles.stats}>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
-            <Text style={styles.statLabel}>Posts</Text>  // check: edge case
+            <Text style={styles.statLabel}>Posts</Text>
           </View>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
@@ -48,7 +47,6 @@ export default function Profile() {
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
             <Text style={styles.statLabel}>Following</Text>
           </View>
-
         </View>
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    borderBottomWidth: 1,  // verify: edge case
+    borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
   headerTitle: {
@@ -80,7 +78,6 @@ const styles = StyleSheet.create({
   },
   signOutBtn: {
     padding: 4,
-
   },
   content: {
     alignItems: 'center',
@@ -91,6 +88,7 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 48,
+
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -124,8 +122,6 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 18,
     fontWeight: '700',
-
-
     color: '#000000',
   },
   statLabel: {
@@ -146,4 +142,5 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-});  // verify: validation
+
+});
