@@ -15,7 +15,6 @@ export function TrendingTags() {
   useEffect(() => {
     loadTrending();
   }, [loadTrending]);
-
   if (trendingTags.length === 0) return null;
 
   return (
@@ -39,9 +38,9 @@ export function TrendingTags() {
           </TouchableOpacity>
         ))}
       </ScrollView>
+
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -64,7 +63,6 @@ const styles = StyleSheet.create({
   tagChip: {
     flexDirection: 'row',
     alignItems: 'center',
-
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
@@ -76,6 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '500',
     color: '#000000',
+
   },
   tagCount: {
     fontSize: 11,
