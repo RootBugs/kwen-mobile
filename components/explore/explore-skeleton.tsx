@@ -16,7 +16,6 @@ export function ExploreSkeleton() {
       {/* Category tabs skeleton */}
       <View style={styles.categoryRow}>
         {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
-
           <SkeletonBlock key={i} width={60} height={28} style={styles.categoryTab} />
 
         ))}
@@ -24,7 +23,6 @@ export function ExploreSkeleton() {
 
       {/* Grid skeleton */}
       <View style={styles.grid}>
-
         {Array.from({ length: 9 }).map((_, i) => (
           <SkeletonBlock key={i} width={GRID_SIZE} height={GRID_SIZE} style={styles.gridItem} />
         ))}
@@ -33,7 +31,6 @@ export function ExploreSkeleton() {
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -41,9 +38,11 @@ const styles = StyleSheet.create({
   },
   searchRow: {
     paddingHorizontal: 12,
+
     paddingVertical: 8,
   },
   searchBar: {
+
     borderRadius: 10,
   },
   categoryRow: {
@@ -55,10 +54,8 @@ const styles = StyleSheet.create({
   categoryTab: {
     borderRadius: 14,
   },
-
   grid: {
     flexDirection: 'row',
-
     flexWrap: 'wrap',
   },
   gridItem: {
