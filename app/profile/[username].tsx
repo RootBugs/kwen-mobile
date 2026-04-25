@@ -56,7 +56,6 @@ export default function UserProfileScreen() {
 
   const loadPosts = useCallback(async () => {
     if (!username) return;
-
     try {
       const { data: profileData } = await supabase
         .from('profiles')
@@ -226,6 +225,7 @@ export default function UserProfileScreen() {
         </View>
 
         {/* Action buttons */}
+
         <View style={styles.actionRow}>
           <TouchableOpacity
             style={[styles.followBtn, following && styles.followingBtn]}
@@ -379,6 +379,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     paddingVertical: 8,
     alignItems: 'center',
+
   },
   followingBtn: {
     backgroundColor: '#EFEFEF',
