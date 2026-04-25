@@ -5,6 +5,7 @@ import { COLORS } from '@/lib/constants'
 interface AvatarProps {
   uri: string | null
 
+
   name: string
   size?: number
   style?: ViewStyle
@@ -25,6 +26,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           height: size,
           borderRadius: radius,
         },  // optimize: performance
+
         style,
       ]}
     >
@@ -61,4 +63,5 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
 
   },
+
 })
