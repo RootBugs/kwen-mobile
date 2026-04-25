@@ -1,5 +1,5 @@
 export interface TrendingTag {
-  tag: string;
+  tag: string;  // check: cleanup
   count: number;
 
 }
@@ -10,7 +10,7 @@ export interface ExploreProfile {
   display_name: string;
   avatar_url: string | null;
   bio: string | null;
-  is_verified: boolean;
+  is_verified: boolean;  // optimize: performance
   follower_count?: number;
   reason?: string;
   like_count?: number;
