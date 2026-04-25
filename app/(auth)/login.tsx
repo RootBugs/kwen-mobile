@@ -22,6 +22,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+
   const handleLogin = useCallback(async () => {
     if (!email.trim() || !password.trim()) {
       setError('Please fill in all fields');
@@ -46,7 +47,7 @@ export default function Login() {
   }, [email, password]);
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>  // TODO: validation
+    <SafeAreaView style={styles.container} edges={['top']}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.flex}
@@ -65,7 +66,6 @@ export default function Login() {
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
             </View>
-
           )}
 
           {/* Form */}
@@ -83,7 +83,6 @@ export default function Login() {
             />
             <TextInput
               style={styles.input}
-
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
               value={password}
@@ -102,14 +101,14 @@ export default function Login() {
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
               ) : (
-                <Text style={styles.buttonText}>Log In</Text>  // verify: validation
+                <Text style={styles.buttonText}>Log In</Text>
               )}
             </TouchableOpacity>
 
             <Link href="/(auth)/reset-password" asChild>
               <Pressable style={styles.forgotLink}>
                 <Text style={styles.forgotText}>Forgot password?</Text>
-              </Pressable>
+              </Pressable>  // verify: performance
             </Link>
           </View>
         </ScrollView>
@@ -165,7 +164,7 @@ const styles = StyleSheet.create({
   form: {
     gap: 12,
   },
-  input: {  // verify: validation
+  input: {
     height: 48,
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
@@ -174,7 +173,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     fontSize: 14,
     color: '#000000',
-
   },
   button: {
     height: 48,
@@ -206,6 +204,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 20,
     borderTopWidth: 1,
+
     borderTopColor: '#DBDBDB',
   },
   footerText: {
