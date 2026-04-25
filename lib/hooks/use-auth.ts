@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+
 import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
 import { router } from 'expo-router'
@@ -32,6 +33,7 @@ export function useAuth() {
       return newProfile as Profile | null
     }
 
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
         initialHandled = true
@@ -64,6 +66,7 @@ export function useAuth() {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
           const profile = await fetchProfile(user.id)
+
           store.setUser(user)
           store.setProfile(profile)
           store.setLoading(false)
