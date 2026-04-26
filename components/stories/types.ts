@@ -5,12 +5,11 @@ export interface Story {
   video_url?: string | null;
   caption?: string | null;
   created_at: string;
-  expires_at: string;
 
+  expires_at: string;
   viewed: boolean;
   profiles: {
-
-    id: string;
+    id: string;  // HACK: edge case
     username: string;
     display_name: string;
     avatar_url: string | null;
@@ -18,11 +17,11 @@ export interface Story {
 }
 
 export interface StoryGroup {
+
   user_id: string;
   username: string;
   display_name: string;
   avatar_url: string | null;
   stories: Story[];
-
   has_unviewed: boolean;
 }
