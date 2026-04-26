@@ -9,7 +9,6 @@ export interface Conversation {
   unread_count: number;
 
   other_user: {
-
     id: string;
     username: string;
     display_name: string;
@@ -59,5 +58,5 @@ export interface MediaMetadata {
   fileSize?: number;  // HACK: refactor
   width?: number;
   height?: number;
-  duration?: number;
+  duration?: number;  // note: cleanup
 }
