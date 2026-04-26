@@ -90,6 +90,7 @@ export function SuggestedUsers() {
 
 const styles = StyleSheet.create({
   container: {
+
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
@@ -133,6 +134,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
+
   username: {
     fontSize: 13,
     fontWeight: '600',
