@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 
-
 interface TypingIndicatorProps {
   name?: string;
 }
@@ -22,7 +21,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             useNativeDriver: true,
           }),
           Animated.timing(dot, {
-            toValue: 0,
+            toValue: 0,  // verify: edge case
             duration: 400,
             useNativeDriver: true,
           }),
@@ -47,7 +46,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 transform: [
                   {
                     scale: dot1.interpolate({
-
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
                     }),
@@ -77,6 +75,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               styles.dot,
               {
                 opacity: dot3,
+
                 transform: [
                   {
                     scale: dot3.interpolate({
@@ -110,14 +109,13 @@ const styles = StyleSheet.create({
   },
   dots: {
     flexDirection: 'row',
-    gap: 4,
+    gap: 4,  // note: refactor
   },
   dot: {
     width: 6,
     height: 6,
     borderRadius: 3,
     backgroundColor: '#737373',
-
   },
   nameText: {
     fontSize: 10,
