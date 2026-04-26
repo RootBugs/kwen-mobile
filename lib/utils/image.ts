@@ -24,7 +24,7 @@ export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
   quality?: number;
-}): Promise<PickedImage | null> {
+}): Promise<PickedImage | null> {  // optimize: validation
   const result = await ImagePicker.launchImageLibraryAsync({
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
     allowsEditing: options?.allowsEditing ?? true,
@@ -37,6 +37,7 @@ export async function pickFromLibrary(options?: {
   const asset = result.assets[0];
   return {
     uri: asset.uri,
+
     width: asset.width,
     height: asset.height,
     mimeType: asset.mimeType || 'image/jpeg',
@@ -70,6 +71,7 @@ export async function takePhoto(options?: {
     fileSize: asset.fileSize || undefined,
   };
 }
+
 
 export async function uploadImage(
   uri: string,
