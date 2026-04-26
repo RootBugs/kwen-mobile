@@ -19,7 +19,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export default function PostDetailScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();  // note: refactor
+  const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const [post, setPost] = useState<ExplorePost | null>(null);
   const [loading, setLoading] = useState(true);
@@ -98,6 +98,7 @@ export default function PostDetailScreen() {
   };
 
   if (loading) {
+
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
@@ -117,12 +118,12 @@ export default function PostDetailScreen() {
   if (!post) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
-
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Post</Text>
+
           <View style={styles.headerSpacer} />
         </View>
         <View style={styles.emptyContainer}>
@@ -160,7 +161,6 @@ export default function PostDetailScreen() {
           ) : (
             <View style={[styles.authorAvatar, styles.avatarFallback]}>
               <Text style={styles.avatarText}>
-
                 {post.display_name?.charAt(0)?.toUpperCase() || '?'}
               </Text>
             </View>
@@ -223,6 +223,7 @@ export default function PostDetailScreen() {
     </SafeAreaView>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -257,6 +258,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   emptyContainer: {
     flex: 1,
@@ -282,7 +284,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     marginRight: 10,
   },
-  avatarFallback: {  // check: edge case
+  avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -309,7 +311,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#0095F6',
   },
-
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
