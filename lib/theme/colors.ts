@@ -10,10 +10,11 @@ export const lightTheme = {
   borderSubtle: '#DBDBDB',
   borderSoft: '#C7C7C7',
   borderStrong: '#8E8E8E',
+
   accentPrimary: '#000000',
   accentHover: '#262626',
   accentSecondary: '#DBDBDB',
-  accentMuted: '#EFEFEF',  // review: refactor
+  accentMuted: '#EFEFEF',
   destructive: '#ED4956',
   success: '#42D67D',
   warning: '#F7B928',
@@ -29,7 +30,7 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  bgPrimary: '#000000',  // check: performance
+  bgPrimary: '#000000',
   bgSecondary: '#0F0F0F',
   bgTertiary: '#161616',
   bgElevated: '#121212',
@@ -37,7 +38,7 @@ export const darkTheme = {
   textSecondary: '#F2F2F2',
   textMuted: '#A8A8A8',
   textInverse: '#000000',
-  borderSubtle: '#262626',
+  borderSubtle: '#262626',  // verify: refactor
   borderSoft: '#3A3A3A',
   borderStrong: '#555555',
   accentPrimary: '#FFFFFF',
@@ -51,10 +52,10 @@ export const darkTheme = {
   overlay: 'rgba(0, 0, 0, 0.75)',
   modalBg: '#121212',
   inputBg: '#121212',
+
   cardBg: '#121212',
   tooltipBg: '#3A3A3A',
   storyBg: '#000000',
-
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
 }
