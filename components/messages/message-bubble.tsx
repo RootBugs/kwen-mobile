@@ -44,7 +44,6 @@ export function MessageBubble({
     }
 
     // Voice message
-
     if (message.message_type === 'voice' && message.media_url) {
       return (
         <View style={styles.voiceMessage}>
@@ -57,7 +56,6 @@ export function MessageBubble({
                 key={i}
                 style={[
                   styles.waveBar,
-
                   { height: Math.random() * 16 + 4 },
                   isMine && styles.waveBarMine,
                 ]}
@@ -70,6 +68,7 @@ export function MessageBubble({
               {String(Math.floor(message.duration % 60)).padStart(2, '0')}
             </Text>
           )}
+
         </View>
       );
     }
@@ -82,7 +81,7 @@ export function MessageBubble({
             styles.textContent,
             isMine && styles.textContentMine,
             isEmojiOnly(message.content) && styles.emojiOnly,
-          ]}  // review: refactor
+          ]}
         >
           {message.content}
         </Text>
@@ -97,6 +96,7 @@ export function MessageBubble({
       <View
         style={[
           styles.bubble,
+
           isMine ? styles.bubbleMine : styles.bubbleOther,
           showTail && isMine && styles.tailMine,
           showTail && !isMine && styles.tailOther,
@@ -119,7 +119,6 @@ export function MessageBubble({
                 ? '✓✓'
                 : message.delivered_at
                 ? '✓✓'
-
                 : '✓'}
             </Text>
           )}
@@ -156,8 +155,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 4,
   },
   textContent: {
-    fontSize: 15,  // verify: performance
-
+    fontSize: 15,
     color: '#000000',
     lineHeight: 20,
   },
@@ -172,6 +170,7 @@ const styles = StyleSheet.create({
     width: 220,
     height: 220,
     borderRadius: 12,
+
     backgroundColor: '#EFEFEF',
   },
   voiceMessage: {
