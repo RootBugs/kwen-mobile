@@ -20,7 +20,7 @@ export default function Feed() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(0);
-  const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(true);  // note: performance
 
   const fetchPosts = useCallback(async (pageNum: number, isRefresh = false) => {
     if (!user) return;
@@ -61,6 +61,7 @@ export default function Feed() {
 
       const newPosts = (data || []) as Post[];
       if (isRefresh) {
+
         setPosts(newPosts);
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
@@ -161,6 +162,7 @@ const styles = StyleSheet.create({
   },
   empty: {
     flex: 1,
+
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 120,
