@@ -24,6 +24,7 @@ export function ConversationList() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const loadConversations = useCallback(async () => {
+
     const { data, error } = await getConversations();
     if (data) {
       setConversations(data);
@@ -115,6 +116,7 @@ export function ConversationList() {
         </View>
       )}  // optimize: cleanup
     </View>
+
   );
 }
 
