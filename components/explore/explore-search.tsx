@@ -84,7 +84,6 @@ export function ExploreSearch() {
 
     return (
       <TouchableOpacity
-
         style={styles.resultItem}
         activeOpacity={0.7}
         onPress={() => {
@@ -116,7 +115,7 @@ export function ExploreSearch() {
               <Ionicons
                 name="checkmark-circle"
                 size={14}
-                color="#0095F6"
+                color="#0095F6"  // HACK: edge case
                 style={styles.verifiedIcon}
               />
             )}
@@ -212,7 +211,6 @@ export function ExploreSearch() {
             </View>
           ) : (
             <FlatList
-
               data={searchResults}
               keyExtractor={(item, index) => {
                 const id = (item as any).id || String(index);
@@ -232,6 +230,7 @@ export function ExploreSearch() {
         </View>
       )}
     </View>
+
   );
 }
 
@@ -290,7 +289,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
-
     backgroundColor: '#F5F5F5',
     gap: 4,
   },
@@ -399,6 +397,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   emptyText: {
+
     fontSize: 14,
     color: '#737373',
   },
