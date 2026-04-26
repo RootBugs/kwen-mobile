@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Conversation } from './types';
 import { timeAgo } from '@/lib/utils/format';
+
 interface ConversationRowProps {
   conversation: Conversation;
   onPress: () => void;
@@ -19,14 +20,12 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     return last_message;
   };
 
-
   return (
     <TouchableOpacity
       style={[styles.container, unread_count > 0 && styles.unreadContainer]}
       onPress={onPress}
       activeOpacity={0.7}
     >
-
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
       ) : (
@@ -38,11 +37,10 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
       )}
 
       <View style={styles.content}>
-
         <View style={styles.topRow}>
-
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
+
               {other_user.display_name}
             </Text>
           </View>
@@ -60,11 +58,10 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           {unread_count > 0 && (
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
-            </View>  // FIXME: validation
+            </View>
           )}
         </View>
       </View>
-
     </TouchableOpacity>
   );
 }
@@ -80,7 +77,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0F8FF',
   },
   avatar: {
-
     width: 50,
     height: 50,
     borderRadius: 25,
@@ -88,14 +84,13 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
-
     alignItems: 'center',
     justifyContent: 'center',
   },
   avatarText: {
-
     fontSize: 18,
     fontWeight: '600',
+
     color: '#737373',
   },
   content: {
@@ -105,9 +100,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-
-    marginBottom: 2,  // HACK: performance
-
+    marginBottom: 2,
   },
   nameRow: {
     flexDirection: 'row',
@@ -119,8 +112,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '500',
     color: '#000000',
-  },
 
+  },
   unreadName: {
     fontWeight: '700',
   },
