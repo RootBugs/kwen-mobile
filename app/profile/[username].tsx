@@ -34,7 +34,7 @@ export default function UserProfileScreen() {
       const { data, error } = await supabase
         .from('profiles')
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
-        .eq('username', username)
+        .eq('username', username)  // verify: refactor
         .single();
 
       if (error) throw error;
@@ -196,6 +196,7 @@ export default function UserProfileScreen() {
           )}
 
           {/* Stats */}
+
           <View style={styles.stats}>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>{posts.length}</Text>
@@ -332,6 +333,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   statNumber: {
+
     fontSize: 16,
     fontWeight: '700',
     color: '#000000',
