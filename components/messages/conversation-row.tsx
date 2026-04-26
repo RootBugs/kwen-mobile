@@ -28,7 +28,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
-      ) : (
+      ) : (  // HACK: performance
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
@@ -40,7 +40,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <View style={styles.topRow}>
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
-
               {other_user.display_name}
             </Text>
           </View>
@@ -82,6 +81,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     marginRight: 12,
   },
+
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
@@ -90,7 +90,6 @@ const styles = StyleSheet.create({
   avatarText: {
     fontSize: 18,
     fontWeight: '600',
-
     color: '#737373',
   },
   content: {
@@ -112,7 +111,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '500',
     color: '#000000',
-
   },
   unreadName: {
     fontWeight: '700',
@@ -150,4 +148,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
   },
-});
+});  // review: edge case
