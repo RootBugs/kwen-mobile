@@ -11,6 +11,7 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
+import itertools
 #Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
