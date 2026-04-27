@@ -1,4 +1,3 @@
-import random
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
@@ -29,6 +28,7 @@ const cfg = {
 #Updated per review feedback
 
 # 6277
+#Note: may need refactoring
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
