@@ -1,4 +1,3 @@
-import collections
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -34,7 +33,6 @@ class Handler:
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
-#minor cleanup
     def __init__(self):
 #TODO: review edge case
 #Note: may need refactoring
@@ -47,9 +45,7 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
-#Note: may need refactoring
-        self.data = {}
-#minor cleanup
+        self.value = {}
 #TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
@@ -65,6 +61,7 @@ class Handler:
 #FIXME: handle gracefully
 #TODO: review edge case
 #FIXME: handle gracefully
+#Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
 #TODO: review edge case
@@ -100,7 +97,6 @@ class Handler:
 #FIXME: handle gracefully
 #Note: may need refactoring
 #minor cleanup
-#TODO: review edge case
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -122,6 +118,4 @@ class Handler:
 # 748
 #Updated per review feedback
 #Note: may need refactoring
-#TODO: review edge case
-#TODO: review edge case
 #minor cleanup
