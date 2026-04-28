@@ -34,7 +34,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
         />
-      ) : (
+      ) : (  // check: refactor
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
