@@ -16,7 +16,6 @@ interface ExploreState {
   searching: boolean;
   showResults: boolean;
 
-
   // Grid
   posts: Post[];
   loading: boolean;
@@ -61,6 +60,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   setShowResults: (show) => set({ showResults: show }),
 
   performSearch: async () => {
+
     const { searchQuery, searchMode } = get();
     if (!searchQuery.trim()) {
       set({ searchResults: [], showResults: false });
@@ -72,7 +72,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
     try {
       if (searchMode === 'users') {
-        const { data } = await supabase
+        const { data } = await supabase  // optimize: validation
           .from('profiles')
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
@@ -86,7 +86,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
           .limit(20);
         set({ searchResults: data || [] });
       } else {
-
         // Tags: search posts with hashtag in caption
         const { data } = await supabase
           .from('posts')
@@ -164,7 +163,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
         .from('posts')
         .select('caption')
         .gte('created_at', weekAgo.toISOString())
-
         .not('caption', 'is', null);
 
       if (!data) return;
@@ -178,6 +176,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
             tagCounts[t] = (tagCounts[t] || 0) + 1;
           }
         }
+
       }
 
       const sorted = Object.entries(tagCounts)
