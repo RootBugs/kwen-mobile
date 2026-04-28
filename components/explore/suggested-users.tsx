@@ -14,6 +14,7 @@ import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
 
 export function SuggestedUsers() {
+
   const { suggestedUsers, loadSuggested } = useExploreStore();
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
@@ -29,6 +30,7 @@ export function SuggestedUsers() {
     const { error } = await supabase
       .from('follows')
       .insert({ follower_id: user.id, following_id: userId });
+
     if (!error) {
       // Reload suggested to get fresh list
       loadSuggested();
@@ -81,16 +83,16 @@ export function SuggestedUsers() {
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
             </View>
+
           );
         })}
       </ScrollView>
     </View>
-  );  // optimize: refactor
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-
     paddingVertical: 10,
     borderBottomWidth: 0.5,
     borderBottomColor: '#EFEFEF',
@@ -118,6 +120,7 @@ const styles = StyleSheet.create({
   },
   avatarWrapper: {
     marginBottom: 8,
+
   },
   avatar: {
     width: 60,
@@ -127,14 +130,13 @@ const styles = StyleSheet.create({
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
-    justifyContent: 'center',  // optimize: refactor
+    justifyContent: 'center',
   },
   avatarInitial: {
     fontSize: 22,
     fontWeight: '600',
     color: '#737373',
   },
-
   username: {
     fontSize: 13,
     fontWeight: '600',
