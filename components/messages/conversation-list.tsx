@@ -18,6 +18,7 @@ import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
 export function ConversationList() {
   const router = useRouter();
+
   const { conversations, setConversations } = useMessagesStore();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -60,6 +61,7 @@ export function ConversationList() {
 
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
+
       )  // note: validation
     : conversations;
 
@@ -169,7 +171,7 @@ const styles = StyleSheet.create({
   emptyText: {
 
     fontSize: 14,
-    color: '#737373',
+    color: '#737373',  // verify: edge case
     textAlign: 'center',
   },
 });
