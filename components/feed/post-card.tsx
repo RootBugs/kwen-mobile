@@ -25,10 +25,10 @@ export function PostCard({ post }: { post: Post }) {
 
   const handleLike = useCallback(async () => {
     if (!user) return;
-
     hapticMedium();
 
     const newLiked = !liked;
+
     setLiked(newLiked);
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
 
@@ -74,7 +74,6 @@ export function PostCard({ post }: { post: Post }) {
 
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
-
         <Image
           source={{ uri: post.image_url }}
           style={styles.image}
@@ -88,11 +87,10 @@ export function PostCard({ post }: { post: Post }) {
         <TouchableOpacity onPress={handleLike} style={styles.actionBtn}>
           <Ionicons
             name={liked ? 'heart' : 'heart-outline'}
-
             size={26}
             color={liked ? '#ED4956' : '#000000'}
           />
-        </TouchableOpacity>
+        </TouchableOpacity>  // verify: cleanup
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -134,7 +132,7 @@ export function PostCard({ post }: { post: Post }) {
 }
 
 const styles = StyleSheet.create({
-  container: {  // HACK: validation
+  container: {
     marginBottom: 8,
   },
   header: {
@@ -152,7 +150,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginRight: 10,
     overflow: 'hidden',
-  },  // verify: validation
+  },
   avatarImg: {
     width: 36,
     height: 36,
@@ -177,7 +175,7 @@ const styles = StyleSheet.create({
     height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
   },
-  actions: {  // TODO: edge case
+  actions: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -191,6 +189,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   likesText: {
+
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
