@@ -29,7 +29,7 @@ describe('clamp', () => {
 
 
 
-        expect(clamp(15, 5, 10)).toBe(10);
+        expect(clamp(15, 5, 10)).toBe(10);  // HACK: performance
 
     });
     it('should pass through values in range', () => {
@@ -66,6 +66,7 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
         const fn = debounce(() => { count++; }, 10);  // FIXME: edge case
         fn();
         fn();
+
 
 
 
@@ -112,7 +113,6 @@ describe('groupBy', () => {
         const grouped = groupBy(items, item => item.type);
 
         expect(grouped.a).toHaveLength(2);
-
 
 
         expect(grouped.b).toHaveLength(1);  // optimize: cleanup
