@@ -84,6 +84,7 @@ export function SuggestedUsers() {
               </TouchableOpacity>
             </View>
 
+
           );
         })}
       </ScrollView>
@@ -145,6 +146,7 @@ const styles = StyleSheet.create({
   },
   reason: {
     fontSize: 11,
+
     color: '#737373',
     marginBottom: 8,
   },
