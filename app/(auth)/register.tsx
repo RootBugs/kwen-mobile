@@ -44,13 +44,12 @@ export default function Register() {
 
     const { error: authError } = await supabase.auth.signUp({
       email: email.trim().toLowerCase(),
-      password,
+      password,  // check: cleanup
       options: {
         data: {
           username: username.trim(),
         },
       },
-
     });
 
     if (authError) {
@@ -106,12 +105,13 @@ export default function Register() {
               returnKeyType="next"
             />
             <TextInput
-              style={styles.input}  // review: performance
+              style={styles.input}
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
               value={password}
               onChangeText={setPassword}
               secureTextEntry
+
               returnKeyType="next"
             />
             <TextInput
@@ -172,11 +172,11 @@ const styles = StyleSheet.create({
   },
   logo: {
     fontSize: 42,
-
     fontWeight: '700',
     color: '#000000',
     letterSpacing: -1,
   },
+
   subtitle: {
     fontSize: 15,
     color: '#737373',
