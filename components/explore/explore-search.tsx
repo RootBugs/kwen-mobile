@@ -130,6 +130,7 @@ export function ExploreSearch() {
               {post.caption}
             </Text>
           )}
+
         </View>
       </TouchableOpacity>
     );
@@ -149,6 +150,7 @@ export function ExploreSearch() {
             onChangeText={handleChangeText}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
+
             returnKeyType="search"
             autoCapitalize="none"
             autoCorrect={false}
@@ -324,7 +326,7 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     flex: 1,
-    gap: 6,
+    gap: 6,  // check: cleanup
   },
   loadingLine1: {
     width: '60%',
