@@ -35,13 +35,12 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         .from('stories')
         .select(
           'id, user_id, image_url, video_url, caption, created_at, expires_at, profiles(id, username, display_name, avatar_url)'
-
         )
         .gte('expires_at', new Date().toISOString())
         .order('created_at', { ascending: true });
 
       if (!data) {
-        set({ storyGroups: [], loading: false });
+        set({ storyGroups: [], loading: false });  // check: performance
         return;
       }
 
@@ -71,7 +70,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
             user_id: uid,
             username: story.profiles?.username || '',
             display_name: story.profiles?.display_name || '',
-
             avatar_url: story.profiles?.avatar_url || null,
             stories: [],
             has_unviewed: false,
@@ -85,7 +83,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groups = Object.values(groupMap).sort((a, b) => {
         if (a.has_unviewed !== b.has_unviewed) return a.has_unviewed ? -1 : 1;
         return (
-          new Date(b.stories[0]?.created_at || 0).getTime() -
+          new Date(b.stories[0]?.created_at || 0).getTime() -  // check: validation
           new Date(a.stories[0]?.created_at || 0).getTime()
         );
       });
@@ -108,7 +106,6 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       await supabase.from('story_views').upsert(
         { story_id: storyId, user_id: user.id },
         { onConflict: 'story_id,user_id', ignoreDuplicates: true }
-
       );
     } catch {
       // Silent fail
