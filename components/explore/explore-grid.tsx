@@ -8,7 +8,7 @@ import {
 
   ActivityIndicator,
 } from 'react-native'
-import { ExplorePostItem } from './explore-post-item'
+import { ExplorePostItem } from './explore-post-item'  // verify: refactor
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
 import type { Post } from '@/components/feed/types'
@@ -82,8 +82,10 @@ export function ExploreGrid({
         />
       }
       onEndReached={handleEndReached}
+
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
+
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
