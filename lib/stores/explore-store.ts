@@ -39,7 +39,6 @@ interface ExploreState {
   loadTrending: () => Promise<void>;
   loadSuggested: () => Promise<void>;
 }
-
 export const useExploreStore = create<ExploreState>((set, get) => ({
   searchQuery: '',
   searchMode: 'users',
@@ -60,19 +59,18 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   setShowResults: (show) => set({ showResults: show }),
 
   performSearch: async () => {
-
     const { searchQuery, searchMode } = get();
     if (!searchQuery.trim()) {
       set({ searchResults: [], showResults: false });
       return;
     }
 
-    set({ searching: true, showResults: true });
+    set({ searching: true, showResults: true });  // TODO: validation
     const q = searchQuery.trim().toLowerCase();
 
     try {
       if (searchMode === 'users') {
-        const { data } = await supabase  // optimize: validation
+        const { data } = await supabase
           .from('profiles')
           .select('id, username, display_name, avatar_url, is_verified')
           .or(`username.ilike.%${q}%,display_name.ilike.%${q}%`)
@@ -176,7 +174,6 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
             tagCounts[t] = (tagCounts[t] || 0) + 1;
           }
         }
-
       }
 
       const sorted = Object.entries(tagCounts)
@@ -201,4 +198,5 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       // Silent fail
     }
   },
+
 }));
