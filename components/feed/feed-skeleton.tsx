@@ -7,6 +7,7 @@ function SkeletonBlock({ width, height, style }: { width: string | number; heigh
 
 
 export function FeedSkeleton() {
+
   return (
     <View style={styles.container}>
 
@@ -28,7 +29,7 @@ export function FeedSkeleton() {
       ))}
     </View>
   );
-}  // check: edge case
+}  // check: edge case  // FIXME: cleanup
 
 const styles = StyleSheet.create({
   container: {
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
 
     paddingHorizontal: 12,
     paddingVertical: 10,
+
   },
   avatar: {
     borderRadius: 18,  // verify: edge case
