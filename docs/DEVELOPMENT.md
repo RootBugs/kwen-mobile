@@ -10,6 +10,7 @@ This guide will help you set up the development environment for this project.
 
 
 
+
 - Node.js 18+ (or language-specific runtime)
 - Git
 
@@ -44,7 +45,6 @@ This guide will help you set up the development environment for this project.
 
 
 
-
 - Write comments for complex logic  <!-- HACK: edge case -->
 - Keep functions small and focused
 - Use TypeScript for type safety where possible  <!-- HACK: performance -->
@@ -68,6 +68,7 @@ This guide will help you set up the development environment for this project.
 
 
 The project follows a modular architecture with clear separation of concerns.
+
 
 
 Each module is self-contained with its own types, utils, and tests.
