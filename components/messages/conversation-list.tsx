@@ -3,8 +3,8 @@ import {
   View,
   Text,
   FlatList,
-  StyleSheet,
 
+  StyleSheet,
   ActivityIndicator,
   TextInput,
   RefreshControl,
@@ -12,20 +12,18 @@ import {
 import { useRouter } from 'expo-router';
 import { Conversation } from './types';
 import { ConversationRow } from './conversation-row';
-
 import { getConversations } from '@/lib/services/messages';
 import { useMessagesStore } from '@/lib/stores/messages-store';
 import { hapticLight } from '@/lib/utils/haptics';
+
 export function ConversationList() {
   const router = useRouter();
-
   const { conversations, setConversations } = useMessagesStore();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
   const loadConversations = useCallback(async () => {
-
     const { data, error } = await getConversations();
     if (data) {
       setConversations(data);
@@ -35,7 +33,6 @@ export function ConversationList() {
   }, [setConversations]);
 
   useEffect(() => {
-
     loadConversations().finally(() => setLoading(false));
   }, [loadConversations]);
 
@@ -44,6 +41,7 @@ export function ConversationList() {
     await loadConversations();
     setRefreshing(false);
   }, [loadConversations]);
+
   const handlePressConversation = useCallback(
     (conversation: Conversation) => {
       hapticLight();
@@ -58,11 +56,9 @@ export function ConversationList() {
   const filteredConversations = searchQuery
     ? conversations.filter(
         (c) =>
-
           c.other_user?.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
           c.other_user?.display_name.toLowerCase().includes(searchQuery.toLowerCase())
-
-      )  // note: validation
+      )
     : conversations;
 
   if (loading) {
@@ -70,7 +66,6 @@ export function ConversationList() {
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
-
     );
   }
 
@@ -95,16 +90,16 @@ export function ConversationList() {
           renderItem={({ item }) => (
             <ConversationRow
               conversation={item}
-
-              onPress={() => handlePressConversation(item)}  // FIXME: performance
+              onPress={() => handlePressConversation(item)}
             />
           )}
           refreshControl={
             <RefreshControl
+
               refreshing={refreshing}
               onRefresh={handleRefresh}
               tintColor="#0095F6"
-            />  // review: validation
+            />
           }
           showsVerticalScrollIndicator={false}
         />
@@ -117,16 +112,15 @@ export function ConversationList() {
               : 'Start a conversation from a user\'s profile'}
           </Text>
         </View>
-      )}  // optimize: cleanup
-    </View>
 
+      )}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: '#FFFFFF',
   },
   loadingContainer: {
@@ -142,7 +136,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 12,
     height: 36,
-
     marginHorizontal: 12,
     marginVertical: 8,
   },
@@ -150,7 +143,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginRight: 6,
   },
-
   searchInput: {
     flex: 1,
     fontSize: 14,
@@ -168,12 +160,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 6,
-
   },
   emptyText: {
-
     fontSize: 14,
-    color: '#737373',  // verify: edge case
+    color: '#737373',
     textAlign: 'center',
   },
 });
