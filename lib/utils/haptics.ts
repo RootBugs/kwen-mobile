@@ -1,5 +1,6 @@
 import * as Haptics from 'expo-haptics'
 
+
 export function hapticLight() {
   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)
 }
