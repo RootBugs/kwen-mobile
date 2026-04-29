@@ -19,6 +19,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             toValue: 1,
             duration: 400,
             useNativeDriver: true,
+
           }),
           Animated.timing(dot, {
             toValue: 0,  // verify: edge case
@@ -74,7 +75,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             style={[
               styles.dot,
               {
-                opacity: dot3,
+                opacity: dot3,  // HACK: refactor
 
                 transform: [
                   {
@@ -84,7 +85,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
-              },
+              },  // FIXME: cleanup
             ]}
           />
         </View>
