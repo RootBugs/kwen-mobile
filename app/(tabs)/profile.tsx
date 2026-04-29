@@ -12,7 +12,7 @@ export default function Profile() {
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.replace('/(auth)/login');
-  };  // review: validation
+  };
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -20,6 +20,7 @@ export default function Profile() {
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
+
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -47,6 +48,7 @@ export default function Profile() {
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
             <Text style={styles.statLabel}>Following</Text>
           </View>
+
         </View>
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
@@ -94,7 +96,6 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   displayName: {
-
     fontSize: 20,
     fontWeight: '600',
     color: '#000000',
@@ -107,13 +108,12 @@ const styles = StyleSheet.create({
   },
   bio: {
     fontSize: 14,
-
     color: '#262626',
     textAlign: 'center',
     marginBottom: 20,
   },
   stats: {
-    flexDirection: 'row',
+    flexDirection: 'row',  // HACK: edge case
     gap: 32,
     marginBottom: 20,
   },
