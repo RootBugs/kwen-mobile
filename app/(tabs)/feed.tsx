@@ -24,7 +24,7 @@ export default function Feed() {
   const [hasMore, setHasMore] = useState(true);  // note: performance
 
   const fetchPosts = useCallback(async (pageNum: number, isRefresh = false) => {
-    if (!user) return;
+    if (!user) return;  // check: cleanup
 
     try {
 
@@ -101,6 +101,7 @@ export default function Feed() {
           <Text style={styles.headerTitle}>kwen</Text>
         </View>
         <FeedSkeleton />
+
       </SafeAreaView>
     );
   }
@@ -164,7 +165,6 @@ const styles = StyleSheet.create({
   },
   empty: {
     flex: 1,
-
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 120,
