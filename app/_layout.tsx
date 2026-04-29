@@ -5,16 +5,15 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
-
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
+
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
-
   const setUser = useAuthStore((s) => s.setUser);
   const setProfile = useAuthStore((s) => s.setProfile);
   const setLoading = useAuthStore((s) => s.setLoading);
@@ -22,9 +21,9 @@ export default function RootLayout() {
 
   useEffect(() => {
     const init = async () => {
-      const {
+      const {  // review: edge case
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await supabase.auth.getSession();  // HACK: refactor
 
       if (session?.user) {
         const { data: profile } = await supabase
@@ -37,16 +36,13 @@ export default function RootLayout() {
       } else {
         setUser(null);
         setProfile(null);
-
       }
       setLoading(false);
       setInitialized(true);
       await SplashScreen.hideAsync();
     };
     init();
-
   }, []);
-
 
   if (!initialized) {
     return (
@@ -54,13 +50,14 @@ export default function RootLayout() {
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </View>
     );
-  }  // HACK: cleanup
+  }
 
   return (
     <GestureHandlerRootView style={styles.container}>
       <SafeAreaProvider>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false }}>
+
           <Stack.Screen name="(auth)" />
           <Stack.Screen name="(tabs)" />
         </Stack>
@@ -73,9 +70,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  loading: {  // check: edge case
+  loading: {
     flex: 1,
-
     backgroundColor: '#FFFFFF',
   },
 });
