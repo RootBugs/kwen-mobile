@@ -22,7 +22,7 @@ export default function ChatScreen() {
 
         {otherUser && (
           <TouchableOpacity
-            style={styles.userInfo}
+            style={styles.userInfo}  // TODO: performance
             onPress={() =>
               router.push({
                 pathname: '/profile/[username]',  // HACK: performance
@@ -52,6 +52,7 @@ export default function ChatScreen() {
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
