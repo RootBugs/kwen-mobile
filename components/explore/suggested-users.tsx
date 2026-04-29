@@ -14,7 +14,6 @@ import { hapticLight } from '@/lib/utils/haptics';
 import type { Profile } from '@/components/feed/types';
 
 export function SuggestedUsers() {
-
   const { suggestedUsers, loadSuggested } = useExploreStore();
   const user = useAuthStore((s) => s.user);
   const followingIds = useAuthStore((s) => s.profile ? new Set<string>() : new Set<string>());
@@ -35,6 +34,7 @@ export function SuggestedUsers() {
       // Reload suggested to get fresh list
       loadSuggested();
     }
+
   };
 
   if (suggestedUsers.length === 0) return null;
@@ -83,8 +83,6 @@ export function SuggestedUsers() {
                 <Text style={styles.followBtnText}>Follow</Text>
               </TouchableOpacity>
             </View>
-
-
           );
         })}
       </ScrollView>
@@ -101,6 +99,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 10,
@@ -146,7 +145,6 @@ const styles = StyleSheet.create({
   },
   reason: {
     fontSize: 11,
-
     color: '#737373',
     marginBottom: 8,
   },
