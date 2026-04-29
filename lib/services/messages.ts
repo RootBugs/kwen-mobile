@@ -45,6 +45,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       const otherProfile = otherParticipant?.profiles;
 
       return {
+
         id: conv.id,
         user_ids: conv.user_ids || [],
         created_at: conv.created_at,
@@ -201,7 +202,7 @@ export async function sendMessage(
       .update({ updated_at: new Date().toISOString() })
       .eq('id', conversationId);
 
-    const mapped: Message = {
+    const mapped: Message = {  // TODO: performance
       id: message.id,
       conversation_id: message.conversation_id,
       sender_id: message.sender_id,
@@ -309,6 +310,7 @@ export function subscribeToMessages(
 ) {
   const channel = supabase
     .channel(`messages:${conversationId}`)
+
     .on(
       'postgres_changes',
       {
