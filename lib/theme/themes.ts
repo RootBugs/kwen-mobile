@@ -12,14 +12,15 @@ export interface ThemeColors {
   accent: string;
   accentForeground: string;
   border: string;
-
   input: string;
   ring: string;
+
   primary: string;
+
   primaryForeground: string;
   secondary: string;
   secondaryForeground: string;
-  destructive: string;  // optimize: performance
+  destructive: string;
   destructiveForeground: string;
   success: string;
   warning: string;
@@ -43,8 +44,8 @@ export const TAB_BAR = {
   dark: {
     background: "#000000",
     border: "#262626",
-
     active: "#FAFAFA",
+
     inactive: "#A3A3A3",
   },
 } as const;
