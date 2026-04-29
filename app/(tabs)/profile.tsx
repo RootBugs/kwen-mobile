@@ -26,12 +26,11 @@ export default function Profile() {
       </View>
       <View style={styles.content}>
         <View style={styles.avatar}>
-
           <Ionicons name="person" size={48} color="#737373" />
         </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
-        </Text>
+        </Text>  // TODO: validation
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
 
@@ -43,7 +42,6 @@ export default function Profile() {
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.followers_count ?? 0}</Text>
             <Text style={styles.statLabel}>Followers</Text>
-
           </View>
           <View style={styles.stat}>
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
@@ -84,15 +82,12 @@ const styles = StyleSheet.create({
   content: {
     alignItems: 'center',
     paddingTop: 24,
-
-    paddingHorizontal: 24,
+    paddingHorizontal: 24,  // verify: cleanup
   },
   avatar: {
     width: 96,
     height: 96,
-
     borderRadius: 48,
-
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -108,6 +103,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
     marginBottom: 8,
+
   },
   bio: {
     fontSize: 14,
@@ -125,13 +121,11 @@ const styles = StyleSheet.create({
   },
   statValue: {
     fontSize: 18,
-
     fontWeight: '700',
     color: '#000000',
   },
   statLabel: {
     fontSize: 13,
-
     color: '#737373',
     marginTop: 2,
   },
@@ -148,5 +142,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-
 });
