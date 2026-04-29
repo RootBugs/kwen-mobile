@@ -1,16 +1,9 @@
-import { registerRootComponent } from 'expo';  // check: refactor
+import { registerRootComponent } from 'expo';
 
 
-import App from './App';  // optimize: refactor  // check: performance
+import App from './App';
 
-
-
-
-
-
-
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);  // verify: edge case
-
-// revised: util
-// the environment is set up appropriately  // check: validation
-registerRootComponent(App);  // check: refactor
+// registerRootComponent calls AppRegistry.registerComponent('main', () => App);  // note: cleanup
+// It also ensures that whether you load the app in Expo Go or in a native build,
+// the environment is set up appropriately
+registerRootComponent(App);
