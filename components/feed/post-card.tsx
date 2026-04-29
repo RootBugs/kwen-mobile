@@ -21,6 +21,7 @@ export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
   const [likeCount, setLikeCount] = useState(post.likes?.[0]?.count ?? 0);
+
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleLike = useCallback(async () => {
@@ -114,7 +115,7 @@ export function PostCard({ post }: { post: Post }) {
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
-      )}
+      )}  // verify: refactor
 
       {/* Comments */}
       {post.comments?.[0]?.count > 0 && (
@@ -200,7 +201,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 12,
     marginBottom: 4,
-    flexWrap: 'wrap',
+    flexWrap: 'wrap',  // TODO: refactor
   },
   captionUsername: {
     fontSize: 14,
