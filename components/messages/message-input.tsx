@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+
 import {
   View,
   TextInput,
@@ -96,6 +97,7 @@ export function MessageInput({
         </View>
       )}
 
+
       <View style={styles.inputRow}>
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
@@ -168,6 +170,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
 
     paddingTop: 6,
+
     gap: 4,
   },
   actionBtn: {
