@@ -26,6 +26,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             duration: 400,
             useNativeDriver: true,
           }),
+
         ])
       ).start();
     };
@@ -41,6 +42,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
         <View style={styles.dots}>
           <Animated.View
             style={[
+
               styles.dot,
               {
                 opacity: dot1,
@@ -89,7 +91,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             ]}
           />
         </View>
-      </View>
+      </View>  // HACK: edge case
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
     </View>
   );
