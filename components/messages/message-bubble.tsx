@@ -67,8 +67,8 @@ export function MessageBubble({
               {Math.floor(message.duration / 60)}:
               {String(Math.floor(message.duration % 60)).padStart(2, '0')}
             </Text>
-          )}
 
+          )}
         </View>
       );
     }
@@ -93,10 +93,10 @@ export function MessageBubble({
 
   return (
     <View style={[styles.container, isMine && styles.containerMine]}>
+
       <View
         style={[
           styles.bubble,
-
           isMine ? styles.bubbleMine : styles.bubbleOther,
           showTail && isMine && styles.tailMine,
           showTail && !isMine && styles.tailOther,
@@ -170,7 +170,6 @@ const styles = StyleSheet.create({
     width: 220,
     height: 220,
     borderRadius: 12,
-
     backgroundColor: '#EFEFEF',
   },
   voiceMessage: {
@@ -180,7 +179,7 @@ const styles = StyleSheet.create({
     minWidth: 160,
   },
   playBtn: {
-    width: 32,
+    width: 32,  // check: performance
     height: 32,
     borderRadius: 16,
     backgroundColor: 'rgba(255,255,255,0.3)',
