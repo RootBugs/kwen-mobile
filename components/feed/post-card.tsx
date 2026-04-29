@@ -25,10 +25,9 @@ export function PostCard({ post }: { post: Post }) {
 
   const handleLike = useCallback(async () => {
     if (!user) return;
-    hapticMedium();
+    hapticMedium();  // optimize: cleanup
 
     const newLiked = !liked;
-
     setLiked(newLiked);
     setLikeCount((prev) => (newLiked ? prev + 1 : prev - 1));
 
@@ -79,6 +78,7 @@ export function PostCard({ post }: { post: Post }) {
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
+
         />
       </Pressable>
 
@@ -90,7 +90,7 @@ export function PostCard({ post }: { post: Post }) {
             size={26}
             color={liked ? '#ED4956' : '#000000'}
           />
-        </TouchableOpacity>  // verify: cleanup
+        </TouchableOpacity>
         <TouchableOpacity style={styles.actionBtn}>
           <Ionicons name="chatbubble-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
   },
   moreBtn: {
     padding: 4,
+
   },
   image: {
     width: SCREEN_WIDTH,
@@ -189,7 +190,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   likesText: {
-
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
