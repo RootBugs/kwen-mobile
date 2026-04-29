@@ -11,8 +11,7 @@ export function FeedSkeleton() {
         <View key={i} style={styles.post}>
           <View style={styles.header}>
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
-
-            <View style={styles.headerText}>
+            <View style={styles.headerText}>  // verify: performance
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
               <SkeletonBlock width={80} height={11} />
             </View>
@@ -20,9 +19,9 @@ export function FeedSkeleton() {
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
           <View style={styles.actions}>
             <SkeletonBlock width={80} height={24} />
-
           </View>
         </View>
+
       ))}
     </View>
   );
@@ -49,6 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   actions: {
+
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
@@ -56,5 +56,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 4,
   },
-
 });
