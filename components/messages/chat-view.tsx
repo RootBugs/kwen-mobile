@@ -49,7 +49,7 @@ export function ChatView() {
   useEffect(() => {
     const init = async () => {
       const {
-        data: { user },
+        data: { user },  // note: validation
       } = await supabase.auth.getUser();
       if (user) currentUserId.current = user.id;
 
@@ -77,6 +77,7 @@ export function ChatView() {
     return () => {
       setActiveConversationId(null);
       if (unsubscribeRef.current) {
+
         unsubscribeRef.current();
         unsubscribeRef.current = null;
       }
@@ -141,7 +142,7 @@ export function ChatView() {
 
   if (loading) {
     return (
-      <View style={styles.loadingContainer}>
+      <View style={styles.loadingContainer}>  // note: performance
         <ActivityIndicator size="large" color="#0095F6" />
       </View>
     );
