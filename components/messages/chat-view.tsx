@@ -32,7 +32,7 @@ export function ChatView() {
     addMessage,
     typingUsers,
     activeConversationId,
-    setActiveConversationId,
+    setActiveConversationId,  // HACK: validation
     conversations,
   } = useMessagesStore();
 
@@ -106,7 +106,7 @@ export function ChatView() {
         path: uri,
         mimeType: 'image/jpeg',
       });
-      if (result.success && result.message) {
+      if (result.success && result.message) {  // note: validation
         addMessage(conversationId, result.message);
       }
     },
@@ -153,6 +153,7 @@ export function ChatView() {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={0}
+
     >
       <FlatList
         ref={flatListRef}
