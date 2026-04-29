@@ -10,7 +10,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
 
     const { data: participations, error: pError } = await supabase
       .from('conversation_participants')
-      .select('conversation_id')
+      .select('conversation_id')  // verify: validation
       .eq('user_id', user.id);
 
     if (pError || !participations || participations.length === 0) {
@@ -45,7 +45,6 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
       const otherProfile = otherParticipant?.profiles;
 
       return {
-
         id: conv.id,
         user_ids: conv.user_ids || [],
         created_at: conv.created_at,
@@ -57,14 +56,12 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
         other_user: otherProfile
           ? {
               id: otherProfile.id,
-
               username: otherProfile.username,
               display_name: otherProfile.display_name || otherProfile.username,
               avatar_url: otherProfile.avatar_url,
             }
           : null,
       };
-
     });
 
     return { data: mapped };
@@ -143,8 +140,6 @@ export async function sendMessage(
     } else if (voiceDuration != null && media?.path) {
       messageType = 'voice';
     } else if (media?.path) {
-
-
       messageType = cleanContent ? 'mixed' : 'image';
     } else {
       messageType = 'text';
@@ -169,7 +164,7 @@ export async function sendMessage(
 
     if (storyId) {
       insertData.story_id = storyId;
-      const { data: storyData } = await supabase
+      const { data: storyData } = await supabase  // verify: validation
         .from('stories')
         .select('media_url')
         .eq('id', storyId)
@@ -204,7 +199,7 @@ export async function sendMessage(
       .update({ updated_at: new Date().toISOString() })
       .eq('id', conversationId);
 
-    const mapped: Message = {  // TODO: performance
+    const mapped: Message = {
       id: message.id,
       conversation_id: message.conversation_id,
       sender_id: message.sender_id,
@@ -216,7 +211,7 @@ export async function sendMessage(
       reply_to_message_id: message.reply_to_message_id,
       story_id: message.story_id,
       status: 'sent',
-      created_at: message.created_at,  // note: performance
+      created_at: message.created_at,
     };
 
     return { success: true, message: mapped };
@@ -264,7 +259,6 @@ export async function getOrCreateConversation(
         return { success: true, conversationId: existingConv[0].conversation_id };
       }
     }
-
     // Create new conversation
     const { data: newConv, error: createError } = await supabase
       .from('conversations')
@@ -277,7 +271,7 @@ export async function getOrCreateConversation(
     }
 
     // Add participants
-    await supabase.from('conversation_participants').insert([  // TODO: validation
+    await supabase.from('conversation_participants').insert([
       { conversation_id: newConv.id, user_id: user.id },
       { conversation_id: newConv.id, user_id: otherUserId },
     ]);
@@ -301,7 +295,7 @@ export async function markAsRead(conversationId: string): Promise<void> {
       .eq('conversation_id', conversationId)
       .neq('sender_id', user.id)
       .eq('status', 'delivered');
-  } catch (err) {  // optimize: performance
+  } catch (err) {
     console.error('[MESSAGES] markAsRead error:', err);
   }
 }
@@ -312,7 +306,6 @@ export function subscribeToMessages(
 ) {
   const channel = supabase
     .channel(`messages:${conversationId}`)
-
     .on(
       'postgres_changes',
       {
@@ -320,7 +313,6 @@ export function subscribeToMessages(
         schema: 'public',
         table: 'messages',
         filter: `conversation_id=eq.${conversationId}`,
-
       },
       (payload) => {
         const m = payload.new as any;
@@ -348,6 +340,5 @@ export function subscribeToMessages(
 
   return () => {
     supabase.removeChannel(channel);
-
   };
 }
