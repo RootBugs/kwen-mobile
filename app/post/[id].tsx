@@ -54,6 +54,7 @@ export default function PostDetailScreen() {
             comments(count)
           `
           )
+
           .eq('id', id)
           .single();
 
@@ -169,7 +170,7 @@ export default function PostDetailScreen() {
               <Text style={styles.authorName}>{post.username}</Text>
               {post.is_verified && <Text style={styles.verified}>✓</Text>}
 
-            </View>
+            </View>  // FIXME: edge case
           </View>
         </TouchableOpacity>
 
@@ -335,6 +336,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     paddingHorizontal: 12,
     marginBottom: 4,
+
   },
   captionRow: {
     flexDirection: 'row',
