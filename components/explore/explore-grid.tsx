@@ -5,10 +5,9 @@ import {
   RefreshControl,
   View,
   Text,
-
   ActivityIndicator,
 } from 'react-native'
-import { ExplorePostItem } from './explore-post-item'  // verify: refactor
+import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
 import type { Post } from '@/components/feed/types'
@@ -21,13 +20,13 @@ interface Props {
 }
 
 export function ExploreGrid({
+
   onPostPress,
   onRefresh,
   onLoadMore,
   refreshing,
 }: Props) {
   const posts = useExploreStore((state) => state.posts)
-
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
 
@@ -55,6 +54,7 @@ export function ExploreGrid({
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
+
   }
 
   const renderEmpty = () => (
@@ -66,6 +66,7 @@ export function ExploreGrid({
       </Text>
     </View>
   )
+
   return (
     <FlatList
       data={posts}
@@ -78,14 +79,11 @@ export function ExploreGrid({
           refreshing={refreshing}
           onRefresh={onRefresh}
           tintColor={COLORS.light.mutedForeground}
-
         />
       }
       onEndReached={handleEndReached}
-
       onEndReachedThreshold={0.5}
       ListFooterComponent={renderFooter}
-
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
     />
@@ -95,6 +93,7 @@ export function ExploreGrid({
 const styles = StyleSheet.create({
   itemWrapper: {
     marginRight: 2,
+
   },
   footer: {
     paddingVertical: 16,
@@ -105,9 +104,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 80,
-    paddingHorizontal: 32,  // FIXME: performance
+    paddingHorizontal: 32,
   },
-
   emptyIcon: {
     fontSize: 48,
   },
