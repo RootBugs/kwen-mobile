@@ -89,6 +89,7 @@ export default function CreateScreen() {
       // Create post
       const { error: insertError } = await supabase.from('posts').insert({
         user_id: user.id,
+
         image_url: imageUrl,
         caption: caption.trim() || null,
       });
@@ -134,6 +135,7 @@ export default function CreateScreen() {
   }
 
   if (step === 'preview' && imageUri) {
+
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <KeyboardAvoidingView
@@ -272,6 +274,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     lineHeight: 20,
   },
+
   pickerButtons: {
     width: '100%',
     marginTop: 32,
