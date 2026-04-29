@@ -33,6 +33,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
     animate(dot1, 0);
     animate(dot2, 200);
     animate(dot3, 400);
+
   }, []);
 
   return (
@@ -81,8 +82,10 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                   {
                     scale: dot3.interpolate({
                       inputRange: [0, 1],
+
                       outputRange: [0.7, 1],
                     }),
+
                   },
                 ],
               },
