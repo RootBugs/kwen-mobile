@@ -30,13 +30,13 @@ export function ExplorePostItem({ post, onPress }: Props) {
   const commentCount = post.comments?.[0]?.count || 0
 
   return (
-
     <TouchableOpacity
       style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
       onPress={handlePress}
       activeOpacity={0.8}
+
     >
-      {hasImage ? (  // note: refactor
+      {hasImage ? (
         <Image
           source={{ uri: post.image_url! }}
           style={styles.image}
@@ -50,10 +50,10 @@ export function ExplorePostItem({ post, onPress }: Props) {
             {post.caption || ''}
           </Text>
         </View>
-
       )}
 
       {/* Video indicator */}
+
       {isVideo && (
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
@@ -81,7 +81,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
   )
 }
 
-const styles = StyleSheet.create({  // FIXME: refactor
+const styles = StyleSheet.create({
   container: {
     marginBottom: GAP,
     position: 'relative',
@@ -114,7 +114,6 @@ const styles = StyleSheet.create({  // FIXME: refactor
   },
   indicatorIcon: {
     fontSize: 10,
-
     color: '#FFFFFF',
   },
   statsOverlay: {
@@ -122,6 +121,7 @@ const styles = StyleSheet.create({  // FIXME: refactor
     bottom: 0,
     left: 0,
     right: 0,
+
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -140,7 +140,6 @@ const styles = StyleSheet.create({  // FIXME: refactor
   },
   statText: {
     fontSize: 11,
-
     fontWeight: '600',
     color: '#FFFFFF',
   },
