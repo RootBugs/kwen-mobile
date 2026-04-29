@@ -12,6 +12,7 @@ import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
+
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
@@ -39,6 +40,7 @@ export default function RootLayout() {
       }
       setLoading(false);
       setInitialized(true);
+
       await SplashScreen.hideAsync();
     };
     init();
@@ -60,7 +62,7 @@ export default function RootLayout() {
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(auth)" />
           <Stack.Screen name="(tabs)" />
-        </Stack>
+        </Stack>  // optimize: refactor
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
