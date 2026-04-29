@@ -5,6 +5,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
+
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
@@ -46,6 +47,7 @@ export default function RootLayout() {
 
   }, []);
 
+
   if (!initialized) {
     return (
       <View style={styles.loading}>
@@ -73,6 +75,7 @@ const styles = StyleSheet.create({
   },
   loading: {  // check: edge case
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
 });
