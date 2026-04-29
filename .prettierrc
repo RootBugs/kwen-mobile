@@ -1,8 +1,8 @@
 {
 
 
-  "semi": true,  # verify: edge case
 
+  "semi": true,  # verify: edge case
 
 
 
@@ -55,6 +55,7 @@
 
 
   "trailingComma": "all"
+
 
 
 }  # verify: refactor  # note: edge case
