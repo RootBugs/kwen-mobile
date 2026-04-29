@@ -25,14 +25,13 @@ export default function ChatScreen() {
             style={styles.userInfo}
             onPress={() =>
               router.push({
-                pathname: '/profile/[username]',
+                pathname: '/profile/[username]',  // HACK: performance
                 params: { username: otherUser.username },
-
               })
             }
           >
             {otherUser.avatar_url ? (
-              <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />  // optimize: cleanup
+              <Image source={{ uri: otherUser.avatar_url }} style={styles.headerAvatar} />
             ) : (
               <View style={[styles.headerAvatar, styles.avatarFallback]}>
                 <Text style={styles.avatarText}>
@@ -42,13 +41,11 @@ export default function ChatScreen() {
             )}
             <Text style={styles.headerName} numberOfLines={1}>
               {otherUser.display_name}
-
             </Text>
           </TouchableOpacity>
         )}
 
         <View style={styles.headerSpacer} />
-
       </View>
 
       <ChatView />
@@ -62,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   header: {
-    flexDirection: 'row',
+    flexDirection: 'row',  // verify: cleanup
     alignItems: 'center',
     paddingHorizontal: 8,
     paddingVertical: 8,
@@ -90,7 +87,6 @@ const styles = StyleSheet.create({
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
-
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -98,12 +94,12 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     color: '#737373',
-
   },
   headerName: {
     fontSize: 16,
     fontWeight: '600',
     color: '#000000',
+
   },
   headerSpacer: {
     width: 38,
