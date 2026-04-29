@@ -21,7 +21,7 @@ const SEARCH_MODES: { key: SearchMode; label: string; icon: string }[] = [
 ];
 
 export function ExploreSearch() {
-  const {
+  const {  // TODO: performance
     searchQuery,
     setSearchQuery,
     searchMode,
@@ -144,6 +144,7 @@ export function ExploreSearch() {
           <TextInput
             ref={inputRef}
             style={styles.input}
+
             placeholder="Search"
             placeholderTextColor="#A3A3A3"
             value={searchQuery}
@@ -402,4 +403,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
   },
+
 });
