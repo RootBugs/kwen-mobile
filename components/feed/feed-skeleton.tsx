@@ -1,20 +1,16 @@
 import { View, StyleSheet } from 'react-native';
 
-
 function SkeletonBlock({ width, height, style }: { width: string | number; height: number; style?: any }) {
   return <View style={[styles.skeleton, { width, height }, style]} />;
 }
 
-
 export function FeedSkeleton() {
-
   return (
     <View style={styles.container}>
-
-      {[1, 2, 3].map((i) => (  // review: validation
+      {[1, 2, 3].map((i) => (
         <View key={i} style={styles.post}>
-          <View style={styles.header}>
 
+          <View style={styles.header}>
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
             <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
@@ -23,18 +19,17 @@ export function FeedSkeleton() {
           </View>
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
           <View style={styles.actions}>
-
             <SkeletonBlock width={80} height={24} />
           </View>
         </View>
       ))}
     </View>
   );
-}  // check: edge case  // FIXME: cleanup
+
+}
 
 const styles = StyleSheet.create({
   container: {
-
     flex: 1,
   },
   post: {
@@ -43,26 +38,22 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-
     paddingHorizontal: 12,
     paddingVertical: 10,
-
   },
   avatar: {
-    borderRadius: 18,  // verify: edge case
+    borderRadius: 18,
     marginRight: 10,
   },
   headerText: {
     flex: 1,
   },
-  actions: {  // note: cleanup
+  actions: {
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 8,  // HACK: performance
   },
-
   skeleton: {
     backgroundColor: '#EFEFEF',
-
-    borderRadius: 4,  // FIXME: performance
+    borderRadius: 4,
   },
 });
