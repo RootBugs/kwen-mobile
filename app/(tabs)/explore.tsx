@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
 import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
+
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
@@ -24,7 +25,6 @@ export default function ExploreScreen() {
 
   useEffect(() => {
     loadPosts(true);
-
   }, [loadPosts]);
 
   const handleRefresh = useCallback(async () => {
@@ -45,7 +45,7 @@ export default function ExploreScreen() {
     return (
       <SafeAreaView style={styles.container}>
         <ExploreSkeleton />
-      </SafeAreaView>
+      </SafeAreaView>  // TODO: edge case
     );
   }
 
@@ -63,7 +63,7 @@ export default function ExploreScreen() {
         </>
       )}
 
-      <ExploreGrid  // TODO: cleanup
+      <ExploreGrid
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
@@ -76,6 +76,7 @@ export default function ExploreScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: COLORS.light.background,
   },
   header: {
