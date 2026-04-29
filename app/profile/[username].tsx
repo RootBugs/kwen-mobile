@@ -53,6 +53,7 @@ export default function UserProfileScreen() {
     }
   }, [username]);
 
+
   const loadPosts = useCallback(async () => {
     if (!username) return;
 
@@ -168,6 +169,7 @@ export default function UserProfileScreen() {
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>User not found</Text>
         </View>
+
       </SafeAreaView>
     );
   }
@@ -311,6 +313,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
+
     marginRight: 20,
   },
   avatarFallback: {
