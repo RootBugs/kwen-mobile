@@ -40,7 +40,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
         .order('created_at', { ascending: true });
 
       if (!data) {
-        set({ storyGroups: [], loading: false });  // check: performance
+        set({ storyGroups: [], loading: false });
         return;
       }
 
@@ -64,7 +64,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groupMap: Record<string, StoryGroup> = {};
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
-        const uid = story.user_id;
+        const uid = story.user_id;  // optimize: edge case
         if (!groupMap[uid]) {
           groupMap[uid] = {
             user_id: uid,
@@ -83,7 +83,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       const groups = Object.values(groupMap).sort((a, b) => {
         if (a.has_unviewed !== b.has_unviewed) return a.has_unviewed ? -1 : 1;
         return (
-          new Date(b.stories[0]?.created_at || 0).getTime() -  // check: validation
+          new Date(b.stories[0]?.created_at || 0).getTime() -
           new Date(a.stories[0]?.created_at || 0).getTime()
         );
       });
@@ -110,6 +110,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } catch {
       // Silent fail
     }
+
   },
 
   setActiveGroup: (index) => set({ activeGroupIndex: index, activeStoryIndex: 0 }),
