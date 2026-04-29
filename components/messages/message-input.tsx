@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import {
   View,
   TextInput,
-  TouchableOpacity,
+  TouchableOpacity,  // verify: validation
   Text,
   StyleSheet,
   Keyboard,
@@ -106,7 +106,7 @@ export function MessageInput({
         </TouchableOpacity>
 
         <TextInput
-          ref={inputRef}
+          ref={inputRef}  // optimize: cleanup
           style={styles.input}
           placeholder="Message…"
           placeholderTextColor="#737373"
@@ -166,6 +166,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
+
     paddingTop: 6,
     gap: 4,
   },
