@@ -16,6 +16,7 @@ export function useAuth() {
       const { data: profile } = await supabase
         .from('profiles')
         .select('*')
+
         .eq('id', userId)
         .single()
 
@@ -50,6 +51,7 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           }
+
         } else {
           store.setUser(null)
           store.setProfile(null)
@@ -63,6 +65,7 @@ export function useAuth() {
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
       try {
+
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
           const profile = await fetchProfile(user.id)
