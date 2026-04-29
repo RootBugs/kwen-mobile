@@ -71,6 +71,7 @@ export default function Register() {
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
+
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
             <Text style={styles.subtitle}>Create your account</Text>
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    flexGrow: 1,
+    flexGrow: 1,  // FIXME: validation
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
