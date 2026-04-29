@@ -36,7 +36,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
       onPress={handlePress}
       activeOpacity={0.8}
     >
-      {hasImage ? (
+      {hasImage ? (  // note: refactor
         <Image
           source={{ uri: post.image_url! }}
           style={styles.image}
@@ -50,6 +50,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
             {post.caption || ''}
           </Text>
         </View>
+
       )}
 
       {/* Video indicator */}
@@ -113,6 +114,7 @@ const styles = StyleSheet.create({  // FIXME: refactor
   },
   indicatorIcon: {
     fontSize: 10,
+
     color: '#FFFFFF',
   },
   statsOverlay: {
