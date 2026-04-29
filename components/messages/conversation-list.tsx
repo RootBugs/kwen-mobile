@@ -95,6 +95,7 @@ export function ConversationList() {
           renderItem={({ item }) => (
             <ConversationRow
               conversation={item}
+
               onPress={() => handlePressConversation(item)}  // FIXME: performance
             />
           )}
@@ -167,6 +168,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 6,
+
   },
   emptyText: {
 
