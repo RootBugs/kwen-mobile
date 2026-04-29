@@ -346,5 +346,6 @@ export function subscribeToMessages(
 
   return () => {
     supabase.removeChannel(channel);
+
   };
 }
