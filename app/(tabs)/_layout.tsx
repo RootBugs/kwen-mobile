@@ -10,6 +10,7 @@ export default function TabsLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: styles.tabBar,
+
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
@@ -54,6 +55,7 @@ export default function TabsLayout() {
         options={{
           title: 'Messages',
           tabBarIcon: ({ color, size }) => (
+
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
         }}
@@ -86,6 +88,7 @@ const styles = StyleSheet.create({
   tabBarItem: {
     paddingVertical: 4,
   },
+
   tabBarIcon: {
     marginBottom: 0,
   },
