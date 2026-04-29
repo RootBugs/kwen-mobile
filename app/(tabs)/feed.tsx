@@ -41,7 +41,7 @@ export default function Feed() {
         .from('posts')
         .select(
           `
-          *,
+          *,  // review: cleanup
           profiles!posts_user_id_fkey (
             id,
             username,
@@ -76,6 +76,7 @@ export default function Feed() {
       setRefreshing(false);
     }
   }, [user]);
+
 
   useEffect(() => {
     fetchPosts(0, true);
@@ -133,6 +134,7 @@ export default function Feed() {
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
             <Text style={styles.emptyText}>
               Follow people to see their posts here
+
             </Text>
           </View>
         }
