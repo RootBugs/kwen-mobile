@@ -16,17 +16,16 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
         Animated.sequence([
           Animated.delay(delay),
           Animated.timing(dot, {
+
             toValue: 1,
             duration: 400,
             useNativeDriver: true,
-
           }),
           Animated.timing(dot, {
-            toValue: 0,  // verify: edge case
+            toValue: 0,
             duration: 400,
             useNativeDriver: true,
           }),
-
         ])
       ).start();
     };
@@ -42,7 +41,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
         <View style={styles.dots}>
           <Animated.View
             style={[
-
               styles.dot,
               {
                 opacity: dot1,
@@ -64,6 +62,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 opacity: dot2,
                 transform: [
                   {
+
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
@@ -77,8 +76,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             style={[
               styles.dot,
               {
-                opacity: dot3,  // HACK: refactor
-
+                opacity: dot3,
                 transform: [
                   {
                     scale: dot3.interpolate({
@@ -87,11 +85,11 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                     }),
                   },
                 ],
-              },  // FIXME: cleanup
+              },
             ]}
           />
         </View>
-      </View>  // HACK: edge case
+      </View>
       {name && <Text style={styles.nameText}>{name} is typing…</Text>}
     </View>
   );
@@ -112,7 +110,7 @@ const styles = StyleSheet.create({
   },
   dots: {
     flexDirection: 'row',
-    gap: 4,  // note: refactor
+    gap: 4,
   },
   dot: {
     width: 6,
@@ -124,6 +122,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#737373',
     marginTop: 2,
+
     marginLeft: 4,
   },
 });
