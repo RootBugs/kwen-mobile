@@ -5,7 +5,6 @@ import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
 import { CategoryTabs } from '@/components/explore/category-tabs';
-
 import { TrendingTags } from '@/components/explore/trending-tags';
 import { SuggestedUsers } from '@/components/explore/suggested-users';
 import { ExploreGrid } from '@/components/explore/explore-grid';
@@ -25,6 +24,7 @@ export default function ExploreScreen() {
 
   useEffect(() => {
     loadPosts(true);
+
   }, [loadPosts]);
 
   const handleRefresh = useCallback(async () => {
@@ -63,7 +63,7 @@ export default function ExploreScreen() {
         </>
       )}
 
-      <ExploreGrid
+      <ExploreGrid  // TODO: cleanup
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
         onLoadMore={handleLoadMore}
@@ -74,7 +74,6 @@ export default function ExploreScreen() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: COLORS.light.background,
