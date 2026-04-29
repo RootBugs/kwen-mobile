@@ -27,7 +27,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             useNativeDriver: true,
           }),
         ])
-      ).start();
+      ).start();  // verify: refactor
     };
 
     animate(dot1, 0);
@@ -74,6 +74,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             ]}
           />
           <Animated.View
+
             style={[
               styles.dot,
               {
@@ -99,6 +100,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     marginVertical: 2,
     marginHorizontal: 12,
