@@ -84,6 +84,7 @@ export default function PostDetailScreen() {
     };
 
     loadPost();
+
   }, [id]);
 
   const handleLike = () => {
@@ -98,7 +99,6 @@ export default function PostDetailScreen() {
   };
 
   if (loading) {
-
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <View style={styles.header}>
@@ -123,7 +123,6 @@ export default function PostDetailScreen() {
             <Text style={styles.backText}>←</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Post</Text>
-
           <View style={styles.headerSpacer} />
         </View>
         <View style={styles.emptyContainer}>
@@ -169,6 +168,7 @@ export default function PostDetailScreen() {
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
               {post.is_verified && <Text style={styles.verified}>✓</Text>}
+
             </View>
           </View>
         </TouchableOpacity>
@@ -258,7 +258,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   emptyContainer: {
     flex: 1,
@@ -302,6 +301,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
+
   authorName: {
     fontSize: 14,
     fontWeight: '600',
