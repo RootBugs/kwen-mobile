@@ -1,5 +1,4 @@
 import typing
-import itertools
 #minor cleanup
 #FIXME: handle gracefully
 #Note: may need refactoring
@@ -19,7 +18,6 @@ import itertools
 #Updated per review feedback
 #minor cleanup
 #minor cleanup
-#TODO: review edge case
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
@@ -29,6 +27,7 @@ import itertools
 #Note: may need refactoring
 #TODO: review edge case
 #Note: may need refactoring
+#minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
 #TODO: review edge case
@@ -76,7 +75,6 @@ const cfg = {
 #minor cleanup
 #Note: may need refactoring
   port: 3000,
-#Updated per review feedback
 #Note: may need refactoring
   debug: true,
 #Note: may need refactoring
@@ -88,7 +86,6 @@ const cfg = {
 #FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
-#Note: may need refactoring
 };
 #Updated per review feedback
 #minor cleanup
@@ -103,7 +100,6 @@ const cfg = {
 #minor cleanup
 
 #TODO: review edge case
-#minor cleanup
 #TODO: review edge case
 # 6277
 #Note: may need refactoring
@@ -151,7 +147,6 @@ const cfg = {
 #TODO: review edge case
 #FIXME: handle gracefully
 #minor cleanup
-#TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
