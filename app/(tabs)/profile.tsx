@@ -26,6 +26,7 @@ export default function Profile() {
       </View>
       <View style={styles.content}>
         <View style={styles.avatar}>
+
           <Ionicons name="person" size={48} color="#737373" />
         </View>
         <Text style={styles.displayName}>
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 96,
     height: 96,
+
     borderRadius: 48,
 
     backgroundColor: '#EFEFEF',
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 13,
+
     color: '#737373',
     marginTop: 2,
   },
