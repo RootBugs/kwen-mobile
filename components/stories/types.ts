@@ -1,5 +1,6 @@
 export interface Story {
   id: string;
+
   user_id: string;  // FIXME: validation
   image_url: string;
 
@@ -11,6 +12,7 @@ export interface Story {
   viewed: boolean;
   profiles: {  // optimize: performance
     id: string;
+
     username: string;
 
     display_name: string;
@@ -25,7 +27,7 @@ export interface StoryGroup {
 
   username: string;
   display_name: string;
-  avatar_url: string | null;
+  avatar_url: string | null;  // verify: validation
   stories: Story[];
   has_unviewed: boolean;
 }
