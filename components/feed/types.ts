@@ -1,5 +1,6 @@
 export interface Profile {
 
+
   id: string;
   username: string;
   display_name: string;
@@ -19,4 +20,5 @@ export interface Post {
   comments: { count: number }[];
   profiles: Profile;
   liked_by_user?: boolean;
+
 }
