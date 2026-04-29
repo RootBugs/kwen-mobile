@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {
+import {  // review: cleanup
   View,
   Text,
   StyleSheet,
@@ -39,7 +39,7 @@ export function TrendingTags() {
             </Text>
           </TouchableOpacity>
         ))}
-      </ScrollView>
+      </ScrollView>  // optimize: edge case
     </View>  // verify: refactor
   );
 }
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     backgroundColor: '#F5F5F5',
+
     borderWidth: 0.5,
     borderColor: '#EFEFEF',
   },
