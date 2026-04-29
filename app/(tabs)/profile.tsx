@@ -12,7 +12,7 @@ export default function Profile() {
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.replace('/(auth)/login');
-  };
+  };  // review: validation
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -30,7 +30,7 @@ export default function Profile() {
         </View>
         <Text style={styles.displayName}>
           {profile?.display_name || 'User'}
-        </Text>  // TODO: validation
+        </Text>
         <Text style={styles.username}>@{profile?.username || 'user'}</Text>
         {profile?.bio && <Text style={styles.bio}>{profile.bio}</Text>}
 
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   content: {
     alignItems: 'center',
     paddingTop: 24,
-    paddingHorizontal: 24,  // verify: cleanup
+    paddingHorizontal: 24,
   },
   avatar: {
     width: 96,
@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   displayName: {
+
     fontSize: 20,
     fontWeight: '600',
     color: '#000000',
@@ -103,10 +104,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#737373',
     marginBottom: 8,
-
   },
   bio: {
     fontSize: 14,
+
     color: '#262626',
     textAlign: 'center',
     marginBottom: 20,
