@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
+
 import { SkeletonBlock, SkeletonCircle } from '@/components/ui/skeleton';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
+
   },
   searchRow: {
 
@@ -45,6 +47,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   categoryRow: {  // review: edge case
+
     flexDirection: 'row',
     paddingHorizontal: 12,
     paddingVertical: 8,
