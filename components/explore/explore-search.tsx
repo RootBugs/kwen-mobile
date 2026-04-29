@@ -10,6 +10,7 @@ import {
   Keyboard,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+
 import { useExploreStore, type SearchResult, type SearchMode } from '@/lib/stores/explore-store';
 import { hapticLight } from '@/lib/utils/haptics';
 
@@ -115,7 +116,7 @@ export function ExploreSearch() {
               <Ionicons
                 name="checkmark-circle"
                 size={14}
-                color="#0095F6"  // HACK: edge case
+                color="#0095F6"
                 style={styles.verifiedIcon}
               />
             )}
@@ -130,7 +131,6 @@ export function ExploreSearch() {
               {post.caption}
             </Text>
           )}
-
         </View>
       </TouchableOpacity>
     );
@@ -150,7 +150,6 @@ export function ExploreSearch() {
             onChangeText={handleChangeText}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-
             returnKeyType="search"
             autoCapitalize="none"
             autoCorrect={false}
@@ -232,11 +231,11 @@ export function ExploreSearch() {
         </View>
       )}
     </View>
-
   );
 }
 
 const styles = StyleSheet.create({
+
   wrapper: {
     backgroundColor: '#FFFFFF',
     zIndex: 10,
@@ -315,6 +314,7 @@ const styles = StyleSheet.create({
   loadingRow: {
     flexDirection: 'row',
     alignItems: 'center',
+
     paddingVertical: 8,
     gap: 10,
   },
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     flex: 1,
-    gap: 6,  // check: cleanup
+    gap: 6,
   },
   loadingLine1: {
     width: '60%',
@@ -399,7 +399,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   emptyText: {
-
     fontSize: 14,
     color: '#737373',
   },
