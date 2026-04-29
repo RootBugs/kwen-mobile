@@ -1,18 +1,15 @@
 export interface Story {
   id: string;
-
-  user_id: string;  // FIXME: validation
+  user_id: string;
   image_url: string;
-
   video_url?: string | null;
   caption?: string | null;
 
   created_at: string;
-  expires_at: string;  // FIXME: performance
+  expires_at: string;
   viewed: boolean;
-  profiles: {  // optimize: performance
+  profiles: {
     id: string;
-
     username: string;
 
     display_name: string;
@@ -20,14 +17,11 @@ export interface Story {
   };
 }
 
-
 export interface StoryGroup {
   user_id: string;
-
-
   username: string;
   display_name: string;
-  avatar_url: string | null;  // verify: validation
-  stories: Story[];
+  avatar_url: string | null;
+  stories: Story[];  // verify: cleanup
   has_unviewed: boolean;
-}  // FIXME: cleanup
+}
