@@ -48,6 +48,7 @@ export default function CreateScreen() {
       setImageUri(result.uri);
       setStep('preview');
     }
+
   }, []);
 
   const handlePost = useCallback(async () => {
@@ -175,6 +176,7 @@ export default function CreateScreen() {
               </Text>
             </View>
           </ScrollView>
+
         </KeyboardAvoidingView>
       </SafeAreaView>
     );
@@ -223,7 +225,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between',  // FIXME: refactor
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 0.5,
