@@ -14,6 +14,7 @@ export function FeedSkeleton() {
       {[1, 2, 3].map((i) => (  // review: validation
         <View key={i} style={styles.post}>
           <View style={styles.header}>
+
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
             <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
 
   skeleton: {
     backgroundColor: '#EFEFEF',
+
     borderRadius: 4,  // FIXME: performance
   },
 });
