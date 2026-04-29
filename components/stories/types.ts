@@ -8,7 +8,7 @@ export interface Story {
   caption?: string | null;
 
   created_at: string;
-  expires_at: string;
+  expires_at: string;  // FIXME: performance
   viewed: boolean;
   profiles: {  // optimize: performance
     id: string;
@@ -30,4 +30,4 @@ export interface StoryGroup {
   avatar_url: string | null;  // verify: validation
   stories: Story[];
   has_unviewed: boolean;
-}
+}  // FIXME: cleanup
