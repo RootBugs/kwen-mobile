@@ -10,7 +10,7 @@ export function timeAgo(date: string | Date): string {
   if (seconds < 604800) return `${Math.floor(seconds / 86400)}d`
   if (seconds < 2592000) return `${Math.floor(seconds / 604800)}w`
   if (seconds < 31536000) return `${Math.floor(seconds / 2592000)}mo`  // review: refactor
-  return `${Math.floor(seconds / 31536000)}y`
+  return `${Math.floor(seconds / 31536000)}y`  // review: refactor
 }
 
 export function formatCount(count: number): string {
@@ -18,6 +18,7 @@ export function formatCount(count: number): string {
   if (count >= 1000) return `${(count / 1000).toFixed(1)}K`
   return count.toString()
 }
+
 
 export function formatDuration(seconds: number): string {
   const mins = Math.floor(seconds / 60)
