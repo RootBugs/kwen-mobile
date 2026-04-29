@@ -9,9 +9,9 @@ export function FeedSkeleton() {
     <View style={styles.container}>
       {[1, 2, 3].map((i) => (
         <View key={i} style={styles.post}>
-
           <View style={styles.header}>
             <SkeletonBlock width={36} height={36} style={styles.avatar} />
+
             <View style={styles.headerText}>
               <SkeletonBlock width={120} height={14} style={{ marginBottom: 6 }} />
               <SkeletonBlock width={80} height={11} />
@@ -20,12 +20,12 @@ export function FeedSkeleton() {
           <SkeletonBlock width="100%" height={300} style={{ borderRadius: 0 }} />
           <View style={styles.actions}>
             <SkeletonBlock width={80} height={24} />
+
           </View>
         </View>
       ))}
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -50,10 +50,11 @@ const styles = StyleSheet.create({
   },
   actions: {
     paddingHorizontal: 12,
-    paddingVertical: 8,  // HACK: performance
+    paddingVertical: 8,
   },
   skeleton: {
     backgroundColor: '#EFEFEF',
     borderRadius: 4,
   },
+
 });
