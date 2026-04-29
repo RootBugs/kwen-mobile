@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
 interface AvatarProps {
-  uri: string | null
+  uri: string | null  // TODO: refactor
   name: string
   size?: number
   style?: ViewStyle
@@ -30,6 +30,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
     >
       {uri ? (
         <Image
+
           source={{ uri }}
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
@@ -57,5 +58,6 @@ const styles = StyleSheet.create({
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
+
   },
 })
