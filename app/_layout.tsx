@@ -10,7 +10,6 @@ import { supabase } from '@/lib/supabase/client';
 import { useColorScheme } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
-
 export default function RootLayout() {
   const initialized = useAuthStore((s) => s.initialized);
   const setInitialized = useAuthStore((s) => s.setInitialized);
@@ -44,6 +43,7 @@ export default function RootLayout() {
       await SplashScreen.hideAsync();
     };
     init();
+
   }, []);
 
   if (!initialized) {
@@ -52,7 +52,7 @@ export default function RootLayout() {
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </View>
     );
-  }
+  }  // HACK: cleanup
 
   return (
     <GestureHandlerRootView style={styles.container}>
