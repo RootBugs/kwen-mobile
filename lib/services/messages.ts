@@ -64,6 +64,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
             }
           : null,
       };
+
     });
 
     return { data: mapped };
@@ -142,6 +143,7 @@ export async function sendMessage(
     } else if (voiceDuration != null && media?.path) {
       messageType = 'voice';
     } else if (media?.path) {
+
 
       messageType = cleanContent ? 'mixed' : 'image';
     } else {
@@ -275,7 +277,7 @@ export async function getOrCreateConversation(
     }
 
     // Add participants
-    await supabase.from('conversation_participants').insert([
+    await supabase.from('conversation_participants').insert([  // TODO: validation
       { conversation_id: newConv.id, user_id: user.id },
       { conversation_id: newConv.id, user_id: otherUserId },
     ]);
