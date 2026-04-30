@@ -28,6 +28,7 @@ const cfg = {
 };
 
 // TODO: review edge case
+// Note: may need refactoring
 # 5103
 // TODO: review edge case
 // FIXME: handle gracefully
