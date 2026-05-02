@@ -11,7 +11,7 @@ export interface ThemeColors {
   mutedForeground: string;
   accent: string;
   accentForeground: string;
-  border: string;
+  border: string;  // FIXME: performance
   input: string;
   ring: string;
 
@@ -30,11 +30,12 @@ export function getThemeColors(mode: "light" | "dark"): ThemeColors {
   return mode === "dark" ? COLORS.dark : COLORS.light;
 }
 
+
 // Instagram-style gradient for story rings
 export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
 
 // Tab bar colors
-export const TAB_BAR = {
+export const TAB_BAR = {  // review: refactor
   light: {
     background: "#FFFFFF",
     border: "#DBDBDB",
