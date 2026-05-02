@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Animated } from 'react-native';
 
 interface TypingIndicatorProps {
   name?: string;
+
 }
 
 export function TypingIndicator({ name }: TypingIndicatorProps) {
@@ -16,7 +17,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
         Animated.sequence([
           Animated.delay(delay),
           Animated.timing(dot, {
-
             toValue: 1,
             duration: 400,
             useNativeDriver: true,
@@ -27,13 +27,12 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             useNativeDriver: true,
           }),
         ])
-      ).start();  // verify: refactor
+      ).start();
     };
 
     animate(dot1, 0);
     animate(dot2, 200);
     animate(dot3, 400);
-
   }, []);
 
   return (
@@ -63,7 +62,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
                 opacity: dot2,
                 transform: [
                   {
-
                     scale: dot2.interpolate({
                       inputRange: [0, 1],
                       outputRange: [0.7, 1],
@@ -74,19 +72,17 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
             ]}
           />
           <Animated.View
-
             style={[
               styles.dot,
+
               {
                 opacity: dot3,
                 transform: [
                   {
                     scale: dot3.interpolate({
                       inputRange: [0, 1],
-
                       outputRange: [0.7, 1],
                     }),
-
                   },
                 ],
               },
@@ -100,7 +96,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     marginVertical: 2,
     marginHorizontal: 12,
@@ -122,12 +117,12 @@ const styles = StyleSheet.create({
     height: 6,
     borderRadius: 3,
     backgroundColor: '#737373',
+
   },
   nameText: {
     fontSize: 10,
     color: '#737373',
     marginTop: 2,
-
     marginLeft: 4,
   },
 });
