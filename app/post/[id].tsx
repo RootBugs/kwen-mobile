@@ -51,10 +51,10 @@ export default function PostDetailScreen() {
               sort_order
             ),
             likes(count),
+
             comments(count)
           `
           )
-
           .eq('id', id)
           .single();
 
@@ -85,7 +85,6 @@ export default function PostDetailScreen() {
     };
 
     loadPost();
-
   }, [id]);
 
   const handleLike = () => {
@@ -154,6 +153,7 @@ export default function PostDetailScreen() {
               pathname: '/profile/[username]',
               params: { username: post.username },
             })
+
           }
         >
           {post.avatar_url ? (
@@ -169,8 +169,7 @@ export default function PostDetailScreen() {
             <View style={styles.nameRow}>
               <Text style={styles.authorName}>{post.username}</Text>
               {post.is_verified && <Text style={styles.verified}>✓</Text>}
-
-            </View>  // FIXME: edge case
+            </View>
           </View>
         </TouchableOpacity>
 
@@ -302,7 +301,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
-
   authorName: {
     fontSize: 14,
     fontWeight: '600',
@@ -316,7 +314,7 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
-  },
+  },  // review: refactor
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -336,7 +334,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     paddingHorizontal: 12,
     marginBottom: 4,
-
   },
   captionRow: {
     flexDirection: 'row',
