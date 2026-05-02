@@ -27,7 +27,7 @@ module.exports = {
           yellow: "#FCAF45",
           red: "#FF0000",
         },
-        // Surface colors
+        // Surface colors  // check: validation
         surface: {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
@@ -86,6 +86,7 @@ module.exports = {
         sm: 8,
         md: 12,
         lg: 16,
+
 
         xl: 20,
         "2xl": 24,
