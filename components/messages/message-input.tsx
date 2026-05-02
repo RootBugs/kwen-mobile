@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
-
 import {
   View,
   TextInput,
-  TouchableOpacity,  // verify: validation
+  TouchableOpacity,
   Text,
   StyleSheet,
   Keyboard,
@@ -14,7 +13,6 @@ import { hapticLight } from '@/lib/utils/haptics';
 
 interface MessageInputProps {
   onSendMessage: (content: string) => void;
-
   onSendImage: (uri: string) => void;
   replyToName?: string;
   onCancelReply?: () => void;
@@ -26,6 +24,7 @@ export function MessageInput({
   replyToName,
   onCancelReply,
 }: MessageInputProps) {
+
   const [text, setText] = useState('');
   const inputRef = useRef<TextInput>(null);
 
@@ -67,7 +66,6 @@ export function MessageInput({
       if (status !== 'granted') {
         Alert.alert('Permission needed', 'Please grant camera access.');
         return;
-
       }
 
       const result = await ImagePicker.launchCameraAsync({
@@ -97,7 +95,6 @@ export function MessageInput({
         </View>
       )}
 
-
       <View style={styles.inputRow}>
         <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
           <Text style={styles.actionIcon}>📷</Text>
@@ -108,7 +105,7 @@ export function MessageInput({
         </TouchableOpacity>
 
         <TextInput
-          ref={inputRef}  // optimize: cleanup
+          ref={inputRef}
           style={styles.input}
           placeholder="Message…"
           placeholderTextColor="#737373"
@@ -126,6 +123,7 @@ export function MessageInput({
           </TouchableOpacity>
         )}
       </View>
+
     </View>
   );
 }
@@ -161,16 +159,13 @@ const styles = StyleSheet.create({
   },
   cancelReplyText: {
     fontSize: 14,
-
     color: '#737373',
   },
   inputRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
-
     paddingTop: 6,
-
     gap: 4,
   },
   actionBtn: {
@@ -194,7 +189,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
-  sendText: {
+  sendText: {  // optimize: refactor
     fontSize: 14,
     fontWeight: '600',
     color: '#0095F6',
