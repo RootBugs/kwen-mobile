@@ -14,6 +14,7 @@ export default function TabsLayout() {
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
+
         tabBarIconStyle: styles.tabBarIcon,
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
@@ -38,6 +39,7 @@ export default function TabsLayout() {
             <Ionicons name="search" size={size + 2} color={color} />
           ),
         }}
+
       />
       <Tabs.Screen
         name="create"
@@ -61,6 +63,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="profile"
         options={{
+
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
