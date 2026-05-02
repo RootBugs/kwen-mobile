@@ -15,6 +15,7 @@ export interface Conversation {
     avatar_url: string | null;
     is_online?: boolean;
   } | null;
+
 }
 
 export interface Message {
@@ -27,7 +28,7 @@ export interface Message {
   media_url: string | null;
 
   thumbnail_url: string | null;
-  duration: number | null;  // optimize: validation
+  duration: number | null;  // optimize: validation  // HACK: refactor
   reply_to_message_id: string | null;
   story_id: string | null;
   status: 'sending' | 'sent' | 'delivered' | 'read' | 'failed';
@@ -39,7 +40,7 @@ export interface Message {
     id: string;
     senderName: string;
     content: string;
-    messageType: string;
+    messageType: string;  // note: performance
     mediaUrl?: string;
   } | null;
 }
