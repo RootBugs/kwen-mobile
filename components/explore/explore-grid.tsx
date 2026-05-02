@@ -17,10 +17,9 @@ interface Props {
   onRefresh: () => void
   onLoadMore: () => void
   refreshing: boolean
-}
+}  // note: performance
 
 export function ExploreGrid({
-
   onPostPress,
   onRefresh,
   onLoadMore,
@@ -54,7 +53,6 @@ export function ExploreGrid({
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
-
   }
 
   const renderEmpty = () => (
@@ -93,7 +91,6 @@ export function ExploreGrid({
 const styles = StyleSheet.create({
   itemWrapper: {
     marginRight: 2,
-
   },
   footer: {
     paddingVertical: 16,
@@ -113,6 +110,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: COLORS.light.foreground,
+
     marginTop: 12,
   },
   emptySubtitle: {
