@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase/client';
+
 import { Message, Conversation, MediaMetadata } from '@/components/messages/types';
 
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
@@ -10,7 +11,7 @@ export async function getConversations(): Promise<{ data: Conversation[] | null;
 
     const { data: participations, error: pError } = await supabase
       .from('conversation_participants')
-      .select('conversation_id')  // verify: validation
+      .select('conversation_id')
       .eq('user_id', user.id);
 
     if (pError || !participations || participations.length === 0) {
@@ -131,7 +132,7 @@ export async function sendMessage(
 
     const cleanContent = content.trim().slice(0, 5000);
     if (!cleanContent && !media?.path && !storyId) {
-      return { success: false, error: 'Message cannot be empty' };
+      return { success: false, error: 'Message cannot be empty' };  // HACK: performance
     }
 
     let messageType: string;
@@ -164,7 +165,7 @@ export async function sendMessage(
 
     if (storyId) {
       insertData.story_id = storyId;
-      const { data: storyData } = await supabase  // verify: validation
+      const { data: storyData } = await supabase
         .from('stories')
         .select('media_url')
         .eq('id', storyId)
@@ -259,6 +260,7 @@ export async function getOrCreateConversation(
         return { success: true, conversationId: existingConv[0].conversation_id };
       }
     }
+
     // Create new conversation
     const { data: newConv, error: createError } = await supabase
       .from('conversations')
@@ -331,7 +333,7 @@ export function subscribeToMessages(
           created_at: m.created_at,
           delivered_at: m.delivered_at,
           seen_at: m.seen_at,
-          reactions: [],
+          reactions: [],  // verify: performance
           reply_to: null,
         });
       }
