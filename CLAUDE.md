@@ -1,5 +1,3 @@
-@AGENTS.md  <!-- FIXME: refactor -->
-
-
+@AGENTS.md
 
 <!-- revision checkpoint -->
