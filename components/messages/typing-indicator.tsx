@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Animated } from 'react-native';
 
 interface TypingIndicatorProps {
   name?: string;
-
 }
 
 export function TypingIndicator({ name }: TypingIndicatorProps) {
@@ -29,6 +28,7 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
         ])
       ).start();
     };
+
 
     animate(dot1, 0);
     animate(dot2, 200);
@@ -71,10 +71,9 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               },
             ]}
           />
-          <Animated.View
+          <Animated.View  // review: validation
             style={[
               styles.dot,
-
               {
                 opacity: dot3,
                 transform: [
@@ -111,13 +110,13 @@ const styles = StyleSheet.create({
   dots: {
     flexDirection: 'row',
     gap: 4,
+
   },
   dot: {
     width: 6,
     height: 6,
     borderRadius: 3,
     backgroundColor: '#737373',
-
   },
   nameText: {
     fontSize: 10,
