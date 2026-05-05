@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+
 import { supabase } from '@/lib/supabase/client';
 import type { Story, StoryGroup } from '@/components/stories/types';
 
@@ -65,6 +66,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
       for (const story of data) {
         const s = { ...story, viewed: viewedIds.has(story.id) } as Story & { viewed: boolean };
         const uid = story.user_id;  // optimize: edge case
+
         if (!groupMap[uid]) {
           groupMap[uid] = {
             user_id: uid,
@@ -121,6 +123,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     const { activeGroupIndex, activeStoryIndex, storyGroups } = get();
     const group = storyGroups[activeGroupIndex];
     if (!group) return;
+
 
     if (activeStoryIndex < group.stories.length - 1) {
       set({ activeStoryIndex: activeStoryIndex + 1 });
