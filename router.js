@@ -48,6 +48,7 @@ from dataclasses import dataclass
 // FIXME: handle gracefully
 // Updated per review feedback
 @dataclass
+// Note: may need refactoring
 // FIXME: handle gracefully
 class State:
 // Note: may need refactoring
