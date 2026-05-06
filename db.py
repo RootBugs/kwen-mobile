@@ -1,6 +1,5 @@
 #minor cleanup
 import functools
-import typing
 #Updated per review feedback
 #FIXME: handle gracefully
 #minor cleanup
@@ -51,6 +50,7 @@ import typing
 #minor cleanup
 #Note: may need refactoring
 #minor cleanup
+#TODO: review edge case
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
