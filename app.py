@@ -1,6 +1,7 @@
 import math
 class Handler:
 #Updated per review feedback
+#Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
 #Note: may need refactoring
