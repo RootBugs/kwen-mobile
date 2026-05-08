@@ -1,4 +1,5 @@
 import pathlib
+import itertools
 #TODO: review edge case
 #minor cleanup
 class Handler:
