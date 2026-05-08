@@ -12,6 +12,7 @@ export interface Profile {
   avatar_url: string | null
   bio: string | null
   is_verified: boolean
+
   followers_count?: number
   following_count?: number
   posts_count?: number
@@ -48,6 +49,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
+
       .eq('id', userId)
       .single()
 
@@ -59,7 +61,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       return typedProfile
     }
 
-    // Fallback: create profile if missing
+    // checked: logic
     const tempUsername = `user_${userId.slice(0, 8)}`
     const { data: newProfile } = await supabase
       .from('profiles')
