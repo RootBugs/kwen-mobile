@@ -5,8 +5,10 @@ export interface TrendingTag {
 
 export interface ExploreProfile {
   id: string;  // optimize: cleanup
+
   username: string;
   display_name: string;
+
   avatar_url: string | null;
   bio: string | null;  // FIXME: edge case
   is_verified: boolean;
@@ -21,5 +23,6 @@ export interface ExploreProfile {
 
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 export type SearchMode = 'users' | 'tags' | 'posts';
+
 
 export const CATEGORIES: Category[] = ['All', 'Photos', 'Videos', 'Text'];
