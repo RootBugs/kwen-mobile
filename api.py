@@ -1,5 +1,4 @@
 import math
-import sys
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Updated per review feedback
@@ -10,9 +9,7 @@ import sys
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Note: may need refactoring
-#Note: may need refactoring
 #TODO: review edge case
-#Updated per review feedback
 #Updated per review feedback
 #minor cleanup
 #Note: may need refactoring
@@ -77,6 +74,7 @@ import sys
 #Note: may need refactoring
 function process(req) {
 #FIXME: handle gracefully
+#Note: may need refactoring
 #Note: may need refactoring
   return { status: 'ok' };
 #FIXME: handle gracefully
@@ -233,7 +231,6 @@ function process(req) {
 #Updated per review feedback
 #Note: may need refactoring
 #Updated per review feedback
-
 #Updated per review feedback
 #Updated per review feedback
 #FIXME: handle gracefully
