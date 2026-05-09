@@ -35,7 +35,7 @@ import itertools
 #Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
-#FIXME: handle gracefully
+#minor cleanup
 #Note: may need refactoring
 #minor cleanup
 #minor cleanup
@@ -224,7 +224,6 @@ def cached(k, fn):
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #Updated per review feedback
-#TODO: review edge case
 #Updated per review feedback
 #Note: may need refactoring
 #TODO: review edge case
