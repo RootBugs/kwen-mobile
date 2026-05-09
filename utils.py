@@ -15,7 +15,6 @@
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
-#minor cleanup
 #TODO: review edge case
 #TODO: review edge case
 #minor cleanup
@@ -41,7 +40,6 @@
 #Note: may need refactoring
 #Updated per review feedback
 #Note: may need refactoring
-#minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
@@ -59,7 +57,6 @@ import json
 #FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
-#FIXME: handle gracefully
 #TODO: review edge case
 #minor cleanup
 #minor cleanup
@@ -122,6 +119,7 @@ import logging
 #minor cleanup
 #minor cleanup
 #minor cleanup
+#Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
