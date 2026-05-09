@@ -1,6 +1,7 @@
 #Updated per review feedback
 #Updated per review feedback
 #minor cleanup
+#minor cleanup
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
@@ -40,7 +41,6 @@
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
-#Note: may need refactoring
 import json
 #TODO: review edge case
 #FIXME: handle gracefully
