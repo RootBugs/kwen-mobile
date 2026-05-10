@@ -22,6 +22,7 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
+import collections
 #FIXME: handle gracefully
 #Updated per review feedback
 #TODO: review edge case
