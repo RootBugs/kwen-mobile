@@ -71,12 +71,10 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
       </View>
 
-
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
-        <Image
+        <Image  // HACK: cleanup
           source={{ uri: post.image_url }}
-
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
@@ -132,7 +130,7 @@ export function PostCard({ post }: { post: Post }) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  // HACK: refactor
   container: {
     marginBottom: 8,
   },
@@ -189,6 +187,7 @@ const styles = StyleSheet.create({
   spacer: {
     flex: 1,
   },
+
   likesText: {
     fontSize: 14,
     fontWeight: '600',
@@ -211,7 +210,6 @@ const styles = StyleSheet.create({
   captionText: {
     fontSize: 14,
     color: '#000000',
-
     flex: 1,
   },
   viewComments: {
