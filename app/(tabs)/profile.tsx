@@ -20,12 +20,12 @@ export default function Profile() {
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
-
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
+
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
         </View>
@@ -48,11 +48,11 @@ export default function Profile() {
             <Text style={styles.statValue}>{profile?.following_count ?? 0}</Text>
             <Text style={styles.statLabel}>Following</Text>
           </View>
-
         </View>
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
+
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   stats: {
-    flexDirection: 'row',  // HACK: edge case
+    flexDirection: 'row',
     gap: 32,
     marginBottom: 20,
   },
@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   editBtnText: {
     fontSize: 14,
