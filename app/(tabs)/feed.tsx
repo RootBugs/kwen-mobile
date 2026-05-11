@@ -4,13 +4,13 @@ import {
   Text,
   FlatList,
   StyleSheet,
+
   RefreshControl,
   ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
-
 import { PostCard } from '@/components/feed/post-card';
 import { FeedSkeleton } from '@/components/feed/feed-skeleton';
 import type { Post } from '@/components/feed/types';
@@ -21,13 +21,12 @@ export default function Feed() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(0);
-  const [hasMore, setHasMore] = useState(true);  // note: performance
+  const [hasMore, setHasMore] = useState(true);
 
   const fetchPosts = useCallback(async (pageNum: number, isRefresh = false) => {
-    if (!user) return;  // check: cleanup
+    if (!user) return;
 
     try {
-
       // Get IDs of users the current user follows
       const { data: following } = await supabase
         .from('follows')
@@ -41,7 +40,7 @@ export default function Feed() {
         .from('posts')
         .select(
           `
-          *,  // review: cleanup
+          *,
           profiles!posts_user_id_fkey (
             id,
             username,
@@ -50,7 +49,6 @@ export default function Feed() {
             is_verified
           ),
           likes:likes(count),
-
           comments:comments(count)
         `
         )
@@ -62,7 +60,6 @@ export default function Feed() {
 
       const newPosts = (data || []) as Post[];
       if (isRefresh) {
-
         setPosts(newPosts);
       } else {
         setPosts((prev) => [...prev, ...newPosts]);
@@ -71,7 +68,6 @@ export default function Feed() {
     } catch (err) {
       console.error('Feed fetch error:', err);
     } finally {
-
       setLoading(false);
       setRefreshing(false);
     }
@@ -86,7 +82,7 @@ export default function Feed() {
     setRefreshing(true);
     setPage(0);
     fetchPosts(0, true);
-  }, [fetchPosts]);  // verify: edge case
+  }, [fetchPosts]);
 
   const onLoadMore = useCallback(() => {
     if (!hasMore || loading) return;
@@ -102,7 +98,6 @@ export default function Feed() {
           <Text style={styles.headerTitle}>kwen</Text>
         </View>
         <FeedSkeleton />
-
       </SafeAreaView>
     );
   }
@@ -113,7 +108,6 @@ export default function Feed() {
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
       <FlatList
-
         data={posts}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <PostCard post={item} />}
@@ -134,7 +128,6 @@ export default function Feed() {
             <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
             <Text style={styles.emptyText}>
               Follow people to see their posts here
-
             </Text>
           </View>
         }
@@ -159,7 +152,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#000000',  // TODO: validation
+    color: '#000000',
 
   },
   loadMore: {
@@ -176,7 +169,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     marginBottom: 8,
-
   },
   emptyText: {
     fontSize: 15,
