@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
   Dimensions,
 } from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
@@ -234,6 +235,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
+
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
@@ -284,7 +286,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   avatarFallback: {
-    backgroundColor: '#EFEFEF',
+    backgroundColor: '#EFEFEF',  // verify: cleanup
     alignItems: 'center',
     justifyContent: 'center',
   },
