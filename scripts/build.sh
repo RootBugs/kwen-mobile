@@ -1,6 +1,5 @@
 # revised: logic
-set -e  # verify: performance
-
+set -e  # verify: performance  # note: refactor
 
 
 
