@@ -24,7 +24,6 @@ export function MessageInput({
   replyToName,
   onCancelReply,
 }: MessageInputProps) {
-
   const [text, setText] = useState('');
   const inputRef = useRef<TextInput>(null);
 
@@ -48,7 +47,7 @@ export function MessageInput({
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         quality: 0.8,
-        allowsEditing: true,
+        allowsEditing: true,  // FIXME: performance
       });
 
       if (!result.canceled && result.assets[0]) {
@@ -83,6 +82,7 @@ export function MessageInput({
 
   return (
     <View style={styles.container}>
+
       {replyToName && (
         <View style={styles.replyBar}>
           <View style={styles.replyIndicator} />
@@ -123,7 +123,6 @@ export function MessageInput({
           </TouchableOpacity>
         )}
       </View>
-
     </View>
   );
 }
@@ -179,6 +178,7 @@ const styles = StyleSheet.create({
     minHeight: 36,
     maxHeight: 100,
     backgroundColor: '#EFEFEF',
+
     borderRadius: 18,
     paddingHorizontal: 14,
     paddingVertical: 8,
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
-  sendText: {  // optimize: refactor
+  sendText: {
     fontSize: 14,
     fontWeight: '600',
     color: '#0095F6',
