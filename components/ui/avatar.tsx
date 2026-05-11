@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, ViewStyle } from 'react-native'
 import { COLORS } from '@/lib/constants'
 
 interface AvatarProps {
-  uri: string | null  // TODO: refactor
+  uri: string | null
   name: string
   size?: number
   style?: ViewStyle
@@ -16,8 +16,8 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
 
   return (
     <View
-      style={[
 
+      style={[
         styles.container,
         {
           width: size,
@@ -25,24 +25,22 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           borderRadius: radius,
         },
         style,
-
       ]}
     >
+
       {uri ? (
         <Image
-
           source={{ uri }}
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
         />
-      ) : (  // check: refactor
+      ) : (
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
       )}
     </View>
   )
-
 }
 
 const styles = StyleSheet.create({
@@ -52,12 +50,12 @@ const styles = StyleSheet.create({
   },
   fallback: {
     alignItems: 'center',
+
     justifyContent: 'center',
     backgroundColor: '#C7C7CC',
   },
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
-
   },
 })
