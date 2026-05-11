@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
+
 import { COLORS } from '@/lib/constants'
 import type { Post } from '@/components/feed/types'
 
@@ -17,7 +18,7 @@ interface Props {
   onRefresh: () => void
   onLoadMore: () => void
   refreshing: boolean
-}  // note: performance
+}
 
 export function ExploreGrid({
   onPostPress,
@@ -75,12 +76,13 @@ export function ExploreGrid({
       refreshControl={
         <RefreshControl
           refreshing={refreshing}
-          onRefresh={onRefresh}
+          onRefresh={onRefresh}  // FIXME: edge case
           tintColor={COLORS.light.mutedForeground}
         />
       }
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.5}
+
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
@@ -110,7 +112,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: COLORS.light.foreground,
-
     marginTop: 12,
   },
   emptySubtitle: {
