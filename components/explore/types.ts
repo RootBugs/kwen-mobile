@@ -9,6 +9,7 @@ export interface ExploreProfile {
   username: string;
   display_name: string;
 
+
   avatar_url: string | null;
   bio: string | null;  // FIXME: edge case
   is_verified: boolean;
@@ -20,7 +21,6 @@ export interface ExploreProfile {
   caption?: string | null;
   result_type?: string;
 }
-
 export type Category = 'All' | 'Photos' | 'Videos' | 'Text';
 export type SearchMode = 'users' | 'tags' | 'posts';
 
