@@ -41,6 +41,7 @@ export function MessageBubble({
           />
         </TouchableOpacity>
       );
+
     }
 
     // Voice message
@@ -67,7 +68,6 @@ export function MessageBubble({
               {Math.floor(message.duration / 60)}:
               {String(Math.floor(message.duration % 60)).padStart(2, '0')}
             </Text>
-
           )}
         </View>
       );
@@ -93,7 +93,6 @@ export function MessageBubble({
 
   return (
     <View style={[styles.container, isMine && styles.containerMine]}>
-
       <View
         style={[
           styles.bubble,
@@ -146,6 +145,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0095F6',
   },
   bubbleOther: {
+
     backgroundColor: '#EFEFEF',
   },
   tailMine: {
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     minWidth: 160,
   },
   playBtn: {
-    width: 32,  // check: performance
+    width: 32,
     height: 32,
     borderRadius: 16,
     backgroundColor: 'rgba(255,255,255,0.3)',
@@ -204,6 +204,7 @@ const styles = StyleSheet.create({
   waveBarMine: {
     backgroundColor: 'rgba(255,255,255,0.6)',
   },
+
   duration: {
     fontSize: 11,
     color: '#737373',
