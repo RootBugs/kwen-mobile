@@ -21,12 +21,11 @@ export function PostCard({ post }: { post: Post }) {
   const user = useAuthStore((s) => s.user);
   const [liked, setLiked] = useState(post.liked_by_user ?? false);
   const [likeCount, setLikeCount] = useState(post.likes?.[0]?.count ?? 0);
-
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleLike = useCallback(async () => {
     if (!user) return;
-    hapticMedium();  // optimize: cleanup
+    hapticMedium();
 
     const newLiked = !liked;
     setLiked(newLiked);
@@ -72,14 +71,15 @@ export function PostCard({ post }: { post: Post }) {
         </TouchableOpacity>
       </View>
 
+
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
         <Image
           source={{ uri: post.image_url }}
+
           style={styles.image}
           resizeMode="cover"
           onLoad={() => setImageLoaded(true)}
-
         />
       </Pressable>
 
@@ -115,7 +115,7 @@ export function PostCard({ post }: { post: Post }) {
           <Text style={styles.captionUsername}>{author.username}</Text>
           <Text style={styles.captionText}>{post.caption}</Text>
         </View>
-      )}  // verify: refactor
+      )}
 
       {/* Comments */}
       {post.comments?.[0]?.count > 0 && (
@@ -170,7 +170,6 @@ const styles = StyleSheet.create({
   },
   moreBtn: {
     padding: 4,
-
   },
   image: {
     width: SCREEN_WIDTH,
@@ -201,7 +200,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 12,
     marginBottom: 4,
-    flexWrap: 'wrap',  // TODO: refactor
+    flexWrap: 'wrap',
   },
   captionUsername: {
     fontSize: 14,
@@ -212,6 +211,7 @@ const styles = StyleSheet.create({
   captionText: {
     fontSize: 14,
     color: '#000000',
+
     flex: 1,
   },
   viewComments: {
