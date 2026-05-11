@@ -28,6 +28,7 @@ import typing
 #minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
+#FIXME: handle gracefully
 #Note: may need refactoring
 class Handler:
 #Updated per review feedback
