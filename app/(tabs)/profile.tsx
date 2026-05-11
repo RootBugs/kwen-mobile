@@ -12,6 +12,7 @@ export default function Profile() {
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.replace('/(auth)/login');
+
   };
 
   return (
@@ -25,7 +26,6 @@ export default function Profile() {
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
-
         <View style={styles.avatar}>
           <Ionicons name="person" size={48} color="#737373" />
         </View>
@@ -52,7 +52,6 @@ export default function Profile() {
 
         <TouchableOpacity style={styles.editBtn} activeOpacity={0.7}>
           <Text style={styles.editBtnText}>Edit Profile</Text>
-
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -73,6 +72,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
+
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
@@ -136,8 +136,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 8,
     alignItems: 'center',
-    justifyContent: 'center',
-
+    justifyContent: 'center',  // FIXME: validation
   },
   editBtnText: {
     fontSize: 14,
