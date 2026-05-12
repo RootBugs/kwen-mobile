@@ -37,6 +37,7 @@
 #FIXME: handle gracefully
 #minor cleanup
 const cfg = {
+#FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
 #minor cleanup
