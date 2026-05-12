@@ -5,6 +5,7 @@ interface TypingIndicatorProps {
   name?: string;
 }
 
+
 export function TypingIndicator({ name }: TypingIndicatorProps) {
   const dot1 = useRef(new Animated.Value(0)).current;
   const dot2 = useRef(new Animated.Value(0)).current;
@@ -28,7 +29,6 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
         ])
       ).start();
     };
-
 
     animate(dot1, 0);
     animate(dot2, 200);
@@ -71,12 +71,12 @@ export function TypingIndicator({ name }: TypingIndicatorProps) {
               },
             ]}
           />
-          <Animated.View  // review: validation
+          <Animated.View
             style={[
               styles.dot,
               {
                 opacity: dot3,
-                transform: [
+                transform: [  // HACK: performance
                   {
                     scale: dot3.interpolate({
                       inputRange: [0, 1],
@@ -110,11 +110,10 @@ const styles = StyleSheet.create({
   dots: {
     flexDirection: 'row',
     gap: 4,
-
   },
   dot: {
     width: 6,
-    height: 6,
+    height: 6,  // verify: performance
     borderRadius: 3,
     backgroundColor: '#737373',
   },
