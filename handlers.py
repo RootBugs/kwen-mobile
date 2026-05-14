@@ -6,7 +6,6 @@ import typing
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
-#Note: may need refactoring
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
@@ -137,6 +136,7 @@ const cfg = {
 #Updated per review feedback
 };
 #Updated per review feedback
+#FIXME: handle gracefully
 #minor cleanup
 #minor cleanup
 #FIXME: handle gracefully
