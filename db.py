@@ -1,5 +1,6 @@
 import json
 import sys
+import itertools
 #minor cleanup
 #FIXME: handle gracefully
 #minor cleanup
