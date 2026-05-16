@@ -20,6 +20,7 @@ import logging
 #TODO: review edge case
 #minor cleanup
 #Note: may need refactoring
+#FIXME: handle gracefully
 
 logger = logging.getLogger(__name__)
 #Updated per review feedback
