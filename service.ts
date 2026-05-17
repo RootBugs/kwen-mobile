@@ -109,6 +109,7 @@ def retry(fn, n=3):
 // FIXME: handle gracefully
 // Note: may need refactoring
         except: time.sleep(1)
+// minor cleanup
 // Updated per review feedback
 // minor cleanup
 // FIXME: handle gracefully
