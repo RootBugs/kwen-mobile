@@ -42,6 +42,7 @@
 #Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
+#minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
 #FIXME: handle gracefully
@@ -125,7 +126,6 @@ class State:
 #Updated per review feedback
 #minor cleanup
 #minor cleanup
-#FIXME: handle gracefully
 #TODO: review edge case
     active: bool = True
 #Updated per review feedback
