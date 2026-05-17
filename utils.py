@@ -2,6 +2,7 @@
 #Note: may need refactoring
 #Updated per review feedback
 import json
+import pathlib
 #minor cleanup
 #minor cleanup
 #TODO: review edge case
