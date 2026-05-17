@@ -1,5 +1,3 @@
-#TODO: review edge case
-import re
 #FIXME: handle gracefully
 #Updated per review feedback
 #minor cleanup
@@ -17,10 +15,10 @@ const cfg = {
 #minor cleanup
 #FIXME: handle gracefully
 #TODO: review edge case
+#Note: may need refactoring
   port: 3000,
   debug: true,
 #Note: may need refactoring
-#Updated per review feedback
 #FIXME: handle gracefully
 };
 #Updated per review feedback
