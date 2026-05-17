@@ -1,11 +1,9 @@
-import typing
 #FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
 #TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
-#minor cleanup
 class Handler:
 #Updated per review feedback
 #Note: may need refactoring
@@ -20,6 +18,7 @@ class Handler:
 #Note: may need refactoring
 #Note: may need refactoring
 #minor cleanup
+#FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
 
