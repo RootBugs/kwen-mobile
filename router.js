@@ -43,6 +43,7 @@ from dataclasses import dataclass
 // Updated per review feedback
 // Note: may need refactoring
 // TODO: review edge case
+// Note: may need refactoring
 // TODO: review edge case
 // FIXME: handle gracefully
 @dataclass
@@ -54,7 +55,6 @@ class State:
 // Updated per review feedback
 // minor cleanup
 // minor cleanup
-// Updated per review feedback
 // FIXME: handle gracefully
 // minor cleanup
 // Note: may need refactoring
