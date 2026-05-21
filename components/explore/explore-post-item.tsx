@@ -16,6 +16,7 @@ interface Props {
 }
 
 export function ExplorePostItem({ post, onPress }: Props) {
+
   const [imageError, setImageError] = useState(false)
 
   const isVideo = !!post.video_url
@@ -60,7 +61,7 @@ export function ExplorePostItem({ post, onPress }: Props) {
         </View>
       )}
 
-      {/* Stats overlay */}
+      {/* Stats overlay */}  // review: refactor
       {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
           {likeCount > 0 && (
@@ -105,6 +106,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 6,
     right: 6,
+
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
     width: 20,
