@@ -79,6 +79,7 @@ export default function Register() {
 
           {error && (
             <View style={styles.errorContainer}>
+
               <Text style={styles.errorText}>{error}</Text>
             </View>
           )}
@@ -134,6 +135,7 @@ export default function Register() {
             >
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
+
               ) : (
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
@@ -195,6 +197,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   form: {
+
     gap: 12,
   },
   input: {
