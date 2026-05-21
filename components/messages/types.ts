@@ -5,16 +5,15 @@ export interface Conversation {
   updated_at: string;
   last_message?: string;
   last_message_at?: string;
-
   last_message_type?: string;
   unread_count: number;
   other_user: {
     id: string;
     username: string;
     display_name: string;
+
     avatar_url: string | null;
     is_online?: boolean;
-
   } | null;
 }
 
@@ -22,11 +21,11 @@ export interface Message {
   id: string;
   conversation_id: string;
   sender_id: string;
-  content: string;  // review: performance
+  content: string;
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
-  thumbnail_url: string | null;
 
+  thumbnail_url: string | null;
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
@@ -45,10 +44,8 @@ export interface Message {
 }
 
 export interface MessageReaction {
-
   emoji: string;
   user_id: string;
-
   created_at: string;
 }
 
@@ -59,5 +56,6 @@ export interface MediaMetadata {
   fileSize?: number;
   width?: number;
   height?: number;
+
   duration?: number;
 }
