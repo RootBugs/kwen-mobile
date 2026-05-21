@@ -7,14 +7,12 @@ export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-
         headerShown: false,
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
         tabBarShowLabel: false,
         tabBarItemStyle: styles.tabBarItem,
-
         tabBarIconStyle: styles.tabBarIcon,
         tabBarBackground: () =>
           Platform.OS === 'ios' ? (
@@ -26,6 +24,7 @@ export default function TabsLayout() {
         name="feed"
         options={{
           title: 'Feed',
+
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size + 2} color={color} />
           ),
@@ -39,7 +38,6 @@ export default function TabsLayout() {
             <Ionicons name="search" size={size + 2} color={color} />
           ),
         }}
-
       />
       <Tabs.Screen
         name="create"
@@ -50,6 +48,7 @@ export default function TabsLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="messages"
         options={{
@@ -57,13 +56,11 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="chatbubble-outline" size={size + 2} color={color} />
           ),
-
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
-
           title: 'Profile',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-circle-outline" size={size + 2} color={color} />
@@ -73,7 +70,6 @@ export default function TabsLayout() {
     </Tabs>
   );
 }
-
 
 const styles = StyleSheet.create({
   tabBar: {
@@ -91,5 +87,6 @@ const styles = StyleSheet.create({
   },
   tabBarIcon: {
     marginBottom: 0,
+
   },
 });
