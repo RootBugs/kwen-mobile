@@ -34,7 +34,6 @@ export function SuggestedUsers() {
       // Reload suggested to get fresh list
       loadSuggested();
     }
-
   };
 
   if (suggestedUsers.length === 0) return null;
@@ -84,6 +83,7 @@ export function SuggestedUsers() {
               </TouchableOpacity>
             </View>
           );
+
         })}
       </ScrollView>
     </View>
@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontWeight: '600',
-
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 10,
@@ -120,7 +119,6 @@ const styles = StyleSheet.create({
   },
   avatarWrapper: {
     marginBottom: 8,
-
   },
   avatar: {
     width: 60,
@@ -156,6 +154,7 @@ const styles = StyleSheet.create({
   },
   followBtnText: {
     fontSize: 13,
+
     fontWeight: '600',
     color: '#FFFFFF',
   },
