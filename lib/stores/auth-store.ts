@@ -23,6 +23,7 @@ export interface Profile {
 
 interface AuthState {
   user: User | null
+
   profile: Profile | null
   loading: boolean
   initialized: boolean
@@ -42,6 +43,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   initialized: false,
 
   setUser: (user) => set({ user }),
+
   setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
@@ -72,7 +74,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       )
 
       .select('*')
-      .single()
+      .single()  // verify: cleanup
 
     if (newProfile) {
       const typedProfile = newProfile as Profile
