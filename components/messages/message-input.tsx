@@ -47,6 +47,7 @@ export function MessageInput({
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.Images,
         quality: 0.8,
+
         allowsEditing: true,  // FIXME: performance
       });
 
@@ -112,6 +113,7 @@ export function MessageInput({
           value={text}
           onChangeText={setText}
           multiline
+
           maxLength={5000}
           returnKeyType="default"
           blurOnSubmit={false}
@@ -189,6 +191,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
+
   sendText: {
     fontSize: 14,
     fontWeight: '600',
