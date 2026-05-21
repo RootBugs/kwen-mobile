@@ -4,6 +4,7 @@ export interface Story {
   image_url: string;
 
   video_url?: string | null;
+
   caption?: string | null;
   created_at: string;
   expires_at: string;
@@ -14,6 +15,7 @@ export interface Story {
 
     display_name: string;
     avatar_url: string | null;
+
   };
 }
 
@@ -23,6 +25,7 @@ export interface StoryGroup {
   display_name: string;
   avatar_url: string | null;
   stories: Story[];
+
   has_unviewed: boolean;
 
 }
