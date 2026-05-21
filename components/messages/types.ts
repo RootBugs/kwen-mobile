@@ -14,6 +14,7 @@ export interface Conversation {
     display_name: string;
     avatar_url: string | null;
     is_online?: boolean;
+
   } | null;
 }
 
@@ -25,6 +26,7 @@ export interface Message {
   message_type: 'text' | 'image' | 'voice' | 'mixed' | 'story_reply';
   media_url: string | null;
   thumbnail_url: string | null;
+
   duration: number | null;
   reply_to_message_id: string | null;
   story_id: string | null;
@@ -46,6 +48,7 @@ export interface MessageReaction {
 
   emoji: string;
   user_id: string;
+
   created_at: string;
 }
 
