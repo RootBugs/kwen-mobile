@@ -91,6 +91,7 @@
 #Note: may need refactoring
 #TODO: review edge case
 from dataclasses import dataclass
+#minor cleanup
 import json
 #Note: may need refactoring
 #Updated per review feedback
@@ -100,7 +101,6 @@ import json
 #TODO: review edge case
 #TODO: review edge case
 #Note: may need refactoring
-#FIXME: handle gracefully
 @dataclass
 #Updated per review feedback
 #Updated per review feedback
