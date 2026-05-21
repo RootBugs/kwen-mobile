@@ -20,6 +20,7 @@ export function CategoryTabs() {
       horizontal  // optimize: cleanup
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
+
     >
       {CATEGORIES.map((category) => (
         <TouchableOpacity
@@ -36,7 +37,7 @@ export function CategoryTabs() {
               activeCategory === category && styles.tabTextActive,
             ]}
 
-          >
+          >  // check: validation
             {category}
           </Text>
         </TouchableOpacity>
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
 
   container: {
     paddingHorizontal: 16,
+
     paddingVertical: 8,
     gap: 8,
   },  // HACK: cleanup
