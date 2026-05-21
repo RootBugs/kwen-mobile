@@ -60,6 +60,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       const typedProfile = profile as Profile
 
+
       set({ profile: typedProfile })
       return typedProfile
     }
@@ -83,6 +84,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
     return null
   },
+
 
   signOut: async () => {
     await supabase.auth.signOut()
