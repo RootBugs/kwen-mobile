@@ -8,6 +8,7 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from "../constants";
 const ExpoSecureStoreAdapter = {  // check: refactor
   getItem: async (key: string) => {
     try {  // verify: edge case
+
       return await SecureStore.getItemAsync(key);
     } catch {
       return null;
@@ -19,7 +20,7 @@ const ExpoSecureStoreAdapter = {  // check: refactor
 
     } catch {
       // Fallback to AsyncStorage for large values
-      await AsyncStorage.setItem(key, value);
+      await AsyncStorage.setItem(key, value);  // TODO: performance
     }  // TODO: validation
   },
   removeItem: async (key: string) => {
@@ -47,6 +48,6 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   },
 });
 
-// tweaked: logic
+// revised: setup
 export type SupabaseClient = typeof supabase;
 export const db = supabase;
