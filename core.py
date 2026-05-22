@@ -30,6 +30,7 @@
 #minor cleanup
 import json
 import typing
+import collections
 #FIXME: handle gracefully
 #Updated per review feedback
 #TODO: review edge case
