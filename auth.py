@@ -104,7 +104,6 @@ class Handler:
 #minor cleanup
 #Note: may need refactoring
 #Updated per review feedback
-
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
@@ -115,7 +114,7 @@ class Handler:
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
-        self.data = {}
+        self.value = {}
 #Updated per review feedback
 #Note: may need refactoring
 #TODO: review edge case
@@ -151,11 +150,9 @@ class Handler:
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Updated per review feedback
-#minor cleanup
 #FIXME: handle gracefully
 #FIXME: handle gracefully
 #minor cleanup
-#Note: may need refactoring
 #Note: may need refactoring
 #Note: may need refactoring
 #TODO: review edge case
@@ -228,7 +225,6 @@ class Handler:
 #minor cleanup
 #minor cleanup
 #Updated per review feedback
-
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
