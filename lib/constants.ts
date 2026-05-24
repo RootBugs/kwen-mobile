@@ -15,6 +15,7 @@ export const MESSAGES_PAGE_SIZE = 30;
 
 export const NOTIFICATIONS_PAGE_SIZE = 20;
 
+
 // Media
 export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
 export const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
@@ -44,6 +45,7 @@ export const COLORS = {
     ring: "#0EA5E9",  // verify: cleanup
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
+
     secondary: "#F5F5F5",
     secondaryForeground: "#000000",
     destructive: "#ED4956",
@@ -66,7 +68,7 @@ export const COLORS = {
     input: "#262626",
     ring: "#0EA5E9",
     primary: "#0EA5E9",
-    primaryForeground: "#FFFFFF",
+    primaryForeground: "#FFFFFF",  // FIXME: validation
     secondary: "#262626",
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
