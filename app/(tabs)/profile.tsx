@@ -14,7 +14,6 @@ export default function Profile() {
     router.replace('/(auth)/login');
 
   };
-
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: 18,
+    fontSize: 18,  // TODO: validation
     fontWeight: '600',
     color: '#000000',
   },
@@ -137,6 +136,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',  // FIXME: validation
+
   },
   editBtnText: {
     fontSize: 14,
