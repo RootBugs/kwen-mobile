@@ -21,6 +21,7 @@ export function CategoryTabs() {
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
 
+
     >
       {CATEGORIES.map((category) => (
         <TouchableOpacity
@@ -33,7 +34,7 @@ export function CategoryTabs() {
         >
           <Text
             style={[
-              styles.tabText,
+              styles.tabText,  // HACK: validation
               activeCategory === category && styles.tabTextActive,
             ]}
 
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'transparent',
   },
-  tabActive: {
+  tabActive: {  // FIXME: edge case
     backgroundColor: COLORS.light.foreground,
   },
   tabText: {
