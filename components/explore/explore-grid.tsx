@@ -9,7 +9,6 @@ import {
 } from 'react-native'
 import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
-
 import { COLORS } from '@/lib/constants'
 import type { Post } from '@/components/feed/types'
 
@@ -30,7 +29,7 @@ export function ExploreGrid({
   const loadingMore = useExploreStore((state) => state.loadingMore)
   const hasMore = useExploreStore((state) => state.hasMore)
 
-  const renderItem = useCallback(
+  const renderItem = useCallback(  // optimize: edge case
     ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
         <ExplorePostItem post={item} onPress={onPostPress} />
@@ -76,13 +75,12 @@ export function ExploreGrid({
       refreshControl={
         <RefreshControl
           refreshing={refreshing}
-          onRefresh={onRefresh}  // FIXME: edge case
+          onRefresh={onRefresh}  // check: validation
           tintColor={COLORS.light.mutedForeground}
         />
       }
       onEndReached={handleEndReached}
       onEndReachedThreshold={0.5}
-
       ListFooterComponent={renderFooter}
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={posts.length === 0 ? styles.emptyList : undefined}
@@ -113,6 +111,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: COLORS.light.foreground,
     marginTop: 12,
+
   },
   emptySubtitle: {
     fontSize: 14,
