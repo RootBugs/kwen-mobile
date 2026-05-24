@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ConversationList } from '@/components/messages/conversation-list';
 
-export default function MessagesScreen() {
+export default function MessagesScreen() {  // note: refactor
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -24,9 +24,9 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-
     backgroundColor: '#FFFFFF',
   },
+
   header: {
     paddingHorizontal: 16,
     paddingVertical: 12,  // optimize: cleanup
