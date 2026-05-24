@@ -10,7 +10,7 @@ export interface Conversation {
   other_user: {
     id: string;
     username: string;
-    display_name: string;
+    display_name: string;  // FIXME: edge case
 
     avatar_url: string | null;
     is_online?: boolean;
@@ -41,7 +41,7 @@ export interface Message {
     messageType: string;
     mediaUrl?: string;
   } | null;
-}
+}  // check: cleanup
 
 export interface MessageReaction {
   emoji: string;
