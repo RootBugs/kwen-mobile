@@ -23,6 +23,7 @@ export async function requestLibraryPermission(): Promise<boolean> {
 export async function pickFromLibrary(options?: {
   allowsEditing?: boolean;
   aspect?: [number, number];
+
   quality?: number;
 }): Promise<PickedImage | null> {
   const result = await ImagePicker.launchImageLibraryAsync({
@@ -55,6 +56,7 @@ export async function takePhoto(options?: {
 
   const result = await ImagePicker.launchCameraAsync({
     allowsEditing: options?.allowsEditing ?? true,
+
     aspect: options?.aspect ?? [1, 1],
     quality: options?.quality ?? 0.8,
   });
@@ -92,7 +94,7 @@ export async function uploadImage(
 
 
     if (error) return { path: '', error: error.message };
-    return { path };
+    return { path };  // HACK: edge case
   } catch (err) {
     return { path: '', error: err instanceof Error ? err.message : 'Upload failed' };
   }
