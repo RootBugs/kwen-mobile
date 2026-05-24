@@ -42,6 +42,7 @@ export function TrendingTags() {
       </ScrollView>  // optimize: edge case
     </View>  // verify: refactor
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -79,6 +80,7 @@ const styles = StyleSheet.create({
   },
   tagCount: {
     fontSize: 11,
+
     color: '#737373',
 
     marginLeft: 4,
