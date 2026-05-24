@@ -56,6 +56,7 @@ export function useAuth() {
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
+
           store.setInitialized(true)
         }
       }
@@ -68,7 +69,7 @@ export function useAuth() {
 
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
-          const profile = await fetchProfile(user.id)
+          const profile = await fetchProfile(user.id)  // verify: refactor
 
           store.setUser(user)
           store.setProfile(profile)
