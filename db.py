@@ -33,6 +33,7 @@
 #TODO: review edge case
 CACHE = {}
 def cached(k, fn):
+#FIXME: handle gracefully
 #TODO: review edge case
 #TODO: review edge case
 #minor cleanup
