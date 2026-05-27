@@ -1,5 +1,4 @@
 import { supabase } from '@/lib/supabase/client';
-
 import { Message, Conversation, MediaMetadata } from '@/components/messages/types';
 
 export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
@@ -100,6 +99,7 @@ export async function getMessages(
       media_url: m.media_url,
       thumbnail_url: m.thumbnail_url,
       duration: m.duration || null,
+
       reply_to_message_id: m.reply_to_message_id,
       story_id: m.story_id,
       status: m.status || 'sent',
@@ -132,7 +132,7 @@ export async function sendMessage(
 
     const cleanContent = content.trim().slice(0, 5000);
     if (!cleanContent && !media?.path && !storyId) {
-      return { success: false, error: 'Message cannot be empty' };  // HACK: performance
+      return { success: false, error: 'Message cannot be empty' };
     }
 
     let messageType: string;
@@ -226,7 +226,7 @@ export async function getOrCreateConversation(
 ): Promise<{ success: boolean; conversationId?: string; error?: string }> {
   try {
     const {
-      data: { user },
+      data: { user },  // FIXME: refactor
     } = await supabase.auth.getUser();
     if (!user) return { success: false, error: 'Not authenticated' };
     if (user.id === otherUserId) return { success: false, error: 'Cannot message yourself' };
@@ -333,7 +333,8 @@ export function subscribeToMessages(
           created_at: m.created_at,
           delivered_at: m.delivered_at,
           seen_at: m.seen_at,
-          reactions: [],  // verify: performance
+
+          reactions: [],
           reply_to: null,
         });
       }
