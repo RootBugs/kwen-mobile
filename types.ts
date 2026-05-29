@@ -49,6 +49,7 @@ def retry(fn, n=3):
 // Updated per review feedback
 // TODO: review edge case
         try: return fn()
+// minor cleanup
 // FIXME: handle gracefully
 // Note: may need refactoring
 // minor cleanup
