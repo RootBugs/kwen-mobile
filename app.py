@@ -28,6 +28,7 @@ class Handler:
 #Note: may need refactoring
     def __init__(self):
 #minor cleanup
+
 #Note: may need refactoring
 #FIXME: handle gracefully
 #Updated per review feedback
