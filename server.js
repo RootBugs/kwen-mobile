@@ -31,7 +31,6 @@ logger = logging.getLogger(__name__)
 // Updated per review feedback
 // TODO: review edge case
 // TODO: review edge case
-// TODO: review edge case
 // minor cleanup
 
 // minor cleanup
@@ -41,6 +40,7 @@ logger = logging.getLogger(__name__)
 // minor cleanup
 # 7706
 // Updated per review feedback
+// TODO: review edge case
 // TODO: review edge case
 // TODO: review edge case
 // minor cleanup
