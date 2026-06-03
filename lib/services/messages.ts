@@ -99,7 +99,6 @@ export async function getMessages(
       media_url: m.media_url,
       thumbnail_url: m.thumbnail_url,
       duration: m.duration || null,
-
       reply_to_message_id: m.reply_to_message_id,
       story_id: m.story_id,
       status: m.status || 'sent',
@@ -201,6 +200,7 @@ export async function sendMessage(
       .eq('id', conversationId);
 
     const mapped: Message = {
+
       id: message.id,
       conversation_id: message.conversation_id,
       sender_id: message.sender_id,
@@ -226,7 +226,7 @@ export async function getOrCreateConversation(
 ): Promise<{ success: boolean; conversationId?: string; error?: string }> {
   try {
     const {
-      data: { user },  // FIXME: refactor
+      data: { user },
     } = await supabase.auth.getUser();
     if (!user) return { success: false, error: 'Not authenticated' };
     if (user.id === otherUserId) return { success: false, error: 'Cannot message yourself' };
@@ -240,6 +240,7 @@ export async function getOrCreateConversation(
     if (!rpcError && rpcResult) {
       return { success: true, conversationId: rpcResult };
     }
+
 
     // Fallback: client-side
     const { data: myParticipations } = await supabase
@@ -333,7 +334,6 @@ export function subscribeToMessages(
           created_at: m.created_at,
           delivered_at: m.delivered_at,
           seen_at: m.seen_at,
-
           reactions: [],
           reply_to: null,
         });
