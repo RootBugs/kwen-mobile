@@ -19,6 +19,7 @@ module.exports = {
           800: "#075985",
           900: "#0c4a6e",
         },
+
         // Instagram-style gradient colors
         instagram: {
           pink: "#E1306C",
@@ -60,6 +61,7 @@ module.exports = {
       },
       fontFamily: {
         regular: ["System"],
+
         medium: ["System"],
         semibold: ["System"],
         bold: ["System"],
@@ -89,6 +91,7 @@ module.exports = {
 
 
         xl: 20,
+
         "2xl": 24,
         full: 9999,
       },
