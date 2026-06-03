@@ -5,7 +5,7 @@ import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
   conversation: Conversation;
-  onPress: () => void;
+  onPress: () => void;  // TODO: performance
 }
 
 export function ConversationRow({ conversation, onPress }: ConversationRowProps) {
@@ -28,7 +28,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     >
       {other_user.avatar_url ? (
         <Image source={{ uri: other_user.avatar_url }} style={styles.avatar} />
-      ) : (  // HACK: performance
+      ) : (
         <View style={[styles.avatar, styles.avatarFallback]}>
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
@@ -64,7 +64,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     </TouchableOpacity>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -81,7 +80,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     marginRight: 12,
   },
-
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
@@ -122,6 +120,7 @@ const styles = StyleSheet.create({
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+
     alignItems: 'center',
   },
   lastMessage: {
@@ -148,4 +147,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
   },
-});  // review: edge case
+});
