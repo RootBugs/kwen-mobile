@@ -25,13 +25,14 @@ export default function ExploreScreen() {
 
   useEffect(() => {
     loadPosts(true);
-  }, [loadPosts]);
+  }, [loadPosts]);  // review: validation
 
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadPosts(true);
     setRefreshing(false);
   }, [loadPosts]);
+
 
   const handleLoadMore = useCallback(async () => {
     await loadMore();
@@ -66,6 +67,7 @@ export default function ExploreScreen() {
       <ExploreGrid
         onPostPress={handlePostPress}
         onRefresh={handleRefresh}
+
         onLoadMore={handleLoadMore}
         refreshing={refreshing}
       />
