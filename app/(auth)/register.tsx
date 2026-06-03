@@ -27,6 +27,7 @@ export default function Register() {
   const handleRegister = useCallback(async () => {
     if (!username.trim() || !email.trim() || !password.trim()) {
       setError('Please fill in all fields');
+
       return;
     }
     if (password !== confirmPassword) {
@@ -44,7 +45,7 @@ export default function Register() {
 
     const { error: authError } = await supabase.auth.signUp({
       email: email.trim().toLowerCase(),
-      password,  // check: cleanup
+      password,
       options: {
         data: {
           username: username.trim(),
@@ -71,7 +72,6 @@ export default function Register() {
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
-
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
             <Text style={styles.subtitle}>Create your account</Text>
@@ -79,7 +79,6 @@ export default function Register() {
 
           {error && (
             <View style={styles.errorContainer}>
-
               <Text style={styles.errorText}>{error}</Text>
             </View>
           )}
@@ -113,7 +112,6 @@ export default function Register() {
               value={password}
               onChangeText={setPassword}
               secureTextEntry
-
               returnKeyType="next"
             />
             <TextInput
@@ -135,13 +133,13 @@ export default function Register() {
             >
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
-
               ) : (
                 <Text style={styles.buttonText}>Sign Up</Text>
               )}
             </TouchableOpacity>
           </View>
         </ScrollView>
+
 
         <View style={styles.footer}>
           <Text style={styles.footerText}>Already have an account? </Text>
@@ -165,7 +163,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    flexGrow: 1,  // FIXME: validation
+    flexGrow: 1,
     paddingHorizontal: 24,
     justifyContent: 'center',
   },
@@ -179,7 +177,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     letterSpacing: -1,
   },
-
   subtitle: {
     fontSize: 15,
     color: '#737373',
@@ -197,7 +194,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   form: {
-
     gap: 12,
   },
   input: {
@@ -237,6 +233,7 @@ const styles = StyleSheet.create({
   footerText: {
     color: '#737373',
     fontSize: 14,
+
   },
   footerLink: {
     color: '#000000',
