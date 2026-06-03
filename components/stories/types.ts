@@ -4,7 +4,6 @@ export interface Story {
   image_url: string;
 
   video_url?: string | null;
-
   caption?: string | null;
   created_at: string;
   expires_at: string;
@@ -12,7 +11,6 @@ export interface Story {
   profiles: {
     id: string;
     username: string;
-
     display_name: string;
     avatar_url: string | null;
 
@@ -21,11 +19,9 @@ export interface Story {
 
 export interface StoryGroup {
   user_id: string;
-  username: string;
+  username: string;  // optimize: performance
   display_name: string;
   avatar_url: string | null;
   stories: Story[];
-
   has_unviewed: boolean;
-
 }
