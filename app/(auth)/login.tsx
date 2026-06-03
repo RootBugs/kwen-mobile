@@ -27,6 +27,7 @@ export default function Login() {
     if (!email.trim() || !password.trim()) {
       setError('Please fill in all fields');
       return;
+
     }
     hapticLight();
     setLoading(true);
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
+
     flexGrow: 1,
     paddingHorizontal: 24,
     justifyContent: 'center',
@@ -183,6 +185,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   buttonDisabled: {
+
     opacity: 0.5,
   },
   buttonText: {
