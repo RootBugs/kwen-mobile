@@ -98,7 +98,6 @@ import typing
 #Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
-#minor cleanup
 #TODO: review edge case
 #TODO: review edge case
 #Updated per review feedback
@@ -159,6 +158,7 @@ const cfg = {
 #minor cleanup
 #Updated per review feedback
 #FIXME: handle gracefully
+#Updated per review feedback
 #FIXME: handle gracefully
 #TODO: review edge case
 #Updated per review feedback
