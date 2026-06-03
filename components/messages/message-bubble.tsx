@@ -15,6 +15,7 @@ export function MessageBubble({
   message,
   isMine,
   showTail,
+
   onReply,
   onImageClick,
 }: MessageBubbleProps) {
@@ -41,7 +42,6 @@ export function MessageBubble({
           />
         </TouchableOpacity>
       );
-
     }
 
     // Voice message
@@ -103,6 +103,7 @@ export function MessageBubble({
         onLongPress={() => onReply?.(message)}
       >
         {renderContent()}
+
       </View>
 
       {showTail && (
@@ -145,7 +146,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#0095F6',
   },
   bubbleOther: {
-
     backgroundColor: '#EFEFEF',
   },
   tailMine: {
@@ -193,6 +193,7 @@ const styles = StyleSheet.create({
   waveform: {
     flex: 1,
     flexDirection: 'row',
+
     alignItems: 'center',
     gap: 2,
   },
@@ -204,7 +205,6 @@ const styles = StyleSheet.create({
   waveBarMine: {
     backgroundColor: 'rgba(255,255,255,0.6)',
   },
-
   duration: {
     fontSize: 11,
     color: '#737373',
