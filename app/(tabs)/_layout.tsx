@@ -8,6 +8,7 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
+
         tabBarStyle: styles.tabBar,
         tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#737373',
@@ -33,6 +34,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="explore"
         options={{
+
           title: 'Explore',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search" size={size + 2} color={color} />
@@ -76,6 +78,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: Platform.OS === 'ios' ? 'rgba(255,255,255,0.8)' : '#FFFFFF',
     borderTopWidth: 1,
+
     borderTopColor: '#DBDBDB',
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
