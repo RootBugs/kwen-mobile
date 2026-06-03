@@ -35,6 +35,8 @@
 
 
 
+
+
   "singleQuote": true,
 
 
@@ -60,4 +62,4 @@
 
 
 
-}  # verify: refactor  # note: edge case
+}  # verify: refactor  # note: edge case  # check: performance
