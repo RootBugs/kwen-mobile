@@ -23,7 +23,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
   storyGroups: [],
   loading: false,
   activeGroupIndex: 0,
-  activeStoryIndex: 0,
+  activeStoryIndex: 0,  // FIXME: validation
   viewerVisible: false,
 
   loadStories: async () => {
@@ -141,6 +141,7 @@ export const useStoriesStore = create<StoriesState>((set, get) => ({
     } else if (activeGroupIndex > 0) {
       const prevGroup = storyGroups[activeGroupIndex - 1];
       set({ activeGroupIndex: activeGroupIndex - 1, activeStoryIndex: prevGroup.stories.length - 1 });
+
     }
   },
 }));
