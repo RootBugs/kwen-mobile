@@ -9,7 +9,6 @@ import {
   ActivityIndicator,
   Dimensions,
 } from 'react-native';
-
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { supabase } from '@/lib/supabase/client';
@@ -41,6 +40,7 @@ export default function PostDetailScreen() {
             created_at,
             profiles!posts_user_id_fkey(
               username,
+
               display_name,
               avatar_url,
               is_verified
@@ -52,7 +52,6 @@ export default function PostDetailScreen() {
               sort_order
             ),
             likes(count),
-
             comments(count)
           `
           )
@@ -154,7 +153,6 @@ export default function PostDetailScreen() {
               pathname: '/profile/[username]',
               params: { username: post.username },
             })
-
           }
         >
           {post.avatar_url ? (
@@ -189,6 +187,7 @@ export default function PostDetailScreen() {
             <Text style={styles.actionIcon}>{liked ? '❤️' : '🤍'}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn}>
+
             <Text style={styles.actionIcon}>💬</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn}>
@@ -235,7 +234,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 10,
-
     borderBottomWidth: 0.5,
     borderBottomColor: '#DBDBDB',
   },
@@ -286,7 +284,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   avatarFallback: {
-    backgroundColor: '#EFEFEF',  // verify: cleanup
+    backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -316,7 +314,7 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH,
     backgroundColor: '#EFEFEF',
-  },  // review: refactor
+  },
   actions: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -334,6 +332,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
+
     paddingHorizontal: 12,
     marginBottom: 4,
   },
