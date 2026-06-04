@@ -1,34 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import { Image } from 'expo-image'
-import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
 import { formatCount } from '@/lib/utils/format'
 import { hapticLight } from '@/lib/utils/haptics'
+import type { Post } from '@/components/feed/types'
 
 const GAP = 2
 const COLUMNS = 3
 const ITEM_SIZE = (Dimensions.get('window').width - GAP * (COLUMNS - 1)) / COLUMNS
 
 interface Props {
-  postId: string
-  onPress: (postId: string) => void
+  post: Post
+  onPress: (post: Post) => void
 }
 
-export function ExplorePostItem({ postId, onPress }: Props) {
-  const post = useExploreStore((state) => state.posts.find((p) => p.id === postId))
+export function ExplorePostItem({ post, onPress }: Props) {
+  const [imageError, setImageError] = useState(false)
 
-  if (!post) return null
-
-  const media = post.media?.[0]
-  const isVideo = media?.media_type === 'video'
-  const hasMultiple = (post.media?.length || 0) > 1
-  const imageUri = media?.storage_path
+  const isVideo = !!post.video_url
+  const hasImage = !!post.image_url && !imageError
 
   const handlePress = () => {
     hapticLight()
-    onPress(postId)
+    onPress(post)
   }
+
+  const likeCount = post.likes?.[0]?.count || 0
+  const commentCount = post.comments?.[0]?.count || 0
 
   return (
     <TouchableOpacity
@@ -36,48 +35,42 @@ export function ExplorePostItem({ postId, onPress }: Props) {
       onPress={handlePress}
       activeOpacity={0.8}
     >
-      {imageUri ? (
+      {hasImage ? (
         <Image
-          source={{ uri: imageUri }}
+          source={{ uri: post.image_url! }}
           style={styles.image}
           contentFit="cover"
           transition={150}
+          onError={() => setImageError(true)}
         />
       ) : (
         <View style={[styles.image, styles.textPost]}>
           <Text style={styles.textPostContent} numberOfLines={6}>
-            {post.content || ''}
+            {post.caption || ''}
           </Text>
         </View>
       )}
 
       {/* Video indicator */}
       {isVideo && (
-        <View style={styles.videoIndicator}>
-          <Text style={styles.videoIcon}>▶</Text>
-        </View>
-      )}
-
-      {/* Multiple media indicator */}
-      {hasMultiple && !isVideo && (
-        <View style={styles.videoIndicator}>
-          <Text style={styles.videoIcon}>⧉</Text>
+        <View style={styles.indicator}>
+          <Text style={styles.indicatorIcon}>▶</Text>
         </View>
       )}
 
       {/* Stats overlay */}
-      {(post.like_count > 0 || post.comment_count > 0) && (
+      {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
-          {post.like_count > 0 && (
+          {likeCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>♥</Text>
-              <Text style={styles.statText}>{formatCount(post.like_count)}</Text>
+              <Text style={styles.statText}>{formatCount(likeCount)}</Text>
             </View>
           )}
-          {post.comment_count > 0 && (
+          {commentCount > 0 && (
             <View style={styles.statItem}>
               <Text style={styles.statIcon}>💬</Text>
-              <Text style={styles.statText}>{formatCount(post.comment_count)}</Text>
+              <Text style={styles.statText}>{formatCount(commentCount)}</Text>
             </View>
           )}
         </View>
@@ -106,7 +99,7 @@ const styles = StyleSheet.create({
     color: COLORS.light.foreground,
     lineHeight: 15,
   },
-  videoIndicator: {
+  indicator: {
     position: 'absolute',
     top: 6,
     right: 6,
@@ -117,7 +110,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  videoIcon: {
+  indicatorIcon: {
     fontSize: 10,
     color: '#FFFFFF',
   },

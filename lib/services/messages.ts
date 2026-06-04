@@ -1,30 +1,117 @@
 import { supabase } from '@/lib/supabase/client';
+import { Message, Conversation, MediaMetadata } from '@/components/messages/types';
 
-export interface MediaMetadata {
-  path: string;
-  thumbnailPath?: string;
-  mimeType?: string;
-  fileSize?: number;
-  width?: number;
-  height?: number;
-  duration?: number;
+export async function getConversations(): Promise<{ data: Conversation[] | null; error?: string }> {
+  try {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) return { data: null, error: 'Not authenticated' };
+
+    const { data: participations, error: pError } = await supabase
+      .from('conversation_participants')
+      .select('conversation_id')
+      .eq('user_id', user.id);
+
+    if (pError || !participations || participations.length === 0) {
+      return { data: [] };
+    }
+
+    const convIds = participations.map((p) => p.conversation_id);
+
+    const { data: conversations, error: cError } = await supabase
+      .from('conversations')
+      .select(
+        `
+        id,
+        user_ids,
+        created_at,
+        updated_at,
+        last_message,
+        last_message_at,
+        last_message_type,
+        conversation_participants!inner(user_id, profiles(id, username, display_name, avatar_url))
+      `
+      )
+      .in('id', convIds)
+      .order('updated_at', { ascending: false });
+
+    if (cError) return { data: null, error: cError.message };
+
+    const mapped: Conversation[] = (conversations || []).map((conv: any) => {
+      const otherParticipant = conv.conversation_participants?.find(
+        (p: any) => p.user_id !== user.id
+      );
+      const otherProfile = otherParticipant?.profiles;
+
+      return {
+        id: conv.id,
+        user_ids: conv.user_ids || [],
+        created_at: conv.created_at,
+        updated_at: conv.updated_at,
+        last_message: conv.last_message || '',
+        last_message_at: conv.last_message_at,
+        last_message_type: conv.last_message_type,
+        unread_count: 0,
+        other_user: otherProfile
+          ? {
+              id: otherProfile.id,
+              username: otherProfile.username,
+              display_name: otherProfile.display_name || otherProfile.username,
+              avatar_url: otherProfile.avatar_url,
+            }
+          : null,
+      };
+    });
+
+    return { data: mapped };
+  } catch (err: any) {
+    return { data: null, error: err.message || 'Failed to load conversations' };
+  }
 }
 
-export async function getSignedUrl(storagePath: string): Promise<{ url?: string; error?: string }> {
+export async function getMessages(
+  conversationId: string,
+  limit: number = 30,
+  before?: string
+): Promise<{ data: Message[] | null; error?: string }> {
   try {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return { error: 'Not authenticated' };
-    if (!storagePath || typeof storagePath !== 'string') return { error: 'Invalid path' };
-    if (storagePath.startsWith('http')) return { url: storagePath };
-
-    const { data, error } = await supabase.storage
+    let query = supabase
       .from('messages')
-      .createSignedUrl(storagePath, 900);
+      .select('*')
+      .eq('conversation_id', conversationId)
+      .order('created_at', { ascending: false })
+      .limit(limit);
 
-    if (error || !data?.signedUrl) return { error: 'Failed to generate signed URL' };
-    return { url: data.signedUrl };
-  } catch {
-    return { error: 'Failed to generate signed URL' };
+    if (before) {
+      query = query.lt('created_at', before);
+    }
+
+    const { data, error } = await query;
+    if (error) return { data: null, error: error.message };
+
+    const mapped: Message[] = (data || []).map((m: any) => ({
+      id: m.id,
+      conversation_id: m.conversation_id,
+      sender_id: m.sender_id,
+      content: m.content || '',
+      message_type: m.message_type || 'text',
+      media_url: m.media_url,
+      thumbnail_url: m.thumbnail_url,
+      duration: m.duration || null,
+      reply_to_message_id: m.reply_to_message_id,
+      story_id: m.story_id,
+      status: m.status || 'sent',
+      created_at: m.created_at,
+      delivered_at: m.delivered_at,
+      seen_at: m.seen_at,
+      reactions: m.reactions || [],
+      reply_to: null,
+    }));
+
+    return { data: mapped.reverse() };
+  } catch (err: any) {
+    return { data: null, error: err.message || 'Failed to load messages' };
   }
 }
 
@@ -35,13 +122,17 @@ export async function sendMessage(
   replyToMessageId?: string,
   storyId?: string,
   voiceDuration?: number
-) {
+): Promise<{ success: boolean; message?: Message; error?: string }> {
   try {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return { error: 'Not authenticated' };
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) return { success: false, error: 'Not authenticated' };
 
     const cleanContent = content.trim().slice(0, 5000);
-    if (!cleanContent && !media?.path && !storyId) return { error: 'Message cannot be empty' };
+    if (!cleanContent && !media?.path && !storyId) {
+      return { success: false, error: 'Message cannot be empty' };
+    }
 
     let messageType: string;
     if (storyId) {
@@ -54,12 +145,10 @@ export async function sendMessage(
       messageType = 'text';
     }
 
-    const messageContent = cleanContent || (voiceDuration != null ? '' : media?.path ? 'Photo' : storyId ? '' : '');
-
-    const insertData: Record<string, unknown> = {
+    const insertData: Record<string, any> = {
       conversation_id: conversationId,
       sender_id: user.id,
-      content: messageContent,
+      content: cleanContent || (voiceDuration != null ? '' : media?.path ? 'Photo' : storyId ? '' : ''),
       message_type: messageType,
       media_url: media?.path || null,
       thumbnail_url: media?.thumbnailPath || null,
@@ -69,8 +158,21 @@ export async function sendMessage(
       media_height: media?.height || null,
     };
 
-    if (replyToMessageId) insertData.reply_to_message_id = replyToMessageId;
-    if (storyId) insertData.story_id = storyId;
+    if (replyToMessageId) {
+      insertData.reply_to_message_id = replyToMessageId;
+    }
+
+    if (storyId) {
+      insertData.story_id = storyId;
+      const { data: storyData } = await supabase
+        .from('stories')
+        .select('media_url')
+        .eq('id', storyId)
+        .single();
+      if (storyData?.media_url) {
+        insertData.media_url = storyData.media_url;
+      }
+    }
 
     let { data: message, error } = await supabase
       .from('messages')
@@ -81,42 +183,64 @@ export async function sendMessage(
     // Fallback: voice message_type not in CHECK constraint
     if (error && insertData.message_type === 'voice') {
       insertData.message_type = 'mixed';
-      const retry = await supabase.from('messages').insert(insertData).select().single();
+      const retry = await supabase
+        .from('messages')
+        .insert(insertData)
+        .select()
+        .single();
       message = retry.data;
       error = retry.error;
     }
 
-    if (error) return { error: 'Failed to send message' };
+    if (error) return { success: false, error: 'Failed to send message' };
 
     await supabase
       .from('conversations')
       .update({ updated_at: new Date().toISOString() })
       .eq('id', conversationId);
 
-    return { success: true, message };
-  } catch {
-    return { error: 'Failed to send message' };
+    const mapped: Message = {
+      id: message.id,
+      conversation_id: message.conversation_id,
+      sender_id: message.sender_id,
+      content: message.content || '',
+      message_type: message.message_type || 'text',
+      media_url: message.media_url,
+      thumbnail_url: message.thumbnail_url,
+      duration: message.duration || null,
+      reply_to_message_id: message.reply_to_message_id,
+      story_id: message.story_id,
+      status: 'sent',
+      created_at: message.created_at,
+    };
+
+    return { success: true, message: mapped };
+  } catch (err: any) {
+    return { success: false, error: err.message || 'Failed to send message' };
   }
 }
 
-export async function getOrCreateConversation(otherUserId: string) {
+export async function getOrCreateConversation(
+  otherUserId: string
+): Promise<{ success: boolean; conversationId?: string; error?: string }> {
   try {
-    const { data: { user }, error: authError } = await supabase.auth.getUser();
-    if (authError || !user) return { error: 'Not authenticated' };
-    if (!otherUserId || typeof otherUserId !== 'string') return { error: 'Invalid user ID' };
-    if (user.id === otherUserId) return { error: 'Cannot message yourself' };
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) return { success: false, error: 'Not authenticated' };
+    if (user.id === otherUserId) return { success: false, error: 'Cannot message yourself' };
 
-    // Try atomic RPC first
-    const { data: rpcResult, error: rpcError } = await supabase.rpc('get_or_create_conversation', {
-      p_user1: user.id,
-      p_user2: otherUserId,
-    });
+    // Try RPC first
+    const { data: rpcResult, error: rpcError } = await supabase.rpc(
+      'get_or_create_conversation',
+      { p_user1: user.id, p_user2: otherUserId }
+    );
 
     if (!rpcError && rpcResult) {
       return { success: true, conversationId: rpcResult };
     }
 
-    // Fallback: client-side logic
+    // Fallback: client-side
     const { data: myParticipations } = await supabase
       .from('conversation_participants')
       .select('conversation_id')
@@ -137,171 +261,85 @@ export async function getOrCreateConversation(otherUserId: string) {
     }
 
     // Create new conversation
-    const { data: conversation, error: convError } = await supabase
+    const { data: newConv, error: createError } = await supabase
       .from('conversations')
-      .insert({})
-      .select()
+      .insert({ user_ids: [user.id, otherUserId] })
+      .select('id')
       .single();
 
-    if (convError || !conversation) return { error: 'Failed to create conversation' };
+    if (createError || !newConv) {
+      return { success: false, error: 'Failed to create conversation' };
+    }
 
-    await supabase
-      .from('conversation_participants')
-      .insert({ conversation_id: conversation.id, user_id: user.id, unread_count: 0 });
+    // Add participants
+    await supabase.from('conversation_participants').insert([
+      { conversation_id: newConv.id, user_id: user.id },
+      { conversation_id: newConv.id, user_id: otherUserId },
+    ]);
 
-    return { success: true, conversationId: conversation.id };
-  } catch {
-    return { error: 'Failed to create conversation' };
+    return { success: true, conversationId: newConv.id };
+  } catch (err: any) {
+    return { success: false, error: err.message || 'Failed to get or create conversation' };
   }
 }
 
-export async function getMessages(conversationId: string) {
+export async function markAsRead(conversationId: string): Promise<void> {
   try {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return { messages: [], error: 'Not authenticated' };
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) return;
 
-    const { data: participant } = await supabase
-      .from('conversation_participants')
-      .select('user_id')
-      .eq('conversation_id', conversationId)
-      .eq('user_id', user.id)
-      .single();
-
-    if (!participant) return { messages: [], error: 'Not a participant' };
-
-    const { data: messages, error } = await supabase
+    await supabase
       .from('messages')
-      .select('id, content, sender_id, created_at, deleted_at, message_type, media_url, thumbnail_url, mime_type, file_size, media_width, media_height, reply_to_message_id, story_id')
+      .update({ status: 'read', seen_at: new Date().toISOString() })
       .eq('conversation_id', conversationId)
-      .order('created_at', { ascending: true })
-      .limit(200);
-
-    if (error) return { messages: [], error: error.message };
-    if (!messages) return { messages: [] };
-
-    const visibleMessages = messages.filter((msg) => !msg.deleted_at);
-
-    const senderIds = [...new Set(visibleMessages.map((m) => m.sender_id))];
-    const { data: profiles } = await supabase
-      .from('profiles')
-      .select('id, username, display_name, avatar_url')
-      .in('id', senderIds);
-
-    const profileMap = new Map(profiles?.map((p) => [p.id, p]) || []);
-
-    const formattedMessages = visibleMessages.map((msg) => ({
-      id: msg.id,
-      content: msg.content,
-      sender_id: msg.sender_id,
-      created_at: msg.created_at,
-      is_mine: msg.sender_id === user.id,
-      sender: profileMap.get(msg.sender_id) || null,
-      message_type: msg.message_type || 'text',
-      media_url: msg.media_url || null,
-      thumbnail_url: msg.thumbnail_url || null,
-      mime_type: msg.mime_type || null,
-      file_size: msg.file_size || null,
-      media_width: msg.media_width || null,
-      media_height: msg.media_height || null,
-      reply_to_message_id: msg.reply_to_message_id || null,
-      story_id: msg.story_id || null,
-    }));
-
-    return { messages: formattedMessages };
-  } catch {
-    return { messages: [] };
+      .neq('sender_id', user.id)
+      .eq('status', 'delivered');
+  } catch (err) {
+    console.error('[MESSAGES] markAsRead error:', err);
   }
 }
 
-export async function markConversationAsRead(conversationId: string) {
-  try {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user || !conversationId) return;
-
-    await supabase
-      .from('conversation_participants')
-      .update({ unread_count: 0 })
-      .eq('conversation_id', conversationId)
-      .eq('user_id', user.id);
-  } catch {
-    // Silent fail
-  }
-}
-
-export async function addReaction(messageId: string, emoji: string) {
-  try {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return { error: 'Not authenticated' };
-
-    const { data: existing } = await supabase
-      .from('message_reactions')
-      .select('id, emoji')
-      .eq('message_id', messageId)
-      .eq('user_id', user.id)
-      .maybeSingle();
-
-    if (existing) {
-      if (existing.emoji === emoji) {
-        await supabase.from('message_reactions').delete().eq('id', existing.id);
-        return { success: true, action: 'removed' };
-      } else {
-        await supabase.from('message_reactions').update({ emoji }).eq('id', existing.id);
-        return { success: true, action: 'swapped' };
+export function subscribeToMessages(
+  conversationId: string,
+  onNewMessage: (message: Message) => void
+) {
+  const channel = supabase
+    .channel(`messages:${conversationId}`)
+    .on(
+      'postgres_changes',
+      {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'messages',
+        filter: `conversation_id=eq.${conversationId}`,
+      },
+      (payload) => {
+        const m = payload.new as any;
+        onNewMessage({
+          id: m.id,
+          conversation_id: m.conversation_id,
+          sender_id: m.sender_id,
+          content: m.content || '',
+          message_type: m.message_type || 'text',
+          media_url: m.media_url,
+          thumbnail_url: m.thumbnail_url,
+          duration: m.duration || null,
+          reply_to_message_id: m.reply_to_message_id,
+          story_id: m.story_id,
+          status: m.status || 'sent',
+          created_at: m.created_at,
+          delivered_at: m.delivered_at,
+          seen_at: m.seen_at,
+          reactions: [],
+          reply_to: null,
+        });
       }
-    }
+    )
+    .subscribe();
 
-    const { error } = await supabase
-      .from('message_reactions')
-      .insert({ message_id: messageId, user_id: user.id, emoji });
-
-    if (error) return { error: 'Failed to add reaction' };
-    return { success: true, action: 'added' };
-  } catch {
-    return { error: 'Failed to add reaction' };
-  }
-}
-
-export async function deleteMessage(messageId: string, deleteForEveryone: boolean) {
-  try {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return { error: 'Not authenticated' };
-
-    const { data: message } = await supabase
-      .from('messages')
-      .select('id, sender_id, created_at')
-      .eq('id', messageId)
-      .single();
-
-    if (!message) return { error: 'Message not found' };
-
-    if (deleteForEveryone) {
-      if (message.sender_id !== user.id) return { error: 'You can only delete your own messages' };
-
-      const messageAge = Date.now() - new Date(message.created_at).getTime();
-      if (messageAge > 10 * 60 * 1000) return { error: 'Can only delete for everyone within 10 minutes' };
-
-      const { error } = await supabase
-        .from('messages')
-        .update({
-          content: 'This message was deleted',
-          media_url: null,
-          thumbnail_url: null,
-          mime_type: null,
-          file_size: null,
-          media_width: null,
-          media_height: null,
-          message_type: 'text',
-        })
-        .eq('id', messageId);
-
-      if (error) return { error: 'Failed to delete message' };
-      return { success: true, action: 'deleted_for_everyone' };
-    } else {
-      const { error } = await supabase.rpc('delete_message_for_me', { p_message_id: messageId });
-      if (error) return { error: 'Failed to delete message' };
-      return { success: true, action: 'deleted_for_me' };
-    }
-  } catch {
-    return { error: 'Failed to delete message' };
-  }
+  return () => {
+    supabase.removeChannel(channel);
+  };
 }

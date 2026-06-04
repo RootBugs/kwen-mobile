@@ -121,7 +121,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
       } else if (activeCategory === 'Videos') {
         query = query.not('video_url', 'is', null);
       } else if (activeCategory === 'Text') {
-        query = query.is('image_url', 'is', null).not('caption', 'is', null);
+        query = query.is('image_url', null).not('caption', 'is', null);
       }
 
       if (!refresh && seenIds.length > 0) {

@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
+import { router } from 'expo-router';
 import { useExploreStore } from '@/lib/stores/explore-store';
 import { COLORS } from '@/lib/constants';
 import { ExploreSearch } from '@/components/explore/explore-search';
@@ -35,8 +36,8 @@ export default function ExploreScreen() {
     await loadMore();
   }, [loadMore]);
 
-  const handlePostPress = useCallback((post: Post) => {
-    // TODO: Navigate to post detail modal
+  const handlePostPress = useCallback((_post: Post) => {
+    // Navigate to post detail — route TBD
   }, []);
 
   if (loading && posts.length === 0) {

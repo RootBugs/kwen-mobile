@@ -10,9 +10,10 @@ import {
 import { ExplorePostItem } from './explore-post-item'
 import { useExploreStore } from '@/lib/stores/explore-store'
 import { COLORS } from '@/lib/constants'
+import type { Post } from '@/components/feed/types'
 
 interface Props {
-  onPostPress: (postId: string) => void
+  onPostPress: (post: Post) => void
   onRefresh: () => void
   onLoadMore: () => void
   refreshing: boolean
@@ -29,15 +30,15 @@ export function ExploreGrid({
   const hasMore = useExploreStore((state) => state.hasMore)
 
   const renderItem = useCallback(
-    ({ item }: { item: { id: string } }) => (
+    ({ item }: { item: Post }) => (
       <View style={styles.itemWrapper}>
-        <ExplorePostItem postId={item.id} onPress={onPostPress} />
+        <ExplorePostItem post={item} onPress={onPostPress} />
       </View>
     ),
     [onPostPress],
   )
 
-  const keyExtractor = useCallback((item: { id: string }) => item.id, [])
+  const keyExtractor = useCallback((item: Post) => item.id, [])
 
   const handleEndReached = () => {
     if (!loadingMore && hasMore) {

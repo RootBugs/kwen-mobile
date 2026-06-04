@@ -1,115 +1,184 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { View, FlatList, StyleSheet, Text, ActivityIndicator } from 'react-native';
-import { useLocalSearchParams, router } from 'expo-router';
-import { useMessagesStore } from '@/lib/stores/messages-store';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
+import {
+  View,
+  FlatList,
+  StyleSheet,
+  ActivityIndicator,
+  Text,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { supabase } from '@/lib/supabase/client';
+import { Message } from './types';
 import { MessageBubble } from './message-bubble';
 import { MessageInput } from './message-input';
-import { Avatar } from '@/components/ui/avatar';
-import { Ionicons } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native';
-import * as Haptics from 'expo-haptics';
+import { TypingIndicator } from './typing-indicator';
+import { useMessagesStore } from '@/lib/stores/messages-store';
+import {
+  getMessages,
+  sendMessage,
+  markAsRead,
+  subscribeToMessages,
+} from '@/lib/services/messages';
+import { hapticLight } from '@/lib/utils/haptics';
 
 export function ChatView() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id: conversationId } = useLocalSearchParams<{ id: string }>();
+  const router = useRouter();
+  const {
+    messages: allMessages,
+    setMessages,
+    addMessage,
+    typingUsers,
+    activeConversationId,
+    setActiveConversationId,
+    conversations,
+  } = useMessagesStore();
+
+  const [loading, setLoading] = useState(true);
+  const [replyTo, setReplyTo] = useState<Message | null>(null);
   const flatListRef = useRef<FlatList>(null);
-  const [replyTo, setReplyTo] = useState<{ id: string; sender_name: string; content: string } | null>(null);
+  const currentUserId = useRef<string>('');
+  const unsubscribeRef = useRef<(() => void) | null>(null);
 
-  const messages = useMessagesStore((s) => s.messages);
-  const loadingMessages = useMessagesStore((s) => s.loadingMessages);
-  const conversations = useMessagesStore((s) => s.conversations);
-  const loadMessages = useMessagesStore((s) => s.loadMessages);
-  const sendMessage = useMessagesStore((s) => s.sendMessage);
-  const markAsRead = useMessagesStore((s) => s.markAsRead);
-  const subscribeToMessages = useMessagesStore((s) => s.subscribeToMessages);
-
-  const conversation = conversations.find((c) => c.id === id);
+  const messages = allMessages.get(conversationId) || [];
+  const conversation = conversations.find((c) => c.id === conversationId);
+  const typing = typingUsers.get(conversationId);
 
   useEffect(() => {
-    if (id) {
-      loadMessages(id);
-      markAsRead(id);
-    }
-  }, [id]);
+    const init = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (user) currentUserId.current = user.id;
 
-  useEffect(() => {
-    if (!id) return;
-    const unsubscribe = subscribeToMessages(id);
-    return unsubscribe;
-  }, [id]);
+      setActiveConversationId(conversationId);
+      const { data, error } = await getMessages(conversationId);
+      if (data) {
+        setMessages(conversationId, data);
+      } else if (error) {
+        console.error('[CHAT] load error:', error);
+      }
+      setLoading(false);
+      markAsRead(conversationId);
+    };
 
-  const handleSend = useCallback(async (text: string) => {
-    if (!id) return;
-    const success = await sendMessage(id, text, { replyToId: replyTo?.id });
-    if (success) {
-      setReplyTo(null);
-      setTimeout(() => flatListRef.current?.scrollToEnd({ animated: true }), 100);
-    }
-  }, [id, sendMessage, replyTo]);
+    init();
 
-  const handleImagePick = useCallback(() => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    // TODO: Implement image picker
-  }, []);
-
-  const handleVoiceRecord = useCallback(() => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    // TODO: Implement voice recording
-  }, []);
-
-  const handleReply = useCallback((msg: any) => {
-    setReplyTo({
-      id: msg.id,
-      sender_name: msg.sender?.display_name || 'Unknown',
-      content: msg.content || 'Media',
+    // Subscribe to realtime messages
+    unsubscribeRef.current = subscribeToMessages(conversationId, (newMessage) => {
+      addMessage(conversationId, newMessage);
+      if (newMessage.sender_id !== currentUserId.current) {
+        markAsRead(conversationId);
+      }
     });
+
+    return () => {
+      setActiveConversationId(null);
+      if (unsubscribeRef.current) {
+        unsubscribeRef.current();
+        unsubscribeRef.current = null;
+      }
+    };
+  }, [conversationId]);
+
+  const handleSendMessage = useCallback(
+    async (content: string) => {
+      const result = await sendMessage(
+        conversationId,
+        content,
+        undefined,
+        replyTo?.id
+      );
+      if (result.success && result.message) {
+        addMessage(conversationId, result.message);
+        setReplyTo(null);
+      }
+    },
+    [conversationId, replyTo, addMessage]
+  );
+
+  const handleSendImage = useCallback(
+    async (uri: string) => {
+      const result = await sendMessage(conversationId, '', {
+        path: uri,
+        mimeType: 'image/jpeg',
+      });
+      if (result.success && result.message) {
+        addMessage(conversationId, result.message);
+      }
+    },
+    [conversationId, addMessage]
+  );
+
+  const handleReply = useCallback((message: Message) => {
+    hapticLight();
+    setReplyTo(message);
   }, []);
 
-  const renderMessage = useCallback(({ item, index }: { item: any; index: number }) => {
-    const prevMsg = index > 0 ? messages[index - 1] : null;
-    const showTail = !prevMsg || prevMsg.sender_id !== item.sender_id;
-    return <MessageBubble message={item} showTail={showTail} />;
-  }, [messages]);
+  const handleCancelReply = useCallback(() => {
+    setReplyTo(null);
+  }, []);
+
+  const renderMessage = ({ item, index }: { item: Message; index: number }) => {
+    const isMine = item.sender_id === currentUserId.current;
+    const prevMessage = index > 0 ? messages[index - 1] : null;
+    const showTail =
+      !prevMessage ||
+      prevMessage.sender_id !== item.sender_id ||
+      new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
+        60000;
+
+    return (
+      <MessageBubble
+        message={item}
+        isMine={isMine}
+        showTail={showTail}
+        onReply={handleReply}
+      />
+    );
+  };
+
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#0095F6" />
+      </View>
+    );
+  }
 
   return (
-    <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-          <Ionicons name="chevron-back" size={24} color="#000000" />
-        </TouchableOpacity>
-        <Avatar src={conversation?.other_user?.avatar_url} name={conversation?.other_user?.display_name} size="sm" />
-        <Text style={styles.headerName} numberOfLines={1}>
-          {conversation?.other_user?.display_name || 'Messages'}
-        </Text>
-        <View style={styles.headerSpacer} />
-      </View>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      keyboardVerticalOffset={0}
+    >
+      <FlatList
+        ref={flatListRef}
+        data={messages}
+        keyExtractor={(item) => item.id}
+        renderItem={renderMessage}
+        contentContainerStyle={styles.messagesList}
+        onContentSizeChange={() => {
+          if (messages.length > 0) {
+            flatListRef.current?.scrollToEnd({ animated: true });
+          }
+        }}
+        showsVerticalScrollIndicator={false}
+      />
 
-      {/* Messages */}
-      {loadingMessages ? (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#737373" />
-        </View>
-      ) : (
-        <FlatList
-          ref={flatListRef}
-          data={messages}
-          keyExtractor={(item) => item.id}
-          renderItem={renderMessage}
-          style={styles.messagesList}
-          contentContainerStyle={styles.messagesContent}
-          onContentSizeChange={() => flatListRef.current?.scrollToEnd({ animated: false })}
-        />
+      {typing && typing.size > 0 && (
+        <TypingIndicator name={conversation?.other_user?.display_name} />
       )}
 
-      {/* Input */}
       <MessageInput
-        onSend={handleSend}
-        onImagePick={handleImagePick}
-        onVoiceRecord={handleVoiceRecord}
-        replyTo={replyTo}
-        onCancelReply={() => setReplyTo(null)}
+        onSendMessage={handleSendMessage}
+        onSendImage={handleSendImage}
+        replyToName={replyTo?.content ? replyTo.content.slice(0, 30) : undefined}
+        onCancelReply={handleCancelReply}
       />
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -118,36 +187,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 10,
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#DBDBDB',
-    gap: 8,
-  },
-  backBtn: {
-    padding: 4,
-  },
-  headerName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#000000',
-    flex: 1,
-  },
-  headerSpacer: {
-    width: 32,
-  },
   loadingContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
   },
   messagesList: {
-    flex: 1,
-  },
-  messagesContent: {
     paddingVertical: 8,
   },
 });

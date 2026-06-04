@@ -1,77 +1,124 @@
-import React, { useState, useCallback } from 'react';
-import { View, TextInput, TouchableOpacity, StyleSheet, Text, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import * as Haptics from 'expo-haptics';
+import React, { useState, useRef } from 'react';
+import {
+  View,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Keyboard,
+  Alert,
+} from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+import { hapticLight } from '@/lib/utils/haptics';
 
 interface MessageInputProps {
-  onSend: (text: string) => void;
-  onImagePick: () => void;
-  onVoiceRecord: () => void;
-  replyTo?: { id: string; sender_name: string; content: string } | null;
+  onSendMessage: (content: string) => void;
+  onSendImage: (uri: string) => void;
+  replyToName?: string;
   onCancelReply?: () => void;
-  disabled?: boolean;
 }
 
 export function MessageInput({
-  onSend,
-  onImagePick,
-  onVoiceRecord,
-  replyTo,
+  onSendMessage,
+  onSendImage,
+  replyToName,
   onCancelReply,
-  disabled,
 }: MessageInputProps) {
   const [text, setText] = useState('');
+  const inputRef = useRef<TextInput>(null);
 
-  const handleSend = useCallback(() => {
-    if (!text.trim() || disabled) return;
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    onSend(text.trim());
+  const handleSend = () => {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    hapticLight();
+    onSendMessage(trimmed);
     setText('');
-  }, [text, onSend, disabled]);
+  };
+
+  const handlePickImage = async () => {
+    hapticLight();
+    try {
+      const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (status !== 'granted') {
+        Alert.alert('Permission needed', 'Please grant photo library access.');
+        return;
+      }
+
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        quality: 0.8,
+        allowsEditing: true,
+      });
+
+      if (!result.canceled && result.assets[0]) {
+        onSendImage(result.assets[0].uri);
+      }
+    } catch (err) {
+      console.error('[MESSAGES] image pick error:', err);
+    }
+  };
+
+  const handleCamera = async () => {
+    hapticLight();
+    try {
+      const { status } = await ImagePicker.requestCameraPermissionsAsync();
+      if (status !== 'granted') {
+        Alert.alert('Permission needed', 'Please grant camera access.');
+        return;
+      }
+
+      const result = await ImagePicker.launchCameraAsync({
+        quality: 0.8,
+        allowsEditing: true,
+      });
+
+      if (!result.canceled && result.assets[0]) {
+        onSendImage(result.assets[0].uri);
+      }
+    } catch (err) {
+      console.error('[MESSAGES] camera error:', err);
+    }
+  };
 
   return (
     <View style={styles.container}>
-      {/* Reply preview */}
-      {replyTo && (
+      {replyToName && (
         <View style={styles.replyBar}>
-          <View style={styles.replyInfo}>
-            <Text style={styles.replyLabel}>Replying to {replyTo.sender_name}</Text>
-            <Text style={styles.replyText} numberOfLines={1}>
-              {replyTo.content || 'Media'}
-            </Text>
-          </View>
+          <View style={styles.replyIndicator} />
+          <Text style={styles.replyText} numberOfLines={1}>
+            Replying to {replyToName}
+          </Text>
           <TouchableOpacity onPress={onCancelReply} style={styles.cancelReply}>
-            <Ionicons name="close" size={18} color="#737373" />
+            <Text style={styles.cancelReplyText}>✕</Text>
           </TouchableOpacity>
         </View>
       )}
 
       <View style={styles.inputRow}>
-        {/* Image picker */}
-        <TouchableOpacity style={styles.actionBtn} onPress={onImagePick}>
-          <Ionicons name="image-outline" size={22} color="#737373" />
+        <TouchableOpacity onPress={handleCamera} style={styles.actionBtn}>
+          <Text style={styles.actionIcon}>📷</Text>
         </TouchableOpacity>
 
-        {/* Text input */}
+        <TouchableOpacity onPress={handlePickImage} style={styles.actionBtn}>
+          <Text style={styles.actionIcon}>🖼</Text>
+        </TouchableOpacity>
+
         <TextInput
+          ref={inputRef}
           style={styles.input}
-          placeholder="Message..."
+          placeholder="Message…"
           placeholderTextColor="#737373"
           value={text}
           onChangeText={setText}
           multiline
           maxLength={5000}
-          editable={!disabled}
+          returnKeyType="default"
+          blurOnSubmit={false}
         />
 
-        {/* Send or Voice */}
-        {text.trim().length > 0 ? (
-          <TouchableOpacity style={styles.sendBtn} onPress={handleSend}>
-            <Ionicons name="send" size={20} color="#007AFF" />
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity style={styles.actionBtn} onPress={onVoiceRecord}>
-            <Ionicons name="mic-outline" size={22} color="#737373" />
+        {text.trim().length > 0 && (
+          <TouchableOpacity onPress={handleSend} style={styles.sendBtn}>
+            <Text style={styles.sendText}>Send</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -90,35 +137,40 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#DBDBDB',
+    paddingVertical: 6,
+    backgroundColor: '#F8F8F8',
   },
-  replyInfo: {
-    flex: 1,
-  },
-  replyLabel: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: '#007AFF',
+  replyIndicator: {
+    width: 3,
+    height: 24,
+    backgroundColor: '#0095F6',
+    borderRadius: 1.5,
+    marginRight: 8,
   },
   replyText: {
-    fontSize: 12,
+    flex: 1,
+    fontSize: 13,
     color: '#737373',
-    marginTop: 1,
   },
   cancelReply: {
     padding: 4,
+  },
+  cancelReplyText: {
+    fontSize: 14,
+    color: '#737373',
   },
   inputRow: {
     flexDirection: 'row',
     alignItems: 'flex-end',
     paddingHorizontal: 8,
-    paddingTop: 8,
+    paddingTop: 6,
     gap: 4,
   },
   actionBtn: {
     padding: 6,
+  },
+  actionIcon: {
+    fontSize: 22,
   },
   input: {
     flex: 1,
@@ -132,6 +184,12 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   sendBtn: {
-    padding: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  sendText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#0095F6',
   },
 });
