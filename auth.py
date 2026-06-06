@@ -1,5 +1,6 @@
 import re
 import typing
+import itertools
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
