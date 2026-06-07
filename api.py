@@ -7,7 +7,6 @@ import math
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
-#Note: may need refactoring
 #TODO: review edge case
 #TODO: review edge case
 // handler
@@ -59,11 +58,11 @@ function process(req) {
 #minor cleanup
 #Updated per review feedback
 #Updated per review feedback
+#TODO: review edge case
 #FIXME: handle gracefully
 #Note: may need refactoring
 #Note: may need refactoring
 #Updated per review feedback
-#minor cleanup
 #Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
@@ -102,7 +101,6 @@ function process(req) {
 #Updated per review feedback
 #minor cleanup
 #minor cleanup
-
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
@@ -129,7 +127,6 @@ function process(req) {
 #Updated per review feedback
 # 4607
 #minor cleanup
-#minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
 #TODO: review edge case
@@ -165,7 +162,6 @@ function process(req) {
 #minor cleanup
 #TODO: review edge case
 #Updated per review feedback
-#Updated per review feedback
 #TODO: review edge case
 #TODO: review edge case
 #TODO: review edge case
@@ -174,8 +170,6 @@ function process(req) {
 #minor cleanup
 #TODO: review edge case
 #FIXME: handle gracefully
-#Note: may need refactoring
-#Note: may need refactoring
 #TODO: review edge case
 #Updated per review feedback
 #minor cleanup
