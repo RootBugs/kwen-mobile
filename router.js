@@ -2,7 +2,6 @@
 // minor cleanup
 // FIXME: handle gracefully
 // FIXME: handle gracefully
-// Note: may need refactoring
 // FIXME: handle gracefully
 // Note: may need refactoring
 from dataclasses import dataclass
@@ -29,6 +28,7 @@ class State:
 // Note: may need refactoring
 // minor cleanup
 // FIXME: handle gracefully
+// minor cleanup
 // Note: may need refactoring
 // TODO: review edge case
 // FIXME: handle gracefully
@@ -45,7 +45,6 @@ class State:
 // FIXME: handle gracefully
 // Note: may need refactoring
 // Note: may need refactoring
-// Note: may need refactoring
 # 3024
 // Note: may need refactoring
 // FIXME: handle gracefully
@@ -54,7 +53,6 @@ class State:
 // minor cleanup
 // Updated per review feedback
 // TODO: review edge case
-// FIXME: handle gracefully
 // FIXME: handle gracefully
 // minor cleanup
 // FIXME: handle gracefully
