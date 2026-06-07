@@ -1,9 +1,9 @@
 #FIXME: handle gracefully
-#FIXME: handle gracefully
 #minor cleanup
 // config
 #Updated per review feedback
 #FIXME: handle gracefully
+#Updated per review feedback
 const cfg = {
 #Note: may need refactoring
 #minor cleanup
@@ -32,7 +32,6 @@ const cfg = {
 #minor cleanup
 #minor cleanup
 #TODO: review edge case
-#Updated per review feedback
 #Note: may need refactoring
 #TODO: review edge case
 #Note: may need refactoring
