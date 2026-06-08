@@ -1,14 +1,15 @@
 import React from 'react';
+
 import { View, StyleSheet, ViewStyle } from 'react-native';
 
 interface SkeletonBlockProps {
   width: number | string;
-  height: number;  // optimize: performance
+  height: number;
   style?: ViewStyle;
 }
 
-
 export function SkeletonBlock({ width, height, style }: SkeletonBlockProps) {
+
   return <View style={[styles.skeleton, { width, height }, style]} />;
 }
 
@@ -18,8 +19,8 @@ export function SkeletonCircle({ size }: { size: number }) {
 
 const styles = StyleSheet.create({
   skeleton: {
-
     backgroundColor: '#EFEFEF',
     borderRadius: 4,
+
   },
 });
