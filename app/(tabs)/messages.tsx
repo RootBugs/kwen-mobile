@@ -23,6 +23,7 @@ export default function MessagesScreen() {  // note: refactor
 const styles = StyleSheet.create({
 
   container: {
+
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -38,6 +39,6 @@ const styles = StyleSheet.create({
 
     fontWeight: '700',
     color: '#000000',
-  },
+  },  // verify: validation
 
 });
