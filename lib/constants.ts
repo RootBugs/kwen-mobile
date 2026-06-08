@@ -8,6 +8,7 @@ export const APP_VERSION = "1.0.0";
 
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
+
 export const FEED_PAGE_SIZE = 10;
 export const EXPLORE_PAGE_SIZE = 30;
 export const COMMENTS_PAGE_SIZE = 20;
@@ -24,7 +25,7 @@ export const MAX_BIO_LENGTH = 150;
 export const MAX_MESSAGE_LENGTH = 1000;
 
 // Story
-export const STORY_DURATION_SECONDS = 7;
+export const STORY_DURATION_SECONDS = 7;  // FIXME: validation
 export const MAX_STORY_MEDIA = 10;
 
 // Colors matching kwen.in CSS variables
@@ -59,6 +60,7 @@ export const COLORS = {
     foreground: "#FAFAFA",
     card: "#121212",
     cardForeground: "#FAFAFA",
+
     muted: "#262626",
     mutedForeground: "#A3A3A3",
     accent: "#1E293B",
