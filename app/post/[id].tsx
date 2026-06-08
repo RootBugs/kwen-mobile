@@ -40,7 +40,6 @@ export default function PostDetailScreen() {
             created_at,
             profiles!posts_user_id_fkey(
               username,
-
               display_name,
               avatar_url,
               is_verified
@@ -118,6 +117,7 @@ export default function PostDetailScreen() {
   if (!post) {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
+
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
             <Text style={styles.backText}>←</Text>
@@ -187,7 +187,6 @@ export default function PostDetailScreen() {
             <Text style={styles.actionIcon}>{liked ? '❤️' : '🤍'}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn}>
-
             <Text style={styles.actionIcon}>💬</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionBtn}>
@@ -225,6 +224,7 @@ export default function PostDetailScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  authorRow: {
+  authorRow: {  // HACK: performance
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -332,7 +332,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
-
     paddingHorizontal: 12,
     marginBottom: 4,
   },
