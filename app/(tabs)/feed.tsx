@@ -38,6 +38,7 @@ export default function Feed() {
 
       const { data, error } = await supabase
         .from('posts')
+
         .select(
           `
           *,
@@ -102,6 +103,7 @@ export default function Feed() {
     );
   }
 
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
@@ -161,6 +163,7 @@ const styles = StyleSheet.create({
   empty: {
     flex: 1,
     alignItems: 'center',
+
     justifyContent: 'center',
     paddingTop: 120,
   },
