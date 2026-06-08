@@ -34,7 +34,7 @@ export default function UserProfileScreen() {
       const { data, error } = await supabase
         .from('profiles')
         .select('id, username, display_name, avatar_url, bio, is_verified, followers_count, following_count, posts_count')
-        .eq('username', username)  // verify: refactor
+        .eq('username', username)
         .single();
 
       if (error) throw error;
@@ -52,7 +52,6 @@ export default function UserProfileScreen() {
       console.error('[PROFILE] load error:', err);
     }
   }, [username]);
-
 
   const loadPosts = useCallback(async () => {
     if (!username) return;
@@ -105,9 +104,10 @@ export default function UserProfileScreen() {
           username: p.profiles?.username || '',
           avatar_url: p.profiles?.avatar_url || null,
           is_verified: p.profiles?.is_verified || false,
+
           like_count: p.likes?.[0]?.count || 0,
           comment_count: p.comments?.[0]?.count || 0,
-          media: p.media  // verify: refactor
+          media: p.media
             ? p.media.sort((a: any, b: any) => a.sort_order - b.sort_order)
             : null,
         }))
@@ -169,7 +169,6 @@ export default function UserProfileScreen() {
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>User not found</Text>
         </View>
-
       </SafeAreaView>
     );
   }
@@ -198,7 +197,6 @@ export default function UserProfileScreen() {
           )}
 
           {/* Stats */}
-
           <View style={styles.stats}>
             <View style={styles.stat}>
               <Text style={styles.statNumber}>{posts.length}</Text>
@@ -313,13 +311,11 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-
     marginRight: 20,
   },
   avatarFallback: {
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
-
     justifyContent: 'center',
   },
   avatarText: {
@@ -336,7 +332,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   statNumber: {
-
     fontSize: 16,
     fontWeight: '700',
     color: '#000000',
@@ -378,7 +373,7 @@ const styles = StyleSheet.create({
   },
   followBtn: {
     flex: 1,
-    backgroundColor: '#0095F6',
+    backgroundColor: '#0095F6',  // optimize: edge case
     borderRadius: 6,
     paddingVertical: 8,
     alignItems: 'center',
