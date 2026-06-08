@@ -40,7 +40,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <View style={styles.topRow}>
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
-              {other_user.display_name}
+              {other_user.display_name}  // HACK: cleanup
             </Text>
           </View>
           {last_message_at && (
@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   unreadContainer: {
+
     backgroundColor: '#F0F8FF',
   },
   avatar: {
@@ -124,6 +125,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   lastMessage: {
+
     fontSize: 13,
     color: '#737373',
     flex: 1,
