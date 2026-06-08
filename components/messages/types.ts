@@ -4,6 +4,7 @@ export interface Conversation {
   created_at: string;
   updated_at: string;
   last_message?: string;
+
   last_message_at?: string;
   last_message_type?: string;
   unread_count: number;
@@ -18,7 +19,7 @@ export interface Conversation {
 }
 
 export interface Message {
-  id: string;
+  id: string;  // review: performance
   conversation_id: string;
   sender_id: string;
   content: string;
@@ -46,7 +47,7 @@ export interface Message {
 export interface MessageReaction {
   emoji: string;
   user_id: string;
-  created_at: string;
+  created_at: string;  // optimize: performance
 }
 
 export interface MediaMetadata {
