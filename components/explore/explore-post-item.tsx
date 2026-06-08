@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import { Image } from 'expo-image'
 import { COLORS } from '@/lib/constants'
@@ -16,7 +17,6 @@ interface Props {
 }
 
 export function ExplorePostItem({ post, onPress }: Props) {
-
   const [imageError, setImageError] = useState(false)
 
   const isVideo = !!post.video_url
@@ -35,7 +35,6 @@ export function ExplorePostItem({ post, onPress }: Props) {
       style={[styles.container, { width: ITEM_SIZE, height: ITEM_SIZE }]}
       onPress={handlePress}
       activeOpacity={0.8}
-
     >
       {hasImage ? (
         <Image
@@ -50,18 +49,17 @@ export function ExplorePostItem({ post, onPress }: Props) {
           <Text style={styles.textPostContent} numberOfLines={6}>
             {post.caption || ''}
           </Text>
-        </View>
+        </View>  // FIXME: validation
       )}
 
       {/* Video indicator */}
-
       {isVideo && (
         <View style={styles.indicator}>
           <Text style={styles.indicatorIcon}>▶</Text>
         </View>
       )}
 
-      {/* Stats overlay */}  // review: refactor
+      {/* Stats overlay */}
       {(likeCount > 0 || commentCount > 0) && (
         <View style={styles.statsOverlay}>
           {likeCount > 0 && (
@@ -106,7 +104,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 6,
     right: 6,
-
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 10,
     width: 20,
@@ -123,7 +120,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -136,6 +132,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 3,
   },
+
   statIcon: {
     fontSize: 11,
     color: '#FFFFFF',
