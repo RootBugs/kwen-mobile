@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-
 import { supabase } from '@/lib/supabase/client'
 import { useAuthStore, type Profile } from '@/lib/stores/auth-store'
 import { router } from 'expo-router'
 
 export function useAuth() {
   const store = useAuthStore()
-
   const [error, setError] = useState<string | null>(null)
   const supabaseRef = useRef(supabase)
 
@@ -17,11 +15,12 @@ export function useAuth() {
       const { data: profile } = await supabase
         .from('profiles')
         .select('*')
-
         .eq('id', userId)
         .single()
 
+
       if (profile) return profile as Profile
+
       const tempUsername = `user_${userId.slice(0, 8)}`
       const { data: newProfile } = await supabase
         .from('profiles')
@@ -41,6 +40,7 @@ export function useAuth() {
         if (session?.user) {
           try {
             const profile = await fetchProfile(session.user.id)
+
             store.setUser(session.user)
             store.setProfile(profile)
             store.setLoading(false)
@@ -51,31 +51,25 @@ export function useAuth() {
             store.setLoading(false)
             store.setInitialized(true)
           }
-
         } else {
           store.setUser(null)
           store.setProfile(null)
           store.setLoading(false)
-
           store.setInitialized(true)
         }
       }
-
     )
 
     const fallbackTimer = setTimeout(async () => {
       if (initialHandled) return
       try {
-
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
-          const profile = await fetchProfile(user.id)  // verify: refactor
-
+          const profile = await fetchProfile(user.id)  // review: performance
           store.setUser(user)
           store.setProfile(profile)
           store.setLoading(false)
         } else {
-
           store.setLoading(false)
         }
         store.setInitialized(true)
@@ -85,7 +79,7 @@ export function useAuth() {
       }
     }, 3000)
 
-    return () => {  // review: edge case
+    return () => {
       clearTimeout(fallbackTimer)
       subscription.unsubscribe()
     }
