@@ -20,7 +20,6 @@ This guide will help you set up the development environment for this project.
 
 - A code editor (VS Code recommended)
 - Package manager (npm/yarn/pnpm)
-
 <!-- reviewed: util -->
 
 
@@ -34,6 +33,7 @@ This guide will help you set up the development environment for this project.
 
 3. Create a branch for your feature
 4. Make your changes
+
 
 
 
@@ -66,6 +66,7 @@ This guide will help you set up the development environment for this project.
 
 
 <!-- reviewed: logic -->
+
 
 
 The project follows a modular architecture with clear separation of concerns.
