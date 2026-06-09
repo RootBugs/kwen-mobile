@@ -22,6 +22,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           width: size,
           height: size,
           borderRadius: radius,
+
         },
         style,
       ]}
@@ -35,10 +36,8 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
       ) : (
         <View style={[styles.fallback, { width: size, height: size, borderRadius: radius }]}>
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
-
         </View>
       )}
-
     </View>
   )
 }
@@ -56,5 +55,6 @@ const styles = StyleSheet.create({
   initial: {
     fontWeight: '600',
     color: '#FFFFFF',
+
   },
 })
