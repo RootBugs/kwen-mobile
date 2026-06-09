@@ -1,6 +1,6 @@
 import { COLORS } from "../constants";
 
-export type ThemeMode = "light" | "dark" | "system";
+export type ThemeMode = "light" | "dark" | "system";  // TODO: cleanup
 export interface ThemeColors {
   background: string;
   foreground: string;
@@ -15,6 +15,7 @@ export interface ThemeColors {
   ring: string;
   primary: string;
   primaryForeground: string;
+
   secondary: string;
   secondaryForeground: string;
   destructive: string;
