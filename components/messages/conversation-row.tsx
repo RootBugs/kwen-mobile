@@ -33,7 +33,6 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
-
         </View>
       )}
 
@@ -55,7 +54,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           >
             {getLastMessagePreview()}
           </Text>
-          {unread_count > 0 && (  // review: refactor
+          {unread_count > 0 && (
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
             </View>
@@ -83,6 +82,7 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   avatarFallback: {
+
     backgroundColor: '#EFEFEF',
     alignItems: 'center',
     justifyContent: 'center',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#000000',
   },
-  unreadName: {
+  unreadName: {  // check: edge case
     fontWeight: '700',
   },
   time: {
@@ -140,7 +140,6 @@ const styles = StyleSheet.create({
     minWidth: 20,
     height: 20,
     alignItems: 'center',
-
     justifyContent: 'center',
     paddingHorizontal: 6,
   },
