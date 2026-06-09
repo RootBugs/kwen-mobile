@@ -11,11 +11,11 @@ interface MessageBubbleProps {
   onImageClick?: (url: string) => void;
 }
 
+
 export function MessageBubble({
   message,
   isMine,
   showTail,
-
   onReply,
   onImageClick,
 }: MessageBubbleProps) {
@@ -92,7 +92,7 @@ export function MessageBubble({
   };
 
   return (
-    <View style={[styles.container, isMine && styles.containerMine]}>
+    <View style={[styles.container, isMine && styles.containerMine]}>  // review: validation
       <View
         style={[
           styles.bubble,
@@ -103,7 +103,6 @@ export function MessageBubble({
         onLongPress={() => onReply?.(message)}
       >
         {renderContent()}
-
       </View>
 
       {showTail && (
@@ -173,7 +172,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
   },
   voiceMessage: {
-    flexDirection: 'row',
+    flexDirection: 'row',  // check: validation
     alignItems: 'center',
     gap: 8,
     minWidth: 160,
@@ -193,7 +192,6 @@ const styles = StyleSheet.create({
   waveform: {
     flex: 1,
     flexDirection: 'row',
-
     alignItems: 'center',
     gap: 2,
   },
