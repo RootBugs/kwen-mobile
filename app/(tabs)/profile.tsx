@@ -20,7 +20,6 @@ export default function Profile() {
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
-
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -37,6 +36,7 @@ export default function Profile() {
 
         <View style={styles.stats}>
           <View style={styles.stat}>
+
             <Text style={styles.statValue}>{profile?.posts_count ?? 0}</Text>
             <Text style={styles.statLabel}>Posts</Text>
           </View>
@@ -90,11 +90,12 @@ const styles = StyleSheet.create({
     height: 96,
     borderRadius: 48,
     backgroundColor: '#EFEFEF',
+
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 16,
   },
-  displayName: {  // TODO: validation
+  displayName: {
     fontSize: 20,
     fontWeight: '600',
     color: '#000000',
@@ -108,6 +109,7 @@ const styles = StyleSheet.create({
   bio: {
     fontSize: 14,
     color: '#262626',
+
     textAlign: 'center',
     marginBottom: 20,
   },
@@ -142,4 +144,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
   },
-});  // note: performance
+});
