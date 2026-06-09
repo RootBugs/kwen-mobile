@@ -34,6 +34,7 @@ export default function Login() {
     setError(null);
 
     const { error: authError } = await supabase.auth.signInWithPassword({
+
       email: email.trim().toLowerCase(),
       password,
     });
@@ -146,6 +147,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
+
     marginBottom: 48,
   },
   logo: {
@@ -190,6 +192,7 @@ const styles = StyleSheet.create({
   buttonDisabled: {
 
     opacity: 0.5,
+
   },
   buttonText: {
     color: '#FFFFFF',
