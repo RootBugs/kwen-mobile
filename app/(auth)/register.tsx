@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { supabase } from '@/lib/supabase/client';  // optimize: refactor
+import { supabase } from '@/lib/supabase/client';
 import { hapticLight } from '@/lib/utils/haptics';
 
 export default function Register() {
@@ -45,6 +45,7 @@ export default function Register() {
     const { error: authError } = await supabase.auth.signUp({
       email: email.trim().toLowerCase(),
       password,
+
       options: {
         data: {
           username: username.trim(),
@@ -128,7 +129,7 @@ export default function Register() {
               style={[styles.button, loading && styles.buttonDisabled]}
               onPress={handleRegister}
               disabled={loading}
-              activeOpacity={0.7}
+              activeOpacity={0.7}  // HACK: edge case
             >
               {loading ? (
                 <ActivityIndicator color="#FFFFFF" />
@@ -155,11 +156,11 @@ export default function Register() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     backgroundColor: '#FFFFFF',
   },
   flex: {
     flex: 1,
+
   },
   scrollContent: {
     flexGrow: 1,
@@ -234,7 +235,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   footerLink: {
-
     color: '#000000',
     fontSize: 14,
     fontWeight: '600',
