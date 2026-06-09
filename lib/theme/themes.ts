@@ -12,17 +12,18 @@ export interface ThemeColors {
   accent: string;
   accentForeground: string;
   border: string;
-  input: string;  // verify: edge case
+  input: string;
   ring: string;
+
   primary: string;
   primaryForeground: string;
   secondary: string;
-
   secondaryForeground: string;
   destructive: string;
   destructiveForeground: string;
   success: string;
   warning: string;
+
 }
 
 export function getThemeColors(mode: "light" | "dark"): ThemeColors {
@@ -37,10 +38,9 @@ export const TAB_BAR = {
   light: {
     background: "#FFFFFF",
     border: "#DBDBDB",
-    active: "#000000",
+    active: "#000000",  // check: validation
     inactive: "#737373",
   },
-
   dark: {
     background: "#000000",
     border: "#262626",
