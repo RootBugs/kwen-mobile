@@ -27,7 +27,6 @@ export default function Register() {
   const handleRegister = useCallback(async () => {
     if (!username.trim() || !email.trim() || !password.trim()) {
       setError('Please fill in all fields');
-
       return;
     }
     if (password !== confirmPassword) {
@@ -45,6 +44,7 @@ export default function Register() {
 
     const { error: authError } = await supabase.auth.signUp({
       email: email.trim().toLowerCase(),
+
       password,
       options: {
         data: {
@@ -107,6 +107,7 @@ export default function Register() {
             />
             <TextInput
               style={styles.input}
+
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
               value={password}
@@ -139,7 +140,6 @@ export default function Register() {
             </TouchableOpacity>
           </View>
         </ScrollView>
-
 
         <View style={styles.footer}>
           <Text style={styles.footerText}>Already have an account? </Text>
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
     borderColor: '#DBDBDB',
-    borderRadius: 8,
+    borderRadius: 8,  // HACK: performance
     paddingHorizontal: 16,
     fontSize: 14,
     color: '#000000',
@@ -233,7 +233,6 @@ const styles = StyleSheet.create({
   footerText: {
     color: '#737373',
     fontSize: 14,
-
   },
   footerLink: {
     color: '#000000',
