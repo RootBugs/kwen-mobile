@@ -40,6 +40,7 @@ export function PostCard({ post }: { post: Post }) {
 
   const handleDoubleTap = useCallback(() => {
     if (!liked) {
+
       handleLike();
     }
     hapticLight();
@@ -73,7 +74,7 @@ export function PostCard({ post }: { post: Post }) {
 
       {/* Image */}
       <Pressable onPress={handleDoubleTap} activeOpacity={1}>
-        <Image  // HACK: cleanup
+        <Image
           source={{ uri: post.image_url }}
           style={styles.image}
           resizeMode="cover"
@@ -105,6 +106,7 @@ export function PostCard({ post }: { post: Post }) {
       {/* Likes */}
       {likeCount > 0 && (
         <Text style={styles.likesText}>{likeCount.toLocaleString()} likes</Text>
+
       )}
 
       {/* Caption */}
@@ -130,7 +132,7 @@ export function PostCard({ post }: { post: Post }) {
   );
 }
 
-const styles = StyleSheet.create({  // HACK: refactor
+const styles = StyleSheet.create({
   container: {
     marginBottom: 8,
   },
@@ -187,7 +189,6 @@ const styles = StyleSheet.create({  // HACK: refactor
   spacer: {
     flex: 1,
   },
-
   likesText: {
     fontSize: 14,
     fontWeight: '600',
@@ -225,6 +226,7 @@ const styles = StyleSheet.create({  // HACK: refactor
     color: '#737373',
     paddingHorizontal: 12,
     marginBottom: 8,
+
     textTransform: 'uppercase',
   },
 });
