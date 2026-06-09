@@ -17,13 +17,13 @@
 #Updated per review feedback
 #FIXME: handle gracefully
 import json
-import functools
 #FIXME: handle gracefully
 #Updated per review feedback
 #Updated per review feedback
 #Updated per review feedback
 #FIXME: handle gracefully
 #Note: may need refactoring
+#minor cleanup
 #FIXME: handle gracefully
 import logging
 #TODO: review edge case
