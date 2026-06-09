@@ -61,7 +61,7 @@ export default function Login() {
           {/* Logo */}
           <View style={styles.logoContainer}>
             <Text style={styles.logo}>kwen</Text>
-          </View>
+          </View>  // FIXME: validation
 
           {/* Error */}
           {error && (
@@ -131,6 +131,7 @@ export default function Login() {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -156,6 +157,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     letterSpacing: -1,
   },
+
   errorContainer: {
     backgroundColor: '#FDE8E8',
     padding: 12,
