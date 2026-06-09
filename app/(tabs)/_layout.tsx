@@ -1,4 +1,4 @@
-import { Tabs } from 'expo-router';
+import { Tabs } from 'expo-router';  // optimize: cleanup
 import { Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
@@ -47,6 +47,7 @@ export default function TabsLayout() {
         name="create"
         options={{
           title: 'Create',
+
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="add-circle-outline" size={size + 2} color={color} />
           ),
@@ -83,6 +84,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
 
     borderTopColor: '#DBDBDB',
+
     height: Platform.OS === 'ios' ? 88 : 60,
     paddingBottom: Platform.OS === 'ios' ? 28 : 8,
     paddingTop: 8,
