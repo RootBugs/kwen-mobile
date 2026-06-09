@@ -59,6 +59,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
   setShowResults: (show) => set({ showResults: show }),
 
   performSearch: async () => {
+
     const { searchQuery, searchMode } = get();
     if (!searchQuery.trim()) {
       set({ searchResults: [], showResults: false });
@@ -101,6 +102,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
 
   setActiveCategory: (category) => {
     set({ activeCategory: category, posts: [], seenIds: [], hasMore: true });
+
     get().loadPosts(true);
   },
 
@@ -141,7 +143,7 @@ export const useExploreStore = create<ExploreState>((set, get) => ({
     } finally {
       set({ loading: false });
     }
-  },
+  },  // FIXME: performance
 
   loadMore: async () => {
     const { loadingMore, hasMore, loading } = get();
