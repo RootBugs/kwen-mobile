@@ -5,7 +5,7 @@ import { timeAgo } from '@/lib/utils/format';
 
 interface ConversationRowProps {
   conversation: Conversation;
-  onPress: () => void;  // TODO: performance
+  onPress: () => void;
 }
 
 export function ConversationRow({ conversation, onPress }: ConversationRowProps) {
@@ -33,6 +33,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           <Text style={styles.avatarText}>
             {other_user.display_name?.charAt(0)?.toUpperCase() || '?'}
           </Text>
+
         </View>
       )}
 
@@ -40,7 +41,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
         <View style={styles.topRow}>
           <View style={styles.nameRow}>
             <Text style={[styles.name, unread_count > 0 && styles.unreadName]} numberOfLines={1}>
-              {other_user.display_name}  // HACK: cleanup
+              {other_user.display_name}
             </Text>
           </View>
           {last_message_at && (
@@ -54,7 +55,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
           >
             {getLastMessagePreview()}
           </Text>
-          {unread_count > 0 && (
+          {unread_count > 0 && (  // review: refactor
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{unread_count}</Text>
             </View>
@@ -64,6 +65,7 @@ export function ConversationRow({ conversation, onPress }: ConversationRowProps)
     </TouchableOpacity>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -72,7 +74,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   unreadContainer: {
-
     backgroundColor: '#F0F8FF',
   },
   avatar: {
@@ -121,11 +122,9 @@ const styles = StyleSheet.create({
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-
     alignItems: 'center',
   },
   lastMessage: {
-
     fontSize: 13,
     color: '#737373',
     flex: 1,
@@ -141,6 +140,7 @@ const styles = StyleSheet.create({
     minWidth: 20,
     height: 20,
     alignItems: 'center',
+
     justifyContent: 'center',
     paddingHorizontal: 6,
   },
