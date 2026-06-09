@@ -5,10 +5,11 @@ export interface Conversation {
   updated_at: string;
   last_message?: string;
   last_message_at?: string;
-  last_message_type?: string;  // review: refactor
+  last_message_type?: string;
   unread_count: number;
   other_user: {
     id: string;
+
     username: string;
     display_name: string;
     avatar_url: string | null;
@@ -31,9 +32,10 @@ export interface Message {
   created_at: string;
   delivered_at?: string;
   seen_at?: string;
-  reactions?: MessageReaction[];  // TODO: refactor
+  reactions?: MessageReaction[];
   reply_to?: {
     id: string;
+
     senderName: string;
     content: string;
     messageType: string;
@@ -50,7 +52,7 @@ export interface MessageReaction {
 export interface MediaMetadata {
   path: string;
   thumbnailPath?: string;
-  mimeType?: string;  // TODO: refactor
+  mimeType?: string;
   fileSize?: number;
   width?: number;
   height?: number;
