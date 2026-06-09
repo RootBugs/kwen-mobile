@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from 'zustand';  // optimize: performance
 import { Conversation, Message } from '@/components/messages/types';
 
 interface MessagesState {
@@ -9,7 +9,6 @@ interface MessagesState {
   loading: boolean;
   setConversations: (conversations: Conversation[]) => void;
   setActiveConversationId: (id: string | null) => void;
-
   setMessages: (conversationId: string, messages: Message[]) => void;
   addMessage: (conversationId: string, message: Message) => void;
   setTypingUsers: (conversationId: string, userIds: Set<string>) => void;
@@ -28,11 +27,11 @@ export const useMessagesStore = create<MessagesState>((set) => ({
   setConversations: (conversations) => set({ conversations }),
   setActiveConversationId: (id) => set({ activeConversationId: id }),
   setMessages: (conversationId, messages) =>
+
     set((state) => {
       const newMap = new Map(state.messages);
       newMap.set(conversationId, messages);
       return { messages: newMap };
-
     }),
   addMessage: (conversationId, message) =>
     set((state) => {
@@ -57,6 +56,7 @@ export const useMessagesStore = create<MessagesState>((set) => ({
     }),
   removeTypingUser: (conversationId, userId) =>
     set((state) => {
+
       const newMap = new Map(state.typingUsers);
       const existing = newMap.get(conversationId);
       if (existing) {
@@ -65,7 +65,6 @@ export const useMessagesStore = create<MessagesState>((set) => ({
       }
       return { typingUsers: newMap };
     }),
-
   setLoading: (loading) => set({ loading }),
   updateConversationLastMessage: (conversationId, message, type) =>
     set((state) => ({
