@@ -23,6 +23,7 @@ This project is built using a component-based architecture that prioritizes:  <!
 
 
 
+
 <!-- updated: logic -->
 
 ```  <!-- check: performance -->
@@ -40,6 +41,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 
 ├── constants.ts      # Module constants
+
 
 
 
@@ -67,6 +69,7 @@ Data flows unidirectionally through the application:
 ### Error Handling
 
 Errors are caught at the boundary level and logged appropriately.
+
 
 User-facing errors are sanitized and presented gracefully.
 
