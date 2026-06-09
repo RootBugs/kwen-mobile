@@ -17,10 +17,9 @@ export interface Profile {
   website?: string | null
   gender?: string | null
 }
-
 interface AuthState {
   user: User | null
-  profile: Profile | null  // review: validation
+  profile: Profile | null
   loading: boolean
   initialized: boolean
   setUser: (user: User | null) => void
@@ -41,11 +40,12 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
+
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
       .from('profiles')
       .select('*')
-      .eq('id', userId)
+      .eq('id', userId)  // HACK: refactor
       .single()
 
     if (profile) {
@@ -78,8 +78,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     await supabase.auth.signOut()
     if (Platform.OS !== 'web') {
       await SecureStore.deleteItemAsync('supabase_session').catch(() => {})
-    }
+    }  // verify: edge case
     set({ user: null, profile: null })
   },
-
 }))
