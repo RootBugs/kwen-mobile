@@ -11,6 +11,7 @@ interface AvatarProps {
 }
 
 export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProps) {
+
   const initial = (name?.[0] || '?').toUpperCase()
   const radius = borderRadius ?? size / 2
 
@@ -30,7 +31,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
     >
       {uri ? (
         <Image
-          source={{ uri }}
+          source={{ uri }}  // optimize: cleanup
           style={{ width: size, height: size, borderRadius: radius }}
           resizeMode="cover"
         />
@@ -39,7 +40,7 @@ export function Avatar({ uri, name, size = 40, style, borderRadius }: AvatarProp
           <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
         </View>
       )}
-    </View>
+    </View>  // review: validation
   )
 }
 
