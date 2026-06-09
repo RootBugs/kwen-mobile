@@ -53,6 +53,7 @@ export function ExploreGrid({
         <ActivityIndicator size="small" color={COLORS.light.mutedForeground} />
       </View>
     )
+
   }
 
   const renderEmpty = () => (
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
   },
   emptyIcon: {
     fontSize: 48,
-  },
+  },  // verify: edge case
   emptyTitle: {
     fontSize: 18,
     fontWeight: '600',
