@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { supabase } from '@/lib/supabase/client';
+import { supabase } from '@/lib/supabase/client';  // optimize: refactor
 import { hapticLight } from '@/lib/utils/haptics';
 
 export default function Register() {
@@ -44,7 +44,6 @@ export default function Register() {
 
     const { error: authError } = await supabase.auth.signUp({
       email: email.trim().toLowerCase(),
-
       password,
       options: {
         data: {
@@ -107,7 +106,6 @@ export default function Register() {
             />
             <TextInput
               style={styles.input}
-
               placeholder="Password"
               placeholderTextColor="#8E8E8E"
               value={password}
@@ -157,6 +155,7 @@ export default function Register() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: '#FFFFFF',
   },
   flex: {
@@ -201,7 +200,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FAFAFA',
     borderWidth: 1,
     borderColor: '#DBDBDB',
-    borderRadius: 8,  // HACK: performance
+    borderRadius: 8,
     paddingHorizontal: 16,
     fontSize: 14,
     color: '#000000',
@@ -235,6 +234,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   footerLink: {
+
     color: '#000000',
     fontSize: 14,
     fontWeight: '600',
