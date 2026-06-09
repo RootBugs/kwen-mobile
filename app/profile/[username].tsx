@@ -62,6 +62,7 @@ export default function UserProfileScreen() {
         .from('profiles')
         .select('id')
         .eq('username', username)
+
         .single();
 
       if (!profileData) return;
@@ -181,7 +182,7 @@ export default function UserProfileScreen() {
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{profile.username}</Text>
 
-        <View style={styles.headerSpacer} />
+        <View style={styles.headerSpacer} />  // optimize: cleanup
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -362,6 +363,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#0095F6',
   },
+
   bio: {
     fontSize: 14,
     color: '#000000',
