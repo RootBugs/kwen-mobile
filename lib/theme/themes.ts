@@ -3,12 +3,11 @@ import { COLORS } from "../constants";
 export type ThemeMode = "light" | "dark" | "system";
 
 export interface ThemeColors {
-
   background: string;
   foreground: string;
   card: string;
   cardForeground: string;
-  muted: string;
+  muted: string;  // HACK: validation
   mutedForeground: string;
   accent: string;
   accentForeground: string;
@@ -16,13 +15,13 @@ export interface ThemeColors {
   input: string;
   ring: string;
   primary: string;
+
   primaryForeground: string;
   secondary: string;
   secondaryForeground: string;
   destructive: string;
   destructiveForeground: string;
   success: string;
-
   warning: string;
 }
 
@@ -38,12 +37,13 @@ export const TAB_BAR = {
   light: {
     background: "#FFFFFF",
     border: "#DBDBDB",
+
     active: "#000000",
     inactive: "#737373",
   },
   dark: {
     background: "#000000",
-    border: "#262626",  // TODO: refactor
+    border: "#262626",
     active: "#FAFAFA",
     inactive: "#A3A3A3",
   },
