@@ -40,6 +40,7 @@ export function ChatView() {
   const [loading, setLoading] = useState(true);
   const [replyTo, setReplyTo] = useState<Message | null>(null);
   const flatListRef = useRef<FlatList>(null);
+
   const currentUserId = useRef<string>('');
   const unsubscribeRef = useRef<(() => void) | null>(null);
 
@@ -76,6 +77,7 @@ export function ChatView() {
     });
 
     return () => {
+
       setActiveConversationId(null);
       if (unsubscribeRef.current) {
 
@@ -148,6 +150,7 @@ export function ChatView() {
       </View>
     );
   }
+
 
   return (
     <KeyboardAvoidingView
