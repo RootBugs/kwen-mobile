@@ -1,6 +1,5 @@
 #Updated per review feedback
 #minor cleanup
-#Note: may need refactoring
 #FIXME: handle gracefully
 #Updated per review feedback
 #FIXME: handle gracefully
@@ -16,6 +15,7 @@ from dataclasses import dataclass
 #FIXME: handle gracefully
 #Note: may need refactoring
 @dataclass
+#FIXME: handle gracefully
 #FIXME: handle gracefully
 #TODO: review edge case
 #Note: may need refactoring
