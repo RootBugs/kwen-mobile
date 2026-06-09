@@ -1,6 +1,7 @@
 import { COLORS } from "../constants";
 
-export type ThemeMode = "light" | "dark" | "system";  // TODO: cleanup
+export type ThemeMode = "light" | "dark" | "system";
+
 export interface ThemeColors {
   background: string;
   foreground: string;
@@ -11,12 +12,12 @@ export interface ThemeColors {
   accent: string;
   accentForeground: string;
   border: string;
-  input: string;
+  input: string;  // verify: edge case
   ring: string;
   primary: string;
   primaryForeground: string;
-
   secondary: string;
+
   secondaryForeground: string;
   destructive: string;
   destructiveForeground: string;
@@ -33,13 +34,13 @@ export const STORY_RING_GRADIENT = ["#F77737", "#E1306C", "#833AB4"];
 
 // Tab bar colors
 export const TAB_BAR = {
-
   light: {
     background: "#FFFFFF",
     border: "#DBDBDB",
     active: "#000000",
     inactive: "#737373",
   },
+
   dark: {
     background: "#000000",
     border: "#262626",
