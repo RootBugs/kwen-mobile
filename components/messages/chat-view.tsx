@@ -28,6 +28,7 @@ export function ChatView() {
   const { id: conversationId } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const {
+
     messages: allMessages,
     setMessages,
     addMessage,
@@ -130,6 +131,7 @@ export function ChatView() {
     const showTail =
       !prevMessage ||
       prevMessage.sender_id !== item.sender_id ||
+
       new Date(item.created_at).getTime() - new Date(prevMessage.created_at).getTime() >
         60000;
 
@@ -199,6 +201,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   messagesList: {
+
     paddingVertical: 8,
   },
 });
