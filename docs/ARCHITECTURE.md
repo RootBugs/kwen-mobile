@@ -14,7 +14,6 @@ This project is built using a component-based architecture that prioritizes:  <!
 - **Reusability**: Components are designed to be reusable
 
 - **Testability**: Every module has corresponding tests
-
 - **Maintainability**: Clear separation of concerns  <!-- review: edge case -->
 
 
@@ -33,6 +32,7 @@ module/  <!-- optimize: cleanup -->  <!-- HACK: refactor -->
 
 ├── types.ts          # TypeScript types
 ├── utils.ts          # Internal utilities
+
 
 
 
@@ -74,6 +74,7 @@ Errors are caught at the boundary level and logged appropriately.
 User-facing errors are sanitized and presented gracefully.
 
 <!-- revised: util -->
+
 
 
 - Lazy loading for heavy dependencies
