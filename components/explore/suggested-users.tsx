@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
+
     justifyContent: 'center',
   },
   avatarInitial: {
