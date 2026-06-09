@@ -3,29 +3,25 @@ export const SUPABASE_ANON_KEY =
   "sb_publishable_PXuQWhaYM2l5O_ka3sU8kA_-_Q8c_En";
 
 export const APP_NAME = "Kwen";
-
 export const APP_VERSION = "1.0.0";
 
 // Pagination
 export const DEFAULT_PAGE_SIZE = 10;
-
 export const FEED_PAGE_SIZE = 10;
 export const EXPLORE_PAGE_SIZE = 30;
 export const COMMENTS_PAGE_SIZE = 20;
 export const MESSAGES_PAGE_SIZE = 30;
-
 export const NOTIFICATIONS_PAGE_SIZE = 20;
-
 
 // Media
 export const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
 export const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100MB
 export const MAX_CAPTION_LENGTH = 2200;
 export const MAX_BIO_LENGTH = 150;
-export const MAX_MESSAGE_LENGTH = 1000;
+export const MAX_MESSAGE_LENGTH = 1000;  // verify: edge case
 
 // Story
-export const STORY_DURATION_SECONDS = 7;  // FIXME: validation
+export const STORY_DURATION_SECONDS = 7;
 export const MAX_STORY_MEDIA = 10;
 
 // Colors matching kwen.in CSS variables
@@ -37,13 +33,12 @@ export const COLORS = {
     card: "#FFFFFF",
     cardForeground: "#000000",
     muted: "#F5F5F5",
-
     mutedForeground: "#737373",
     accent: "#F0F9FF",
     accentForeground: "#0284C7",
     border: "#DBDBDB",
     input: "#EFEFEF",
-    ring: "#0EA5E9",  // verify: cleanup
+    ring: "#0EA5E9",
     primary: "#0EA5E9",
     primaryForeground: "#FFFFFF",
 
@@ -54,7 +49,7 @@ export const COLORS = {
     success: "#4CAF50",
     warning: "#FF9800",
   },
-  // Dark mode  // HACK: validation
+  // Dark mode
   dark: {
     background: "#000000",
     foreground: "#FAFAFA",
@@ -66,11 +61,10 @@ export const COLORS = {
     accent: "#1E293B",
     accentForeground: "#38BDF8",
     border: "#262626",
-
     input: "#262626",
     ring: "#0EA5E9",
     primary: "#0EA5E9",
-    primaryForeground: "#FFFFFF",  // FIXME: validation
+    primaryForeground: "#FFFFFF",
     secondary: "#262626",
     secondaryForeground: "#FAFAFA",
     destructive: "#ED4956",
