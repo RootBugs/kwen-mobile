@@ -18,6 +18,7 @@ export default function ChatScreen() {
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
+
         </TouchableOpacity>
 
         {otherUser && (
@@ -56,6 +57,7 @@ export default function ChatScreen() {
 
 const styles = StyleSheet.create({
   container: {
+
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
   userInfo: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',  // note: refactor
     marginLeft: 4,
   },
   headerAvatar: {
