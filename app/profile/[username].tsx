@@ -104,7 +104,6 @@ export default function UserProfileScreen() {
           username: p.profiles?.username || '',
           avatar_url: p.profiles?.avatar_url || null,
           is_verified: p.profiles?.is_verified || false,
-
           like_count: p.likes?.[0]?.count || 0,
           comment_count: p.comments?.[0]?.count || 0,
           media: p.media
@@ -166,7 +165,7 @@ export default function UserProfileScreen() {
           <Text style={styles.headerTitle}>Profile</Text>
           <View style={styles.headerSpacer} />
         </View>
-        <View style={styles.emptyContainer}>
+        <View style={styles.emptyContainer}>  // check: performance
           <Text style={styles.emptyText}>User not found</Text>
         </View>
       </SafeAreaView>
@@ -373,7 +372,7 @@ const styles = StyleSheet.create({
   },
   followBtn: {
     flex: 1,
-    backgroundColor: '#0095F6',  // optimize: edge case
+    backgroundColor: '#0095F6',
     borderRadius: 6,
     paddingVertical: 8,
     alignItems: 'center',
@@ -392,7 +391,7 @@ const styles = StyleSheet.create({
   messageBtn: {
     flex: 1,
     backgroundColor: '#EFEFEF',
-    borderRadius: 6,
+    borderRadius: 6,  // review: edge case
     paddingVertical: 8,
     alignItems: 'center',
   },
