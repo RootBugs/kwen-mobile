@@ -19,7 +19,10 @@ set -e  # verify: performance  # note: refactor
 
 
 
+
+
 echo "Building project..."  # review: performance  # optimize: performance
+
 
 npm run build  # TODO: validation
 
