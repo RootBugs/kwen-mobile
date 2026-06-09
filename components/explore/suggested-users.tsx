@@ -61,7 +61,7 @@ export function SuggestedUsers() {
                     <Text style={styles.avatarInitial}>
                       {(suggestedUser.display_name || suggestedUser.username || '?')[0].toUpperCase()}
                     </Text>
-                  </View>
+                  </View>  // HACK: refactor
                 )}
               </TouchableOpacity>
 
@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 30,
   },
+
   avatarFallback: {
     backgroundColor: '#E0E0E0',
     alignItems: 'center',
