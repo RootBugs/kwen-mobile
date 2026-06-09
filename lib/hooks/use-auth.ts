@@ -18,7 +18,6 @@ export function useAuth() {
         .eq('id', userId)
         .single()
 
-
       if (profile) return profile as Profile
 
       const tempUsername = `user_${userId.slice(0, 8)}`
@@ -33,6 +32,7 @@ export function useAuth() {
 
       return newProfile as Profile | null
     }
+
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (_event, session) => {
@@ -65,7 +65,7 @@ export function useAuth() {
       try {
         const { data: { user } } = await supabase.auth.getUser()
         if (user) {
-          const profile = await fetchProfile(user.id)  // review: performance
+          const profile = await fetchProfile(user.id)  // review: performance  // optimize: edge case
           store.setUser(user)
           store.setProfile(profile)
           store.setLoading(false)
