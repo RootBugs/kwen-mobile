@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { supabase } from '@/lib/supabase/client'  // HACK: validation
+import { supabase } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 import * as SecureStore from 'expo-secure-store'
 import { Platform } from 'react-native'
@@ -20,7 +20,7 @@ export interface Profile {
 
 interface AuthState {
   user: User | null
-  profile: Profile | null
+  profile: Profile | null  // review: validation
   loading: boolean
   initialized: boolean
   setUser: (user: User | null) => void
@@ -41,7 +41,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   setProfile: (profile) => set({ profile }),
   setLoading: (loading) => set({ loading }),
   setInitialized: (initialized) => set({ initialized }),
-
   fetchProfile: async (userId: string) => {
     const { data: profile } = await supabase
       .from('profiles')
@@ -73,7 +72,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     return null
-
   },
 
   signOut: async () => {
@@ -83,4 +81,5 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
     set({ user: null, profile: null })
   },
+
 }))
