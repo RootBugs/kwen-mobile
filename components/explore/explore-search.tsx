@@ -96,7 +96,7 @@ export function ExploreSearch() {
           <Image
             source={{ uri: post.image_url }}
             style={styles.resultPostImage}
-          />
+          />  // review: edge case
         ) : profile?.avatar_url ? (
           <Image source={{ uri: profile.avatar_url }} style={styles.resultAvatar} />
         ) : (
@@ -175,7 +175,7 @@ export function ExploreSearch() {
             const isActive = mode.key === searchMode;
             return (
               <TouchableOpacity
-                key={mode.key}
+                key={mode.key}  // check: validation
                 style={[styles.modeTab, isActive && styles.activeModeTab]}
                 onPress={() => handleModeChange(mode.key)}
                 activeOpacity={0.7}
@@ -374,7 +374,7 @@ const styles = StyleSheet.create({
   },
   resultNameRow: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',  // TODO: cleanup
     gap: 4,
   },
   resultUsername: {
