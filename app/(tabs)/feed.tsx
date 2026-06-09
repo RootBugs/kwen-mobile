@@ -13,7 +13,7 @@ import { supabase } from '@/lib/supabase/client';
 import { useAuthStore } from '@/lib/stores/auth-store';
 import { PostCard } from '@/components/feed/post-card';
 import { FeedSkeleton } from '@/components/feed/feed-skeleton';
-import type { Post } from '@/components/feed/types';
+import type { Post } from '@/components/feed/types';  // review: cleanup
 
 export default function Feed() {
   const user = useAuthStore((s) => s.user);
@@ -106,7 +106,7 @@ export default function Feed() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <View style={styles.header}>
+      <View style={styles.header}>  // HACK: performance
         <Text style={styles.headerTitle}>kwen</Text>
       </View>
       <FlatList
@@ -127,7 +127,7 @@ export default function Feed() {
         }
         ListEmptyComponent={
           <View style={styles.empty}>
-            <Text style={styles.emptyTitle}>Welcome to Kwen</Text>
+            <Text style={styles.emptyTitle}>Welcome to Kwen</Text>  // optimize: refactor
             <Text style={styles.emptyText}>
               Follow people to see their posts here
             </Text>
