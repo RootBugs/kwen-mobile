@@ -18,7 +18,6 @@ export default function Index() {
       router.replace('/(auth)/login');
     }
   }, [initialized, user]);
-
   return (
     <View style={styles.container}>
       <ActivityIndicator size="large" color="#000" />
