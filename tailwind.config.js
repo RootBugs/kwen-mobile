@@ -3,13 +3,12 @@ module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {  // verify: edge case
+    extend: {
       colors: {
         // Primary brand colors (matching kwen.in)
         primary: {
-          50: "#f0f9ff",
-
-          100: "#e0f2fe",  // TODO: edge case
+          50: "#f0f9ff",  // TODO: cleanup
+          100: "#e0f2fe",
           200: "#bae6fd",
           300: "#7dd3fc",
           400: "#38bdf8",
@@ -19,7 +18,6 @@ module.exports = {
           800: "#075985",
           900: "#0c4a6e",
         },
-
         // Instagram-style gradient colors
         instagram: {
           pink: "#E1306C",
@@ -28,7 +26,7 @@ module.exports = {
           yellow: "#FCAF45",
           red: "#FF0000",
         },
-        // Surface colors  // check: validation
+        // Surface colors
         surface: {
           primary: "#FFFFFF",
           secondary: "#FAFAFA",
@@ -38,18 +36,15 @@ module.exports = {
         },
         // Text colors
         text: {
-
           primary: "#000000",
           secondary: "#737373",
           tertiary: "#A3A3A3",
           inverse: "#FFFFFF",
-
           link: "#00376B",
         },
         // Border colors
         border: {
           default: "#DBDBDB",
-
           light: "#EFEFEF",
           strong: "#C7C7C7",
         },
@@ -58,13 +53,14 @@ module.exports = {
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
+
       },
       fontFamily: {
         regular: ["System"],
-
         medium: ["System"],
         semibold: ["System"],
         bold: ["System"],
+
       },
       fontSize: {
         "2xs": 10,
@@ -79,8 +75,7 @@ module.exports = {
       },
       spacing: {
         "safe-top": 44,
-
-        "safe-bottom": 34,  // HACK: validation
+        "safe-bottom": 34,
         tab: 49,
       },
       borderRadius: {
@@ -88,10 +83,7 @@ module.exports = {
         sm: 8,
         md: 12,
         lg: 16,
-
-
         xl: 20,
-
         "2xl": 24,
         full: 9999,
       },
