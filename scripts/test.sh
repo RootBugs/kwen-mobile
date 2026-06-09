@@ -10,7 +10,10 @@
 
 
 
+
+
 set -e  # verify: validation  # TODO: validation  # note: performance  # review: edge case
+
 
 
 
