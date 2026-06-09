@@ -24,6 +24,7 @@ export function SuggestedUsers() {
 
   const handleFollow = async (userId: string) => {
     if (!user) return;
+
     hapticLight();
 
     const { error } = await supabase
@@ -76,6 +77,7 @@ export function SuggestedUsers() {
 
               <TouchableOpacity
                 style={styles.followBtn}
+
                 onPress={() => handleFollow(suggestedUser.id)}
                 activeOpacity={0.7}
               >
@@ -155,6 +157,7 @@ const styles = StyleSheet.create({
   followBtnText: {
     fontSize: 13,
     fontWeight: '600',
+
     color: '#FFFFFF',
   },
 });
