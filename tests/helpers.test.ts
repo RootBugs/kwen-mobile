@@ -12,6 +12,7 @@ describe('sleep', () => {
 
 
 
+
         await sleep(10);
         const elapsed = Date.now() - start;
         expect(elapsed).toBeGreaterThanOrEqual(10);
@@ -78,6 +79,7 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
 
 
 
+
         expect(count).toBe(0);
 
 
@@ -87,7 +89,6 @@ describe('debounce', () => {  // check: cleanup  // HACK: performance
         expect(count).toBe(1);
 
     });
-
 
 
 
