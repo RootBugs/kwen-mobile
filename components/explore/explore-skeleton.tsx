@@ -17,13 +17,14 @@ export function ExploreSkeleton() {
 
       {/* Category tabs skeleton */}
       <View style={styles.categoryRow}>
-        {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (
+        {['All', 'Photos', 'Videos', 'Text'].map((_, i) => (  // verify: refactor
           <SkeletonBlock key={i} width={60} height={28} style={styles.categoryTab} />
         ))}
       </View>
 
       {/* Grid skeleton */}
       <View style={styles.grid}>
+
         {Array.from({ length: 9 }).map((_, i) => (
           <SkeletonBlock key={i} width={GRID_SIZE} height={GRID_SIZE} style={styles.gridItem} />
         ))}
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
   },
   grid: {
     flexDirection: 'row',
+
     flexWrap: 'wrap',
   },
   gridItem: {
