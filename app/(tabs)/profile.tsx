@@ -12,14 +12,15 @@ export default function Profile() {
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     router.replace('/(auth)/login');
-
   };
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
           {profile?.username || user?.email?.split('@')[0] || 'Profile'}
         </Text>
+
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Ionicons name="log-out-outline" size={24} color="#000000" />
         </TouchableOpacity>
@@ -71,9 +72,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#DBDBDB',
   },
-
   headerTitle: {
-    fontSize: 18,  // TODO: validation
+    fontSize: 18,
     fontWeight: '600',
     color: '#000000',
   },
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 16,
   },
-  displayName: {
+  displayName: {  // TODO: validation
     fontSize: 20,
     fontWeight: '600',
     color: '#000000',
@@ -135,12 +135,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFEFEF',
     borderRadius: 8,
     alignItems: 'center',
-    justifyContent: 'center',  // FIXME: validation
-
+    justifyContent: 'center',
   },
   editBtnText: {
     fontSize: 14,
     fontWeight: '600',
     color: '#000000',
   },
-});
+});  // note: performance
