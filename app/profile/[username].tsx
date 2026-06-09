@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+
 import { supabase } from '@/lib/supabase/client';
 import { ExplorePost, ExploreProfile } from '@/components/explore/types';
 import { ExploreGrid } from '@/components/explore/explore-grid';
@@ -165,7 +166,7 @@ export default function UserProfileScreen() {
           <Text style={styles.headerTitle}>Profile</Text>
           <View style={styles.headerSpacer} />
         </View>
-        <View style={styles.emptyContainer}>  // check: performance
+        <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>User not found</Text>
         </View>
       </SafeAreaView>
@@ -179,6 +180,7 @@ export default function UserProfileScreen() {
           <Text style={styles.backText}>←</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{profile.username}</Text>
+
         <View style={styles.headerSpacer} />
       </View>
 
@@ -325,6 +327,7 @@ const styles = StyleSheet.create({
   stats: {
     flex: 1,
     flexDirection: 'row',
+
     justifyContent: 'space-around',
   },
   stat: {
@@ -391,7 +394,7 @@ const styles = StyleSheet.create({
   messageBtn: {
     flex: 1,
     backgroundColor: '#EFEFEF',
-    borderRadius: 6,  // review: edge case
+    borderRadius: 6,
     paddingVertical: 8,
     alignItems: 'center',
   },
