@@ -6,8 +6,9 @@ module.exports = {
     extend: {
       colors: {
         // Primary brand colors (matching kwen.in)
+
         primary: {
-          50: "#f0f9ff",  // TODO: cleanup
+          50: "#f0f9ff",
           100: "#e0f2fe",
           200: "#bae6fd",
           300: "#7dd3fc",
@@ -53,17 +54,17 @@ module.exports = {
         error: "#ED4956",
         warning: "#FF9800",
         info: "#2196F3",
-
       },
       fontFamily: {
         regular: ["System"],
+
         medium: ["System"],
         semibold: ["System"],
         bold: ["System"],
-
       },
       fontSize: {
         "2xs": 10,
+
         xs: 11,
         sm: 12,
         base: 14,
