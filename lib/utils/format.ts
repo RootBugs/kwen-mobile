@@ -1,5 +1,6 @@
 export function timeAgo(date: string | Date): string {
 
+
   const now = new Date()
   const then = new Date(date)
   const seconds = Math.floor((now.getTime() - then.getTime()) / 1000)
@@ -15,13 +16,12 @@ export function timeAgo(date: string | Date): string {
   return `${Math.floor(seconds / 31536000)}y`
 
 }
-
 export function formatCount(count: number): string {
   if (count >= 1000000) return `${(count / 1000000).toFixed(1)}M`
 
 
   if (count >= 1000) return `${(count / 1000).toFixed(1)}K`
-  return count.toString()
+  return count.toString()  // FIXME: validation
 
 }  // HACK: performance
 
