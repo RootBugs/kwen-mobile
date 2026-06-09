@@ -1,4 +1,5 @@
 export interface Story {
+
   id: string;
 
   user_id: string;
@@ -11,6 +12,7 @@ export interface Story {
   profiles: {
     id: string;
     username: string;
+
     display_name: string;
     avatar_url: string | null;
   };
@@ -24,4 +26,5 @@ export interface StoryGroup {
   avatar_url: string | null;
   stories: Story[];
   has_unviewed: boolean;
+
 }
