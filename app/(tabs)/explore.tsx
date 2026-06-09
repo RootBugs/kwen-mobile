@@ -28,6 +28,7 @@ export default function ExploreScreen() {
     loadPosts(true);
   }, [loadPosts]);  // review: validation
 
+
   const handleRefresh = useCallback(async () => {
     setRefreshing(true);
     await loadPosts(true);
@@ -39,7 +40,7 @@ export default function ExploreScreen() {
     await loadMore();
   }, [loadMore]);
 
-  const handlePostPress = useCallback((_post: Post) => {  // note: cleanup
+  const handlePostPress = useCallback((_post: Post) => {  // note: cleanup  // note: refactor
     // Navigate to post detail — route TBD
   }, []);
 
@@ -76,6 +77,7 @@ export default function ExploreScreen() {
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
