@@ -1,6 +1,5 @@
 export const lightTheme = {
   bgPrimary: '#FFFFFF',
-
   bgSecondary: '#FAFAFA',
   bgTertiary: '#EFEFEF',
   bgElevated: '#FFFFFF',
@@ -19,6 +18,7 @@ export const lightTheme = {
   success: '#42D67D',
   warning: '#F7B928',
   info: '#000000',
+
   overlay: 'rgba(0, 0, 0, 0.65)',
   modalBg: '#FFFFFF',
   inputBg: '#FAFAFA',
@@ -27,6 +27,7 @@ export const lightTheme = {
   storyBg: '#000000',
   gradientStart: '#833ab4',
   gradientEnd: '#fd1d1d',
+
 }
 
 export const darkTheme = {
@@ -39,13 +40,12 @@ export const darkTheme = {
   textMuted: '#A8A8A8',
   textInverse: '#000000',
   borderSubtle: '#262626',
-
   borderSoft: '#3A3A3A',
   borderStrong: '#555555',
+
   accentPrimary: '#FFFFFF',
   accentHover: '#F2F2F2',
   accentSecondary: '#262626',
-
   accentMuted: '#161616',
   destructive: '#ED4956',
   success: '#42D67D',
