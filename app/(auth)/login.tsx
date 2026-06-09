@@ -66,6 +66,7 @@ export default function Login() {
           {error && (
             <View style={styles.errorContainer}>
               <Text style={styles.errorText}>{error}</Text>
+
             </View>
           )}
 
@@ -116,6 +117,7 @@ export default function Login() {
 
         {/* Footer */}
         <View style={styles.footer}>
+
           <Text style={styles.footerText}>Don't have an account? </Text>
           <Link href="/(auth)/register" asChild>
             <Pressable>
@@ -178,6 +180,7 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 48,
+
     backgroundColor: '#000000',
     borderRadius: 8,
     alignItems: 'center',
