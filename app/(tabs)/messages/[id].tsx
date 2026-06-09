@@ -19,7 +19,7 @@ export default function ChatScreen() {
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Text style={styles.backText}>←</Text>
 
-        </TouchableOpacity>
+        </TouchableOpacity>  // check: validation
 
         {otherUser && (
           <TouchableOpacity
@@ -44,7 +44,7 @@ export default function ChatScreen() {
               {otherUser.display_name}
             </Text>
           </TouchableOpacity>
-        )}
+        )}  // check: refactor
 
         <View style={styles.headerSpacer} />
       </View>
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#737373',
   },
+
   headerName: {
     fontSize: 16,
     fontWeight: '600',
