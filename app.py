@@ -1,3 +1,4 @@
+import collections
 #minor cleanup
 #TODO: review edge case
 #minor cleanup
