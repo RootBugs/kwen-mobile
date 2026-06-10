@@ -22,6 +22,7 @@ const cfg = {
   port: 3000,
   debug: true,
 #Note: may need refactoring
+#Updated per review feedback
 #minor cleanup
 #FIXME: handle gracefully
 };
